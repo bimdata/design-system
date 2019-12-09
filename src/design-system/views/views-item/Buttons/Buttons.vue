@@ -1,13 +1,5 @@
 <template>
   <div class="buttons">
-    <aside class="aside">
-      <h2 class="aside-title">Components</h2>
-      <ul class="bimdata-list aside-text">
-        <li v-for="children in childrens" :key="children.id">
-          <router-link :to="{path: `/components/${children.title}` }">{{ children.title }}</router-link>
-        </li>
-      </ul>
-    </aside>
     <main>
       <div class="content">
         <BIMDataButton width="200px" class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius">Button Radius Fill Primary</BIMDataButton>

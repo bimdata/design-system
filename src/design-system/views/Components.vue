@@ -45,22 +45,6 @@ export default {
     BIMDataButton,
     BIMDataIcon,
     BIMDataChevronRightIcon
-  },
-  data(){
-    return{
-      childrens: [
-        {
-          title: 'buttons',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam',
-          btn: 'View Buttons'
-          },
-        {
-          title: 'buttons2',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam',
-          btn: 'View Buttons2'
-        }
-      ]
-    }
   }
 }
 </script>

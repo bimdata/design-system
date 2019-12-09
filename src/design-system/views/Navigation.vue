@@ -5,10 +5,10 @@
     </div>
     <div class="bimdata-ds__navigation">
       <ul class="bimdata-list">
-        <li v-for="item in items" :key="item.id">
+        <li v-for="item in getItems" :key="item">
           <router-link v-if="displayLink"
-            :to="{path: `/${item.text}`}">
-            {{ item.text }}
+            :to="{path: `/${item}`}">
+            {{ item }}
           </router-link>
         </li>
       </ul>
@@ -32,12 +32,9 @@ export default {
       default: true
     }
   },
-  data() {
-    return{
-      items: [
-        {text: 'visual'},
-        {text: 'components'}
-      ]
+  computed: {
+    getItems(){
+      return Object.keys(this.$store.state);
     }
   }
 }
