@@ -1,0 +1,35 @@
+<template>
+  <button
+    class="bimdata-btn"
+    :style="{ width: width, height: height }"
+    @click="$emit('click', $event)"
+  >
+    <slot></slot>
+  </button>
+</template>
+
+<script>
+export default {
+  props: {
+    width: {
+      type: [Number, String],
+      default: "150px"
+    },
+    height: {
+      type: [Number, String],
+      default: "32px"
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+  // import BIMDATA VARIABLES
+  @import "../../assets/scss/_BIMDataVariables.scss";
+
+  // import BIMDATA MIXINS
+  @import "../../assets/scss/mixins/_font-size.scss";
+
+  // import BIMDATA STYLE COMPONENT
+  @import "./_BIMDataButton.scss";
+</style>

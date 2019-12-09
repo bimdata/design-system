@@ -1,0 +1,9 @@
+// mixin SET REM FONT SIZE
+@function calculateRem($size) {
+  $remSize: $size / $font-size;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
