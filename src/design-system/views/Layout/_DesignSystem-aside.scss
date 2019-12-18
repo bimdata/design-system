@@ -1,18 +1,19 @@
 .aside{
   width: 320px;
-  height: calc(100vh - 80px);
+  height: 100%;
+  min-height: calc(100vh - 80px);
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
-  // justify-content: space-between;
   background-color: $color-primary;
   overflow-y: auto;
   overflow-x: hidden;
-  &-title{
-    margin-bottom: 0;
-    padding: 16px 32px 0;
+  &__title{
+    margin: 0;
+    padding: 60px 32px 0;
     color: $color-white;
   }
-  &-text{
+  &__text{
     padding: 16px 32px;
     color: $color-white;
     li{

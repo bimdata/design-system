@@ -1,0 +1,82 @@
+.bimdata-btn {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: $color-primary;
+  cursor: pointer;
+  @include font-size(12px);
+  transition: all 0.1s ease;
+  &:focus {
+    outline: none;
+  }
+  /* style BIMDATA BTN RADIUS ------------------ */
+  &__radius {
+    border-radius: 3px;
+  }
+  /* style BIMDATA BTN FILL -------------------- */
+  &__fill {
+    justify-content: center;
+    /* style BIMDATA BTN DEFAULT FILL ---------- */
+    &--default {
+      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+    }
+    /* style BIMDATA BTN PRIMARY FILL ---------- */
+    &--primary {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+    /* style BIMDATA BTN GREY FILL ------------- */
+    &--grey {
+      background-color: $color-border;
+    }
+    /* style BIMDATA BTN GREY FILL ------------- */
+    &--red {
+      background-color: $color-red;
+      color: $color-white;
+    }
+    /* style BIMDATA BTN FILL BTN ICON --------- */
+    &--btn-icon {
+      svg {
+        margin: 0 6px;
+      }
+    }
+    /* style BIMDATA BTN FILL ICON ------------ */
+    &--icon {
+    }
+  }
+  &__outline {
+    justify-content: center;
+    border: 1px solid;
+    &--default {
+      border-color: $color-border;
+      color: $color-primary;
+    }
+    &--grey {
+      border-color: $color-grey;
+      color: $color-grey;
+    }
+    &--btn-icon {
+    }
+    &--icon {
+    }
+  }
+  &__ghost {
+    justify-content: flex-start;
+    svg {
+      display: flex;
+      align-items: center;
+    }
+    &--primary{
+      color: $color-primary;
+    }
+    &--grey {
+      color: $color-text;
+    }
+    &--btn-icon {
+    }
+    &--icon {
+    }
+  }
+}

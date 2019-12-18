@@ -1,0 +1,29 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "robotoregular";
+  color: $color-primary;
+  display: flex;
+  overflow: hidden;
+  @include font-size(14px);
+}
+.bimdata-ds {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+.layout {
+  margin-top: 80px;
+  display: flex;
+  overflow-y: auto;
+}
+
+pre {
+  border-radius: 3px;
+}

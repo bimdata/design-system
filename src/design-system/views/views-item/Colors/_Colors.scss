@@ -1,0 +1,51 @@
+.colors{
+  .color-swatches{
+    display: flex;
+    .color-swatche{
+      margin: 15px 25px 15px 0;
+      flex-basis: 17%;
+      box-shadow: 0 2px 10px 0 rgba($color-black, .15);
+      border-radius: 3px;
+      overflow: hidden;
+      &__header, &__body {
+        &__item{
+          .label{
+            font-size: 11px;
+            line-height: 16px;
+            text-transform: uppercase;
+          }
+          .value{
+            font-size: 14px;
+          }
+        }
+      }
+      &__header{
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: self-start;
+        background-color: $color-primary;
+        &__item{
+          padding: 10px 15px;
+          .label{
+            opacity: .5;
+          }
+        }
+      }
+      &__body{
+        padding: 10px 15px;
+        background-color: #fcfcfc;
+        &__item{
+          padding: calc(#{$spacing-unit} / 2) 0;
+          .label{
+            color: rgba($color-primary, .6);
+          }
+          .value{
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}

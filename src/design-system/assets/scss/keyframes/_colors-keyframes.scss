@@ -1,0 +1,48 @@
+@keyframes transform1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(-50px, -50px);
+  }
+}
+@keyframes transform2 {
+  0% {
+    transform: translate(10px, 10px);
+  }
+  100% {
+    transform: translate(-65px, -65px);
+  }
+}
+@keyframes transform3 {
+  0% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(-80px, -80px);
+  }
+}
+@keyframes color1 {
+  0% {
+    background-color: $color-primary;
+  }
+  100% {
+    background-color: lighten($color-primary, 15%);
+  }
+}
+@keyframes color2 {
+  0% {
+    background-color: $color-secondary;
+  }
+  100% {
+    background-color: lighten($color-secondary, 10%);
+  }
+}
+@keyframes color3 {
+  0% {
+    background-color: $color-border;
+  }
+  100% {
+    background-color: lighten($color-border, 5%);
+  }
+}

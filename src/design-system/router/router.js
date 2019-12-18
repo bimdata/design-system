@@ -1,11 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
-import Layout from '../views/Layout.vue'
-import Content from '../views/Content.vue'
+import Home from '../views/Home/Home.vue'
+import Layout from '../views/Layout/Layout.vue'
+import Content from '../views/Layout/Content.vue'
 
+// import GUIDELINES
+import Colors from '../views/views-item/Colors/Colors.vue'
+import Spacing from '../views/views-item/Spacing/Spacing.vue'
+import Typography from '../views/views-item/Typography/Typography.vue'
+
+// import COMPONENTS
 import Buttons from '../views/views-item/Buttons/Buttons.vue'
+import Icons from '../views/views-item/Icons/Icons.vue'
+
 
 Vue.use(VueRouter)
 
@@ -16,13 +24,28 @@ const routes = [
     component: Home
   },
   {
-    path: '/visual',
+    path: '/guidelines',
     component: Layout,
     children: [
       {
         path: '/',
-        name: 'visual',
+        name: 'guidelines',
         component: Content
+      },
+      {
+        path: 'colors',
+        name: 'colors',
+        component: Colors
+      },
+      {
+        path: 'spacing',
+        name: 'spacing',
+        component: Spacing
+      },
+      {
+        path: 'typography',
+        name: 'typography',
+        component: Typography
       }
     ]
   },
@@ -41,9 +64,9 @@ const routes = [
         component: Buttons
       },
       {
-        path: 'buttons2',
-        name: 'buttons2',
-        component: Buttons
+        path: 'icons',
+        name: 'icons',
+        component: Icons
       }
     ]
   }

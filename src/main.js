@@ -3,29 +3,32 @@ import App from "./design-system/App.vue";
 import router from "./design-system/router/router";
 import Vuex from "vuex";
 
+import Prism from 'prismjs';
+
 Vue.config.productionTip = false;
 Vue.use(Vuex);
+Vue.use(Prism);
 
 const store = new Vuex.Store({
   state: {
-    visual: [
+    guidelines: [
       {
-        title: "color",
+        title: "colors",
         text:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-        btn: "View Buttons"
+        btn: "View Colors"
       },
       {
-        title: "space",
+        title: "spacing",
         text:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-        btn: "View Buttons2"
+        btn: "View spacing"
       },
       {
         title: "typography",
         text:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-        btn: "View Buttons2"
+        btn: "View typography"
       }
     ],
     components: [
@@ -36,10 +39,10 @@ const store = new Vuex.Store({
         btn: "View Buttons"
       },
       {
-        title: "buttons2",
+        title: "icons",
         text:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-        btn: "View Buttons2"
+        btn: "View icons"
       }
     ]
   }
