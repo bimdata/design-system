@@ -7,9 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "prismjs": "^1.17.1",
+    "highlight.js": "^9.17.1",
+    "prismjs": "^1.18.0",
     "vue": "^2.6.10",
-    "vue-code-highlight": "^0.7.4",
+    "vue-clipboard2": "^0.3.1",
     "vue-router": "^3.1.3",
     "vuex": "^3.1.2"
   },
