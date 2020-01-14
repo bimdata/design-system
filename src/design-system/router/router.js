@@ -38,6 +38,11 @@ const routes = [
         component: Colors
       },
       {
+        path: 'grid',
+        name: 'grid',
+        component: Grid
+      },
+      {
         path: 'spacing',
         name: 'spacing',
         component: Spacing
