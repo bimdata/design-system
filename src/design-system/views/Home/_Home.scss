@@ -1,0 +1,32 @@
+.home{
+  .bimdata-search-bar{
+    margin: calc(#{$spacing-unit} * 3) 0;
+  }
+  &-content{
+    width: 1440px;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    &__item{
+      margin: $spacing-unit;
+      padding: $spacing-unit;
+      position: relative;
+      flex: 1;
+      background-color: $color-primary;
+      border: .5px solid $color-white;
+      border-radius: 3px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      h2{
+        color: $color-white;
+      }
+      p{
+        color: $color-white;
+      }
+      &:hover{
+        box-shadow: rgb(255, 255, 255) 6px 6px 0px 0px;
+        transform: translate(-6px, -6px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      }
+    }
+  }
+}
