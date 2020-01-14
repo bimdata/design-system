@@ -1,6 +1,6 @@
 <template>
-  <div class="bimdata-ds">
-    <Navigation></Navigation>
+  <div class="bimdata-ds" :class="theme">
+    <Navigation :theme="theme" @switch-theme="switchTheme()"></Navigation>
     <router-view/>
   </div>
 </template>
@@ -11,15 +11,29 @@ import Navigation from "./views/Navigation/Navigation.vue"
 export default {
   components:{
     Navigation
+  },
+  data() {
+    return {
+      theme: 'theme-light'
+    };
+  },
+  methods:{
+    switchTheme(){
+      if(this.theme === 'theme-light'){
+        this.theme = 'theme-dark';
+      }
+      else{
+        this.theme = 'theme-light';
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss">
-  @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-
   @import "../../src/assets/scss/_BIMDataVariables.scss";
   @import "../../src/assets/scss/_BIMDataFonts.scss";
+  @import "../../src/assets/scss/_BIMDataGrid.scss";
   @import "../../src/assets/scss/mixins/_font-size.scss";
   @import "./assets/scss/DesignSystem.scss";
   .home{
