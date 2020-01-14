@@ -1,0 +1,60 @@
+.typography{
+  /* custom FONT SIZE */
+  &-size{
+    &__content{
+      &__item{
+        margin-bottom: calc(#{$spacing-unit} * 2);
+        h1, h2, h3, h4, h5, h6, p{
+          margin: 0;
+        }
+        h1{
+          font-size: 96px;
+        }
+        h2{
+          font-size: 60px;
+        }
+        h3{
+          font-size: 48px;
+        }
+        h4{
+          font-size: 34px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 20px;
+        }
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  /* custom FONT WEIGHT */
+  &-weight{
+    &__content{
+      display: flex;
+      justify-content: space-between;
+      &__item{
+        margin-right: 12px;
+        flex: 1;
+        &:nth-child(1){
+          p{
+            font-family: $primary-font;
+          }
+        }
+        &:nth-child(2){
+          p{
+            font-family: $primary-font-medium;
+          }
+        }
+        &:nth-child(3){
+          p{
+            font-family: $primary-font-bold;
+          }
+        }
+      }
+    }
+  }
+}
