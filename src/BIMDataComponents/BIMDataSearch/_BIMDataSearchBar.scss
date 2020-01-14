@@ -1,0 +1,20 @@
+.bimdata-search-bar {
+  display: flex;
+  align-items: center;
+  .bimdata-search-icon {
+    height: 18px;
+    cursor: pointer;
+  }
+  input {
+    margin-left: calc(#{$spacing-unit} / 2);
+    padding: calc(#{$spacing-unit} / 2) 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-border;
+    color: $color-white;
+    @include font-size(12px);
+    &:focus {
+      outline: none;
+    }
+  }
+}
