@@ -3,8 +3,8 @@
     <div style="flex-grow: 1; overflow-y: auto;">
       <h2 class="aside__title" @click="onTitleClick">{{ getPathFirstElement() }}</h2>
       <ul class="aside__text bimdata-list">
-        <li v-for="children in $store.state[getPathFirstElement()]" :key="children.id">
-          <router-link :to="{ name: children.title}">{{ children.title }}</router-link>
+        <li v-for="child in $store.state[getPathFirstElement()].children" :key="child.id">
+          <router-link :to="{ name: child.title}">{{ child.title }}</router-link>
         </li>
       </ul>
     </div>
