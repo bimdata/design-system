@@ -1,0 +1,82 @@
+.bimdata-radio {
+  margin-bottom: calc(#{$spacing-unit} / 2);
+  position: relative;
+  display: block;
+  color: $color-primary;
+  line-height: 1.5;
+  @include font-size(12px);
+  // custom INPUT
+  & > input {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    border-radius: 50%;
+    background-color: rgba($color-primary, 0.6);
+    outline: none;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+    appearance: none;
+    z-index: -1;
+    // custom CHECKED
+    &:checked {
+      background-color: rgba($color-primary, 0.4);
+      & + span {
+        &::before {
+          border-color: $color-primary;
+        }
+        &::after {
+          transform: translate(5px, 5px) scale(1);
+        }
+      }
+    }
+    // custom ACTIVE
+    &:active {
+      opacity: 1;
+      transform: scale(0);
+      transition: transform 0s, opacity 0s;
+      & + span::before {
+        border-color: $color-primary;
+      }
+    }
+  }
+  // custom SPAN
+  & > span {
+    padding-left: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &::before,
+    &::after {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+    // custom CIRCLE
+    &::before {
+      border: 1.5px solid rgba($color-primary, 0.6);
+      width: 20px;
+      height: 20px;
+    }
+    // custom CHECK
+    &::after {
+      width: 10px;
+      height: 10px;
+      background-color: $color-primary;
+      transform: translate(5px, 5px) scale(0);
+    }
+  }
+  &:hover {
+    & > input {
+      &:focus {
+        opacity: 0.2;
+      }
+    }
+  }
+}
