@@ -13,6 +13,10 @@
         </li>
       </ul>
     </div>
+    <div class="bimdata-ds__dark">
+      <i class="moon" v-if="theme === 'theme-light'" @click="switchTheme"></i>
+      <i class="sun" v-if="theme === 'theme-dark'" @click="switchTheme"></i>
+    </div>
   </header>
 </template>
 
@@ -30,6 +34,15 @@ export default {
     displayLink: {
       type: Boolean,
       default: true
+    },
+    theme: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    switchTheme() {
+      this.$emit('switch-theme');
     }
   },
   computed: {
