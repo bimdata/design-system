@@ -14,25 +14,41 @@
             <div class="color-swatche__header" :style="{'background-color': primaryColor.hex, 'color': primaryColor.textcolor}">
               <div class="color-swatche__header__item">
                 <div class="label"> Name </div>
-                <div class="value"> {{ primaryColor.name }} </div>
+                <div class="value"> {{ primaryColor.name }}</div>
               </div>
             </div>
             <div class="color-swatche__body">
               <div class="color-swatche__body__item">
                 <div class="label"> HEX </div>
-                <div class="value"> {{ primaryColor.hex }} </div>
+                <div class="value" v-clipboard:copy="`${primaryColor.hex}`" v-clipboard:success="onCopy"
+                  v-clipboard:error="onError">
+                  <span> {{ primaryColor.hex }} </span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> RGB </div>
-                <div class="value"> {{ primaryColor.rgb }} </div>
+                <div class="value" v-clipboard:copy="`${primaryColor.rgb}`" v-clipboard:success="onCopy"
+                  v-clipboard:error="onError">
+                  <span>{{ primaryColor.rgb }}</span>
+                  <i class="clipboard"></i>
+                  </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> SCSS </div>
-                <div class="value"> {{ primaryColor.scss }} </div>
+                <div class="value" v-clipboard:copy="`${primaryColor.scss}`" v-clipboard:success="onCopy"
+                  v-clipboard:error="onError">
+                  <span>{{ primaryColor.scss }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> CSS </div>
-                <div class="value"> {{ primaryColor.css }} </div>
+                <div class="value" v-clipboard:copy="`${primaryColor.css}`" v-clipboard:success="onCopy"
+                  v-clipboard:error="onError">
+                  <span>{{ primaryColor.css }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -49,19 +65,28 @@
             <div class="color-swatche__body">
               <div class="color-swatche__body__item">
                 <div class="label"> HEX </div>
-                <div class="value"> {{ secondaryColor.hex }} </div>
+                <div class="value" v-clipboard:copy="`${secondaryColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ secondaryColor.hex }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> RGB </div>
-                <div class="value"> {{ secondaryColor.rgb }} </div>
+                <div class="value" v-clipboard:copy="`${secondaryColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ secondaryColor.rgb }}
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> SCSS </div>
-                <div class="value"> {{ secondaryColor.scss }} </div>
+                <div class="value" v-clipboard:copy="`${secondaryColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ secondaryColor.scss }}
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> CSS </div>
-                <div class="value"> {{ secondaryColor.css }} </div>
+                <div class="value" v-clipboard:copy="`${secondaryColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ secondaryColor.css }}
+                  <i class="clipboard"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -78,24 +103,41 @@
             <div class="color-swatche__body">
               <div class="color-swatche__body__item">
                 <div class="label"> HEX </div>
-                <div class="value"> {{ alertsColor.hex }} </div>
+                <div class="value" v-clipboard:copy="`${alertsColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ alertsColor.hex }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> RGB </div>
-                <div class="value"> {{ alertsColor.rgb }} </div>
+                <div class="value" v-clipboard:copy="`${alertsColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ alertsColor.rgb }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> SCSS </div>
-                <div class="value"> {{ alertsColor.scss }} </div>
+                <div class="value" v-clipboard:copy="`${alertsColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ alertsColor.scss }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> CSS </div>
-                <div class="value"> {{ alertsColor.css }} </div>
+                <div class="value" v-clipboard:copy="`${alertsColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ alertsColor.css }}</span>
+                  <i class="clipboard"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <transition name="fade">
+        <div class="alerts" :class="{success: alertType==='success', error: alertType==='error'}" v-if="alerts">
+          {{ message }}
+        </div>
+      </transition>
     </main>
   </div>
 </template>
@@ -104,10 +146,13 @@
 export default {
   data() {
     return {
+      alerts: false,
+      alertType :null,
+      message: "",
       primaryColors: [
         {
           name: 'Primary',
-          hex: '#2f374a',
+          hex: `#2f374a`,
           rgb: '47, 55, 74',
           scss: '$color-primary',
           css: 'var(--color-primary)',
@@ -138,8 +183,7 @@ export default {
           scss: '$color-background',
           css: 'var(--color-background)',
           textcolor: '#2f374a'
-        }
-        ,
+        },
         {
           name: 'Border',
           hex: '#d8d8d8',
@@ -147,8 +191,7 @@ export default {
           scss: '$color-border',
           css: 'var(--color-border)',
           textcolor: '#2f374a'
-        }
-        ,
+        },
         {
           name: 'Text',
           hex: '#616060',
@@ -210,6 +253,24 @@ export default {
           textcolor: '#ffffff'
         }
       ]
+    }
+  },
+  methods: {
+    onCopy(e) {
+      this.alerts = true;
+      this.message = e.text + ' ' + 'copied !' ;
+      this.alertType = "success";
+      setTimeout(() => {
+        this.alerts = false;
+      }, 3000);
+    },
+    onError(e) {
+      this.alerts = true;
+      this.message = 'Failed to copy texts';
+      this.alertType = "error";
+      setTimeout(() => {
+        this.alerts = false;
+      }, 3000);
     }
   }
 }
