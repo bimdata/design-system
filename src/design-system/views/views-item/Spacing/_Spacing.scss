@@ -1,0 +1,67 @@
+.spacing{
+  nav{
+    height: calc(#{$spacing-unit} * 3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-left: -90px;
+    padding-left: 96px;
+    width: calc(100% + 180px);
+    border-bottom: 1px solid #e1e3e6;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+  }
+  &__code{
+    display: flex;
+    justify-content: space-between;
+    &__item{
+      margin-right: $spacing-unit;
+      flex: 1;
+      pre{
+        margin-bottom: 0;
+      }
+    }
+  }
+  table{
+    display: flex;
+    flex-direction: column;
+    thead{
+      tr{
+        td{
+          height: calc(#{$spacing-unit} * 3);
+          @include font-size(14px);
+          &:nth-child(odd){
+            color: $color-white;
+            background-color: $color-primary;
+          }
+          &:nth-child(even){
+            color: $color-white;
+            background-color: lighten($color-primary, 10%);
+          }
+        }
+      }
+    }
+    tr{
+      display: flex;
+      border-bottom: 4px solid $color-white;
+      td{
+        padding: 0 12px;
+        height: calc(#{$spacing-unit} * 2.5);
+        align-items: center;
+        position: relative;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        @include font-size(12px);
+        &:nth-child(odd){
+          background-color: $color-background;
+        }
+        &:nth-child(even){
+          background-color: darken($color-background, 5%);
+        }
+      }
+    }
+  }
+}
