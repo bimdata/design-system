@@ -27,6 +27,11 @@
       background-color: $color-primary;
       color: $color-white;
     }
+    /* style BIMDATA BTN SECONDARY FILL ---------- */
+    &--secondary {
+      background-color: $color-secondary;
+      color: $color-primary;
+    }
     /* style BIMDATA BTN GREY FILL ------------- */
     &--grey {
       background-color: $color-border;

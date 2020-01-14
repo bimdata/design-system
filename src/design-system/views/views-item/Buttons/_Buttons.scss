@@ -1,0 +1,13 @@
+.bimdata-ds__code{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  pre{
+    flex: 1;
+  }
+  &__dynamic{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+  }
+}
