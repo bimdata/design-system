@@ -4,7 +4,7 @@ export default {
   bind(el, binding) {
     const div = document.createElement("div");
     div.textContent = "copy";
-    div.classList.add("bimdata-ds__copy");
+    div.classList.add("bimdata-ds__demo__code__copy");
     div.id = "";
     clickListener = () => {
       const elToCopy = [...el.children].find( child =>
