@@ -6,12 +6,12 @@
     cursor: pointer;
   }
   input {
+    width: 100%;
+    height: 100%;
+    color: $color-text;
     margin-left: calc(#{$spacing-unit} / 2);
-    padding: calc(#{$spacing-unit} / 2) 0;
-    background-color: transparent;
     border: none;
-    border-bottom: 1px solid $color-border;
-    color: $color-white;
+    box-sizing: border-box;
     @include font-size(12px);
     &:focus {
       outline: none;

@@ -1,7 +1,7 @@
 <template>
   <div class="bimdata-search-bar">
     <span class="bimdata-search-icon">
-      <BIMDataIcon icon-name="search" width="18" height="18" x="24" y="24" class="bimdata-fill-white">
+      <BIMDataIcon icon-name="search" width="18" height="18" x="24" y="24" class="bimdata-fill-text">
         <BIMDataSearchIcon />
       </BIMDataIcon>
     </span>
