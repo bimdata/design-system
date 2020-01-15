@@ -1,6 +1,18 @@
 .home{
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(162.76deg,#d1e6ff -9.05%,rgba(248,248,249,0) 108.11%);
   .bimdata-search-bar{
-    margin: calc(#{$spacing-unit} * 3) 0;
+    margin: calc(#{$spacing-unit} * 4) 0;
+    padding: 0 18px;
+    width: 776px;
+    height: 56px;
+    box-shadow: 0 4px 10px rgba($color-black,.1);
+    background-color: $color-white;
   }
   &-content{
     width: 1440px;
@@ -8,24 +20,20 @@
     display: flex;
     justify-content: space-between;
     &__item{
-      margin: $spacing-unit;
-      padding: $spacing-unit;
-      position: relative;
+      margin: 0 50px;
+      padding: 0 24px;
+      height: 317px;
+      max-width: 330px;
+      background-color: $color-white;
+      box-shadow: 0 2px 10px 0 rgba($color-black,.1);
+      display: flex;
       flex: 1;
-      background-color: $color-primary;
-      border: .5px solid $color-white;
-      border-radius: 3px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-      h2{
-        color: $color-white;
-      }
-      p{
-        color: $color-white;
-      }
-      &:hover{
-        box-shadow: rgb(255, 255, 255) 6px 6px 0px 0px;
-        transform: translate(-6px, -6px);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h2, p{
+        color: $color-primary;
+        text-align: center;
       }
     }
   }

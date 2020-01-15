@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img src="../../assets/img/design-system__logo-home.svg" alt="">
     <BIMDataSearchBar v-model="filter" />
     <div class="home-content">
       <router-link v-for="item in getItems" :key="item" :to="{path: `/${item}`}" class="home-content__item">
