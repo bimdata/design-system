@@ -58,9 +58,21 @@
       border-color: $color-border;
       color: $color-primary;
     }
+    &--primary {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+    &--secondary {
+      border-color: $color-secondary;
+      color: $color-primary;
+    }
     &--grey {
       border-color: $color-grey;
       color: $color-grey;
+    }
+    &--red {
+      border-color: $color-red;
+      color: $color-red;
     }
     &--btn-icon {
     }
@@ -73,8 +85,20 @@
       display: flex;
       align-items: center;
     }
+    &--default {
+      color: $color-primary;
+    }
+    &--primary {
+      color: $color-primary;
+    }
+    &--secondary {
+      color: $color-secondary;
+    }
     &--grey {
       color: $color-text;
+    }
+    &--red {
+      color: $color-red;
     }
     &--btn-icon {
     }
