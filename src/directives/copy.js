@@ -28,7 +28,7 @@ export default {
       }
     }
     div.addEventListener("click", clickListener);
-    el.appendChild(div);
+    el.prepend(div);
   },
   unbind(el) {
     const div = [...el.children].find( child =>
