@@ -2,11 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home/Home.vue'
+import GettingStarted from '../views/GettingStarted/GettingStarted.vue'
 import Layout from '../views/Layout/Layout.vue'
 import Content from '../views/Layout/Content.vue'
 
 // import GUIDELINES
 import Colors from '../views/views-item/Colors/Colors.vue'
+import Grid from '../views/views-item/Grid/Grid.vue'
 import Spacing from '../views/views-item/Spacing/Spacing.vue'
 import Typography from '../views/views-item/Typography/Typography.vue'
 
@@ -22,6 +24,10 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/gettingstarted',
+    component: GettingStarted,
   },
   {
     path: '/guidelines',
