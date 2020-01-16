@@ -5,65 +5,103 @@
         <h2>{{ $route.name }}</h2>
 
         <div class="button-overview">
-        <h3>BIMData Buttons</h3>
-        <div class="bimdata-ds__demo">
-          <div class="bimdata-ds__demo__module">
-            <BIMDataButton
-            width="300px"
-            :class="getOverviewButtonClasses()"
-            >
-              <BIMDataIcon
-                class="icon-chevron"
-                icon-name="chevron-right"
-                width="10"
-                height="10"
-                x="13"
-                y="23"
-                v-if="checkboxChecked"
+          <h3>Examples</h3>
+          <div class="bimdata-ds__demo">
+            <div class="bimdata-ds__demo__module">
+              <BIMDataButton
+              :width="getButtonWidth()"
+              :class="getOverviewButtonClasses()"
               >
-                <BIMDataChevronRightIcon />
-              </BIMDataIcon>
-              BIMData button {{ selectedBtnOptions.types }} {{ selectedBtnOptions.kinds }} {{ selectedBtnOptions.values }}
-            </BIMDataButton>
+                <BIMDataIcon
+                  class="icon-chevron"
+                  icon-name="chevron-right"
+                  width="10"
+                  height="10"
+                  x="13"
+                  y="23"
+                  v-if="checkboxIconChecked"
+                >
+                  <BIMDataChevronRightIcon />
+                </BIMDataIcon>
+                <span v-if="checkboxTextChecked">
+                  BIMData button {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
+                </span>
+              </BIMDataButton>
+            </div>
+
+            <div class="bimdata-ds__demo__parameters">
+              <h4>Button options</h4>
+              <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(btnOptions)" :key="key">
+                <h5>{{ key }}</h5>
+                <BIMDataRadio
+                  v-for="value in values"
+                  :key="value"
+                  :text="value"
+                  :id="value"
+                  :value="value"
+                  :name="key"
+                  v-model="$data[`selectedBtnOptions${key}`]"
+                >
+                </BIMDataRadio>
+              </div>
+              <div class="bimdata-ds__demo__parameters__options">
+                <h5>modifiers</h5>
+                <BIMDataCheckbox
+                  text="icon"
+                  :state="checkboxIconChecked"
+                  @change="checkboxIconChecked = $event.target.checked"
+                  :disabled="checkboxIconDisabled"
+                >
+                </BIMDataCheckbox>
+                <BIMDataCheckbox
+                  text="text"
+                  :state="checkboxTextChecked"
+                  @change="checkboxTextChecked = $event.target.checked"
+                  :disabled="checkboxTextDisabled"
+                >
+                </BIMDataCheckbox>
+              </div>
+            </div>
+
+            <div class="bimdata-ds__demo__code">
+              <pre class="language-xml" v-copy="onCopy">
+                <code class="language-xml" v-highlight:xml >
+                  &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__radius"&gt;
+                    Button Radius Fill Primary
+                  &lt;/BIMDataButton&gt;
+                </code>
+              </pre>
+            </div>
           </div>
 
-          <div class="bimdata-ds__demo__parameters">
-            <h4>Button options</h4>
-            <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(btnOptions)" :key="key">
-              <h5>{{ key }}</h5>
-              <BIMDataRadio
-                v-for="value in values"
-                :key="value"
-                :text="value"
-                :id="value"
-                :value="value"
-                :name="key"
-                v-model="selectedBtnOptions[key]"
-              >
-              </BIMDataRadio>
-            </div>
-            <div class="bimdata-ds__demo__parameters__options">
-              <h5>modifiers</h5>
-              <BIMDataCheckbox
-                text="icon"
-                :state="checkboxChecked"
-                @change="checkboxChecked = $event.target.checked"
-              >
-              </BIMDataCheckbox>
-            </div>
-          </div>
-
-          <div class="bimdata-ds__demo__code">
-            <pre class="language-xml" v-copy="onCopy">
-            <code class="language-xml" v-highlight:xml >
-              &lt;BIMDataButton width="200px" class="bimdata-btn bimdata-btn__{{ selectedBtnOptions.types }} bimdata-btn__{{ selectedBtnOptions.types }}--{{ selectedBtnOptions.values }} bimdata-btn__radius"&gt;
-                Button Radius Fill Primary
-              &lt;/BIMDataButton&gt;
-            </code>
-          </pre>
+          <div class="bimdata-ds__properties">
+            <h3>Properties</h3>
+            <table>
+              <thead>
+                <tr>
+                  <td>Property</td>
+                  <td>Type</td>
+                  <td>Default</td>
+                  <td>Description</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>width</td>
+                  <td>Number, String</td>
+                  <td>"150px"</td>
+                  <td>Use this property to change the width of the button</td>
+                </tr>
+                  <tr>
+                  <td>height</td>
+                  <td>Number, String</td>
+                  <td>"320px"</td>
+                  <td>Use this property to change the height of the button</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
       </div>
       <Alerts v-if="alerts" :message="message" :class="alertType" />
     </main>
@@ -100,14 +138,17 @@ export default {
       alerts: false,
       alertType: null,
       message: "",
-      checkboxChecked: false,
-      selectedBtnOptions: {types: "fill", kinds: "radius", values: "default"},
+      checkboxIconChecked: false,
+      checkboxTextChecked: true,
+      selectedBtnOptionstypes: "fill",
+      selectedBtnOptionskinds: "radius",
+      selectedBtnOptionsvalues: "default",
       btnOptions: {
         types:[
           "fill", "outline", "ghost"
         ],
         kinds: [
-          "radius", "text", "rounded"
+          "radius", "square", "rounded"
         ],
         values: [
           "default", "primary", "secondary", "grey", "red"
@@ -125,7 +166,35 @@ export default {
       }, 3000);
     },
     getOverviewButtonClasses(){
-      return `bimdata-btn__${this.selectedBtnOptions.types} bimdata-btn__${this.selectedBtnOptions.types}--${this.selectedBtnOptions.values} bimdata-btn__${this.selectedBtnOptions.kinds}`
+      return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`
+    },
+    getButtonWidth(){
+      if(this.selectedBtnOptionskinds.includes("rounded") || this.checkboxIconChecked === true && this.checkboxTextChecked === false){
+        return "32px";
+      } else {
+        return "300px";
+      }
+    }
+  },
+  watch: {
+    selectedBtnOptionskinds:{
+      handler(newValue, oldValue){
+        if(newValue === "rounded"){
+          this.checkboxTextChecked = false;
+          this.checkboxIconChecked = true;
+        } else if(oldValue === "rounded"){
+          this.checkboxTextChecked = true;
+        }
+      },
+      deep: true
+    }
+  },
+  computed: {
+    checkboxTextDisabled() {
+      return this.selectedBtnOptionskinds === "rounded" || this.checkboxIconChecked === false;
+    },
+    checkboxIconDisabled() {
+      return this.selectedBtnOptionskinds === "rounded" || this.checkboxTextChecked === false;;
     }
   },
   directives: { highlight, copy }

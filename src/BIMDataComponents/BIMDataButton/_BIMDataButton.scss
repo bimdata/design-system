@@ -11,9 +11,18 @@
   &:focus {
     outline: none;
   }
+  svg{
+    margin: 0 calc(#{$spacing-unit} / 2);
+  }
   /* style BIMDATA BTN RADIUS ------------------ */
   &__radius {
     border-radius: 3px;
+  }
+  &__square {
+    border-radius: 0;
+  }
+  &__rounded {
+    border-radius: 50%;
   }
   /* style BIMDATA BTN FILL -------------------- */
   &__fill {
@@ -47,9 +56,6 @@
         margin: 0 6px;
       }
     }
-    /* style BIMDATA BTN FILL ICON ------------ */
-    &--icon {
-    }
   }
   &__outline {
     justify-content: center;
@@ -74,10 +80,6 @@
       border-color: $color-red;
       color: $color-red;
     }
-    &--btn-icon {
-    }
-    &--icon {
-    }
   }
   &__ghost {
     justify-content: flex-start;
@@ -99,10 +101,6 @@
     }
     &--red {
       color: $color-red;
-    }
-    &--btn-icon {
-    }
-    &--icon {
     }
   }
 }
