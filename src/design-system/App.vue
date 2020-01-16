@@ -36,13 +36,4 @@ export default {
   @import "../../src/assets/scss/_BIMDataGrid.scss";
   @import "../../src/assets/scss/mixins/_font-size.scss";
   @import "./assets/scss/DesignSystem.scss";
-  .home{
-    margin-top: 80px;
-    height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: $color-primary;
-  }
 </style>
