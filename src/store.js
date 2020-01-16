@@ -38,7 +38,7 @@ export default new Vuex.Store({
       ]
     },
     components: {
-      text: "some text",
+      text: "We developed a VueJs UI library that contains a set  components and demos for building, interactive user interfaces.",
       children: [
         {
           title: "buttons",
