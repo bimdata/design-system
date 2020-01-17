@@ -6,10 +6,12 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     'gettingstarted':{
-      text: "Getting Started"
+      text: "Getting Started",
+      img:require("./design-system/assets/img/icon-getting_stated.svg")
     },
     guidelines: {
       text: "Guidelines for colors, spacing,  typography",
+      img: require("./design-system/assets/img/icon-guidelines.svg"),
       children: [
         {
           title: "colors",
@@ -39,6 +41,7 @@ export default new Vuex.Store({
     },
     components: {
       text: "We developed a VueJs UI library that contains a set  components and demos for building, interactive user interfaces.",
+      img: require('./design-system/assets/img/icon-components.svg'),
       children: [
         {
           title: "buttons",
