@@ -2,9 +2,10 @@
   <div class="home">
     <BIMDataSearchBar v-model="filter" />
     <div class="home-content">
-      <router-link v-for="item in getItems" :key="item" :to="{path: `/${item}`}" class="home-content__item">
-        <h2>{{ item }}</h2>
-        <p>{{ $store.state[item].text }}</p>
+      <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="home-content__item">
+        <img :src="value.img"/>
+        <h2>{{ key }}</h2>
+        <p>{{ value.text }}</p>
       </router-link>
     </div>
   </div>
@@ -38,7 +39,7 @@ export default {
   },
   computed: {
     getItems(){
-      return Object.keys(this.$store.state);
+      return this.$store.state;
     }
   }
 }
