@@ -74,33 +74,9 @@
             </div>
           </div>
 
-          <div class="bimdata-ds__properties">
-            <h3>Properties</h3>
-            <table>
-              <thead>
-                <tr>
-                  <td>Property</td>
-                  <td>Type</td>
-                  <td>Default</td>
-                  <td>Description</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>width</td>
-                  <td>Number, String</td>
-                  <td>"150px"</td>
-                  <td>Use this property to change the width of the button</td>
-                </tr>
-                  <tr>
-                  <td>height</td>
-                  <td>Number, String</td>
-                  <td>"320px"</td>
-                  <td>Use this property to change the height of the button</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <TableProperties property="width" type="Number, String" defaultValue="150px" description="Use this property to change the width of the button">
+          </TableProperties>
+
         </div>
       </div>
       <Alerts v-if="alerts" :message="message" :class="alertType" />
@@ -112,6 +88,8 @@
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
+
+import TableProperties from "../../TableProperties/TableProperties.vue";
 
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -128,6 +106,7 @@ export default {
   components: {
     Alerts,
     BIMDataButton,
+    TableProperties,
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataIcon,
@@ -153,7 +132,7 @@ export default {
         values: [
           "default", "primary", "secondary", "grey", "red"
         ]
-      },
+      }
     };
   },
   methods: {
