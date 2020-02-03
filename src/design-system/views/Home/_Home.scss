@@ -35,6 +35,26 @@
         color: $color-primary;
         text-align: center;
       }
+      &:first-child{
+        img{
+          animation-duration: 0.7s;
+          animation-name: bounceIn;
+        }
+      }
+      &:nth-child(2){
+        img{
+          animation-duration: 0.7s;
+          animation-delay: .15s;
+          animation-name: bounceIn;
+        }
+      }
+      &:nth-child(3){
+        img{
+          animation-duration: 0.7s;
+          animation-delay: .3s;
+          animation-name: bounceIn;
+        }
+      }
     }
   }
 }
