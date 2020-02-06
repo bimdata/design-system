@@ -13,558 +13,45 @@
         <h3>Examples</h3>
         <div class="bimdata-ds__demo">
           <div class="bimdata-ds__demo__module">
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="3d-model"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMData3dModelIcon />
-            </BIMDataIcon>
+            <span>icons: {{iconNames.length}}</span>
+            <div>
+              <div v-for="iconName of iconNames" :key="iconName">
+                <BIMDataIcon
+                  class="icon-chevron"
+                  :icon-name="iconName"
+                  width="23"
+                  height="23"
+                  x="23"
+                  y="23"
+                >
+                  <component :is="iconName" />
+                </BIMDataIcon>
+                <p>{{iconName}}</p>
+              </div>
+            </div>
+          </div>
 
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="add-file"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataAddFileIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="add-user"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataAddUserIcon />
-            </BIMDataIcon>
-            
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="arrow"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataArrowIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="attach"
-              width="23"
-              height="25"
-              x="23"
-              y="25"
-            >
-              <BIMDataAttachIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="bcf"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataBcfIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="building"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataBuildingIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="burger-menu"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataBurgerMenuIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="camera"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataCameraIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="chevron-right"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataChevronRightIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="click"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataClickIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="close"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataCloseIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="cloud"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataCloudIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="color"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataColorIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="cursor"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataCursorIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="delete"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataDeleteIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="deploy-down"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataDeployDownIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="deploy-up"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataDeployUpIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="detach"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataDetachIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="double-chevron"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataDoubleChevronIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="edit"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataEditIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="failed"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataFailedIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="filter"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataFilterIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="folder"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataFolderIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="folder-open"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataFolderOpenIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="fullscreen"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataFullscreenIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="hide"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataHideIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="ifc"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataIfcIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="information"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataInformationIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="isolate"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataIsolateIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="location"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataLocationIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="measure"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataMeasureIcon />
-            </BIMDataIcon>
-            
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="more"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataMoreIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="project"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataProjectIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="reduce"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataReduceIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="refresh"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataRefreshIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="rules"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataRulesIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="sandglass"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataSandglassIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="search"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataSearchIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="section"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataSectionIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="settings"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataSettingsIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="show"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataShowIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="socotec"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataSocotecIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="storey"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataStoreyIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="success"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataSuccessIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="tree"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataTreeIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="user"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataUserIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="validate"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataValidateIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="warning"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataWarningIcon />
-            </BIMDataIcon>
-
-            <BIMDataIcon
-              class="icon-chevron"
-              icon-name="windowed"
-              width="23"
-              height="23"
-              x="23"
-              y="23"
-            >
-              <BIMDataWindowedIcon />
-            </BIMDataIcon>
-
+          <div class="bimdata-ds__demo__code">
+            <pre class="language-xml" v-copy="onCopy">
+              <code class="language-xml" v-highlight:xml >
+                &lt;BIMDataIcon
+                  class="icon"
+                  icon-name="your-icon-name"
+                  width="23"
+                  height="23"
+                  x="23"
+                  y="23"
+                &gt;
+                  &lt;BIMData[YourIconName]Icon /&gt;
+                &lt;/BIMDataIcon&gt;
+              </code>
+            </pre>
           </div>
         </div>
+
+        <TableProperties property="width" type="Number, String" defaultValue="150px" description="Use this property to change the width of the button">
+          </TableProperties>
+
       </div>
     </main>
   </div>
@@ -623,6 +110,11 @@ import BIMDataValidateIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibrary
 import BIMDataWarningIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWarningIcon.vue";
 import BIMDataWindowedIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWindowedIcon.vue";
 
+import TableProperties from "../../TableProperties/TableProperties.vue";
+
+import highlight from "../../../../directives/highlight.js";
+import copy from "../../../../directives/copy.js";
+import Prism from "prismjs";
 
 export default {
   components: {
@@ -676,8 +168,25 @@ export default {
     BIMDataUserIcon,
     BIMDataValidateIcon,
     BIMDataWarningIcon,
-    BIMDataWindowedIcon
-  }
+    BIMDataWindowedIcon,
+    TableProperties
+  },
+  methods: {
+    onCopy(e) {
+      this.alerts = true;
+      this.message = "copied successfully !";
+      this.alertType = "success";
+      setTimeout(() => {
+        this.alerts = false;
+      }, 3000);
+    }
+  },
+  computed: {
+    iconNames(){
+      return Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+    }
+  },
+  directives: { highlight, copy }
 }
 </script>
 

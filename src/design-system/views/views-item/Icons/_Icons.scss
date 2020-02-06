@@ -5,8 +5,29 @@
   }
   .bimdata-ds__demo{
     &__module{
-      svg{
-        margin: 0 6px;
+      grid-column: 1 / 4;
+      span{
+        background-color: $color-primary;
+        color: $color-white;
+        padding: 6px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      & > div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        & > div {
+          width: 147px;
+          margin: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 12px;
+        }
       }
     }
   }
