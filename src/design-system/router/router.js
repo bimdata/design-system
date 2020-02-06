@@ -9,6 +9,7 @@ import Content from '../views/Layout/Content.vue'
 // import GUIDELINES
 import Colors from '../views/views-item/Colors/Colors.vue'
 import Grid from '../views/views-item/Grid/Grid.vue'
+import Markup from '../views/views-item/Markup/Markup.vue'
 import Spacing from '../views/views-item/Spacing/Spacing.vue'
 import Typography from '../views/views-item/Typography/Typography.vue'
 
@@ -47,6 +48,11 @@ const routes = [
         path: 'grid',
         name: 'grid',
         component: Grid
+      },
+      {
+        path: 'markup',
+        name: 'markup',
+        component: Markup
       },
       {
         path: 'spacing',

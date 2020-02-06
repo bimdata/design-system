@@ -26,6 +26,12 @@ export default new Vuex.Store({
           btn: "View Grid"
         },
         {
+          title: "markup",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View markup"
+        },
+        {
           title: "spacing",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
