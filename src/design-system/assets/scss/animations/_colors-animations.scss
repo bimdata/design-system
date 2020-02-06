@@ -5,9 +5,9 @@
   background-image: radial-gradient(closest-side, rgba($color-white, .94), rgba($color-white, .94), rgba($color-white, 1)), url('https://s.electerious.com/images/codepen/grid.svg');
   background-repeat: no-repeat, repeat;
   background-size: auto, 75px 44px;
-  position: absolute;
-  top: -60px;
-  right: -92px;
+  position: fixed;
+  top: 0;
+  right: -90px;
   width: 994px;
   height: 720px;
   z-index: -1;
