@@ -8,92 +8,133 @@
           <div class="box box3"></div>
         </div>
         <h2>{{ $route.name }}</h2>
-        <h3>Primary colors</h3>
+        <h3>Brand colors</h3>
         <div class="color-swatches">
-          <div class="color-swatche" v-for="primaryColor in primaryColors" :key="primaryColor.id">
-            <div class="color-swatche__header" :style="{'background-color': primaryColor.hex, 'color': primaryColor.textcolor}">
+          <div class="color-swatche" v-for="brandColor in brandColors" :key="brandColor.id">
+            <div class="color-swatche__header" :style="{'background-color': brandColor.hex, 'color': brandColor.textcolor}">
               <div class="color-swatche__header__item">
                 <div class="label"> Name </div>
-                <div class="value"> {{ primaryColor.name }}</div>
+                <div class="value"> {{ brandColor.name }}</div>
               </div>
             </div>
             <div class="color-swatche__body">
               <div class="color-swatche__body__item">
                 <div class="label"> HEX </div>
-                <div class="value" v-clipboard:copy="`${primaryColor.hex}`" v-clipboard:success="onCopy"
+                <div class="value" v-clipboard:copy="`${brandColor.hex}`" v-clipboard:success="onCopy"
                   v-clipboard:error="onError">
-                  <span> {{ primaryColor.hex }} </span>
+                  <span> {{ brandColor.hex }} </span>
                   <i class="clipboard"></i>
                 </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> RGB </div>
-                <div class="value" v-clipboard:copy="`${primaryColor.rgb}`" v-clipboard:success="onCopy"
+                <div class="value" v-clipboard:copy="`${brandColor.rgb}`" v-clipboard:success="onCopy"
                   v-clipboard:error="onError">
-                  <span>{{ primaryColor.rgb }}</span>
+                  <span>{{ brandColor.rgb }}</span>
                   <i class="clipboard"></i>
                   </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> SCSS </div>
-                <div class="value" v-clipboard:copy="`${primaryColor.scss}`" v-clipboard:success="onCopy"
+                <div class="value" v-clipboard:copy="`${brandColor.scss}`" v-clipboard:success="onCopy"
                   v-clipboard:error="onError">
-                  <span>{{ primaryColor.scss }}</span>
+                  <span>{{ brandColor.scss }}</span>
                   <i class="clipboard"></i>
                 </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> CSS </div>
-                <div class="value" v-clipboard:copy="`${primaryColor.css}`" v-clipboard:success="onCopy"
+                <div class="value" v-clipboard:copy="`${brandColor.css}`" v-clipboard:success="onCopy"
                   v-clipboard:error="onError">
-                  <span>{{ primaryColor.css }}</span>
+                  <span>{{ brandColor.css }}</span>
                   <i class="clipboard"></i>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <h3>Secondary color</h3>
+        <h3>Variant colors</h3>
         <div class="color-swatches">
-          <div class="color-swatche" v-for="secondaryColor in secondaryColors" :key="secondaryColor.id">
-            <div class="color-swatche__header" :style="{'background-color': secondaryColor.hex, 'color': secondaryColor.textcolor}">
+          <div class="color-swatche" v-for="variantColor in variantColors" :key="variantColor.id">
+            <div class="color-swatche__header" :style="{'background-color': variantColor.hex, 'color': variantColor.textcolor}">
               <div class="color-swatche__header__item">
                 <div class="label"> Name </div>
-                <div class="value"> {{ secondaryColor.name }} </div>
+                <div class="value"> {{ variantColor.name }} </div>
               </div>
             </div>
             <div class="color-swatche__body">
               <div class="color-swatche__body__item">
                 <div class="label"> HEX </div>
-                <div class="value" v-clipboard:copy="`${secondaryColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ secondaryColor.hex }}</span>
+                <div class="value" v-clipboard:copy="`${variantColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ variantColor.hex }}</span>
                   <i class="clipboard"></i>
                 </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> RGB </div>
-                <div class="value" v-clipboard:copy="`${secondaryColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ secondaryColor.rgb }}
+                <div class="value" v-clipboard:copy="`${variantColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.rgb }}
                   <i class="clipboard"></i>
                 </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> SCSS </div>
-                <div class="value" v-clipboard:copy="`${secondaryColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ secondaryColor.scss }}
+                <div class="value" v-clipboard:copy="`${variantColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.scss }}
                   <i class="clipboard"></i>
                 </div>
               </div>
               <div class="color-swatche__body__item">
                 <div class="label"> CSS </div>
-                <div class="value" v-clipboard:copy="`${secondaryColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ secondaryColor.css }}
+                <div class="value" v-clipboard:copy="`${variantColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.css }}
                   <i class="clipboard"></i>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <h3>Alerts color</h3>
+        <h3>Common colors</h3>
         <div class="color-swatches">
-          <div class="color-swatche" v-for="alertsColor in alertsColors" :key="alertsColor.id">
+          <div class="color-swatche" v-for="commonColor in commonColors" :key="commonColor.id">
+            <div class="color-swatche__header" :style="{'background-color': commonColor.hex, 'color': commonColor.textcolor}">
+              <div class="color-swatche__header__item">
+                <div class="label"> Name </div>
+                <div class="value"> {{ commonColor.name }} </div>
+              </div>
+            </div>
+            <div class="color-swatche__body">
+              <div class="color-swatche__body__item">
+                <div class="label"> HEX </div>
+                <div class="value" v-clipboard:copy="`${commonColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ commonColor.hex }}</span>
+                  <i class="clipboard"></i>
+                </div>
+              </div>
+              <div class="color-swatche__body__item">
+                <div class="label"> RGB </div>
+                <div class="value" v-clipboard:copy="`${commonColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ commonColor.rgb }}</span>
+                  <i class="clipboard"></i>
+                </div>
+              </div>
+              <div class="color-swatche__body__item">
+                <div class="label"> SCSS </div>
+                <div class="value" v-clipboard:copy="`${commonColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ commonColor.scss }}</span>
+                  <i class="clipboard"></i>
+                </div>
+              </div>
+              <div class="color-swatche__body__item">
+                <div class="label"> CSS </div>
+                <div class="value" v-clipboard:copy="`${commonColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                  <span>{{ commonColor.css }}</span>
+                  <i class="clipboard"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>State colors</h3>
+        <div class="color-swatches">
+          <div class="color-swatche" v-for="alertsColor in stateColors" :key="alertsColor.id">
             <div class="color-swatche__header" :style="{'background-color': alertsColor.hex, 'color': alertsColor.textcolor}">
               <div class="color-swatche__header__item">
                 <div class="label"> Name </div>
@@ -149,7 +190,7 @@ export default {
       alerts: false,
       alertType :null,
       message: "",
-      primaryColors: [
+      brandColors: [
         {
           name: 'Primary',
           hex: `#2f374a`,
@@ -165,9 +206,43 @@ export default {
           scss: '$color-secondary',
           css: 'var(--color-secondary)',
           textcolor: '#2f374a'
+        },
+        {
+          name: 'Tertiary',
+          hex: '#d8d8d8',
+          rgb: '216, 216, 216',
+          scss: '$color-tertiary',
+          css: 'var(--color-border)',
+          textcolor: '#2f374a'
         }
       ],
-      secondaryColors: [
+      variantColors: [
+        {
+          name: 'Tertiary Lightest',
+          hex: '#f7f7f7',
+          rgb: '247, 247, 247',
+          scss: '$color-tertiary-lightest',
+          css: 'var(--color-tertiary-lightest)',
+          textcolor: '#2f374a'
+        },
+        {
+          name: 'Tertiary Dark',
+          hex: '#7a7a7a',
+          rgb: '123, 123, 123',
+          scss: '$color-tertiary-darkest',
+          css: 'var(--color-tertiary-dark)',
+          textcolor: '#ffffff'
+        },
+        {
+          name: 'Tertiary Darkest',
+          hex: '#606060',
+          rgb: '96, 96, 96',
+          scss: '$color-tertiary-darkestest',
+          css: 'var(--color-tertiary-darkest)',
+          textcolor: '#ffffff'
+        }
+      ],
+      commonColors: [
         {
           name: 'White Dwarf',
           hex: '#ffffff',
@@ -175,30 +250,6 @@ export default {
           scss: '$color-white',
           css: 'var(--color-white)',
           textcolor: '#2f374a'
-        },
-        {
-          name: 'Background',
-          hex: '#f8f8f8',
-          rgb: '240, 240, 240',
-          scss: '$color-background',
-          css: 'var(--color-background)',
-          textcolor: '#2f374a'
-        },
-        {
-          name: 'Border',
-          hex: '#d8d8d8',
-          rgb: '216, 216, 216',
-          scss: '$color-border',
-          css: 'var(--color-border)',
-          textcolor: '#2f374a'
-        },
-        {
-          name: 'Text',
-          hex: '#616060',
-          rgb: '97, 96, 96',
-          scss: '$color-text',
-          css: 'var(--color-text)',
-          textcolor: '#ffffff'
         },
         {
           name: 'Black',
@@ -209,29 +260,29 @@ export default {
           textcolor: '#ffffff'
         }
       ],
-      alertsColors: [
+      stateColors: [
         {
           name: 'High',
           hex: '#ff3d1e',
           rgb: '255, 61, 30',
-          scss: '$color-red',
-          css: 'var(--color-red)',
+          scss: '$color-high',
+          css: 'var(--color-high)',
           textcolor: '#ffffff'
         },
         {
           name: 'Medium',
           hex: '#ff9100',
           rgb: '255, 145, 0',
-          scss: '$color-orange',
-          css: 'var(--color-orange)',
+          scss: '$color-warning',
+          css: 'var(--color-warning)',
           textcolor: '#ffffff'
         },
         {
           name: 'Success',
           hex: '#00af50',
           rgb: '0, 175, 80',
-          scss: '$color-green',
-          css: 'var(--color-green)',
+          scss: '$color-success',
+          css: 'var(--color-success)',
           textcolor: '#ffffff'
         }
         ,
@@ -239,17 +290,17 @@ export default {
           name: 'Neutral',
           hex: '#205dbd',
           rgb: '32, 93, 189',
-          scss: '$color-blue',
-          css: 'var(--color-blue)',
+          scss: '$color-neutral',
+          css: 'var(--color-neutral)',
           textcolor: '#ffffff'
         }
         ,
         {
-          name: 'Grey',
-          hex: '#7b7b7b',
+          name: 'Disabled',
+          hex: '#BDBDBD',
           rgb: '123, 123, 123',
-          scss: '$color-grey',
-          css: 'var(--color-grey)',
+          scss: '$color-disabled',
+          css: 'var(--color-disabled)',
           textcolor: '#ffffff'
         }
       ]

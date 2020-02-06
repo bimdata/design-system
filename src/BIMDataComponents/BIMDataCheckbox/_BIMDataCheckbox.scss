@@ -69,15 +69,15 @@
   input:disabled {
     cursor: default;
     & ~ .bimdata-checkbox__mark {
-      border-color: $color-border;
+      border-color: $color-tertiary;
     }
     ~ .bimdata-checkbox__text {
-      color: $color-border;
+      color: $color-tertiary;
     }
   }
   input:checked:disabled {
     & ~ .bimdata-checkbox__mark {
-      background-color: $color-border;
+      background-color: $color-tertiary;
     }
   }
 }

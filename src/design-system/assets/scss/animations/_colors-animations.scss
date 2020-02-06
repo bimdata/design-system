@@ -48,7 +48,7 @@
       top: -20%;
       left: -20%;
       animation: transform3 4s ease, color3 4s ease;
-      box-shadow: 1px 1px 0 darken($color-border, 2%), 2px 2px 0 darken($color-border, 2%), 3px 3px 0 darken($color-border, 2%), 4px 4px 0 darken($color-border, 2%), 5px 5px 0 darken($color-border, 2%);
+      box-shadow: 1px 1px 0 darken($color-tertiary, 2%), 2px 2px 0 darken($color-tertiary, 2%), 3px 3px 0 darken($color-tertiary, 2%), 4px 4px 0 darken($color-tertiary, 2%), 5px 5px 0 darken($color-tertiary, 2%);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }

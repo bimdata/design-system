@@ -40,9 +40,9 @@
 }
 @keyframes color3 {
   0% {
-    background-color: $color-border;
+    background-color: $color-tertiary;
   }
   100% {
-    background-color: lighten($color-border, 5%);
+    background-color: lighten($color-tertiary, 5%);
   }
 }

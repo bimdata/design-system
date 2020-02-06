@@ -43,11 +43,11 @@
     }
     /* style BIMDATA BTN GREY FILL ------------- */
     &--grey {
-      background-color: $color-border;
+      background-color: $color-tertiary;
     }
     /* style BIMDATA BTN GREY FILL ------------- */
     &--red {
-      background-color: $color-red;
+      background-color: $color-high;
       color: $color-white;
     }
     /* style BIMDATA BTN FILL BTN ICON --------- */
@@ -61,7 +61,7 @@
     justify-content: center;
     border: 1px solid;
     &--default {
-      border-color: $color-border;
+      border-color: $color-tertiary;
       color: $color-primary;
     }
     &--primary {
@@ -73,12 +73,12 @@
       color: $color-primary;
     }
     &--grey {
-      border-color: $color-grey;
-      color: $color-grey;
+      border-color: $color-disabled;
+      color: $color-disabled;
     }
     &--red {
-      border-color: $color-red;
-      color: $color-red;
+      border-color: $color-high;
+      color: $color-high;
     }
   }
   &__ghost {
@@ -97,10 +97,10 @@
       color: $color-secondary;
     }
     &--grey {
-      color: $color-text;
+      color: $color-tertiary-darkest;
     }
     &--red {
-      color: $color-red;
+      color: $color-high;
     }
   }
 }

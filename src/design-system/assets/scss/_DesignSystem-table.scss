@@ -30,10 +30,10 @@ table{
       align-items: center;
       @include font-size(12px);
       &:nth-child(odd){
-        background-color: $color-background;
+        background-color: $color-tertiary-lightest;
       }
       &:nth-child(even){
-        background-color: darken($color-background, 5%);
+        background-color: darken($color-tertiary-lightest, 5%);
       }
     }
   }
