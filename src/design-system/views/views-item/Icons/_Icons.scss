@@ -3,4 +3,11 @@
     width: 71px;
     height: auto;
   }
+  .bimdata-ds__demo{
+    &__module{
+      svg{
+        margin: 0 6px;
+      }
+    }
+  }
 }
