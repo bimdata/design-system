@@ -1,0 +1,11 @@
+.developpers{
+  .article-wrapper{
+    width: 60%;
+    pre.language-bash{
+      &::before{
+        content: "$";
+        margin-right: 6px;
+      }
+    }
+  }
+}
