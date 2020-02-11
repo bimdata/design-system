@@ -4,30 +4,6 @@
     &__content{
       &__item{
         margin-bottom: calc(#{$spacing-unit} * 2);
-        h1, h2, h3, h4, h5, h6, p{
-          margin: 0;
-        }
-        h1{
-          font-size: 96px;
-        }
-        h2{
-          font-size: 60px;
-        }
-        h3{
-          font-size: 48px;
-        }
-        h4{
-          font-size: 34px;
-        }
-        h5{
-          font-size: 24px;
-        }
-        h6{
-          font-size: 20px;
-        }
-        p{
-          font-size: 14px;
-        }
       }
     }
   }
