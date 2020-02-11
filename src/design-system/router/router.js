@@ -2,9 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home/Home.vue'
-import GettingStarted from '../views/GettingStarted/GettingStarted.vue'
 import Layout from '../views/Layout/Layout.vue'
 import Content from '../views/Layout/Content.vue'
+
+// import GETTING STARTED
+import Designers from '../views/views-item/GettingStarted/Designers.vue'
+import Developpers from '../views/views-item/GettingStarted/Developpers.vue'
 
 // import GUIDELINES
 import Colors from '../views/views-item/Colors/Colors.vue'
@@ -28,7 +31,29 @@ const routes = [
   },
   {
     path: '/gettingstarted',
-    component: GettingStarted,
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        name: 'gettingstarted',
+        component: Content,
+      },
+      {
+        path: 'designers',
+        name: 'Designers',
+        component: Designers
+      },
+      {
+        path: 'developpers',
+        name: 'Developpers',
+        component: Developpers
+      },
+      {
+        path: '/',
+        name: 'releasenotes',
+        component: Content
+      }
+    ]
   },
   {
     path: '/guidelines',

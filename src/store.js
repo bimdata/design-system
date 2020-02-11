@@ -6,8 +6,29 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     'gettingstarted':{
-      text: "Getting Started",
-      img:require("./design-system/assets/img/icon-getting_stated.svg")
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+      path: "gettingstarted",
+      img:require("./design-system/assets/img/icon-getting_stated.svg"),
+      children: [
+        {
+          title: "Designers",
+          path: "designers",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "Getting started"
+        },
+        {
+          title: "Developpers",
+          path: "developpers",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "Getting started"
+        },
+        {
+          title: "Release Notes",
+          path: "releasenotes",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View release notes"
+        }
+      ]
     },
     guidelines: {
       text: "Guidelines for colors, spacing,  typography",
