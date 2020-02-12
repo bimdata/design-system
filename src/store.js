@@ -12,21 +12,24 @@ export default new Vuex.Store({
       children: [
         {
           title: "Designers",
+          img:require("./design-system/assets/img/icon-designers.svg"),
           path: "designers",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "Getting started"
         },
         {
           title: "Developpers",
+          img:require("./design-system/assets/img/icon-developpers.svg"),
           path: "developpers",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "Getting started"
         },
         {
-          title: "Release Notes",
+          title: "Releases",
+          img:require("./design-system/assets/img/icon-release.svg"),
           path: "releasenotes",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View release notes"
+          btn: "View releases"
         }
       ]
     },
@@ -35,31 +38,41 @@ export default new Vuex.Store({
       img: require("./design-system/assets/img/icon-guidelines.svg"),
       children: [
         {
-          title: "colors",
+          title: "Colors",
+          path: "colors",
+          img:require("./design-system/assets/img/icon-colors.svg"),
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View Colors"
         },
         {
-          title: "grid",
+          title: "Grid",
+          img:require("./design-system/assets/img/icon-grid.svg"),
+          path: "grid",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View Grid"
         },
         {
-          title: "markup",
+          title: "Markup & Style",
+          img:require("./design-system/assets/img/icon-markup.svg"),
+          path: "markup",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View markup"
         },
         {
-          title: "spacing",
+          title: "Spacing",
+          img:require("./design-system/assets/img/icon-spacing.svg"),
+          path: "spacing",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View spacing"
         },
         {
-          title: "typography",
+          title: "Typography",
+          img:require("./design-system/assets/img/icon-typo.svg"),
+          path: "typography",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View typography"
@@ -71,13 +84,17 @@ export default new Vuex.Store({
       img: require('./design-system/assets/img/icon-components.svg'),
       children: [
         {
-          title: "buttons",
+          title: "Buttons",
+          img:require("./design-system/assets/img/icon-buttons.svg"),
+          path: "buttons",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View Buttons"
         },
         {
-          title: "icons",
+          title: "Icons",
+          img:require("./design-system/assets/img/icon-icons.svg"),
+          path: "icons",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View icons"
