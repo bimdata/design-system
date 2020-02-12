@@ -31,9 +31,13 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../src/assets/scss/mixins/_font-size.scss";
+  @import "../../src/assets/scss/mixins/_pseudo.scss";
+  @import "../../src/assets/scss/mixins/_spacing.scss";
+
   @import "../../src/assets/scss/_BIMDataVariables.scss";
+  @import "../../src/assets/scss/_BIMDataGlobal.scss";
   @import "../../src/assets/scss/_BIMDataFonts.scss";
   @import "../../src/assets/scss/_BIMDataGrid.scss";
-  @import "../../src/assets/scss/mixins/_font-size.scss";
   @import "./assets/scss/DesignSystem.scss";
 </style>
