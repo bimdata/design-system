@@ -21,8 +21,8 @@ table{
     display: flex;
     border-bottom: 4px solid $color-white;
     td{
-      padding: 0 12px;
-      height: calc(#{$spacing-unit} * 2.5);
+      padding: calc(#{$spacing-unit} / 2) $spacing-unit;
+      min-height: calc(#{$spacing-unit} * 2);
       align-items: center;
       position: relative;
       display: flex;
