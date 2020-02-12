@@ -24,6 +24,20 @@ a {
   overflow-y: auto;
 }
 
+/* custom PRE */
+pre[class*="language-"]{
+  position: relative;
+}
 pre {
   border-radius: 3px;
+}
+
+/* custom  */
+.code-highlight{
+  background-color: $color-tertiary-lightest;
+  padding: 3px 5px;
+  margin: 0 2px;
+  border-radius: 2px;
+  color: #2f374a;
+  font-weight: bold;
 }
