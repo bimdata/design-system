@@ -8,6 +8,7 @@
           <td>Type</td>
           <td>Default Value</td>
           <td>Description</td>
+          <td v-if="examples">Examples</td>
         </tr>
       </thead>
       <tbody>
@@ -23,37 +24,20 @@
 
 <script>
 export default {
-  data(){
-    return{
-      properties: [
-      {
-        property:"width",
-        type: "Number, String",
-        defaultValue: "150px",
-        description: "Use this property to change the width of the button"
-      },
-      {
-          property: "height",
-          type: "Number, String",
-          defaultValue: "32px",
-          description: "Use this property to change the height of the button"
-      }
-    ]
+  props: {
+    examples: {
+      type: Boolean,
+      default: false
+    },
+    properties: {
+      type: Array,
+      required: true,
+      validator: properties => properties.every(
+        property => [
+          "property", "type", "defaultValue", "description"
+        ].every( key => property.hasOwnProperty(key) )
+      )
+    }
   }
-  }
-  // props: {
-  //   property: {
-  //     type: String
-  //   },
-  //   type: {
-  //     type: String
-  //   },
-  //   defaultValue: {
-  //     type: String
-  //   },
-  //   description: {
-  //     type: String
-  //   }
-  // }
 }
 </script>

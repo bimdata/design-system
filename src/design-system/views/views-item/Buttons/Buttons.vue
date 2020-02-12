@@ -74,8 +74,7 @@
             </div>
           </div>
 
-          <TableProperties property="width" type="Number, String" defaultValue="150px" description="Use this property to change the width of the button">
-          </TableProperties>
+          <TableProperties :properties="properties"></TableProperties>
 
         </div>
       </div>
@@ -98,7 +97,6 @@ import Alerts from "../Alerts/Alerts.vue";
 
 import highlight from "../../../../directives/highlight.js";
 import copy from "../../../../directives/copy.js";
-
 import Prism from "prismjs";
 
 export default {
@@ -132,7 +130,21 @@ export default {
         values: [
           "default", "primary", "secondary", "grey", "red"
         ]
+      },
+      properties: [
+      {
+        property:"width",
+        type: "Number, String",
+        defaultValue: "150px",
+        description: "Use this property to change the width of the button"
+      },
+      {
+        property: "height",
+        type: "Number, String",
+        defaultValue: "32px",
+        description: "Use this property to change the height of the button"
       }
+      ]
     };
   },
   methods: {

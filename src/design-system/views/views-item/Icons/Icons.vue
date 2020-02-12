@@ -49,8 +49,7 @@
           </div>
         </div>
 
-        <TableProperties property="width" type="Number, String" defaultValue="150px" description="Use this property to change the width of the button">
-          </TableProperties>
+        <TableProperties :properties="properties" :examples="true"></TableProperties>
 
       </div>
     </main>
