@@ -1,21 +1,27 @@
 <template>
   <div class="home">
     <BIMDataSearchBar v-model="filter" />
+    <!-- <p>{{Object.values($store.state)}}</p> -->
     <div class="home-content">
       <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="home-content__item">
         <img :src="value.img"/>
         <h2>{{ key }}</h2>
         <p>{{ value.text }}</p>
+        <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
+         Explore
+        </BIMDataButton>
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearchBar from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
 
 export default {
   components: {
+    BIMDataButton,
     BIMDataSearchBar
   },
   props: {
