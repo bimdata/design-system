@@ -5,7 +5,7 @@
     :height="height"
     :viewBox="viewBox"
     :aria-labelledby="iconName"
-    :fill="iconColor" 
+    :fill="iconColor"
     role="presentation"
   >
     <slot/>

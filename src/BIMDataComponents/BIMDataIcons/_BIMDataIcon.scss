@@ -4,6 +4,7 @@
   fill: $color-disabled;
 }
 .bimdata-stroke-default{
+  fill: transparent;
   stroke: $color-disabled;
 }
 
@@ -12,6 +13,7 @@
   fill: $color-primary;
 }
 .bimdata-stroke-primary{
+  fill: transparent;
   stroke: $color-primary;
 }
 
@@ -20,6 +22,7 @@
   fill: $color-secondary;
 }
 .bimdata-stroke-secondary{
+  fill: transparent;
   stroke: $color-secondary;
 }
 
@@ -28,6 +31,7 @@
   fill: $color-tertiary-dark;
 }
 .bimdata-stroke-grey{
+  fill: transparent;
   stroke: $color-tertiary-dark;
 }
 
@@ -36,6 +40,7 @@
   fill: $color-white;
 }
 .bimdata-stroke-white{
+  fill: transparent;
   stroke: $color-white;
 }
 
@@ -44,6 +49,7 @@
   fill: $color-tertiary;
 }
 .bimdata-stroke-border{
+  fill: transparent;
   stroke: $color-tertiary;
 }
 
@@ -52,6 +58,7 @@
   fill: $color-tertiary-darkest;
 }
 .bimdata-stroke-text{
+  fill: transparent;
   stroke: $color-tertiary-darkest;
 }
 
@@ -60,6 +67,7 @@
   fill: $color-high;
 }
 .bimdata-stroke-red{
+  fill: transparent;
   stroke: $color-high;
 }
 
