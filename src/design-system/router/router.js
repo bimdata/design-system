@@ -8,6 +8,7 @@ import Content from '../views/Layout/Content.vue'
 // import GETTING STARTED
 import Designers from '../views/views-item/GettingStarted/Designers.vue'
 import Developpers from '../views/views-item/GettingStarted/Developpers.vue'
+import InternalDoc from '../views/views-item/GettingStarted/InternalDoc.vue'
 
 // import GUIDELINES
 import Colors from '../views/views-item/Colors/Colors.vue'
@@ -52,6 +53,11 @@ const routes = [
         path: '/',
         name: 'releasenotes',
         component: Content
+      },
+      {
+        path: 'internal-doc',
+        name: 'InternalDoc',
+        component: InternalDoc
       }
     ]
   },

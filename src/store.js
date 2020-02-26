@@ -30,6 +30,13 @@ export default new Vuex.Store({
           path: "releasenotes",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View releases"
+        },
+        {
+          title: "InternalDoc",
+          img:require("./design-system/assets/img/icon-doc.svg"),
+          path: "internal-doc",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "Getting started"
         }
       ]
     },

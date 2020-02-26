@@ -1,6 +1,6 @@
-.developpers{
+.developpers, .internal-doc{
   .article-wrapper{
-    width: 60%;
+    max-width: 45rem;
     pre.language-bash{
       &::before{
         content: "$";
