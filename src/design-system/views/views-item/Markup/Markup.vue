@@ -1,7 +1,6 @@
 <template>
-  <div class="article markup">
-    <main>
-      <div class="article-wrapper">
+  <main class="article markup">
+    <div class="article-wrapper">
         <h3>BEM Naming</h3>
         <p>BEM is one of the methods of naming components — block, element, modifier. </p>
         <p>If you’re comfortable with BEM, move down to the “Where we diverge from BEM” section.</p>
@@ -15,7 +14,6 @@
         <h4>Element</h4>
 
         <h4>Modifier</h4>
-      </div>
-    </main>
-  </div>
+    </div>
+  </main>
 </template>
