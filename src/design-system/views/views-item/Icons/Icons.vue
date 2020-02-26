@@ -1,62 +1,83 @@
 <template>
-  <div class="article icons">
-    <main>
-      <div class="article-wrapper">
-        <h2>{{ $route.name }}</h2>
-        <h3>Size usage for designers</h3>
-        <p>Use a 23px box for icons of 23px.</p>
-        <div>
-          <img src="../../../assets/img/design-system__icon-plus.jpg" alt="">
-          <img src="../../../assets/img/design-system__icon-warning.jpg" alt="">
+  <main class="article icons">
+    <div class="article-wrapper">
+      <h2>{{ $route.name }}</h2>
+      <h3>Size usage for designers</h3>
+      <p>Use a 23px box for icons of 23px.</p>
+      <div>
+        <img src="../../../assets/img/design-system__icon-plus.jpg" alt="">
+        <img src="../../../assets/img/design-system__icon-warning.jpg" alt="">
+      </div>
+
+      <h3>Examples</h3>
+      <BIMDataSearchBar value="Search an icon" v-model="filter" />
+      <div class="bimdata-ds__demo">
+        <div class="bimdata-ds__demo__module">
+          <span>icons: {{iconNames.length}}</span>
+          <div>
+            <div v-for="iconName of filteredList" :key="iconName">
+              <BIMDataIcon
+                class="icon-chevron"
+                :icon-name="iconName"
+                width="23"
+                height="23"
+                x="23"
+                y="23"
+                :class="selectedIconOptionsclass"
+              >
+                <component :is="iconName" />
+              </BIMDataIcon>
+              <p>{{iconName}}</p>
+            </div>
+          </div>
         </div>
 
-        <h3>Examples</h3>
-        <div class="bimdata-ds__demo">
-          <div class="bimdata-ds__demo__module">
-            <span>icons: {{iconNames.length}}</span>
-            <div>
-              <div v-for="iconName of iconNames" :key="iconName">
-                <BIMDataIcon
-                  class="icon-chevron"
-                  :icon-name="iconName"
-                  width="23"
-                  height="23"
-                  x="23"
-                  y="23"
-                >
-                  <component :is="iconName" />
-                </BIMDataIcon>
-                <p>{{iconName}}</p>
-              </div>
+        <div class="bimdata-ds__demo__parameters">
+            <h4>Icons options</h4>
+            <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(iconOptions)" :key="key">
+              <h5>{{ key }}</h5>
+                <BIMDataRadio
+                v-for="value in values"
+                :key="value"
+                :text="value"
+                :id="value"
+                :value="value"
+                :name="key"
+                v-model="$data[`selectedIconOptions${key}`]"
+              >
+              </BIMDataRadio>
             </div>
           </div>
 
-          <div class="bimdata-ds__demo__code">
-            <pre class="language-xml" v-copy="onCopy">
-              <code class="language-xml" v-highlight:xml >
-                &lt;BIMDataIcon
-                  class="icon"
-                  icon-name="your-icon-name"
-                  width="23"
-                  height="23"
-                  x="23"
-                  y="23"
-                &gt;
-                  &lt;BIMData[YourIconName]Icon /&gt;
-                &lt;/BIMDataIcon&gt;
-              </code>
-            </pre>
-          </div>
+        <div class="bimdata-ds__demo__code">
+          <pre class="language-xml" v-copy="onCopy">
+            <code class="language-xml" v-highlight:xml >
+              &lt;BIMDataIcon
+                class="icon"
+                icon-name="your-icon-name"
+                width="23"
+                height="23"
+                x="23"
+                y="23"
+                :class="{{selectedIconOptionsclass}}"
+              &gt;
+                &lt;BIMData[YourIconName]Icon /&gt;
+              &lt;/BIMDataIcon&gt;
+            </code>
+          </pre>
         </div>
-
-        <TableProperties :properties="properties" :examples="true"></TableProperties>
-
       </div>
-    </main>
-  </div>
+
+      <TableProperties :properties="properties" :examples="true"></TableProperties>
+
+    </div>
+  </main>
 </template>
 
 <script>
+import BIMDataSearchBar from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
+import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMData3dModelIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMData3dModelIcon.vue";
 import BIMDataAddFileIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAddFileIcon.vue";
@@ -117,6 +138,8 @@ import Prism from "prismjs";
 
 export default {
   components: {
+    BIMDataSearchBar,
+    BIMDataRadio,
     BIMDataIcon,
     BIMData3dModelIcon,
     BIMDataAddFileIcon,
@@ -170,6 +193,69 @@ export default {
     BIMDataWindowedIcon,
     TableProperties
   },
+  data(){
+    return{
+      filter: "",
+      selectedIconOptionsclass: "bimdata-fill-primary",
+      iconOptions: {
+        class:[
+          "bimdata-fill-default", "bimdata-fill-primary", "bimdata-fill-secondary", "bimdata-fill-grey", "bimdata-fill-white", "bimdata-fill-border", "bimdata-fill-text", "bimdata-fill-red", "bimdata-stroke-default", "bimdata-stroke-primary", "bimdata-stroke-secondary", "bimdata-stroke-grey", "bimdata-stroke-white", "bimdata-stroke-border", "bimdata-stroke-text", "bimdata-stroke-red"
+        ]
+      },
+      properties: [
+      {
+        property:"iconName",
+        type: "String",
+        defaultValue: "'box'",
+        description: "Use this property to name your icon",
+        examples: ""
+      },
+      {
+        property: "width",
+        type: "Number, String",
+        defaultValue: "23",
+        description: "Use this property to change the width of the icon",
+        examples: ""
+      },
+      {
+        property: "height",
+        type: "Number, String",
+        defaultValue: "23",
+        description: "Use this property to change the height of the icon",
+        examples: ""
+      },
+      {
+        property: "iconColor",
+        type: "String",
+        defaultValue: "'currentColor'",
+        description: "Use this property to change the height of the button",
+        examples: "'red', 'blue', 'green' etc.."
+      },
+      {
+        property: "x",
+        type: "Number, String",
+        defaultValue: "23",
+        description: "Use this property to place on the x axis (viewbox) your icon",
+        examples: ""
+      },
+      {
+        property: "y",
+        type: "Number, String",
+        defaultValue: "23",
+        description: "Use this property to place on the y axis (viewbox) your icon",
+        examples: ""
+      }
+      ,
+      {
+        property: "class",
+        type: "String",
+        defaultValue: "23",
+        description: "Use this property to place on the y axis (viewbox) your icon. Warning: This property outclass 'iconColor' porperty.",
+        examples: "'bimdata-fill-grey', 'bimdata-stroke-grey'"
+      }
+      ]
+    }
+  },
   methods: {
     onCopy(e) {
       this.alerts = true;
@@ -183,6 +269,12 @@ export default {
   computed: {
     iconNames(){
       return Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+    },
+    filteredList() {
+      const test = Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+      return test.filter(iconName => {
+        return iconName.toLowerCase().includes(this.filter.toLowerCase())
+      })
     }
   },
   directives: { highlight, copy }
@@ -190,6 +282,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../../../assets/scss/mixins/_font-size.scss";
+
   @import "../../../../assets/scss/_BIMDataVariables.scss";
 
   @import "./_Icons.scss";
