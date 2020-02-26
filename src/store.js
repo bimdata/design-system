@@ -99,6 +99,14 @@ export default new Vuex.Store({
           btn: "View Buttons"
         },
         {
+          title: "Checkbox",
+          img:require("./design-system/assets/img/icon-checkbox.svg"),
+          path: "checkbox",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View icons"
+        },
+        {
           title: "Icons",
           img:require("./design-system/assets/img/icon-icons.svg"),
           path: "icons",

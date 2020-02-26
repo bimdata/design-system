@@ -19,6 +19,7 @@ import Typography from '../views/views-item/Typography/Typography.vue'
 
 // import COMPONENTS
 import Buttons from '../views/views-item/Buttons/Buttons.vue'
+import Checkbox from '../views/views-item/Checkbox/Checkbox.vue'
 import Icons from '../views/views-item/Icons/Icons.vue'
 
 
@@ -110,6 +111,11 @@ const routes = [
         path: 'buttons',
         name: 'buttons',
         component: Buttons
+      },
+      {
+        path: 'checkbox',
+        name: 'checkbox',
+        component: Checkbox
       },
       {
         path: 'icons',
