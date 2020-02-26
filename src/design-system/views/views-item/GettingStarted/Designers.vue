@@ -1,11 +1,9 @@
 <template>
-  <div class="article getting-started">
-    <main>
-      <div class="article-wrapper">
-        <h1>Designers</h1>
+  <main class="article getting-started">
+    <div class="article-wrapper">
+      <h1>Designers</h1>
     </div>
-    </main>
-  </div>
+  </main>
 </template>
 
 <script>
