@@ -1,86 +1,78 @@
 <template>
-  <div class="article buttons">
-    <main>
-      <div class="article-wrapper">
-        <h2>{{ $route.name }}</h2>
+  <main class="article buttons">
+    <div class="article-wrapper">
+      <h2>{{ $route.name }}</h2>
 
-        <div class="button-overview">
-          <h3>Examples</h3>
-          <div class="bimdata-ds__demo">
-            <div class="bimdata-ds__demo__module">
-              <BIMDataButton
-              :width="getButtonWidth()"
-              :class="getOverviewButtonClasses()"
+      <div class="button-overview">
+        <Code componentTitle='Buttons'>
+          <template #module>
+            <BIMDataButton
+            :width="getButtonWidth()"
+            :class="getOverviewButtonClasses()"
+            >
+              <BIMDataIcon
+                class="icon-chevron"
+                icon-name="chevron-right"
+                width="10"
+                height="10"
+                x="13"
+                y="23"
+                v-if="checkboxIconChecked"
               >
-                <BIMDataIcon
-                  class="icon-chevron"
-                  icon-name="chevron-right"
-                  width="10"
-                  height="10"
-                  x="13"
-                  y="23"
-                  v-if="checkboxIconChecked"
-                >
-                  <BIMDataChevronRightIcon />
-                </BIMDataIcon>
-                <span v-if="checkboxTextChecked">
-                  BIMData button {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
-                </span>
-              </BIMDataButton>
+                <BIMDataChevronRightIcon />
+              </BIMDataIcon>
+              <span v-if="checkboxTextChecked">
+                BIMData button {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
+              </span>
+            </BIMDataButton>
+          </template>
+
+          <template #parameters>
+            <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(btnOptions)" :key="key">
+              <h5>{{ key }}</h5>
+              <BIMDataRadio
+                v-for="value in values"
+                :key="value"
+                :text="value"
+                :id="value"
+                :value="value"
+                :name="key"
+                v-model="$data[`selectedBtnOptions${key}`]"
+              >
+              </BIMDataRadio>
             </div>
-
-            <div class="bimdata-ds__demo__parameters">
-              <h4>Button options</h4>
-              <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(btnOptions)" :key="key">
-                <h5>{{ key }}</h5>
-                <BIMDataRadio
-                  v-for="value in values"
-                  :key="value"
-                  :text="value"
-                  :id="value"
-                  :value="value"
-                  :name="key"
-                  v-model="$data[`selectedBtnOptions${key}`]"
-                >
-                </BIMDataRadio>
-              </div>
-              <div class="bimdata-ds__demo__parameters__options">
-                <h5>modifiers</h5>
-                <BIMDataCheckbox
-                  text="icon"
-                  :state="checkboxIconChecked"
-                  @change="checkboxIconChecked = $event.target.checked"
-                  :disabled="checkboxIconDisabled"
-                >
-                </BIMDataCheckbox>
-                <BIMDataCheckbox
-                  text="text"
-                  :state="checkboxTextChecked"
-                  @change="checkboxTextChecked = $event.target.checked"
-                  :disabled="checkboxTextDisabled"
-                >
-                </BIMDataCheckbox>
-              </div>
+            <div class="bimdata-ds__demo__parameters__options">
+              <h5>modifiers</h5>
+              <BIMDataCheckbox
+                text="icon"
+                :state="checkboxIconChecked"
+                @change="checkboxIconChecked = $event.target.checked"
+                :disabled="checkboxIconDisabled"
+              >
+              </BIMDataCheckbox>
+              <BIMDataCheckbox
+                text="text"
+                :state="checkboxTextChecked"
+                @change="checkboxTextChecked = $event.target.checked"
+                :disabled="checkboxTextDisabled"
+              >
+              </BIMDataCheckbox>
             </div>
+          </template>
 
-            <div class="bimdata-ds__demo__code">
-              <pre class="language-xml" v-copy="onCopy">
-                <code class="language-xml" v-highlight:xml >
-                  &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__radius"&gt;
-                    Button Radius Fill Primary
-                  &lt;/BIMDataButton&gt;
-                </code>
-              </pre>
-            </div>
-          </div>
+          <template #code>
+            &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{ selectedBtnOptionskinds }}"&gt;
+              Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
+            &lt;/BIMDataButton&gt;
+          </template>
+        </Code>
 
-          <TableProperties :properties="properties"></TableProperties>
+        <TableProperties :properties="properties"></TableProperties>
 
-        </div>
       </div>
       <Alerts v-if="alerts" :message="message" :class="alertType" />
-    </main>
-  </div>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -88,6 +80,7 @@ import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
 
+import Code from "../../Components/Code.vue";
 import TableProperties from "../../TableProperties/TableProperties.vue";
 
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
@@ -95,14 +88,11 @@ import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox
 
 import Alerts from "../Alerts/Alerts.vue";
 
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
-import Prism from "prismjs";
-
 export default {
   name: "Buttons",
   components: {
     Alerts,
+    Code,
     BIMDataButton,
     TableProperties,
     BIMDataRadio,
@@ -148,14 +138,6 @@ export default {
     };
   },
   methods: {
-    onCopy(e) {
-      this.alerts = true;
-      this.message = "copied successfully !";
-      this.alertType = "success";
-      setTimeout(() => {
-        this.alerts = false;
-      }, 3000);
-    },
     getOverviewButtonClasses(){
       return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`
     },
@@ -188,14 +170,11 @@ export default {
       return this.selectedBtnOptionskinds === "rounded" || this.checkboxTextChecked === false;;
     }
   },
-  directives: { highlight, copy }
 
 };
 </script>
 
 <style lang="scss">
-@import url("../../../../../node_modules/prismjs/themes/prism-tomorrow.css");
-
 // import BIMDATA COMPONENT VARIABLES
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
