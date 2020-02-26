@@ -1,174 +1,172 @@
 <template>
-  <div class="article colors">
-    <main>
-      <div class="article-wrapper">
-        <div class="test">
-          <div class="box box1"></div>
-          <div class="box box2"></div>
-          <div class="box box3"></div>
-        </div>
-        <h2>{{ $route.name }}</h2>
-        <h3>Brand colors</h3>
-        <div class="color-swatches">
-          <div class="color-swatche" v-for="brandColor in brandColors" :key="brandColor.id">
-            <div class="color-swatche__header" :style="{'background-color': brandColor.hex, 'color': brandColor.textcolor}">
-              <div class="color-swatche__header__item">
-                <div class="label"> Name </div>
-                <div class="value"> {{ brandColor.name }}</div>
+  <main class="article colors">
+    <div class="article-wrapper">
+      <div class="test">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+      </div>
+      <h2>{{ $route.name }}</h2>
+      <h3>Brand colors</h3>
+      <div class="color-swatches">
+        <div class="color-swatche" v-for="brandColor in brandColors" :key="brandColor.id">
+          <div class="color-swatche__header" :style="{'background-color': brandColor.hex, 'color': brandColor.textcolor}">
+            <div class="color-swatche__header__item">
+              <div class="label"> Name </div>
+              <div class="value"> {{ brandColor.name }}</div>
+            </div>
+          </div>
+          <div class="color-swatche__body">
+            <div class="color-swatche__body__item">
+              <div class="label"> HEX </div>
+              <div class="value" v-clipboard:copy="`${brandColor.hex}`" v-clipboard:success="onCopy"
+                v-clipboard:error="onError">
+                <span> {{ brandColor.hex }} </span>
+                <i class="clipboard"></i>
               </div>
             </div>
-            <div class="color-swatche__body">
-              <div class="color-swatche__body__item">
-                <div class="label"> HEX </div>
-                <div class="value" v-clipboard:copy="`${brandColor.hex}`" v-clipboard:success="onCopy"
-                  v-clipboard:error="onError">
-                  <span> {{ brandColor.hex }} </span>
-                  <i class="clipboard"></i>
+            <div class="color-swatche__body__item">
+              <div class="label"> RGB </div>
+              <div class="value" v-clipboard:copy="`${brandColor.rgb}`" v-clipboard:success="onCopy"
+                v-clipboard:error="onError">
+                <span>{{ brandColor.rgb }}</span>
+                <i class="clipboard"></i>
                 </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> SCSS </div>
+              <div class="value" v-clipboard:copy="`${brandColor.scss}`" v-clipboard:success="onCopy"
+                v-clipboard:error="onError">
+                <span>{{ brandColor.scss }}</span>
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> RGB </div>
-                <div class="value" v-clipboard:copy="`${brandColor.rgb}`" v-clipboard:success="onCopy"
-                  v-clipboard:error="onError">
-                  <span>{{ brandColor.rgb }}</span>
-                  <i class="clipboard"></i>
-                  </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> SCSS </div>
-                <div class="value" v-clipboard:copy="`${brandColor.scss}`" v-clipboard:success="onCopy"
-                  v-clipboard:error="onError">
-                  <span>{{ brandColor.scss }}</span>
-                  <i class="clipboard"></i>
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> CSS </div>
-                <div class="value" v-clipboard:copy="`${brandColor.css}`" v-clipboard:success="onCopy"
-                  v-clipboard:error="onError">
-                  <span>{{ brandColor.css }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> CSS </div>
+              <div class="value" v-clipboard:copy="`${brandColor.css}`" v-clipboard:success="onCopy"
+                v-clipboard:error="onError">
+                <span>{{ brandColor.css }}</span>
+                <i class="clipboard"></i>
               </div>
             </div>
           </div>
         </div>
-        <h3>Variant colors</h3>
-        <div class="color-swatches">
-          <div class="color-swatche" v-for="variantColor in variantColors" :key="variantColor.id">
-            <div class="color-swatche__header" :style="{'background-color': variantColor.hex, 'color': variantColor.textcolor}">
-              <div class="color-swatche__header__item">
-                <div class="label"> Name </div>
-                <div class="value"> {{ variantColor.name }} </div>
+      </div>
+      <h3>Variant colors</h3>
+      <div class="color-swatches">
+        <div class="color-swatche" v-for="variantColor in variantColors" :key="variantColor.id">
+          <div class="color-swatche__header" :style="{'background-color': variantColor.hex, 'color': variantColor.textcolor}">
+            <div class="color-swatche__header__item">
+              <div class="label"> Name </div>
+              <div class="value"> {{ variantColor.name }} </div>
+            </div>
+          </div>
+          <div class="color-swatche__body">
+            <div class="color-swatche__body__item">
+              <div class="label"> HEX </div>
+              <div class="value" v-clipboard:copy="`${variantColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ variantColor.hex }}</span>
+                <i class="clipboard"></i>
               </div>
             </div>
-            <div class="color-swatche__body">
-              <div class="color-swatche__body__item">
-                <div class="label"> HEX </div>
-                <div class="value" v-clipboard:copy="`${variantColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ variantColor.hex }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> RGB </div>
+              <div class="value" v-clipboard:copy="`${variantColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.rgb }}
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> RGB </div>
-                <div class="value" v-clipboard:copy="`${variantColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.rgb }}
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> SCSS </div>
+              <div class="value" v-clipboard:copy="`${variantColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.scss }}
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> SCSS </div>
-                <div class="value" v-clipboard:copy="`${variantColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.scss }}
-                  <i class="clipboard"></i>
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> CSS </div>
-                <div class="value" v-clipboard:copy="`${variantColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.css }}
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> CSS </div>
+              <div class="value" v-clipboard:copy="`${variantColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.css }}
+                <i class="clipboard"></i>
               </div>
             </div>
           </div>
         </div>
-        <h3>Common colors</h3>
-        <div class="color-swatches">
-          <div class="color-swatche" v-for="commonColor in commonColors" :key="commonColor.id">
-            <div class="color-swatche__header" :style="{'background-color': commonColor.hex, 'color': commonColor.textcolor}">
-              <div class="color-swatche__header__item">
-                <div class="label"> Name </div>
-                <div class="value"> {{ commonColor.name }} </div>
+      </div>
+      <h3>Common colors</h3>
+      <div class="color-swatches">
+        <div class="color-swatche" v-for="commonColor in commonColors" :key="commonColor.id">
+          <div class="color-swatche__header" :style="{'background-color': commonColor.hex, 'color': commonColor.textcolor}">
+            <div class="color-swatche__header__item">
+              <div class="label"> Name </div>
+              <div class="value"> {{ commonColor.name }} </div>
+            </div>
+          </div>
+          <div class="color-swatche__body">
+            <div class="color-swatche__body__item">
+              <div class="label"> HEX </div>
+              <div class="value" v-clipboard:copy="`${commonColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ commonColor.hex }}</span>
+                <i class="clipboard"></i>
               </div>
             </div>
-            <div class="color-swatche__body">
-              <div class="color-swatche__body__item">
-                <div class="label"> HEX </div>
-                <div class="value" v-clipboard:copy="`${commonColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ commonColor.hex }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> RGB </div>
+              <div class="value" v-clipboard:copy="`${commonColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ commonColor.rgb }}</span>
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> RGB </div>
-                <div class="value" v-clipboard:copy="`${commonColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ commonColor.rgb }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> SCSS </div>
+              <div class="value" v-clipboard:copy="`${commonColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ commonColor.scss }}</span>
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> SCSS </div>
-                <div class="value" v-clipboard:copy="`${commonColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ commonColor.scss }}</span>
-                  <i class="clipboard"></i>
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> CSS </div>
-                <div class="value" v-clipboard:copy="`${commonColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ commonColor.css }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> CSS </div>
+              <div class="value" v-clipboard:copy="`${commonColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ commonColor.css }}</span>
+                <i class="clipboard"></i>
               </div>
             </div>
           </div>
         </div>
-        <h3>State colors</h3>
-        <div class="color-swatches">
-          <div class="color-swatche" v-for="alertsColor in stateColors" :key="alertsColor.id">
-            <div class="color-swatche__header" :style="{'background-color': alertsColor.hex, 'color': alertsColor.textcolor}">
-              <div class="color-swatche__header__item">
-                <div class="label"> Name </div>
-                <div class="value"> {{ alertsColor.name }} </div>
+      </div>
+      <h3>State colors</h3>
+      <div class="color-swatches">
+        <div class="color-swatche" v-for="alertsColor in stateColors" :key="alertsColor.id">
+          <div class="color-swatche__header" :style="{'background-color': alertsColor.hex, 'color': alertsColor.textcolor}">
+            <div class="color-swatche__header__item">
+              <div class="label"> Name </div>
+              <div class="value"> {{ alertsColor.name }} </div>
+            </div>
+          </div>
+          <div class="color-swatche__body">
+            <div class="color-swatche__body__item">
+              <div class="label"> HEX </div>
+              <div class="value" v-clipboard:copy="`${alertsColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ alertsColor.hex }}</span>
+                <i class="clipboard"></i>
               </div>
             </div>
-            <div class="color-swatche__body">
-              <div class="color-swatche__body__item">
-                <div class="label"> HEX </div>
-                <div class="value" v-clipboard:copy="`${alertsColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ alertsColor.hex }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> RGB </div>
+              <div class="value" v-clipboard:copy="`${alertsColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ alertsColor.rgb }}</span>
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> RGB </div>
-                <div class="value" v-clipboard:copy="`${alertsColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ alertsColor.rgb }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> SCSS </div>
+              <div class="value" v-clipboard:copy="`${alertsColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ alertsColor.scss }}</span>
+                <i class="clipboard"></i>
               </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> SCSS </div>
-                <div class="value" v-clipboard:copy="`${alertsColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ alertsColor.scss }}</span>
-                  <i class="clipboard"></i>
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label"> CSS </div>
-                <div class="value" v-clipboard:copy="`${alertsColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <span>{{ alertsColor.css }}</span>
-                  <i class="clipboard"></i>
-                </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label"> CSS </div>
+              <div class="value" v-clipboard:copy="`${alertsColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                <span>{{ alertsColor.css }}</span>
+                <i class="clipboard"></i>
               </div>
             </div>
           </div>
@@ -179,8 +177,8 @@
           {{ message }}
         </div>
       </transition>
-    </main>
-  </div>
+    </div>
+  </main>
 </template>
 
 <script>
