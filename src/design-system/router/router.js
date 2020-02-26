@@ -52,7 +52,7 @@ const routes = [
       },
       {
         path: '/',
-        name: 'releasenotes',
+        name: 'release',
         component: Content
       },
       {
