@@ -8,7 +8,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -t bimdata/design:latest .
+      - run: docker build -f etc/Dockerfile -t bimdata/design:latest .
       - run:
           name: push to docker hub
           command: |
