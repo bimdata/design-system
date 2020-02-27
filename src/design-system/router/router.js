@@ -2,18 +2,24 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home/Home.vue'
-import GettingStarted from '../views/GettingStarted/GettingStarted.vue'
 import Layout from '../views/Layout/Layout.vue'
 import Content from '../views/Layout/Content.vue'
+
+// import GETTING STARTED
+import Designers from '../views/views-item/GettingStarted/Designers.vue'
+import Developpers from '../views/views-item/GettingStarted/Developpers.vue'
+import InternalDoc from '../views/views-item/GettingStarted/InternalDoc.vue'
 
 // import GUIDELINES
 import Colors from '../views/views-item/Colors/Colors.vue'
 import Grid from '../views/views-item/Grid/Grid.vue'
+import Markup from '../views/views-item/Markup/Markup.vue'
 import Spacing from '../views/views-item/Spacing/Spacing.vue'
 import Typography from '../views/views-item/Typography/Typography.vue'
 
 // import COMPONENTS
 import Buttons from '../views/views-item/Buttons/Buttons.vue'
+import Checkbox from '../views/views-item/Checkbox/Checkbox.vue'
 import Icons from '../views/views-item/Icons/Icons.vue'
 
 
@@ -27,7 +33,34 @@ const routes = [
   },
   {
     path: '/gettingstarted',
-    component: GettingStarted,
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        name: 'gettingstarted',
+        component: Content,
+      },
+      {
+        path: 'designers',
+        name: 'Designers',
+        component: Designers
+      },
+      {
+        path: 'developpers',
+        name: 'Developpers',
+        component: Developpers
+      },
+      {
+        path: '/',
+        name: 'release',
+        component: Content
+      },
+      {
+        path: 'internal-doc',
+        name: 'InternalDoc',
+        component: InternalDoc
+      }
+    ]
   },
   {
     path: '/guidelines',
@@ -47,6 +80,11 @@ const routes = [
         path: 'grid',
         name: 'grid',
         component: Grid
+      },
+      {
+        path: 'markup',
+        name: 'markup',
+        component: Markup
       },
       {
         path: 'spacing',
@@ -73,6 +111,11 @@ const routes = [
         path: 'buttons',
         name: 'buttons',
         component: Buttons
+      },
+      {
+        path: 'checkbox',
+        name: 'checkbox',
+        component: Checkbox
       },
       {
         path: 'icons',

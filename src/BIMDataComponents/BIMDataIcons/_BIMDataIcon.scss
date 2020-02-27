@@ -1,10 +1,11 @@
 // custom SVG
 // style bimdata fill & stroke - DEFAULT
 .bimdata-fill-default{
-  fill: $color-grey;
+  fill: $color-disabled;
 }
 .bimdata-stroke-default{
-  stroke: $color-grey;
+  fill: transparent;
+  stroke: $color-disabled;
 }
 
 // style bimdata fill & stroke - PRIMARY
@@ -12,6 +13,7 @@
   fill: $color-primary;
 }
 .bimdata-stroke-primary{
+  fill: transparent;
   stroke: $color-primary;
 }
 
@@ -20,15 +22,17 @@
   fill: $color-secondary;
 }
 .bimdata-stroke-secondary{
+  fill: transparent;
   stroke: $color-secondary;
 }
 
 // style bimdata fill & stroke - GREY
 .bimdata-fill-grey{
-  fill: $color-background-d20;
+  fill: $color-tertiary-dark;
 }
 .bimdata-stroke-grey{
-  stroke: $color-background-d20;
+  fill: transparent;
+  stroke: $color-tertiary-dark;
 }
 
 // style bimdata fill & stroke - WHITE
@@ -36,31 +40,35 @@
   fill: $color-white;
 }
 .bimdata-stroke-white{
+  fill: transparent;
   stroke: $color-white;
 }
 
 // style bimdata fill & stroke - BORDER
 .bimdata-fill-border{
-  fill: $color-border;
+  fill: $color-tertiary;
 }
 .bimdata-stroke-border{
-  stroke: $color-border;
+  fill: transparent;
+  stroke: $color-tertiary;
 }
 
 // style bimdata fill & stroke - TEXT
 .bimdata-fill-text{
-  fill: $color-text;
+  fill: $color-tertiary-darkest;
 }
 .bimdata-stroke-text{
-  stroke: $color-text;
+  fill: transparent;
+  stroke: $color-tertiary-darkest;
 }
 
 // style bimdata fill & stroke - RED
 .bimdata-fill-red{
-  fill: $color-red;
+  fill: $color-high;
 }
 .bimdata-stroke-red{
-  stroke: $color-red;
+  fill: transparent;
+  stroke: $color-high;
 }
 
 .icon-chevron {

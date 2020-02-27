@@ -21,7 +21,7 @@
     justify-content: space-between;
     &__item{
       margin: 0 50px;
-      padding: 0 24px;
+      padding: 24px;
       height: 317px;
       max-width: 330px;
       background-color: $color-white;
@@ -34,6 +34,29 @@
       h2, p{
         color: $color-primary;
         text-align: center;
+      }
+      button{
+        margin-top: .5rem;
+      }
+      &:first-child{
+        img{
+          animation-duration: 0.7s;
+          animation-name: bounceIn;
+        }
+      }
+      &:nth-child(2){
+        img{
+          animation-duration: 0.7s;
+          animation-delay: .15s;
+          animation-name: bounceIn;
+        }
+      }
+      &:nth-child(3){
+        img{
+          animation-duration: 0.7s;
+          animation-delay: .3s;
+          animation-name: bounceIn;
+        }
       }
     }
   }

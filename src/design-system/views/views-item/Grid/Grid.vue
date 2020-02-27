@@ -1,14 +1,12 @@
 <template>
-  <div class="article grid">
-    <main>
-      <div class="article-wrapper">
-        <h2>{{ $route.name }}</h2>
-      </div>
-      <div class="article-content">
+  <main class="article grid">
+    <div class="article-wrapper">
+      <h2>{{ $route.name }}</h2>
+    </div>
+    <div class="article-content">
 
-      </div>
-    </main>
-  </div>
+    </div>
+  </main>
 </template>
 
 <style lang="scss">

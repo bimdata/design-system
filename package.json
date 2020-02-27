@@ -1,10 +1,14 @@
 {
-  "name": "design-system",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@bimdata/design-system",
+  "version": "0.0.2",
+  "main": "./dist/component.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "build-bundle":"vue-cli-service build --formats umd-min --target lib --name component ./src/BIMDataComponents/index.js && ./postBuild.sh"
   },
   "dependencies": {
     "highlight.js": "^9.17.1",

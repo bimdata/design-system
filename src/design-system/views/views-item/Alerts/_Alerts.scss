@@ -10,10 +10,10 @@
   font-size: 12px;
   color: $color-white;
   &.success{
-    background-color: $color-green;
+    background-color: $color-success;
   }
   &.error{
-    background-color: $color-red;
+    background-color: $color-high;
   }
 }
 .fade-enter-active, .fade-leave-active {
