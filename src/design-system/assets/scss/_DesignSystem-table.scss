@@ -5,15 +5,18 @@ table{
     tr{
       td{
         height: calc(#{$spacing-unit} * 3);
-        @include font-size(14px);
-        &:nth-child(odd){
-          color: $color-white;
-          background-color: $color-primary;
-        }
-        &:nth-child(even){
-          color: $color-white;
-          background-color: lighten($color-primary, 10%);
-        }
+        background-color: transparent;
+        color: $color-black;
+      }
+    }
+  }
+  tbody{
+    tr{
+      td{
+        color: $color-tertiary-darkest;
+      }
+      &:nth-child(odd){
+        background-color: $color-tertiary-lightest;
       }
     }
   }
@@ -29,12 +32,6 @@ table{
       flex: 1;
       align-items: center;
       @include font-size(12px);
-      &:nth-child(odd){
-        background-color: $color-tertiary-lightest;
-      }
-      &:nth-child(even){
-        background-color: darken($color-tertiary-lightest, 5%);
-      }
     }
   }
 }
