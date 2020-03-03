@@ -1,8 +1,12 @@
 .bimdata-search-bar {
+  padding: 0 $spacing-unit;
   display: flex;
   align-items: center;
+  transition: all .2s ease;
   .bimdata-search-icon {
-    height: 18px;
+    width: 13px;
+    height: 13px;
+    display: flex;
     cursor: pointer;
   }
   input {
@@ -10,11 +14,30 @@
     height: 100%;
     color: $color-tertiary-darkest;
     margin-left: calc(#{$spacing-unit} / 2);
+    background-color: transparent;
     border: none;
     box-sizing: border-box;
     @include font-size(12px);
     &:focus {
       outline: none;
     }
+  }
+  &.focus{
+    background-color: $color-white;
+    box-shadow: 0px 2px 10px rgba($color-black, 0.1);
+    transition: all .2s ease;
+  }
+
+  &__radius {
+    border-radius: 3px;
+  }
+  &__square {
+    border-radius: 0;
+  }
+  &__primary{
+    background-color: $color-tertiary-lightest;
+  }
+  &__secondary{
+    background-color: $color-white;
   }
 }
