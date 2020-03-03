@@ -129,6 +129,13 @@ export default new Vuex.Store({
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View radio"
+        },
+        {
+          title: "Search",
+          img: require("./design-system/assets/img/icon-search.svg"),
+          path: "search",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View search"
         }
       ]
     }
