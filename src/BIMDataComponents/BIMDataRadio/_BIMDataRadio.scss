@@ -58,6 +58,9 @@
       border-radius: 50%;
       transition: all 0.2s ease;
     }
+    &::after, &::before{
+      box-sizing: border-box;
+    }
     // custom CIRCLE
     &::before {
       border: 1.5px solid rgba($color-primary, 0.6);
