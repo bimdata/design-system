@@ -22,6 +22,7 @@ import Buttons from '../views/views-item/Buttons/Buttons.vue'
 import Card from '../views/views-item/Card/Card.vue'
 import Checkbox from '../views/views-item/Checkbox/Checkbox.vue'
 import Icons from '../views/views-item/Icons/Icons.vue'
+import Radio from '../views/views-item/Radio/Radio.vue'
 
 
 Vue.use(VueRouter)
@@ -127,6 +128,11 @@ const routes = [
         path: 'icons',
         name: 'icons',
         component: Icons
+      },
+      {
+        path: 'radio',
+        name: 'radio',
+        component: Radio
       }
     ]
   }

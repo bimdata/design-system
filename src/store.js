@@ -121,6 +121,14 @@ export default new Vuex.Store({
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View icons"
+        },
+        {
+          title: "Radio",
+          img:require("./design-system/assets/img/icon-radio.svg"),
+          path: "radio",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View radio"
         }
       ]
     }
