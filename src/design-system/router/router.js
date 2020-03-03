@@ -1,28 +1,29 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-import Home from '../views/Home/Home.vue'
-import Layout from '../views/Layout/Layout.vue'
-import Content from '../views/Layout/Content.vue'
+import Home from '../views/Home/Home.vue';
+import Layout from '../views/Layout/Layout.vue';
+import Content from '../views/Layout/Content.vue';
 
 // import GETTING STARTED
-import Designers from '../views/views-item/GettingStarted/Designers.vue'
-import Developpers from '../views/views-item/GettingStarted/Developpers.vue'
-import InternalDoc from '../views/views-item/GettingStarted/InternalDoc.vue'
+import Designers from '../views/views-item/GettingStarted/Designers.vue';
+import Developpers from '../views/views-item/GettingStarted/Developpers.vue';
+import InternalDoc from '../views/views-item/GettingStarted/InternalDoc.vue';
 
 // import GUIDELINES
-import Colors from '../views/views-item/Colors/Colors.vue'
-import Grid from '../views/views-item/Grid/Grid.vue'
-import Markup from '../views/views-item/Markup/Markup.vue'
-import Spacing from '../views/views-item/Spacing/Spacing.vue'
-import Typography from '../views/views-item/Typography/Typography.vue'
+import Colors from '../views/views-item/Colors/Colors.vue';
+import Grid from '../views/views-item/Grid/Grid.vue';
+import Markup from '../views/views-item/Markup/Markup.vue';
+import Spacing from '../views/views-item/Spacing/Spacing.vue';
+import Typography from '../views/views-item/Typography/Typography.vue';
 
 // import COMPONENTS
-import Buttons from '../views/views-item/Buttons/Buttons.vue'
-import Card from '../views/views-item/Card/Card.vue'
-import Checkbox from '../views/views-item/Checkbox/Checkbox.vue'
-import Icons from '../views/views-item/Icons/Icons.vue'
-import Radio from '../views/views-item/Radio/Radio.vue'
+import Buttons from '../views/views-item/Buttons/Buttons.vue';
+import Card from '../views/views-item/Card/Card.vue';
+import Checkbox from '../views/views-item/Checkbox/Checkbox.vue';
+import Icons from '../views/views-item/Icons/Icons.vue';
+import Radio from '../views/views-item/Radio/Radio.vue';
+import Search from '../views/views-item/Search/Search.vue';
 
 
 Vue.use(VueRouter)
@@ -133,6 +134,11 @@ const routes = [
         path: 'radio',
         name: 'radio',
         component: Radio
+      },
+      {
+        path: 'search',
+        name: 'search',
+        component: Search
       }
     ]
   }
