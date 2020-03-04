@@ -1,7 +1,7 @@
 <template>
   <button
     class="bimdata-btn"
-    :style="{ width: width, height: height }"
+    :style="{ 'min-width': width, height: height }"
     @click="$emit('click', $event)"
   >
     <slot></slot>

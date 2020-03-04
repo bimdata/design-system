@@ -9,6 +9,7 @@
             <BIMDataButton
             :width="getButtonWidth()"
             :class="getOverviewButtonClasses()"
+            :disabled="getButtonDisabled()"
             >
               <BIMDataIcon
                 class="icon-chevron"
@@ -57,11 +58,17 @@
                 :disabled="checkboxTextDisabled"
               >
               </BIMDataCheckbox>
+              <BIMDataCheckbox
+                text="disabled"
+                :state="checkboxDisabledChecked"
+                @change="checkboxDisabledChecked = $event.target.checked"
+              >
+              </BIMDataCheckbox>
             </div>
           </template>
 
           <template #code>
-            &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{ selectedBtnOptionskinds }}"&gt;
+            &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{ selectedBtnOptionskinds }}" :disabled="{{ getButtonDisabled() }}"&gt;
               Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
             &lt;/BIMDataButton&gt;
           </template>
@@ -107,6 +114,7 @@ export default {
       message: "",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
+      checkboxDisabledChecked: false,
       selectedBtnOptionstypes: "fill",
       selectedBtnOptionskinds: "radius",
       selectedBtnOptionsvalues: "default",
@@ -147,6 +155,9 @@ export default {
       } else {
         return "300px";
       }
+    },
+    getButtonDisabled() {
+      return this.checkboxDisabledChecked
     }
   },
   watch: {
@@ -167,7 +178,12 @@ export default {
       return this.selectedBtnOptionskinds === "rounded" || this.checkboxIconChecked === false;
     },
     checkboxIconDisabled() {
-      return this.selectedBtnOptionskinds === "rounded" || this.checkboxTextChecked === false;;
+      return this.selectedBtnOptionskinds === "rounded" || this.checkboxTextChecked === false;
+    },
+    buttonDisabled() {
+      if(this.checkboxDisabledChecked === true){
+        return ":disabled='disabled'"
+      }
     }
   },
 
