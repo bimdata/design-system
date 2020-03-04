@@ -4,7 +4,7 @@
       <h1>Developpers</h1>
       <p>How to get started with BIMData's vuejs component library</p>
       <h4>1. Install the package</h4>
-      <p>BIMData’s component library is called <code>design-system</code>, and it’s available on the npm registry.</p>
+      <p>BIMData’s component library is called <code class="code-highlight">design-system</code>, and it’s available on the npm registry.</p>
       <pre class="language-bash" v-copy="onCopy">
         <code class="language-bash" v-highlight:bash>npm i @bimdata/design-system</code>
       </pre>
@@ -19,7 +19,7 @@
 
       <h4>3. Register component</h4>
       <p>
-        into your <code>.vue</code> file, define your component into <code class="code-highlight">components</code> option
+        into your <code class="code-highlight">.vue</code> file, define your component into <code class="code-highlight">components</code> option
       </p>
       <pre class="language-javascript" v-copy="onCopy">
         <code class="language-javascript" v-highlight:javascript>
@@ -37,6 +37,14 @@
           &lt;BIMDataSearch value="Search"&gt;&lt;/BIMDataSearch&gt;
         </code>
       </pre>
+
+      <h4>5. Import components style</h4>
+      <pre class="language-javascript" v-copy="onCopy">
+        <code class="language-javascript" v-highlight:javascript>
+          @import "~@bimdata/design-system/dist/styles/component.css";
+        </code>
+      </pre>
+
       <Alerts v-if="alerts" :message="message" :class="alertType" />
     </div>
   </main>
