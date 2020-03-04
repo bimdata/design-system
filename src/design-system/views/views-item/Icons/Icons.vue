@@ -1,5 +1,5 @@
 <template>
-  <main class="article icons">
+  <main class="article article-icons">
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
       <h3>Size usage for designers</h3>
@@ -10,7 +10,7 @@
       </div>
 
       <h3>Examples</h3>
-      <BIMDataSearchBar value="Search an icon" v-model="filter" />
+      <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" />
       <div class="bimdata-ds__demo">
         <div class="bimdata-ds__demo__module">
           <span>icons: {{iconNames.length}}</span>

@@ -1,7 +1,10 @@
-.icons {
+.article-icons {
   img {
     width: 71px;
     height: auto;
+  }
+  .bimdata-search-bar{
+    margin: 0 0 $spacing-unit;
   }
   .bimdata-ds__demo{
     &__module{
@@ -27,6 +30,29 @@
           align-items: center;
           p{
             @include font-size(12px);
+          }
+        }
+      }
+    }
+  }
+  .bimdata-ds__properties{
+    table{
+      tr{
+        td{
+          &:nth-child(1){
+            flex: 1;
+          }
+          &:nth-child(2){
+            flex: 1;
+          }
+          &:nth-child(3){
+            flex: 1;
+          }
+          &:nth-child(4){
+            flex: 3;
+          }
+          &:nth-child(5){
+            flex: 2;
           }
         }
       }
