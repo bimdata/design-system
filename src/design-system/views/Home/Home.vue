@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <BIMDataSearchBar v-model="filter" />
+    <BIMDataSearchBar v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
     <!-- <p>{{Object.values($store.state)}}</p> -->
     <div class="home-content">
       <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="home-content__item">

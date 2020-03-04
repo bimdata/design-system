@@ -8,20 +8,16 @@
   background: linear-gradient(162.76deg,#d1e6ff -9.05%,rgba(248,248,249,0) 108.11%);
   .bimdata-search-bar{
     margin: calc(#{$spacing-unit} * 4) 0;
-    padding: 0 18px;
-    width: 776px;
-    height: 56px;
-    box-shadow: 0 4px 10px rgba($color-black,.1);
     background-color: $color-white;
   }
   &-content{
-    width: 1440px;
+    width: auto;
     max-width: 1440px;
     display: flex;
     justify-content: space-between;
     &__item{
-      margin: 0 50px;
-      padding: 24px;
+      margin: 0 calc(#{$spacing-unit} * 2);
+      padding: calc(#{$spacing-unit} * 2);
       height: 317px;
       max-width: 330px;
       background-color: $color-white;
