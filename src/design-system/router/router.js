@@ -22,6 +22,7 @@ import Buttons from '../views/views-item/Buttons/Buttons.vue';
 import Card from '../views/views-item/Card/Card.vue';
 import Checkbox from '../views/views-item/Checkbox/Checkbox.vue';
 import Icons from '../views/views-item/Icons/Icons.vue';
+import Input from '../views/views-item/Input/Input.vue';
 import Radio from '../views/views-item/Radio/Radio.vue';
 import Search from '../views/views-item/Search/Search.vue';
 
@@ -129,6 +130,11 @@ const routes = [
         path: 'icons',
         name: 'icons',
         component: Icons
+      },
+      {
+        path: 'input',
+        name: 'input',
+        component: Input
       },
       {
         path: 'radio',
