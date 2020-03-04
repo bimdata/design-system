@@ -25,7 +25,7 @@
         </template>
 
         <template #code>
-          &lt;BIMDataSearch value="Search" class="bimdata-search-bar__{{selectedSearchOptionskinds}} bimdata-search-bar__{{selectedSearchOptionsstyle}}"&gt;
+          &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{selectedSearchOptionskinds}} bimdata-search-bar__{{selectedSearchOptionsstyle}}"&gt;
           &lt;/BIMDataSearch&gt;
         </template>
       </Code>
@@ -48,7 +48,7 @@ export default {
     Code,
     TableProperties,
     BIMDataRadio,
-    BIMDataSearch,
+    BIMDataSearch
   },
   data(){
     return {
