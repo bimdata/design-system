@@ -1,9 +1,15 @@
 .bimdata-ds__demo{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 300px);
   h3{
     grid-column: 1 / 3;
     grid-row: 1;
+  }
+  &__tertiary-lightest{
+    .bimdata-ds__demo__module{
+      background-color: $color-tertiary-lightest;
+    }
   }
   &__module{
     padding: 1rem;
