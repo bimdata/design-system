@@ -1,11 +1,11 @@
 // custom SVG
 // style bimdata fill & stroke - DEFAULT
 .bimdata-fill-default{
-  fill: $color-disabled;
+  fill: $color-tertiary-dark;
 }
 .bimdata-stroke-default{
   fill: transparent;
-  stroke: $color-disabled;
+  stroke: $color-tertiary-dark;
 }
 
 // style bimdata fill & stroke - PRIMARY
@@ -27,12 +27,12 @@
 }
 
 // style bimdata fill & stroke - GREY
-.bimdata-fill-grey{
-  fill: $color-tertiary-dark;
+.bimdata-fill-tertiary{
+  fill: $color-tertiary;
 }
-.bimdata-stroke-grey{
+.bimdata-stroke-tertiary{
   fill: transparent;
-  stroke: $color-tertiary-dark;
+  stroke: $color-tertiary;
 }
 
 // style bimdata fill & stroke - WHITE
@@ -44,20 +44,11 @@
   stroke: $color-white;
 }
 
-// style bimdata fill & stroke - BORDER
-.bimdata-fill-border{
-  fill: $color-tertiary;
-}
-.bimdata-stroke-border{
-  fill: transparent;
-  stroke: $color-tertiary;
-}
-
 // style bimdata fill & stroke - TEXT
-.bimdata-fill-text{
+.bimdata-fill-tertiary-darkest{
   fill: $color-tertiary-darkest;
 }
-.bimdata-stroke-text{
+.bimdata-stroke-tertiary-darkest{
   fill: transparent;
   stroke: $color-tertiary-darkest;
 }
