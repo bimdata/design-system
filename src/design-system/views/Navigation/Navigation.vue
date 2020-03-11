@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="bimdata-ds__header">
     <div class="bimdata-ds__logo">
       <router-link to="/"><img src="../../assets/img/design-system__logo.svg" alt=""></router-link>
     </div>
