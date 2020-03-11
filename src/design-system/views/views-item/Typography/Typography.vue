@@ -10,31 +10,31 @@
         <div class="typography-size__content">
           <div class="typography-size__content__item">
             <h1>Heading H1</h1>
-            <small>96px</small>
+            <small>34px — 2.42857rem</small>
           </div>
           <div class="typography-size__content__item">
             <h2>Heading H2</h2>
-            <small>60px</small>
+            <small>30px — 2.14286rem</small>
           </div>
           <div class="typography-size__content__item">
             <h3>Heading H3</h3>
-            <small>48px</small>
+            <small>26px — 1.85714rem</small>
           </div>
           <div class="typography-size__content__item">
             <h4>Heading H4</h4>
-            <small>34px</small>
+            <small>24px — 1.71429rem</small>
           </div>
           <div class="typography-size__content__item">
             <h5>Heading H5</h5>
-            <small>24px</small>
+            <small>20px — 1.42857rem</small>
           </div>
           <div class="typography-size__content__item">
             <h6>Heading H6</h6>
-            <small>20px</small>
+            <small>16px — 1.14286rem</small>
           </div>
           <div class="typography-size__content__item">
             <p>Button</p>
-            <small>14px</small>
+            <small>14px — 1rem</small>
           </div>
         </div>
       </div>
