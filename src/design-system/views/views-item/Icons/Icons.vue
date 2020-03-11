@@ -10,7 +10,7 @@
       </div>
 
       <h3>Examples</h3>
-      <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" />
+      <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
       <div class="bimdata-ds__demo">
         <div class="bimdata-ds__demo__module">
           <span>icons: {{iconNames.length}}</span>
@@ -199,7 +199,7 @@ export default {
       selectedIconOptionsclass: "bimdata-fill-primary",
       iconOptions: {
         class:[
-          "bimdata-fill-default", "bimdata-fill-primary", "bimdata-fill-secondary", "bimdata-fill-grey", "bimdata-fill-white", "bimdata-fill-border", "bimdata-fill-text", "bimdata-fill-red", "bimdata-stroke-default", "bimdata-stroke-primary", "bimdata-stroke-secondary", "bimdata-stroke-grey", "bimdata-stroke-white", "bimdata-stroke-border", "bimdata-stroke-text", "bimdata-stroke-red"
+          "bimdata-fill-default", "bimdata-fill-primary", "bimdata-fill-secondary", "bimdata-fill-tertiary", "bimdata-fill-white", "bimdata-fill-tertiary-darkest", "bimdata-fill-red", "bimdata-stroke-default", "bimdata-stroke-primary", "bimdata-stroke-secondary", "bimdata-stroke-tertiary", "bimdata-stroke-white", "bimdata-stroke-tertiary-darkest", "bimdata-stroke-red"
         ]
       },
       properties: [
