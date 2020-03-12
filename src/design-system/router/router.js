@@ -8,6 +8,7 @@ import Content from '../views/Layout/Content.vue';
 // import GETTING STARTED
 import Designers from '../views/views-item/GettingStarted/Designers.vue';
 import Developpers from '../views/views-item/GettingStarted/Developpers.vue';
+import Releases from '../views/views-item/GettingStarted/Releases.vue';
 import InternalDoc from '../views/views-item/GettingStarted/InternalDoc.vue';
 
 // import GUIDELINES
@@ -55,9 +56,9 @@ const routes = [
         component: Developpers
       },
       {
-        path: '/',
-        name: 'release',
-        component: Content
+        path: 'releases',
+        name: 'Releases',
+        component: Releases
       },
       {
         path: 'internal-doc',
