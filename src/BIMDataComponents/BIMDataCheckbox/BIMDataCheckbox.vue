@@ -1,20 +1,20 @@
 <template>
-  <label class="bimdata-checkbox">
-    <input
-      @focus="$event.currentTarget.blur()"
-      :class="{indeterminate: indeterminate}"
-      type="checkbox"
-      :checked="checked"
-      v-on="$listeners"
-      :disabled="disabled"
-    />
+  <div
+    class="bimdata-checkbox"
+    :class="{ indeterminate, disabled, checked }"
+    @click="onClick"
+  >
     <span class="bimdata-checkbox__mark"></span>
-    <span class="bimdata-checkbox__text">{{text}}</span>
-  </label>
+    <span class="bimdata-checkbox__text">{{ text }}</span>
+  </div>
 </template>
 
 <script>
 export default {
+  model: {
+    prop: "state",
+    event: "change"
+  },
   inheritAttrs: false,
   name: "BIMDataCheckbox",
   props: {
@@ -38,18 +38,25 @@ export default {
     checked() {
       return this.state === true || this.indeterminate;
     }
+  },
+  methods: {
+    onClick() {
+      if(!this.disabled){
+        this.$emit("change", this.checked ? false : true);
+      }
+    }
   }
 };
 </script>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_font-size.scss";
-  @import "../../assets/scss/mixins/_pseudo.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/mixins/_pseudo.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataCheckbox.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataCheckbox.scss";
 </style>
