@@ -16,7 +16,7 @@
                 icon-name="chevron-right"
                 width="10"
                 height="10"
-                x="13"
+                x="23"
                 y="23"
                 v-if="checkboxIconChecked"
               >
@@ -46,22 +46,19 @@
               <h5>modifiers</h5>
               <BIMDataCheckbox
                 text="icon"
-                :state="checkboxIconChecked"
-                @change="checkboxIconChecked = $event.target.checked"
+                v-model="checkboxIconChecked"
                 :disabled="checkboxIconDisabled"
               >
               </BIMDataCheckbox>
               <BIMDataCheckbox
                 text="text"
-                :state="checkboxTextChecked"
-                @change="checkboxTextChecked = $event.target.checked"
+                v-model="checkboxTextChecked"
                 :disabled="checkboxTextDisabled"
               >
               </BIMDataCheckbox>
               <BIMDataCheckbox
                 text="disabled"
-                :state="checkboxDisabledChecked"
-                @change="checkboxDisabledChecked = $event.target.checked"
+                v-model="checkboxDisabledChecked"
               >
               </BIMDataCheckbox>
             </div>
