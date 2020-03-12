@@ -1,5 +1,5 @@
 .bimdata-ds {
-  header {
+  &__header {
     width: 100%;
     height: 60px;
     display: flex;
@@ -8,7 +8,7 @@
     position: fixed;
   }
   &__logo {
-    width: 320px;
+    width: 300px;
     a {
       display: flex;
       align-items: center;
@@ -29,6 +29,7 @@
       width: 100%;
       height: 100%;
       display: flex;
+      justify-content: center;
       li {
         a {
           padding: 0 $spacing-unit;
