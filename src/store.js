@@ -144,6 +144,13 @@ export default new Vuex.Store({
           path: "search",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           btn: "View search"
+        },
+        {
+          title: "Table",
+          img: require("./design-system/assets/img/icon-table.svg"),
+          path: "table",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View table"
         }
       ]
     }
