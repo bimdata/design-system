@@ -2,16 +2,16 @@
   <main class="article internal-doc">
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
-      <h3>Comment ajouter une nouvelle rubrique au design system</h3>
+      <h3>How to add a new section to the design system</h3>
       <ol>
         <li>
-          Dans le répertoire <code class="code-highlight">view-items</code> créez un nouveau répertoire du nom de votre composant. A l'intérieur de ce dernier, créez votre fichier .vue ainsi que .scss.
+          In the <code class="code-highlight">view-items</code>  directory create a new directory with the name of your component. Inside it, create your .vue file as well as .scss.
           <pre class="language-xml">
           <code class="language-xml" v-highlight:xml>
             &lt;template&gt;
               &lt;main class="article your-file-class"&gt;
                 &lt;div class="article-wrapper"&gt;
-                  &lt;h2&gt; &#123;&#123; '$route.name' &#125; &#125; &lt;/h2&gt;
+                  &lt;h2&gt; &#123;&#123;getRouteName()&#125;&#125; &lt;/h2&gt;
                 &lt;/div&gt;
               &lt;/main&gt;
             &lt;/template&gt;
@@ -32,7 +32,7 @@
         </li>
 
         <li>
-          Dans le fichier <code class="code-highlight">store.js</code> ajouter votre item dans la partie children correpondante (getting started, guidelines ou components).
+          In the <code class="code-highlight">store.js</code> file, add your item in the corresponding children section (getting started, guidelines or components).
           <pre class="language-javascript">
             <code class="language-javascript" v-highlight:javascript>
               {
@@ -46,11 +46,14 @@
           </pre>
         </li>
         <li>
-          Dans le fichier <code class="code-highlight">router.js</code> importer votre nouveau fichier .vue et ajouter le dans la partie children correpondante (getting started, guidelines ou components).
+          In the <code class="code-highlight">router.js</code> file import your new .vue file and add it in the corresponding children section (getting started, guidelines or components).
           <pre class="language-javascript">
             <code class="language-javascript" v-highlight:javascript>
               import YourFileComponent from '../views/views-item/YourFolder/YourFileTitle.vue'
-
+            </code>
+          </pre>
+          <pre class="language-javascript">
+            <code class="language-javascript" v-highlight:javascript>
               {
                 path: 'YourFileTitle',
                 name: 'YourFileTitle',
@@ -70,7 +73,12 @@ import copy from "../../../../directives/copy.js";
 import Prism from "prismjs";
 
 export default {
-  directives: { highlight, copy }
+  directives: { highlight, copy },
+  methods: {
+    getRouteName(){
+      return "{{ $route.name }}"
+    }
+  }
 }
 
 </script>
