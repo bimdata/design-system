@@ -6,6 +6,7 @@
           <template #module>
             <BIMDataCheckbox
             text="Your label here"
+            v-model="checked"
             ></BIMDataCheckbox>
           </template>
 
@@ -14,7 +15,8 @@
 
           <template #code>
             &lt;BIMDataCheckbox
-            text="Your label here"&gt;
+            text="Your label here"
+            v-model="checked"&gt;
             &lt;/BIMDataCheckbox&gt;
           </template>
         </Code>
@@ -38,6 +40,7 @@ export default {
   },
   data(){
     return {
+      checked: false,
       properties: [
       {
         property:"text",
