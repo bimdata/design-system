@@ -14,10 +14,12 @@
           </template>
 
           <template #code>
-            &lt;BIMDataCheckbox
-            text="Your label here"
-            v-model="checked"&gt;
-            &lt;/BIMDataCheckbox&gt;
+            <pre>
+              &lt;BIMDataCheckbox
+              text="Your label here"
+              v-model="checked"&gt;
+              &lt;/BIMDataCheckbox&gt;
+            </pre>
           </template>
         </Code>
 

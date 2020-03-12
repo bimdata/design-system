@@ -19,13 +19,15 @@
         </template>
 
         <template #code>
-          &lt;BIMDataInput
+          <pre>
+            &lt;BIMDataInput
             v-model="testInput"
             placeholder="Your placeholder here"
             :error="!testInput"
             errorMessage="your error message here"
             :loading="loading"
           /&gt;
+          </pre>
         </template>
       </Code>
 

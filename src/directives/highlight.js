@@ -18,7 +18,7 @@ function highlight (el, binding, vnode) {
   if(!["xml", "scss", "javascript", "bash"].includes(choosedLanguage)){
     throw new Error("Supported languages are xml, javascript, scss and xml");
   }
-  const textToHighlight = vnode.children[0].text;
+  const textToHighlight = vnode.children[1].children[0].text;
 
   el.innerHTML = normalizer.normalize(Prism.highlight(textToHighlight, Prism.languages[choosedLanguage], choosedLanguage), {
     'remove-trailing': true,

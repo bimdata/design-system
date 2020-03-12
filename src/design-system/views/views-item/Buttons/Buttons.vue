@@ -65,9 +65,11 @@
           </template>
 
           <template #code>
-            &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{ selectedBtnOptionskinds }}" :disabled="{{ getButtonDisabled() }}"&gt;
-              Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
-            &lt;/BIMDataButton&gt;
+            <pre>
+                &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{ selectedBtnOptionskinds }}" :disabled="{{ getButtonDisabled() }}"&gt;
+                  Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
+                &lt;/BIMDataButton&gt;
+            </pre>
           </template>
         </Code>
 
@@ -80,6 +82,7 @@
 </template>
 
 <script>
+
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
@@ -182,8 +185,7 @@ export default {
         return ":disabled='disabled'"
       }
     }
-  },
-
+  }
 };
 </script>
 

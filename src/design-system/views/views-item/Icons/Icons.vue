@@ -11,8 +11,8 @@
 
       <h3>Examples</h3>
       <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
-      <div class="bimdata-ds__demo">
-        <div class="bimdata-ds__demo__module">
+      <Code componentTitle='Icons'>
+        <template #module>
           <span>icons: {{iconNames.length}}</span>
           <div>
             <div v-for="iconName of filteredList" :key="iconName">
@@ -30,43 +30,40 @@
               <p>{{iconName}}</p>
             </div>
           </div>
-        </div>
+        </template>
 
-        <div class="bimdata-ds__demo__parameters">
-            <h4>Icons options</h4>
-            <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(iconOptions)" :key="key">
-              <h5>{{ key }}</h5>
-                <BIMDataRadio
-                v-for="value in values"
-                :key="value"
-                :text="value"
-                :id="value"
-                :value="value"
-                :name="key"
-                v-model="$data[`selectedIconOptions${key}`]"
-              >
-              </BIMDataRadio>
-            </div>
+        <template #parameters>
+          <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(iconOptions)" :key="key">
+            <h5>{{ key }}</h5>
+              <BIMDataRadio
+              v-for="value in values"
+              :key="value"
+              :text="value"
+              :id="value"
+              :value="value"
+              :name="key"
+              v-model="$data[`selectedIconOptions${key}`]"
+            >
+            </BIMDataRadio>
           </div>
+        </template>
 
-        <div class="bimdata-ds__demo__code">
-          <pre class="language-xml" v-copy="onCopy">
-            <code class="language-xml" v-highlight:xml >
-              &lt;BIMDataIcon
-                class="icon"
-                icon-name="your-icon-name"
-                width="23"
-                height="23"
-                x="23"
-                y="23"
-                :class="{{selectedIconOptionsclass}}"
-              &gt;
-                &lt;BIMData[YourIconName]Icon /&gt;
-              &lt;/BIMDataIcon&gt;
-            </code>
+        <template #code>
+          <pre>
+            &lt;BIMDataIcon
+              class="icon"
+              icon-name="your-icon-name"
+              width="23"
+              height="23"
+              x="23"
+              y="23"
+              :class="{{selectedIconOptionsclass}}"
+            &gt;
+              &lt;BIMData[YourIconName]Icon /&gt;
+            &lt;/BIMDataIcon&gt;
           </pre>
-        </div>
-      </div>
+        </template>
+        </Code>
 
       <TableProperties :properties="properties" :examples="true"></TableProperties>
 
@@ -75,6 +72,8 @@
 </template>
 
 <script>
+import Code from "../../Components/Code.vue";
+
 import BIMDataSearchBar from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 
@@ -138,6 +137,7 @@ import Prism from "prismjs";
 
 export default {
   components: {
+    Code,
     BIMDataSearchBar,
     BIMDataRadio,
     BIMDataIcon,

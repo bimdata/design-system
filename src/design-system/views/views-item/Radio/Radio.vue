@@ -18,12 +18,14 @@
         </template>
 
         <template #code>
-          &lt;BIMDataRadio
+          <pre>
+            &lt;BIMDataRadio
             text="click on me !"
             id="radiotest"
             value="radiotest"
             v-model="selectedMode"&gt;
           &lt;/BIMDataRadio&gt;
+          </pre>
         </template>
       </Code>
 

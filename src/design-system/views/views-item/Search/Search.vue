@@ -25,8 +25,10 @@
         </template>
 
         <template #code>
-          &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{selectedSearchOptionskinds}} bimdata-search-bar__{{selectedSearchOptionsstyle}}"&gt;
-          &lt;/BIMDataSearch&gt;
+          <pre>
+            &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{selectedSearchOptionskinds}} bimdata-search-bar__{{selectedSearchOptionsstyle}}"&gt;
+            &lt;/BIMDataSearch&gt;
+          </pre>
         </template>
       </Code>
 
