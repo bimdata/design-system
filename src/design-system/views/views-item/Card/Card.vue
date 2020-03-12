@@ -6,13 +6,13 @@
           <template #module>
             <BIMDataCard :titleText="getHeaderTitle()" :submenuText="getSubmenuText()">
               <template #headerIcons v-if="headerIcons">
-                headerIcons
+                {{ getHeaderIcons() }}
               </template>
-              <template #left v-if="submenuBurger">
+              <template #left v-if="submenuLeft">
                 <BIMDataBurgerMenu></BIMDataBurgerMenu>
               </template>
               <template #right v-if="submenuIcons">
-                submenuIcons
+                {{ getSubmenuIcons() }}
               </template>
               <template #content v-if="content">
                 {{ getContent() }}
@@ -40,7 +40,7 @@
               <h5>Submenu</h5>
               <BIMDataCheckbox
                 text="left"
-                v-model="submenuBurger"
+                v-model="submenuLeft"
               >
               </BIMDataCheckbox>
               <BIMDataCheckbox
@@ -71,7 +71,25 @@
           </template>
 
           <template #code>
-
+            <pre>
+              &lt;BIMDataCard :titleText="{{getHeaderTitle()}}" :submenuText="{{getSubmenuText()}}"&gt;
+              &lt;template #headerIcons v-if="headerIcons"&gt;
+                {{ getHeaderIcons() }}
+              &lt;/template&gt;
+              &lt;template #left v-if="submenuLeft"&gt;
+                {{ getSubmenuLeft() }}
+              &lt;/template&gt;
+              &lt;template #right v-if="submenuIcons"&gt;
+                {{ getSubmenuIcons() }}
+              &lt;/template&gt;
+              &lt;template #content v-if="content"&gt;
+                {{ getContent() }}
+              &lt;/template&gt;
+              &lt;template #footer v-if="footer"&gt;
+                {{ getFooter() }}
+              &lt;/template&gt;
+            &lt;/BIMDataCard&gt;
+            </pre>
           </template>
         </Code>
 
@@ -99,13 +117,13 @@ export default {
   },
   data(){
     return {
-      headerTitle: false,
-      headerIcons: false,
-      submenuBurger: false,
-      submenuText: false,
-      submenuIcons: false,
-      content: false,
-      footer: false,
+      headerTitle: true,
+      headerIcons: true,
+      submenuLeft: true,
+      submenuText: true,
+      submenuIcons: true,
+      content: true,
+      footer: true,
     }
   },
   methods: {
@@ -114,9 +132,24 @@ export default {
         return "header title"
       }
     },
+    getHeaderIcons() {
+      if(this.headerIcons){
+        return "header icons"
+      }
+    },
+    getSubmenuLeft(){
+      if(this.submenuLeft){
+        return `<BIMDataBurgerMenu></BIMDataBurgerMenu>`
+      }
+    },
     getSubmenuText(){
       if(this.submenuText){
         return "submenu text"
+      }
+    },
+    getSubmenuIcons(){
+      if(this.submenuIcons){
+        return "submenu icons"
       }
     },
     getContent(){

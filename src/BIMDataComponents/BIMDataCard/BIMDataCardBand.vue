@@ -17,9 +17,6 @@ export default {
   props: {
     text: {
       type: String
-    },
-    burger: {
-      type: Boolean
     }
   }
 }

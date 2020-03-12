@@ -39,10 +39,6 @@ export default {
     width: {
       type: [Number, String],
       default: "215px"
-    },
-    burger:{
-      type: Boolean,
-      default: true
     }
   }
 }
