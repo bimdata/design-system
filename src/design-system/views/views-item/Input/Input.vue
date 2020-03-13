@@ -31,70 +31,55 @@
         </template>
       </Code>
 
-      <TableProperties :properties="properties"></TableProperties>
+      <div class="m-t-12">
+        <h5>Props:</h5>
+        <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import Code from "../../Components/Code.vue";
-import TableProperties from "../../TableProperties/TableProperties.vue";
 
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 export default {
   components: {
     Code,
-    TableProperties,
+    BIMDataTable,
     BIMDataInput
   },
   data() {
     return {
       testInput: "",
       loading: false,
-      properties: [
-      {
-        property:"placeholder",
-        type: "String",
-        defaultValue: '" "',
-        description: ""
-      },
-      {
-        property: "error",
-        type: "Boolean",
-        defaultValue: "false",
-        description: ""
-      },
-      {
-        property: "success",
-        type: "Boolean",
-        defaultValue: "false",
-        description: ""
-      },
-      {
-        property: "errorMessage",
-        type: "String",
-        defaultValue: '" "',
-        description: ""
-      },
-      {
-        property: "successMessage",
-        type: "String",
-        defaultValue: '" "',
-        description: ""
-      },
-      {
-        property: "loading",
-        type: "Boolean",
-        defaultValue: "false",
-        description: ""
-      },
-      {
-        property: "disabled",
-        type: "Boolean",
-        defaultValue: "false",
-        description: ""
-      }
+      propsData: [
+        [
+          "Property", "Type", "Default value", "Description"
+        ],
+        [
+          "placeholder", "String", "''", ""
+        ],
+        [
+          "error", "Boolean", "false", ""
+        ],
+        [
+          "success", "Boolean", "false", ""
+        ],
+        [
+          "errorMessage", "String", "''", ""
+        ],
+        [
+          "successMessage", "String", "''", ""
+        ],
+        [
+          "loading", "Boolean", "false", ""
+        ],
+        [
+          "disabled", "Boolean", "false", ""
+        ]
       ]
     }
   }

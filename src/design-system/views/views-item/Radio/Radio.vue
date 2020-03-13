@@ -29,7 +29,10 @@
         </template>
       </Code>
 
-      <TableProperties :properties="properties"></TableProperties>
+      <div class="m-t-12">
+        <h5>Props:</h5>
+        <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
 
     </div>
   </main>
@@ -37,7 +40,8 @@
 
 <script>
 import Code from "../../Components/Code.vue";
-import TableProperties from "../../TableProperties/TableProperties.vue";
+
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
@@ -45,44 +49,32 @@ import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 export default {
   components: {
     Code,
-    TableProperties,
+    BIMDataTable,
     BIMDataRadio,
     BIMDataButton
   },
   data(){
     return {
       selectedMode: null,
-      properties: [
-      {
-        property:"text",
-        type: "String",
-        defaultValue: "null",
-        description: "Use this property to add a label text"
-      },
-      {
-        property: "name",
-        type: "String",
-        defaultValue: '"option"',
-        description: ""
-      },
-      {
-        property: "id",
-        type: "String",
-        defaultValue: "/",
-        description: ""
-      },
-      {
-        property: "value",
-        type: "String",
-        defaultValue: "/",
-        description: ""
-      },
-      {
-        property: "selectedValue",
-        type: "String",
-        defaultValue: "/",
-        description: ""
-      }
+      propsData: [
+        [
+          "Property", "Type", "Default value", "Description"
+        ],
+        [
+          "text", "String", "null", "Use this property to add a label text"
+        ],
+        [
+          "name", "String", "'option'", ""
+        ],
+        [
+          "id", "String", "/", ""
+        ],
+        [
+          "value", "String", "/", ""
+        ],
+        [
+          "selectedValue", "String", "/", ""
+        ]
       ]
     }
   },

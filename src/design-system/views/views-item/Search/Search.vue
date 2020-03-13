@@ -32,7 +32,10 @@
         </template>
       </Code>
 
-      <TableProperties :properties="properties"></TableProperties>
+      <div class="m-t-12">
+        <h5>Props:</h5>
+        <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
 
     </div>
   </main>
@@ -40,7 +43,8 @@
 
 <script>
 import Code from "../../Components/Code.vue";
-import TableProperties from "../../TableProperties/TableProperties.vue";
+
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 
 import BIMDataSearch from "../../../../BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
@@ -48,7 +52,7 @@ import BIMDataSearch from "../../../../BIMDataComponents/BIMDataSearch/BIMDataSe
 export default {
   components: {
     Code,
-    TableProperties,
+    BIMDataTable,
     BIMDataRadio,
     BIMDataSearch
   },
@@ -67,31 +71,22 @@ export default {
           "secondary"
         ]
       },
-      properties: [
-      {
-        property:"placeholder",
-        type: "String",
-        defaultValue: '" "',
-        description: "Use this property to add a placeholder"
-      },
-      {
-        property: "width",
-        type: "[Number, String]",
-        defaultValue: "150px",
-        description: "Use this property to change the width of the search component"
-      },
-      {
-        property: "height",
-        type: "[Number, String]",
-        defaultValue: "32px",
-        description: "Use this property to change the height of the search component"
-      },
-      {
-        property: "autofocus",
-        type: "Boolean",
-        defaultValue: "false",
-        description: "Use this property to add an autofocus on the input search"
-      }
+      propsData: [
+        [
+          "Property", "Type", "Default value", "Description"
+        ],
+        [
+          "placeholder", "String", "''", "Use this property to add a placeholder"
+        ],
+        [
+          "width", "[Number, String]", "150px", "Use this property to change the width of the search component"
+        ],
+        [
+          "height", "[Number, String]", "32px", "Use this property to change the height of the search component"
+        ],
+        [
+          "autofocus", "Boolean", "false", "Use this property to add an autofocus on the input search"
+        ]
       ]
     }
   },

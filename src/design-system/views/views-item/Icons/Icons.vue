@@ -63,9 +63,12 @@
             &lt;/BIMDataIcon&gt;
           </pre>
         </template>
-        </Code>
+      </Code>
 
-      <TableProperties :properties="properties" :examples="true"></TableProperties>
+      <div class="m-t-12">
+        <h5>Props:</h5>
+        <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
 
     </div>
   </main>
@@ -129,7 +132,7 @@ import BIMDataValidateIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibrary
 import BIMDataWarningIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWarningIcon.vue";
 import BIMDataWindowedIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWindowedIcon.vue";
 
-import TableProperties from "../../TableProperties/TableProperties.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 import highlight from "../../../../directives/highlight.js";
 import copy from "../../../../directives/copy.js";
@@ -191,7 +194,7 @@ export default {
     BIMDataValidateIcon,
     BIMDataWarningIcon,
     BIMDataWindowedIcon,
-    TableProperties
+    BIMDataTable
   },
   data(){
     return{
@@ -202,57 +205,31 @@ export default {
           "bimdata-fill-default", "bimdata-fill-primary", "bimdata-fill-secondary", "bimdata-fill-tertiary", "bimdata-fill-white", "bimdata-fill-tertiary-darkest", "bimdata-fill-red", "bimdata-stroke-default", "bimdata-stroke-primary", "bimdata-stroke-secondary", "bimdata-stroke-tertiary", "bimdata-stroke-white", "bimdata-stroke-tertiary-darkest", "bimdata-stroke-red"
         ]
       },
-      properties: [
-      {
-        property:"iconName",
-        type: "String",
-        defaultValue: "'box'",
-        description: "Use this property to name your icon",
-        examples: ""
-      },
-      {
-        property: "width",
-        type: "Number, String",
-        defaultValue: "23",
-        description: "Use this property to change the width of the icon",
-        examples: ""
-      },
-      {
-        property: "height",
-        type: "Number, String",
-        defaultValue: "23",
-        description: "Use this property to change the height of the icon",
-        examples: ""
-      },
-      {
-        property: "iconColor",
-        type: "String",
-        defaultValue: "'currentColor'",
-        description: "Use this property to change the height of the button",
-        examples: "'red', 'blue', 'green' etc.."
-      },
-      {
-        property: "x",
-        type: "Number, String",
-        defaultValue: "23",
-        description: "Use this property to place on the x axis (viewbox) your icon",
-        examples: ""
-      },
-      {
-        property: "y",
-        type: "Number, String",
-        defaultValue: "23",
-        description: "Use this property to place on the y axis (viewbox) your icon",
-        examples: ""
-      }
-      ,
-      {
-        property: "class",
-        type: "String",
-        defaultValue: "23",
-        description: "Use this property to place on the y axis (viewbox) your icon. Warning: This property outclass 'iconColor' porperty.",
-        examples: "'bimdata-fill-grey', 'bimdata-stroke-grey'"
-      }
+      propsData: [
+        [
+          "Property", "Type", "Default value", "Description", "Examples"
+        ],
+        [
+          "iconName", "String", "'box'", "Use this property to name your icon", ""
+        ],
+        [
+          "width", "Number, String", "23", "Use this property to change the width of the icon", ""
+        ],
+        [
+          "height", "Number, String", "23", "Use this property to change the height of the icon", ""
+        ],
+        [
+          "iconColor", "String", "'currentColor'", "Use this property to change the height of the button", "'red', 'blue', 'green' etc.."
+        ],
+        [
+          "x", "Number, String", "23", "Use this property to place on the x axis (viewbox) your icon", ""
+        ],
+        [
+          "y", "Number, String", "23", "Use this property to place on the y axis (viewbox) your icon", ""
+        ],
+        [
+          "class", "String", "23", "Use this property to place on the y axis (viewbox) your icon. Warning: This property outclass 'iconColor' porperty.", "'bimdata-fill-grey', 'bimdata-stroke-grey'"
+        ]
       ]
     }
   },

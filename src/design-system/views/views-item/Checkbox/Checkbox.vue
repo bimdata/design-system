@@ -23,45 +23,42 @@
           </template>
         </Code>
 
-        <TableProperties :properties="properties"></TableProperties>
+        <div class="m-t-12">
+          <h5>Props:</h5>
+          <BIMDataTable :rows="propsData"></BIMDataTable>
+        </div>
     </div>
   </main>
 </template>
 
 <script>
 import Code from "../../Components/Code.vue";
-import TableProperties from "../../TableProperties/TableProperties.vue";
 
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
 
 export default {
   components: {
     Code,
-    TableProperties,
+    BIMDataTable,
     BIMDataCheckbox
   },
   data(){
     return {
       checked: false,
-      properties: [
-      {
-        property:"text",
-        type: "String",
-        defaultValue: "null",
-        description: ""
-      },
-      {
-        property: "state",
-        type: "Boolean",
-        defaultValue: "false",
-        description: ""
-      },
-      {
-        property: "disabled",
-        type: "Boolean",
-        defaultValue: "false",
-        description: ""
-      }
+      propsData: [
+        [
+          "Property", "Type", "Default value", "Description"
+        ],
+        [
+          "text", "String", "null", "Use this props to add text next to the checkbox"
+        ],
+        [
+          "state", "Boolean", "false", ""
+        ],
+        [
+          "disabled", "Boolean", "false", "Use this props to disabled the checkbox"
+        ],
       ]
     }
   }

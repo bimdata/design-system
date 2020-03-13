@@ -73,7 +73,10 @@
           </template>
         </Code>
 
-        <TableProperties :properties="properties"></TableProperties>
+        <div class="m-t-12">
+          <h5>Props:</h5>
+          <BIMDataTable :rows="propsData"></BIMDataTable>
+        </div>
 
       </div>
       <Alerts v-if="alerts" :message="message" :class="alertType" />
@@ -88,8 +91,8 @@ import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
 
 import Code from "../../Components/Code.vue";
-import TableProperties from "../../TableProperties/TableProperties.vue";
 
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
@@ -101,7 +104,7 @@ export default {
     Alerts,
     Code,
     BIMDataButton,
-    TableProperties,
+    BIMDataTable,
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataIcon,
@@ -129,19 +132,16 @@ export default {
           "default", "primary", "secondary", "grey", "red"
         ]
       },
-      properties: [
-      {
-        property:"width",
-        type: "Number, String",
-        defaultValue: "150px",
-        description: "Use this property to change the width of the button"
-      },
-      {
-        property: "height",
-        type: "Number, String",
-        defaultValue: "32px",
-        description: "Use this property to change the height of the button"
-      }
+      propsData: [
+        [
+          "Property", "Type", "Default value", "Description"
+        ],
+        [
+          "width", "Number, String", "150px", "Use this property to change the width of the button"
+        ],
+        [
+          "height", "Number, String", "32px", "Use this property to change the height of the button"
+        ]
       ]
     };
   },
