@@ -146,6 +146,13 @@ export default new Vuex.Store({
           btn: "View search"
         },
         {
+          title: "Select",
+          img: require("./design-system/assets/img/icon-select.svg"),
+          path: "select",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View select"
+        },
+        {
           title: "Table",
           img: require("./design-system/assets/img/icon-table.svg"),
           path: "table",

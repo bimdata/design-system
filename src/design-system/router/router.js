@@ -26,6 +26,7 @@ import Icons from '../views/views-item/Icons/Icons.vue';
 import Input from '../views/views-item/Input/Input.vue';
 import Radio from '../views/views-item/Radio/Radio.vue';
 import Search from '../views/views-item/Search/Search.vue';
+import Select from '../views/views-item/Select/Select.vue';
 import Table from '../views/views-item/Table/Table.vue';
 
 
@@ -147,6 +148,11 @@ const routes = [
         path: 'search',
         name: 'search',
         component: Search
+      },
+      {
+        path: 'select',
+        name: 'select',
+        component: Select
       },
       {
         path: 'table',
