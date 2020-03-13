@@ -1,6 +1,6 @@
 <template>
   <div class="bimdata-card" :style="{ 'min-width': width}">
-    <BIMDataCardBand :text="titleText" class="bimdata-card__header" v-if="titleText || $scopedSlots.headerIcons">
+    <BIMDataCardBand :text="titleHeader" class="bimdata-card__header" v-if="titleHeader || $scopedSlots.headerIcons">
       <template #right>
         <slot name="headerIcons"></slot>
       </template>
@@ -30,7 +30,7 @@ export default {
     BIMDataCardBand
   },
   props: {
-    titleText: {
+    titleHeader: {
       type: String
     },
     submenuText: {
