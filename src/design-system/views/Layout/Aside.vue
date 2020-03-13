@@ -4,7 +4,10 @@
       <h4 class="aside__title" @click="onTitleClick">{{ getPathFirstElement() }}</h4>
       <ul class="aside__text bimdata-list">
         <li v-for="child in $store.state[getPathFirstElement()].children" :key="child.id">
-          <router-link :to="{ name: child.path}">{{ child.title }}</router-link>
+          <router-link :to="{ name: child.path}">
+            <img :src="child.img"/>
+            {{ child.title }}
+          </router-link>
         </li>
       </ul>
     </div>
