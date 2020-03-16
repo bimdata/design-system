@@ -1,14 +1,20 @@
 <template>
-  <div class="bimdata-select" :class="{'not-empty' : value != null}" :style="{'min-width': width}">
+  <div
+    class="bimdata-select"
+    :class="{ 'not-empty': value != null }"
+    :style="{ 'min-width': width }"
+  >
     <div class="bimdata-select__content">
       <div
         class="select"
         @click="displayOptions = !displayOptions"
-        :class="{active:displayOptions}"
+        :class="{ active: displayOptions }"
       >
-        <span>{{value}}</span>
+        <span>{{
+          multi ? (value.length ? formatValue(value) : null) : value
+        }}</span>
         <BIMDataIcon
-          class="icon-chevron"
+          class="icon-chevron bimdata-fill-default"
           icon-name="chevron-right"
           width="10"
           height="10"
@@ -23,12 +29,24 @@
     </div>
     <transition name="slide-fade-down">
       <ul v-show="displayOptions" v-clickaway="away">
+        <li v-if="nullValue" :nullValue="nullValue" @click="onNullValueClick()">
+          None
+        </li>
         <li
           v-for="(option, index) of options"
           :key="index"
-          :class="{selected: option === value}"
+          :class="{
+            selected: multi ? value.includes(option) : option === value
+          }"
           @click="onOptionClick(option)"
-        >{{option}}</li>
+        >
+          <BIMDataCheckbox
+            v-if="multi"
+            :text="option"
+            :state="value.includes(option)"
+          ></BIMDataCheckbox>
+          <span v-else>{{ option }}</span>
+        </li>
       </ul>
     </transition>
   </div>
@@ -39,43 +57,100 @@ import clickaway from "../../directives/click-away";
 
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronRightIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
+import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
+
 export default {
+  model: {
+    event: "option-click"
+  },
   components: {
     BIMDataIcon,
-    BIMDataChevronRightIcon
+    BIMDataChevronRightIcon,
+    BIMDataCheckbox
   },
   data() {
     return {
-      displayOptions: false
+      displayOptions: false,
+      selectedOptions: this.value
     };
+  },
+  created() {
+    this.$watch(() => this.multi && this.nullValue, res => {
+      if (res) {
+        throw "Can not have multi and nullValue together.";
+      }
+    });
+  },
+  watch: {
+    multi() {
+      if (this.multi && !Array.isArray(this.value)) {
+        throw "value must be an array in multi mode.";
+      }
+      if (
+        !this.multi &&
+        (typeof this.value !== "string" || typeof this.value !== "number")
+      ) {
+        throw "value must be a string or a number in non-multi mode.";
+      }
+    }
   },
   directives: { clickaway },
   props: {
     options: { type: Array, default: () => [] },
-    value: { type: String, default: null },
+    multi: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: [String, Array]
+    },
     label: { type: String, default: null },
-    width: { type: [String, Number]}
+    width: { type: [String, Number] },
+    nullValue: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     onOptionClick(option) {
-      this.$emit("option-click", option);
+      if (this.multi) {
+        if (this.value.includes(option)) {
+          this.$emit(
+            "option-click",
+            this.value.filter(val => val !== option)
+          );
+        } else {
+          const copy = Array.from(this.value);
+          copy.push(option);
+          this.$emit("option-click", copy);
+        }
+      } else {
+        this.$emit("option-click", option);
+        this.displayOptions = !this.displayOptions;
+      }
+    },
+    onNullValueClick() {
+      this.$emit("option-click", null);
       this.displayOptions = !this.displayOptions;
     },
     away() {
       this.displayOptions = false;
+    },
+    formatValue(value) {
+      return value.reduce((acc, cur) => `${acc}, ${cur}`);
     }
   }
 };
 </script>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_font-size.scss";
-  @import "../../assets/scss/mixins/_pseudo.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/mixins/_pseudo.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataSelect.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataSelect.scss";
 </style>

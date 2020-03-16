@@ -7,10 +7,10 @@
         <template #module >
           <BIMDataSelect
           class="bcf__content__form__line"
-            :value="type"
             :options="options"
             label="label"
-            @option-click="type = $event"
+            v-model="type"
+            :multi="true"
             width="150px"
           />
         </template>
@@ -21,6 +21,15 @@
 
         <template #code>
           <pre>
+            &lt;BIMDataSelect
+              class="bcf__content__form__line"
+              :valAhue="type"
+              :nullValue="true"
+              :options="options"
+              label="label"
+              @option-click="type = $event"
+              width="150px"
+            /&gt;
           </pre>
         </template>
       </Code>
@@ -40,9 +49,9 @@ export default {
   },
   data() {
     return {
-      type: null,
+      type: [],
       options: [
-        "option1", "option2", "option3", "option4"
+        "option 1", "option 2", "option 3", "option 4", "option 5", "option 6", "option 7", "option 8"
       ]
     }
   }
