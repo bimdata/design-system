@@ -9,11 +9,10 @@
         <img src="../../../assets/img/design-system__icon-warning.jpg" alt="">
       </div>
 
-      <h3>Examples</h3>
-      <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
       <Code componentTitle='Icons'>
         <template #module>
-          <span>icons: {{iconNames.length}}</span>
+          <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
+          <span class="icons-numbers">icons: {{iconNames.length}}</span>
           <div>
             <div v-for="iconName of filteredList" :key="iconName">
               <BIMDataIcon

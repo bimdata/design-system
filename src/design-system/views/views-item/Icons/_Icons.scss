@@ -8,7 +8,7 @@
   }
   .bimdata-ds__demo{
     &__module{
-      span{
+      .icons-numbers{
         background-color: $color-primary;
         color: $color-white;
         padding: 6px;
