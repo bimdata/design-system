@@ -17,6 +17,8 @@
         </code>
       </pre>
     </div>
+
+    <Alerts v-if="alerts" :message="message" :class="alertType" />
   </div>
 </template>
 
@@ -24,8 +26,19 @@
 import highlight from "../../../directives/highlight.js";
 import copy from "../../../directives/copy.js";
 import Prism from "prismjs";
+import Alerts from "../views-item/Alerts/Alerts.vue";
 
 export default {
+  components: {
+    Alerts
+  },
+  data() {
+    return {
+      alerts: false,
+      alertType: null,
+      message: ""
+    }
+  },
   methods: {
     onCopy(e) {
       this.alerts = true;
