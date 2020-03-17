@@ -53,8 +53,8 @@
 <script>
 import Alerts from "../Alerts/Alerts.vue";
 
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
+import highlight from "@/directives/highlight.js";
+import copy from "@/directives/copy.js";
 import Prism from "prismjs";
 
 export default {
@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_GettingStarted.scss";
 </style>

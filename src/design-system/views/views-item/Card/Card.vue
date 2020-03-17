@@ -109,10 +109,10 @@
 <script>
 import Code from "../../Components/Code.vue";
 
-import BIMDataBurgerMenu from "../../../../BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
-import BIMDataCard from "../../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataBurgerMenu from "@/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
+import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 
 export default {
@@ -209,7 +209,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_Card.scss";
 </style>

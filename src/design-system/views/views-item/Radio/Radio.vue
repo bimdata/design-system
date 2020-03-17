@@ -41,7 +41,7 @@
 <script>
 import Code from "../../Components/Code.vue";
 
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_Radio.scss";
 </style>

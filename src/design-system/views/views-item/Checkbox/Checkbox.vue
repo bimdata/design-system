@@ -34,8 +34,8 @@
 <script>
 import Code from "../../Components/Code.vue";
 
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
 
 export default {
   components: {
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./Checkbox.scss";
 </style>

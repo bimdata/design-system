@@ -92,7 +92,7 @@ import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLib
 
 import Code from "../../Components/Code.vue";
 
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
@@ -191,14 +191,14 @@ export default {
 
 <style lang="scss">
 // import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "@/assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA COMPONENT MIXINS
-@import "../../../../assets/scss/mixins/_pseudo.scss";
-@import "../../../../assets/scss/mixins/_font-size.scss";
+@import "@/assets/scss/mixins/_pseudo.scss";
+@import "@/assets/scss/mixins/_font-size.scss";
 
 // import BIMDATA COMPONENT STYLE
-@import "../../../../BIMDataComponents/BIMDataButton/_BIMDataButton.scss";
+@import "@/BIMDataComponents/BIMDataButton/_BIMDataButton.scss";
 
 // import COMPONENT STYLE
 @import "./_Buttons.scss";

@@ -9,7 +9,7 @@
           <pre class="language-xml">
           <code class="language-xml" v-highlight:xml>
             &lt;template&gt;
-              &lt;main class="article your-file-class"&gt;
+              &lt;main class="article article-[your-file-class]"&gt;
                 &lt;div class="article-wrapper"&gt;
                   &lt;h2&gt; &#123;&#123;getRouteName()&#125;&#125; &lt;/h2&gt;
                 &lt;/div&gt;
@@ -23,7 +23,7 @@
             &lt;/script&gt;
 
             &lt;style lang="scss"&gt;
-              @import "../../../../assets/scss/_BIMDataVariables.scss";
+              @import "@/assets/scss/_BIMDataVariables.scss";
 
               @import "./_YourFileStyle.scss";
             &lt;/style&gt;
@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_GettingStarted.scss";
 </style>

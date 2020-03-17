@@ -60,10 +60,10 @@ export default {
 
 <style lang="scss">
   // import PRISMJS THEME
-  @import url("../../../../node_modules/prismjs/themes/prism-tomorrow.css");
+  @import "../../../../node_modules/prismjs/themes/prism-tomorrow.css";
 
   // import BIMDATA COMPONENT VARIABLES
-  @import "../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
   @import "./_Code.scss";

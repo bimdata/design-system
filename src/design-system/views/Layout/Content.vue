@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
   components:{

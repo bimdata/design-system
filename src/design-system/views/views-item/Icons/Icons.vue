@@ -5,8 +5,8 @@
       <h3>Size usage for designers</h3>
       <p>Use a 23px box for icons of 23px.</p>
       <div>
-        <img src="../../../assets/img/design-system__icon-plus.jpg" alt="">
-        <img src="../../../assets/img/design-system__icon-warning.jpg" alt="">
+        <img src="@/design-system/assets/img/design-system__icon-plus.jpg" alt="">
+        <img src="@/design-system/assets/img/design-system__icon-warning.jpg" alt="">
       </div>
 
       <Code :componentTitle='$route.name'>
@@ -131,10 +131,10 @@ import BIMDataValidateIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibrary
 import BIMDataWarningIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWarningIcon.vue";
 import BIMDataWindowedIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWindowedIcon.vue";
 
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
+import highlight from "@/directives/highlight.js";
+import copy from "@/directives/copy.js";
 import Prism from "prismjs";
 
 export default {
@@ -258,9 +258,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../../assets/scss/mixins/_font-size.scss";
+  @import "@/assets/scss/mixins/_font-size.scss";
 
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_Icons.scss";
 </style>

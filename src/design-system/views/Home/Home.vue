@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataSearchBar from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
+import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataSearchBar from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
 
 export default {
   components: {
@@ -52,9 +52,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
-  @import "../../../design-system/assets/scss/animations/_animations.scss";
+  @import "@/design-system/assets/scss/animations/_animations.scss";
 
   @import "./_Home.scss";
 </style>

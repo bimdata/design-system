@@ -80,9 +80,9 @@ export default {
 
 <style lang="scss">
 // import BIMDATA STYLE
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
+@import "@/assets/scss/_BIMDataVariables.scss";
+@import "@/assets/scss/mixins/_font-size.scss";
+@import "@/assets/scss/mixins/_pseudo.scss";
 
 // import COMPONENT STYLE
 @import "./_keyframes.scss";
