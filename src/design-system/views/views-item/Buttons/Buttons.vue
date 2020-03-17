@@ -4,7 +4,7 @@
       <h2>{{ $route.name }}</h2>
 
       <div class="button-overview">
-        <Code componentTitle='Buttons'>
+        <Code :componentTitle='$route.name'>
           <template #module>
             <BIMDataButton
             :width="getButtonWidth()"

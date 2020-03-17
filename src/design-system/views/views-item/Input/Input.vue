@@ -3,7 +3,7 @@
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
 
-       <Code componentTitle='Input'>
+       <Code :componentTitle='$route.name'>
         <template #module >
           <BIMDataInput
             v-model="testInput"

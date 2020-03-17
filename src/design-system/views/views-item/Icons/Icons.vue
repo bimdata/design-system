@@ -9,7 +9,7 @@
         <img src="../../../assets/img/design-system__icon-warning.jpg" alt="">
       </div>
 
-      <Code componentTitle='Icons'>
+      <Code :componentTitle='$route.name'>
         <template #module>
           <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
           <span class="icons-numbers">icons: {{iconNames.length}}</span>

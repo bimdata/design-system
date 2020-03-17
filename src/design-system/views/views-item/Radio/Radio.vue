@@ -3,7 +3,7 @@
     <div class="article-wrapper">
       <h2> {{ $route.name }} </h2>
 
-      <Code componentTitle='Radio'>
+      <Code :componentTitle='$route.name'>
         <template #module >
           <BIMDataRadio
             text="click on me !"

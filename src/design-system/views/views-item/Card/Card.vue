@@ -2,7 +2,7 @@
   <main class="article article-card">
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
-      <Code componentTitle='Cards'>
+      <Code :componentTitle='$route.name'>
         <template #module>
           <BIMDataCard :titleHeader="getHeaderTitle()" :submenuText="getSubmenuText()">
             <template #headerIcons v-if="headerIcons">

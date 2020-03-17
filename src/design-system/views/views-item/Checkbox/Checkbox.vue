@@ -2,7 +2,7 @@
   <main class="article checkbox">
     <div class="article-wrapper">
       <h2>{{$route.name}}</h2>
-      <Code componentTitle='Checkbox'>
+      <Code :componentTitle='$route.name'>
           <template #module>
             <BIMDataCheckbox
             text="Your label here"
