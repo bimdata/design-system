@@ -8,17 +8,27 @@
   }
   .bimdata-ds__demo{
     &__module{
+      padding: 0;
+      .bimdata-search-bar{
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
       .icons-numbers{
+        height: 32px;
+        padding: 0 6px;
         background-color: $color-primary;
         color: $color-white;
-        padding: 6px;
         font-size: 10px;
         letter-spacing: 1px;
+        display: flex;
+        align-items: center;
         position: absolute;
         top: 0;
         right: 0;
       }
-      & > div{
+      .icons{
+        margin-top: 32px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

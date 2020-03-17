@@ -13,7 +13,7 @@
         <template #module>
           <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
           <span class="icons-numbers">icons: {{iconNames.length}}</span>
-          <div>
+          <div class="icons">
             <div v-for="iconName of filteredList" :key="iconName">
               <BIMDataIcon
                 class="icon-chevron"
