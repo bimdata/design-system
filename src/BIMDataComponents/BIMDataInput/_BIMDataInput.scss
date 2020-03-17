@@ -25,7 +25,6 @@ input:-webkit-autofill {
     &:focus {
       outline: none;
       & ~ label {
-        @include font-size(10px);
         top: -22px;
         @include font-size(10px);
       }
@@ -115,33 +114,6 @@ input:-webkit-autofill {
       &::after {
         background-color: $color-success;
       }
-    }
-  }
-  label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include font-size(12px);
-    transform: translateY(12px);
-    transition: 0.2s ease all;
-    color: $color-tertiary-dark;
-  }
-  .bar {
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    display: block;
-    background: $color-tertiary;
-    bottom: 0;
-    &::after, &::before {
-      width: 0;
-      height: 2px;
-      @include pseudo;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: $color-primary;
-      transform: scaleX(0);
     }
   }
 }
