@@ -27,7 +27,7 @@ export default new Vuex.Store({
         {
           title: "Releases",
           img:require("./design-system/assets/img/icon-release.svg"),
-          path: "release",
+          path: "releases",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View releases"
         },

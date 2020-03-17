@@ -49,22 +49,22 @@ const routes = [
       },
       {
         path: 'designers',
-        name: 'Designers',
+        name: 'designers',
         component: Designers
       },
       {
         path: 'developpers',
-        name: 'Developpers',
+        name: 'developpers',
         component: Developpers
       },
       {
         path: 'releases',
-        name: 'Releases',
+        name: 'releases',
         component: Releases
       },
       {
         path: 'internal-doc',
-        name: 'InternalDoc',
+        name: 'internal-doc',
         component: InternalDoc
       }
     ]
