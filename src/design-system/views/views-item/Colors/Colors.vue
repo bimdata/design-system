@@ -1,10 +1,10 @@
 <template>
   <main class="article colors">
     <div class="article-wrapper">
-      <div class="test">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <div class="box box3"></div>
+      <div class="colors-animations">
+        <div class="colors-animations__box colors-animations__box1"></div>
+        <div class="colors-animations__box colors-animations__box2"></div>
+        <div class="colors-animations__box colors-animations__box3"></div>
       </div>
       <h2>{{ $route.name }}</h2>
       <h3>Brand colors</h3>
