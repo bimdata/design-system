@@ -48,7 +48,7 @@ export default {
       checked: false,
       propsData: [
         [
-          "Property", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description"
         ],
         [
           "text", "String", "null", "Use this props to add text next to the checkbox"

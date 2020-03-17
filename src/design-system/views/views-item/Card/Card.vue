@@ -134,16 +134,16 @@ export default {
       footer: true,
       propsData: [
         [
-          "Property", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description"
         ],
         [
-          "titleHeader", "String", "/", "Use this property to add a title in the card header"
+          "titleHeader", "String", "/", "Use this props to add a title in the card header"
         ],
         [
-          "submenuText", "String", "/", "Use this property to add a text in the card submenu"
+          "submenuText", "String", "/", "Use this props to add a text in the card submenu"
         ],
         [
-          "width", "[Number, String]", "215px", ""
+          "width", "[Number, String]", "215px", "Use this props to change the width of the card."
         ]
       ],
       slotsData: [

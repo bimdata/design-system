@@ -207,28 +207,28 @@ export default {
       },
       propsData: [
         [
-          "Property", "Type", "Default value", "Description", "Examples"
+          "Props", "Type", "Default value", "Description", "Examples"
         ],
         [
-          "iconName", "String", "'box'", "Use this property to name your icon", ""
+          "iconName", "String", "'box'", "Use this props to name your icon", ""
         ],
         [
-          "width", "Number, String", "23", "Use this property to change the width of the icon", ""
+          "width", "Number, String", "23", "Use this props to change the width of the icon", ""
         ],
         [
-          "height", "Number, String", "23", "Use this property to change the height of the icon", ""
+          "height", "Number, String", "23", "Use this props to change the height of the icon", ""
         ],
         [
-          "iconColor", "String", "'currentColor'", "Use this property to change the height of the button", "'red', 'blue', 'green' etc.."
+          "iconColor", "String", "'currentColor'", "Use this props to change the height of the button", "'red', 'blue', 'green' etc.."
         ],
         [
-          "x", "Number, String", "23", "Use this property to place on the x axis (viewbox) your icon", ""
+          "x", "Number, String", "23", "Use this props to place on the x axis (viewbox) your icon", ""
         ],
         [
-          "y", "Number, String", "23", "Use this property to place on the y axis (viewbox) your icon", ""
+          "y", "Number, String", "23", "Use this props to place on the y axis (viewbox) your icon", ""
         ],
         [
-          "class", "String", "23", "Use this property to place on the y axis (viewbox) your icon. Warning: This property outclass 'iconColor' porperty.", "'bimdata-fill-grey', 'bimdata-stroke-grey'"
+          "class", "String", "23", "Use this props to place on the y axis (viewbox) your icon. Warning: This props outclass 'iconColor' porperty.", "'bimdata-fill-grey', 'bimdata-stroke-grey'"
         ]
       ]
     }

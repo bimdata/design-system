@@ -134,13 +134,13 @@ export default {
       },
       propsData: [
         [
-          "Property", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description"
         ],
         [
-          "width", "Number, String", "150px", "Use this property to change the width of the button"
+          "width", "Number, String", "150px", "Use this props to change the width of the button"
         ],
         [
-          "height", "Number, String", "32px", "Use this property to change the height of the button"
+          "height", "Number, String", "32px", "Use this props to change the height of the button"
         ]
       ]
     };

@@ -73,19 +73,19 @@ export default {
       },
       propsData: [
         [
-          "Property", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description"
         ],
         [
-          "placeholder", "String", "''", "Use this property to add a placeholder"
+          "placeholder", "String", "''", "Use this props to add a placeholder"
         ],
         [
-          "width", "[Number, String]", "150px", "Use this property to change the width of the search component"
+          "width", "[Number, String]", "150px", "Use this props to change the width of the search component"
         ],
         [
-          "height", "[Number, String]", "32px", "Use this property to change the height of the search component"
+          "height", "[Number, String]", "32px", "Use this props to change the height of the search component"
         ],
         [
-          "autofocus", "Boolean", "false", "Use this property to add an autofocus on the input search"
+          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on the input search"
         ]
       ]
     }

@@ -58,10 +58,10 @@ export default {
       selectedMode: null,
       propsData: [
         [
-          "Property", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description"
         ],
         [
-          "text", "String", "null", "Use this property to add a label text"
+          "text", "String", "null", "Use this props to add a label text"
         ],
         [
           "name", "String", "'option'", ""
