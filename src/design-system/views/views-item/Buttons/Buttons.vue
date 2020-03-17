@@ -20,7 +20,7 @@
                 y="23"
                 v-if="checkboxIconChecked"
               >
-                <BIMDataChevronRightIcon />
+                <BIMDataChevronIcon />
               </BIMDataIcon>
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -88,7 +88,7 @@
 
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
+import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 
 import Code from "../../Components/Code.vue";
 
@@ -108,7 +108,7 @@ export default {
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataIcon,
-    BIMDataChevronRightIcon
+    BIMDataChevronIcon
   },
   data() {
     return {

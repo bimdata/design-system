@@ -21,7 +21,7 @@
           x="23"
           y="23"
         >
-          <BIMDataChevronRightIcon />
+          <BIMDataChevronIcon />
         </BIMDataIcon>
       </div>
       <label>{{ label }}</label>
@@ -56,7 +56,7 @@
 import clickaway from "../../directives/click-away";
 
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronRightIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
+import BIMDataChevronIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 
 export default {
@@ -65,7 +65,7 @@ export default {
   },
   components: {
     BIMDataIcon,
-    BIMDataChevronRightIcon,
+    BIMDataChevronIcon,
     BIMDataCheckbox
   },
   data() {

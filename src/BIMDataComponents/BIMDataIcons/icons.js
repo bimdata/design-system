@@ -7,7 +7,7 @@ import BIMDataBcfIcon from './BIMDataLibraryIcons/BIMDataBcfIcon.vue';
 import BIMDataBuildingIcon from './BIMDataLibraryIcons/BIMDataBuildingIcon.vue';
 import BIMDataBurgerMenuIcon from './BIMDataLibraryIcons/BIMDataBurgerMenuIcon.vue';
 import BIMDataCameraIcon from './BIMDataLibraryIcons/BIMDataCameraIcon.vue';
-import BIMDataChevronRightIcon from './BIMDataLibraryIcons/BIMDataChevronRightIcon.vue';
+import BIMDataChevronIcon from './BIMDataLibraryIcons/BIMDataChevronIcon.vue';
 import BIMDataClickIcon from './BIMDataLibraryIcons/BIMDataClickIcon.vue';
 import BIMDataCloseIcon from './BIMDataLibraryIcons/BIMDataCloseIcon.vue';
 import BIMDataCloudIcon from './BIMDataLibraryIcons/BIMDataCloudIcon.vue';
@@ -60,7 +60,7 @@ const Icons = {
   BIMDataBuildingIcon,
   BIMDataBurgerMenuIcon,
   BIMDataCameraIcon,
-  BIMDataChevronRightIcon,
+  BIMDataChevronIcon,
   BIMDataClickIcon,
   BIMDataCloseIcon,
   BIMDataCloudIcon,

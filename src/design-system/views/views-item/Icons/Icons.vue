@@ -89,7 +89,7 @@ import BIMDataBcfIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons
 import BIMDataBuildingIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataBuildingIcon.vue";
 import BIMDataBurgerMenuIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataBurgerMenuIcon.vue";
 import BIMDataCameraIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCameraIcon.vue";
-import BIMDataChevronRightIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronRightIcon.vue";
+import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 import BIMDataClickIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataClickIcon.vue";
 import BIMDataCloseIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon.vue";
 import BIMDataCloudIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCloudIcon.vue";
@@ -152,7 +152,7 @@ export default {
     BIMDataBuildingIcon,
     BIMDataBurgerMenuIcon,
     BIMDataCameraIcon,
-    BIMDataChevronRightIcon,
+    BIMDataChevronIcon,
     BIMDataClickIcon,
     BIMDataCloseIcon,
     BIMDataCloudIcon,
