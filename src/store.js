@@ -158,6 +158,13 @@ export default new Vuex.Store({
           path: "table",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           btn: "View table"
+        },
+        {
+          title: "Textarea",
+          img: require("./design-system/assets/img/icon-textarea.svg"),
+          path: "textarea",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View textarea"
         }
       ]
     }

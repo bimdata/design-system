@@ -28,7 +28,7 @@ import Radio from '../views/views-item/Radio/Radio.vue';
 import Search from '../views/views-item/Search/Search.vue';
 import Select from '../views/views-item/Select/Select.vue';
 import Table from '../views/views-item/Table/Table.vue';
-
+import Textarea from '../views/views-item/Textarea/Textarea.vue';
 
 Vue.use(VueRouter)
 
@@ -158,6 +158,11 @@ const routes = [
         path: 'table',
         name: 'table',
         component: Table
+      },
+      {
+        path: 'textarea',
+        name: 'textarea',
+        component: Textarea
       }
     ]
   }
