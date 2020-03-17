@@ -16,6 +16,13 @@ select:-webkit-autofill {
       top: 0;
       width: 100%;
       z-index: 10;
+      span{
+        text-overflow: ellipsis;
+        height: auto;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+      }
       &:hover {
         cursor: pointer;
       }

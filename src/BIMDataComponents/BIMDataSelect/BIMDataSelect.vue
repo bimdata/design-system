@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-select"
-    :class="{ 'not-empty': value != null }"
+    :class="{ 'not-empty': value != null && value != value.length}"
     :style="{ 'min-width': width }"
   >
     <div class="bimdata-select__content">
@@ -88,7 +88,7 @@ export default {
       }
       if (
         !this.multi &&
-        (typeof this.value !== "string" || typeof this.value !== "number")
+        (typeof this.value !== "string" && typeof this.value !== "number" && this.value !== null)
       ) {
         throw "value must be a string or a number in non-multi mode.";
       }
