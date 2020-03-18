@@ -16,10 +16,18 @@ textarea:-webkit-autofill {
     border: none;
     @include font-size(14px);
 
+    &:disabled{
+      background-color: transparent;
+      & ~ label {
+        color: $color-disabled;
+        cursor: default;
+      }
+    }
+
     &:focus {
       outline: none;
       & ~ label {
-        top: -22px;
+        top: -26px;
         color: $color-primary;
         @include font-size(10px);
       }
@@ -34,7 +42,7 @@ textarea:-webkit-autofill {
   }
   &.not-empty {
     label {
-      top: -22px;
+      top: -26px;
       color: $color-primary;
       @include font-size(10px);
     }

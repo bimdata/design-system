@@ -1,11 +1,12 @@
 <template>
-  <div class="bimdata-textarea" :class="{'not-empty': this.message !== null && this.message !== '' && this.placeholder !== ''}" :style="{'min-width': width, 'min-height': height}">
+  <div class="bimdata-textarea" :class="{'not-empty': this.message !== null && this.message !== '' || this.placeholder !== null}" :style="{'min-width': width, 'min-height': height}">
     <textarea
       v-focus="autofocus"
       :name="name"
       :id="name"
       :value="message"
       :placeholder="placeholder"
+      :disabled="disabled"
       @input="$emit('input', $event.currentTarget.value)"
     />
     <label :for="name">{{label}}</label>
@@ -32,21 +33,25 @@ export default {
       type: Boolean,
       default: false
     },
+    placeholder:{
+      type: String,
+      default: null
+    },
     label: {
       type: String,
       default: ""
     },
-    placeholder:{
-      type: String,
-      default: ""
-    },
     width: {
-      type: String,
+      type: [Number, String],
       default: "150px"
     },
     height: {
-      type: String,
+      type: [Number, String],
       default: "32px"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
