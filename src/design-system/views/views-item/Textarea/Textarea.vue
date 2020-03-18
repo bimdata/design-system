@@ -105,6 +105,8 @@ export default {
     getAutofocus(){
       if(this.autofocus){
         return true;
+      } else {
+        return false;
       }
     },
     getPlaceholder(){
@@ -116,6 +118,8 @@ export default {
     getDisabled(){
       if(this.disabled){
         return true;
+      } else {
+        return false;
       }
     }
   }
