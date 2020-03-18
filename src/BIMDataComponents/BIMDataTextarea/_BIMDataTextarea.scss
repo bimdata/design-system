@@ -52,7 +52,7 @@ textarea:-webkit-autofill {
     top: 0;
     left: 0;
     @include font-size(12px);
-    transform: translateY(12px);
+    transform: translateY(8px);
     transition: 0.2s ease all;
     color: $color-tertiary-dark;
     cursor: pointer;
