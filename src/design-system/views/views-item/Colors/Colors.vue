@@ -172,12 +172,12 @@
           </div>
         </div>
       </div>
+    </div>
       <transition name="fade">
         <div class="alerts" :class="{success: alertType==='success', error: alertType==='error'}" v-if="alerts">
           {{ message }}
         </div>
       </transition>
-    </div>
   </main>
 </template>
 
