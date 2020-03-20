@@ -8,11 +8,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle":"vue-cli-service build --formats umd-min --target lib --name component ./src/BIMDataComponents/index.js && ./postBuild.sh"
+    "build-bundle": "vue-cli-service build --formats umd-min --target lib --name component ./src/BIMDataComponents/index.js && ./postBuild.sh"
   },
   "dependencies": {
-    "highlight.js": "^9.17.1",
-    "prismjs": "^1.18.0",
+    "prismjs": "^1.19.0",
     "vue": "^2.6.10",
     "vue-clipboard2": "^0.3.1",
     "vue-router": "^3.1.3",
