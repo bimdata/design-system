@@ -8,6 +8,10 @@
 
 <script>
 import Navigation from "./views/Navigation/Navigation.vue"
+import Prism from "prismjs";
+
+import "prismjs/components/prism-scss";
+
 export default {
   components:{
     Navigation
@@ -31,6 +35,9 @@ export default {
 </script>
 
 <style lang="scss">
+  // import PRISMJS THEME
+  @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
+
   @import "../../src/assets/scss/mixins/_font-size.scss";
   @import "../../src/assets/scss/mixins/_pseudo.scss";
   @import "../../src/assets/scss/mixins/_spacing.scss";

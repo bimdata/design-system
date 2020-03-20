@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import highlight from "../../../directives/highlight.js";
-import copy from "../../../directives/copy.js";
+import highlight from "@/directives/highlight.js";
+import copy from "@/directives/copy.js";
 import Prism from "prismjs";
 import Alerts from "../views-item/Alerts/Alerts.vue";
 
@@ -47,7 +47,7 @@ export default {
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
-    },
+    }
   },
   props:{
     componentTitle: {
@@ -59,9 +59,6 @@ export default {
 </script>
 
 <style lang="scss">
-  // import PRISMJS THEME
-  @import "../../../../node_modules/prismjs/themes/prism-tomorrow.css";
-
   // import BIMDATA COMPONENT VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
