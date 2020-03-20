@@ -4,12 +4,12 @@
       <h2>{{ $route.name }}</h2>
 
       <div class="button-overview">
-        <Code :componentTitle='$route.name'>
+        <Code :componentTitle="$route.name">
           <template #module>
             <BIMDataButton
-            :width="getButtonWidth()"
-            :class="getOverviewButtonClasses()"
-            :disabled="getButtonDisabled()"
+              :width="getButtonWidth()"
+              :class="getOverviewButtonClasses()"
+              :disabled="getButtonDisabled()"
             >
               <BIMDataIcon
                 class="icon-chevron"
@@ -23,13 +23,18 @@
                 <BIMDataChevronIcon />
               </BIMDataIcon>
               <span v-if="checkboxTextChecked">
-                BIMData button {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
+                BIMData button {{ selectedBtnOptionstypes }}
+                {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
               </span>
             </BIMDataButton>
           </template>
 
           <template #parameters>
-            <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(btnOptions)" :key="key">
+            <div
+              class="bimdata-ds__demo__parameters__options"
+              v-for="[key, values] in Object.entries(btnOptions)"
+              :key="key"
+            >
               <h5>{{ key }}</h5>
               <BIMDataRadio
                 v-for="value in values"
@@ -66,9 +71,12 @@
 
           <template #code>
             <pre>
-                &lt;BIMDataButton width="{{ getButtonWidth() }}" class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{ selectedBtnOptionskinds }}" :disabled="{{ getButtonDisabled() }}"&gt;
+              &lt;BIMDataButton
+                width="{{ getButtonWidth() }}"
+                class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
+                :disabled="{{ getButtonDisabled() }}"&gt;
                   Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
-                &lt;/BIMDataButton&gt;
+              &lt;/BIMDataButton&gt;
             </pre>
           </template>
         </Code>
@@ -77,7 +85,6 @@
           <h5>Props:</h5>
           <BIMDataTable :rows="propsData"></BIMDataTable>
         </div>
-
       </div>
       <Alerts v-if="alerts" :message="message" :class="alertType" />
     </div>
@@ -85,7 +92,6 @@
 </template>
 
 <script>
-
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
@@ -122,51 +128,53 @@ export default {
       selectedBtnOptionskinds: "radius",
       selectedBtnOptionsvalues: "default",
       btnOptions: {
-        types:[
-          "fill", "outline", "ghost"
-        ],
-        kinds: [
-          "radius", "square", "rounded"
-        ],
-        values: [
-          "default", "primary", "secondary", "grey", "red"
-        ]
+        types: ["fill", "outline", "ghost"],
+        kinds: ["radius", "square", "rounded"],
+        values: ["default", "primary", "secondary", "grey", "red"]
       },
       propsData: [
+        ["Props", "Type", "Default value", "Description"],
         [
-          "Props", "Type", "Default value", "Description"
+          "width",
+          "Number, String",
+          "150px",
+          "Use this props to change the width of the button"
         ],
         [
-          "width", "Number, String", "150px", "Use this props to change the width of the button"
-        ],
-        [
-          "height", "Number, String", "32px", "Use this props to change the height of the button"
+          "height",
+          "Number, String",
+          "32px",
+          "Use this props to change the height of the button"
         ]
       ]
     };
   },
   methods: {
-    getOverviewButtonClasses(){
-      return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`
+    getOverviewButtonClasses() {
+      return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
     },
-    getButtonWidth(){
-      if(this.selectedBtnOptionskinds.includes("rounded") || this.checkboxIconChecked === true && this.checkboxTextChecked === false){
+    getButtonWidth() {
+      if (
+        this.selectedBtnOptionskinds.includes("rounded") ||
+        (this.checkboxIconChecked === true &&
+          this.checkboxTextChecked === false)
+      ) {
         return "32px";
       } else {
         return "300px";
       }
     },
     getButtonDisabled() {
-      return this.checkboxDisabledChecked
+      return this.checkboxDisabledChecked;
     }
   },
   watch: {
-    selectedBtnOptionskinds:{
-      handler(newValue, oldValue){
-        if(newValue === "rounded"){
+    selectedBtnOptionskinds: {
+      handler(newValue, oldValue) {
+        if (newValue === "rounded") {
           this.checkboxTextChecked = false;
           this.checkboxIconChecked = true;
-        } else if(oldValue === "rounded"){
+        } else if (oldValue === "rounded") {
           this.checkboxTextChecked = true;
         }
       },
@@ -175,14 +183,20 @@ export default {
   },
   computed: {
     checkboxTextDisabled() {
-      return this.selectedBtnOptionskinds === "rounded" || this.checkboxIconChecked === false;
+      return (
+        this.selectedBtnOptionskinds === "rounded" ||
+        this.checkboxIconChecked === false
+      );
     },
     checkboxIconDisabled() {
-      return this.selectedBtnOptionskinds === "rounded" || this.checkboxTextChecked === false;
+      return (
+        this.selectedBtnOptionskinds === "rounded" ||
+        this.checkboxTextChecked === false
+      );
     },
     buttonDisabled() {
-      if(this.checkboxDisabledChecked === true){
-        return ":disabled='disabled'"
+      if (this.checkboxDisabledChecked === true) {
+        return ":disabled='disabled'";
       }
     }
   }
