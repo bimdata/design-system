@@ -16,7 +16,7 @@
             <small>css</small>
           </div>
           <div class="spacing__code__item">
-            <pre><code class="language-html">&lt;div class="mt-12"&gt;&lt;/div&gt;</code></pre>
+            <pre class="language-xml"><code class="language-xml" v-highlight:xml>&lt;div class="mt-12"&gt;&lt;/div&gt;</code></pre>
             <small>html</small>
           </div>
         </div>
@@ -24,128 +24,114 @@
 
       <div class="spacing-scale">
         <h3>Global spacing scale</h3>
-        <table>
-          <thead>
-            <tr>
-              <td>Size value</td>
-              <td>Scss value</td>
-              <td>Css value</td>
-            </tr>
-          </thead>
-          <tr>
-            <td>6px</td>
-            <td>calc(#{$spacing-unit} / 2)</td>
-            <td>calc(var(--spacing-unit) / 2)</td>
-          </tr>
-          <tr>
-            <td>8px</td>
-            <td>calc(#{$spacing-unit} / 1.5)</td>
-            <td>calc(var(--spacing-unit) / 1.5)</td>
-          </tr>
-          <tr>
-            <td>12px</td>
-            <td>$spacing-unit</td>
-            <td>var(--spacing-unit</td>
-          </tr>
-          <tr>
-            <td>18px</td>
-            <td>calc(#{$spacing-unit} * 1.5)</td>
-            <td>calc(var(--spacing-unit) * 1.5)</td>
-          </tr>
-          <tr>
-            <td>24px</td>
-            <td>calc(#{$spacing-unit} * 2)</td>
-            <td>calc(var(--spacing-unit) * 2)</td>
-          </tr>
-        </table>
+        <BIMDataTable :rows="spacingScale"></BIMDataTable>
       </div>
 
       <div class="space-mixins">
         <h3>The spacing mixins</h3>
         <pre><code class="language-css">@import "./assets/scss/mixins/spacing.scss"</code></pre>
-        <table>
-          <thead>
-            <tr>
-              <td>Size value</td>
-              <td>Html class value</td>
-            </tr>
-          </thead>
-          <tr>
-            <td>margin-top: 6px</td>
-            <td>mt-6</td>
-          </tr>
-          <tr>
-            <td>margin-bottom: 6px</td>
-            <td>mb-6</td>
-          </tr>
-          <tr>
-            <td>margin-left: 6px</td>
-            <td>ml-6</td>
-          </tr>
-          <tr>
-            <td>margin-right: 6px</td>
-            <td>mr-6</td>
-          </tr>
-          <tr>
-            <td>padding-top: 6px</td>
-            <td>pt-6</td>
-          </tr>
-          <tr>
-            <td>padding-bottom: 6px</td>
-            <td>pb-6</td>
-          </tr>
-          <tr>
-            <td>padding-left: 6px</td>
-            <td>pl-6</td>
-          </tr>
-          <tr>
-            <td>padding-right: 6px</td>
-            <td>pr-6</td>
-          </tr>
-          <tr>
-            <td>margin-top: 12px</td>
-            <td>mt-12</td>
-          </tr>
-          <tr>
-            <td>margin-bottom: 12px</td>
-            <td>mb-12</td>
-          </tr>
-          <tr>
-            <td>margin-left: 12px</td>
-            <td>ml-12</td>
-          </tr>
-          <tr>
-            <td>margin-right: 12px</td>
-            <td>mr-12</td>
-          </tr>
-          <tr>
-            <td>padding-top: 12px</td>
-            <td>pt-12</td>
-          </tr>
-          <tr>
-            <td>padding-bottom: 12px</td>
-            <td>pb-12</td>
-          </tr>
-          <tr>
-            <td>padding-left: 12px</td>
-            <td>pl-12</td>
-          </tr>
-          <tr>
-            <td>padding-right: 12px</td>
-            <td>pr-12</td>
-          </tr>
-        </table>
+        <BIMDataTable :rows="spacingMixins"></BIMDataTable>
+
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import highlight from "@/directives/highlight.js";
+import Prism from "prismjs";
+
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+
 export default {
+  components: {
+    BIMDataTable
+  },
+  data(){
+    return {
+      spacingScale: [
+        [
+          "Size value", "SCSS value", "CSS value"
+        ],
+        [
+          "6px", "calc(#{$spacing-unit} / 2)", "calc(var(--spacing-unit) / 2)"
+        ],
+        [
+          "8px", "calc(#{$spacing-unit} / 1.5)", "calc(var(--spacing-unit) / 1.5)"
+        ],
+        [
+          "12px", "$spacing-unit", "var(--spacing-unit"
+        ],
+        [
+          "18px", "calc(#{$spacing-unit} * 1.5)", "calc(var(--spacing-unit) * 1.5)"
+        ],
+        [
+          "24px", "calc(#{$spacing-unit} * 2)", "calc(var(--spacing-unit) * 2)"
+        ]
+      ],
+      spacingMixins: [
+        [
+          "Size value", "Html class value"
+        ],
+        [
+          "margin-top: 6px", "mt-6"
+        ],
+        [
+          "margin-bottom: 6px", "mb-6"
+        ],
+        [
+          "margin-left: 6px", "ml-6"
+        ],
+        [
+          "margin-right: 6px", "mr-6"
+        ],
+        [
+          "padding-top: 6px", "pt-6"
+        ],
+        [
+          "padding-bottom: 6px", "pb-6"
+        ],
+        [
+          "padding-left: 6px", "pl-6"
+        ],
+        [
+          "padding-right: 6px", "pr-6"
+        ],
+        [
+          "margin-top: 12px", "mt-12"
+        ],
+        [
+          "margin-bottom: 12px", "mb-12"
+        ],
+        [
+          "margin-left: 12px", "ml-12"
+        ],
+        [
+          "margin-right: 12px", "mr-12"
+        ],
+        [
+          "padding-top: 12px", "pt-12"
+        ],
+        [
+          "padding-bottom: 12px", "pb-12"
+        ],
+        [
+          "padding-left: 12px", "pl-12"
+        ],
+        [
+          "padding-right: 12px", "pr-12"
+        ]
+      ]
+    }
+  },
+  directives: { highlight }
 }
 </script>
 
 <style lang="scss">
+  // import PRISMJS THEME
+  @import "../../../../../node_modules/prismjs/themes/prism-tomorrow.css";
+
   @import "@/assets/scss/_BIMDataVariables.scss";
   @import "@/assets/scss/mixins/_font-size.scss";
 
