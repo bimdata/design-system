@@ -4,7 +4,9 @@
     pre.language-bash{
       &::before{
         content: "$";
-        margin-right: 6px;
+        position: absolute;
+        top: 20px;
+        left: 6px;
       }
     }
   }

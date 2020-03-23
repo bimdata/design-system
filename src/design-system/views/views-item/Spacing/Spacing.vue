@@ -2,17 +2,17 @@
   <main class="article spacing">
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
-      <nav>test</nav>
+      <!-- <nav>test</nav> -->
       <div class="spacing-system">
         <h3>The spacing system</h3>
         <p>All spacing is defined by a base value of 12 pixels. This value of 12 px is the basic unit of measurement for spacing.</p>
         <div class="spacing__code">
           <div class="spacing__code__item">
-            <pre><code class="language-scss">$spacing-unit;</code></pre>
+            <pre class="language-scss"><code class="language-scss" v-highlight:scss>$spacing-unit;</code></pre>
             <small>scss</small>
           </div>
           <div class="spacing__code__item">
-            <pre><code class="language-css">var(--spacing-unit);</code></pre>
+            <pre class="language-css"><code class="language-css" v-highlight:css>var(--spacing-unit);</code></pre>
             <small>css</small>
           </div>
           <div class="spacing__code__item">
@@ -29,7 +29,7 @@
 
       <div class="space-mixins">
         <h3>The spacing mixins</h3>
-        <pre><code class="language-css">@import "./assets/scss/mixins/spacing.scss"</code></pre>
+        <pre class="language-css"><code class="language-css" v-highlight:css>@import "./assets/scss/mixins/spacing.scss"</code></pre>
         <BIMDataTable :rows="spacingMixins"></BIMDataTable>
 
       </div>

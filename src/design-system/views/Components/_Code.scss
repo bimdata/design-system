@@ -49,9 +49,11 @@
     }
     &__copy{
       position: absolute;
-      top: $spacing-unit;
-      right: $spacing-unit;
+      top: 0;
+      right: calc(#{$spacing-unit} / 2);
       cursor: pointer;
+      opacity: .1;
+      transition: all .2s ease;
     }
   }
 }

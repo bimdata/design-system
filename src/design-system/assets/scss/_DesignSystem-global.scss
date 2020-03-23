@@ -26,10 +26,26 @@ a {
 
 /* custom PRE */
 pre[class*="language-"]{
+  padding: 0;
   position: relative;
-}
-pre {
   border-radius: 3px;
+  code{
+    padding: 20px;
+    display: block;
+    overflow: auto;
+  }
+  &:hover{
+    .bimdata-ds__demo__code__copy{
+      opacity: .5;
+      transition: all .2s ease;
+    }
+  }
+  .bimdata-ds__demo__code__copy{
+    &:hover{
+      opacity: 1;
+      transition: all .2s ease;
+    }
+  }
 }
 
 /* custom  */
