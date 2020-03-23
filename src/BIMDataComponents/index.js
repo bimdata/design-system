@@ -1,14 +1,14 @@
-import BIMDataButton from './BIMDataButton/BIMDataButton.vue';
-import BIMDataCard from './BIMDataButton/BIMDataCard.vue';
-import BIMDataCheckbox from './BIMDataCheckbox/BIMDataCheckbox.vue';
-import BIMDataIcon from './BIMDataIcons/BIMDataIcon.vue';
-import BIMDataIcons from './BIMDataIcons/icons.js';
-import BIMDataInput from './BIMDataInput/BIMDataInput.vue';
-import BIMDataRadio from './BIMDataRadio/BIMDataRadio.vue';
-import BIMDataSearch from './BIMDataSearch/BIMDataSearchBar.vue';
-import BIMDataSelect from './BIMDataSelect/BIMDataSelect.vue';
-import BIMDataTable from './BIMDataTable/BIMDataTable.vue';
-import BIMDataTextarea from './BIMDataTextarea/BIMDataTextarea.vue';
+import BIMDataButton from '@/BIMDataComponents/BIMDataButton/BIMDataButton.vue';
+import BIMDataCard from '@/BIMDataComponents/BIMDataCard/BIMDataCard.vue';
+import BIMDataCheckbox from '@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue';
+import BIMDataIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue';
+import BIMDataIcons from '@/BIMDataComponents/BIMDataIcons/icons.js';
+import BIMDataInput from '@/BIMDataComponents/BIMDataInput/BIMDataInput.vue';
+import BIMDataRadio from '@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue';
+import BIMDataSearch from '@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue';
+import BIMDataSelect from '@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue';
+import BIMDataTable from '@/BIMDataComponents/BIMDataTable/BIMDataTable.vue';
+import BIMDataTextarea from '@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue';
 
 const Components = {
   BIMDataButton,
