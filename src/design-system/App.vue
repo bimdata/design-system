@@ -11,6 +11,7 @@ import Navigation from "./views/Navigation/Navigation.vue"
 import Prism from "prismjs";
 
 import "prismjs/components/prism-scss";
+import "prismjs/components/prism-bash";
 
 export default {
   components:{
