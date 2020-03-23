@@ -1,0 +1,73 @@
+// custom SVG
+// style bimdata fill & stroke - DEFAULT
+.bimdata-fill-default{
+  fill: $color-tertiary-dark;
+}
+.bimdata-stroke-default{
+  fill: transparent;
+  stroke: $color-tertiary-dark;
+}
+
+// style bimdata fill & stroke - PRIMARY
+.bimdata-fill-primary{
+  fill: $color-primary;
+}
+.bimdata-stroke-primary{
+  fill: transparent;
+  stroke: $color-primary;
+}
+
+// style bimdata fill & stroke - SECONDARY
+.bimdata-fill-secondary{
+  fill: $color-secondary;
+}
+.bimdata-stroke-secondary{
+  fill: transparent;
+  stroke: $color-secondary;
+}
+
+// style bimdata fill & stroke - GREY
+.bimdata-fill-tertiary{
+  fill: $color-tertiary;
+}
+.bimdata-stroke-tertiary{
+  fill: transparent;
+  stroke: $color-tertiary;
+}
+
+// style bimdata fill & stroke - WHITE
+.bimdata-fill-white{
+  fill: $color-white;
+}
+.bimdata-stroke-white{
+  fill: transparent;
+  stroke: $color-white;
+}
+
+// style bimdata fill & stroke - TEXT
+.bimdata-fill-tertiary-darkest{
+  fill: $color-tertiary-darkest;
+}
+.bimdata-stroke-tertiary-darkest{
+  fill: transparent;
+  stroke: $color-tertiary-darkest;
+}
+
+// style bimdata fill & stroke - RED
+.bimdata-fill-red{
+  fill: $color-high;
+}
+.bimdata-stroke-red{
+  fill: transparent;
+  stroke: $color-high;
+}
+
+.icon-chevron {
+  transition: all 0.1s linear;
+}
+
+// custom CHEVRON - TREE
+.icon-chevron.expanded {
+  transform: rotate(90deg);
+  transition: all 0.1s linear;
+}

@@ -1,7 +1,7 @@
 <template>
   <button
     class="bimdata-btn"
-    :style="{ width: width, height: height }"
+    :style="{ 'min-width': width, height: height }"
     @click="$emit('click', $event)"
   >
     <slot></slot>
@@ -25,10 +25,10 @@ export default {
 
 <style lang="scss">
   // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_font-size.scss";
+  @import "@/assets/scss/mixins/_font-size.scss";
 
   // import BIMDATA STYLE COMPONENT
   @import "./_BIMDataButton.scss";

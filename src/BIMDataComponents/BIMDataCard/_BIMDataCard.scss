@@ -1,0 +1,44 @@
+.bimdata-card{
+  background-color: $color-white;
+  box-shadow: 0px 2px 10px rgba($color-black, .07);
+  &__content, &__footer{
+    @include font-size(12px);
+  }
+  &__brand{
+    justify-content: space-between;
+    &--left{
+      margin-right: $spacing-unit;
+      display: flex;
+      align-items: center;
+      svg{
+        margin-right: calc(#{$spacing-unit} / 2);
+      }
+    }
+  }
+  &__header{
+    padding: 10px $spacing-unit;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-tertiary-lightest;
+    color: $color-primary;
+    @include font-size(13px);
+  }
+  &__submenu{
+    padding: calc(#{$spacing-unit} / 2) $spacing-unit;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: $color-white;
+    box-shadow: 0px 2px 4px rgba($color-black, .1);
+    @include font-size(12px);
+  }
+  &__content{
+    padding: $spacing-unit;
+    color: $color-tertiary-dark;
+  }
+  &__footer{
+    padding: 0 $spacing-unit $spacing-unit;
+  }
+}

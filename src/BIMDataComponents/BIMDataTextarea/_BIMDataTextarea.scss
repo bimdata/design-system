@@ -1,0 +1,78 @@
+textarea:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px $color-white inset;
+}
+
+.bimdata-textarea {
+  position: relative;
+  inline-size: min-content;
+  textarea {
+    padding: 0px;
+    width: 100%;
+    min-width: inherit;
+    max-width: 100%;
+    min-height: inherit;
+    display: flex;
+    margin: 0px;
+    border: none;
+    @include font-size(14px);
+
+    &:disabled{
+      background-color: transparent;
+      & ~ label {
+        color: $color-disabled;
+        cursor: default;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      & ~ label {
+        top: -26px;
+        color: $color-primary;
+        @include font-size(10px);
+      }
+      & ~ .bar {
+        &:after {
+          width: 100%;
+          transition: transform 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+  &.not-empty {
+    label {
+      top: -26px;
+      color: $color-primary;
+      @include font-size(10px);
+    }
+  }
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include font-size(12px);
+    transform: translateY(8px);
+    transition: 0.2s ease all;
+    color: $color-tertiary-dark;
+    cursor: pointer;
+  }
+  .bar {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    display: block;
+    background: $color-tertiary;
+    bottom: 0;
+    &::after {
+      width: 0;
+      height: 2px;
+      @include pseudo;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $color-primary;
+      transform: scaleX(0);
+    }
+  }
+}

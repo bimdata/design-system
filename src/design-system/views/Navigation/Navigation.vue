@@ -1,7 +1,7 @@
 <template>
-  <header>
+  <header class="bimdata-ds__header">
     <div class="bimdata-ds__logo">
-      <router-link to="/"><img src="../../assets/img/design-system__logo.svg" alt=""></router-link>
+      <router-link to="/"><img src="@/design-system/assets/img/design-system__logo.svg" alt=""></router-link>
     </div>
     <div class="bimdata-ds__navigation">
       <ul class="bimdata-list">
@@ -12,6 +12,10 @@
           </router-link>
         </li>
       </ul>
+    </div>
+    <div class="bimdata-ds__dark">
+      <i class="moon" v-if="theme === 'theme-light'" @click="switchTheme"></i>
+      <i class="sun" v-if="theme === 'theme-dark'" @click="switchTheme"></i>
     </div>
   </header>
 </template>
@@ -30,6 +34,15 @@ export default {
     displayLink: {
       type: Boolean,
       default: true
+    },
+    theme: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    switchTheme() {
+      this.$emit('switch-theme');
     }
   },
   computed: {
@@ -41,5 +54,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../assets/scss/elements/_BIMDataList.scss";
+  @import "@/assets/scss/elements/_BIMDataList.scss";
 </style>

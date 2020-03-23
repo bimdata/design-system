@@ -1,0 +1,27 @@
+.spacing{
+  nav{
+    height: calc(#{$spacing-unit} * 3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-left: -90px;
+    padding-left: 96px;
+    width: calc(100% + 180px);
+    border-bottom: 1px solid #e1e3e6;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+  }
+  &__code{
+    display: flex;
+    justify-content: space-between;
+    &__item{
+      margin-right: $spacing-unit;
+      flex: 1;
+      pre{
+        margin-bottom: 0;
+      }
+    }
+  }
+}

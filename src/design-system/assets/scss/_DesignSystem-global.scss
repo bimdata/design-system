@@ -19,11 +19,41 @@ a {
 }
 
 .layout {
-  margin-top: 80px;
+  margin-top: 60px;
   display: flex;
   overflow-y: auto;
 }
 
-pre {
+/* custom PRE */
+pre[class*="language-"]{
+  padding: 0;
+  position: relative;
   border-radius: 3px;
+  code{
+    padding: 20px;
+    display: block;
+    overflow: auto;
+  }
+  &:hover{
+    .bimdata-ds__demo__code__copy{
+      opacity: .5;
+      transition: all .2s ease;
+    }
+  }
+  .bimdata-ds__demo__code__copy{
+    &:hover{
+      opacity: 1;
+      transition: all .2s ease;
+    }
+  }
+}
+
+/* custom  */
+.code-highlight{
+  background-color: $color-tertiary-lightest;
+  padding: 3px 5px;
+  margin: 0 2px;
+  border-radius: 2px;
+  color: #2f374a;
+  font-weight: bold;
 }

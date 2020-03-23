@@ -1,0 +1,13 @@
+.developpers, .internal-doc{
+  .article-wrapper{
+    max-width: 45rem;
+    pre.language-bash{
+      &::before{
+        content: "$";
+        position: absolute;
+        top: 20px;
+        left: 6px;
+      }
+    }
+  }
+}
