@@ -15,5 +15,5 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker push bimdata/design:latest
               # deploy master branch
-              docker exec -e ANSIBLE_VAULT_PASSWD -it deployment ansible-playbook deploy.yml -i inventories/staging --tags=design --extra-vars "ansible_ssh_private_key_file=./files/deploy_rsa" --user=deploy
+              docker run -e ANSIBLE_VAULT_PASSWD -it bimdata/deployment:latest ansible-playbook deploy.yml -i inventories/staging --tags=design --extra-vars "ansible_ssh_private_key_file=./files/deploy_rsa" --user=deploy
             fi
