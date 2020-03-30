@@ -47,9 +47,9 @@
       background: #282B34;
       border-radius: 0;
     }
-    &__copy{
+    .clipboard{
       position: absolute;
-      top: 0;
+      top: calc(#{$spacing-unit} / 2);
       right: calc(#{$spacing-unit} / 2);
       cursor: pointer;
       opacity: .1;

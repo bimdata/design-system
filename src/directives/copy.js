@@ -2,10 +2,8 @@ let clickListener = null;
 
 export default {
   bind(el, binding) {
-    const div = document.createElement("div");
-    div.textContent = "copy";
-    div.classList.add("bimdata-ds__demo__code__copy");
-    div.id = "";
+    const div = document.createElement("i");
+    div.classList.add("clipboard");
     clickListener = () => {
       const elToCopy = [...el.children].find( child =>
         child.tagName === "CODE"
@@ -32,7 +30,7 @@ export default {
   },
   unbind(el) {
     const div = [...el.children].find( child =>
-      child.classList.contains("bimdata-ds__copy")
+      child.classList.contains("bimdata-ds__demo")
     );
     if (div) {
       div.removeEventListener("click", clickListener);
