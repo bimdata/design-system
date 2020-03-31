@@ -75,7 +75,10 @@
                 width="{{ getButtonWidth() }}"
                 class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
                 :disabled="{{ getButtonDisabled() }}"&gt;
-                  Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
+                &lt;template v-if="checkboxIconChecked"&gt;
+                  {{ getIcon() }}
+                &lt;/template&gt;
+                Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
               &lt;/BIMDataButton&gt;
             </pre>
           </template>
@@ -162,6 +165,20 @@ export default {
         return "32px";
       } else {
         return "300px";
+      }
+    },
+    getIcon() {
+      if(this.checkboxIconChecked){
+        return `<BIMDataIcon
+                    class="icon-chevron"
+                    icon-name="chevron-right"
+                    width="10"
+                    height="10"
+                    x="23"
+                    y="23"
+                  >
+                    <BIMDataChevronIcon />
+                  </BIMDataIcon>`
       }
     },
     getButtonDisabled() {
