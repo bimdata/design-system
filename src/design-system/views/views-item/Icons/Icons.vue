@@ -11,7 +11,7 @@
 
       <Code :componentTitle='$route.name'>
         <template #module>
-          <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
+          <BIMDataSearchInput :clear="true" class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="95%"/>
           <span class="icons-numbers">icons: {{iconNames.length}}</span>
           <div class="icons">
             <div v-for="iconName of filteredList" :key="iconName" :class="{active : iconName === activeIcon}" @click="onActiveIcons(iconName)">
@@ -75,7 +75,7 @@
 <script>
 import Code from "../../Components/Code.vue";
 
-import BIMDataSearchBar from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
+import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
@@ -139,7 +139,7 @@ import Prism from "prismjs";
 export default {
   components: {
     Code,
-    BIMDataSearchBar,
+    BIMDataSearchInput,
     BIMDataRadio,
     BIMDataIcon,
     BIMData3dModelIcon,

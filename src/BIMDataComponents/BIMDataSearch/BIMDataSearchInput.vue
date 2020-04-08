@@ -6,6 +6,7 @@
       </BIMDataIcon>
     </span>
     <input
+      :value="value"
       v-focus="autofocus"
       @focus="focused = true"
       @blur="focused = false"
@@ -13,18 +14,28 @@
       :placeholder="placeholder"
       @keyup.enter="$emit('enter', $event.target.value)"
     />
+    <BIMDataButton width="25px" @click="clickClear()" v-if="clear && value !== ''">
+      <BIMDataIcon icon-name="close" width="13" height="13" x="23" y="23" class="bimdata-fill-primary">
+        <BIMDataCloseIcon />
+      </BIMDataIcon>
+    </BIMDataButton>
   </div>
 </template>
 <script>
 import clickaway from "../../directives/click-away.js";
+import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
 import BIMDataSearchIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataSearchIcon.vue";
+import BIMDataCloseIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon";
+
 export default {
   components: {
     BIMDataIcon,
-    BIMDataSearchIcon
+    BIMDataSearchIcon,
+    BIMDataCloseIcon,
+    BIMDataButton
   },
   data() {
     return {
@@ -33,6 +44,10 @@ export default {
     };
   },
   props: {
+    value: {
+      type: String,
+      required: true
+    },
     placeholder: {
       type: String,
       default: ""
@@ -48,6 +63,10 @@ export default {
     autofocus: {
       type: Boolean,
       default: false
+    },
+    clear: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -56,6 +75,10 @@ export default {
     },
     focus() {
       this.$refs.input && this.$refs.input.focus();
+    },
+    clickClear() {
+      this.$emit("input", "");
+      this.$emit("clear");
     }
   },
   directives: {
@@ -67,11 +90,6 @@ export default {
       }
     },
     clickaway
-  },
-  watch: {
-    text(value) {
-      this.$emit("change", value);
-    }
   }
 };
 </script>
@@ -84,5 +102,5 @@ export default {
   @import "@/assets/scss/mixins/_font-size.scss";
 
   // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataSearchBar.scss";
+  @import "./_BIMDataSearchInput.scss";
 </style>

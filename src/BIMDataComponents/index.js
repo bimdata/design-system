@@ -4,7 +4,7 @@ import BIMDataCheckbox from '@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox
 import BIMDataIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue';
 import BIMDataInput from '@/BIMDataComponents/BIMDataInput/BIMDataInput.vue';
 import BIMDataRadio from '@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue';
-import BIMDataSearch from '@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue';
+import BIMDataSearch from '@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue';
 import BIMDataSelect from '@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue';
 import BIMDataTable from '@/BIMDataComponents/BIMDataTable/BIMDataTable.vue';
 import BIMDataTextarea from '@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue';
