@@ -11,6 +11,7 @@
       @blur="focused = false"
       @input="$emit('input', $event.target.value)"
       :placeholder="placeholder"
+      @keyup.enter="$emit('enter', $event.target.value)"
     />
   </div>
 </template>
