@@ -162,6 +162,7 @@
     }
     &:disabled{
       color: $color-disabled;
+      cursor: auto;
     }
   }
 }
