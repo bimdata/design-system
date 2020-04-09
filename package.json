@@ -1,6 +1,6 @@
 {
   "name": "@bimdata/design-system",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "main": "./dist/component.js",
   "files": [
     "dist/*"

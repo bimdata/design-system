@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <BIMDataSearchBar v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
+    <BIMDataSearchInput v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
     <!-- <p>{{Object.values($store.state)}}</p> -->
     <div class="home-content">
       <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="home-content__item">
@@ -17,12 +17,12 @@
 
 <script>
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataSearchBar from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
+import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 
 export default {
   components: {
     BIMDataButton,
-    BIMDataSearchBar
+    BIMDataSearchInput
   },
   props: {
     text: {

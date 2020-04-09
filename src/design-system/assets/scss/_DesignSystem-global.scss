@@ -35,12 +35,12 @@ pre[class*="language-"]{
     overflow: auto;
   }
   &:hover{
-    .bimdata-ds__demo__code__copy{
+    .clipboard{
       opacity: .5;
       transition: all .2s ease;
     }
   }
-  .bimdata-ds__demo__code__copy{
+  .clipboard{
     &:hover{
       opacity: 1;
       transition: all .2s ease;
@@ -48,7 +48,7 @@ pre[class*="language-"]{
   }
 }
 
-/* custom  */
+/* custom HIGHLIGHT */
 .code-highlight{
   background-color: $color-tertiary-lightest;
   padding: 3px 5px;
@@ -56,4 +56,38 @@ pre[class*="language-"]{
   border-radius: 2px;
   color: #2f374a;
   font-weight: bold;
+}
+
+/* custom CLIPBOARD ICON */
+.clipboard {
+  margin-left: $spacing-unit;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid;
+  border-radius: 2px;
+  &::after, &::before{
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 2px;
+    width: 10px;
+    left: 1px;
+  }
+  &::before{
+    border: 2px solid;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    top: -2px;
+    height: 6px;
+  }
+  &::after {
+    height: 1px;
+    background: currentColor;
+    box-shadow: 0 -3px 0 0;
+    bottom: 3px;
+  }
 }

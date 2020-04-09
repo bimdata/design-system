@@ -210,7 +210,7 @@ export default {
           hex: '#d8d8d8',
           rgb: '216, 216, 216',
           scss: '$color-tertiary',
-          css: 'var(--color-border)',
+          css: 'var(--color-tertiary)',
           textcolor: '#2f374a'
         }
       ],

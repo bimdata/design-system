@@ -33,6 +33,7 @@
         flex-wrap: wrap;
         justify-content: center;
         & > div {
+          padding: calc(#{$spacing-unit} / 2) 0 0;
           width: 147px;
           margin: 12px;
           display: flex;
@@ -40,6 +41,13 @@
           align-items: center;
           p{
             @include font-size(12px);
+          }
+          &:hover{
+            background-color: $color-tertiary-lightest;
+            cursor: pointer;
+          }
+          &.active{
+            background-color: $color-tertiary-lightest;
           }
         }
       }

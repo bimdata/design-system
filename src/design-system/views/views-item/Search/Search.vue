@@ -47,7 +47,7 @@ import Code from "../../Components/Code.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 
-import BIMDataSearch from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
+import BIMDataSearch from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 
 export default {
   components: {

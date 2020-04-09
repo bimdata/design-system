@@ -34,7 +34,7 @@
       <pre class="language-javascript" v-copy="onCopy">
         <code class="language-javascript" v-highlight:javascript>
           &lt;BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius"&gt;TEST&lt;/BIMDataButton&gt;
-          &lt;BIMDataSearch value="Search"&gt;&lt;/BIMDataSearch&gt;
+          &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__radius bimdata-search-bar__primary"&gt;&lt;/BIMDataSearch&gt;
         </code>
       </pre>
 

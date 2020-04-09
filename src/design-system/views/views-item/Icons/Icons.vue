@@ -11,10 +11,10 @@
 
       <Code :componentTitle='$route.name'>
         <template #module>
-          <BIMDataSearchBar class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="100%"/>
+          <BIMDataSearchInput :clear="true" class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="95%"/>
           <span class="icons-numbers">icons: {{iconNames.length}}</span>
           <div class="icons">
-            <div v-for="iconName of filteredList" :key="iconName">
+            <div v-for="iconName of filteredList" :key="iconName" :class="{active : iconName === activeIcon}" @click="onActiveIcons(iconName)">
               <BIMDataIcon
                 class="icon-chevron"
                 :icon-name="iconName"
@@ -50,15 +50,14 @@
         <template #code>
           <pre>
             &lt;BIMDataIcon
-              class="icon"
-              icon-name="your-icon-name"
+              class="icon {{selectedIconOptionsclass}}"
+              icon-name="{{activeIcon}}"
               width="23"
               height="23"
               x="23"
               y="23"
-              :class="{{selectedIconOptionsclass}}"
             &gt;
-              &lt;BIMData[YourIconName]Icon /&gt;
+              &lt;{{activeIcon}} /&gt;
             &lt;/BIMDataIcon&gt;
           </pre>
         </template>
@@ -76,7 +75,7 @@
 <script>
 import Code from "../../Components/Code.vue";
 
-import BIMDataSearchBar from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchBar.vue";
+import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
@@ -140,7 +139,7 @@ import Prism from "prismjs";
 export default {
   components: {
     Code,
-    BIMDataSearchBar,
+    BIMDataSearchInput,
     BIMDataRadio,
     BIMDataIcon,
     BIMData3dModelIcon,
@@ -199,6 +198,7 @@ export default {
     return{
       filter: "",
       selectedIconOptionsclass: "bimdata-fill-primary",
+      activeIcon: "BIMData3dModelIcon",
       iconOptions: {
         class:[
           "bimdata-fill-default", "bimdata-fill-primary", "bimdata-fill-secondary", "bimdata-fill-tertiary", "bimdata-fill-white", "bimdata-fill-tertiary-darkest", "bimdata-fill-red", "bimdata-stroke-default", "bimdata-stroke-primary", "bimdata-stroke-secondary", "bimdata-stroke-tertiary", "bimdata-stroke-white", "bimdata-stroke-tertiary-darkest", "bimdata-stroke-red"
@@ -233,6 +233,9 @@ export default {
     }
   },
   methods: {
+    onActiveIcons(iconName){
+      this.activeIcon = iconName;
+    },
     onCopy(e) {
       this.alerts = true;
       this.message = "copied successfully !";
