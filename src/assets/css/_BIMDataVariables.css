@@ -3,6 +3,7 @@
   /* brand colors*/
   --color-primary: rgba(47, 55, 74, 1);
   --color-secondary: rgba(249, 199, 44, 1);
+  --color-tertiary: rgba(216, 216, 216, 1);
 
   /* variant colors*/
   --color-tertiary-lightest: rgba(247, 247, 247, 1);
