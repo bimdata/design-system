@@ -1,3 +1,5 @@
+import styles from '@/assets/css/_BIMDataVariables.css'
+
 import BIMDataButton from '@/BIMDataComponents/BIMDataButton/BIMDataButton.vue';
 import BIMDataCard from '@/BIMDataComponents/BIMDataCard/BIMDataCard.vue';
 import BIMDataCheckbox from '@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue';
@@ -61,6 +63,7 @@ import BIMDataWarningIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryI
 import BIMDataWindowedIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWindowedIcon.vue';
 
 const Components = {
+  styles,
   BIMDataButton,
   BIMDataCard,
   BIMDataCheckbox,
