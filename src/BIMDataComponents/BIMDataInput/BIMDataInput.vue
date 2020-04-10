@@ -12,6 +12,9 @@
       :value="text"
       @focus="$event.target.select()"
     />
+    <div class="bimdata-input__icon">
+      <slot name="inputIcon"></slot>
+    </div>
     <label :for="`bimdata-input-${_uid}`">{{ placeholder }}</label>
     <span class="bar"></span>
     <span v-if="error" class="error">{{ errorMessage }}</span>
