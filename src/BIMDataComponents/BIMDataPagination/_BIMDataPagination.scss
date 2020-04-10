@@ -1,0 +1,27 @@
+// custom BASE PAGINATION
+.bimdata-pagination {
+  &__number {
+    padding: 0 $spacing-unit;
+    width: auto;
+    min-width: 100px;
+    text-align: left;
+  }
+  &__item {
+    .bimdata-btn {
+      justify-content: center;
+      &:disabled {
+        background-color: transparent;
+        svg {
+          .st0 {
+            fill: $color-disabled;
+          }
+        }
+      }
+    }
+    &.active {
+      .bimdata-btn {
+        font-weight: bold;
+      }
+    }
+  }
+}
