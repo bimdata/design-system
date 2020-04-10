@@ -9,14 +9,6 @@
   &__item {
     .bimdata-btn {
       justify-content: center;
-      &:disabled {
-        background-color: transparent;
-        svg {
-          .st0 {
-            fill: $color-disabled;
-          }
-        }
-      }
     }
     &.active {
       .bimdata-btn {
