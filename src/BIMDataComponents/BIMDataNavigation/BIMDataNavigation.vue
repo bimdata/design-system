@@ -7,7 +7,7 @@
       <BIMDataButton
         @click="$emit('first')"
         :disabled="firstDisabled"
-        class="bimdata-btn"
+        class="bimdata-btn__ghost"
         :class="{ disabled: firstDisabled }"
         width="36px"
         height="21px"
@@ -34,7 +34,7 @@
         height="21px"
       >
         <BIMDataIcon
-          class="icon-chevron"
+          class="icon-chevron-left"
           icon-name="chevron-left"
           width="10"
           height="10"
