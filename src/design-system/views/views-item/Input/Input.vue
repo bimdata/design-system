@@ -13,8 +13,13 @@
             :errorMessage="getErrorMessage()"
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"
-            :disabled="getDisabled()"
-          />
+            :disabled="getDisabled()">
+            <template #inputIcon v-if="inputIcon">
+              <BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default">
+                <BIMDataShowIcon />
+              </BIMDataIcon>
+            </template>
+          </BIMDataInput>
         </template>
 
         <template #parameters>
@@ -39,6 +44,10 @@
             :disabled="checkboxSuccessMessageDisabled"
           />
           <BIMDataCheckbox
+            text="icon"
+            v-model="inputIcon"
+          />
+          <BIMDataCheckbox
             text="loading"
             v-model="loading"
           />
@@ -55,8 +64,11 @@
             placeholder="Your placeholder here"
             :error="!textInput"
             errorMessage="your error message here"
-            :loading="{{getLoading()}}"
-          /&gt;
+            :loading="{{getLoading()}}"&gt;
+              &lt;template #inputIcon v-if="inputIcon"&gt;
+                {{ getInputIcon() }}
+              &lt;/template&gt;
+            &lt;/BIMDataInput&gt;
           </pre>
         </template>
       </Code>
@@ -75,13 +87,17 @@ import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
 import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataShowIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataShowIcon";
 
 export default {
   components: {
     Code,
     BIMDataTable,
     BIMDataCheckbox,
-    BIMDataInput
+    BIMDataInput,
+    BIMDataIcon,
+    BIMDataShowIcon
   },
   data() {
     return {
@@ -92,6 +108,7 @@ export default {
       successMessage: false,
       loading: false,
       disabled:false,
+      inputIcon: false,
       checkboxErrorDisabled: false,
       checkboxSuccessDisabled: false,
       checkboxErrorMessageDisabled: true,
@@ -148,7 +165,12 @@ export default {
       }else{
         return false;
       }
-    }
+    },
+    getInputIcon(){
+      if(this.inputIcon){
+        return `<BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default"><BIMDataShowIcon /></BIMDataIcon>`
+      }
+    },
   },
   computed: {
     getError(){
