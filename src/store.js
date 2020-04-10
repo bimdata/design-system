@@ -131,6 +131,13 @@ export default new Vuex.Store({
           btn: "View input"
         },
         {
+          title: "Pagination",
+          img: require("./design-system/assets/img/icon-pagination.svg"),
+          path: "pagination",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View pagination"
+        },
+        {
           title: "Radio",
           img:require("./design-system/assets/img/icon-radio.svg"),
           path: "radio",

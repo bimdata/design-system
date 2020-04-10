@@ -24,6 +24,7 @@ import Card from '../views/views-item/Card/Card.vue';
 import Checkbox from '../views/views-item/Checkbox/Checkbox.vue';
 import Icons from '../views/views-item/Icons/Icons.vue';
 import Input from '../views/views-item/Input/Input.vue';
+import Pagination from '../views/views-item/Pagination/Pagination.vue'
 import Radio from '../views/views-item/Radio/Radio.vue';
 import Search from '../views/views-item/Search/Search.vue';
 import Select from '../views/views-item/Select/Select.vue';
@@ -138,6 +139,11 @@ const routes = [
         path: 'input',
         name: 'input',
         component: Input
+      },
+      {
+        path: 'pagination',
+        name: 'pagination',
+        component: Pagination
       },
       {
         path: 'radio',
