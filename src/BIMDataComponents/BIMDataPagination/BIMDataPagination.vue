@@ -47,7 +47,10 @@ export default {
     },
     perPage: {
       type: Number,
-      required: true
+      required: true,
+      validator: value => {
+        return value > 0;
+      }
     }
   },
   computed: {

@@ -42,7 +42,10 @@ export default {
     },
     perPage: {
       type: Number,
-      default: 10
+      default: 10,
+      validator: value => {
+        return value > 0;
+      }
     },
     elementKey: {
       type: String
