@@ -5,12 +5,12 @@
   >
     <input
       ref="input"
-      type="text"
       :id="`bimdata-input-${_uid}`"
       @input="$emit('input', $event.currentTarget.value)"
       :disabled="disabled"
       :value="text"
       @focus="$event.target.select()"
+      v-bind="$attrs"
     />
     <div class="bimdata-input__icon">
       <slot name="inputIcon"></slot>

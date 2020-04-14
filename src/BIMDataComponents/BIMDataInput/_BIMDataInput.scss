@@ -21,6 +21,7 @@ input:-webkit-autofill {
     border: none;
     display: flex;
     cursor: pointer;
+    background-color: transparent;
     @include font-size(14px);
     &:focus {
       outline: none;
