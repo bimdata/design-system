@@ -1,0 +1,31 @@
+// custom PAGINATED LIST
+.bimdata-paginated-list {
+  @include font-size(12px);
+  line-height: 1.5;
+  &--small {
+    height: 100%;
+    position: relative;
+    .bimdata-paginated-list__elements {
+      li {
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:nth-child(odd) {
+          background-color: $color-tertiary-lightest;
+        }
+        &:nth-child(even) {
+          background-color: darken($color-tertiary-lightest, 5%);
+        }
+      }
+    }
+  }
+  &--empty {
+    height: auto;
+  }
+  .bcf--bucket {
+    &__content {
+      height: calc(304px - 37px - 4px);
+    }
+  }
+}
