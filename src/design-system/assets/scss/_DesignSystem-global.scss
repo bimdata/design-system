@@ -6,7 +6,7 @@ html, body {
   color: $color-primary;
   display: flex;
   overflow: hidden;
-  @include font-size(14px);
+  // font-size: calculateEm(14px);
 }
 .bimdata-ds {
   width: 100%;
