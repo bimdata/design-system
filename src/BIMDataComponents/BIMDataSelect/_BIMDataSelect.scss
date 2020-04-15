@@ -32,7 +32,7 @@ select:-webkit-autofill {
           position: absolute;
           top: -24px;
           color: $color-primary;
-          @include font-size(10px);
+          font-size: calculateEm(10px);
           transform: translateY(6px);
           transition: 0.2s ease all;
         }
@@ -64,7 +64,7 @@ select:-webkit-autofill {
         display: flex;
         align-items: center;
         cursor: pointer;
-        @include font-size(12px);
+        font-size: calculateEm(12px);
         &.selected {
           background-color: $color-tertiary;
           &:hover {
@@ -82,14 +82,14 @@ select:-webkit-autofill {
     label {
       top: -24px;
       color: $color-primary;
-      @include font-size(10px);
+      font-size: calculateEm(10px);
     }
   }
   label {
     position: absolute;
     top: 0;
     left: 0;
-    @include font-size(12px);
+    font-size: calculateEm(12px);
     transform: translateY(6px);
     transition: 0.2s ease all;
     color: $color-tertiary-dark;

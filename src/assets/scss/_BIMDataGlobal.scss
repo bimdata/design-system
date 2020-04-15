@@ -7,30 +7,30 @@ h1, h2, h3, h4, h5, h6, p {
   margin: .5rem 0;
 }
 h1{
-  @include font-size(34px);
+  font-size: calculateEm(34px);
   font-family: $primary-font-bold;
 }
 h2{
-  @include font-size(30px);
+  font-size: calculateEm(30px);
   font-family: $primary-font-bold;
 }
 h3{
-  @include font-size(26px);
+  font-size: calculateEm(26px);
   font-family: $primary-font-bold;
 }
 h4{
-  @include font-size(24px);
+  font-size: calculateEm(24px);
   font-family: $primary-font;
 }
 h5{
-  @include font-size(20px);
+  font-size: calculateEm(20px);
   font-family: $primary-font;
 }
 h6{
-  @include font-size(16px);
+  font-size: calculateEm(16px);
   font-family: $primary-font;
 }
 p{
-  @include font-size(14px);
+  font-size: calculateEm(14px);
   font-family: $primary-font;
 }

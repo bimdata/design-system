@@ -1,6 +1,6 @@
 // custom PAGINATED LIST
 .bimdata-paginated-list {
-  @include font-size(12px);
+  font-size: calculateEm(12px);
   line-height: 1.5;
   &--small {
     height: 100%;
