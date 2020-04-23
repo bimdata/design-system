@@ -23,7 +23,7 @@
         position: relative;
         line-height: 24px;
         text-decoration: none;
-        @include font-size(14px);
+        font-size: calculateEm(14px);
         img{
           width: 30px;
           margin-right: $spacing-unit;

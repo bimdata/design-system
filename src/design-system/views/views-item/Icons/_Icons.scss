@@ -40,7 +40,7 @@
           flex-direction: column;
           align-items: center;
           p{
-            @include font-size(12px);
+            font-size: calculateEm(12px);
           }
           &:hover{
             background-color: $color-tertiary-lightest;

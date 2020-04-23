@@ -11,7 +11,7 @@ input:-webkit-autofill {
     label {
       top: -22px;
       color: $color-primary;
-      @include font-size(10px);
+      font-size: calculateEm(10px);
     }
   }
   input {
@@ -22,12 +22,12 @@ input:-webkit-autofill {
     display: flex;
     cursor: pointer;
     background-color: transparent;
-    @include font-size(14px);
+    font-size: calculateEm(14px);
     &:focus {
       outline: none;
       & ~ label {
         top: -22px;
-        @include font-size(10px);
+        font-size: calculateEm(10px);
       }
       & ~ .bar {
         &:after {
@@ -47,7 +47,7 @@ input:-webkit-autofill {
     position: absolute;
     top: 0;
     left: 0;
-    @include font-size(12px);
+    font-size: calculateEm(12px);
     transform: translateY(8px);
     transition: 0.2s ease all;
     color: $color-tertiary-dark;
@@ -87,13 +87,13 @@ input:-webkit-autofill {
     top: 2px;
     position: relative;
     color: $color-high;
-    @include font-size(11px);
+    font-size: calculateEm(11px);
   }
   .success {
     top: 2px;
     position: relative;
     color: $color-success;
-    @include font-size(11px);
+    font-size: calculateEm(11px);
   }
   &.disabled {
     opacity: 0.6;

@@ -14,7 +14,7 @@ textarea:-webkit-autofill {
     display: flex;
     margin: 0px;
     border: none;
-    @include font-size(14px);
+    font-size: calculateEm(14px);
 
     &:disabled{
       background-color: transparent;
@@ -29,7 +29,7 @@ textarea:-webkit-autofill {
       & ~ label {
         top: -26px;
         color: $color-primary;
-        @include font-size(10px);
+        font-size: calculateEm(10px);
       }
       & ~ .bar {
         &:after {
@@ -44,14 +44,14 @@ textarea:-webkit-autofill {
     label {
       top: -26px;
       color: $color-primary;
-      @include font-size(10px);
+      font-size: calculateEm(10px);
     }
   }
   label {
     position: absolute;
     top: 0;
     left: 0;
-    @include font-size(12px);
+    font-size: calculateEm(12px);
     transform: translateY(8px);
     transition: 0.2s ease all;
     color: $color-tertiary-dark;

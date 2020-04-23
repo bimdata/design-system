@@ -3,7 +3,7 @@
   display: block;
   color: $color-primary;
   line-height: 1.5;
-  @include font-size(12px);
+  font-size: calculateEm(12px);
   // custom INPUT
   & > input {
     margin: 0;
