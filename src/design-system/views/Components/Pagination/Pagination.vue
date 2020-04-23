@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Code from "../../Components/Code.vue";
+import Code from "../../Elements/Code/Code.vue";
 import BIMDataPaginatedList from "@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue"
 import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";

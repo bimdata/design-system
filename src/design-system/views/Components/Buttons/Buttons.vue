@@ -99,13 +99,13 @@ import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 
-import Code from "../../Components/Code.vue";
+import Code from "../../Elements/Code/Code.vue";
 
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import Alerts from "../Alerts/Alerts.vue";
+import Alerts from "../../Elements/Alerts/Alerts.vue";
 
 export default {
   name: "Buttons",

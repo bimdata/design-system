@@ -5,7 +5,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: linear-gradient(162.76deg,#d1e6ff -9.05%,rgba(248,248,249,0) 108.11%);
+  position: relative;
+  &::after{
+    content: "";
+    background: linear-gradient(162.76deg, #B6D4FF -9.05%, rgba(248, 248, 249, 0) 108.11%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .7;
+  }
   .bimdata-search-bar{
     margin: calc(#{$spacing-unit} * 4) 0;
     background-color: $color-white;
@@ -31,27 +40,26 @@
         color: $color-primary;
         text-align: center;
       }
+      img{
+        animation-duration: 0.7s;
+        animation-name: bounceIn;
+      }
       button{
         margin-top: .5rem;
       }
-      &:first-child{
-        img{
-          animation-duration: 0.7s;
-          animation-name: bounceIn;
-        }
-      }
       &:nth-child(2){
         img{
-          animation-duration: 0.7s;
           animation-delay: .15s;
-          animation-name: bounceIn;
         }
       }
       &:nth-child(3){
         img{
-          animation-duration: 0.7s;
           animation-delay: .3s;
-          animation-name: bounceIn;
+        }
+      }
+      &:nth-child(4){
+        img{
+          animation-delay: .45s;
         }
       }
     }

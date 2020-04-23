@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import Code from "../../Components/Code.vue";
+import Code from "../../Elements/Code/Code.vue";
 
 import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";

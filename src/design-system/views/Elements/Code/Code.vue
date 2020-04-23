@@ -26,7 +26,7 @@
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
 import Prism from "prismjs";
-import Alerts from "../views-item/Alerts/Alerts.vue";
+import Alerts from "../Alerts/Alerts.vue";
 
 export default {
   components: {

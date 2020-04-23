@@ -49,7 +49,7 @@
           In the <code class="code-highlight">router.js</code> file import your new .vue file and add it in the corresponding children section (getting started, guidelines or components).
           <pre class="language-javascript">
             <code class="language-javascript" v-highlight:javascript>
-              import YourFileComponent from '../views/views-item/YourFolder/YourFileTitle.vue'
+              import YourFileComponent from '../views/Components/YourFolder/YourFileTitle.vue'
             </code>
           </pre>
           <pre class="language-javascript">
@@ -68,8 +68,8 @@
 </template>
 
 <script>
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
+import highlight from "@/directives/highlight.js";
+import copy from "@/directives/copy.js";
 import Prism from "prismjs";
 
 export default {

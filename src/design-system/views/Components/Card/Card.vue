@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import Code from "../../Components/Code.vue";
+import Code from "../../Elements/Code/Code.vue";
 
 import BIMDataBurgerMenu from "@/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
 import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";

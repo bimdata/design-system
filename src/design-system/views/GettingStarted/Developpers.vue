@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import Alerts from "../Alerts/Alerts.vue";
+import Alerts from "../Elements/Alerts/Alerts.vue";
 
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";

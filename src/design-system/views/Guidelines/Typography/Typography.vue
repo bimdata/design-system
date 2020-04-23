@@ -79,7 +79,7 @@
           <pre
             class="language-scss"
             v-copy="onCopy"
-          ><code class="language-scss" v-highlight:scss>@include font-size(12px);</code></pre>
+          ><code class="language-scss" v-highlight:scss>font-size: calculateEm(12px);</code></pre>
         </div>
       </div>
     </div>
