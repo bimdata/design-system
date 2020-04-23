@@ -6,30 +6,31 @@ import Layout from '../views/Layout/Layout.vue';
 import Content from '../views/Layout/Content.vue';
 
 // import GETTING STARTED
-import Designers from '../views/views-item/GettingStarted/Designers.vue';
-import Developpers from '../views/views-item/GettingStarted/Developpers.vue';
-import Releases from '../views/views-item/GettingStarted/Releases.vue';
-import InternalDoc from '../views/views-item/GettingStarted/InternalDoc.vue';
+import Designers from '../views/GettingStarted/Designers.vue';
+import Developpers from '../views/GettingStarted/Developpers.vue';
+import Releases from '../views/GettingStarted/Releases.vue';
+import InternalDoc from '../views/GettingStarted/InternalDoc.vue';
 
 // import GUIDELINES
-import Colors from '../views/views-item/Colors/Colors.vue';
-import Grid from '../views/views-item/Grid/Grid.vue';
-import Markup from '../views/views-item/Markup/Markup.vue';
-import Spacing from '../views/views-item/Spacing/Spacing.vue';
-import Typography from '../views/views-item/Typography/Typography.vue';
+import Colors from '../views/Guidelines/Colors/Colors.vue';
+import Grid from '../views/Guidelines/Grid/Grid.vue';
+import Markup from '../views/Guidelines/Markup/Markup.vue';
+import Spacing from '../views/Guidelines/Spacing/Spacing.vue';
+import Typography from '../views/Guidelines/Typography/Typography.vue';
 
 // import COMPONENTS
-import Buttons from '../views/views-item/Buttons/Buttons.vue';
-import Card from '../views/views-item/Card/Card.vue';
-import Checkbox from '../views/views-item/Checkbox/Checkbox.vue';
-import Icons from '../views/views-item/Icons/Icons.vue';
-import Input from '../views/views-item/Input/Input.vue';
-import Pagination from '../views/views-item/Pagination/Pagination.vue'
-import Radio from '../views/views-item/Radio/Radio.vue';
-import Search from '../views/views-item/Search/Search.vue';
-import Select from '../views/views-item/Select/Select.vue';
-import Table from '../views/views-item/Table/Table.vue';
-import Textarea from '../views/views-item/Textarea/Textarea.vue';
+import Buttons from '../views/Components/Buttons/Buttons.vue';
+import Card from '../views/Components/Card/Card.vue';
+import Checkbox from '../views/Components/Checkbox/Checkbox.vue';
+import Icons from '../views/Components/Icons/Icons.vue';
+import Input from '../views/Components/Input/Input.vue';
+import Pagination from '../views/Components/Pagination/Pagination.vue'
+import Radio from '../views/Components/Radio/Radio.vue';
+import Search from '../views/Components/Search/Search.vue';
+import Select from '../views/Components/Select/Select.vue';
+import Table from '../views/Components/Table/Table.vue';
+import Textarea from '../views/Components/Textarea/Textarea.vue';
+
 
 Vue.use(VueRouter)
 
