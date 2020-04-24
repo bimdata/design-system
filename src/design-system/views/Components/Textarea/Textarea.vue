@@ -3,7 +3,7 @@
     <div class="article-wrapper">
       <h2> {{ $route.name }} </h2>
 
-      <Code :componentTitle='$route.name'>
+      <ComponentCode :componentTitle='$route.name'>
         <template #module>
           <BIMDataTextarea
             label="textarea label"
@@ -42,7 +42,7 @@
             /&gt;
           </pre>
         </template>
-      </Code>
+      </ComponentCode>
 
       <div class="m-t-12">
         <h5>Props:</h5>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
@@ -62,7 +62,7 @@ import BIMDataTextarea from "@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea
 
 export default {
   components: {
-    Code,
+    ComponentCode,
     BIMDataTable,
     BIMDataCheckbox,
     BIMDataTextarea

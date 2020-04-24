@@ -9,7 +9,7 @@
         <img src="@/design-system/assets/img/design-system__icon-warning.jpg" alt="">
       </div>
 
-      <Code :componentTitle='$route.name'>
+      <ComponentCode :componentTitle='$route.name'>
         <template #module>
           <BIMDataSearchInput :clear="true" class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="95%"/>
           <span class="icons-numbers">icons: {{iconNames.length}}</span>
@@ -61,7 +61,7 @@
             &lt;/BIMDataIcon&gt;
           </pre>
         </template>
-      </Code>
+      </ComponentCode>
 
       <div class="m-t-12">
         <h5>Props:</h5>
@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
@@ -138,7 +138,7 @@ import Prism from "prismjs";
 
 export default {
   components: {
-    Code,
+    ComponentCode,
     BIMDataSearchInput,
     BIMDataRadio,
     BIMDataIcon,
