@@ -174,6 +174,20 @@ export default new Vuex.Store({
           btn: "View textarea"
         }
       ]
-    }
+    },
+    'utilities':{
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+      path: "utilities",
+      img:require("./design-system/assets/img/icon-utilities.svg"),
+      children: [
+        {
+          title: "list",
+          img:require("./design-system/assets/img/icon-list.svg"),
+          path: "list",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View list"
+        }
+      ]
+    },
   }
 });
