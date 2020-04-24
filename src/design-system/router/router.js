@@ -31,6 +31,8 @@ import Select from '../views/Components/Select/Select.vue';
 import Table from '../views/Components/Table/Table.vue';
 import Textarea from '../views/Components/Textarea/Textarea.vue';
 
+// import UTILITIES
+import List from '../views/Utilities/List/List.vue';
 
 Vue.use(VueRouter)
 
@@ -171,6 +173,22 @@ const routes = [
         name: 'textarea',
         component: Textarea
       }
+    ]
+  },
+  {
+    path: '/utilities',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'utilities',
+        component: Content
+      },
+      {
+        path: 'list',
+        name: 'list',
+        component: List
+      },
     ]
   }
 ]

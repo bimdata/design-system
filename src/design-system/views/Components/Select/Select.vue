@@ -3,7 +3,7 @@
     <div class="article-wrapper">
       <h2> {{ $route.name }} </h2>
 
-      <Code :componentTitle='$route.name'>
+      <ComponentCode :componentTitle='$route.name'>
         <template #module >
           <BIMDataSelect
             :options="options"
@@ -42,7 +42,7 @@
             /&gt;
           </pre>
         </template>
-      </Code>
+      </ComponentCode>
 
       <div class="m-t-12">
         <h5>Props:</h5>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
@@ -63,7 +63,7 @@ import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue"
 
 export default {
   components: {
-    Code,
+    ComponentCode,
     BIMDataTable,
     BIMDataCheckbox,
     BIMDataSelect

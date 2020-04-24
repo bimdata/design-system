@@ -2,7 +2,7 @@
   <main class="article article-pagination">
     <div class="article-wrapper">
       <h2> {{ $route.name }} </h2>
-      <Code :componentTitle='$route.name'>
+      <ComponentCode :componentTitle='$route.name'>
         <template #module >
           <BIMDataPaginatedList :list="paginatedListExample" :perPage="Number(numberInput)">
           </BIMDataPaginatedList>
@@ -17,7 +17,7 @@
             &lt;BIMDataPaginatedList :list="paginatedListExample" :perPage="{{numberInput}}"&gt;&lt;/BIMDataPaginatedList&gt;
           </pre>
         </template>
-      </Code>
+      </ComponentCode>
 
       <div class="m-t-12">
         <h5>Props:</h5>
@@ -34,14 +34,14 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataPaginatedList from "@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue"
 import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 export default {
   components: {
-    Code,
+    ComponentCode,
     BIMDataPaginatedList,
     BIMDataInput,
     BIMDataTable

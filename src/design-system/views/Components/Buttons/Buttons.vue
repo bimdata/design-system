@@ -4,7 +4,7 @@
       <h2>{{ $route.name }}</h2>
 
       <div class="button-overview">
-        <Code :componentTitle="$route.name">
+        <ComponentCode :componentTitle="$route.name">
           <template #module>
             <BIMDataButton
               :width="getButtonWidth()"
@@ -82,7 +82,7 @@
               &lt;/BIMDataButton&gt;
             </pre>
           </template>
-        </Code>
+        </ComponentCode>
 
         <div class="m-t-12">
           <h5>Props:</h5>
@@ -99,7 +99,7 @@ import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
@@ -111,7 +111,7 @@ export default {
   name: "Buttons",
   components: {
     Alerts,
-    Code,
+    ComponentCode,
     BIMDataButton,
     BIMDataTable,
     BIMDataRadio,

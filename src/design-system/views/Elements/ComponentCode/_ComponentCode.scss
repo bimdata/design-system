@@ -1,0 +1,51 @@
+.bimdata-ds__demo{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 300px);
+  position: relative;
+  h3{
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  &__tertiary-lightest{
+    .bimdata-ds__demo__module{
+      background-color: $color-tertiary-lightest;
+    }
+  }
+  &__module{
+    padding: 1rem;
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $color-tertiary;
+  }
+  &__parameters{
+    padding: 1rem 1rem 1rem 2rem;
+    grid-column: 3 / 3;
+    grid-row: 2 / 4;
+    background-color: $color-tertiary-lightest;
+    h4{
+      margin-top: 1rem;
+    }
+    &__options{
+      margin: 1rem 0;
+      h5{
+        margin: 0 0 .5rem;
+      }
+    }
+  }
+  &__code{
+    grid-column: 1 / 4;
+    grid-row: 4 / 4;
+    position: relative;
+    pre{
+      margin: 0;
+      background: #282B34;
+      border-radius: 0;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.utilities-list{
+  .bimdata-ds__example{
+    ul{
+      outline: 2px dotted $color-tertiary-darkest;
+      li{
+        outline: 1px dotted $color-tertiary;
+      }
+    }
+  }
+}

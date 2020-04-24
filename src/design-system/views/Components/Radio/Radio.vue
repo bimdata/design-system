@@ -3,7 +3,7 @@
     <div class="article-wrapper">
       <h2> {{ $route.name }} </h2>
 
-      <Code :componentTitle='$route.name'>
+      <ComponentCode :componentTitle='$route.name'>
         <template #module >
           <BIMDataRadio
             text="click on me !"
@@ -27,7 +27,7 @@
           &lt;/BIMDataRadio&gt;
           </pre>
         </template>
-      </Code>
+      </ComponentCode>
 
       <div class="m-t-12">
         <h5>Props:</h5>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
@@ -48,7 +48,7 @@ import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
-    Code,
+    ComponentCode,
     BIMDataTable,
     BIMDataRadio,
     BIMDataButton

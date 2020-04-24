@@ -1,10 +1,23 @@
 <template>
-  <div class="bimdata-ds__code">
-    <pre :class="`language-${language}`" v-copy="onCopy">
-      <code :class="`language-${language}`" v-highlight:[language] >
-        <slot></slot>
-      </code>
-    </pre>
+  <div class="bimdata-ds__demo">
+    <h3> Examples</h3>
+    <div class="bimdata-ds__demo__module">
+      <slot name="module"></slot>
+    </div>
+
+    <div class="bimdata-ds__demo__parameters">
+      <h4>{{componentTitle}} options</h4>
+      <slot name="parameters"></slot>
+    </div>
+
+    <div class="bimdata-ds__demo__code">
+      <pre class="language-xml" v-copy="onCopy">
+        <code class="language-xml" v-highlight:xml >
+          <slot name="code"></slot>
+        </code>
+      </pre>
+    </div>
+
     <Alerts v-if="alerts" :message="message" :class="alertType" />
   </div>
 </template>
@@ -26,12 +39,6 @@ export default {
       message: ""
     }
   },
-  props:{
-    language: {
-      type: String,
-      required: true
-    }
-  },
   methods: {
     onCopy(e) {
       this.alerts = true;
@@ -40,6 +47,11 @@ export default {
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
+    }
+  },
+  props:{
+    componentTitle: {
+      type: String
     }
   },
   directives: { highlight, copy }
@@ -51,5 +63,5 @@ export default {
   @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
-  @import "./_Code.scss";
+  @import "./_ComponentCode.scss";
 </style>

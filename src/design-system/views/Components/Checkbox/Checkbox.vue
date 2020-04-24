@@ -2,7 +2,7 @@
   <main class="article checkbox">
     <div class="article-wrapper">
       <h2>{{$route.name}}</h2>
-      <Code :componentTitle='$route.name'>
+      <ComponentCode :componentTitle='$route.name'>
           <template #module>
             <BIMDataCheckbox
             text="Your label here"
@@ -21,7 +21,7 @@
               &lt;/BIMDataCheckbox&gt;
             </pre>
           </template>
-        </Code>
+        </ComponentCode>
 
         <div class="m-t-12">
           <h5>Props:</h5>
@@ -32,14 +32,14 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
 
 export default {
   components: {
-    Code,
+    ComponentCode,
     BIMDataTable,
     BIMDataCheckbox
   },
