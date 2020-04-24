@@ -186,6 +186,14 @@ export default new Vuex.Store({
           path: "list",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View list"
+        },
+        {
+          title: "margin",
+          img:require("./design-system/assets/img/icon-margin.svg"),
+          path: "margin",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View margin"
+        },
         }
       ]
     },
