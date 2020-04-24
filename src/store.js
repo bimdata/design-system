@@ -194,6 +194,12 @@ export default new Vuex.Store({
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View margin"
         },
+        {
+          title: "padding",
+          img:require("./design-system/assets/img/icon-padding.svg"),
+          path: "padding",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View padding"
         }
       ]
     },

@@ -34,6 +34,7 @@ import Textarea from '../views/Components/Textarea/Textarea.vue';
 // import UTILITIES
 import List from '../views/Utilities/List/List.vue';
 import Margin from '../views/Utilities/Margin/Margin.vue';
+import Padding from '../views/Utilities/Padding/Padding.vue';
 
 Vue.use(VueRouter)
 
@@ -195,6 +196,11 @@ const routes = [
         name: 'margin',
         component: Margin
       },
+      {
+        path: 'padding',
+        name: 'padding',
+        component: Padding
+      }
     ]
   }
 ]
