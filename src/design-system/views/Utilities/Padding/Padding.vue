@@ -32,6 +32,23 @@
           </pre>
         </template>
       </ComponentCode>
+
+      <div class="m-y-12">
+        <h3>Class summary</h3>
+        <div class="m-y-12">
+          <h6>Global</h6>
+          <BIMDataTable :rows="globalClassData"></BIMDataTable>
+        </div>
+        <div class="m-y-12">
+          <h6>Top, Bottom, Vertical</h6>
+          <BIMDataTable :rows="verticalClassData"></BIMDataTable>
+        </div>
+        <div class="m-y-12">
+          <h6>Left, Right, Horizontal</h6>
+          <BIMDataTable :rows="horizontalClassData"></BIMDataTable>
+        </div>
+      </div>
+
     </div>
   </main>
 </template>
@@ -40,17 +57,20 @@
 import ComponentCode from "@/design-system/views/Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
+import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox
+    BIMDataCheckbox,
+    BIMDataTable
   },
   data() {
     return {
       checkboxes: [
         {
           class: "p-6",
-          checked: false,
+          checked: true,
           text: "global 6px padding"
         },
         {
@@ -119,6 +139,85 @@ export default {
           text: "padding right 12px"
         }
       ],
+      globalClassData: [
+        ["Class Name", "Output value", "Description"],
+        [
+          "p-6",
+          "padding: 6px;",
+          "Adds 6px padding all the way around the element."
+        ],
+        [
+          "p-12",
+          "padding: 12px;",
+          "Adds 12px padding all the way around the element."
+        ]
+      ],
+      verticalClassData: [
+        ["Class Name", "Output value", "Description"],
+        [
+          "p-y-6",
+          "padding: 6px 0;",
+          "Adds 6px padding to both top and bottom."
+        ],
+        [
+          "p-t-6",
+          "padding-top: 6px;",
+          "Adds 6px padding to the top side."
+        ],
+        [
+          "p-b-6",
+          "padding-bottom: 6px;",
+          "Adds 6px padding to the bottom side."
+        ],
+        [
+          "p-y-12",
+          "padding: 12px 0;",
+          "Adds 12px padding to both top and bottom."
+        ],
+        [
+          "p-t-12",
+          "padding-top: 12px;",
+          "Adds 12px padding to the top side."
+        ],
+        [
+          "p-b-12",
+          "padding-bottom: 12px;",
+          "Adds 6px padding to the bottom side."
+        ]
+      ],
+      horizontalClassData: [
+        ["Class Name", "Output value", "Description"],
+        [
+          "p-x-6",
+          "padding: 0 6px;",
+          "Adds 6px padding to both left and right."
+        ],
+        [
+          "p-l-6",
+          "padding-left: 6px;",
+          "Adds 6px padding to the left side."
+        ],
+        [
+          "p-r-6",
+          "padding-right: 6px;",
+          "Adds 6px padding to the right side."
+        ],
+        [
+          "p-x-12",
+          "padding: 0 12px;",
+          "Adds 12px padding to both left and right."
+        ],
+        [
+          "p-l-12",
+          "padding-left: 12px;",
+          "Adds 12px padding to the left side."
+        ],
+        [
+          "p-r-12",
+          "padding-right: 12px;",
+          "Adds 6px padding to the right side."
+        ]
+      ]
     }
   },
   methods: {
