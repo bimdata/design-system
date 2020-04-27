@@ -57,7 +57,6 @@ import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox
 
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
-
 export default {
   components: {
     ComponentCode,
