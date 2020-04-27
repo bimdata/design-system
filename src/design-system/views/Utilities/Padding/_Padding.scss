@@ -1,21 +1,17 @@
 .utilities-padding{
-  .bimdata-ds__example{
-    .ds-spacing{
-      display: inline-flex;
-      outline: 1px dotted $color-tertiary-dark;
-      .m-t-6, .m-b-6, .m-l-6, .m-r-6,
-      .m-t-12, .m-b-12, .m-l-12, .m-r-12{
-        span{
-          width: 150px;
-          height: 150px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: $color-primary;
-          color: $color-white;
-          text-align: center;
-          font-size: calculateEm(12px);
-        }
+  .ds-spacing{
+    &__padding{
+      background-color: $color-primary;
+      color: $color-white;
+      text-align: center;
+      font-size: calculateEm(12px);
+      span{
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 1px dotted $color-tertiary-lightest;
       }
     }
   }
