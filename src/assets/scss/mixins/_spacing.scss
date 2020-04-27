@@ -1,14 +1,47 @@
 // mixin MARGIN & PADDING
 $spaceamounts: (6, 12);
-$sides: (top, bottom, left, right);
+$sides: (top, bottom, left, right, all);
 
 @each $space in $spaceamounts {
-  @each $side in $sides {
-    .m-#{str-slice($side, 0, 1)}-#{$space} {
-      margin-#{$side}: #{$space}px;
-    }
-    .p-#{str-slice($side, 0, 1)}-#{$space} {
-      padding-#{$side}: #{$space}px;
+  @each $side, $value in $sides {
+
+    @if $side == 'all' {
+      // global MARGIN & PADDING
+      .m-#{$space} {
+        margin: #{$space}px;
+      }
+
+      .p-#{$space} {
+        padding: #{$space}px;
+      }
+    } @else {
+      // unitary MARGIN & PADDING
+      .m-#{str-slice($side, 0, 1)}-#{$space} {
+        margin-#{$side}: #{$space}px;
+      }
+      .p-#{str-slice($side, 0, 1)}-#{$space} {
+        padding-#{$side}: #{$space}px;
+      }
+
+      // vertical MARGIN & PADDING
+      .m-y-#{$space} {
+        margin-top: #{$space}px;
+        margin-bottom: #{$space}px;
+      }
+      .p-y-#{$space} {
+        padding-top: #{$space}px;
+        padding-bottom: #{$space}px;
+      }
+
+      // horizontal MARGIN & PADDING
+      .m-x-#{$space} {
+        margin-left: #{$space}px;
+        margin-right: #{$space}px;
+      }
+      .p-x-#{$space} {
+        padding-left: #{$space}px;
+        padding-right: #{$space}px;
+      }
     }
   }
 }
