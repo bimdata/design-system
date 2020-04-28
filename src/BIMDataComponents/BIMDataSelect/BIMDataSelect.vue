@@ -60,41 +60,15 @@ import BIMDataChevronIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataChevr
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 
 export default {
-  model: {
-    event: "option-click"
-  },
   components: {
     BIMDataIcon,
     BIMDataChevronIcon,
     BIMDataCheckbox
   },
-  data() {
-    return {
-      displayOptions: false,
-      selectedOptions: this.value
-    };
-  },
-  created() {
-    this.$watch(() => this.multi && this.nullValue, res => {
-      if (res) {
-        throw "Can not have multi and nullValue together.";
-      }
-    });
-  },
-  watch: {
-    multi() {
-      if (this.multi && !Array.isArray(this.value)) {
-        throw "value must be an array in multi mode.";
-      }
-      if (
-        !this.multi &&
-        (typeof this.value !== "string" && typeof this.value !== "number" && this.value !== null)
-      ) {
-        throw "value must be a string or a number in non-multi mode.";
-      }
-    }
-  },
   directives: { clickaway },
+  model: {
+    event: "option-click"
+  },
   props: {
     options: { type: Array, default: () => [] },
     multi: {
@@ -110,6 +84,32 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data() {
+    return {
+      displayOptions: false,
+      selectedOptions: this.value
+    };
+  },
+  watch: {
+    multi() {
+      if (this.multi && !Array.isArray(this.value)) {
+        throw "value must be an array in multi mode.";
+      }
+      if (
+        !this.multi &&
+        (typeof this.value !== "string" && typeof this.value !== "number" && this.value !== null)
+      ) {
+        throw "value must be a string or a number in non-multi mode.";
+      }
+    }
+  },
+  created() {
+    this.$watch(() => this.multi && this.nullValue, res => {
+      if (res) {
+        throw "Can not have multi and nullValue together.";
+      }
+    });
   },
   methods: {
     onOptionClick(option) {

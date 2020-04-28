@@ -37,11 +37,15 @@ export default {
     BIMDataCloseIcon,
     BIMDataButton
   },
-  data() {
-    return {
-      inputVisible: false,
-      focused: false,
-    };
+  directives: {
+    focus: {
+      inserted: function(el, {value}) {
+        if (value) {
+          el.focus();
+        }
+      }
+    },
+    clickaway
   },
   props: {
     value: {
@@ -69,6 +73,12 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      inputVisible: false,
+      focused: false,
+    };
+  },
   methods: {
     away() {
       this.inputVisible = false;
@@ -80,16 +90,6 @@ export default {
       this.$emit("input", "");
       this.$emit("clear");
     }
-  },
-  directives: {
-    focus: {
-      inserted: function(el, {value}) {
-        if (value) {
-          el.focus();
-        }
-      }
-    },
-    clickaway
   }
 };
 </script>

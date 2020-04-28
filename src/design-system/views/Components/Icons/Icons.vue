@@ -194,6 +194,7 @@ export default {
     BIMDataWindowedIcon,
     BIMDataTable
   },
+  directives: { highlight, copy },
   data(){
     return{
       filter: "",
@@ -232,6 +233,17 @@ export default {
       ]
     }
   },
+  computed: {
+    iconNames(){
+      return Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+    },
+    filteredList() {
+      const test = Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+      return test.filter(iconName => {
+        return iconName.toLowerCase().includes(this.filter.toLowerCase())
+      })
+    }
+  },
   methods: {
     onActiveIcons(iconName){
       this.activeIcon = iconName;
@@ -244,19 +256,7 @@ export default {
         this.alerts = false;
       }, 3000);
     }
-  },
-  computed: {
-    iconNames(){
-      return Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
-    },
-    filteredList() {
-      const test = Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
-      return test.filter(iconName => {
-        return iconName.toLowerCase().includes(this.filter.toLowerCase())
-      })
-    }
-  },
-  directives: { highlight, copy }
+  }
 }
 </script>
 

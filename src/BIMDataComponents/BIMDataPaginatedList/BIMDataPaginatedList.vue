@@ -30,11 +30,6 @@ export default {
   components: {
     BIMDataPagination
   },
-  data() {
-    return {
-      currentPage: 1
-    };
-  },
   props: {
     list: {
       type: Array,
@@ -51,15 +46,10 @@ export default {
       type: String
     }
   },
-  watch: {
-    list: {
-      handler(list) {
-        if (list.length < this.perPage * (this.currentPage - 1) + 1) {
-          this.currentPage = 1;
-        }
-      },
-      immediate: true
-    }
+  data() {
+    return {
+      currentPage: 1
+    };
   },
   computed: {
     totalPages() {
@@ -69,6 +59,16 @@ export default {
       const startIndex = this.perPage * (this.currentPage - 1);
       const endIndex = startIndex + this.perPage;
       return this.list.slice(startIndex, endIndex);
+    }
+  },
+  watch: {
+    list: {
+      handler(list) {
+        if (list.length < this.perPage * (this.currentPage - 1) + 1) {
+          this.currentPage = 1;
+        }
+      },
+      immediate: true
     }
   },
   methods: {

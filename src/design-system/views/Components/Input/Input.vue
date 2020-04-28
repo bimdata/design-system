@@ -141,6 +141,34 @@ export default {
       ]
     }
   },
+  computed: {
+    getError(){
+      if(this.error){
+        this.checkboxSuccessDisabled = true;
+        this.checkboxSuccessMessageDisabled = true;
+        this.checkboxErrorMessageDisabled = false;
+        this.successMessage = false;
+        return !this.textInput;
+      } else {
+        this.checkboxSuccessDisabled = false;
+        this.checkboxErrorMessageDisabled = true;
+        this.errorMessage = false;
+      }
+    },
+    getSuccess(){
+      if(this.success){
+        this.checkboxErrorDisabled = true;
+        this.checkboxErrorMessageDisabled = true;
+        this.checkboxSuccessMessageDisabled = false;
+        this.errorMessage = false;
+        return !this.textInput;
+      } else {
+        this.checkboxErrorDisabled = false;
+        this.checkboxSuccessMessageDisabled = true;
+        this.successMessage = false;
+      }
+    }
+  },
   methods: {
     getErrorMessage(){
       if(this.error && this.errorMessage){
@@ -171,34 +199,6 @@ export default {
         return `<BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default"><BIMDataShowIcon /></BIMDataIcon>`
       }
     },
-  },
-  computed: {
-    getError(){
-      if(this.error){
-        this.checkboxSuccessDisabled = true;
-        this.checkboxSuccessMessageDisabled = true;
-        this.checkboxErrorMessageDisabled = false;
-        this.successMessage = false;
-        return !this.textInput;
-      } else {
-        this.checkboxSuccessDisabled = false;
-        this.checkboxErrorMessageDisabled = true;
-        this.errorMessage = false;
-      }
-    },
-    getSuccess(){
-      if(this.success){
-        this.checkboxErrorDisabled = true;
-        this.checkboxErrorMessageDisabled = true;
-        this.checkboxSuccessMessageDisabled = false;
-        this.errorMessage = false;
-        return !this.textInput;
-      } else {
-        this.checkboxErrorDisabled = false;
-        this.checkboxSuccessMessageDisabled = true;
-        this.successMessage = false;
-      }
-    }
   }
 }
 </script>
