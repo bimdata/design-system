@@ -28,15 +28,6 @@ export default {
     prop: "text",
     event: "input"
   },
-  created() {
-    this.$watch(
-      () => this.success && this.error,
-      successAndError => {
-        if (successAndError)
-          throw "Input state cannot be both success and error.";
-      }
-    );
-  },
   props: {
     text: {
       type: [String, Number, Boolean]
@@ -69,6 +60,15 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  created() {
+    this.$watch(
+      () => this.success && this.error,
+      successAndError => {
+        if (successAndError)
+          throw "Input state cannot be both success and error.";
+      }
+    );
   },
   methods: {
     focus() {
