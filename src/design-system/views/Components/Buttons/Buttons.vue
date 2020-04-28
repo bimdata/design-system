@@ -152,6 +152,38 @@ export default {
       ]
     };
   },
+  computed: {
+    checkboxTextDisabled() {
+      return (
+        this.selectedBtnOptionskinds === "rounded" ||
+        this.checkboxIconChecked === false
+      );
+    },
+    checkboxIconDisabled() {
+      return (
+        this.selectedBtnOptionskinds === "rounded" ||
+        this.checkboxTextChecked === false
+      );
+    },
+    buttonDisabled() {
+      if (this.checkboxDisabledChecked === true) {
+        return ":disabled='disabled'";
+      }
+    }
+  },
+  watch: {
+    selectedBtnOptionskinds: {
+      handler(newValue, oldValue) {
+        if (newValue === "rounded") {
+          this.checkboxTextChecked = false;
+          this.checkboxIconChecked = true;
+        } else if (oldValue === "rounded") {
+          this.checkboxTextChecked = true;
+        }
+      },
+      deep: true
+    }
+  },
   methods: {
     getOverviewButtonClasses() {
       return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
@@ -183,38 +215,6 @@ export default {
     },
     getButtonDisabled() {
       return this.checkboxDisabledChecked;
-    }
-  },
-  watch: {
-    selectedBtnOptionskinds: {
-      handler(newValue, oldValue) {
-        if (newValue === "rounded") {
-          this.checkboxTextChecked = false;
-          this.checkboxIconChecked = true;
-        } else if (oldValue === "rounded") {
-          this.checkboxTextChecked = true;
-        }
-      },
-      deep: true
-    }
-  },
-  computed: {
-    checkboxTextDisabled() {
-      return (
-        this.selectedBtnOptionskinds === "rounded" ||
-        this.checkboxIconChecked === false
-      );
-    },
-    checkboxIconDisabled() {
-      return (
-        this.selectedBtnOptionskinds === "rounded" ||
-        this.checkboxTextChecked === false
-      );
-    },
-    buttonDisabled() {
-      if (this.checkboxDisabledChecked === true) {
-        return ":disabled='disabled'";
-      }
     }
   }
 };
