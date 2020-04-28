@@ -131,6 +131,13 @@ export default new Vuex.Store({
           btn: "View input"
         },
         {
+          title: "Loaders",
+          img: require("./design-system/assets/img/icon-loader.svg"),
+          path: "loaders",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View Loaders"
+        },
+        {
           title: "Pagination",
           img: require("./design-system/assets/img/icon-pagination.svg"),
           path: "pagination",

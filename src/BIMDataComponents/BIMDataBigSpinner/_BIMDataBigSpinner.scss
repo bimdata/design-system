@@ -1,0 +1,18 @@
+.animate-draw {
+  opacity: 1;
+  animation: 0.5s ease-in-out 0s infinite alternate fadeInOut,
+}
+#draw-blue {
+  fill: #30374b;
+  stroke: #30374b;
+}
+#draw-yellow-1 {
+  animation-delay: 0.1s;
+  fill: #f9c72c;
+  stroke: #f9c72c;
+}
+#draw-yellow-2 {
+  animation-delay: 0.2s;
+  fill: #f9c72c;
+  stroke: #f9c72c;
+}
