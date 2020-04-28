@@ -1,0 +1,22 @@
+@keyframes bimdataloading {
+  0% {
+    box-shadow: inset 0px 0px 0px 0px rgba($color-white, 0.1);
+    transform: rotate(-0deg);
+  }
+  20% {
+    transform: rotate(180deg);
+  }
+  40% {
+    transform: rotate(-0deg);
+  }
+  60% {
+    transform: rotate(-0deg);
+    box-shadow: inset 0px 0px 0px 0px rgba($color-white, 0.1);
+  }
+  80% {
+    box-shadow: inset 0px -20px 0px 0px rgba($color-white, 1);
+  }
+  100% {
+    box-shadow: inset 0px 0px 0px 0px rgba($color-white, 0.1);
+  }
+}
