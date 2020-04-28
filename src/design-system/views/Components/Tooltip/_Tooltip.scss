@@ -1,0 +1,13 @@
+.article-tooltip {
+  .bimdata-ds__demo{
+    &__module{
+      span{
+        &:hover{
+          & ~ .bimdata-tooltip{
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
