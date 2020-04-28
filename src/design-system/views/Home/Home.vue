@@ -3,13 +3,15 @@
     <BIMDataSearchInput v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
     <!-- <p>{{Object.values($store.state)}}</p> -->
     <div class="home-content">
-      <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="home-content__item">
-        <img :src="value.img"/>
-        <h2>{{ key }}</h2>
-        <p>{{ value.text }}</p>
-        <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
-         Explore
-        </BIMDataButton>
+      <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="bimdata-card">
+        <div class="bimdata-card__content">
+          <img :src="value.img"/>
+          <h2>{{ key }}</h2>
+          <p>{{ value.text }}</p>
+          <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
+          Explore
+          </BIMDataButton>
+        </div>
       </router-link>
     </div>
   </div>
