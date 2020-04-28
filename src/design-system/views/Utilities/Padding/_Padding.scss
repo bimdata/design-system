@@ -1,0 +1,18 @@
+.utilities-padding{
+  .ds-spacing{
+    &__padding{
+      background-color: $color-primary;
+      color: $color-white;
+      text-align: center;
+      font-size: calculateEm(12px);
+      span{
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 1px dotted $color-tertiary-lightest;
+      }
+    }
+  }
+}

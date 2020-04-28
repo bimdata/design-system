@@ -1,0 +1,17 @@
+.utilities-margin{
+  .ds-spacing{
+    display: inline-flex;
+    outline: 1px dotted $color-tertiary-dark;
+    span{
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-primary;
+      color: $color-white;
+      text-align: center;
+      font-size: calculateEm(12px);
+    }
+  }
+}

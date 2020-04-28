@@ -47,6 +47,7 @@ export default {
   @import "../../src/assets/scss/_BIMDataGlobal.scss";
   @import "../../src/assets/scss/_BIMDataFonts.scss";
   @import "../../src/assets/scss/_BIMDataGrid.scss";
+  @import "../../src/assets/scss/_BIMDataUtilities.scss";
 
   @import "../../src/assets/scss/elements/_BIMDataScrollbar.scss";
 

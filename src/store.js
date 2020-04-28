@@ -186,6 +186,20 @@ export default new Vuex.Store({
           path: "list",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "View list"
+        },
+        {
+          title: "Margin",
+          img:require("./design-system/assets/img/icon-margin.svg"),
+          path: "margin",
+          text: "Adjust whitespace by applying margin helpers.",
+          btn: "View margin"
+        },
+        {
+          title: "Padding",
+          img:require("./design-system/assets/img/icon-padding.svg"),
+          path: "padding",
+          text: "Adjust whitespace by applying padding helpers.",
+          btn: "View padding"
         }
       ]
     },
