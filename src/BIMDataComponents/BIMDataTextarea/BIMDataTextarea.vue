@@ -16,6 +16,15 @@
 
 <script>
 export default {
+  directives: {
+    focus: {
+      inserted: function(el, {value}) {
+        if (value) {
+          el.focus();
+        }
+      }
+    }
+  },
   model: {
     prop: "message",
     event: "input"
@@ -57,15 +66,6 @@ export default {
   methods: {
     focus() {
       this.$refs.input && this.$refs.input.focus();
-    }
-  },
-  directives: {
-    focus: {
-      inserted: function(el, {value}) {
-        if (value) {
-          el.focus();
-        }
-      }
     }
   }
 }
