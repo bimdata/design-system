@@ -2,10 +2,11 @@
   <main class="article internal-doc">
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
-      <h3>How to add a new section to the design system</h3>
+      <p>All the design system resources are in the directory: <code class="code-highlight">src/design-system/views</code>. The following explanations concern the addition of a new component. If you want to add another element (utilities, guidelines etc), follow the same instructions but do it in the corresponding folder.</p>
+      <h3>How to add a new component to the design system</h3>
       <ol>
         <li>
-          In the <code class="code-highlight">view-items</code>  directory create a new directory with the name of your component. Inside it, create your .vue file as well as .scss.
+          In the <code class="code-highlight">Components</code>  directory create a new directory with the name of your component. Inside it, create your .vue file as well as .scss.
           <Code language="xml">
             <pre>
               &lt;template&gt;
@@ -38,7 +39,7 @@
               {
                 title: "YourFileTitle",
                 img: require("./design-system/assets/img/icon-YourFileTitle.svg"),
-                path: "YourFileTitle",
+                path: "yourFileTitle",
                 text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                 btn: "View YourFileTitle"
               }
@@ -53,8 +54,8 @@
           <Code language="javascript">
             <pre>
               {
-                path: 'YourFileTitle',
-                name: 'YourFileTitle',
+                path: 'yourFileTitle',
+                name: 'yourFileTitle',
                 component: YourFileComponent
               }
             </pre>
