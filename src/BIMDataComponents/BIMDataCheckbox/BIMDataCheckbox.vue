@@ -11,12 +11,12 @@
 
 <script>
 export default {
+  name: "BIMDataCheckbox",
+  inheritAttrs: false,
   model: {
     prop: "state",
     event: "change"
   },
-  inheritAttrs: false,
-  name: "BIMDataCheckbox",
   props: {
     text: {
       type: String,
