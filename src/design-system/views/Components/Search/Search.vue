@@ -90,18 +90,18 @@ export default {
       ]
     }
   },
-  methods: {
-    getOverviewSearchClasses(){
-      return `bimdata-search-bar__${this.selectedSearchOptionskinds} bimdata-search-bar__${this.selectedSearchOptionsstyle}`
-    }
-  },
   computed: {
     changeBackgroundColor() {
       return {
         'bimdata-ds__demo__tertiary-lightest': this.selectedSearchOptionsstyle === "secondary"
       }
     }
-  }
+  },
+  methods: {
+    getOverviewSearchClasses(){
+      return `bimdata-search-bar__${this.selectedSearchOptionskinds} bimdata-search-bar__${this.selectedSearchOptionsstyle}`
+    }
+  },
 }
 </script>
 
