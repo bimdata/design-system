@@ -131,11 +131,11 @@ export default new Vuex.Store({
           btn: "View input"
         },
         {
-          title: "Loader",
+          title: "Loaders",
           img: require("./design-system/assets/img/icon-loader.svg"),
-          path: "loader",
+          path: "loaders",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-          btn: "View Loader"
+          btn: "View Loaders"
         },
         {
           title: "Pagination",
