@@ -4,18 +4,32 @@
     <h1>{{ $route.name }}</h1>
     <p>{{$store.state[$route.name].text}}</p>
     <div class="content-box">
-      <div class="bimdata-box" v-for="child in $store.state[$route.name].children" :key="child.id">
-        <router-link :to="child.path" append>
-          <div class="bimdata-box__content">
+
+      <BIMDataCard class="bimdata-card__getting-started" v-if="$route.name === 'components'">
+        <template #content>
+          <router-link to="../gettingstarted">
+            <h5>Getting started</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur.</p>
+            <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--secondary">
+              Get started now
+            </BIMDataButton>
+          </router-link>
+        </template>
+      </BIMDataCard>
+
+      <BIMDataCard v-for="child in $store.state[$route.name].children" :key="child.id">
+        <template #content>
+          <router-link :to="child.path" append>
             <img :src="child.img"/>
             <h5>{{ child.title }}</h5>
             <p>{{ child.text }}</p>
             <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
               {{ child.btn }}
             </BIMDataButton>
-          </div>
-        </router-link>
-      </div>
+          </router-link>
+        </template>
+      </BIMDataCard>
+
     </div>
   </div>
 </main>
@@ -23,10 +37,12 @@
 
 <script>
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 
 export default {
   components:{
     BIMDataButton,
+    BIMDataCard
   },
   methods: {
     getRouter(){
