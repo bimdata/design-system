@@ -89,7 +89,6 @@
           <BIMDataTable :rows="propsData"></BIMDataTable>
         </div>
       </div>
-      <Alerts v-if="alerts" :message="message" :class="alertType" />
     </div>
   </main>
 </template>
@@ -105,12 +104,9 @@ import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import Alerts from "../../Elements/Alerts/Alerts.vue";
-
 export default {
   name: "Buttons",
   components: {
-    Alerts,
     ComponentCode,
     BIMDataButton,
     BIMDataTable,
@@ -121,8 +117,6 @@ export default {
   },
   data() {
     return {
-      alerts: false,
-      alertType: null,
       message: "",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
