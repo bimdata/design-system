@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     'gettingstarted':{
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+      text: "Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData",
       path: "gettingstarted",
       img:require("./design-system/assets/img/icon-getting_stated.svg"),
       children: [
