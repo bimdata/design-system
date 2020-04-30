@@ -41,7 +41,7 @@ export default new Vuex.Store({
       ]
     },
     guidelines: {
-      text: "Guidelines for colors, spacing,  typography",
+      text: "How BIMData looks : guidelines for colors, spacing,  typography",
       img: require("./design-system/assets/img/icon-guidelines.svg"),
       children: [
         {
