@@ -39,17 +39,25 @@ export default {
   // import PRISMJS THEME
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
 
-  @import "../../src/assets/scss/mixins/_font-size.scss";
-  @import "../../src/assets/scss/mixins/_pseudo.scss";
-  @import "../../src/assets/scss/mixins/_spacing.scss";
+  // import MIXINS
+  @import "@/assets/scss/mixins/_font-size.scss";
+  @import "@/assets/scss/mixins/_pseudo.scss";
+  @import "@/assets/scss/mixins/_spacing.scss";
 
-  @import "../../src/assets/scss/_BIMDataVariables.scss";
-  @import "../../src/assets/scss/_BIMDataGlobal.scss";
-  @import "../../src/assets/scss/_BIMDataFonts.scss";
-  @import "../../src/assets/scss/_BIMDataGrid.scss";
-  @import "../../src/assets/scss/_BIMDataUtilities.scss";
+  // import BIMDATA STYLE
+  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataGlobal.scss";
+  @import "@/assets/scss/_BIMDataFonts.scss";
+  @import "@/assets/scss/_BIMDataGrid.scss";
 
-  @import "../../src/assets/scss/elements/_BIMDataScrollbar.scss";
+  // import UTILITIES
+  @import "@/assets/scss/utilities/_colors.scss";
+  @import "@/assets/scss/utilities/_flex.scss";
+  @import "@/assets/scss/utilities/_list.scss";
 
+  // import ELEMENTS
+  @import "@/assets/scss/elements/_BIMDataScrollbar.scss";
+
+  // import DESIGN SYSTEM STYLE
   @import "./assets/scss/DesignSystem.scss";
 </style>

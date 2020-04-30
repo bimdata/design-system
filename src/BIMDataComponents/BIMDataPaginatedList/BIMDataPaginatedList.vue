@@ -81,13 +81,13 @@ export default {
 
 <style lang="scss">
   // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_font-size.scss";
+  @import "@/assets/scss/mixins/_font-size.scss";
 
   // import BIMDATA LIST
-  @import "../../assets/scss/elements/_BIMDataList.scss";
+  @import "@/assets/scss/utilities/_list.scss";
 
   @import "./_BIMDataPaginatedList.scss";
 </style>

@@ -54,5 +54,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@/assets/scss/elements/_BIMDataList.scss";
+  @import "@/assets/scss/utilities/_list.scss";
 </style>
