@@ -128,8 +128,8 @@ const routes = [
         component: Buttons
       },
       {
-        path: 'card',
-        name: 'card',
+        path: 'cards',
+        name: 'cards',
         component: Card
       },
       {
@@ -183,8 +183,8 @@ const routes = [
         component: Textarea
       },
       {
-        path: 'tooltip',
-        name: 'tooltip',
+        path: 'tooltips',
+        name: 'tooltips',
         component: Tooltip
       }
     ]

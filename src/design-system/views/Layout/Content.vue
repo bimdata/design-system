@@ -9,7 +9,7 @@
         <template #content>
           <router-link to="../gettingstarted">
             <h5>Getting started</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur.</p>
+            <p>Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.</p>
             <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--secondary">
               Get started now
             </BIMDataButton>

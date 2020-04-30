@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     'gettingstarted':{
-      text: "Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData",
+      text: "Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.",
       path: "gettingstarted",
       img:require("./design-system/assets/img/icon-getting_stated.svg"),
       children: [
@@ -95,23 +95,23 @@ export default new Vuex.Store({
           img:require("./design-system/assets/img/icon-buttons.svg"),
           path: "buttons",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Buttons are used to trigger actions based on a user's interaction.",
           btn: "View Buttons"
         },
         {
-          title: "Card",
+          title: "Cards",
           img:require("./design-system/assets/img/icon-card.svg"),
-          path: "card",
+          path: "cards",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View Card"
+            "Cards are used to groups a related content.",
+          btn: "View Cards"
         },
         {
           title: "Checkbox",
           img:require("./design-system/assets/img/icon-checkbox.svg"),
           path: "checkbox",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Checkboxes are used to enables users to pick multiple options from a group.",
           btn: "View icons"
         },
         {
@@ -119,7 +119,7 @@ export default new Vuex.Store({
           img:require("./design-system/assets/img/icon-icons.svg"),
           path: "icons",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Icons are used to provide additional visual context.",
           btn: "View icons"
         },
         {
@@ -127,21 +127,21 @@ export default new Vuex.Store({
           img:require("./design-system/assets/img/icon-input.svg"),
           path: "input",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Inputs are used for enabled a user to interact and input data.",
           btn: "View input"
         },
         {
           title: "Loaders",
           img: require("./design-system/assets/img/icon-loader.svg"),
           path: "loaders",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Loaders are used to notify a user that data or page is being retrieved.",
           btn: "View Loaders"
         },
         {
           title: "Pagination",
           img: require("./design-system/assets/img/icon-pagination.svg"),
           path: "pagination",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Pagination is used to lets users navigate through large collections of items.",
           btn: "View pagination"
         },
         {
@@ -149,43 +149,43 @@ export default new Vuex.Store({
           img:require("./design-system/assets/img/icon-radio.svg"),
           path: "radio",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Radio buttons enables a user to make a single selection from a group of options.",
           btn: "View radio"
         },
         {
           title: "Search",
           img: require("./design-system/assets/img/icon-search.svg"),
           path: "search",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Search enables users to specify a word or a phrase to find relevant content.",
           btn: "View search"
         },
         {
           title: "Select",
           img: require("./design-system/assets/img/icon-select.svg"),
           path: "select",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Select (dropdown) is used to enabled a user to select a single item from a list of options.",
           btn: "View select"
         },
         {
           title: "Table",
           img: require("./design-system/assets/img/icon-table.svg"),
           path: "table",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Table is a component used for displaying your formatted content.",
           btn: "View table"
         },
         {
           title: "Textarea",
           img: require("./design-system/assets/img/icon-textarea.svg"),
           path: "textarea",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Textarea is used to add freeform longer text.",
           btn: "View textarea"
         },
         {
-          title: "Tooltip",
+          title: "Tooltips",
           img: require("./design-system/assets/img/icon-tooltip.svg"),
-          path: "tooltip",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-          btn: "View tooltip"
+          path: "tooltips",
+          text: "Tooltips are used to show contextual information on hover.",
+          btn: "View tooltips"
         }
       ]
     },
