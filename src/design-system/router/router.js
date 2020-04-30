@@ -31,6 +31,7 @@ import Search from '../views/Components/Search/Search.vue';
 import Select from '../views/Components/Select/Select.vue';
 import Table from '../views/Components/Table/Table.vue';
 import Textarea from '../views/Components/Textarea/Textarea.vue';
+import Tooltip from '../views/Components/Tooltip/Tooltip.vue';
 
 // import UTILITIES
 import List from '../views/Utilities/List/List.vue';
@@ -180,6 +181,11 @@ const routes = [
         path: 'textarea',
         name: 'textarea',
         component: Textarea
+      },
+      {
+        path: 'tooltip',
+        name: 'tooltip',
+        component: Tooltip
       }
     ]
   },

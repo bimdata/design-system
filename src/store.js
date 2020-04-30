@@ -179,6 +179,13 @@ export default new Vuex.Store({
           path: "textarea",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           btn: "View textarea"
+        },
+        {
+          title: "Tooltip",
+          img: require("./design-system/assets/img/icon-tooltip.svg"),
+          path: "tooltip",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View tooltip"
         }
       ]
     },

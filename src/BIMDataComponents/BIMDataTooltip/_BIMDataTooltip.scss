@@ -1,0 +1,91 @@
+.bimdata-tooltip{
+  position: relative;
+  &__text{
+    padding: 0 6px;
+    width: max-content;
+    height: 21px;
+    min-width: 56px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: $color-white;
+    line-height: 25px;
+    opacity: 0;
+    text-align: center;
+    word-wrap: break-word;
+    font-size: calculateEm(11px);
+    z-index: 2;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+  &--arrow{
+    height: 28px;
+    font-size: calculateEm(12px);
+    &::before {
+      @include pseudo;
+      top: calc((28px - 8px) / 2);
+      border-style: solid;
+      border-width: 0 0 8px 8px;
+    }
+  }
+  &--right {
+    &::before {
+      left: -4px;
+      transform: rotate(135deg);
+    }
+  }
+  &--left {
+    &::before {
+      right: -4px;
+      transform: rotate(-45deg);
+    }
+  }
+  &--bottom {
+    left: 50%;
+    transform: translate(-50%);
+    line-height: 1.5;
+    &::before {
+      top: -4px;
+      left: 47%;
+      transform: rotate(-135deg);
+    }
+  }
+  &--up {
+    left: 50%;
+    transform: translate(-50%);
+    line-height: 1.5;
+    &::before {
+      bottom: -6px;
+      left: 50%;
+      transform: rotate(44deg);
+      transform-origin: center;
+    }
+  }
+  &--primary{
+    background-color: $color-primary;
+    &.bimdata-tooltip--arrow{
+      &::before{
+        border-color: transparent transparent $color-primary;
+      }
+    }
+  }
+  &--grey{
+    background-color: $color-tertiary-dark;
+    &.bimdata-tooltip--arrow{
+      &::before{
+        border-color: transparent transparent $color-tertiary-dark;
+      }
+    }
+  }
+  &__content{
+    &:hover{
+      cursor: pointer;
+      & ~ .bimdata-tooltip__text{
+        opacity: 1;
+      }
+    }
+  }
+}
