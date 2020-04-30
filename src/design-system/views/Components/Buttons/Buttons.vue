@@ -1,5 +1,5 @@
 <template>
-  <main class="article buttons">
+  <main class="article article-buttons">
     <div class="article-wrapper">
       <h2>{{ $route.name }}</h2>
 
