@@ -80,7 +80,7 @@
       }
     }
   }
-  span:first-child{
+  &__content{
     &:hover{
       cursor: pointer;
       & ~ .bimdata-tooltip__text{

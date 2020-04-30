@@ -1,7 +1,10 @@
 <template>
   <div class="bimdata-tooltip">
-    <slot name="content"></slot>
+    <div class="bimdata-tooltip__content" @mouseover="isTooltipHover = true" @mouseleave="isTooltipHover = false">
+      <slot name="content"></slot>
+    </div>
     <span
+      v-if="isTooltipHover"
       ref="tooltip"
       class="bimdata-tooltip__text"
       :class="className"
@@ -16,10 +19,12 @@ export default {
   props: {
     message: {
       type: String,
-      default: null
+      default: null,
+      required: true
     },
     className: {
-      type: String
+      type: String,
+      required: true
     }
   },
   data() {
@@ -27,11 +32,22 @@ export default {
       width: null,
       height: null,
       parentHeight: null,
+      isTooltipHover: false
     };
   },
   mounted() {
     this.$options.resizeObserver = new ResizeObserver(this.onResize);
-    this.$options.resizeObserver.observe(this.$refs.tooltip);
+  },
+  watch: {
+    isTooltipHover() {
+      if (this.isTooltipHover) {
+        this.$nextTick(() =>
+          this.$options.resizeObserver.observe(this.$refs.tooltip)
+        );
+      } else {
+        this.$options.resizeObserver.unobserve(this.$refs.tooltip);
+      }
+    }
   },
   destroyed() {
     if (this.$options.resizeObserver) {
@@ -51,16 +67,22 @@ export default {
     position() {
       if (this.className) {
         if (this.className.includes("bimdata-tooltip--left")) {
-          return { left: (-this.width - 6) + "px", top: (this.parentHeight - this.height)/2 + "px" };
+          return {
+            left: -this.width - 6 + "px",
+            top: (this.parentHeight - this.height) / 2 + "px"
+          };
         }
         if (this.className.includes("bimdata-tooltip--right")) {
-          return { right: (-this.width - 6) + "px", top: (this.parentHeight - this.height)/2 + "px" };
+          return {
+            right: -this.width - 6 + "px",
+            top: (this.parentHeight - this.height) / 2 + "px"
+          };
         }
         if (this.className.includes("bimdata-tooltip--bottom")) {
-          return { top: (this.parentHeight + 6) + "px" };
+          return { top: this.parentHeight + 6 + "px" };
         }
         if (this.className.includes("bimdata-tooltip--up")) {
-          return { top: (-this.height -6) + "px" };
+          return { top: -this.height - 6 + "px" };
         }
       }
     }
