@@ -214,6 +214,13 @@ export default new Vuex.Store({
           path: "padding",
           text: "Adjust whitespace by applying padding helpers.",
           btn: "View padding"
+        },
+        {
+          title: "Text",
+          img: require("./design-system/assets/img/icon-typo.svg"),
+          path: "text",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View Text"
         }
       ]
     },

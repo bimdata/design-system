@@ -37,6 +37,7 @@ import Tooltip from '../views/Components/Tooltip/Tooltip.vue';
 import List from '../views/Utilities/List/List.vue';
 import Margin from '../views/Utilities/Margin/Margin.vue';
 import Padding from '../views/Utilities/Padding/Padding.vue';
+import Text from '../views/Utilities/Text/Text.vue'
 
 Vue.use(VueRouter)
 
@@ -212,6 +213,11 @@ const routes = [
         path: 'padding',
         name: 'padding',
         component: Padding
+      },
+      {
+        path: 'text',
+        name: 'text',
+        component: Text
       }
     ]
   }
