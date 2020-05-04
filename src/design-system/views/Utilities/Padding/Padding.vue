@@ -1,8 +1,8 @@
 <template>
   <main class="article utilities-padding">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
-      <p>All spacing is defined by a base value of 12 pixels. This value of 12 px is the basic unit of measurement for spacing.</p>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <p class="bimdata-text">All spacing is defined by a base value of 12 pixels. This value of 12 px is the basic unit of measurement for spacing.</p>
       <ComponentCode :componentTitle="$route.name">
         <template #module>
           <div class="ds-spacing">
@@ -34,17 +34,17 @@
       </ComponentCode>
 
       <div class="m-y-12">
-        <h3>Class summary</h3>
+        <h3 class="bimdata-h3">Class summary</h3>
         <div class="m-y-12">
-          <h6>Global</h6>
+          <h6 class="bimdata-h6">Global</h6>
           <BIMDataTable :rows="globalClassData"></BIMDataTable>
         </div>
         <div class="m-y-12">
-          <h6>Top, Bottom, Vertical</h6>
+          <h6 class="bimdata-h6">Top, Bottom, Vertical</h6>
           <BIMDataTable :rows="verticalClassData"></BIMDataTable>
         </div>
         <div class="m-y-12">
-          <h6>Left, Right, Horizontal</h6>
+          <h6 class="bimdata-h6">Left, Right, Horizontal</h6>
           <BIMDataTable :rows="horizontalClassData"></BIMDataTable>
         </div>
       </div>

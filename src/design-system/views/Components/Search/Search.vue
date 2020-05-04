@@ -1,7 +1,7 @@
 <template>
   <main class="article your-file-class">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
 
       <ComponentCode :componentTitle='$route.name' :class="changeBackgroundColor">
         <template #module >
@@ -10,7 +10,7 @@
 
         <template #parameters>
           <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(searchOptions)" :key="key">
-            <h5>{{ key }}</h5>
+            <h5 class="bimdata-h5">{{ key }}</h5>
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -33,7 +33,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 

@@ -1,12 +1,12 @@
 <template>
   <div class="bimdata-ds__demo">
-    <h3> Examples</h3>
+    <h3 class="bimdata-h3"> Examples</h3>
     <div class="bimdata-ds__demo__module">
       <slot name="module"></slot>
     </div>
 
     <div class="bimdata-ds__demo__parameters">
-      <h4>{{componentTitle}} options</h4>
+      <h4 class="bimdata-h4">{{componentTitle}} options</h4>
       <slot name="parameters"></slot>
     </div>
 

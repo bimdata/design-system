@@ -1,0 +1,37 @@
+.bimdata-h1,
+.bimdata-h2,
+.bimdata-h3,
+.bimdata-h4,
+.bimdata-h5,
+.bimdata-h6,
+.bimdata-text {
+  margin: .5rem 0;
+}
+.bimdata-h1{
+  font-size: calculateEm(34px);
+  font-family: $primary-font-bold;
+}
+.bimdata-h2{
+  font-size: calculateEm(30px);
+  font-family: $primary-font-bold;
+}
+.bimdata-h3{
+  font-size: calculateEm(26px);
+  font-family: $primary-font-bold;
+}
+.bimdata-h4{
+  font-size: calculateEm(24px);
+  font-family: $primary-font;
+}
+.bimdata-h5{
+  font-size: calculateEm(20px);
+  font-family: $primary-font;
+}
+.bimdata-h6{
+  font-size: calculateEm(16px);
+  font-family: $primary-font;
+}
+.bimdata-text{
+  font-size: calculateEm(14px);
+  font-family: $primary-font;
+}

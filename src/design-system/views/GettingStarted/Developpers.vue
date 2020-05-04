@@ -1,26 +1,22 @@
 <template>
   <main class="article developpers">
     <div class="article-wrapper">
-      <h1>Developpers</h1>
-      <p>How to get started with BIMData's vuejs component library</p>
-      <h4>1. Install the package</h4>
-      <p>BIMData’s component library is called <code class="code-highlight">design-system</code>, and it’s available on the npm registry.</p>
+      <h1 class="bimdata-h1">Developpers</h1>
+      <p class="bimdata-text">How to get started with BIMData's vuejs component library</p>
+      <h4 class="bimdata-h4">1. Install the package</h4>
+      <p class="bimdata-text">BIMData’s component library is called <code class="code-highlight">design-system</code>, and it’s available on the npm registry.</p>
       <Code language="bash">
         npm i @bimdata/design-system
       </Code>
 
-      <h4>2. Import component</h4>
-      <p>
-        Once you’ve installed the package you can import any component available in BIMData's design system:
-      </p>
+      <h4 class="bimdata-h4">2. Import component</h4>
+      <p class="bimdata-text"> Once you’ve installed the package you can import any component available in BIMData's design system: </p>
       <Code language="javascript">
         import BIMDataComponents from '@bimdata/design-system'
       </Code>
 
-      <h4>3. Register component</h4>
-      <p>
-        into your <code class="code-highlight">.vue</code> file, define your component into <code class="code-highlight">components</code> option
-      </p>
+      <h4 class="bimdata-h4">3. Register component</h4>
+      <p class="bimdata-text"> into your <code class="code-highlight">.vue</code> file, define your component into <code class="code-highlight">components</code> option</p>
       <Code language="javascript">
         <pre>
           components: {
@@ -30,7 +26,7 @@
         </pre>
       </Code>
 
-      <h4>4. Use component</h4>
+      <h4 class="bimdata-h4">4. Use component</h4>
       <Code language="javascript">
         <pre>
           &lt;BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius"&gt;TEST&lt;/BIMDataButton&gt;
@@ -38,7 +34,7 @@
         </pre>
       </Code>
 
-      <h4>5. Import components style</h4>
+      <h4 class="bimdata-h4">5. Import components style</h4>
       <Code language="javascript">
         <pre>
           @import "~@bimdata/design-system/dist/styles/component.css";

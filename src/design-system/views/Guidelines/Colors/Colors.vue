@@ -6,8 +6,9 @@
         <div class="colors-animations__box colors-animations__box2"></div>
         <div class="colors-animations__box colors-animations__box3"></div>
       </div>
-      <h2>{{ $route.name }}</h2>
-      <h3>Brand colors</h3>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <p class="bimdata-text"> For maintainability, please use these instead of hardcoding color values.</p>
+      <h3 class="bimdata-h3">Brand colors</h3>
       <div class="color-swatches">
         <div class="color-swatche" v-for="brandColor in brandColors" :key="brandColor.id">
           <div class="color-swatche__header" :style="{'background-color': brandColor.hex, 'color': brandColor.textcolor}">
@@ -52,7 +53,7 @@
           </div>
         </div>
       </div>
-      <h3>Variant colors</h3>
+      <h3 class="bimdata-h3">Variant colors</h3>
       <div class="color-swatches">
         <div class="color-swatche" v-for="variantColor in variantColors" :key="variantColor.id">
           <div class="color-swatche__header" :style="{'background-color': variantColor.hex, 'color': variantColor.textcolor}">
@@ -90,7 +91,7 @@
           </div>
         </div>
       </div>
-      <h3>Common colors</h3>
+      <h3 class="bimdata-h3">Common colors</h3>
       <div class="color-swatches">
         <div class="color-swatche" v-for="commonColor in commonColors" :key="commonColor.id">
           <div class="color-swatche__header" :style="{'background-color': commonColor.hex, 'color': commonColor.textcolor}">
@@ -131,7 +132,7 @@
           </div>
         </div>
       </div>
-      <h3>State colors</h3>
+      <h3 class="bimdata-h3">State colors</h3>
       <div class="color-swatches">
         <div class="color-swatche" v-for="alertsColor in stateColors" :key="alertsColor.id">
           <div class="color-swatche__header" :style="{'background-color': alertsColor.hex, 'color': alertsColor.textcolor}">

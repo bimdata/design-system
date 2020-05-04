@@ -1,7 +1,7 @@
 <template>
   <aside class="aside">
     <div style="flex-grow: 1; overflow-y: auto;">
-      <h4 class="aside__title" @click="onTitleClick">{{ getPathFirstElement() }}</h4>
+      <h4 class="bimdata-h4 aside__title" @click="onTitleClick">{{ getPathFirstElement() }}</h4>
       <ul class="aside__text bimdata-list">
         <li v-for="child in $store.state[getPathFirstElement()].children" :key="child.id">
           <router-link :to="{ name: child.path}">

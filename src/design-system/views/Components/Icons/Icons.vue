@@ -1,9 +1,9 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <h2>{{ $route.name }}</h2>
-      <h3>Size usage for designers</h3>
-      <p>Use a 23px box for icons of 23px.</p>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <h3 class="bimdata-h3">Size usage for designers</h3>
+      <p class="bimdata-text">Use a 23px box for icons of 23px.</p>
       <div>
         <img src="@/design-system/assets/img/design-system__icon-plus.jpg" alt="">
         <img src="@/design-system/assets/img/design-system__icon-warning.jpg" alt="">
@@ -26,14 +26,14 @@
               >
                 <component :is="iconName" />
               </BIMDataIcon>
-              <p>{{iconName}}</p>
+              <p class="bimdata-text">{{iconName}}</p>
             </div>
           </div>
         </template>
 
         <template #parameters>
           <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(iconOptions)" :key="key">
-            <h5>{{ key }}</h5>
+            <h5 class="bimdata-h5">{{ key }}</h5>
               <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -64,7 +64,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 

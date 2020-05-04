@@ -54,6 +54,7 @@ export default {
   @import "@/assets/scss/utilities/_colors.scss";
   @import "@/assets/scss/utilities/_flex.scss";
   @import "@/assets/scss/utilities/_list.scss";
+  @import "@/assets/scss/utilities/_text.scss";
 
   // import ELEMENTS
   @import "@/assets/scss/elements/_BIMDataScrollbar.scss";

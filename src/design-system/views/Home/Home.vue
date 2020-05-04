@@ -6,8 +6,8 @@
       <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="bimdata-card">
         <div class="bimdata-card__content">
           <img :src="value.img"/>
-          <h2>{{ key }}</h2>
-          <p>{{ value.text }}</p>
+          <h2 class="bimdata-h2">{{ key }}</h2>
+          <p class="bimdata-text">{{ value.text }}</p>
           <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
           Explore
           </BIMDataButton>

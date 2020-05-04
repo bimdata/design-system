@@ -1,7 +1,7 @@
 <template>
   <main class="article article-pagination">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
       <ComponentCode :componentTitle='$route.name'>
         <template #module >
           <BIMDataPaginatedList :list="paginatedListExample" :perPage="Number(numberInput)">
@@ -20,12 +20,12 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
       <div class="m-t-12">
-        <h5>Slots:</h5>
+        <h5 class="bimdata-h5">Slots:</h5>
         <BIMDataTable :rows="slotsData"></BIMDataTable>
       </div>
 

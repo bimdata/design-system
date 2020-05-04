@@ -1,15 +1,15 @@
 <template>
 <main class="article">
   <div class="article-wrapper">
-    <h1>{{ $route.name }}</h1>
-    <p>{{$store.state[$route.name].text}}</p>
+    <h1 class="bimdata-h1">{{ $route.name }}</h1>
+    <p class="bimdata-text">{{$store.state[$route.name].text}}</p>
     <div class="content-box">
 
       <BIMDataCard class="bimdata-card__getting-started" v-if="$route.name === 'components'">
         <template #content>
           <router-link to="../gettingstarted">
-            <h5>Getting started</h5>
-            <p>Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.</p>
+            <h5 class="bimdata-h5">Getting started</h5>
+            <p class="bimdata-text">Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.</p>
             <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--secondary">
               Get started now
             </BIMDataButton>
@@ -21,8 +21,8 @@
         <template #content>
           <router-link :to="child.path" append>
             <img :src="child.img"/>
-            <h5>{{ child.title }}</h5>
-            <p>{{ child.text }}</p>
+            <h5 class="bimdata-h5">{{ child.title }}</h5>
+            <p class="bimdata-text">{{ child.text }}</p>
             <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
               {{ child.btn }}
             </BIMDataButton>
@@ -43,11 +43,6 @@ export default {
   components:{
     BIMDataButton,
     BIMDataCard
-  },
-  methods: {
-    getRouter(){
-      return this.$route.params;
-    }
   }
 }
 </script>

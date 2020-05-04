@@ -1,7 +1,7 @@
 <template>
   <div class="bimdata-loading">
     <span class="bimdata-loading--square"></span>
-    <p class="bimdata-loading--text">
+    <p class="bimdata-text bimdata-loading--text">
       <span>loading...</span>
     </p>
   </div>
