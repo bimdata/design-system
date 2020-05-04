@@ -49,7 +49,7 @@ export default new Vuex.Store({
           path: "colors",
           img:require("./design-system/assets/img/icon-colors.svg"),
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "BIMData uses a color palette to achieve clean interfaces.",
           btn: "View Colors"
         },
         {
