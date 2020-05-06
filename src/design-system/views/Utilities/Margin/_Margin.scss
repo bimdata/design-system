@@ -14,4 +14,14 @@
       font-size: calculateEm(12px);
     }
   }
+  & /deep/ .bimdata-table{
+    tr {
+      th, td{
+        flex-grow: 2;
+        &:first-child{
+          flex-grow: 1;
+        }
+      }
+    }
+  }
 }

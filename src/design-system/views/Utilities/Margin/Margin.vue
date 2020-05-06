@@ -13,15 +13,18 @@
         </template>
 
         <template #parameters>
-          <template v-for="checkbox of checkboxes">
+          <div v-for="[size, values] in Object.entries(checkboxes)" :key="size" >
+            <h5 class="bimdata-h5" >{{ size }}</h5>
             <BIMDataCheckbox
-              :text="checkbox.text"
-              v-model="checkbox.checked"
-              :key="checkbox.text"
+              :text="value.text"
+              v-model="value.checked"
+              :key="value.class"
               class="m-y-6"
+              :disabled="value.disabled"
+              v-for="value in values"
             >
             </BIMDataCheckbox>
-          </template>
+          </div>
         </template>
 
         <template #code>
@@ -65,78 +68,184 @@ export default {
   },
   data() {
     return {
-      checkboxes: [
-        {
-          class: "m-6",
-          checked: true,
-          text: "global 6px margin"
-        },
-        {
-          class: "m-y-6",
-          checked: false,
-          text: "vertical 6px margin"
-        },
-        {
-          class: "m-x-6",
-          checked: false,
-          text: "horizontal 6px margin"
-        },
-        {
-          class: "m-t-6",
-          checked: false,
-          text: "margin top 6px"
-        },
-        {
-          class: "m-b-6",
-          checked: false,
-          text: "margin bottom 6px"
-        },
-        {
-          class: "m-l-6",
-          checked: false,
-          text: "margin left 6px"
-        },
-        {
-          class: "m-r-6",
-          checked: false,
-          text: "margin right 6px"
-        },
-        {
-          class: "m-12",
-          checked: false,
-          text: "global 12px margin"
-        },
-        {
-          class: "m-y-12",
-          checked: false,
-          text: "vertical 12px margin"
-        },
-        {
-          class: "m-x-12",
-          checked: false,
-          text: "horizontal 12px margin"
-        },
-        {
-          class: "m-t-12",
-          checked: false,
-          text: "margin top 12px"
-        },
-        {
-          class: "m-b-12",
-          checked: false,
-          text: "margin bottom 12px"
-        },
-        {
-          class: "m-l-12",
-          checked: false,
-          text: "margin left 12px"
-        },
-        {
-          class: "m-r-12",
-          checked: false,
-          text: "margin right 12px"
-        }
-      ],
+      checkboxes: {
+        '6px': [
+          {
+            class: "m-6",
+            checked: true,
+            text: "global margin",
+            disabled: false
+          },
+          {
+            class: "m-y-6",
+            checked: false,
+            text: "vertical margin",
+            disabled: false
+          },
+          {
+            class: "m-x-6",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false
+          },
+          {
+            class: "m-t-6",
+            checked: false,
+            text: "top margin",
+            disabled: false
+          },
+          {
+            class: "m-b-6",
+            checked: false,
+            text: "bottom margin",
+            disabled: false
+          },
+          {
+            class: "m-r-6",
+            checked: false,
+            text: "right margin",
+            disabled: false
+          },
+          {
+            class: "m-l-6",
+            checked: false,
+            text: "left margin",
+            disabled: false
+          }
+        ],
+        '12px': [
+          {
+            class: "m-12",
+            checked: false,
+            text: "global margin",
+            disabled: false
+          },
+          {
+            class: "m-y-12",
+            checked: false,
+            text: "vertical margin",
+            disabled: false
+          },
+          {
+            class: "m-x-12",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false
+          },
+          {
+            class: "m-t-12",
+            checked: false,
+            text: "top margin",
+            disabled: false
+          },
+          {
+            class: "m-b-12",
+            checked: false,
+            text: "bottom margin",
+            disabled: false
+          },
+          {
+            class: "m-r-12",
+            checked: false,
+            text: "right margin",
+            disabled: false
+          },
+          {
+            class: "m-l-12",
+            checked: false,
+            text: "left margin",
+            disabled: false
+          }
+        ],
+        '18px': [
+          {
+            class: "m-18",
+            checked: false,
+            text: "global margin",
+            disabled: false
+          },
+          {
+            class: "m-y-18",
+            checked: false,
+            text: "vertical margin",
+            disabled: false
+          },
+          {
+            class: "m-x-18",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false
+          },
+          {
+            class: "m-t-18",
+            checked: false,
+            text: "top margin",
+            disabled: false
+          },
+          {
+            class: "m-b-18",
+            checked: false,
+            text: "bottom margin",
+            disabled: false
+          },
+          {
+            class: "m-r-18",
+            checked: false,
+            text: "right margin",
+            disabled: false
+          },
+          {
+            class: "m-l-18",
+            checked: false,
+            text: "left margin",
+            disabled: false
+          }
+        ],
+        '24px': [
+          {
+            class: "m-24",
+            checked: false,
+            text: "global margin",
+            disabled: false
+          },
+          {
+            class: "m-y-24",
+            checked: false,
+            text: "vertical margin",
+            disabled: false
+          },
+          {
+            class: "m-x-24",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false
+          },
+          {
+            class: "m-t-24",
+            checked: false,
+            text: "top margin",
+            disabled: false
+          },
+          {
+            class: "m-b-24",
+            checked: false,
+            text: "bottom margin",
+            disabled: false
+          },
+          {
+            class: "m-r-24",
+            checked: false,
+            text: "right margin",
+            disabled: false
+          },
+          {
+            class: "m-l-24",
+            checked: false,
+            text: "left margin",
+            disabled: false
+          }
+        ]
+       },
       globalClassData: [
         ["Class Name", "Output value", "Description"],
         [
@@ -148,13 +257,23 @@ export default {
           "m-12",
           "margin: 12px;",
           "Adds 12px margin all the way around the element."
+        ],
+        [
+          "m-18",
+          "margin: 18px;",
+          "Adds 18px margin all the way around the element."
+        ],
+        [
+          "m-24",
+          "margin: 24px;",
+          "Adds 24px margin all the way around the element."
         ]
       ],
       verticalClassData: [
         ["Class Name", "Output value", "Description"],
         [
           "m-y-6",
-          "margin: 6px 0;",
+          "margin-top: 6px; margin-bottom: 6px;",
           "Adds 6px margin to both top and bottom."
         ],
         [
@@ -169,7 +288,7 @@ export default {
         ],
         [
           "m-y-12",
-          "margin: 12px 0;",
+          "margin-top: 12px; margin-bottom: 12px;",
           "Adds 12px margin to both top and bottom."
         ],
         [
@@ -180,14 +299,44 @@ export default {
         [
           "m-b-12",
           "margin-bottom: 12px;",
-          "Adds 6px margin to the bottom side."
+          "Adds 12px margin to the bottom side."
+        ],
+        [
+          "m-y-18",
+          "margin-top: 18px; margin-bottom: 18px;",
+          "Adds 18px margin to both top and bottom."
+        ],
+        [
+          "m-t-18",
+          "margin-top: 18px;",
+          "Adds 18px margin to the top side."
+        ],
+        [
+          "m-b-18",
+          "margin-bottom: 18px;",
+          "Adds 18px margin to the bottom side."
+        ],
+        [
+          "m-y-24",
+          "margin-top: 24px; margin-bottom: 24px;",
+          "Adds 24px margin to both top and bottom."
+        ],
+        [
+          "m-t-24",
+          "margin-top: 24px;",
+          "Adds 24px margin to the top side."
+        ],
+        [
+          "m-b-24",
+          "margin-bottom: 24px;",
+          "Adds 24px margin to the bottom side."
         ]
       ],
       horizontalClassData: [
         ["Class Name", "Output value", "Description"],
         [
           "m-x-6",
-          "margin: 0 6px;",
+          "margin-left: 6px; margin-right: 6px;",
           "Adds 6px margin to both left and right."
         ],
         [
@@ -202,7 +351,7 @@ export default {
         ],
         [
           "m-x-12",
-          "margin: 0 12px;",
+          "margin-left: 12px; margin-right: 12px;",
           "Adds 12px margin to both left and right."
         ],
         [
@@ -214,13 +363,43 @@ export default {
           "m-r-12",
           "margin-right: 12px;",
           "Adds 6px margin to the right side."
+        ],
+        [
+          "m-x-18",
+          "margin-left: 18px; margin-right: 18px;",
+          "Adds 18px margin to both left and right."
+        ],
+        [
+          "m-l-18",
+          "margin-left: 18px;",
+          "Adds 18px margin to the left side."
+        ],
+        [
+          "m-r-18",
+          "margin-right: 18px;",
+          "Adds 18px margin to the right side."
+        ],
+        [
+          "m-x-24",
+          "margin-left: 24px; margin-right: 24px;",
+          "Adds 24px margin to both left and right."
+        ],
+        [
+          "m-l-24",
+          "margin-left: 24px;",
+          "Adds 24px margin to the left side."
+        ],
+        [
+          "m-r-24",
+          "margin-right: 24px;",
+          "Adds 24px margin to the right side."
         ]
       ]
     }
   },
   methods: {
     getMarginClass() {
-      return this.checkboxes.filter(checkbox => checkbox.checked).map(checkbox => checkbox.class);
+      return Object.values(this.checkboxes).flat().filter(checkbox => checkbox.checked).map(checkbox => checkbox.class);
     },
     getMarginText() {
       return this.getMarginClass().join(" ");
@@ -230,6 +409,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "@/assets/scss/mixins/_font-size.scss";
+
   @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_Margin.scss";
