@@ -53,11 +53,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "@/assets/scss/_BIMDataVariables.scss";
   @import "@/assets/scss/utilities/_text.scss";
 
   @import "@/design-system/assets/scss/animations/_animations.scss";
-
   @import "./_Home.scss";
 </style>
