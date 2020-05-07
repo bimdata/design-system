@@ -409,9 +409,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/mixins/_font-size.scss";
-
+  // import BIMDATA COMPONENT VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
+  // import BIMDATA COMPONENT UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
+  @import "@/assets/scss/utilities/_spacing.scss";
+
+  // import COMPONENT STYLE
   @import "./_Margin.scss";
 </style>

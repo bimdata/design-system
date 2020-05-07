@@ -48,8 +48,8 @@ export default {
   // import BIMDATA VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA MIXINS
-  @import "@/assets/scss/mixins/_font-size.scss";
+  // import BIMDATA UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
 
   // import BIMDATA STYLE COMPONENT
   @import "./_BIMDataCard.scss";

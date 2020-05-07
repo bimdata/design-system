@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
   @import "@/assets/scss/_BIMDataVariables.scss";
-  @import "@/assets/scss/mixins/_font-size.scss";
+  @import "@/assets/scss/utilities/_text.scss";
 
   @import "./_Spacing.scss";
 </style>

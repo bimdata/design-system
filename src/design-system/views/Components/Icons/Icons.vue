@@ -261,9 +261,12 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@/assets/scss/mixins/_font-size.scss";
-
+  // import BIMDATA COMPONENT VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
+  // import BIMDATA COMPONENT UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
+
+  // import COMPONENT STYLE
   @import "./_Icons.scss";
 </style>

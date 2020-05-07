@@ -55,6 +55,7 @@ export default {
 
 <style lang="scss">
   @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/utilities/_text.scss";
 
   @import "@/design-system/assets/scss/animations/_animations.scss";
 
