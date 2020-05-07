@@ -1,7 +1,9 @@
 // import MIXINS
-@import "./mixins/font-size.scss";
 @import "./mixins/pseudo.scss";
-@import "./mixins/spacing.scss";
+
+// import UTILITIES
+@import "./utilities/font-size.scss";
+@import "./utilities/spacing.scss";
 
 // import GLOBAL STYLE
 @import "./BIMDataVariables.scss";
