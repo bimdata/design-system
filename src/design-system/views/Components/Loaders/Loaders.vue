@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "@/assets/scss/_BIMDataVariables.scss";
 
   @import "./_Loaders.scss";

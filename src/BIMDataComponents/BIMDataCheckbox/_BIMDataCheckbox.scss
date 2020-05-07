@@ -4,6 +4,10 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
   // custom CHECKMARK
   &__mark {
     width: 13px;

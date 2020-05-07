@@ -107,7 +107,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // import PRISMJS THEME
 @import "../../../../../node_modules/prismjs/themes/prism-tomorrow.css";
 

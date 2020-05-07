@@ -58,8 +58,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  // import BIMDATA COMPONENT VARIABLES
+<style lang="scss" scoped>
   @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE

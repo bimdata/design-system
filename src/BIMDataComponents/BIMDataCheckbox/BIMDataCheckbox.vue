@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // import BIMDATA VARIABLES
 @import "@/assets/scss/_BIMDataVariables.scss";
 

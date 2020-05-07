@@ -1,3 +1,9 @@
+// import BIMDATA VARIABLES
+@import "@/assets/scss/_BIMDataVariables.scss";
+
+// import BIMDATA UTILITIES
+@import "@/assets/scss/utilities/_text.scss";
+
 .bimdata-btn {
   padding: 0 $spacing-unit;
   display: flex;
