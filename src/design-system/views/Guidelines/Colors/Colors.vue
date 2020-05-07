@@ -6,7 +6,7 @@
         <div class="colors-animations__box colors-animations__box2"></div>
         <div class="colors-animations__box colors-animations__box3"></div>
       </div>
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <h2 class="bimdata-h2 primary-font-bold">{{ $route.name }}</h2>
       <p class="bimdata-text"> For maintainability, please use these instead of hardcoding color values.</p>
       <h3 class="bimdata-h3">Brand colors</h3>
       <div class="color-swatches">
@@ -23,7 +23,7 @@
               <div class="value" v-clipboard:copy="`${brandColor.hex}`" v-clipboard:success="onCopy"
                 v-clipboard:error="onError">
                 <span> {{ brandColor.hex }} </span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
@@ -31,7 +31,7 @@
               <div class="value" v-clipboard:copy="`${brandColor.rgb}`" v-clipboard:success="onCopy"
                 v-clipboard:error="onError">
                 <span>{{ brandColor.rgb }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
                 </div>
             </div>
             <div class="color-swatche__body__item">
@@ -39,7 +39,7 @@
               <div class="value" v-clipboard:copy="`${brandColor.scss}`" v-clipboard:success="onCopy"
                 v-clipboard:error="onError">
                 <span>{{ brandColor.scss }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
@@ -47,7 +47,7 @@
               <div class="value" v-clipboard:copy="`${brandColor.css}`" v-clipboard:success="onCopy"
                 v-clipboard:error="onError">
                 <span>{{ brandColor.css }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
           </div>
@@ -67,25 +67,25 @@
               <div class="label"> HEX </div>
               <div class="value" v-clipboard:copy="`${variantColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ variantColor.hex }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> RGB </div>
               <div class="value" v-clipboard:copy="`${variantColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.rgb }}
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> SCSS </div>
               <div class="value" v-clipboard:copy="`${variantColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.scss }}
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> CSS </div>
               <div class="value" v-clipboard:copy="`${variantColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError"> {{ variantColor.css }}
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
           </div>
@@ -105,28 +105,28 @@
               <div class="label"> HEX </div>
               <div class="value" v-clipboard:copy="`${commonColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ commonColor.hex }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> RGB </div>
               <div class="value" v-clipboard:copy="`${commonColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ commonColor.rgb }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> SCSS </div>
               <div class="value" v-clipboard:copy="`${commonColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ commonColor.scss }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> CSS </div>
               <div class="value" v-clipboard:copy="`${commonColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ commonColor.css }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
           </div>
@@ -146,28 +146,28 @@
               <div class="label"> HEX </div>
               <div class="value" v-clipboard:copy="`${alertsColor.hex}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ alertsColor.hex }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> RGB </div>
               <div class="value" v-clipboard:copy="`${alertsColor.rgb}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ alertsColor.rgb }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> SCSS </div>
               <div class="value" v-clipboard:copy="`${alertsColor.scss}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ alertsColor.scss }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
             <div class="color-swatche__body__item">
               <div class="label"> CSS </div>
               <div class="value" v-clipboard:copy="`${alertsColor.css}`" v-clipboard:success="onCopy" v-clipboard:error="onError">
                 <span>{{ alertsColor.css }}</span>
-                <i class="clipboard"></i>
+                <BIMDataButton class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius" width="55px" height="24px">copy</BIMDataButton>
               </div>
             </div>
           </div>
@@ -183,7 +183,12 @@
 </template>
 
 <script>
+import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+
 export default {
+  components: {
+    BIMDataButton
+  },
   data() {
     return {
       alerts: false,
@@ -243,7 +248,7 @@ export default {
       ],
       commonColors: [
         {
-          name: 'White Dwarf',
+          name: 'White',
           hex: '#ffffff',
           rgb: '255, 255, 255',
           scss: '$color-white',
@@ -327,7 +332,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  // import BIMDATA VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
+  // import BIMDATA UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
+
+  // import COMPONENT STYLE
+  @import "./_colors-keyframes.scss";
+  @import "./_colors-animations.scss";
   @import "./_Colors.scss";
 </style>
