@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss">
   // import DESIGN SYSTEM STYLE
-  @import "./assets/scss/_DesignSystem-global.scss";
+  @import "./_DesignSystem-global.scss";
 
   // import ELEMENTS
   @import "@/assets/scss/elements/_BIMDataScrollbar.scss";

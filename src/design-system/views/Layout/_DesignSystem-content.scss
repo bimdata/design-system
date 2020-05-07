@@ -1,28 +1,3 @@
-.article{
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  .article-wrapper {
-    width: 100%;
-    width: calc(100% - 180px);
-    display: flex;
-    flex-direction: column;
-    margin: 30px 90px;
-    max-width: 1420px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    h1, h2{
-      &:first-letter{
-        text-transform: uppercase;
-      }
-    }
-  }
-}
-
 .content {
   h1::first-letter {
     text-transform: capitalize;
@@ -31,8 +6,8 @@
     display: flex;
     flex-wrap: wrap;
     .bimdata-card{
-      margin: 24px 24px 0 0;
-      max-width: 260px;
+      margin: 18px 18px 0 0;
+      max-width: 266px;
       min-height: 250px;
       display: inline-flex;
       flex-grow: 1;

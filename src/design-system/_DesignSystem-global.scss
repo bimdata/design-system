@@ -1,0 +1,78 @@
+@import "@/assets/scss/_BIMDataVariables.scss";
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "robotoregular";
+  color: $color-primary;
+  display: flex;
+  overflow: hidden;
+}
+.bimdata-ds {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+.layout {
+  margin-top: 60px;
+  display: flex;
+  overflow-y: auto;
+}
+
+/* custom PRE */
+pre[class*="language-"]{
+  padding: 0;
+  position: relative;
+  code{
+    padding: 20px;
+    display: block;
+    overflow: auto;
+  }
+  .bimdata-btn{
+    position: absolute;
+    top: calc(#{$spacing-unit} / 2);
+    right: calc(#{$spacing-unit} / 2);
+    cursor: pointer;
+  }
+}
+
+.article{
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .article-wrapper {
+    width: 100%;
+    width: calc(100% - 180px);
+    display: flex;
+    flex-direction: column;
+    margin: 30px 90px;
+    max-width: 1420px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    h1, h2{
+      &:first-letter{
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+/* custom HIGHLIGHT */
+.code-highlight{
+  background-color: $color-tertiary-lightest;
+  padding: 3px 5px;
+  margin: 0 2px;
+  border-radius: 2px;
+  color: #2f374a;
+  font-weight: bold;
+}
