@@ -35,30 +35,19 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   // import PRISMJS THEME
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
 
-  // import MIXINS
-  @import "@/assets/scss/mixins/_font-size.scss";
-  @import "@/assets/scss/mixins/_pseudo.scss";
-  @import "@/assets/scss/mixins/_spacing.scss";
-
   // import BIMDATA STYLE
   @import "@/assets/scss/_BIMDataVariables.scss";
-  @import "@/assets/scss/_BIMDataGlobal.scss";
   @import "@/assets/scss/_BIMDataFonts.scss";
-  @import "@/assets/scss/_BIMDataGrid.scss";
+</style>
 
-  // import UTILITIES
-  @import "@/assets/scss/utilities/_colors.scss";
-  @import "@/assets/scss/utilities/_flex.scss";
-  @import "@/assets/scss/utilities/_list.scss";
-  @import "@/assets/scss/utilities/_text.scss";
+<style lang="scss">
+  // import DESIGN SYSTEM STYLE
+  @import "./assets/scss/_DesignSystem-global.scss";
 
   // import ELEMENTS
   @import "@/assets/scss/elements/_BIMDataScrollbar.scss";
-
-  // import DESIGN SYSTEM STYLE
-  @import "./assets/scss/DesignSystem.scss";
 </style>
