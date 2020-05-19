@@ -26,7 +26,7 @@
               >
                 <component :is="iconName" />
               </BIMDataIcon>
-              <p class="bimdata-text">{{iconName}}</p>
+              <p>{{iconName}}</p>
             </div>
           </div>
         </template>
@@ -45,6 +45,13 @@
             >
             </BIMDataRadio>
           </div>
+        </template>
+
+        <template #import>
+          <pre>
+            import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+            import {{activeIcon}} from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/{{activeIcon}}.vue"
+          </pre>
         </template>
 
         <template #code>
@@ -134,7 +141,6 @@ import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 
 export default {
   components: {

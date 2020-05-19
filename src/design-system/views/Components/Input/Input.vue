@@ -57,6 +57,10 @@
           />
         </template>
 
+        <template #import>
+          import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataInput
@@ -204,7 +208,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+  // import COMPONENT STYLE
   @import "./_Input.scss";
 </style>

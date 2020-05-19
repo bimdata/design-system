@@ -30,6 +30,10 @@
           </BIMDataCheckbox>
         </template>
 
+        <template #import>
+          import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataSelect
@@ -59,7 +63,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue"
+import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
 
 export default {
   components: {
@@ -127,6 +131,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+  // import COMPONENT STYLE
+  @import "./_Select.scss";
 </style>

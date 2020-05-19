@@ -1,7 +1,7 @@
-.article-input{
+.article-textarea{
   /deep/ .bimdata-table{
     th:last-child, td:last-child{
-      flex-grow: 2;
+      flex-grow: 3;
     }
   }
 }

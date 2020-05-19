@@ -17,6 +17,10 @@
           <BIMDataButton class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" @click="resetRadio()">Reset radio button</BIMDataButton>
         </template>
 
+        <template #import>
+          import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataRadio
@@ -87,7 +91,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+  // import COMPONENT STYLE
   @import "./_Radio.scss";
 </style>

@@ -12,6 +12,10 @@
 
         </template>
 
+        <template #import>
+          import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataTable :rows="rowData"&gt;
@@ -45,7 +49,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
-
 </style>

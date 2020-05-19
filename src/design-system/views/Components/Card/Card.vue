@@ -70,6 +70,10 @@
           </div>
         </template>
 
+        <template #import>
+          import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataCard :titleHeader="{{getHeaderTitle()}}" :submenuText="{{getSubmenuText()}}"&gt;
@@ -209,8 +213,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA COMPONENT UTILITIES
-  @import "@/assets/scss/utilities/_text.scss";
-
+  // import COMPONENT STYLE
   @import "./_Card.scss";
 </style>

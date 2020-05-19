@@ -69,6 +69,10 @@
             </div>
           </template>
 
+          <template #import>
+            import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+          </template>
+
           <template #code>
             <pre>
               &lt;BIMDataButton
@@ -84,7 +88,7 @@
           </template>
         </ComponentCode>
 
-        <div class="m-t-12">
+        <div class="m-t-24">
           <h5 class="bimdata-h5">Props:</h5>
           <BIMDataTable :rows="propsData"></BIMDataTable>
         </div>
@@ -196,15 +200,15 @@ export default {
     getIcon() {
       if(this.checkboxIconChecked){
         return `<BIMDataIcon
-                    class="icon-chevron"
-                    icon-name="chevron-right"
-                    width="10"
-                    height="10"
-                    x="23"
-                    y="23"
-                  >
-                    <BIMDataChevronIcon />
-                  </BIMDataIcon>`
+                  class="icon-chevron"
+                  icon-name="chevron-right"
+                  width="10"
+                  height="10"
+                  x="23"
+                  y="23"
+                >
+                  <BIMDataChevronIcon />
+                </BIMDataIcon>`
       }
     },
     getButtonDisabled() {
@@ -215,22 +219,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "@/assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA COMPONENT UTILITIES
-@import "@/assets/scss/utilities/_spacing.scss";
-@import "@/assets/scss/utilities/_text.scss";
-
-// import BIMDATA COMPONENT STYLE
-@import "@/BIMDataComponents/BIMDataButton/_BIMDataButton.scss";
-
 // import COMPONENT STYLE
 @import "./_Buttons.scss";
-
-// @TODO delete
-*::after,
-*::before {
-  box-sizing: border-box;
-}
 </style>

@@ -7,6 +7,10 @@
           <BIMDataLoading></BIMDataLoading>
         </template>
 
+        <template #import>
+          import BIMDataLoading from "@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataLoading&gt;&lt;/BIMDataLoading&gt;
@@ -17,6 +21,10 @@
       <ComponentCode :componentTitle="$route.name" class="m-t-12">
         <template #module>
           <BIMDataBigSpinner></BIMDataBigSpinner>
+        </template>
+
+        <template #import>
+          import BIMDataBigSpinner from "@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
         </template>
 
         <template #code>
@@ -45,7 +53,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+  // import COMPONENT STYLE
   @import "./_Loaders.scss";
 </style>

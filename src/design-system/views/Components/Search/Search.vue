@@ -1,11 +1,11 @@
 <template>
-  <main class="article your-file-class">
+  <main class="article article-search">
     <div class="article-wrapper">
       <h2 class="bimdata-h2"> {{ $route.name }} </h2>
 
       <ComponentCode :componentTitle='$route.name' :class="changeBackgroundColor">
         <template #module >
-          <BIMDataSearch :class="getOverviewSearchClasses()" placeholder="Search"></BIMDataSearch>
+          <BIMDataSearch :class="getOverviewSearchClasses()" placeholder="Search" value=""></BIMDataSearch>
         </template>
 
         <template #parameters>
@@ -22,6 +22,10 @@
             >
             </BIMDataRadio>
           </div>
+        </template>
+
+        <template #import>
+          import BIMDataSearch from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
         </template>
 
         <template #code>
@@ -73,19 +77,22 @@ export default {
       },
       propsData: [
         [
-          "Props", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description", "Required"
         ],
         [
-          "placeholder", "String", "''", "Use this props to add a placeholder"
+          "value", "String", "", "", "true"
         ],
         [
-          "width", "[Number, String]", "150px", "Use this props to change the width of the search component"
+          "placeholder", "String", "' '", "Use this props to add a placeholder", ""
         ],
         [
-          "height", "[Number, String]", "32px", "Use this props to change the height of the search component"
+          "width", "[Number, String]", "150px", "Use this props to change the width of the search component", ""
         ],
         [
-          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on the input search"
+          "height", "[Number, String]", "32px", "Use this props to change the height of the search component", ""
+        ],
+        [
+          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on the input search", ""
         ]
       ]
     }
@@ -106,7 +113,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+  // import COMPONENT STYLE
   @import "./_Search.scss";
 </style>

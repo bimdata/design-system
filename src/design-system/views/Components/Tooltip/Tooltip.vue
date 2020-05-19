@@ -38,6 +38,10 @@
           </div>
         </template>
 
+        <template #import>
+          import BIMDataTooltip from "@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataTooltip message="tooltip here" :className="{{getOverviewTooltipClasses()}}"&gt;
@@ -121,7 +125,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+  // import COMPONENT STYLE
   @import "./_Tooltip.scss";
 </style>

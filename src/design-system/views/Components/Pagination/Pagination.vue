@@ -12,6 +12,10 @@
           <BIMDataInput v-model="numberInput" placeholder="Number of items per page" type="number"></BIMDataInput>
         </template>
 
+        <template #import>
+          import BIMDataPaginatedList from "@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataPaginatedList :list="paginatedListExample" :perPage="{{numberInput}}"&gt;&lt;/BIMDataPaginatedList&gt;
@@ -97,5 +101,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  // import COMPONENT STYLE
+  @import "./_Pagination.scss";
 </style>
