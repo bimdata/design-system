@@ -5,12 +5,27 @@
       <ComponentCode :componentTitle='$route.name'>
           <template #module>
             <BIMDataCheckbox
-            text="Your label here"
-            v-model="checked"
+              :text="getCheckboxText()"
+              v-model="checked"
+              :disabled="getCheckboxDisabled()"
             ></BIMDataCheckbox>
           </template>
 
           <template #parameters>
+            <BIMDataCheckbox
+                text="text"
+                v-model="checkboxTextChecked"
+              >
+              </BIMDataCheckbox>
+            <BIMDataCheckbox
+              text="disabled"
+              v-model="checkboxDisabledChecked"
+            >
+            </BIMDataCheckbox>
+          </template>
+
+          <template #import>
+            import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
           </template>
 
           <template #code>
@@ -46,6 +61,8 @@ export default {
   data(){
     return {
       checked: false,
+      checkboxTextChecked: true,
+      checkboxDisabledChecked: false,
       propsData: [
         [
           "Props", "Type", "Default value", "Description"
@@ -60,6 +77,16 @@ export default {
           "disabled", "Boolean", "false", "Use this props to disabled the checkbox"
         ],
       ]
+    }
+  },
+  methods: {
+    getCheckboxDisabled() {
+      return this.checkboxDisabledChecked;
+    },
+    getCheckboxText() {
+      if(this.checkboxTextChecked) {
+        return "Your label here";
+      }
     }
   }
 }
