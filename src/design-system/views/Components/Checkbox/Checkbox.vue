@@ -1,5 +1,5 @@
 <template>
-  <main class="article checkbox">
+  <main class="article article-checkbox">
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{$route.name}}</h2>
       <ComponentCode :componentTitle='$route.name'>
