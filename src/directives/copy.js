@@ -2,8 +2,11 @@ let clickListener = null;
 
 export default {
   bind(el, binding) {
-    const div = document.createElement("i");
-    div.classList.add("clipboard");
+    const div = document.createElement("button");
+    div.textContent = "copy";
+    div.style.width='55px';
+    div.style.height='24px';
+    div.classList.add("bimdata-btn", "bimdata-btn__fill--secondary");
     clickListener = () => {
       const elToCopy = [...el.children].find( child =>
         child.tagName === "CODE"

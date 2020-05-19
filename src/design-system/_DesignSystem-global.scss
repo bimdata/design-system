@@ -39,6 +39,18 @@ pre[class*="language-"]{
     top: calc(#{$spacing-unit} / 2);
     right: calc(#{$spacing-unit} / 2);
     cursor: pointer;
+    &__fill--secondary{
+      border: none;
+      color: $color-primary;
+      background-color: $color-secondary;
+      border-radius: 3px;
+      font-size: 11px;
+      transition: all .25s ease-in;
+      &:hover{
+        background-color: lighten($color-secondary, 10%);
+        transition: all .25s ease-in;
+      }
+    }
   }
 }
 
