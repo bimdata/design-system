@@ -50,4 +50,9 @@ export default {
 
   // import ELEMENTS
   @import "@/assets/scss/elements/_BIMDataScrollbar.scss";
+  @import "@/assets/scss/utilities/_list.scss";
+  @import "@/assets/scss/utilities/_text.scss";
+  @import "@/assets/scss/utilities/_spacing.scss";
+
+
 </style>
