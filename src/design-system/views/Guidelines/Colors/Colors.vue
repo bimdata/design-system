@@ -12,7 +12,13 @@
         values.
       </p>
       <Code language="css">
-        @import "@/assets/scss/_BIMDataVariables.scss";
+        <pre>
+          // to use only the variables, import this line
+          @import "@/assets/scss/_BIMDataVariables.scss";
+
+          // to use the color utilities add this line. BIMDataVariables are already imported in _colors.scss
+          @import "@/assets/scss/utilities/_colors.scss";
+        </pre>
       </Code>
       <h3 class="bimdata-h3">Brand colors</h3>
       <div class="color-swatches">
