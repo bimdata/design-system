@@ -23,9 +23,7 @@
               }
               &lt;/script&gt;
 
-              &lt;style lang="scss"&gt;
-                @import "@/assets/scss/_BIMDataVariables.scss";
-
+              &lt;style lang="scss" scoped&gt;
                 @import "./_YourFileStyle.scss";
               &lt;/style&gt;
             </pre>
@@ -71,7 +69,6 @@ import Code from "../Elements/Code/Code.vue";
 
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 
 export default {
   directives: { highlight, copy },
@@ -88,7 +85,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
   @import "./_GettingStarted.scss";
 </style>
