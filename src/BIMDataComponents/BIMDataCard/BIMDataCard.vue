@@ -13,9 +13,9 @@
         <slot name="right"></slot>
       </template>
     </BIMDataCardBand>
-    <main class="bimdata-card__content" v-if="$scopedSlots.content">
+    <div class="bimdata-card__content" v-if="$scopedSlots.content">
       <slot name="content"></slot>
-    </main>
+    </div>
     <footer class="bimdata-card__footer" v-if="$scopedSlots.footer">
       <slot name="footer"></slot>
     </footer>
