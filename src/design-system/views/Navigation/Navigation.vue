@@ -55,7 +55,6 @@ export default {
 
 <style lang="scss" scoped>
   @import "@/assets/scss/_BIMDataVariables.scss";
-  @import "@/assets/scss/utilities/_text.scss";
   @import "@/assets/scss/utilities/_list.scss";
 
   @import "./_DesignSystem-navigation.scss";

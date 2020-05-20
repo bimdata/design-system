@@ -49,7 +49,6 @@ import Code from "../Elements/Code/Code.vue";
 
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 
 export default {
   components: {
@@ -60,7 +59,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
   @import "./_GettingStarted.scss";
 </style>
