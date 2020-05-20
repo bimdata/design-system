@@ -6,4 +6,12 @@
     background: #282B34;
     border-radius: 0;
   }
+  &__language{
+    position: absolute;
+    top: calc(24px / 2 - 6px / 2);
+    right: calc(55px + 12px);
+    font-size: 11px;
+    letter-spacing: .5px;
+    opacity: .5;
+  }
 }
