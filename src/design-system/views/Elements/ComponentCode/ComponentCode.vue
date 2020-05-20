@@ -10,6 +10,16 @@
       <slot name="parameters"></slot>
     </div>
 
+    <div class="bimdata-ds__demo__import">
+      <pre :class="`language-${language}`" v-copy="onCopy">
+      <span class="bimdata-ds__demo__import__language">{{language}}</span>
+        <code :class="`language-${language}`" v-highlight:[language]>
+          <slot name="import">
+          </slot>
+        </code>
+      </pre>
+    </div>
+
     <div class="bimdata-ds__demo__code">
       <pre class="language-xml" v-copy="onCopy">
         <code class="language-xml" v-highlight:xml >
@@ -25,7 +35,6 @@
 <script>
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 import Alerts from "../Alerts/Alerts.vue";
 
 export default {
@@ -52,6 +61,10 @@ export default {
   props:{
     componentTitle: {
       type: String
+    },
+    language: {
+      type: String,
+      default: "javascript",
     }
   },
   directives: { highlight, copy }
@@ -59,6 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  // import BIMDATA VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE

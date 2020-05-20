@@ -1,10 +1,12 @@
 .bimdata-ds__demo{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 300px);
   grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 300px);
+  grid-template-rows: auto;
   position: relative;
   h3{
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
     grid-row: 1;
   }
   &__tertiary-lightest{
@@ -33,19 +35,32 @@
     }
     &__options{
       margin: 1rem 0;
-      h5{
-        margin: 0 0 .5rem;
-      }
+    }
+  }
+  &__import{
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+    position: relative;
+    pre{
+      margin: 0;
+      background: #32343E;
+    }
+    &__language{
+      position: absolute;
+      top: calc(24px / 2 - 6px / 2);
+      right: calc(55px + 12px);
+      font-size: 11px;
+      letter-spacing: .5px;
+      opacity: .5;
     }
   }
   &__code{
     grid-column: 1 / 4;
-    grid-row: 4 / 4;
+    grid-row: 5 / 5;
     position: relative;
     pre{
       margin: 0;
       background: #282B34;
-      border-radius: 0;
     }
   }
 }
