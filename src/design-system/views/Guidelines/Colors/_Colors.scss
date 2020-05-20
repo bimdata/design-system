@@ -1,4 +1,7 @@
 .colors{
+  .bimdata-ds__code{
+    width: 54.5%;
+  }
   .color-swatches{
     display: flex;
     .color-swatche{
@@ -55,5 +58,11 @@
         }
       }
     }
+  }
+  .state-colors{
+    background: linear-gradient(rgba(255,255,255,.01), rgba(255,255,255,1));
+  }
+  .background-utilities-colors, .text-utilities-colors{
+    background-color: $color-white;
   }
 }
