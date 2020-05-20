@@ -7,36 +7,7 @@
       </div>
       <div class="typography-size">
         <h3 class="bimdata-h3">Font size</h3>
-        <div class="typography-size__content">
-          <div class="typography-size__content__item">
-            <h1 class="bimdata-h1">Heading H1</h1>
-            <small>34px — 2.42857em</small>
-          </div>
-          <div class="typography-size__content__item">
-            <h2 class="bimdata-h2">Heading H2</h2>
-            <small>30px — 2.14286em</small>
-          </div>
-          <div class="typography-size__content__item">
-            <h3 class="bimdata-h3">Heading H3</h3>
-            <small>26px — 1.85714em</small>
-          </div>
-          <div class="typography-size__content__item">
-            <h4 class="bimdata-h4">Heading H4</h4>
-            <small>24px — 1.71429em</small>
-          </div>
-          <div class="typography-size__content__item">
-            <h5 class="bimdata-h5">Heading H5</h5>
-            <small>20px — 1.42857em</small>
-          </div>
-          <div class="typography-size__content__item">
-            <h6 class="bimdata-h6">Heading H6</h6>
-            <small>16px — 1.14286em</small>
-          </div>
-          <div class="typography-size__content__item">
-            <p class="bimdata-text">Button</p>
-            <small>14px — 1em</small>
-          </div>
-        </div>
+          <FontSize></FontSize>
       </div>
       <div class="typography-weight">
         <h3 class="bimdata-h3">Font weights</h3>
@@ -89,10 +60,12 @@
 <script>
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-
-import Prism from "prismjs";
+import FontSize from "./FontSize/FontSize.vue";
 
 export default {
+  components: {
+    FontSize
+  },
   methods: {
     onCopy(e) {
       this.alerts = true;
@@ -108,9 +81,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// import PRISMJS THEME
-@import "../../../../../node_modules/prismjs/themes/prism-tomorrow.css";
-
 @import "@/assets/scss/_BIMDataVariables.scss";
 
 @import "./_Typography.scss";
