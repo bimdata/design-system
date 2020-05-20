@@ -2,15 +2,14 @@
   <main class="article variables">
     <div class="article-wrapper">
       <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <p>To be able to use all these variables listed below, please import this code into your project:</p>
       <Code language="css">
         @import "@/assets/scss/_BIMDataVariables.scss";
       </Code>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Colors variables summary</h6>
         <BIMDataTable :rows="variablesColorSummary"></BIMDataTable>
-        <p>To see all colors <router-link to="/guidelines/colors">
-          click here
-        </router-link>.</p>
+        <p>To see all colors and how use it <router-link to="/guidelines/colors" class="color-primary">click here</router-link>.</p>
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Font-size variables summary</h6>
@@ -19,10 +18,12 @@
       <div class="m-y-12">
         <h6 class="bimdata-h6">Spacing variables summary</h6>
         <BIMDataTable :rows="variablesSpacingSummary"></BIMDataTable>
+        <p>To see all spacing class and how use it <router-link to="/guidelines/spacing" class="color-primary">click here</router-link>.</p>
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Fonts variables summary</h6>
         <BIMDataTable :rows="variablesFontSummary"></BIMDataTable>
+        <p>To see all fonts uses in BIMData and how use it <router-link to="/guidelines/typography" class="color-primary">click here</router-link>.</p>
       </div>
     </div>
   </main>
@@ -78,5 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "@/assets/scss/_BIMDataVariables.scss";
+
+  @import "@/assets/scss/utilities/_colors.scss";
+
   @import "./_Variables.scss";
 </style>
