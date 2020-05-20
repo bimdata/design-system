@@ -24,6 +24,13 @@
     max-width: 1440px;
     display: flex;
     justify-content: space-between;
+    & /deep/ .bimdata-card{
+      &__content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
     .bimdata-card{
       margin: 0 calc(#{$spacing-unit} * 2);
       height: 317px;
@@ -31,11 +38,12 @@
       display: flex;
       flex: 1;
       &__content{
-        width: 100%;
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        a{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
       }
       h2, p{
         height: 50px;

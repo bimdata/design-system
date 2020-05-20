@@ -1,28 +1,31 @@
 <template>
   <div class="home">
     <BIMDataSearchInput v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
-    <!-- <p>{{Object.values($store.state)}}</p> -->
     <div class="home-content">
-      <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="bimdata-card">
-        <div class="bimdata-card__content">
-          <img :src="value.img"/>
-          <h2 class="bimdata-h2">{{ key }}</h2>
-          <p class="bimdata-text">{{ value.text }}</p>
-          <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
-          Explore
-          </BIMDataButton>
-        </div>
-      </router-link>
+      <BIMDataCard v-for="(value, key) in getItems" :key="key">
+          <template #content>
+            <router-link :to="{path: `/${key}`}">
+              <img :src="value.img"/>
+              <h2 class="bimdata-h2">{{ key }}</h2>
+              <p class="bimdata-text">{{ value.text }}</p>
+              <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
+              Explore
+              </BIMDataButton>
+            </router-link>
+          </template>
+      </BIMDataCard>
     </div>
   </div>
 </template>
 
 <script>
+import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 
 export default {
   components: {
+    BIMDataCard,
     BIMDataButton,
     BIMDataSearchInput
   },
@@ -55,7 +58,6 @@ export default {
 
 <style lang="scss" scoped>
   @import "@/assets/scss/_BIMDataVariables.scss";
-  @import "@/assets/scss/utilities/_text.scss";
 
   @import "./_keyframes.scss";
   @import "./_Home.scss";
