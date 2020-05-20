@@ -5,7 +5,7 @@
     <p class="bimdata-text">{{$store.state[$route.name].text}}</p>
     <div class="content-box">
 
-      <BIMDataCard class="bimdata-card__getting-started" v-if="$route.name === 'components'">
+      <BIMDataCard class="bimdata-card__primary" v-if="$route.name === 'components'">
         <template #content>
           <router-link to="../gettingstarted">
             <h5 class="bimdata-h5">Getting started</h5>
@@ -17,13 +17,14 @@
         </template>
       </BIMDataCard>
 
-      <BIMDataCard v-for="child in $store.state[$route.name].children" :key="child.id">
+      <BIMDataCard v-for="child in $store.state[$route.name].children" :key="child.id" :class="{'bimdata-card__primary' : child.title === 'Variables'}">
+        {{child.title}}
         <template #content>
           <router-link :to="child.path" append>
-            <img :src="child.img"/>
+            <img v-if="child.title !== 'Variables'" :src="child.img"/>
             <h5 class="bimdata-h5">{{ child.title }}</h5>
             <p class="bimdata-text">{{ child.text }}</p>
-            <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
+            <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill" :class="child.title === 'Variables' ? 'bimdata-btn__fill--secondary' : 'bimdata-btn__fill--primary'">
               {{ child.btn }}
             </BIMDataButton>
           </router-link>
@@ -50,9 +51,6 @@ export default {
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
-
-  // import BIMDATA UTILITIES
-  @import "@/assets/scss/utilities/_text.scss";
 
   // import COMPONENT STYLE
   @import "./_DesignSystem-content.scss";

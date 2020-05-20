@@ -1,4 +1,10 @@
-.utilities-padding{
+.spacing-system__padding{
+  & /deep/ .bimdata-ds__demo__module{
+    grid-column: 1 / 2;
+  }
+  & /deep/ .bimdata-ds__demo__parameters{
+    grid-column: 2 / 4;
+  }
   .ds-spacing{
     &__padding{
       background-color: $color-primary;
@@ -13,6 +19,11 @@
         justify-content: center;
         outline: 1px dotted $color-tertiary-lightest;
       }
+    }
+  }
+  .d-flex{
+    & > div {
+      flex: 1;
     }
   }
   & /deep/ .bimdata-table{

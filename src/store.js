@@ -45,6 +45,13 @@ export default new Vuex.Store({
       img: require("./design-system/assets/img/icon-guidelines.svg"),
       children: [
         {
+          title: "Variables",
+          img: require("./design-system/assets/img/icon-markup.svg"),
+          path: "variables",
+          text: "See all defines and usable BIMData variables and how use it.",
+          btn: "View Variables"
+        },
+        {
           title: "Colors",
           path: "colors",
           img:require("./design-system/assets/img/icon-colors.svg"),
@@ -61,6 +68,13 @@ export default new Vuex.Store({
           btn: "View Grid"
         },
         {
+          title: "list",
+          img:require("./design-system/assets/img/icon-list.svg"),
+          path: "list",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "View list"
+        },
+        {
           title: "Markup & Style",
           img:require("./design-system/assets/img/icon-markup.svg"),
           path: "markup",
@@ -73,7 +87,7 @@ export default new Vuex.Store({
           img:require("./design-system/assets/img/icon-spacing.svg"),
           path: "spacing",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Adjust whitespace by applying spacing, margin, padding helpers.",
           btn: "View spacing"
         },
         {
@@ -188,41 +202,6 @@ export default new Vuex.Store({
           btn: "View tooltips"
         }
       ]
-    },
-    'utilities':{
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-      path: "utilities",
-      img:require("./design-system/assets/img/icon-utilities.svg"),
-      children: [
-        {
-          title: "list",
-          img:require("./design-system/assets/img/icon-list.svg"),
-          path: "list",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View list"
-        },
-        {
-          title: "Margin",
-          img:require("./design-system/assets/img/icon-margin.svg"),
-          path: "margin",
-          text: "Adjust whitespace by applying margin helpers.",
-          btn: "View margin"
-        },
-        {
-          title: "Padding",
-          img:require("./design-system/assets/img/icon-padding.svg"),
-          path: "padding",
-          text: "Adjust whitespace by applying padding helpers.",
-          btn: "View padding"
-        },
-        {
-          title: "Text",
-          img: require("./design-system/assets/img/icon-typo.svg"),
-          path: "text",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-          btn: "View Text"
-        }
-      ]
-    },
+    }
   }
 });

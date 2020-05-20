@@ -1,4 +1,4 @@
-.spacing{
+.article-spacing{
   nav{
     height: calc(#{$spacing-unit} * 3);
     position: sticky;
@@ -23,5 +23,8 @@
         margin-bottom: 0;
       }
     }
+  }
+  #spacing-system, #margin, #padding{
+    padding-top: 40px;
   }
 }

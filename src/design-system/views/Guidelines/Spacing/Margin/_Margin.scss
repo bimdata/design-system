@@ -1,4 +1,10 @@
-.utilities-margin{
+.spacing-system__margin{
+  & /deep/ .bimdata-ds__demo__module{
+    grid-column: 1 / 2;
+  }
+  & /deep/ .bimdata-ds__demo__parameters{
+    grid-column: 2 / 4;
+  }
   .ds-spacing{
     display: inline-flex;
     outline: 1px dotted $color-tertiary-dark;
@@ -12,6 +18,11 @@
       color: $color-white;
       text-align: center;
       font-size: calculateEm(12px);
+    }
+  }
+  .d-flex{
+    & > div {
+      flex: 1;
     }
   }
   & /deep/ .bimdata-table{

@@ -14,9 +14,11 @@ import InternalDoc from '../views/GettingStarted/InternalDoc.vue';
 // import GUIDELINES
 import Colors from '../views/Guidelines/Colors/Colors.vue';
 import Grid from '../views/Guidelines/Grid/Grid.vue';
+import List from '../views/Guidelines/List/List.vue';
 import Markup from '../views/Guidelines/Markup/Markup.vue';
 import Spacing from '../views/Guidelines/Spacing/Spacing.vue';
 import Typography from '../views/Guidelines/Typography/Typography.vue';
+import Variables from '../views/Guidelines/Variables/Variables.vue'
 
 // import COMPONENTS
 import Buttons from '../views/Components/Buttons/Buttons.vue';
@@ -33,11 +35,6 @@ import Table from '../views/Components/Table/Table.vue';
 import Textarea from '../views/Components/Textarea/Textarea.vue';
 import Tooltip from '../views/Components/Tooltip/Tooltip.vue';
 
-// import UTILITIES
-import List from '../views/Utilities/List/List.vue';
-import Margin from '../views/Utilities/Margin/Margin.vue';
-import Padding from '../views/Utilities/Padding/Padding.vue';
-import Text from '../views/Utilities/Text/Text.vue'
 
 Vue.use(VueRouter)
 
@@ -98,6 +95,11 @@ const routes = [
         component: Grid
       },
       {
+        path: 'list',
+        name: 'list',
+        component: List
+      },
+      {
         path: 'markup',
         name: 'markup',
         component: Markup
@@ -111,6 +113,11 @@ const routes = [
         path: 'typography',
         name: 'typography',
         component: Typography
+      },
+      {
+        path: 'variables',
+        name: 'variables',
+        component: Variables
       }
     ]
   },
@@ -187,37 +194,6 @@ const routes = [
         path: 'tooltips',
         name: 'tooltips',
         component: Tooltip
-      }
-    ]
-  },
-  {
-    path: '/utilities',
-    component: Layout,
-    children: [
-      {
-        path: '',
-        name: 'utilities',
-        component: Content
-      },
-      {
-        path: 'list',
-        name: 'list',
-        component: List
-      },
-      {
-        path: 'margin',
-        name: 'margin',
-        component: Margin
-      },
-      {
-        path: 'padding',
-        name: 'padding',
-        component: Padding
-      },
-      {
-        path: 'text',
-        name: 'text',
-        component: Text
       }
     ]
   }

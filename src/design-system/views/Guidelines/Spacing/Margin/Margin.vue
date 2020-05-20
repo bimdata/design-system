@@ -1,18 +1,17 @@
 <template>
-  <main class="article utilities-margin">
-    <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
-      <p class="bimdata-text">All spacing is defined by a base value of 12 pixels. This value of 12 px is the basic unit of measurement for spacing.</p>
-      <ComponentCode :componentTitle="$route.name">
-        <template #module>
-          <div class="ds-spacing">
-            <div :class="getMarginClass()">
-              <span>{{getMarginText()}}</span>
-            </div>
+  <div class="spacing-system__margin">
+    <h2 class="bimdata-h2"> Margin </h2>
+    <ComponentCode componentTitle="margin" language="scss">
+      <template #module>
+        <div class="ds-spacing">
+          <div :class="getMarginClass()">
+            <span>{{getMarginText()}}</span>
           </div>
-        </template>
+        </div>
+      </template>
 
-        <template #parameters>
+      <template #parameters>
+        <div class="d-flex">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size" >
             <h5 class="bimdata-h5" >{{ size }}</h5>
             <BIMDataCheckbox
@@ -25,33 +24,40 @@
             >
             </BIMDataCheckbox>
           </div>
-        </template>
+        </div>
+      </template>
 
-        <template #code>
-          <pre>
-            &lt;div class="{{getMarginText()}}"&gt;
-              content here
-            &lt;/div&gt;
-          </pre>
-        </template>
-      </ComponentCode>
+      <template #import>
+        <pre>
+          // import BIMDATA COMPONENT UTILITIES
+          @import "@/assets/scss/utilities/_spacing.scss";
+        </pre>
+      </template>
+
+      <template #code>
+        <pre>
+          &lt;div class="{{getMarginText()}}"&gt;
+            content here
+          &lt;/div&gt;
+        </pre>
+      </template>
+    </ComponentCode>
+    <div class="m-y-12">
+      <h3 class="bimdata-h3">Class summary</h3>
       <div class="m-y-12">
-        <h3 class="bimdata-h3">Class summary</h3>
-        <div class="m-y-12">
-          <h6 class="bimdata-h6">Global</h6>
-          <BIMDataTable :rows="globalClassData"></BIMDataTable>
-        </div>
-        <div class="m-y-12">
-          <h6 class="bimdata-h6">Top, Bottom, Vertical</h6>
-          <BIMDataTable :rows="verticalClassData"></BIMDataTable>
-        </div>
-        <div class="m-y-12">
-          <h6 class="bimdata-h6">Left, Right, Horizontal</h6>
-          <BIMDataTable :rows="horizontalClassData"></BIMDataTable>
-        </div>
+        <h6 class="bimdata-h6">Global</h6>
+        <BIMDataTable :rows="globalClassData"></BIMDataTable>
+      </div>
+      <div class="m-y-12">
+        <h6 class="bimdata-h6">Top, Bottom, Vertical</h6>
+        <BIMDataTable :rows="verticalClassData"></BIMDataTable>
+      </div>
+      <div class="m-y-12">
+        <h6 class="bimdata-h6">Left, Right, Horizontal</h6>
+        <BIMDataTable :rows="horizontalClassData"></BIMDataTable>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -412,9 +418,8 @@ export default {
   // import BIMDATA COMPONENT VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA COMPONENT UTILITIES
-  @import "@/assets/scss/utilities/_text.scss";
-  @import "@/assets/scss/utilities/_spacing.scss";
+  // import BIMDATA UTILITIES
+  @import "@/assets/scss/utilities/_flex.scss";
 
   // import COMPONENT STYLE
   @import "./_Margin.scss";
