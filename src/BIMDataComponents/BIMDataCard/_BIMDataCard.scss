@@ -1,6 +1,6 @@
 .bimdata-card{
   background-color: $color-white;
-  box-shadow: 0px 2px 10px rgba($color-black, .07);
+  box-shadow: 0px 2px 10px rgba($color-black, .1);
   &__content, &__footer{
     font-size: calculateEm(12px);
   }
