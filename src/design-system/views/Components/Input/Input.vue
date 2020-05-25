@@ -8,8 +8,8 @@
           <BIMDataInput
             v-model="textInput"
             placeholder="Your placeholder here"
-            :error="getError"
-            :success="getSuccess"
+            :error="errorState"
+            :success="successState"
             :errorMessage="getErrorMessage()"
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"
@@ -146,7 +146,7 @@ export default {
     }
   },
   computed: {
-    getError(){
+    errorState(){
       if(this.error){
         this.checkboxSuccessDisabled = true;
         this.checkboxSuccessMessageDisabled = true;
@@ -159,7 +159,7 @@ export default {
         this.errorMessage = false;
       }
     },
-    getSuccess(){
+    successState(){
       if(this.success){
         this.checkboxErrorDisabled = true;
         this.checkboxErrorMessageDisabled = true;
