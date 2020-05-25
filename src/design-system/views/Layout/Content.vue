@@ -5,7 +5,7 @@
     <p class="bimdata-text">{{$store.state[$route.name].text}}</p>
     <div class="content-box">
 
-      <BIMDataCard class="bimdata-card__primary" v-if="$route.name === 'components'">
+      <BIMDataCard class="bimdata-card__primary" v-if="$route.name === 'Components'">
         <template #content>
           <router-link to="../gettingstarted">
             <h5 class="bimdata-h5">Getting started</h5>
@@ -44,6 +44,9 @@ export default {
   components:{
     BIMDataButton,
     BIMDataCard
+  },
+  methods: {
+
   }
 }
 </script>

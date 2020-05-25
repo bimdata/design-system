@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <BIMDataSearchInput v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
+    <BIMDataSearchInput
+      v-model="filter"
+      :autofocus="true"
+      placeholder="Search"
+      width="776px"
+      height="56px"
+    />
     <div class="home-content">
-      <BIMDataCard v-for="(value, key) in getItems" :key="key">
-          <template #content>
-            <router-link :to="{path: `/${key}`}">
-              <img :src="value.img"/>
-              <h2 class="bimdata-h2">{{ key }}</h2>
-              <p class="bimdata-text">{{ value.text }}</p>
-              <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
+      <BIMDataCard v-for="(page, title) in getItems" :key="title">
+        <template #content>
+          <router-link :to="{ path: `/${page.path}` }">
+            <img :src="page.img" />
+            <h2 class="bimdata-h2">{{ title }}</h2>
+            <p class="bimdata-text">{{ page.text }}</p>
+            <BIMDataButton
+              class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary"
+            >
               Explore
-              </BIMDataButton>
-            </router-link>
-          </template>
+            </BIMDataButton>
+          </router-link>
+        </template>
       </BIMDataCard>
     </div>
   </div>
@@ -27,38 +35,38 @@ export default {
   components: {
     BIMDataCard,
     BIMDataButton,
-    BIMDataSearchInput
+    BIMDataSearchInput,
   },
   props: {
     text: {
       type: String,
-      default: ''
+      default: "",
     },
     routeName: {
       type: String,
-      default: ''
+      default: "",
     },
     displayLink: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
-    return{
-      filter: ""
-    }
+    return {
+      filter: "",
+    };
   },
   computed: {
-    getItems(){
+    getItems() {
       return this.$store.state;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
+@import "@/assets/scss/_BIMDataVariables.scss";
 
-  @import "./_keyframes.scss";
-  @import "./_Home.scss";
+@import "./_keyframes.scss";
+@import "./_Home.scss";
 </style>

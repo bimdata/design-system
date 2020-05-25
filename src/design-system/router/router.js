@@ -45,12 +45,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/gettingstarted',
+    path: '/getting-started',
     component: Layout,
     children: [
       {
         path: '/',
-        name: 'gettingstarted',
+        name: 'Getting started',
         component: Content,
       },
       {
@@ -76,12 +76,12 @@ const routes = [
     ]
   },
   {
-    path: '/guidelines',
+    path: '/guidelines-utilities',
     component: Layout,
     children: [
       {
         path: '/',
-        name: 'guidelines',
+        name: 'Guidelines & Utilities',
         component: Content
       },
       {
@@ -127,7 +127,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'components',
+        name: 'Components',
         component: Content
       },
       {

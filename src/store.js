@@ -5,9 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    'gettingstarted':{
+    'Getting started':{
       text: "Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.",
-      path: "gettingstarted",
+      path: "getting-started",
       img:require("./design-system/assets/img/icon-getting_stated.svg"),
       children: [
         {
@@ -40,9 +40,10 @@ export default new Vuex.Store({
         }
       ]
     },
-    guidelines: {
+    'Guidelines & Utilities': {
       text: "How BIMData looks : guidelines for colors, spacing,  typography",
       img: require("./design-system/assets/img/icon-guidelines.svg"),
+      path: 'guidelines-utilities',
       children: [
         {
           title: "Variables",
@@ -100,9 +101,10 @@ export default new Vuex.Store({
         }
       ]
     },
-    components: {
+    Components: {
       text: "We developed a VueJs UI library that contains a set  components and demos for building, interactive user interfaces.",
       img: require('./design-system/assets/img/icon-components.svg'),
+      path: 'components',
       children: [
         {
           title: "Buttons",
