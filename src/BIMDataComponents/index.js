@@ -1,15 +1,19 @@
 import styles from '@/assets/css/_BIMDataVariables.css'
 
+import BIMDataBigSpinner from '@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue';
 import BIMDataButton from '@/BIMDataComponents/BIMDataButton/BIMDataButton.vue';
 import BIMDataCard from '@/BIMDataComponents/BIMDataCard/BIMDataCard.vue';
 import BIMDataCheckbox from '@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue';
 import BIMDataIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue';
 import BIMDataInput from '@/BIMDataComponents/BIMDataInput/BIMDataInput.vue';
+import BIMDataLoading from '@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue';
+import BIMDataPaginatedList from '@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue';
 import BIMDataRadio from '@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue';
 import BIMDataSearch from '@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue';
 import BIMDataSelect from '@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue';
 import BIMDataTable from '@/BIMDataComponents/BIMDataTable/BIMDataTable.vue';
 import BIMDataTextarea from '@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue';
+import BIMDataTooltip from '@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue';
 
 import BIMData3dModelIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMData3dModelIcon.vue';
 import BIMDataAddFileIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAddFileIcon.vue';
@@ -64,16 +68,20 @@ import BIMDataWindowedIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibrary
 
 const Components = {
   styles,
+  BIMDataBigSpinner,
   BIMDataButton,
   BIMDataCard,
   BIMDataCheckbox,
   BIMDataIcon,
   BIMDataInput,
+  BIMDataLoading,
+  BIMDataPaginatedList,
   BIMDataRadio,
   BIMDataSearch,
   BIMDataSelect,
   BIMDataTable,
   BIMDataTextarea,
+  BIMDataTooltip,
   BIMData3dModelIcon,
   BIMDataAddFileIcon,
   BIMDataAddUserIcon,
