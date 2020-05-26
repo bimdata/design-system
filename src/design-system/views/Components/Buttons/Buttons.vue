@@ -77,7 +77,7 @@
             <pre>
               &lt;BIMDataButton
                 width="{{ getButtonWidth() }}"
-                class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
+                class="bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
                 :disabled="{{ getButtonDisabled() }}"&gt;
                 &lt;template v-if="checkboxIconChecked"&gt;
                   {{ getIcon() }}
