@@ -17,6 +17,9 @@
   svg{
     margin: 0 calc(#{$spacing-unit} / 2);
   }
+  svg:only-child {
+    margin: 0;
+  }
   /* style BIMDATA BTN RADIUS ------------------ */
   &__radius {
     border-radius: 3px;
