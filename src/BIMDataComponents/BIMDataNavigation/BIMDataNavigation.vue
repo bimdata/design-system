@@ -90,10 +90,10 @@
 </template>
 
 <script>
-import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
-import BIMDataDoubleChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDoubleChevronIcon.vue";
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataChevronIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
+import BIMDataDoubleChevronIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDoubleChevronIcon.vue";
+import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
@@ -141,10 +141,10 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA LIST
-  @import "@/assets/scss/utilities/_list.scss";
+  @import "../../assets/scss/utilities/_list.scss";
 
   @import "./_BIMDataNavigation.scss";
 </style>

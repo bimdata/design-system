@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import BIMDataLoading from "@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
-import BIMDataBigSpinner from "@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
+import BIMDataLoading from "../../../../../src/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
+import BIMDataBigSpinner from "../../../../../src/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 

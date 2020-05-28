@@ -40,8 +40,8 @@ export default {
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
 
   // import BIMDATA STYLE
-  @import "@/assets/scss/_BIMDataVariables.scss";
-  @import "@/assets/scss/_BIMDataFonts.scss";
+  @import "../assets/scss/_BIMDataVariables.scss";
+  @import "../assets/scss/_BIMDataFonts.scss";
 </style>
 
 <style lang="scss">
@@ -49,10 +49,10 @@ export default {
   @import "./_DesignSystem-global.scss";
 
   // import ELEMENTS
-  @import "@/assets/scss/elements/_BIMDataScrollbar.scss";
-  @import "@/assets/scss/utilities/_list.scss";
-  @import "@/assets/scss/utilities/_text.scss";
-  @import "@/assets/scss/utilities/_spacing.scss";
+  @import "../assets/scss/elements/_BIMDataScrollbar.scss";
+  @import "../assets/scss/utilities/_list.scss";
+  @import "../assets/scss/utilities/_text.scss";
+  @import "../assets/scss/utilities/_spacing.scss";
 
 
 </style>

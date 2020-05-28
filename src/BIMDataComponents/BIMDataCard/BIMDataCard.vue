@@ -46,10 +46,10 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA UTILITIES
-  @import "@/assets/scss/utilities/_text.scss";
+  @import "../../assets/scss/utilities/_text.scss";
 
   // import BIMDATA STYLE COMPONENT
   @import "./_BIMDataCard.scss";

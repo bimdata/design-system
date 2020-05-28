@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import highlight from "@/directives/highlight.js";
-import copy from "@/directives/copy.js";
+import highlight from "../../../../directives/highlight.js";
+import copy from "../../../../directives/copy.js";
 import Alerts from "../Alerts/Alerts.vue";
 
 export default {
@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA COMPONENT VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../../assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
   @import "./_Code.scss";

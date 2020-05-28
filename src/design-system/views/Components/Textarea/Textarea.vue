@@ -59,10 +59,10 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import BIMDataTextarea from "@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
+import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
 
 export default {
   components: {

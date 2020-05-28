@@ -113,10 +113,10 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataBurgerMenu from "@/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
-import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
-import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataBurgerMenu from "../../../../../src/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
+import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 
 export default {

@@ -34,9 +34,9 @@
 
 <script>
 import Code from "../../Elements/Code/Code.vue";
-import ComponentCode from "@/design-system/views/Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import Margin from "./Margin/Margin.vue";
 import Padding from "./Padding/Padding.vue";
 
@@ -63,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../../assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
   @import "./_Spacing.scss";

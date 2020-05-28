@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import highlight from "@/directives/highlight.js";
-import copy from "@/directives/copy.js";
+import highlight from "../../../../directives/highlight.js";
+import copy from "../../../../directives/copy.js";
 import FontSize from "./FontSize/FontSize.vue";
 
 export default {
@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 @import "./_Typography.scss";
 </style>
