@@ -16,11 +16,14 @@
       <i class="moon" v-if="theme === 'theme-light'" @click="switchTheme"></i>
       <i class="sun" v-if="theme === 'theme-dark'" @click="switchTheme"></i>
     </div>
+    <span class="bimdata-ds__version">v {{ $options.version }}</span>
   </header>
 </template>
 
 <script>
+import pkg from "@/../package.json";
 export default {
+  version: pkg.version,
   props: {
     text: {
       type: String,
@@ -58,6 +61,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/_BIMDataVariables.scss";
 @import "@/assets/scss/utilities/_list.scss";
+@import "@/assets/scss/utilities/_font-size.scss";
 
 @import "./_DesignSystem-navigation.scss";
 </style>
