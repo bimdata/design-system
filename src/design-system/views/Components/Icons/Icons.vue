@@ -101,6 +101,7 @@ import BIMDataCloseIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIco
 import BIMDataCloudIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCloudIcon.vue";
 import BIMDataColorIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataColorIcon.vue";
 import BIMDataCursorIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCursorIcon.vue";
+import BIMDataDefaultIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDefaultIcon.vue";
 import BIMDataDeleteIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeleteIcon.vue";
 import BIMDataDeployDownIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployDownIcon.vue";
 import BIMDataDeployUpIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployUpIcon.vue";
@@ -118,9 +119,9 @@ import BIMDataInformationIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibr
 import BIMDataIsolateIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataIsolateIcon.vue";
 import BIMDataLocationIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataLocationIcon.vue";
 import BIMDataMeasureIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMeasureIcon.vue";
-import BIMDataMoreIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMoreIcon.vue";
+import BIMDataPlusIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataPlusIcon.vue";
 import BIMDataProjectIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataProjectIcon.vue";
-import BIMDataReduceIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataReduceIcon.vue";
+import BIMDataMinusIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMinusIcon.vue";
 import BIMDataRefreshIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRefreshIcon.vue";
 import BIMDataRulesIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRulesIcon.vue";
 import BIMDataSandglassIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSandglassIcon.vue";
@@ -163,6 +164,7 @@ export default {
     BIMDataCloudIcon,
     BIMDataColorIcon,
     BIMDataCursorIcon,
+    BIMDataDefaultIcon,
     BIMDataDeleteIcon,
     BIMDataDeployDownIcon,
     BIMDataDeployUpIcon,
@@ -180,9 +182,9 @@ export default {
     BIMDataIsolateIcon,
     BIMDataLocationIcon,
     BIMDataMeasureIcon,
-    BIMDataMoreIcon,
+    BIMDataMinusIcon,
+    BIMDataPlusIcon,
     BIMDataProjectIcon,
-    BIMDataReduceIcon,
     BIMDataRefreshIcon,
     BIMDataRulesIcon,
     BIMDataSandglassIcon,
