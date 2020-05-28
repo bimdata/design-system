@@ -1,7 +1,7 @@
 <template>
   <main class="article getting-started">
     <div class="article-wrapper">
-      <h1>Designers</h1>
+      <h1 class="bimdata-h1">Designers</h1>
     </div>
   </main>
 </template>
@@ -10,8 +10,6 @@
 
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
   @import "./_GettingStarted.scss";
 </style>

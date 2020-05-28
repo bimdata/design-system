@@ -141,10 +141,10 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+  @import "@/assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA LIST
-  @import "../../assets/scss/elements/_BIMDataList.scss";
+  @import "@/assets/scss/utilities/_list.scss";
 
   @import "./_BIMDataNavigation.scss";
 </style>

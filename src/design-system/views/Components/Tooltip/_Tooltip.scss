@@ -10,11 +10,9 @@
       }
     }
   }
-  .bimdata-table{
-    &:first-child{
-      th:last-child, td:last-child{
-        flex-grow: 2;
-      }
+  /deep/ .bimdata-table{
+    th:last-child, td:last-child{
+      flex-grow: 2;
     }
   }
 }

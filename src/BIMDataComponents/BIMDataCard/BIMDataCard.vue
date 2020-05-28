@@ -13,9 +13,9 @@
         <slot name="right"></slot>
       </template>
     </BIMDataCardBand>
-    <main class="bimdata-card__content" v-if="$scopedSlots.content">
+    <div class="bimdata-card__content" v-if="$scopedSlots.content">
       <slot name="content"></slot>
-    </main>
+    </div>
     <footer class="bimdata-card__footer" v-if="$scopedSlots.footer">
       <slot name="footer"></slot>
     </footer>
@@ -44,12 +44,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   // import BIMDATA VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA MIXINS
-  @import "@/assets/scss/mixins/_font-size.scss";
+  // import BIMDATA UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
 
   // import BIMDATA STYLE COMPONENT
   @import "./_BIMDataCard.scss";

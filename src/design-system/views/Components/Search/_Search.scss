@@ -1,0 +1,7 @@
+.article-search{
+  /deep/ .bimdata-table{
+    th:nth-child(4), td:nth-child(4){
+      flex-grow: 2;
+    }
+  }
+}

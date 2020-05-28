@@ -44,13 +44,15 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   // import BIMDATA VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
+  // import BIMDATA UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
+
   // import BIMDATA MIXINS
   @import "@/assets/scss/mixins/_pseudo.scss";
-  @import "@/assets/scss/mixins/_font-size.scss";
 
   // import BIMDATA STYLE COMPONENT
   @import "./BIMDataRadio.scss";

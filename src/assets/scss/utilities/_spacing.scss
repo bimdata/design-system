@@ -1,35 +1,37 @@
 // mixin MARGIN & PADDING
-$spaceamounts: (6, 12);
+$spaceamounts: (6, 12, 18, 24);
 $sides: (top, bottom, left, right, all, horizontal, vertical);
 
 @each $space in $spaceamounts {
   @each $side, $value in $sides {
-
     @if $side == 'all' {
       // global MARGIN & PADDING
       .m-#{$space} {
         margin: #{$space}px;
       }
-
       .p-#{$space} {
         padding: #{$space}px;
       }
     } @else if ($side == 'horizontal') {
       // horizontal MARGIN & PADDING
       .m-x-#{$space} {
-        margin: 0 #{$space}px;
+        margin-right: #{$space}px;
+        margin-left: #{$space}px;
       }
       .p-x-#{$space} {
-        padding: 0 #{$space}px;
+        padding-right: #{$space}px;
+        padding-left: #{$space}px;
       }
     }
     @else if ($side == 'vertical') {
       // vertical MARGIN & PADDING
       .m-y-#{$space} {
-        margin: #{$space}px 0;
+        margin-top: #{$space}px;
+        margin-bottom: #{$space}px;
       }
       .p-y-#{$space} {
-        padding: #{$space}px 0;
+        padding-top: #{$space}px;
+        padding-bottom: #{$space}px;
       }
     } @else {
       // unitary MARGIN & PADDING

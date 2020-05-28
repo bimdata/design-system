@@ -1,6 +1,7 @@
 <template>
   <div class="bimdata-ds__code">
     <pre :class="`language-${language}`" v-copy="onCopy">
+      <span class="bimdata-ds__code__language">{{language}}</span>
       <code :class="`language-${language}`" v-highlight:[language] >
         <slot></slot>
       </code>
@@ -12,7 +13,6 @@
 <script>
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 import Alerts from "../Alerts/Alerts.vue";
 
 export default {
@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   // import BIMDATA COMPONENT VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 

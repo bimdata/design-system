@@ -1,7 +1,7 @@
 <template>
   <main class="article article-pagination">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
       <ComponentCode :componentTitle='$route.name'>
         <template #module >
           <BIMDataPaginatedList :list="paginatedListExample" :perPage="Number(numberInput)">
@@ -12,6 +12,10 @@
           <BIMDataInput v-model="numberInput" placeholder="Number of items per page" type="number"></BIMDataInput>
         </template>
 
+        <template #import>
+          import BIMDataPaginatedList from "@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataPaginatedList :list="paginatedListExample" :perPage="{{numberInput}}"&gt;&lt;/BIMDataPaginatedList&gt;
@@ -20,12 +24,12 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
       <div class="m-t-12">
-        <h5>Slots:</h5>
+        <h5 class="bimdata-h5">Slots:</h5>
         <BIMDataTable :rows="slotsData"></BIMDataTable>
       </div>
 
@@ -96,6 +100,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
+  @import "./_Pagination.scss";
 </style>

@@ -1,16 +1,16 @@
 <template>
-  <main class="article your-file-class">
+  <main class="article article-search">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
 
       <ComponentCode :componentTitle='$route.name' :class="changeBackgroundColor">
         <template #module >
-          <BIMDataSearch :class="getOverviewSearchClasses()" placeholder="Search"></BIMDataSearch>
+          <BIMDataSearch :class="getOverviewSearchClasses()" placeholder="Search" value=""></BIMDataSearch>
         </template>
 
         <template #parameters>
           <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(searchOptions)" :key="key">
-            <h5>{{ key }}</h5>
+            <h5 class="bimdata-h5">{{ key }}</h5>
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -24,6 +24,10 @@
           </div>
         </template>
 
+        <template #import>
+          import BIMDataSearch from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{selectedSearchOptionskinds}} bimdata-search-bar__{{selectedSearchOptionsstyle}}"&gt;
@@ -33,7 +37,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
@@ -73,19 +77,22 @@ export default {
       },
       propsData: [
         [
-          "Props", "Type", "Default value", "Description"
+          "Props", "Type", "Default value", "Description", "Required"
         ],
         [
-          "placeholder", "String", "''", "Use this props to add a placeholder"
+          "value", "String", "", "", "true"
         ],
         [
-          "width", "[Number, String]", "150px", "Use this props to change the width of the search component"
+          "placeholder", "String", "' '", "Use this props to add a placeholder", ""
         ],
         [
-          "height", "[Number, String]", "32px", "Use this props to change the height of the search component"
+          "width", "[Number, String]", "150px", "Use this props to change the width of the search component", ""
         ],
         [
-          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on the input search"
+          "height", "[Number, String]", "32px", "Use this props to change the height of the search component", ""
+        ],
+        [
+          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on the input search", ""
         ]
       ]
     }
@@ -105,8 +112,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
   @import "./_Search.scss";
 </style>

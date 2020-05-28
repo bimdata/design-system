@@ -1,18 +1,18 @@
 <template>
   <main class="article internal-doc">
     <div class="article-wrapper">
-      <h2>{{ $route.name }}</h2>
-      <p>All the design system resources are in the directory: <code class="code-highlight">src/design-system/views</code>. The following explanations concern the addition of a new component. If you want to add another element (utilities, guidelines etc), follow the same instructions but do it in the corresponding folder.</p>
-      <h3>How to add a new component to the design system</h3>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <p class="bimdata-text">All the design system resources are in the directory: <code class="code-highlight">src/design-system/views</code>. The following explanations concern the addition of a new component. If you want to add another element (utilities, guidelines etc), follow the same instructions but do it in the corresponding folder.</p>
+      <h3 class="bimdata-h3">How to add a new component to the design system</h3>
       <ol>
         <li>
           In the <code class="code-highlight">Components</code>  directory create a new directory with the name of your component. Inside it, create your .vue file as well as .scss.
           <Code language="xml">
             <pre>
               &lt;template&gt;
-                &lt;main class="article article-[your-file-class]"&gt;
+                &lt;main class="article [your-custom-class]"&gt;
                   &lt;div class="article-wrapper"&gt;
-                    &lt;h2&gt; &#123;&#123;getRouteName()&#125;&#125; &lt;/h2&gt;
+                    &lt;h2 class="bimdata-h2"&gt; &#123;&#123;getRouteName()&#125;&#125; &lt;/h2&gt;
                   &lt;/div&gt;
                 &lt;/main&gt;
               &lt;/template&gt;
@@ -23,9 +23,7 @@
               }
               &lt;/script&gt;
 
-              &lt;style lang="scss"&gt;
-                @import "@/assets/scss/_BIMDataVariables.scss";
-
+              &lt;style lang="scss" scoped&gt;
                 @import "./_YourFileStyle.scss";
               &lt;/style&gt;
             </pre>
@@ -71,7 +69,6 @@ import Code from "../Elements/Code/Code.vue";
 
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 
 export default {
   directives: { highlight, copy },
@@ -87,8 +84,6 @@ export default {
 
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
   @import "./_GettingStarted.scss";
 </style>

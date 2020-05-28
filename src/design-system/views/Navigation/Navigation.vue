@@ -1,15 +1,14 @@
 <template>
   <header class="bimdata-ds__header">
     <div class="bimdata-ds__logo">
-      <router-link to="/"><img src="@/design-system/assets/img/design-system__logo.svg" alt=""></router-link>
+      <router-link to="/">
+        <img src="@/design-system/assets/img/design-system__logo.svg" alt />
+      </router-link>
     </div>
     <div class="bimdata-ds__navigation">
       <ul class="bimdata-list">
-        <li v-for="item in getItems" :key="item">
-          <router-link v-if="displayLink"
-            :to="{path: `/${item}`}">
-            {{ item }}
-          </router-link>
+        <li v-for="item in items" :key="item.title">
+          <router-link v-if="displayLink" :to="{path: `/${item.path}`}">{{ item.title }}</router-link>
         </li>
       </ul>
     </div>
@@ -25,11 +24,11 @@ export default {
   props: {
     text: {
       type: String,
-      default: ''
+      default: ""
     },
     routeName: {
       type: String,
-      default: ''
+      default: ""
     },
     displayLink: {
       type: Boolean,
@@ -42,17 +41,23 @@ export default {
   },
   methods: {
     switchTheme() {
-      this.$emit('switch-theme');
+      this.$emit("switch-theme");
     }
   },
   computed: {
-    getItems(){
-      return Object.keys(this.$store.state);
+    items() {
+      return Object.entries(this.$store.state).map(([title, page]) => ({
+        title,
+        ...page
+      }));
     }
   }
-}
+};
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/elements/_BIMDataList.scss";
+<style lang="scss" scoped>
+@import "@/assets/scss/_BIMDataVariables.scss";
+@import "@/assets/scss/utilities/_list.scss";
+
+@import "./_DesignSystem-navigation.scss";
 </style>

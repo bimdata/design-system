@@ -1,19 +1,8 @@
 .bimdata-card{
   background-color: $color-white;
-  box-shadow: 0px 2px 10px rgba($color-black, .07);
+  box-shadow: 0px 2px 10px rgba($color-black, .1);
   &__content, &__footer{
     font-size: calculateEm(12px);
-  }
-  &__brand{
-    justify-content: space-between;
-    &--left{
-      margin-right: $spacing-unit;
-      display: flex;
-      align-items: center;
-      svg{
-        margin-right: calc(#{$spacing-unit} / 2);
-      }
-    }
   }
   &__header{
     padding: 10px $spacing-unit;

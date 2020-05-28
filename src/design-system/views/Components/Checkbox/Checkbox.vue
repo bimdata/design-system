@@ -1,16 +1,31 @@
 <template>
-  <main class="article checkbox">
+  <main class="article article-checkbox">
     <div class="article-wrapper">
-      <h2>{{$route.name}}</h2>
+      <h2 class="bimdata-h2">{{$route.name}}</h2>
       <ComponentCode :componentTitle='$route.name'>
           <template #module>
             <BIMDataCheckbox
-            text="Your label here"
-            v-model="checked"
+              :text="getCheckboxText()"
+              v-model="checked"
+              :disabled="getCheckboxDisabled()"
             ></BIMDataCheckbox>
           </template>
 
           <template #parameters>
+            <BIMDataCheckbox
+                text="text"
+                v-model="checkboxTextChecked"
+              >
+              </BIMDataCheckbox>
+            <BIMDataCheckbox
+              text="disabled"
+              v-model="checkboxDisabledChecked"
+            >
+            </BIMDataCheckbox>
+          </template>
+
+          <template #import>
+            import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
           </template>
 
           <template #code>
@@ -24,7 +39,7 @@
         </ComponentCode>
 
         <div class="m-t-12">
-          <h5>Props:</h5>
+          <h5 class="bimdata-h5">Props:</h5>
           <BIMDataTable :rows="propsData"></BIMDataTable>
         </div>
     </div>
@@ -46,6 +61,8 @@ export default {
   data(){
     return {
       checked: false,
+      checkboxTextChecked: true,
+      checkboxDisabledChecked: false,
       propsData: [
         [
           "Props", "Type", "Default value", "Description"
@@ -61,12 +78,21 @@ export default {
         ],
       ]
     }
+  },
+  methods: {
+    getCheckboxDisabled() {
+      return this.checkboxDisabledChecked;
+    },
+    getCheckboxText() {
+      if(this.checkboxTextChecked) {
+        return "Your label here";
+      }
+    }
   }
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
   @import "./Checkbox.scss";
 </style>

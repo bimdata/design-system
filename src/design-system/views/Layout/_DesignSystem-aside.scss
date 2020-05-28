@@ -10,13 +10,13 @@
   overflow-x: hidden;
   &__title{
     margin: 0;
-    padding: 30px 32px 0;
+    padding: 30px 24px 0;
     color: $color-primary;
   }
   &__text{
     li{
       a{
-        padding: 8px 32px;
+        padding: 8px 24px;
         display: flex;
         align-items: center;
         color: $color-primary;

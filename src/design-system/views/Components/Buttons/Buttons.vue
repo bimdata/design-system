@@ -1,7 +1,7 @@
 <template>
-  <main class="article buttons">
+  <main class="article article-buttons">
     <div class="article-wrapper">
-      <h2>{{ $route.name }}</h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
       <div class="button-overview">
         <ComponentCode :componentTitle="$route.name">
@@ -35,7 +35,7 @@
               v-for="[key, values] in Object.entries(btnOptions)"
               :key="key"
             >
-              <h5>{{ key }}</h5>
+              <h5 class="bimdata-h5">{{ key }}</h5>
               <BIMDataRadio
                 v-for="value in values"
                 :key="value"
@@ -48,7 +48,7 @@
               </BIMDataRadio>
             </div>
             <div class="bimdata-ds__demo__parameters__options">
-              <h5>modifiers</h5>
+              <h5 class="bimdata-h5">modifiers</h5>
               <BIMDataCheckbox
                 text="icon"
                 v-model="checkboxIconChecked"
@@ -69,11 +69,15 @@
             </div>
           </template>
 
+          <template #import>
+            import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+          </template>
+
           <template #code>
             <pre>
               &lt;BIMDataButton
                 width="{{ getButtonWidth() }}"
-                class="bimdata-btn bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
+                class="bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
                 :disabled="{{ getButtonDisabled() }}"&gt;
                 &lt;template v-if="checkboxIconChecked"&gt;
                   {{ getIcon() }}
@@ -84,12 +88,11 @@
           </template>
         </ComponentCode>
 
-        <div class="m-t-12">
-          <h5>Props:</h5>
+        <div class="m-t-24">
+          <h5 class="bimdata-h5">Props:</h5>
           <BIMDataTable :rows="propsData"></BIMDataTable>
         </div>
       </div>
-      <Alerts v-if="alerts" :message="message" :class="alertType" />
     </div>
   </main>
 </template>
@@ -105,12 +108,9 @@ import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import Alerts from "../../Elements/Alerts/Alerts.vue";
-
 export default {
   name: "Buttons",
   components: {
-    Alerts,
     ComponentCode,
     BIMDataButton,
     BIMDataTable,
@@ -121,8 +121,6 @@ export default {
   },
   data() {
     return {
-      alerts: false,
-      alertType: null,
       message: "",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
@@ -202,15 +200,15 @@ export default {
     getIcon() {
       if(this.checkboxIconChecked){
         return `<BIMDataIcon
-                    class="icon-chevron"
-                    icon-name="chevron-right"
-                    width="10"
-                    height="10"
-                    x="23"
-                    y="23"
-                  >
-                    <BIMDataChevronIcon />
-                  </BIMDataIcon>`
+                  class="icon-chevron"
+                  icon-name="chevron-right"
+                  width="10"
+                  height="10"
+                  x="23"
+                  y="23"
+                >
+                  <BIMDataChevronIcon />
+                </BIMDataIcon>`
       }
     },
     getButtonDisabled() {
@@ -220,23 +218,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import BIMDATA COMPONENT VARIABLES
-@import "@/assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA COMPONENT MIXINS
-@import "@/assets/scss/mixins/_pseudo.scss";
-@import "@/assets/scss/mixins/_font-size.scss";
-
-// import BIMDATA COMPONENT STYLE
-@import "@/BIMDataComponents/BIMDataButton/_BIMDataButton.scss";
-
+<style lang="scss" scoped>
 // import COMPONENT STYLE
 @import "./_Buttons.scss";
-
-// @TODO delete
-*::after,
-*::before {
-  box-sizing: border-box;
-}
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div class="bimdata-loading">
     <span class="bimdata-loading--square"></span>
-    <p class="bimdata-loading--text">
+    <p class="bimdata-text bimdata-loading--text">
       <span>loading...</span>
     </p>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   // import BIMDATA VARIABLES
   @import "../../assets/scss/_BIMDataVariables.scss";
 

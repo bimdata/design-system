@@ -1,15 +1,19 @@
 import styles from '@/assets/css/_BIMDataVariables.css'
 
+import BIMDataBigSpinner from '@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue';
 import BIMDataButton from '@/BIMDataComponents/BIMDataButton/BIMDataButton.vue';
 import BIMDataCard from '@/BIMDataComponents/BIMDataCard/BIMDataCard.vue';
 import BIMDataCheckbox from '@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue';
 import BIMDataIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue';
 import BIMDataInput from '@/BIMDataComponents/BIMDataInput/BIMDataInput.vue';
+import BIMDataLoading from '@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue';
+import BIMDataPaginatedList from '@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue';
 import BIMDataRadio from '@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue';
 import BIMDataSearch from '@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue';
 import BIMDataSelect from '@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue';
 import BIMDataTable from '@/BIMDataComponents/BIMDataTable/BIMDataTable.vue';
 import BIMDataTextarea from '@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue';
+import BIMDataTooltip from '@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue';
 
 import BIMData3dModelIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMData3dModelIcon.vue';
 import BIMDataAddFileIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAddFileIcon.vue';
@@ -26,6 +30,7 @@ import BIMDataCloseIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIco
 import BIMDataCloudIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCloudIcon.vue';
 import BIMDataColorIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataColorIcon.vue';
 import BIMDataCursorIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCursorIcon.vue';
+import BIMDataDefaultIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDefaultIcon.vue';
 import BIMDataDeleteIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeleteIcon.vue';
 import BIMDataDeployDownIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployDownIcon.vue';
 import BIMDataDeployUpIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployUpIcon.vue';
@@ -43,9 +48,9 @@ import BIMDataInformationIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibr
 import BIMDataIsolateIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataIsolateIcon.vue';
 import BIMDataLocationIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataLocationIcon.vue';
 import BIMDataMeasureIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMeasureIcon.vue';
-import BIMDataMoreIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMoreIcon.vue';
+import BIMDataPlusIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataPlusIcon.vue';
 import BIMDataProjectIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataProjectIcon.vue';
-import BIMDataReduceIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataReduceIcon.vue';
+import BIMDataMinusIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMinusIcon.vue';
 import BIMDataRefreshIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRefreshIcon.vue';
 import BIMDataRulesIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRulesIcon.vue';
 import BIMDataSandglassIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSandglassIcon.vue';
@@ -64,16 +69,20 @@ import BIMDataWindowedIcon from '@/BIMDataComponents/BIMDataIcons/BIMDataLibrary
 
 const Components = {
   styles,
+  BIMDataBigSpinner,
   BIMDataButton,
   BIMDataCard,
   BIMDataCheckbox,
   BIMDataIcon,
   BIMDataInput,
+  BIMDataLoading,
+  BIMDataPaginatedList,
   BIMDataRadio,
   BIMDataSearch,
   BIMDataSelect,
   BIMDataTable,
   BIMDataTextarea,
+  BIMDataTooltip,
   BIMData3dModelIcon,
   BIMDataAddFileIcon,
   BIMDataAddUserIcon,
@@ -89,6 +98,7 @@ const Components = {
   BIMDataCloudIcon,
   BIMDataColorIcon,
   BIMDataCursorIcon,
+  BIMDataDefaultIcon,
   BIMDataDeleteIcon,
   BIMDataDeployDownIcon,
   BIMDataDeployUpIcon,
@@ -106,9 +116,9 @@ const Components = {
   BIMDataIsolateIcon,
   BIMDataLocationIcon,
   BIMDataMeasureIcon,
-  BIMDataMoreIcon,
+  BIMDataMinusIcon,
+  BIMDataPlusIcon,
   BIMDataProjectIcon,
-  BIMDataReduceIcon,
   BIMDataRefreshIcon,
   BIMDataRulesIcon,
   BIMDataSandglassIcon,

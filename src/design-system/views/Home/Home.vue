@@ -1,62 +1,72 @@
 <template>
   <div class="home">
-    <BIMDataSearchInput v-model="filter" :autofocus="true" placeholder="Search" width="776px" height="56px"/>
-    <!-- <p>{{Object.values($store.state)}}</p> -->
+    <BIMDataSearchInput
+      v-model="filter"
+      :autofocus="true"
+      placeholder="Search"
+      width="776px"
+      height="56px"
+    />
     <div class="home-content">
-      <router-link v-for="(value, key) in getItems" :key="key" :to="{path: `/${key}`}" class="bimdata-card">
-        <div class="bimdata-card__content">
-          <img :src="value.img"/>
-          <h2>{{ key }}</h2>
-          <p>{{ value.text }}</p>
-          <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary">
-          Explore
-          </BIMDataButton>
-        </div>
-      </router-link>
+      <BIMDataCard v-for="(page, title) in getItems" :key="title">
+        <template #content>
+          <router-link :to="{ path: `/${page.path}` }">
+            <img :src="page.img" />
+            <h2 class="bimdata-h2">{{ title }}</h2>
+            <p class="bimdata-text">{{ page.text }}</p>
+            <BIMDataButton
+              class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary"
+            >
+              Explore
+            </BIMDataButton>
+          </router-link>
+        </template>
+      </BIMDataCard>
     </div>
   </div>
 </template>
 
 <script>
+import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 
 export default {
   components: {
+    BIMDataCard,
     BIMDataButton,
-    BIMDataSearchInput
+    BIMDataSearchInput,
   },
   props: {
     text: {
       type: String,
-      default: ''
+      default: "",
     },
     routeName: {
       type: String,
-      default: ''
+      default: "",
     },
     displayLink: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
-    return{
-      filter: ""
-    }
+    return {
+      filter: "",
+    };
   },
   computed: {
-    getItems(){
+    getItems() {
       return this.$store.state;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
+<style lang="scss" scoped>
+@import "@/assets/scss/_BIMDataVariables.scss";
 
-  @import "@/design-system/assets/scss/animations/_animations.scss";
-
-  @import "./_Home.scss";
+@import "./_keyframes.scss";
+@import "./_Home.scss";
 </style>

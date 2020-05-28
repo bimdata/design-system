@@ -1,7 +1,7 @@
 <template>
   <main class="article article-tooltip">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
       <ComponentCode :componentTitle="$route.name">
         <template #module>
           <BIMDataTooltip message="tooltip here" :className="getOverviewTooltipClasses()">
@@ -17,7 +17,7 @@
             v-for="[key, values] in Object.entries(tooltipOptions)"
             :key="key"
           >
-            <h5>{{ key }}</h5>
+            <h5 class="bimdata-h5">{{ key }}</h5>
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -30,12 +30,16 @@
             </BIMDataRadio>
           </div>
           <div class="bimdata-ds__demo__parameters__options">
-              <h5>modifiers</h5>
+              <h5 class="bimdata-h5">modifiers</h5>
             <BIMDataCheckbox
               text="arrow"
               v-model="checkboxArrowChecked">
             </BIMDataCheckbox>
           </div>
+        </template>
+
+        <template #import>
+          import BIMDataTooltip from "@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
         </template>
 
         <template #code>
@@ -48,12 +52,12 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
       <div class="m-t-12">
-        <h5>Slots:</h5>
+        <h5 class="bimdata-h5">Slots:</h5>
         <BIMDataTable :rows="slotsData"></BIMDataTable>
       </div>
     </div>
@@ -120,8 +124,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
   @import "./_Tooltip.scss";
 </style>

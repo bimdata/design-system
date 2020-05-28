@@ -1,0 +1,38 @@
+.spacing-system__margin{
+  & /deep/ .bimdata-ds__demo__module{
+    grid-column: 1 / 2;
+  }
+  & /deep/ .bimdata-ds__demo__parameters{
+    grid-column: 2 / 4;
+  }
+  .ds-spacing{
+    display: inline-flex;
+    outline: 1px dotted $color-tertiary-dark;
+    span{
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-primary;
+      color: $color-white;
+      text-align: center;
+      font-size: calculateEm(12px);
+    }
+  }
+  .d-flex{
+    & > div {
+      flex: 1;
+    }
+  }
+  & /deep/ .bimdata-table{
+    tr {
+      th, td{
+        flex-grow: 2;
+        &:first-child{
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}

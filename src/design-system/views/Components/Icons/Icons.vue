@@ -1,9 +1,9 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <h2>{{ $route.name }}</h2>
-      <h3>Size usage for designers</h3>
-      <p>Use a 23px box for icons of 23px.</p>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <h3 class="bimdata-h3">Size usage for designers</h3>
+      <p class="bimdata-text">Use a 23px box for icons of 23px.</p>
       <div>
         <img src="@/design-system/assets/img/design-system__icon-plus.jpg" alt="">
         <img src="@/design-system/assets/img/design-system__icon-warning.jpg" alt="">
@@ -33,7 +33,7 @@
 
         <template #parameters>
           <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(iconOptions)" :key="key">
-            <h5>{{ key }}</h5>
+            <h5 class="bimdata-h5">{{ key }}</h5>
               <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -45,6 +45,13 @@
             >
             </BIMDataRadio>
           </div>
+        </template>
+
+        <template #import>
+          <pre>
+            import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+            import {{activeIcon}} from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/{{activeIcon}}.vue"
+          </pre>
         </template>
 
         <template #code>
@@ -64,7 +71,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
@@ -94,6 +101,7 @@ import BIMDataCloseIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIco
 import BIMDataCloudIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCloudIcon.vue";
 import BIMDataColorIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataColorIcon.vue";
 import BIMDataCursorIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCursorIcon.vue";
+import BIMDataDefaultIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDefaultIcon.vue";
 import BIMDataDeleteIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeleteIcon.vue";
 import BIMDataDeployDownIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployDownIcon.vue";
 import BIMDataDeployUpIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployUpIcon.vue";
@@ -111,9 +119,9 @@ import BIMDataInformationIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibr
 import BIMDataIsolateIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataIsolateIcon.vue";
 import BIMDataLocationIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataLocationIcon.vue";
 import BIMDataMeasureIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMeasureIcon.vue";
-import BIMDataMoreIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMoreIcon.vue";
+import BIMDataPlusIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataPlusIcon.vue";
 import BIMDataProjectIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataProjectIcon.vue";
-import BIMDataReduceIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataReduceIcon.vue";
+import BIMDataMinusIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMinusIcon.vue";
 import BIMDataRefreshIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRefreshIcon.vue";
 import BIMDataRulesIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRulesIcon.vue";
 import BIMDataSandglassIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSandglassIcon.vue";
@@ -134,7 +142,6 @@ import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 import highlight from "@/directives/highlight.js";
 import copy from "@/directives/copy.js";
-import Prism from "prismjs";
 
 export default {
   components: {
@@ -157,6 +164,7 @@ export default {
     BIMDataCloudIcon,
     BIMDataColorIcon,
     BIMDataCursorIcon,
+    BIMDataDefaultIcon,
     BIMDataDeleteIcon,
     BIMDataDeployDownIcon,
     BIMDataDeployUpIcon,
@@ -174,9 +182,9 @@ export default {
     BIMDataIsolateIcon,
     BIMDataLocationIcon,
     BIMDataMeasureIcon,
-    BIMDataMoreIcon,
+    BIMDataMinusIcon,
+    BIMDataPlusIcon,
     BIMDataProjectIcon,
-    BIMDataReduceIcon,
     BIMDataRefreshIcon,
     BIMDataRulesIcon,
     BIMDataSandglassIcon,
@@ -260,10 +268,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/mixins/_font-size.scss";
-
+<style lang="scss" scoped>
+  // import BIMDATA COMPONENT VARIABLES
   @import "@/assets/scss/_BIMDataVariables.scss";
 
+  // import BIMDATA COMPONENT UTILITIES
+  @import "@/assets/scss/utilities/_text.scss";
+
+  // import COMPONENT STYLE
   @import "./_Icons.scss";
 </style>

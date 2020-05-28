@@ -1,36 +1,3 @@
 *::after, *::before{
   box-sizing: border-box;
 }
-
-/* custom GLOBAL TYPOGRAPHY */
-h1, h2, h3, h4, h5, h6, p {
-  margin: .5rem 0;
-}
-h1{
-  font-size: calculateEm(34px);
-  font-family: $primary-font-bold;
-}
-h2{
-  font-size: calculateEm(30px);
-  font-family: $primary-font-bold;
-}
-h3{
-  font-size: calculateEm(26px);
-  font-family: $primary-font-bold;
-}
-h4{
-  font-size: calculateEm(24px);
-  font-family: $primary-font;
-}
-h5{
-  font-size: calculateEm(20px);
-  font-family: $primary-font;
-}
-h6{
-  font-size: calculateEm(16px);
-  font-family: $primary-font;
-}
-p{
-  font-size: calculateEm(14px);
-  font-family: $primary-font;
-}

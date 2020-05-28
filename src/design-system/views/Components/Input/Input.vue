@@ -1,15 +1,15 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <h2>{{ $route.name }}</h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
        <ComponentCode :componentTitle='$route.name'>
         <template #module >
           <BIMDataInput
             v-model="textInput"
             placeholder="Your placeholder here"
-            :error="getError"
-            :success="getSuccess"
+            :error="errorState"
+            :success="successState"
             :errorMessage="getErrorMessage()"
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"
@@ -57,6 +57,10 @@
           />
         </template>
 
+        <template #import>
+          import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataInput
@@ -74,7 +78,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
     </div>
@@ -142,7 +146,7 @@ export default {
     }
   },
   computed: {
-    getError(){
+    errorState(){
       if(this.error){
         this.checkboxSuccessDisabled = true;
         this.checkboxSuccessMessageDisabled = true;
@@ -155,7 +159,7 @@ export default {
         this.errorMessage = false;
       }
     },
-    getSuccess(){
+    successState(){
       if(this.success){
         this.checkboxErrorDisabled = true;
         this.checkboxErrorMessageDisabled = true;
@@ -203,8 +207,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
   @import "./_Input.scss";
 </style>

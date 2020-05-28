@@ -1,6 +1,6 @@
 {
   "name": "@bimdata/design-system",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "./dist/component.js",
   "files": [
     "dist/*"
@@ -22,6 +22,7 @@
     "node-sass": "^4.12.0",
     "resolve-url-loader": "^3.1.1",
     "sass-loader": "^8.0.0",
+    "url-loader": "^4.1.0",
     "vue-template-compiler": "^2.6.10"
   },
   "postcss": {

@@ -14,9 +14,11 @@ import InternalDoc from '../views/GettingStarted/InternalDoc.vue';
 // import GUIDELINES
 import Colors from '../views/Guidelines/Colors/Colors.vue';
 import Grid from '../views/Guidelines/Grid/Grid.vue';
+import List from '../views/Guidelines/List/List.vue';
 import Markup from '../views/Guidelines/Markup/Markup.vue';
 import Spacing from '../views/Guidelines/Spacing/Spacing.vue';
 import Typography from '../views/Guidelines/Typography/Typography.vue';
+import Variables from '../views/Guidelines/Variables/Variables.vue'
 
 // import COMPONENTS
 import Buttons from '../views/Components/Buttons/Buttons.vue';
@@ -33,10 +35,6 @@ import Table from '../views/Components/Table/Table.vue';
 import Textarea from '../views/Components/Textarea/Textarea.vue';
 import Tooltip from '../views/Components/Tooltip/Tooltip.vue';
 
-// import UTILITIES
-import List from '../views/Utilities/List/List.vue';
-import Margin from '../views/Utilities/Margin/Margin.vue';
-import Padding from '../views/Utilities/Padding/Padding.vue';
 
 Vue.use(VueRouter)
 
@@ -47,12 +45,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/gettingstarted',
+    path: '/getting-started',
     component: Layout,
     children: [
       {
         path: '/',
-        name: 'gettingstarted',
+        name: 'Getting started',
         component: Content,
       },
       {
@@ -78,12 +76,12 @@ const routes = [
     ]
   },
   {
-    path: '/guidelines',
+    path: '/guidelines-utilities',
     component: Layout,
     children: [
       {
         path: '/',
-        name: 'guidelines',
+        name: 'Guidelines & Utilities',
         component: Content
       },
       {
@@ -95,6 +93,11 @@ const routes = [
         path: 'grid',
         name: 'grid',
         component: Grid
+      },
+      {
+        path: 'list',
+        name: 'list',
+        component: List
       },
       {
         path: 'markup',
@@ -110,6 +113,11 @@ const routes = [
         path: 'typography',
         name: 'typography',
         component: Typography
+      },
+      {
+        path: 'variables',
+        name: 'variables',
+        component: Variables
       }
     ]
   },
@@ -119,7 +127,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'components',
+        name: 'Components',
         component: Content
       },
       {
@@ -128,8 +136,8 @@ const routes = [
         component: Buttons
       },
       {
-        path: 'card',
-        name: 'card',
+        path: 'cards',
+        name: 'cards',
         component: Card
       },
       {
@@ -183,35 +191,9 @@ const routes = [
         component: Textarea
       },
       {
-        path: 'tooltip',
-        name: 'tooltip',
+        path: 'tooltips',
+        name: 'tooltips',
         component: Tooltip
-      }
-    ]
-  },
-  {
-    path: '/utilities',
-    component: Layout,
-    children: [
-      {
-        path: '',
-        name: 'utilities',
-        component: Content
-      },
-      {
-        path: 'list',
-        name: 'list',
-        component: List
-      },
-      {
-        path: 'margin',
-        name: 'margin',
-        component: Margin
-      },
-      {
-        path: 'padding',
-        name: 'padding',
-        component: Padding
       }
     ]
   }

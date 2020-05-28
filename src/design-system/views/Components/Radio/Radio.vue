@@ -1,7 +1,7 @@
 <template>
   <main class="article article-radio">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
 
       <ComponentCode :componentTitle='$route.name'>
         <template #module >
@@ -17,6 +17,10 @@
           <BIMDataButton class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" @click="resetRadio()">Reset radio button</BIMDataButton>
         </template>
 
+        <template #import>
+          import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataRadio
@@ -30,7 +34,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
@@ -86,8 +90,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
   @import "./_Radio.scss";
 </style>

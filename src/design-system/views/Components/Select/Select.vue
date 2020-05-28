@@ -1,7 +1,7 @@
 <template>
   <main class="article article-select">
     <div class="article-wrapper">
-      <h2> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
 
       <ComponentCode :componentTitle='$route.name'>
         <template #module >
@@ -30,6 +30,10 @@
           </BIMDataCheckbox>
         </template>
 
+        <template #import>
+          import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+        </template>
+
         <template #code>
           <pre>
             &lt;BIMDataSelect
@@ -45,7 +49,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5>Props:</h5>
+        <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
 
@@ -59,7 +63,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue"
+import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
 
 export default {
   components: {
@@ -126,7 +130,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "@/assets/scss/_BIMDataVariables.scss";
-
+<style lang="scss" scoped>
+  // import COMPONENT STYLE
+  @import "./_Select.scss";
 </style>
