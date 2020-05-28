@@ -28,7 +28,7 @@ import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
 import BIMDataSearchIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataSearchIcon.vue";
-import BIMDataCloseIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon";
+import BIMDataCloseIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon.vue";
 
 export default {
   components: {
