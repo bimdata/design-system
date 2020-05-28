@@ -7,7 +7,7 @@
 
       <BIMDataCard class="bimdata-card__primary" v-if="$route.name === 'Components'">
         <template #content>
-          <router-link to="../gettingstarted">
+          <router-link to="../getting-started">
             <h5 class="bimdata-h5">Getting started</h5>
             <p class="bimdata-text">Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.</p>
             <BIMDataButton class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--secondary">
