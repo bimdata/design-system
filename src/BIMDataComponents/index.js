@@ -1,3 +1,4 @@
+import '../assets/css/_BIMDataFonts.css';
 import '../assets/css/_BIMDataVariables.css';
 
 import BIMDataBigSpinner from './BIMDataBigSpinner/BIMDataBigSpinner.vue';

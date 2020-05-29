@@ -16,6 +16,7 @@
 }
 .bimdata-h2{
   font-size: calculateEm(30px);
+  font-family: $primary-font-bold;
 }
 .bimdata-h3{
   font-size: calculateEm(26px);
@@ -34,12 +35,12 @@
 }
 
 /* BIMDATA FONT WEIGHT */
-.primary-font{
-  font-family: "robotoregular";
-}
-.primary-font-medium{
-  font-family: "robotomedium";
-}
-.primary-font-bold{
-  font-family: "robotobold";
-}
+ .primary-font{
+   font-family: "robotoregular";
+ }
+ .primary-font-medium{
+   font-family: "robotomedium";
+ }
+ .primary-font-bold{
+   font-family: "robotobold";
+ }

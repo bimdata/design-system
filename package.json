@@ -9,7 +9,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "rollup -c",
-    "prebuild": "rm -rf dist"
+    "prebuild": "rm -rf dist",
+    "postbuild": "./postBuild.sh"
   },
   "dependencies": {
     "prismjs": "^1.19.0",
@@ -21,13 +22,11 @@
   "devDependencies": {
     "@vue/cli-service": "^4.0.0",
     "node-sass": "^4.12.0",
-    "resolve-url-loader": "^3.1.1",
     "rollup": "^2.2.0",
     "rollup-plugin-css-only": "^2.0.0",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-vue": "5.1.6",
     "sass-loader": "^8.0.0",
-    "url-loader": "^4.1.0",
     "vue-template-compiler": "^2.6.10"
   },
   "postcss": {

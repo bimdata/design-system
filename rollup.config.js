@@ -13,11 +13,13 @@ export default {
       name: "design-system",
       file: "dist/design-system.js",
       format: "umd",
-    },
+    }
   ],
   plugins: [
     vue({ template: { isProduction: true } }),
-    css(),
+    css({
+      output: 'dist/css/design-system.css'
+    }),
     terser(),
   ],
 };
