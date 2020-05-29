@@ -24,7 +24,7 @@
     max-width: 1440px;
     display: flex;
     justify-content: space-between;
-    & /deep/ .bimdata-card{
+    & >>> .bimdata-card{
       &__content{
         display: flex;
         align-items: center;

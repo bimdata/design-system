@@ -1,5 +1,5 @@
 .article-input{
-  /deep/ .bimdata-table{
+  >>> .bimdata-table{
     th:last-child, td:last-child{
       flex-grow: 2;
     }

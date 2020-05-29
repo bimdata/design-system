@@ -1,8 +1,8 @@
 .spacing-system__margin{
-  & /deep/ .bimdata-ds__demo__module{
+  & >>> .bimdata-ds__demo__module{
     grid-column: 1 / 2;
   }
-  & /deep/ .bimdata-ds__demo__parameters{
+  & >>> .bimdata-ds__demo__parameters{
     grid-column: 2 / 4;
   }
   .ds-spacing{
@@ -25,7 +25,7 @@
       flex: 1;
     }
   }
-  & /deep/ .bimdata-table{
+  & >>> .bimdata-table{
     tr {
       th, td{
         flex-grow: 2;
