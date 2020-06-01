@@ -1,8 +1,8 @@
 .spacing-system__padding{
-  & >>> .bimdata-ds__demo__module{
+  ::v-deep .bimdata-ds__demo__module{
     grid-column: 1 / 2;
   }
-  & >>> .bimdata-ds__demo__parameters{
+  ::v-deep .bimdata-ds__demo__parameters{
     grid-column: 2 / 4;
   }
   .ds-spacing{
@@ -26,7 +26,7 @@
       flex: 1;
     }
   }
-  & >>> .bimdata-table{
+  ::v-deep .bimdata-table{
     tr {
       th, td{
         flex-grow: 2;

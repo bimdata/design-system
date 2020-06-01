@@ -53,7 +53,7 @@
       }
     }
   }
-  >>> .bimdata-table{
+  ::v-deep .bimdata-table{
     th:nth-child(4), td:nth-child(4) {
       flex-grow: 3;
     }
