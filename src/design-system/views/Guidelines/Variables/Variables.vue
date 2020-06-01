@@ -31,7 +31,7 @@
 
 <script>
 import Code from "../../Elements/Code/Code.vue";
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 export default {
   components: {
@@ -79,9 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../../assets/scss/_BIMDataVariables.scss";
 
-  @import "@/assets/scss/utilities/_colors.scss";
+  @import "../../../../assets/scss/utilities/_colors.scss";
 
   @import "./_Variables.scss";
 </style>

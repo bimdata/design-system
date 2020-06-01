@@ -7,12 +7,12 @@
 <script>
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
-import BIMDataBurgerMenuIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataBurgerMenuIcon";
+import BIMDataBurgerMenuIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataBurgerMenuIcon.vue";
 
 export default {
   components: {
     BIMDataIcon,
     BIMDataBurgerMenuIcon
   }
-}
+};
 </script>

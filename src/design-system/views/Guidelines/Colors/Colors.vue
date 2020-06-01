@@ -539,7 +539,7 @@
 </template>
 
 <script>
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import Code from "../../Elements/Code/Code.vue";
 
 export default {
@@ -715,13 +715,13 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA VARIABLES
-@import "@/assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA UTILITES
-@import "@/assets/scss/utilities/_text.scss";
+@import "../../../../assets/scss/utilities/_text.scss";
 
 // import ALERT COMPONENT STYLE
-@import "@/design-system/views/Elements/Alerts/_Alerts.scss";
+@import "../../../../design-system/views/Elements/Alerts/_Alerts.scss";
 
 // import COMPONENT STYLE
 @import "./_colors-keyframes.scss";

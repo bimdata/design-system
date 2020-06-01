@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataButton from "../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataCard from "../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 
 export default {
   components:{
@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
   @import "./_DesignSystem-content.scss";

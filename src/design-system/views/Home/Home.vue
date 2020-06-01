@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataSearchInput from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataSearchInput from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 
 export default {
   components: {
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/_BIMDataVariables.scss";
+@import "../../../assets/scss/_BIMDataVariables.scss";
 
 @import "./_keyframes.scss";
 @import "./_Home.scss";

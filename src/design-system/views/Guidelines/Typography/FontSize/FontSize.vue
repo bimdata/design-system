@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import ComponentCode from "@/design-system/views/Elements/ComponentCode/ComponentCode.vue";
-import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import ComponentCode from "../../../Elements/ComponentCode/ComponentCode.vue";
+import BIMDataRadio from "../../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataTable from "../../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 export default {
   components: {
@@ -72,7 +72,7 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA COMPONENT VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../../../assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
   @import "./_FontSize.scss";

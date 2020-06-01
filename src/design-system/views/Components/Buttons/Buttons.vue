@@ -98,15 +98,15 @@
 </template>
 
 <script>
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
+import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataChevronIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
 export default {
   name: "Buttons",

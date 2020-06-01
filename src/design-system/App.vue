@@ -38,21 +38,15 @@ export default {
 <style lang="scss" scoped>
   // import PRISMJS THEME
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-
-  // import BIMDATA STYLE
-  @import "@/assets/scss/_BIMDataVariables.scss";
-  @import "@/assets/scss/_BIMDataFonts.scss";
 </style>
 
 <style lang="scss">
   // import DESIGN SYSTEM STYLE
   @import "./_DesignSystem-global.scss";
 
-  // import ELEMENTS
-  @import "@/assets/scss/elements/_BIMDataScrollbar.scss";
-  @import "@/assets/scss/utilities/_list.scss";
-  @import "@/assets/scss/utilities/_text.scss";
-  @import "@/assets/scss/utilities/_spacing.scss";
+  // import BIMDATA STYLE
+  @import "../assets/scss/BIMData.scss";
 
-
+  @import "../assets/css/_BIMDataFonts.css";
+  @import "../assets/css/_BIMDataVariables.css";
 </style>

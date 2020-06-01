@@ -63,10 +63,10 @@
 </template>
 
 <script>
-import ComponentCode from "@/design-system/views/Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import ComponentCode from "../../../Elements/ComponentCode/ComponentCode.vue";
+import BIMDataCheckbox from "../../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataTable from "../../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 export default {
   components: {
@@ -390,10 +390,10 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA COMPONENT VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA UTILITIES
-  @import "@/assets/scss/utilities/_flex.scss";
+  @import "../../../../../assets/scss/utilities/_flex.scss";
 
   // import COMPONENT STYLE
   @import "./_Padding.scss";

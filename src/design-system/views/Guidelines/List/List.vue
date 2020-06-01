@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA COMPONENT VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../../../assets/scss/_BIMDataVariables.scss";
 
   // import COMPONENT STYLE
   @import "./_List.scss";

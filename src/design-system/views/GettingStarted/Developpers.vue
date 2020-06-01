@@ -47,8 +47,8 @@
 <script>
 import Code from "../Elements/Code/Code.vue";
 
-import highlight from "@/directives/highlight.js";
-import copy from "@/directives/copy.js";
+import highlight from "../../../directives/highlight.js";
+import copy from "../../../directives/copy.js";
 
 export default {
   components: {

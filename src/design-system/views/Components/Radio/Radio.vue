@@ -45,9 +45,9 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 
 export default {

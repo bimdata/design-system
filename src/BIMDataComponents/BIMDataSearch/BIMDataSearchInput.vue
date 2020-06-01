@@ -28,7 +28,7 @@ import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
 import BIMDataSearchIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataSearchIcon.vue";
-import BIMDataCloseIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon";
+import BIMDataCloseIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon.vue";
 
 export default {
   components: {
@@ -96,10 +96,10 @@ export default {
 
 <style lang="scss" scoped>
   // import BIMDATA VARIABLES
-  @import "@/assets/scss/_BIMDataVariables.scss";
+  @import "../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA UTILITIES
-  @import "@/assets/scss/utilities/_text.scss";
+  @import "../../assets/scss/utilities/_text.scss";
 
   // import BIMDATA STYLE COMPONENT
   @import "./_BIMDataSearchInput.scss";

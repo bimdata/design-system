@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: radial-gradient(closest-side, rgba($color-white, .94), rgba($color-white, .94), rgba($color-white, 1)), url('~@/design-system/assets/img/grid.svg');
+  background-image: radial-gradient(closest-side, rgba($color-white, .94), rgba($color-white, .94), rgba($color-white, 1)), url('../../../assets/img/grid.svg');
   background-repeat: no-repeat, repeat;
   background-size: auto, 75px 44px;
   position: fixed;

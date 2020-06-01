@@ -2,7 +2,7 @@
   <header class="bimdata-ds__header">
     <div class="bimdata-ds__logo">
       <router-link to="/">
-        <img src="@/design-system/assets/img/design-system__logo.svg" alt />
+        <img src="../../assets/img/design-system__logo.svg" alt />
       </router-link>
     </div>
     <div class="bimdata-ds__navigation">
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import pkg from "@/../package.json";
+import pkg from "../../../../package.json";
 export default {
   version: pkg.version,
   props: {
@@ -59,9 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/_BIMDataVariables.scss";
-@import "@/assets/scss/utilities/_list.scss";
-@import "@/assets/scss/utilities/_font-size.scss";
+@import "../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../assets/scss/utilities/_list.scss";
+@import "../../../assets/scss/utilities/_font-size.scss";
 
 @import "./_DesignSystem-navigation.scss";
 </style>
