@@ -70,19 +70,22 @@
           </template>
 
           <template #import>
-            import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+            import BIMDataButton from
+            "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
           </template>
 
           <template #code>
             <pre>
               &lt;BIMDataButton
                 width="{{ getButtonWidth() }}"
-                class="bimdata-btn__{{ selectedBtnOptionstypes }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{ selectedBtnOptionsvalues }} bimdata-btn__{{  selectedBtnOptionskinds }}"
+                class="bimdata-btn__{{
+                selectedBtnOptionstypes
+              }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{
+                selectedBtnOptionsvalues
+              }} bimdata-btn__{{ selectedBtnOptionskinds }}"
                 :disabled="{{ getButtonDisabled() }}"&gt;
-                &lt;template v-if="checkboxIconChecked"&gt;
-                  {{ getIcon() }}
-                &lt;/template&gt;
-                Button {{ selectedBtnOptionskinds }} {{ selectedBtnOptionstypes }} {{ selectedBtnOptionsvalues }}
+                {{ getIcon() }}
+                {{ getText() }}
               &lt;/BIMDataButton&gt;
             </pre>
           </template>
@@ -117,7 +120,7 @@ export default {
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataIcon,
-    BIMDataChevronIcon
+    BIMDataChevronIcon,
   },
   data() {
     return {
@@ -131,7 +134,7 @@ export default {
       btnOptions: {
         types: ["fill", "outline", "ghost"],
         kinds: ["radius", "square", "rounded"],
-        values: ["default", "primary", "secondary", "grey", "red"]
+        values: ["default", "primary", "secondary", "grey", "red"],
       },
       propsData: [
         ["Props", "Type", "Default value", "Description"],
@@ -139,15 +142,15 @@ export default {
           "width",
           "Number, String",
           "150px",
-          "Use this props to change the width of the button"
+          "Use this props to change the width of the button",
         ],
         [
           "height",
           "Number, String",
           "32px",
-          "Use this props to change the height of the button"
-        ]
-      ]
+          "Use this props to change the height of the button",
+        ],
+      ],
     };
   },
   computed: {
@@ -167,7 +170,7 @@ export default {
       if (this.checkboxDisabledChecked === true) {
         return ":disabled='disabled'";
       }
-    }
+    },
   },
   watch: {
     selectedBtnOptionskinds: {
@@ -179,8 +182,8 @@ export default {
           this.checkboxTextChecked = true;
         }
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     getOverviewButtonClasses() {
@@ -198,7 +201,7 @@ export default {
       }
     },
     getIcon() {
-      if(this.checkboxIconChecked){
+      if (this.checkboxIconChecked) {
         return `<BIMDataIcon
                   class="icon-chevron"
                   icon-name="chevron-right"
@@ -208,13 +211,18 @@ export default {
                   y="23"
                 >
                   <BIMDataChevronIcon />
-                </BIMDataIcon>`
+                </BIMDataIcon>`;
+      }
+    },
+    getText() {
+      if (this.checkboxTextChecked) {
+        return `Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}`;
       }
     },
     getButtonDisabled() {
       return this.checkboxDisabledChecked;
-    }
-  }
+    },
+  },
 };
 </script>
 
