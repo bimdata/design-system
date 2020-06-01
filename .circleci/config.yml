@@ -49,7 +49,7 @@ jobs:
           name: build docker image
           command: |
             echo $CIRCLE_SHA1 > VERSION
-            docker build --tag "bimdata/design:$ENV" .
+            docker build --tag "bimdata/design:$ENV" --file etc/Dockerfile .
       - run:
           name: push new image
           command: docker push "bimdata/design:$ENV"
