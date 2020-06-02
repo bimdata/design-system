@@ -3,7 +3,8 @@ docker-sign-in: &docker-sign-in
   command: |
     docker login \
       --username $DOCKER_USER \
-      --password $DOCKER_PASS
+      --password $DOCKER_PASS \
+      https://docker-registry.bimdata.io
 
 mapping-var-env: &mapping-var-env
   name: define var with branch
@@ -40,25 +41,25 @@ jobs:
       - run:
           name: backup previous image
           command: |
-            if export DOCKER_CLI_EXPERIMENTAL=enabled && docker manifest inspect "bimdata/design:prev-$ENV" > /dev/null; then
-              docker pull "bimdata/design:$ENV"
-              docker image tag "bimdata/design:$ENV" "bimdata/design:prev-$ENV"
-              docker push "bimdata/design:prev-$ENV"
+            if export DOCKER_CLI_EXPERIMENTAL=enabled && docker manifest inspect "docker-registry.bimdata.io/bimdata/design:prev-$ENV" > /dev/null; then
+              docker pull "docker-registry.bimdata.io/bimdata/design:$ENV"
+              docker image tag "docker-registry.bimdata.io/bimdata/design:$ENV" "docker-registry.bimdata.io/bimdata/design:prev-$ENV"
+              docker push "docker-registry.bimdata.io/bimdata/design:prev-$ENV"
             fi
       - run:
           name: build docker image
           command: |
             echo $CIRCLE_SHA1 > VERSION
-            docker build --tag "bimdata/design:$ENV" --file etc/Dockerfile .
+            docker build --tag "docker-registry.bimdata.io/bimdata/design:$ENV" --file etc/Dockerfile .
       - run:
           name: push new image
-          command: docker push "bimdata/design:$ENV"
+          command: docker push "docker-registry.bimdata.io/bimdata/design:$ENV"
       - run:
           name: push latest tag image
           command: |
             if [[ "$CIRCLE_BRANCH" == "develop" ]]; then
-              docker tag "bimdata/design:$ENV" bimdata/design:latest
-              docker push bimdata/design:latest
+              docker tag "docker-registry.bimdata.io/bimdata/design:$ENV" docker-registry.bimdata.io/bimdata/design:latest
+              docker push docker-registry.bimdata.io/bimdata/design:latest
             fi
 
   deploy:
@@ -71,7 +72,7 @@ jobs:
       - run:
           name: ansible deployment
           command: |
-            docker run -e ANSIBLE_VAULT_PASSWD bimdata/deployment:latest \
+            docker run -e ANSIBLE_VAULT_PASSWD docker-registry.bimdata.io/bimdata/deployment:latest \
               ansible-playbook \
               --inventory-file inventories/$ENV \
               --tags design \
