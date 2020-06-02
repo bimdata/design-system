@@ -1,0 +1,7 @@
+.bimdata-list {
+  margin: 0;
+  padding: 0;
+}
+.bimdata-list li {
+  list-style-type: none;
+}

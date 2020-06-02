@@ -1,0 +1,95 @@
+/* background BRAND COLORS */
+.bg-primary{
+  background-color: var(--color-primary);
+}
+.bg-secondary{
+  background-color: var(--color-secondary);
+}
+.bg-tertiary{
+  background-color: var(--color-tertiary);
+}
+
+/* background VARIANT COLORS */
+.bg-tertiary-lightest{
+  background-color: var(--color-tertiary-lightest);
+}
+.bg-tertiary-dark{
+  background-color: var(--color-tertiary-dark);
+}
+.bg-tertiary-darkest{
+  background-color: var(--color-tertiary-darkest);
+}
+
+/* background COMMON COLORS */
+.bg-white{
+  background-color: var(--color-white);
+}
+.bg-black{
+  background-color: var(--color-black);
+}
+
+/* background STATE COLORS */
+.bg-neutral{
+  background-color: var(--color-neutral);
+}
+.bg-success{
+  background-color: var(--color-success);
+}
+.bg-disabled{
+  background-color: var(--color-disabled);
+}
+.bg-warning{
+  background-color: var(--color-warning);
+}
+.bg-high{
+  background-color: var(--color-high);
+}
+
+
+/* color BRAND COLORS */
+.color-primary{
+  color: var(--color-primary);
+}
+.color-secondary{
+  color: var(--color-secondary);
+}
+.color-tertiary{
+  color: var(--color-tertiary);
+}
+
+/* background VARIANT COLORS */
+.color-tertiary-lightest{
+  color: var(--color-tertiary-lightest);
+}
+.color-tertiary-dark{
+  color: var(--color-tertiary-dark);
+}
+.color-tertiary-darkest{
+  color: var(--color-tertiary-darkest);
+}
+
+/* background COMMON COLORS */
+.color-white{
+  color: var(--color-white);
+}
+.color-black{
+  color: var(--color-black);
+}
+
+/* background STATE COLORS */
+.color-neutral{
+  color: var(--color-neutral);
+}
+.color-success{
+  color: var(--color-success);
+}
+.color-disabled{
+  color: var(--color-disabled);
+}
+.color-warning{
+  color: var(--color-warning);
+}
+.color-high{
+  color: var(--color-high);
+}
+

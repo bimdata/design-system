@@ -1,6 +1,12 @@
 import '../assets/css/_BIMDataFonts.css';
 import '../assets/css/_BIMDataVariables.css';
 
+import '../assets/css/utilities/_colors.css';
+import '../assets/css/utilities/_flex.css';
+import '../assets/css/utilities/_list.css';
+import '../assets/css/utilities/_spacing.css';
+import '../assets/css/utilities/_text.css';
+
 import BIMDataBigSpinner from './BIMDataBigSpinner/BIMDataBigSpinner.vue';
 import BIMDataButton from './BIMDataButton/BIMDataButton.vue';
 import BIMDataCard from './BIMDataCard/BIMDataCard.vue';
