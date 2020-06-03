@@ -18,8 +18,10 @@ export default {
   ],
   plugins: [
     copy({
-      targets: [{ src: "public/*", dest: "dist" }],
-      targets: [{ src: "src/assets/fonts", dest: "dist/fonts" }],
+      targets: [
+        { src: "public/*", dest: "dist" },
+        { src: "src/assets/fonts", dest: "dist" },
+      ],
     }),
     vue({ template: { isProduction: true } }),
     css({
