@@ -9,11 +9,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "rollup -c",
-    "prebuild": "rm -rf dist",
-    "postbuild": "./postBuild.sh"
+    "prebuild": "rm -rf dist"
   },
   "dependencies": {
     "prismjs": "^1.19.0",
+    "rollup-plugin-copy": "^3.3.0",
     "vue": "^2.6.10",
     "vue-clipboard2": "^0.3.1",
     "vue-router": "^3.1.3",
