@@ -721,7 +721,7 @@ export default {
 @import "../../../../assets/scss/utilities/_text.scss";
 
 // import ALERT COMPONENT STYLE
-@import "../../../../design-system/views/Elements/Alerts/_Alerts.scss";
+@import "../../../../web/views/Elements/Alerts/_Alerts.scss";
 
 // import COMPONENT STYLE
 @import "./_colors-keyframes.scss";

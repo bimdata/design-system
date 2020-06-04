@@ -8,8 +8,7 @@ COPY ./ /opt
 
 ENV NODE_ENV production
 
-RUN npm run build
-
+RUN npm run build-web
 
 FROM nginx:stable
 RUN rm /etc/nginx/conf.d/default.conf

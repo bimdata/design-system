@@ -2,7 +2,7 @@
   <main class="article internal-doc">
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <p class="bimdata-text">All the design system resources are in the directory: <code class="code-highlight">src/design-system/views</code>. The following explanations concern the addition of a new component. If you want to add another element (utilities, guidelines etc), follow the same instructions but do it in the corresponding folder.</p>
+      <p class="bimdata-text">All the design system resources are in the directory: <code class="code-highlight">src/web/views</code>. The following explanations concern the addition of a new component. If you want to add another element (utilities, guidelines etc), follow the same instructions but do it in the corresponding folder.</p>
       <h3 class="bimdata-h3">How to add a new component to the design system</h3>
       <ol>
         <li>
@@ -36,7 +36,7 @@
             <pre>
               {
                 title: "YourFileTitle",
-                img: require("./design-system/assets/img/icon-YourFileTitle.svg"),
+                img: require("./web/assets/img/icon-YourFileTitle.svg"),
                 path: "yourFileTitle",
                 text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
                 btn: "View YourFileTitle"
