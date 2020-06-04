@@ -7,12 +7,12 @@ export default {
   input: "src/BIMDataComponents/index.js",
   output: [
     {
-      file: "dist/design-system.esm.js",
+      file: "dist/js/design-system.esm.js",
       format: "es",
     },
     {
       name: "design-system",
-      file: "dist/design-system.js",
+      file: "dist/js/design-system.js",
       format: "umd",
     },
   ],
@@ -21,6 +21,7 @@ export default {
       targets: [
         { src: "public/*", dest: "dist" },
         { src: "src/assets/fonts", dest: "dist" },
+        { src: "src/design-system/assets/img", dest: "dist" },
       ],
     }),
     vue({ template: { isProduction: true } }),
