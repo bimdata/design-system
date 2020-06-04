@@ -1,6 +1,6 @@
 import Vue from "vue";
-import App from "./design-system/App.vue";
-import router from "./design-system/router/router";
+import App from "./web/App.vue";
+import router from "./web/router/router";
 import VueClipboard from 'vue-clipboard2';
 import store from './store.js';
 
