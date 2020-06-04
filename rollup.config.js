@@ -19,9 +19,7 @@ export default {
   plugins: [
     copy({
       targets: [
-        { src: "public/*", dest: "dist" },
         { src: "src/assets/fonts", dest: "dist" },
-        { src: "src/design-system/assets/img", dest: "dist" },
       ],
     }),
     vue({ template: { isProduction: true } }),
