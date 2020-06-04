@@ -22,7 +22,10 @@ export default {
         { src: "src/assets/fonts", dest: "dist" },
       ],
     }),
-    vue({ template: { isProduction: true } }),
+    vue({
+      template: { isProduction: true },
+      css: false,
+    }),
     css({
       output: "dist/css/design-system.css",
     }),

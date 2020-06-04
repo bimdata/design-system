@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./_keyframes.scss";
 @import "./_BIMDataBigSpinner.scss";
 </style>

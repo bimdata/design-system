@@ -61,7 +61,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../../assets/scss/_BIMDataVariables.scss";
 @import "../../../assets/scss/utilities/_list.scss";
-@import "../../../assets/scss/utilities/_font-size.scss";
+@import "../../../assets/scss/mixins/_font-size.scss";
 
 @import "./_DesignSystem-navigation.scss";
 </style>

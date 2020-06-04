@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   // import BIMDATA VARIABLES
   @import "../../assets/scss/_BIMDataVariables.scss";
 

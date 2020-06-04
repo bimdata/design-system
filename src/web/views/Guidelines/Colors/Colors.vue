@@ -717,8 +717,8 @@ export default {
 // import BIMDATA VARIABLES
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
-// import BIMDATA UTILITES
-@import "../../../../assets/scss/utilities/_text.scss";
+// import BIMDATA MIXINS
+@import "../../../../assets/scss/mixins/_font-size.scss";
 
 // import ALERT COMPONENT STYLE
 @import "../../../../web/views/Elements/Alerts/_Alerts.scss";

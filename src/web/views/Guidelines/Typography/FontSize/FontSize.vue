@@ -22,8 +22,8 @@
       </template>
       <template #import>
         <pre>
-          // import BIMDATA COMPONENT UTILITIES
-          @import "@/assets/scss/utilities/_text.scss";
+          // import BIMDATA COMPONENT MIXINS
+          @import "@/assets/scss/mixins/_font-size.scss";
         </pre>
       </template>
       <template #code>
