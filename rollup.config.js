@@ -3,32 +3,56 @@ import vue from "rollup-plugin-vue";
 import css from "rollup-plugin-css-only";
 import copy from "rollup-plugin-copy";
 
-export default {
-  input: "src/BIMDataComponents/index.js",
-  output: [
-    {
-      file: "dist/js/design-system.esm.js",
-      format: "es",
+module.exports = [
+  ...getSingleComponentConfigurations(),
+  {
+    input: [
+      "src/BIMDataComponents/index.js"
+    ],
+    output: {
+      dir: 'dist/js/BIMDataComponents',
+      format: 'es'
     },
-    {
-      name: "design-system",
-      file: "dist/js/design-system.js",
-      format: "umd",
-    },
-  ],
-  plugins: [
-    copy({
-      targets: [
-        { src: "src/assets/fonts", dest: "dist" },
+    plugins: [
+      del({ targets: 'dist/*' }),
+      copy({
+        targets: [
+          { src: "src/assets/fonts", dest: "dist" },
+          { src: "src/assets/scss", dest: "dist" },
+        ],
+      }),
+      vue({
+        template: { isProduction: true },
+        css: false,
+      }),
+      css({
+        output: "dist/css/design-system.css",
+      }),
+      terser(),
+    ]
+  },
+];
+
+function getSingleComponentConfigurations() {
+
+  const componentNames = [
+    "BIMDataButton",
+    "BIMDataCard",
+  ];
+
+  return componentNames.map(componentName => ({
+      input: [
+        `src/BIMDataComponents/${componentName}/${componentName}.js`
       ],
-    }),
-    vue({
-      template: { isProduction: true },
-      css: false,
-    }),
-    css({
-      output: "dist/css/design-system.css",
-    }),
-    terser(),
-  ],
-};
+      output: {
+        file: `dist/js/BIMDataComponents/${componentName}.js`,
+        format: 'es'
+      },
+      plugins: [
+        vue({
+          template: { isProduction: true },
+        }),
+        terser(),
+      ]
+  }));
+}
