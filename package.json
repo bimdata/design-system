@@ -7,6 +7,7 @@
     "dist/*"
   ],
   "scripts": {
+    "test": "vue-cli-service test:unit",
     "serve": "vue-cli-service serve",
     "build-web": "vue-cli-service build",
     "build": "rollup -c",
@@ -20,7 +21,10 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.10.2",
+    "@vue/cli-plugin-unit-jest": "^4.4.1",
     "@vue/cli-service": "^4.0.0",
+    "@vue/test-utils": "^1.0.3",
     "node-sass": "^4.12.0",
     "rollup": "^2.2.0",
     "rollup-plugin-copy": "^3.3.0",
@@ -38,5 +42,18 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
 }

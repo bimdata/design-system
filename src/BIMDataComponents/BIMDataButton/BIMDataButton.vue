@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'BIMDataButton',
   props: {
     width: {
       type: [Number, String],
