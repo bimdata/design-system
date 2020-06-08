@@ -1,12 +1,12 @@
 <template>
   <div class="bimdata-ds__demo">
-    <h3 class="bimdata-h3"> Examples</h3>
+    <h3 class="bimdata-h3">Examples</h3>
     <div class="bimdata-ds__demo__module">
       <slot name="module"></slot>
     </div>
 
     <div class="bimdata-ds__demo__parameters">
-      <h4 class="bimdata-h4">{{componentTitle}} options</h4>
+      <h4 class="bimdata-h4">{{ componentTitle }} options</h4>
       <slot name="parameters"></slot>
     </div>
 
@@ -39,42 +39,42 @@ import Alerts from "../Alerts/Alerts.vue";
 
 export default {
   components: {
-    Alerts
+    Alerts,
   },
   data() {
     return {
       alerts: false,
       alertType: null,
-      message: ""
-    }
+      message: "",
+    };
   },
   methods: {
-    onCopy(e) {
+    onCopy() {
       this.alerts = true;
       this.message = "copied successfully !";
       this.alertType = "success";
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
-    }
+    },
   },
-  props:{
+  props: {
     componentTitle: {
-      type: String
+      type: String,
     },
     language: {
       type: String,
       default: "javascript",
-    }
+    },
   },
-  directives: { highlight, copy }
-}
+  directives: { highlight, copy },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA VARIABLES
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
-  // import COMPONENT STYLE
-  @import "./_ComponentCode.scss";
+// import COMPONENT STYLE
+@import "./_ComponentCode.scss";
 </style>

@@ -8,7 +8,8 @@
   &__item {
     .bimdata-btn {
       justify-content: center;
-      .icon-double-chevron-left, .icon-chevron-left{
+      .icon-double-chevron-left,
+      .icon-chevron-left {
         transform: rotate(180deg);
       }
     }

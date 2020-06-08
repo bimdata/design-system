@@ -1,5 +1,13 @@
 <template>
-  <div class="bimdata-textarea" :class="{'not-empty': this.message !== null && this.message !== '' || this.placeholder !== null}" :style="{'min-width': width, 'min-height': height}">
+  <div
+    class="bimdata-textarea"
+    :class="{
+      'not-empty':
+        (this.message !== null && this.message !== '') ||
+        this.placeholder !== null,
+    }"
+    :style="{ 'min-width': width, 'min-height': height }"
+  >
     <textarea
       v-focus="autofocus"
       :name="name"
@@ -9,7 +17,7 @@
       :disabled="disabled"
       @input="$emit('input', $event.currentTarget.value)"
     />
-    <label :for="name">{{label}}</label>
+    <label :for="name">{{ label }}</label>
     <span class="bar"></span>
   </div>
 </template>
@@ -18,57 +26,57 @@
 export default {
   directives: {
     focus: {
-      inserted: function(el, {value}) {
+      inserted: function (el, { value }) {
         if (value) {
           el.focus();
         }
-      }
-    }
+      },
+    },
   },
   model: {
     prop: "message",
-    event: "input"
+    event: "input",
   },
   props: {
     name: {
       type: [String, Number],
-      default: ""
+      default: "",
     },
     message: {
       type: [String, Number],
-      default: null
+      default: null,
     },
     autofocus: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    placeholder:{
+    placeholder: {
       type: String,
-      default: null
+      default: null,
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     width: {
       type: [Number, String],
-      default: "150px"
+      default: "150px",
     },
     height: {
       type: [Number, String],
-      default: "32px"
+      default: "32px",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     focus() {
       this.$refs.input && this.$refs.input.focus();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -78,14 +86,14 @@ export default {
 
 <style lang="scss">
 // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA UTILITIES
   @import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_pseudo.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_pseudo.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataTextarea.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataTextarea.scss";
 </style>

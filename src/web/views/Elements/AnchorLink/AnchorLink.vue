@@ -9,7 +9,7 @@ export default {
   props: {
     target: {
       type: String,
-      required: true
+      required: true,
     },
   },
   computed: {
@@ -21,13 +21,13 @@ export default {
     skipToTarget() {
       this.targetElement.focus();
       this.targetElement.scrollIntoView();
-    }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.anchor-link{
+.anchor-link {
   margin-right: 12px;
   cursor: pointer;
   &:focus {

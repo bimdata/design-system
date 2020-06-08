@@ -4,7 +4,8 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  :after, :before {
+  :after,
+  :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
@@ -42,8 +43,7 @@
 .bimdata-checkbox.indeterminate > .bimdata-checkbox__mark {
   background-color: $color-primary;
 }
-.bimdata-checkbox:not(.indeterminate):not(.checked)
-  > .bimdata-checkbox__mark::after {
+.bimdata-checkbox:not(.indeterminate):not(.checked) > .bimdata-checkbox__mark::after {
   border-color: transparent;
 }
 .bimdata-checkbox:not(.indeterminate) > .bimdata-checkbox__mark::after,

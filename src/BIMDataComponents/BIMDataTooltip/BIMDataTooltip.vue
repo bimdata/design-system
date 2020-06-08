@@ -1,6 +1,10 @@
 <template>
   <div class="bimdata-tooltip">
-    <div class="bimdata-tooltip__content" @mouseover="isTooltipHover = true" @mouseleave="isTooltipHover = false">
+    <div
+      class="bimdata-tooltip__content"
+      @mouseover="isTooltipHover = true"
+      @mouseleave="isTooltipHover = false"
+    >
       <slot name="content"></slot>
     </div>
     <span
@@ -9,7 +13,8 @@
       class="bimdata-tooltip__text"
       :class="className"
       :style="position"
-    >{{ message }}</span>
+      >{{ message }}</span
+    >
   </div>
 </template>
 
@@ -20,19 +25,19 @@ export default {
     message: {
       type: String,
       default: null,
-      required: true
+      required: true,
     },
     className: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       width: null,
       height: null,
       parentHeight: null,
-      isTooltipHover: false
+      isTooltipHover: false,
     };
   },
   mounted() {
@@ -47,7 +52,7 @@ export default {
       } else {
         this.$options.resizeObserver.unobserve(this.$refs.tooltip);
       }
-    }
+    },
   },
   destroyed() {
     if (this.$options.resizeObserver) {
@@ -61,7 +66,7 @@ export default {
         this.height = entry.target.clientHeight;
         this.parentHeight = entry.target.offsetParent.clientHeight;
       });
-    }
+    },
   },
   computed: {
     position() {
@@ -69,13 +74,13 @@ export default {
         if (this.className.includes("bimdata-tooltip--left")) {
           return {
             left: -this.width - 6 + "px",
-            top: (this.parentHeight - this.height) / 2 + "px"
+            top: (this.parentHeight - this.height) / 2 + "px",
           };
         }
         if (this.className.includes("bimdata-tooltip--right")) {
           return {
             right: -this.width - 6 + "px",
-            top: (this.parentHeight - this.height) / 2 + "px"
+            top: (this.parentHeight - this.height) / 2 + "px",
           };
         }
         if (this.className.includes("bimdata-tooltip--bottom")) {
@@ -85,8 +90,9 @@ export default {
           return { top: -this.height - 6 + "px" };
         }
       }
-    }
-  }
+      return "";
+    },
+  },
 };
 </script>
 
@@ -102,10 +108,10 @@ export default {
   // import BIMDATA UTILITIES
   @import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_pseudo.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_pseudo.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_keyframes.scss";
-  @import "./_BIMDataTooltip.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_keyframes.scss";
+@import "./_BIMDataTooltip.scss";
 </style>

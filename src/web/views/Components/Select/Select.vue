@@ -1,10 +1,10 @@
 <template>
   <main class="article article-select">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle='$route.name'>
-        <template #module >
+      <ComponentCode :componentTitle="$route.name">
+        <template #module>
           <BIMDataSelect
             :options="options"
             label="label"
@@ -31,7 +31,8 @@
         </template>
 
         <template #import>
-          import BIMDataSelect from "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+          import BIMDataSelect from
+          "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
         </template>
 
         <template #code>
@@ -39,8 +40,8 @@
             &lt;BIMDataSelect
               :options="options"
               label="label"
-              :nullValue="{{getNullValue}}"
-              :multi="{{getMulti}}"
+              :nullValue="{{ getNullValue }}"
+              :multi="{{ getMulti }}"
               v-model="type"
               width="150px"
             /&gt;
@@ -52,8 +53,6 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
-
-
     </div>
   </main>
 </template>
@@ -70,7 +69,7 @@ export default {
     ComponentCode,
     BIMDataTable,
     BIMDataCheckbox,
-    BIMDataSelect
+    BIMDataSelect,
   },
   data() {
     return {
@@ -80,57 +79,80 @@ export default {
       checkboxMultiDisabled: false,
       checkboxNullValueDisabled: false,
       options: [
-        "option 1", "option 2", "option 3", "option 4", "option 5", "option 6", "option 7", "option 8"
+        "option 1",
+        "option 2",
+        "option 3",
+        "option 4",
+        "option 5",
+        "option 6",
+        "option 7",
+        "option 8",
       ],
       propsData: [
+        ["Props", "Type", "Default value", "Description"],
         [
-          "Props", "Type", "Default value", "Description"
+          "options",
+          "Array",
+          "() => []",
+          "This props allows you to display a list of options",
         ],
         [
-          "options", "Array", "() => []", "This props allows you to display a list of options"
+          "multi",
+          "Boolean",
+          "false",
+          "Use this boolean to select multiple options from a list of options.",
         ],
         [
-          "multi", "Boolean", "false", "Use this boolean to select multiple options from a list of options."
+          "value",
+          "[String, Array]",
+          "/",
+          "Use this props to select by default a value from the list of options.",
         ],
         [
-          "value", "[String, Array]", "/", "Use this props to select by default a value from the list of options."
+          "label",
+          "String",
+          "null",
+          "Use this props to set a value of the label.",
         ],
         [
-          "label", "String", "null", "Use this props to set a value of the label."
+          "width",
+          "[Number, String]",
+          "/",
+          "Use this props to change the width of the select.",
         ],
         [
-          "width", "[Number, String]", "/", "Use this props to change the width of the select."
+          "nullValue",
+          "Boolean",
+          "false",
+          "Use this boolean if you want a 'none' value.",
         ],
-        [
-          "nullValue", "Boolean", "false", "Use this boolean if you want a 'none' value."
-        ]
       ],
-    }
+    };
   },
   computed: {
     getNullValue() {
-      if(this.nullValue){
+      if (this.nullValue) {
         this.checkboxMultiDisabled = true;
         return true;
       } else {
         this.checkboxMultiDisabled = false;
       }
     },
-    getMulti(){
-      if(this.multi){
+    getMulti() {
+      if (this.multi) {
         this.type = [];
         this.checkboxNullValueDisabled = true;
         return true;
-      } else{
+      } else {
         this.type = null;
         this.checkboxNullValueDisabled = false;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Select.scss";
+// import COMPONENT STYLE
+@import "./_Select.scss";
 </style>

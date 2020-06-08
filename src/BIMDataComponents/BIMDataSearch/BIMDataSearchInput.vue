@@ -1,7 +1,19 @@
 <template>
-  <div class="bimdata-search-bar" v-clickaway="away" :style="{ width: width, height: height }" :class="{'focus': focused}">
+  <div
+    class="bimdata-search-bar"
+    v-clickaway="away"
+    :style="{ width: width, height: height }"
+    :class="{ focus: focused }"
+  >
     <span class="bimdata-search-icon">
-      <BIMDataIcon icon-name="search" width="13" height="13" x="23" y="23" class="bimdata-fill-primary">
+      <BIMDataIcon
+        icon-name="search"
+        width="13"
+        height="13"
+        x="23"
+        y="23"
+        class="bimdata-fill-primary"
+      >
         <BIMDataSearchIcon />
       </BIMDataIcon>
     </span>
@@ -14,8 +26,19 @@
       :placeholder="placeholder"
       @keyup.enter="$emit('enter', $event.target.value)"
     />
-    <BIMDataButton width="25px" @click="clickClear()" v-if="clear && value !== ''">
-      <BIMDataIcon icon-name="close" width="13" height="13" x="23" y="23" class="bimdata-fill-primary">
+    <BIMDataButton
+      width="25px"
+      @click="clickClear()"
+      v-if="clear && value !== ''"
+    >
+      <BIMDataIcon
+        icon-name="close"
+        width="13"
+        height="13"
+        x="23"
+        y="23"
+        class="bimdata-fill-primary"
+      >
         <BIMDataCloseIcon />
       </BIMDataIcon>
     </BIMDataButton>
@@ -35,43 +58,43 @@ export default {
     BIMDataIcon,
     BIMDataSearchIcon,
     BIMDataCloseIcon,
-    BIMDataButton
+    BIMDataButton,
   },
   directives: {
     focus: {
-      inserted: function(el, {value}) {
+      inserted: function (el, { value }) {
         if (value) {
           el.focus();
         }
-      }
+      },
     },
-    clickaway
+    clickaway,
   },
   props: {
     value: {
       type: String,
-      required: true
+      required: true,
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     width: {
       type: [Number, String],
-      default: "150px"
+      default: "150px",
     },
     height: {
       type: [Number, String],
-      default: "32px"
+      default: "32px",
     },
     autofocus: {
       type: Boolean,
-      default: false
+      default: false,
     },
     clear: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -89,8 +112,8 @@ export default {
     clickClear() {
       this.$emit("input", "");
       this.$emit("clear");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -106,6 +129,6 @@ export default {
   // import BIMDATA UTILITIES
   @import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataSearchInput.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataSearchInput.scss";
 </style>

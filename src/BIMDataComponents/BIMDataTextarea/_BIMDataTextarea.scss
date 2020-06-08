@@ -16,7 +16,7 @@ textarea:-webkit-autofill {
     border: none;
     font-size: calculateEm(14px);
 
-    &:disabled{
+    &:disabled {
       background-color: transparent;
       & ~ label {
         color: $color-disabled;

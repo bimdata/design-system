@@ -1,9 +1,10 @@
-.bimdata-table{
+.bimdata-table {
   display: flex;
   flex-direction: column;
-  tr{
+  tr {
     display: flex;
-    th, td{
+    th,
+    td {
       padding: calc(#{$spacing-unit} / 2) $spacing-unit;
       min-height: calc(#{$spacing-unit} * 2);
       align-items: center;
@@ -14,21 +15,21 @@
       font-size: calculateEm(12px);
     }
   }
-  thead{
-    tr{
-      td{
+  thead {
+    tr {
+      td {
         height: calc(#{$spacing-unit} * 3);
         background-color: transparent;
         color: $color-black;
       }
     }
   }
-  tbody{
-    tr{
-      td{
+  tbody {
+    tr {
+      td {
         color: $color-tertiary-darkest;
       }
-      &:nth-child(odd){
+      &:nth-child(odd) {
         background-color: $color-tertiary-lightest;
       }
     }

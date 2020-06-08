@@ -38,7 +38,7 @@ input:-webkit-autofill {
       }
     }
   }
-  &__icon{
+  &__icon {
     position: absolute;
     right: 0;
     top: 8px;
@@ -60,7 +60,8 @@ input:-webkit-autofill {
     display: block;
     background: $color-tertiary;
     bottom: 0;
-    &::after, &::before {
+    &::after,
+    &::before {
       width: 0;
       height: 2px;
       @include pseudo;

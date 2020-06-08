@@ -34,9 +34,9 @@ export default {
   props: {
     animate: {
       type: Boolean,
-      default: true
-    }
-  }
+      default: true,
+    },
+  },
 };
 </script>
 

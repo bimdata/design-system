@@ -7,7 +7,7 @@
       </div>
       <div class="typography-size">
         <h3 class="bimdata-h3">Font size</h3>
-          <FontSize></FontSize>
+        <FontSize></FontSize>
       </div>
       <div class="typography-weight">
         <h3 class="bimdata-h3">Font weights</h3>
@@ -64,19 +64,19 @@ import FontSize from "./FontSize/FontSize.vue";
 
 export default {
   components: {
-    FontSize
+    FontSize,
   },
   methods: {
-    onCopy(e) {
+    onCopy() {
       this.alerts = true;
       this.message = "copied successfully !";
       this.alertType = "success";
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
-    }
+    },
   },
-  directives: { highlight, copy }
+  directives: { highlight, copy },
 };
 </script>
 

@@ -1,15 +1,26 @@
 <template>
   <main class="article article-search">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle='$route.name' :class="changeBackgroundColor">
-        <template #module >
-          <BIMDataSearch :class="getOverviewSearchClasses()" placeholder="Search" value=""></BIMDataSearch>
+      <ComponentCode
+        :componentTitle="$route.name"
+        :class="changeBackgroundColor"
+      >
+        <template #module>
+          <BIMDataSearch
+            :class="getOverviewSearchClasses()"
+            placeholder="Search"
+            value=""
+          ></BIMDataSearch>
         </template>
 
         <template #parameters>
-          <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(searchOptions)" :key="key">
+          <div
+            class="bimdata-ds__demo__parameters__options"
+            v-for="[key, values] in Object.entries(searchOptions)"
+            :key="key"
+          >
             <h5 class="bimdata-h5">{{ key }}</h5>
             <BIMDataRadio
               v-for="value in values"
@@ -25,12 +36,15 @@
         </template>
 
         <template #import>
-          import BIMDataSearch from "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+          import BIMDataSearch from
+          "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
         </template>
 
         <template #code>
           <pre>
-            &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{selectedSearchOptionskinds}} bimdata-search-bar__{{selectedSearchOptionsstyle}}"&gt;
+            &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{
+              selectedSearchOptionskinds
+            }} bimdata-search-bar__{{ selectedSearchOptionsstyle }}"&gt;
             &lt;/BIMDataSearch&gt;
           </pre>
         </template>
@@ -40,7 +54,6 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
-
     </div>
   </main>
 </template>
@@ -58,61 +71,68 @@ export default {
     ComponentCode,
     BIMDataTable,
     BIMDataRadio,
-    BIMDataSearch
+    BIMDataSearch,
   },
-  data(){
+  data() {
     return {
       backgroundColor: false,
       selectedSearchOptionskinds: "radius",
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
-        kinds: [
-          "radius",
-          "square"
-        ],
-        style: [
-          "primary",
-          "secondary"
-        ]
+        kinds: ["radius", "square"],
+        style: ["primary", "secondary"],
       },
       propsData: [
+        ["Props", "Type", "Default value", "Description", "Required"],
+        ["value", "String", "", "", "true"],
         [
-          "Props", "Type", "Default value", "Description", "Required"
+          "placeholder",
+          "String",
+          "' '",
+          "Use this props to add a placeholder",
+          "",
         ],
         [
-          "value", "String", "", "", "true"
+          "width",
+          "[Number, String]",
+          "150px",
+          "Use this props to change the width of the search component",
+          "",
         ],
         [
-          "placeholder", "String", "' '", "Use this props to add a placeholder", ""
+          "height",
+          "[Number, String]",
+          "32px",
+          "Use this props to change the height of the search component",
+          "",
         ],
         [
-          "width", "[Number, String]", "150px", "Use this props to change the width of the search component", ""
+          "autofocus",
+          "Boolean",
+          "false",
+          "Use this boolean to add an autofocus on the input search",
+          "",
         ],
-        [
-          "height", "[Number, String]", "32px", "Use this props to change the height of the search component", ""
-        ],
-        [
-          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on the input search", ""
-        ]
-      ]
-    }
+      ],
+    };
   },
   computed: {
     changeBackgroundColor() {
       return {
-        'bimdata-ds__demo__tertiary-lightest': this.selectedSearchOptionsstyle === "secondary"
-      }
-    }
+        "bimdata-ds__demo__tertiary-lightest":
+          this.selectedSearchOptionsstyle === "secondary",
+      };
+    },
   },
   methods: {
-    getOverviewSearchClasses(){
-      return `bimdata-search-bar__${this.selectedSearchOptionskinds} bimdata-search-bar__${this.selectedSearchOptionsstyle}`
-    }
+    getOverviewSearchClasses() {
+      return `bimdata-search-bar__${this.selectedSearchOptionskinds} bimdata-search-bar__${this.selectedSearchOptionsstyle}`;
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Search.scss";
+// import COMPONENT STYLE
+@import "./_Search.scss";
 </style>

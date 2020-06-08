@@ -15,21 +15,21 @@ export default {
   inheritAttrs: false,
   model: {
     prop: "state",
-    event: "change"
+    event: "change",
   },
   props: {
     text: {
       type: String,
-      default: null
+      default: null,
     },
     state: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     indeterminate() {
@@ -37,15 +37,15 @@ export default {
     },
     checked() {
       return this.state === true || this.indeterminate;
-    }
+    },
   },
   methods: {
     onClick() {
-      if(!this.disabled){
+      if (!this.disabled) {
         this.$emit("change", this.checked ? false : true);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

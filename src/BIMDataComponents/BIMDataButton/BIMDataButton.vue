@@ -10,17 +10,17 @@
 
 <script>
 export default {
-  name: 'BIMDataButton',
+  name: "BIMDataButton",
   props: {
     width: {
       type: [Number, String],
-      default: "150px"
+      default: "150px",
     },
     height: {
       type: [Number, String],
-      default: "32px"
-    }
-  }
+      default: "32px",
+    },
+  },
 };
 </script>
 
@@ -36,6 +36,6 @@ export default {
   // import BIMDATA MIXINS
   @import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataButton.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataButton.scss";
 </style>

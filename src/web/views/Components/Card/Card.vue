@@ -2,9 +2,12 @@
   <main class="article article-card">
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <ComponentCode :componentTitle='$route.name'>
+      <ComponentCode :componentTitle="$route.name">
         <template #module>
-          <BIMDataCard :titleHeader="getHeaderTitle()" :submenuText="getSubmenuText()">
+          <BIMDataCard
+            :titleHeader="getHeaderTitle()"
+            :submenuText="getSubmenuText()"
+          >
             <template #headerIcons v-if="headerIcons">
               {{ getHeaderIcons() }}
             </template>
@@ -26,57 +29,38 @@
         <template #parameters>
           <div class="bimdata-ds__demo__parameters__options">
             <h5 class="bimdata-h5">Header</h5>
-            <BIMDataCheckbox
-              text="title"
-              v-model="headerTitle"
-            >
+            <BIMDataCheckbox text="title" v-model="headerTitle">
             </BIMDataCheckbox>
-            <BIMDataCheckbox
-              text="icons"
-              v-model="headerIcons"
-            >
+            <BIMDataCheckbox text="icons" v-model="headerIcons">
             </BIMDataCheckbox>
 
             <h5 class="bimdata-h5">Submenu</h5>
-            <BIMDataCheckbox
-              text="left"
-              v-model="submenuLeft"
-            >
+            <BIMDataCheckbox text="left" v-model="submenuLeft">
             </BIMDataCheckbox>
-            <BIMDataCheckbox
-              text="text"
-              v-model="submenuText"
-            >
+            <BIMDataCheckbox text="text" v-model="submenuText">
             </BIMDataCheckbox>
-            <BIMDataCheckbox
-              text="right"
-              v-model="submenuIcons"
-            >
+            <BIMDataCheckbox text="right" v-model="submenuIcons">
             </BIMDataCheckbox>
 
             <h5 class="bimdata-h5">Content</h5>
-            <BIMDataCheckbox
-              text="content"
-              v-model="content"
-            >
+            <BIMDataCheckbox text="content" v-model="content">
             </BIMDataCheckbox>
 
             <h5 class="bimdata-h5">Footer</h5>
-            <BIMDataCheckbox
-              text="footer"
-              v-model="footer"
-            >
-            </BIMDataCheckbox>
+            <BIMDataCheckbox text="footer" v-model="footer"> </BIMDataCheckbox>
           </div>
         </template>
 
         <template #import>
-          import BIMDataCard from "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+          import BIMDataCard from
+          "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
         </template>
 
         <template #code>
           <pre>
-            &lt;BIMDataCard :titleHeader="{{getHeaderTitle()}}" :submenuText="{{getSubmenuText()}}"&gt;
+            &lt;BIMDataCard :titleHeader="{{
+              getHeaderTitle()
+            }}" :submenuText="{{ getSubmenuText() }}"&gt;
             &lt;template #headerIcons v-if="headerIcons"&gt;
               {{ getHeaderIcons() }}
             &lt;/template&gt;
@@ -118,16 +102,15 @@ import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDat
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
-
 export default {
   components: {
     ComponentCode,
     BIMDataBurgerMenu,
     BIMDataCard,
     BIMDataCheckbox,
-    BIMDataTable
+    BIMDataTable,
   },
-  data(){
+  data() {
     return {
       headerTitle: true,
       headerIcons: true,
@@ -137,82 +120,89 @@ export default {
       content: true,
       footer: true,
       propsData: [
+        ["Props", "Type", "Default value", "Description"],
         [
-          "Props", "Type", "Default value", "Description"
+          "titleHeader",
+          "String",
+          "/",
+          "Use this props to add a title in the card header",
         ],
         [
-          "titleHeader", "String", "/", "Use this props to add a title in the card header"
+          "submenuText",
+          "String",
+          "/",
+          "Use this props to add a text in the card submenu",
         ],
         [
-          "submenuText", "String", "/", "Use this props to add a text in the card submenu"
+          "width",
+          "[Number, String]",
+          "215px",
+          "Use this props to change the width of the card.",
         ],
-        [
-          "width", "[Number, String]", "215px", "Use this props to change the width of the card."
-        ]
       ],
       slotsData: [
+        ["slot name", "Description"],
+        ["#headerIcons", "Use this slot to add icons to header. "],
         [
-          "slot name", "Description"
+          "#left",
+          "Use this slot to add text, icons, or component to the card submenu on the left",
         ],
         [
-          "#headerIcons", "Use this slot to add icons to header. "
+          "#right",
+          "Use this slot to add text, icons, or component to the card submenu on the right",
         ],
         [
-          "#left", "Use this slot to add text, icons, or component to the card submenu on the left"
+          "#content",
+          "Use this slot to add text, icons, or component into card content",
         ],
         [
-          "#right", "Use this slot to add text, icons, or component to the card submenu on the right"
+          "#footer",
+          "Use this slot to add text, icons, or component into card footer",
         ],
-        [
-          "#content", "Use this slot to add text, icons, or component into card content"
-        ],
-        [
-          "#footer", "Use this slot to add text, icons, or component into card footer"
-        ]
-      ]
-    }
+      ],
+    };
   },
   methods: {
-    getHeaderTitle(){
-      if(this.headerTitle){
-        return "header title"
+    getHeaderTitle() {
+      if (this.headerTitle) {
+        return "header title";
       }
     },
     getHeaderIcons() {
-      if(this.headerIcons){
-        return "header icons"
+      if (this.headerIcons) {
+        return "header icons";
       }
     },
-    getSubmenuLeft(){
-      if(this.submenuLeft){
-        return `<BIMDataBurgerMenu></BIMDataBurgerMenu>`
+    getSubmenuLeft() {
+      if (this.submenuLeft) {
+        return "<BIMDataBurgerMenu></BIMDataBurgerMenu>";
       }
     },
-    getSubmenuText(){
-      if(this.submenuText){
-        return "submenu text"
+    getSubmenuText() {
+      if (this.submenuText) {
+        return "submenu text";
       }
     },
-    getSubmenuIcons(){
-      if(this.submenuIcons){
-        return "submenu icons"
+    getSubmenuIcons() {
+      if (this.submenuIcons) {
+        return "submenu icons";
       }
     },
-    getContent(){
-      if(this.content){
-        return "text content or any component"
+    getContent() {
+      if (this.content) {
+        return "text content or any component";
       }
     },
-    getFooter(){
-      if(this.footer){
-        return "text footer or any component"
+    getFooter() {
+      if (this.footer) {
+        return "text footer or any component";
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Card.scss";
+// import COMPONENT STYLE
+@import "./_Card.scss";
 </style>

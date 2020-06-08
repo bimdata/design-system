@@ -1,9 +1,9 @@
 <template>
   <main class="article article-textarea">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle='$route.name'>
+      <ComponentCode :componentTitle="$route.name">
         <template #module>
           <BIMDataTextarea
             label="textarea label"
@@ -16,22 +16,14 @@
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox
-            text="autofocus"
-            v-model="autofocus"
-          />
-          <BIMDataCheckbox
-            text="placeholder"
-            v-model="placeholder"
-          />
-          <BIMDataCheckbox
-            text="disabled"
-            v-model="disabled"
-          />
+          <BIMDataCheckbox text="autofocus" v-model="autofocus" />
+          <BIMDataCheckbox text="placeholder" v-model="placeholder" />
+          <BIMDataCheckbox text="disabled" v-model="disabled" />
         </template>
 
         <template #import>
-          import BIMDataTextarea from "@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
+          import BIMDataTextarea from
+          "@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
         </template>
 
         <template #code>
@@ -40,9 +32,9 @@
               label="textarea label"
               name="example"
               v-model="textarea"
-              :autofocus="{{getAutofocus()}}"
-              :placeholder="{{getPlaceholder()}}"
-              :disabled="{{getDisabled()}}"
+              :autofocus="{{ getAutofocus() }}"
+              :placeholder="{{ getPlaceholder() }}"
+              :disabled="{{ getDisabled() }}"
             /&gt;
           </pre>
         </template>
@@ -52,7 +44,6 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
-
     </div>
   </main>
 </template>
@@ -69,7 +60,7 @@ export default {
     ComponentCode,
     BIMDataTable,
     BIMDataCheckbox,
-    BIMDataTextarea
+    BIMDataTextarea,
   },
   data() {
     return {
@@ -78,59 +69,78 @@ export default {
       placeholder: false,
       disabled: false,
       propsData: [
+        ["Props", "Type", "Default value", "Description"],
         [
-          "Props", "Type", "Default value", "Description"
+          "name",
+          "[String, Number]",
+          "null",
+          "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the for of the label.",
         ],
         [
-          "name", "[String, Number]", "null", "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the for of the label."
+          "autofocus",
+          "Boolean",
+          "false",
+          "Use this boolean to add an autofocus on your textarea.",
         ],
         [
-          "autofocus", "Boolean", "false", "Use this boolean to add an autofocus on your textarea."
+          "placeholder",
+          "String",
+          "null",
+          "Use this props to add a placeholder to your textarea.",
         ],
         [
-          "placeholder", "String", "null", "Use this props to add a placeholder to your textarea."
+          "label",
+          "String",
+          "' '",
+          "Use this props to add a label to your textarea.",
         ],
         [
-          "label", "String", "' '", "Use this props to add a label to your textarea."
+          "width",
+          "[Number, String]",
+          "150px",
+          "Use this props to change the width of the textarea component.",
         ],
         [
-          "width", "[Number, String]", "150px", "Use this props to change the width of the textarea component."
+          "height",
+          "[Number, String]",
+          "32px",
+          "Use this props to change the height of the textarea component.",
         ],
         [
-          "height", "[Number, String]", "32px", "Use this props to change the height of the textarea component."
+          "disabled",
+          "Boolean",
+          "false",
+          "Use this boolean to disabled your textarea.",
         ],
-        [
-          "disabled", "Boolean", "false", "Use this boolean to disabled your textarea."
-        ]
-      ]
-    }
+      ],
+    };
   },
   methods: {
-    getAutofocus(){
-      if(this.autofocus){
+    getAutofocus() {
+      if (this.autofocus) {
         return true;
       } else {
         return false;
       }
     },
-    getPlaceholder(){
-      if(this.placeholder){
+    getPlaceholder() {
+      if (this.placeholder) {
         this.placeholder = true;
         return "placeholder here";
       }
     },
-    getDisabled(){
-      if(this.disabled){
+    getDisabled() {
+      if (this.disabled) {
         return true;
       } else {
         return false;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Textarea.scss";
+// import COMPONENT STYLE
+@import "./_Textarea.scss";
 </style>

@@ -1,32 +1,32 @@
-.typography{
+.typography {
   /* custom FONT SIZE */
-  &-size{
-    &__content{
-      &__item{
+  &-size {
+    &__content {
+      &__item {
         margin-bottom: calc(#{$spacing-unit} * 2);
       }
     }
   }
   /* custom FONT WEIGHT */
-  &-weight{
-    &__content{
+  &-weight {
+    &__content {
       display: flex;
       justify-content: space-between;
-      &__item{
+      &__item {
         margin-right: 12px;
         flex: 1;
-        &:nth-child(1){
-          p{
+        &:nth-child(1) {
+          p {
             font-family: $primary-font;
           }
         }
-        &:nth-child(2){
-          p{
+        &:nth-child(2) {
+          p {
             font-family: $primary-font-medium;
           }
         }
-        &:nth-child(3){
-          p{
+        &:nth-child(3) {
+          p {
             font-family: $primary-font-bold;
           }
         }

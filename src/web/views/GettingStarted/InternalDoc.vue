@@ -2,11 +2,21 @@
   <main class="article internal-doc">
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <p class="bimdata-text">All the design system resources are in the directory: <code class="code-highlight">src/web/views</code>. The following explanations concern the addition of a new component. If you want to add another element (utilities, guidelines etc), follow the same instructions but do it in the corresponding folder.</p>
-      <h3 class="bimdata-h3">How to add a new component to the design system</h3>
+      <p class="bimdata-text">
+        All the design system resources are in the directory:
+        <code class="code-highlight">src/web/views</code>. The following
+        explanations concern the addition of a new component. If you want to add
+        another element (utilities, guidelines etc), follow the same
+        instructions but do it in the corresponding folder.
+      </p>
+      <h3 class="bimdata-h3">
+        How to add a new component to the design system
+      </h3>
       <ol>
         <li>
-          In the <code class="code-highlight">Components</code>  directory create a new directory with the name of your component. Inside it, create your .vue file as well as .scss.
+          In the <code class="code-highlight">Components</code> directory create
+          a new directory with the name of your component. Inside it, create
+          your .vue file as well as .scss.
           <Code language="xml">
             <pre>
               &lt;template&gt;
@@ -31,7 +41,9 @@
         </li>
 
         <li>
-          In the <code class="code-highlight">store.js</code> file, add your item in the corresponding children section (getting started, guidelines or components).
+          In the <code class="code-highlight">store.js</code> file, add your
+          item in the corresponding children section (getting started,
+          guidelines or components).
           <Code language="javascript">
             <pre>
               {
@@ -45,9 +57,12 @@
           </Code>
         </li>
         <li>
-          In the <code class="code-highlight">router.js</code> file import your new .vue file and add it in the corresponding children section (getting started, guidelines or components).
+          In the <code class="code-highlight">router.js</code> file import your
+          new .vue file and add it in the corresponding children section
+          (getting started, guidelines or components).
           <Code language="javascript">
-            import YourFileComponent from '../views/Components/YourFolder/YourFileTitle.vue'
+            import YourFileComponent from
+            '../views/Components/YourFolder/YourFileTitle.vue'
           </Code>
           <Code language="javascript">
             <pre>
@@ -73,17 +88,16 @@ import copy from "../../../directives/copy.js";
 export default {
   directives: { highlight, copy },
   components: {
-    Code
+    Code,
   },
   methods: {
-    getRouteName(){
-      return "{{ $route.name }}"
-    }
-  }
-}
-
+    getRouteName() {
+      return "{{ $route.name }}";
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  @import "./_GettingStarted.scss";
+@import "./_GettingStarted.scss";
 </style>

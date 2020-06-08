@@ -2,28 +2,29 @@
   h1::first-letter {
     text-transform: capitalize;
   }
-  &-box{
+  &-box {
     display: flex;
     flex-wrap: wrap;
-    .bimdata-card{
+    .bimdata-card {
       margin: 18px 18px 0 0;
       max-width: 266px;
       min-height: 250px;
       display: inline-flex;
       flex-grow: 1;
-      box-shadow: 0 2px 10px 0 rgba($color-black,.1);
-      transition: all ease .1s;
-      &__content{
-        a{
+      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+      transition: all ease 0.1s;
+      &__content {
+        a {
           height: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          h5,p {
+          h5,
+          p {
             color: $color-primary;
           }
-          p{
+          p {
             height: 60px;
             display: flex;
             align-items: center;
@@ -31,22 +32,23 @@
             text-align: center;
           }
           button {
-            margin: .5rem 0;
+            margin: 0.5rem 0;
             svg {
               margin-left: $spacing-unit;
             }
           }
         }
       }
-      &.bimdata-card__primary{
+      &.bimdata-card__primary {
         background-color: $color-primary;
-        h5, p{
+        h5,
+        p {
           color: $color-white;
         }
       }
       &:hover {
-        box-shadow: 0 2px 10px 0 rgba($color-black,.2);
-        transition: all ease .1s;
+        box-shadow: 0 2px 10px 0 rgba($color-black, 0.2);
+        transition: all ease 0.1s;
       }
     }
   }
