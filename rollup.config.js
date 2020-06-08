@@ -14,7 +14,6 @@ module.exports = [
       format: 'es'
     },
     plugins: [
-      del({ targets: 'dist/*' }),
       copy({
         targets: [
           { src: "src/assets/fonts", dest: "dist" },
@@ -36,8 +35,22 @@ module.exports = [
 function getSingleComponentConfigurations() {
 
   const componentNames = [
+    "BIMDataBigSpinner",
     "BIMDataButton",
     "BIMDataCard",
+    "BIMDataCheckbox",
+    "BIMDataIcons",
+    "BIMDataInput",
+    "BIMDataLoading",
+    "BIMDataNavigation",
+    "BIMDataPaginatedList",
+    "BIMDataRadio",
+    "BIMDataSearch",
+    "BIMDataSelect",
+    "BIMDataTable",
+    "BIMDataTextarea",
+    "BIMDataTooltip",
+
   ];
 
   return componentNames.map(componentName => ({
