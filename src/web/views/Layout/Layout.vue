@@ -10,7 +10,7 @@ import Aside from "./Aside.vue";
 
 export default {
   components: {
-    Aside
-  }
-}
+    Aside,
+  },
+};
 </script>

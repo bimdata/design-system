@@ -6,10 +6,8 @@
   </main>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style lang="scss" scoped>
-  @import "./_GettingStarted.scss";
+@import "./_GettingStarted.scss";
 </style>

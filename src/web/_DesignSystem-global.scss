@@ -1,6 +1,7 @@
 @import "@/assets/scss/_BIMDataVariables.scss";
 
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -26,35 +27,35 @@ a {
 }
 
 /* custom PRE */
-pre[class*="language-"]{
+pre[class*="language-"] {
   padding: 0;
   position: relative;
-  code{
+  code {
     padding: 20px;
     display: block;
     overflow: auto;
   }
-  .bimdata-btn{
+  .bimdata-btn {
     position: absolute;
     top: calc(#{$spacing-unit} / 2);
     right: calc(#{$spacing-unit} / 2);
     cursor: pointer;
-    &__fill--secondary{
+    &__fill--secondary {
       border: none;
       color: $color-primary;
       background-color: $color-secondary;
       border-radius: 3px;
       font-size: 11px;
-      transition: all .25s ease-in;
-      &:hover{
+      transition: all 0.25s ease-in;
+      &:hover {
         background-color: lighten($color-secondary, 10%);
-        transition: all .25s ease-in;
+        transition: all 0.25s ease-in;
       }
     }
   }
 }
 
-.article{
+.article {
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -71,8 +72,9 @@ pre[class*="language-"]{
     justify-content: center;
     align-content: center;
     justify-items: center;
-    h1, h2{
-      &:first-letter{
+    h1,
+    h2 {
+      &:first-letter {
         text-transform: uppercase;
       }
     }
@@ -80,7 +82,7 @@ pre[class*="language-"]{
 }
 
 /* custom HIGHLIGHT */
-.code-highlight{
+.code-highlight {
   background-color: $color-tertiary-lightest;
   padding: 3px 5px;
   margin: 0 2px;

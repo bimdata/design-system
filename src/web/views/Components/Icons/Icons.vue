@@ -5,16 +5,27 @@
       <h3 class="bimdata-h3">Size usage for designers</h3>
       <p class="bimdata-text">Use a 23px box for icons of 23px.</p>
       <div>
-        <img src="../../../assets/img/design-system__icon-plus.jpg" alt="">
-        <img src="../../../assets/img/design-system__icon-warning.jpg" alt="">
+        <img src="../../../assets/img/design-system__icon-plus.jpg" alt="" />
+        <img src="../../../assets/img/design-system__icon-warning.jpg" alt="" />
       </div>
 
-      <ComponentCode :componentTitle='$route.name'>
+      <ComponentCode :componentTitle="$route.name">
         <template #module>
-          <BIMDataSearchInput :clear="true" class="bimdata-search-bar__primary" placeholder="Search an icon" v-model="filter" width="95%"/>
-          <span class="icons-numbers">icons: {{iconNames.length}}</span>
+          <BIMDataSearchInput
+            :clear="true"
+            class="bimdata-search-bar__primary"
+            placeholder="Search an icon"
+            v-model="filter"
+            width="95%"
+          />
+          <span class="icons-numbers">icons: {{ iconNames.length }}</span>
           <div class="icons">
-            <div v-for="iconName of filteredList" :key="iconName" :class="{active : iconName === activeIcon}" @click="onActiveIcons(iconName)">
+            <div
+              v-for="iconName of filteredList"
+              :key="iconName"
+              :class="{ active: iconName === activeIcon }"
+              @click="onActiveIcons(iconName)"
+            >
               <BIMDataIcon
                 class="icon-chevron"
                 :icon-name="iconName"
@@ -26,15 +37,19 @@
               >
                 <component :is="iconName" />
               </BIMDataIcon>
-              <p>{{iconName}}</p>
+              <p>{{ iconName }}</p>
             </div>
           </div>
         </template>
 
         <template #parameters>
-          <div class="bimdata-ds__demo__parameters__options" v-for="[key, values] in Object.entries(iconOptions)" :key="key">
+          <div
+            class="bimdata-ds__demo__parameters__options"
+            v-for="[key, values] in Object.entries(iconOptions)"
+            :key="key"
+          >
             <h5 class="bimdata-h5">{{ key }}</h5>
-              <BIMDataRadio
+            <BIMDataRadio
               v-for="value in values"
               :key="value"
               :text="value"
@@ -50,21 +65,25 @@
         <template #import>
           <pre>
             import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-            import {{activeIcon}} from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/{{activeIcon}}.vue"
+            import {{
+              activeIcon
+            }} from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/{{
+              activeIcon
+            }}.vue"
           </pre>
         </template>
 
         <template #code>
           <pre>
             &lt;BIMDataIcon
-              class="icon {{selectedIconOptionsclass}}"
-              icon-name="{{activeIcon}}"
+              class="icon {{ selectedIconOptionsclass }}"
+              icon-name="{{ activeIcon }}"
               width="23"
               height="23"
               x="23"
               y="23"
             &gt;
-              &lt;{{activeIcon}} /&gt;
+              &lt;{{ activeIcon }} /&gt;
             &lt;/BIMDataIcon&gt;
           </pre>
         </template>
@@ -74,7 +93,6 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
-
     </div>
   </main>
 </template>
@@ -200,81 +218,118 @@ export default {
     BIMDataValidateIcon,
     BIMDataWarningIcon,
     BIMDataWindowedIcon,
-    BIMDataTable
+    BIMDataTable,
   },
   directives: { highlight, copy },
-  data(){
-    return{
+  data() {
+    return {
       filter: "",
       selectedIconOptionsclass: "bimdata-fill-primary",
       activeIcon: "BIMData3dModelIcon",
       iconOptions: {
-        class:[
-          "bimdata-fill-default", "bimdata-fill-primary", "bimdata-fill-secondary", "bimdata-fill-tertiary", "bimdata-fill-white", "bimdata-fill-tertiary-darkest", "bimdata-fill-red", "bimdata-stroke-default", "bimdata-stroke-primary", "bimdata-stroke-secondary", "bimdata-stroke-tertiary", "bimdata-stroke-white", "bimdata-stroke-tertiary-darkest", "bimdata-stroke-red"
-        ]
+        class: [
+          "bimdata-fill-default",
+          "bimdata-fill-primary",
+          "bimdata-fill-secondary",
+          "bimdata-fill-tertiary",
+          "bimdata-fill-white",
+          "bimdata-fill-tertiary-darkest",
+          "bimdata-fill-red",
+          "bimdata-stroke-default",
+          "bimdata-stroke-primary",
+          "bimdata-stroke-secondary",
+          "bimdata-stroke-tertiary",
+          "bimdata-stroke-white",
+          "bimdata-stroke-tertiary-darkest",
+          "bimdata-stroke-red",
+        ],
       },
       propsData: [
+        ["Props", "Type", "Default value", "Description", "Examples"],
+        ["iconName", "String", "'box'", "Use this props to name your icon", ""],
         [
-          "Props", "Type", "Default value", "Description", "Examples"
+          "width",
+          "Number, String",
+          "23",
+          "Use this props to change the width of the icon",
+          "",
         ],
         [
-          "iconName", "String", "'box'", "Use this props to name your icon", ""
+          "height",
+          "Number, String",
+          "23",
+          "Use this props to change the height of the icon",
+          "",
         ],
         [
-          "width", "Number, String", "23", "Use this props to change the width of the icon", ""
+          "iconColor",
+          "String",
+          "'currentColor'",
+          "Use this props to change the height of the button",
+          "'red', 'blue', 'green' etc..",
         ],
         [
-          "height", "Number, String", "23", "Use this props to change the height of the icon", ""
+          "x",
+          "Number, String",
+          "23",
+          "Use this props to place on the x axis (viewbox) your icon",
+          "",
         ],
         [
-          "iconColor", "String", "'currentColor'", "Use this props to change the height of the button", "'red', 'blue', 'green' etc.."
+          "y",
+          "Number, String",
+          "23",
+          "Use this props to place on the y axis (viewbox) your icon",
+          "",
         ],
         [
-          "x", "Number, String", "23", "Use this props to place on the x axis (viewbox) your icon", ""
+          "class",
+          "String",
+          "23",
+          "Use this props to place on the y axis (viewbox) your icon. Warning: This props outclass 'iconColor' porperty.",
+          "'bimdata-fill-grey', 'bimdata-stroke-grey'",
         ],
-        [
-          "y", "Number, String", "23", "Use this props to place on the y axis (viewbox) your icon", ""
-        ],
-        [
-          "class", "String", "23", "Use this props to place on the y axis (viewbox) your icon. Warning: This props outclass 'iconColor' porperty.", "'bimdata-fill-grey', 'bimdata-stroke-grey'"
-        ]
-      ]
-    }
+      ],
+    };
   },
   computed: {
-    iconNames(){
-      return Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+    iconNames() {
+      return Object.keys(this.$options.components).filter(iconName =>
+        iconName.match(/^BIMData.+Icon$/)
+      );
     },
     filteredList() {
-      const test = Object.keys(this.$options.components).filter( iconName => iconName.match(/^BIMData.+Icon$/));
+      const test = Object.keys(this.$options.components).filter(iconName =>
+        iconName.match(/^BIMData.+Icon$/)
+      );
       return test.filter(iconName => {
-        return iconName.toLowerCase().includes(this.filter.toLowerCase())
-      })
-    }
+        return iconName.toLowerCase().includes(this.filter.toLowerCase());
+      });
+    },
   },
   methods: {
-    onActiveIcons(iconName){
+    onActiveIcons(iconName) {
       this.activeIcon = iconName;
     },
-    onCopy(e) {
+    onCopy() {
       this.alerts = true;
       this.message = "copied successfully !";
       this.alertType = "success";
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA COMPONENT VARIABLES
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA COMPONENT VARIABLES
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA COMPONENT MIXINS
   @import "../../../../assets/scss/mixins/_font-size.scss";
 
-  // import COMPONENT STYLE
-  @import "./_Icons.scss";
+// import COMPONENT STYLE
+@import "./_Icons.scss";
 </style>

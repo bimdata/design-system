@@ -1,13 +1,14 @@
-.article-buttons{
-  .bimdata-ds__properties{
+.article-buttons {
+  .bimdata-ds__properties {
     margin-top: 3rem;
-    table{
+    table {
       width: 100%;
     }
   }
-  ::v-deep .bimdata-table{
-    &:first-child{
-      th:last-child, td:last-child{
+  ::v-deep .bimdata-table {
+    &:first-child {
+      th:last-child,
+      td:last-child {
         flex-grow: 2;
       }
     }

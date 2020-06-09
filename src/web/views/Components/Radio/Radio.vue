@@ -1,10 +1,10 @@
 <template>
   <main class="article article-radio">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle='$route.name'>
-        <template #module >
+      <ComponentCode :componentTitle="$route.name">
+        <template #module>
           <BIMDataRadio
             text="click on me !"
             id="radiotest"
@@ -14,11 +14,16 @@
         </template>
 
         <template #parameters>
-          <BIMDataButton class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius" @click="resetRadio()">Reset radio button</BIMDataButton>
+          <BIMDataButton
+            class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius"
+            @click="resetRadio()"
+            >Reset radio button</BIMDataButton
+          >
         </template>
 
         <template #import>
-          import BIMDataRadio from "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+          import BIMDataRadio from
+          "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
         </template>
 
         <template #code>
@@ -37,7 +42,6 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
-
     </div>
   </main>
 </template>
@@ -49,48 +53,35 @@ import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMD
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
-
 export default {
   components: {
     ComponentCode,
     BIMDataTable,
     BIMDataRadio,
-    BIMDataButton
+    BIMDataButton,
   },
-  data(){
+  data() {
     return {
       selectedMode: null,
       propsData: [
-        [
-          "Props", "Type", "Default value", "Description"
-        ],
-        [
-          "text", "String", "null", "Use this props to add a label text"
-        ],
-        [
-          "name", "String", "'option'", ""
-        ],
-        [
-          "id", "String", "/", ""
-        ],
-        [
-          "value", "String", "/", ""
-        ],
-        [
-          "selectedValue", "String", "/", ""
-        ]
-      ]
-    }
+        ["Props", "Type", "Default value", "Description"],
+        ["text", "String", "null", "Use this props to add a label text"],
+        ["name", "String", "'option'", ""],
+        ["id", "String", "/", ""],
+        ["value", "String", "/", ""],
+        ["selectedValue", "String", "/", ""],
+      ],
+    };
   },
   methods: {
-    resetRadio(){
-      return this.selectedMode = null;
-    }
-  }
-}
+    resetRadio() {
+      return (this.selectedMode = null);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Radio.scss";
+// import COMPONENT STYLE
+@import "./_Radio.scss";
 </style>

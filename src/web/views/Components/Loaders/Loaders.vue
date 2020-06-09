@@ -1,14 +1,15 @@
 <template>
   <main class="article article-loader">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <ComponentCode :componentTitle="$route.name">
         <template #module>
           <BIMDataLoading></BIMDataLoading>
         </template>
 
         <template #import>
-          import BIMDataLoading from "@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
+          import BIMDataLoading from
+          "@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
         </template>
 
         <template #code>
@@ -24,7 +25,8 @@
         </template>
 
         <template #import>
-          import BIMDataBigSpinner from "@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
+          import BIMDataBigSpinner from
+          "@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
         </template>
 
         <template #code>
@@ -47,12 +49,12 @@ export default {
   components: {
     BIMDataLoading,
     BIMDataBigSpinner,
-    ComponentCode
-  }
-}
+    ComponentCode,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Loaders.scss";
+// import COMPONENT STYLE
+@import "./_Loaders.scss";
 </style>

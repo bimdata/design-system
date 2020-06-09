@@ -55,7 +55,8 @@
       border-radius: 50%;
       transition: all 0.2s ease;
     }
-    &::after, &::before{
+    &::after,
+    &::before {
       box-sizing: border-box;
     }
     // custom CIRCLE

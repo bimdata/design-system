@@ -1,11 +1,19 @@
 <template>
-  <div class="bimdata-card" :style="{ 'min-width': width}">
-    <BIMDataCardBand :text="titleHeader" class="bimdata-card__header" v-if="titleHeader || $scopedSlots.headerIcons">
+  <div class="bimdata-card" :style="{ 'min-width': width }">
+    <BIMDataCardBand
+      :text="titleHeader"
+      class="bimdata-card__header"
+      v-if="titleHeader || $scopedSlots.headerIcons"
+    >
       <template #right>
         <slot name="headerIcons"></slot>
       </template>
     </BIMDataCardBand>
-    <BIMDataCardBand class="bimdata-card__submenu" :text="submenuText" v-if="$scopedSlots.left || submenuText || $scopedSlots.right">
+    <BIMDataCardBand
+      class="bimdata-card__submenu"
+      :text="submenuText"
+      v-if="$scopedSlots.left || submenuText || $scopedSlots.right"
+    >
       <template #left>
         <slot name="left"></slot>
       </template>
@@ -23,39 +31,39 @@
 </template>
 
 <script>
-import BIMDataCardBand from "../BIMDataCard/BIMDataCardBand.vue"
+import BIMDataCardBand from "../BIMDataCard/BIMDataCardBand.vue";
 
 export default {
   components: {
-    BIMDataCardBand
+    BIMDataCardBand,
   },
   props: {
     titleHeader: {
-      type: String
+      type: String,
     },
     submenuText: {
-      type: String
+      type: String,
     },
     width: {
       type: [Number, String],
-      default: "215px"
-    }
-  }
-}
+      default: "215px",
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/utilities/_text.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_text.scss";
 </style>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/mixins/_font-size.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataCard.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataCard.scss";
 </style>

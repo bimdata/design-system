@@ -17,39 +17,39 @@ import Alerts from "../Alerts/Alerts.vue";
 
 export default {
   components: {
-    Alerts
+    Alerts,
   },
   data() {
     return {
       alerts: false,
       alertType: null,
-      message: ""
-    }
+      message: "",
+    };
   },
-  props:{
+  props: {
     language: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
-    onCopy(e) {
+    onCopy() {
       this.alerts = true;
       this.message = "copied successfully !";
       this.alertType = "success";
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
-    }
+    },
   },
-  directives: { highlight, copy }
-}
+  directives: { highlight, copy },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA COMPONENT VARIABLES
-  @import "../../../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA COMPONENT VARIABLES
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
-  // import COMPONENT STYLE
-  @import "./_Code.scss";
+// import COMPONENT STYLE
+@import "./_Code.scss";
 </style>

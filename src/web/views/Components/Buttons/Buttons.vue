@@ -170,6 +170,7 @@ export default {
       if (this.checkboxDisabledChecked === true) {
         return ":disabled='disabled'";
       }
+      return "";
     },
   },
   watch: {

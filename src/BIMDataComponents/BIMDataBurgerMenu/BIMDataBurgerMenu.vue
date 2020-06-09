@@ -1,5 +1,12 @@
 <template>
-  <BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-primary">
+  <BIMDataIcon
+    icon-name="search"
+    width="18"
+    height="18"
+    x="23"
+    y="23"
+    class="bimdata-fill-primary"
+  >
     <BIMDataBurgerMenuIcon />
   </BIMDataIcon>
 </template>
@@ -12,7 +19,7 @@ import BIMDataBurgerMenuIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataBu
 export default {
   components: {
     BIMDataIcon,
-    BIMDataBurgerMenuIcon
-  }
+    BIMDataBurgerMenuIcon,
+  },
 };
 </script>

@@ -1,10 +1,13 @@
 <template>
   <main class="article article-tooltip">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <ComponentCode :componentTitle="$route.name">
         <template #module>
-          <BIMDataTooltip message="tooltip here" :className="getOverviewTooltipClasses()">
+          <BIMDataTooltip
+            message="tooltip here"
+            :className="getOverviewTooltipClasses()"
+          >
             <template #content>
               <span>Hover me</span>
             </template>
@@ -30,21 +33,22 @@
             </BIMDataRadio>
           </div>
           <div class="bimdata-ds__demo__parameters__options">
-              <h5 class="bimdata-h5">modifiers</h5>
-            <BIMDataCheckbox
-              text="arrow"
-              v-model="checkboxArrowChecked">
+            <h5 class="bimdata-h5">modifiers</h5>
+            <BIMDataCheckbox text="arrow" v-model="checkboxArrowChecked">
             </BIMDataCheckbox>
           </div>
         </template>
 
         <template #import>
-          import BIMDataTooltip from "@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
+          import BIMDataTooltip from
+          "@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
         </template>
 
         <template #code>
           <pre>
-            &lt;BIMDataTooltip message="tooltip here" :className="{{getOverviewTooltipClasses()}}"&gt;
+            &lt;BIMDataTooltip message="tooltip here" :className="{{
+              getOverviewTooltipClasses()
+            }}"&gt;
               &lt;template #content&gt;&lt;span&gt;Hover me&lt;/span&gt;&lt;/template&gt;
             &lt;/BIMDataTooltip&gt;
           </pre>
@@ -77,16 +81,16 @@ export default {
     BIMDataTooltip,
     BIMDataRadio,
     BIMDataCheckbox,
-    BIMDataTable
+    BIMDataTable,
   },
-  data(){
+  data() {
     return {
       selectedTooltipOptionsposition: "bottom",
       selectedTooltipOptionscolor: "primary",
       checkboxArrowChecked: true,
       tooltipOptions: {
         position: ["left", "right", "bottom", "up"],
-        color: ["primary", "grey"]
+        color: ["primary", "grey"],
       },
       propsData: [
         ["Props", "Type", "Default value", "Required", "Description"],
@@ -95,36 +99,39 @@ export default {
           "String",
           "null",
           "true",
-          "Use this props to add a tooltip text."
+          "Use this props to add a tooltip text.",
         ],
         [
           "className",
           "String",
           " ",
           "true",
-          "Use this props to add class and custom your your tooltip."
-        ]
+          "Use this props to add class and custom your your tooltip.",
+        ],
       ],
       slotsData: [
         ["slot name", "Description"],
-        ["content", "Allows you to wrap any element to add a tooltip to the hover."]
-      ]
-    }
+        [
+          "content",
+          "Allows you to wrap any element to add a tooltip to the hover.",
+        ],
+      ],
+    };
   },
 
   methods: {
     getOverviewTooltipClasses() {
       if (this.checkboxArrowChecked) {
-        return `bimdata-tooltip--${this.selectedTooltipOptionsposition} bimdata-tooltip--${this.selectedTooltipOptionscolor} bimdata-tooltip--arrow`
+        return `bimdata-tooltip--${this.selectedTooltipOptionsposition} bimdata-tooltip--${this.selectedTooltipOptionscolor} bimdata-tooltip--arrow`;
       } else {
-        return `bimdata-tooltip--${this.selectedTooltipOptionsposition} bimdata-tooltip--${this.selectedTooltipOptionscolor}`
+        return `bimdata-tooltip--${this.selectedTooltipOptionsposition} bimdata-tooltip--${this.selectedTooltipOptionscolor}`;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Tooltip.scss";
+// import COMPONENT STYLE
+@import "./_Tooltip.scss";
 </style>

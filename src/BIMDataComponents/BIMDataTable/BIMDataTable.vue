@@ -3,14 +3,20 @@
     <table class="bimdata-table">
       <thead>
         <tr>
-          <th v-for="(cell, headerIndex) of header" :key="`header-${headerIndex}-${cell}`">
+          <th
+            v-for="(cell, headerIndex) of header"
+            :key="`header-${headerIndex}-${cell}`"
+          >
             {{ cell }}
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(row, rowIndex) of contentRows" :key="`row-${rowIndex}`">
-          <td v-for="(cell, cellIndex) of row" :key="`row-${rowIndex}-cell-${cellIndex}`">
+          <td
+            v-for="(cell, cellIndex) of row"
+            :key="`row-${rowIndex}-cell-${cellIndex}`"
+          >
             {{ cell }}
           </td>
         </tr>
@@ -26,12 +32,18 @@ export default {
       validator(rows) {
         try {
           const length = rows[0].length;
-          return rows.every(row => row.length === length && row.every(cell => typeof cell === "string" || typeof cell === "number"));
-        } catch(e) {
-            return false;
+          return rows.every(
+            row =>
+              row.length === length &&
+              row.every(
+                cell => typeof cell === "string" || typeof cell === "number"
+              )
+          );
+        } catch (e) {
+          return false;
         }
-      }
-    }
+      },
+    },
   },
   computed: {
     header() {
@@ -39,9 +51,9 @@ export default {
     },
     contentRows() {
       return this.rows.slice(1);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,6 +68,6 @@ export default {
   // import BIMDATA UTILITIES
   @import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataTable.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataTable.scss";
 </style>

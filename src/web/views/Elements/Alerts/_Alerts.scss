@@ -1,4 +1,4 @@
-.alerts{
+.alerts {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -9,16 +9,18 @@
   height: 36px;
   font-size: 12px;
   color: $color-white;
-  &.success{
+  &.success {
     background-color: $color-success;
   }
-  &.error{
+  &.error {
     background-color: $color-high;
   }
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }

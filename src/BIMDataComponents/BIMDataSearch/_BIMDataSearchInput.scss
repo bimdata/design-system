@@ -1,7 +1,7 @@
 .bimdata-search-bar {
   display: flex;
   align-items: center;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   .bimdata-search-icon {
     padding: 0 $spacing-unit;
     display: flex;
@@ -19,10 +19,10 @@
       outline: none;
     }
   }
-  &.focus{
+  &.focus {
     background-color: $color-white;
     box-shadow: 0px 2px 10px rgba($color-black, 0.1);
-    transition: all .2s ease;
+    transition: all 0.2s ease;
   }
 
   &__radius {
@@ -31,10 +31,10 @@
   &__square {
     border-radius: 0;
   }
-  &__primary{
+  &__primary {
     background-color: $color-tertiary-lightest;
   }
-  &__secondary{
+  &__secondary {
     background-color: $color-white;
   }
 }

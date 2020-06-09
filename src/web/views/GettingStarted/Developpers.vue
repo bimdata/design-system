@@ -2,21 +2,33 @@
   <main class="article developpers">
     <div class="article-wrapper">
       <h1 class="bimdata-h1">Developpers</h1>
-      <p class="bimdata-text">How to get started with BIMData's vuejs component library</p>
+      <p class="bimdata-text">
+        How to get started with BIMData's vuejs component library
+      </p>
       <h4 class="bimdata-h4">1. Install the package</h4>
-      <p class="bimdata-text">BIMData’s component library is called <code class="code-highlight">design-system</code>, and it’s available on the npm registry.</p>
+      <p class="bimdata-text">
+        BIMData’s component library is called
+        <code class="code-highlight">design-system</code>, and it’s available on
+        the npm registry.
+      </p>
       <Code language="bash">
         npm i @bimdata/design-system
       </Code>
 
       <h4 class="bimdata-h4">2. Import component</h4>
-      <p class="bimdata-text"> Once you’ve installed the package you can import any component available in BIMData's design system: </p>
+      <p class="bimdata-text">
+        Once you’ve installed the package you can import any component available
+        in BIMData's design system:
+      </p>
       <Code language="javascript">
         import BIMDataComponents from '@bimdata/design-system'
       </Code>
 
       <h4 class="bimdata-h4">3. Register component</h4>
-      <p class="bimdata-text"> into your <code class="code-highlight">.vue</code> file, define your component into <code class="code-highlight">components</code> option</p>
+      <p class="bimdata-text">
+        into your <code class="code-highlight">.vue</code> file, define your
+        component into <code class="code-highlight">components</code> option
+      </p>
       <Code language="javascript">
         <pre>
           components: {
@@ -52,12 +64,12 @@ import copy from "../../../directives/copy.js";
 
 export default {
   components: {
-    Code
+    Code,
   },
-  directives: { highlight, copy }
-}
+  directives: { highlight, copy },
+};
 </script>
 
 <style lang="scss" scoped>
-  @import "./_GettingStarted.scss";
+@import "./_GettingStarted.scss";
 </style>

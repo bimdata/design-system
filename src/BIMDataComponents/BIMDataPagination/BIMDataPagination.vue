@@ -11,13 +11,13 @@
     class="bimdata-pagination"
   >
     <template #left>
-      <span class="bimdata-pagination__number">{{ firstIndex }} - {{ lastIndex }} of {{ length }}</span>
+      <span class="bimdata-pagination__number"
+        >{{ firstIndex }} - {{ lastIndex }} of {{ length }}</span
+      >
     </template>
     <span class="bimdata-pagination__item">
       <BIMDataButton class="bimdata-btn__ghost" width="50px" height="21px">
-        {{
-        currentPage
-        }}
+        {{ currentPage }}
       </BIMDataButton>
     </span>
   </BIMDataNavigation>
@@ -30,28 +30,28 @@ import BIMDataNavigation from "../BIMDataNavigation/BIMDataNavigation.vue";
 export default {
   components: {
     BIMDataNavigation,
-    BIMDataButton
+    BIMDataButton,
   },
   props: {
     length: {
       type: Number,
-      required: true
+      required: true,
     },
     currentPage: {
       type: Number,
-      required: true
+      required: true,
     },
     totalPages: {
       type: Number,
-      required: true
+      required: true,
     },
     perPage: {
       type: Number,
       required: true,
       validator: value => {
         return value > 0;
-      }
-    }
+      },
+    },
   },
   computed: {
     firstIndex() {
@@ -65,7 +65,7 @@ export default {
     },
     isLastPage() {
       return this.currentPage === this.totalPages;
-    }
+    },
   },
   methods: {
     firstPage() {
@@ -80,10 +80,7 @@ export default {
     lastPage() {
       this.$emit("pagechanged", this.totalPages);
     },
-    setPages() {
-      let numberOfPages = Math.ceil(this.length / this.perPage);
-    }
-  }
+  },
 };
 </script>
 

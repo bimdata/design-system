@@ -15,32 +15,32 @@
 <script>
 export default {
   model: {
-    prop: "selectedValue"
+    prop: "selectedValue",
   },
   props: {
     text: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
-      default: "option"
+      default: "option",
     },
     id: {
-      type: String
+      type: String,
     },
     value: {
-      type: String
+      type: String,
     },
     selectedValue: {
-      type: String
-    }
+      type: String,
+    },
   },
   methods: {
     onInput() {
       this.$emit("input", this.value);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -56,9 +56,9 @@ export default {
   // import BIMDATA UTILITIES
   @import "../../assets/scss/mixins/_font-size.scss";
 
-  // import BIMDATA MIXINS
-  @import "../../assets/scss/mixins/_pseudo.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_pseudo.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./BIMDataRadio.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./BIMDataRadio.scss";
 </style>

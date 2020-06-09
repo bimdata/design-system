@@ -26,40 +26,40 @@
 export default {
   model: {
     prop: "text",
-    event: "input"
+    event: "input",
   },
   props: {
     text: {
-      type: [String, Number, Boolean]
+      type: [String, Number, Boolean],
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     error: {
       type: Boolean,
-      default: false
+      default: false,
     },
     success: {
       type: Boolean,
-      default: false
+      default: false,
     },
     errorMessage: {
       type: String,
-      default: ""
+      default: "",
     },
     successMessage: {
       type: String,
-      default: ""
+      default: "",
     },
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   created() {
     this.$watch(
@@ -76,8 +76,8 @@ export default {
     },
     blur() {
       this.$refs.input && this.$refs.input.blur();
-    }
-  }
+    },
+  },
 };
 </script>
 

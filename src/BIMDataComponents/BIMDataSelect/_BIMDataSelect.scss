@@ -16,7 +16,7 @@ select:-webkit-autofill {
       top: 0;
       width: 100%;
       z-index: 10;
-      span{
+      span {
         text-overflow: ellipsis;
         height: auto;
         width: 100%;
@@ -43,7 +43,7 @@ select:-webkit-autofill {
             transform: scaleX(1);
           }
         }
-        svg{
+        svg {
           transform: rotate(90deg);
         }
       }

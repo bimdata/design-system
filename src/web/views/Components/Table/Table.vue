@@ -1,19 +1,17 @@
 <template>
   <main class="article article-table">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2"> {{ $route.name }} </h2>
-      <ComponentCode :componentTitle='$route.name'>
+      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <ComponentCode :componentTitle="$route.name">
         <template #module>
-          <BIMDataTable :rows="rowData">
-          </BIMDataTable>
+          <BIMDataTable :rows="rowData"> </BIMDataTable>
         </template>
 
-        <template #parameters>
-
-        </template>
+        <template #parameters> </template>
 
         <template #import>
-          import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+          import BIMDataTable from
+          "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
         </template>
 
         <template #code>
@@ -34,19 +32,18 @@ import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMD
 export default {
   components: {
     ComponentCode,
-    BIMDataTable
+    BIMDataTable,
   },
   data() {
     return {
       rowData: [
-        ['name', 'entreprise'],
-        ['Jabriel', 'BIMData'],
-        ['Jabriel', 'BIMData']
-      ]
-    }
-  }
-}
+        ["name", "entreprise"],
+        ["Jabriel", "BIMData"],
+        ["Jabriel", "BIMData"],
+      ],
+    };
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

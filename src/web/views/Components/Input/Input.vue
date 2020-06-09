@@ -3,8 +3,8 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-       <ComponentCode :componentTitle='$route.name'>
-        <template #module >
+      <ComponentCode :componentTitle="$route.name">
+        <template #module>
           <BIMDataInput
             v-model="textInput"
             placeholder="Your placeholder here"
@@ -13,9 +13,17 @@
             :errorMessage="getErrorMessage()"
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"
-            :disabled="getDisabled()">
+            :disabled="getDisabled()"
+          >
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default">
+              <BIMDataIcon
+                icon-name="search"
+                width="18"
+                height="18"
+                x="23"
+                y="23"
+                class="bimdata-fill-default"
+              >
                 <BIMDataShowIcon />
               </BIMDataIcon>
             </template>
@@ -43,22 +51,14 @@
             v-model="successMessage"
             :disabled="checkboxSuccessMessageDisabled"
           />
-          <BIMDataCheckbox
-            text="icon"
-            v-model="inputIcon"
-          />
-          <BIMDataCheckbox
-            text="loading"
-            v-model="loading"
-          />
-          <BIMDataCheckbox
-            text="disabled"
-            v-model="disabled"
-          />
+          <BIMDataCheckbox text="icon" v-model="inputIcon" />
+          <BIMDataCheckbox text="loading" v-model="loading" />
+          <BIMDataCheckbox text="disabled" v-model="disabled" />
         </template>
 
         <template #import>
-          import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+          import BIMDataInput from
+          "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
         </template>
 
         <template #code>
@@ -68,7 +68,7 @@
             placeholder="Your placeholder here"
             :error="!textInput"
             errorMessage="your error message here"
-            :loading="{{getLoading()}}"&gt;
+            :loading="{{ getLoading() }}"&gt;
               &lt;template #inputIcon v-if="inputIcon"&gt;
                 {{ getInputIcon() }}
               &lt;/template&gt;
@@ -101,7 +101,7 @@ export default {
     BIMDataCheckbox,
     BIMDataInput,
     BIMDataIcon,
-    BIMDataShowIcon
+    BIMDataShowIcon,
   },
   data() {
     return {
@@ -111,43 +111,57 @@ export default {
       errorMessage: false,
       successMessage: false,
       loading: false,
-      disabled:false,
+      disabled: false,
       inputIcon: false,
       checkboxErrorDisabled: false,
       checkboxSuccessDisabled: false,
       checkboxErrorMessageDisabled: true,
       checkboxSuccessMessageDisabled: true,
       propsData: [
+        ["Props", "Type", "Default value", "Description"],
         [
-          "Props", "Type", "Default value", "Description"
+          "placeholder",
+          "String",
+          "' '",
+          "Use this props to add a placeholder to your input.",
         ],
         [
-          "placeholder", "String", "' '", "Use this props to add a placeholder to your input."
+          "error",
+          "Boolean",
+          "false",
+          "Use this boolean to check if your input is bad.",
         ],
         [
-          "error", "Boolean", "false", "Use this boolean to check if your input is bad."
+          "success",
+          "Boolean",
+          "false",
+          "Use this boolean to check if your input is good.",
         ],
         [
-          "success", "Boolean", "false", "Use this boolean to check if your input is good."
+          "errorMessage",
+          "String",
+          "' '",
+          "Use this props to add an error message to your input.",
         ],
         [
-          "errorMessage", "String", "' '", "Use this props to add an error message to your input."
+          "successMessage",
+          "String",
+          "' '",
+          "Use this props to add a success message to your input.",
         ],
+        ["loading", "Boolean", "false", ""],
         [
-          "successMessage", "String", "' '", "Use this props to add a success message to your input."
+          "disabled",
+          "Boolean",
+          "false",
+          "Use this boolean to disabled your input.",
         ],
-        [
-          "loading", "Boolean", "false", ""
-        ],
-        [
-          "disabled", "Boolean", "false", "Use this boolean to disabled your input."
-        ]
-      ]
-    }
+      ],
+    };
   },
   computed: {
-    errorState(){
-      if(this.error){
+    errorState() {
+      if (this.error) {
         this.checkboxSuccessDisabled = true;
         this.checkboxSuccessMessageDisabled = true;
         this.checkboxErrorMessageDisabled = false;
@@ -159,8 +173,8 @@ export default {
         this.errorMessage = false;
       }
     },
-    successState(){
-      if(this.success){
+    successState() {
+      if (this.success) {
         this.checkboxErrorDisabled = true;
         this.checkboxErrorMessageDisabled = true;
         this.checkboxSuccessMessageDisabled = false;
@@ -171,43 +185,43 @@ export default {
         this.checkboxSuccessMessageDisabled = true;
         this.successMessage = false;
       }
-    }
+    },
   },
   methods: {
-    getErrorMessage(){
-      if(this.error && this.errorMessage){
+    getErrorMessage() {
+      if (this.error && this.errorMessage) {
         return "your error message here";
       }
     },
-    getSuccessMessage(){
-      if(this.success && this.successMessage){
+    getSuccessMessage() {
+      if (this.success && this.successMessage) {
         return "your success message here";
       }
     },
-    getLoading(){
-      if(this.loading){
+    getLoading() {
+      if (this.loading) {
         return true;
-      }else{
+      } else {
         return false;
       }
     },
-    getDisabled(){
-      if(this.disabled){
+    getDisabled() {
+      if (this.disabled) {
         return true;
-      }else{
+      } else {
         return false;
       }
     },
-    getInputIcon(){
-      if(this.inputIcon){
-        return `<BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default"><BIMDataShowIcon /></BIMDataIcon>`
+    getInputIcon() {
+      if (this.inputIcon) {
+        return '<BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default"><BIMDataShowIcon /></BIMDataIcon>';
       }
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  // import COMPONENT STYLE
-  @import "./_Input.scss";
+// import COMPONENT STYLE
+@import "./_Input.scss";
 </style>

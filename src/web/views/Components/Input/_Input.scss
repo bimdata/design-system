@@ -1,6 +1,7 @@
-.article-input{
-  ::v-deep .bimdata-table{
-    th:last-child, td:last-child{
+.article-input {
+  ::v-deep .bimdata-table {
+    th:last-child,
+    td:last-child {
       flex-grow: 2;
     }
   }

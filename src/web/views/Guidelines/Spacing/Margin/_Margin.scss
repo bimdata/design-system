@@ -1,14 +1,14 @@
-.spacing-system__margin{
-  ::v-deep .bimdata-ds__demo__module{
+.spacing-system__margin {
+  ::v-deep .bimdata-ds__demo__module {
     grid-column: 1 / 2;
   }
-  ::v-deep .bimdata-ds__demo__parameters{
+  ::v-deep .bimdata-ds__demo__parameters {
     grid-column: 2 / 4;
   }
-  .ds-spacing{
+  .ds-spacing {
     display: inline-flex;
     outline: 1px dotted $color-tertiary-dark;
-    span{
+    span {
       width: 150px;
       height: 150px;
       display: flex;
@@ -20,16 +20,17 @@
       font-size: calculateEm(12px);
     }
   }
-  .d-flex{
+  .d-flex {
     & > div {
       flex: 1;
     }
   }
-  ::v-deep .bimdata-table{
+  ::v-deep .bimdata-table {
     tr {
-      th, td{
+      th,
+      td {
         flex-grow: 2;
-        &:first-child{
+        &:first-child {
           flex-grow: 1;
         }
       }

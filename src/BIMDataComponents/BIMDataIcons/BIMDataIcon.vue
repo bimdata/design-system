@@ -8,7 +8,7 @@
     :fill="iconColor"
     role="presentation"
   >
-    <slot/>
+    <slot />
   </svg>
 </template>
 
@@ -17,34 +17,34 @@ export default {
   props: {
     iconName: {
       type: String,
-      default: "box"
+      default: "box",
     },
     width: {
       type: [Number, String],
-      default: 20
+      default: 20,
     },
     height: {
       type: [Number, String],
-      default: 20
+      default: 20,
     },
     iconColor: {
       type: String,
-      default: "currentColor"
+      default: "currentColor",
     },
     x: {
       type: [Number, String],
-      default: 20
+      default: 20,
     },
     y: {
       type: [Number, String],
-      default: 20
-    }
+      default: 20,
+    },
   },
   computed: {
     viewBox() {
       return `0 0 ${this.x} ${this.y}`;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -52,6 +52,6 @@ export default {
   // import BIMDATA VARIABLES
   @import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataIcon.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataIcon.scss";
 </style>

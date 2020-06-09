@@ -3,7 +3,7 @@
 
 .animate-draw {
   opacity: 1;
-  animation: 0.5s ease-in-out 0s infinite alternate fadeInOut,
+  animation: 0.5s ease-in-out 0s infinite alternate fadeInOut;
 }
 #draw-blue {
   fill: $color-primary;

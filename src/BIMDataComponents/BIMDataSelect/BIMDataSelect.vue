@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-select"
-    :class="{ 'not-empty': value != null && value != value.length}"
+    :class="{ 'not-empty': value != null && value != value.length }"
     :style="{ 'min-width': width }"
   >
     <div class="bimdata-select__content">
@@ -36,7 +36,7 @@
           v-for="(option, index) of options"
           :key="index"
           :class="{
-            selected: multi ? value.includes(option) : option === value
+            selected: multi ? value.includes(option) : option === value,
           }"
           @click="onOptionClick(option)"
         >
@@ -63,32 +63,32 @@ export default {
   components: {
     BIMDataIcon,
     BIMDataChevronIcon,
-    BIMDataCheckbox
+    BIMDataCheckbox,
   },
   directives: { clickaway },
   model: {
-    event: "option-click"
+    event: "option-click",
   },
   props: {
     options: { type: Array, default: () => [] },
     multi: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
-      type: [String, Array]
+      type: [String, Array],
     },
     label: { type: String, default: null },
     width: { type: [String, Number] },
     nullValue: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       displayOptions: false,
-      selectedOptions: this.value
+      selectedOptions: this.value,
     };
   },
   watch: {
@@ -98,18 +98,23 @@ export default {
       }
       if (
         !this.multi &&
-        (typeof this.value !== "string" && typeof this.value !== "number" && this.value !== null)
+        typeof this.value !== "string" &&
+        typeof this.value !== "number" &&
+        this.value !== null
       ) {
         throw "value must be a string or a number in non-multi mode.";
       }
-    }
+    },
   },
   created() {
-    this.$watch(() => this.multi && this.nullValue, res => {
-      if (res) {
-        throw "Can not have multi and nullValue together.";
+    this.$watch(
+      () => this.multi && this.nullValue,
+      res => {
+        if (res) {
+          throw "Can not have multi and nullValue together.";
+        }
       }
-    });
+    );
   },
   methods: {
     onOptionClick(option) {
@@ -138,8 +143,8 @@ export default {
     },
     formatValue(value) {
       return value.reduce((acc, cur) => `${acc}, ${cur}`);
-    }
-  }
+    },
+  },
 };
 </script>
 

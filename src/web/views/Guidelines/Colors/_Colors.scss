@@ -1,22 +1,23 @@
-.colors{
-  .bimdata-ds__code{
+.colors {
+  .bimdata-ds__code {
     width: 54.5%;
   }
-  .color-swatches{
+  .color-swatches {
     display: flex;
-    .color-swatche{
+    .color-swatche {
       margin: 12px 24px 12px 0;
       flex-basis: 17%;
-      box-shadow: 0 2px 10px 0 rgba($color-black, .1);
+      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
       overflow: hidden;
-      &__header, &__body {
-        &__item{
-          .label{
+      &__header,
+      &__body {
+        &__item {
+          .label {
             font-size: calculateEm(9px);
             line-height: 16px;
             text-transform: uppercase;
           }
-          .value{
+          .value {
             font-size: calculateEm(11px);
             display: flex;
             justify-content: space-between;
@@ -24,32 +25,32 @@
           }
         }
       }
-      &__header{
+      &__header {
         height: 140px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: self-start;
         background-color: $color-primary;
-        &__item{
+        &__item {
           padding: 6px 12px;
-          .label{
-            opacity: .5;
+          .label {
+            opacity: 0.5;
           }
         }
       }
-      &__body{
+      &__body {
         padding: 6px 12px;
         background-color: #fcfcfc;
-        &__item{
+        &__item {
           padding: calc(#{$spacing-unit} / 2) 0;
-          .label{
-            color: rgba($color-primary, .6);
+          .label {
+            color: rgba($color-primary, 0.6);
           }
-          .value{
+          .value {
             position: relative;
             color: $color-primary;
-            .bimdata-btn{
+            .bimdata-btn {
               position: absolute;
               right: 0;
               bottom: 0;
@@ -59,10 +60,11 @@
       }
     }
   }
-  .state-colors{
-    background: linear-gradient(rgba(255,255,255,.01), rgba(255,255,255,1));
+  .state-colors {
+    background: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1));
   }
-  .background-utilities-colors, .text-utilities-colors{
+  .background-utilities-colors,
+  .text-utilities-colors {
     background-color: $color-white;
   }
 }

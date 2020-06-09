@@ -1,8 +1,9 @@
-.developpers, .internal-doc{
-  .article-wrapper{
+.developpers,
+.internal-doc {
+  .article-wrapper {
     max-width: 45em;
-    pre.language-bash{
-      &::before{
+    pre.language-bash {
+      &::before {
         content: "$";
         position: absolute;
         top: 20px;

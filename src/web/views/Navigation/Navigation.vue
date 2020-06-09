@@ -8,7 +8,9 @@
     <div class="bimdata-ds__navigation">
       <ul class="bimdata-list">
         <li v-for="item in items" :key="item.title">
-          <router-link v-if="displayLink" :to="{path: `/${item.path}`}">{{ item.title }}</router-link>
+          <router-link v-if="displayLink" :to="{ path: `/${item.path}` }">{{
+            item.title
+          }}</router-link>
         </li>
       </ul>
     </div>
@@ -27,34 +29,34 @@ export default {
   props: {
     text: {
       type: String,
-      default: ""
+      default: "",
     },
     routeName: {
       type: String,
-      default: ""
+      default: "",
     },
     displayLink: {
       type: Boolean,
-      default: true
+      default: true,
     },
     theme: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     switchTheme() {
       this.$emit("switch-theme");
-    }
+    },
   },
   computed: {
     items() {
       return Object.entries(this.$store.state).map(([title, page]) => ({
         title,
-        ...page
+        ...page,
       }));
-    }
-  }
+    },
+  },
 };
 </script>
 

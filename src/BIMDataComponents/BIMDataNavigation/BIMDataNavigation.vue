@@ -57,7 +57,14 @@
         width="36px"
         height="21px"
       >
-        <BIMDataIcon class="icon-chevron" icon-name="chevron" width="10" height="10" x="23" y="23">
+        <BIMDataIcon
+          class="icon-chevron"
+          icon-name="chevron"
+          width="10"
+          height="10"
+          x="23"
+          y="23"
+        >
           <BIMDataChevronIcon />
         </BIMDataIcon>
       </BIMDataButton>
@@ -100,42 +107,42 @@ export default {
     BIMDataIcon,
     BIMDataChevronIcon,
     BIMDataDoubleChevronIcon,
-    BIMDataButton
+    BIMDataButton,
   },
   props: {
     first: {
       type: Boolean,
-      default: true
+      default: true,
     },
     last: {
       type: Boolean,
-      default: true
+      default: true,
     },
     previous: {
       type: Boolean,
-      default: true
+      default: true,
     },
     next: {
       type: Boolean,
-      default: true
+      default: true,
     },
     firstDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     lastDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     previousDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     nextDisabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 
@@ -143,8 +150,8 @@ export default {
   // import BIMDATA VARIABLES
   @import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA LIST
-  @import "../../assets/scss/utilities/_list.scss";
+// import BIMDATA LIST
+@import "../../assets/scss/utilities/_list.scss";
 
-  @import "./_BIMDataNavigation.scss";
+@import "./_BIMDataNavigation.scss";
 </style>

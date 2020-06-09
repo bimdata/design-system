@@ -485,39 +485,39 @@
                 </div>
               </div>
               <div class="color-swatche__body__item">
-              <div class="label">BACKGROUND UTILITY CLASS</div>
-              <div
-                class="value"
-                v-clipboard:copy="`${alertsColor.background}`"
-                v-clipboard:success="onCopy"
-                v-clipboard:error="onError"
-              >
-                <span>{{ alertsColor.background }}</span>
-                <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
-                  >copy</BIMDataButton
+                <div class="label">BACKGROUND UTILITY CLASS</div>
+                <div
+                  class="value"
+                  v-clipboard:copy="`${alertsColor.background}`"
+                  v-clipboard:success="onCopy"
+                  v-clipboard:error="onError"
                 >
+                  <span>{{ alertsColor.background }}</span>
+                  <BIMDataButton
+                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                    width="55px"
+                    height="24px"
+                    >copy</BIMDataButton
+                  >
+                </div>
               </div>
-            </div>
-            <div class="color-swatche__body__item">
-              <div class="label">COLOR UTILITY CLASS</div>
-              <div
-                class="value"
-                v-clipboard:copy="`${alertsColor.color}`"
-                v-clipboard:success="onCopy"
-                v-clipboard:error="onError"
-              >
-                <span>{{ alertsColor.color }}</span>
-                <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
-                  >copy</BIMDataButton
+              <div class="color-swatche__body__item">
+                <div class="label">COLOR UTILITY CLASS</div>
+                <div
+                  class="value"
+                  v-clipboard:copy="`${alertsColor.color}`"
+                  v-clipboard:success="onCopy"
+                  v-clipboard:error="onError"
                 >
+                  <span>{{ alertsColor.color }}</span>
+                  <BIMDataButton
+                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                    width="55px"
+                    height="24px"
+                    >copy</BIMDataButton
+                  >
+                </div>
               </div>
-            </div>
             </div>
           </div>
         </div>
@@ -545,7 +545,7 @@ import Code from "../../Elements/Code/Code.vue";
 export default {
   components: {
     BIMDataButton,
-    Code
+    Code,
   },
   data() {
     return {
@@ -555,7 +555,7 @@ export default {
       brandColors: [
         {
           name: "Primary",
-          hex: `#2f374a`,
+          hex: "#2f374a",
           rgb: "47, 55, 74",
           scss: "$color-primary",
           css: "var(--color-primary)",
@@ -689,7 +689,7 @@ export default {
           color: ".color-disabled",
           textcolor: "#ffffff",
         },
-      ]
+      ],
     };
   },
   methods: {
@@ -701,7 +701,7 @@ export default {
         this.alerts = false;
       }, 3000);
     },
-    onError(e) {
+    onError() {
       this.alerts = true;
       this.message = "Failed to copy texts";
       this.alertType = "error";

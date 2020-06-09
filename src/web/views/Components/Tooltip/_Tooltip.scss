@@ -1,17 +1,18 @@
 .article-tooltip {
-  .bimdata-ds__demo{
-    &__module{
-      span{
-        &:hover{
-          & ~ .bimdata-tooltip{
+  .bimdata-ds__demo {
+    &__module {
+      span {
+        &:hover {
+          & ~ .bimdata-tooltip {
             opacity: 1;
           }
         }
       }
     }
   }
-  ::v-deep .bimdata-table{
-    th:last-child, td:last-child{
+  ::v-deep .bimdata-table {
+    th:last-child,
+    td:last-child {
       flex-grow: 2;
     }
   }

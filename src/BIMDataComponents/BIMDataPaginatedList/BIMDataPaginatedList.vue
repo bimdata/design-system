@@ -28,27 +28,27 @@
 import BIMDataPagination from "../BIMDataPagination/BIMDataPagination.vue";
 export default {
   components: {
-    BIMDataPagination
+    BIMDataPagination,
   },
   props: {
     list: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     perPage: {
       type: Number,
       default: 10,
       validator: value => {
         return value > 0;
-      }
+      },
     },
     elementKey: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
-      currentPage: 1
+      currentPage: 1,
     };
   },
   computed: {
@@ -59,7 +59,7 @@ export default {
       const startIndex = this.perPage * (this.currentPage - 1);
       const endIndex = startIndex + this.perPage;
       return this.list.slice(startIndex, endIndex);
-    }
+    },
   },
   watch: {
     list: {
@@ -68,14 +68,14 @@ export default {
           this.currentPage = 1;
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     onPageChange(pageNumber) {
       this.currentPage = pageNumber;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -92,6 +92,6 @@ export default {
   @import "../../assets/scss/mixins/_font-size.scss";
   @import "../../assets/scss/utilities/_list.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataPaginatedList.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataPaginatedList.scss";
 </style>

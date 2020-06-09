@@ -1,4 +1,4 @@
-.aside{
+.aside {
   width: 300px;
   height: 100%;
   min-height: calc(100vh - 60px);
@@ -8,14 +8,14 @@
   background-color: $color-tertiary-lightest;
   overflow-y: auto;
   overflow-x: hidden;
-  &__title{
+  &__title {
     margin: 0;
     padding: 30px 24px 0;
     color: $color-primary;
   }
-  &__text{
-    li{
-      a{
+  &__text {
+    li {
+      a {
         padding: 8px 24px;
         display: flex;
         align-items: center;
@@ -24,26 +24,26 @@
         line-height: 24px;
         text-decoration: none;
         font-size: calculateEm(14px);
-        img{
+        img {
           width: 30px;
           margin-right: $spacing-unit;
         }
-        &.router-link-exact-active{
-          &:hover{
-            &::before{
+        &.router-link-exact-active {
+          &:hover {
+            &::before {
               background-color: darken($color-primary, 10%);
             }
           }
-          &::before{
+          &::before {
             background-color: $color-primary;
           }
         }
-        &:hover{
-          &::before{
-            background-color: rgba($color-primary, .6);
+        &:hover {
+          &::before {
+            background-color: rgba($color-primary, 0.6);
           }
         }
-        &::before{
+        &::before {
           content: "";
           width: 3px;
           height: 100%;

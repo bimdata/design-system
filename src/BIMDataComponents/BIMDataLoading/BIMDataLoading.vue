@@ -11,9 +11,9 @@
   // import BIMDATA VARIABLES
   @import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA COMPONENT KEYFRAMES
-  @import "./_keyframes.scss";
+// import BIMDATA COMPONENT KEYFRAMES
+@import "./_keyframes.scss";
 
-  // import BIMDATA STYLE COMPONENT
-  @import "./_BIMDataLoading.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_BIMDataLoading.scss";
 </style>
