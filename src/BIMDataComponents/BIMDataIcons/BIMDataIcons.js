@@ -1,3 +1,5 @@
+import BIMDataIcon from "./BIMDataIcon.vue"
+
 import BIMData3dModelIcon from './BIMDataLibraryIcons/BIMData3dModelIcon.vue';
 import BIMDataAddFileIcon from './BIMDataLibraryIcons/BIMDataAddFileIcon.vue';
 import BIMDataAddUserIcon from './BIMDataLibraryIcons/BIMDataAddUserIcon.vue';
@@ -30,9 +32,9 @@ import BIMDataInformationIcon from './BIMDataLibraryIcons/BIMDataInformationIcon
 import BIMDataIsolateIcon from './BIMDataLibraryIcons/BIMDataIsolateIcon.vue';
 import BIMDataLocationIcon from './BIMDataLibraryIcons/BIMDataLocationIcon.vue';
 import BIMDataMeasureIcon from './BIMDataLibraryIcons/BIMDataMeasureIcon.vue';
-import BIMDataMoreIcon from './BIMDataLibraryIcons/BIMDataMoreIcon.vue';
+import BIMDataMinusIcon from './BIMDataLibraryIcons/BIMDataMinusIcon.vue';
+import BIMDataPlusIcon from './BIMDataLibraryIcons/BIMDataPlusIcon.vue';
 import BIMDataProjectIcon from './BIMDataLibraryIcons/BIMDataProjectIcon.vue';
-import BIMDataReduceIcon from './BIMDataLibraryIcons/BIMDataReduceIcon.vue';
 import BIMDataRefreshIcon from './BIMDataLibraryIcons/BIMDataRefreshIcon.vue';
 import BIMDataRulesIcon from './BIMDataLibraryIcons/BIMDataRulesIcon.vue';
 import BIMDataSandglassIcon from './BIMDataLibraryIcons/BIMDataSandglassIcon.vue';
@@ -49,8 +51,8 @@ import BIMDataValidateIcon from './BIMDataLibraryIcons/BIMDataValidateIcon.vue';
 import BIMDataWarningIcon from './BIMDataLibraryIcons/BIMDataWarningIcon.vue';
 import BIMDataWindowedIcon from './BIMDataLibraryIcons/BIMDataWindowedIcon.vue';
 
-
-const Icons = {
+export {
+  BIMDataIcon,
   BIMData3dModelIcon,
   BIMDataAddFileIcon,
   BIMDataAddUserIcon,
@@ -83,9 +85,9 @@ const Icons = {
   BIMDataIsolateIcon,
   BIMDataLocationIcon,
   BIMDataMeasureIcon,
-  BIMDataMoreIcon,
+  BIMDataMinusIcon,
+  BIMDataPlusIcon,
   BIMDataProjectIcon,
-  BIMDataReduceIcon,
   BIMDataRefreshIcon,
   BIMDataRulesIcon,
   BIMDataSandglassIcon,
@@ -102,5 +104,3 @@ const Icons = {
   BIMDataWarningIcon,
   BIMDataWindowedIcon,
 };
-
-export default Icons;

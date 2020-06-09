@@ -29,7 +29,7 @@
   --size-btn-options: 45px;
 
   /* base FONTS -------------------------------------- */
-  --primary-font: "robotoregular";
-  --primary-font-medium: "robotomedium";
-  --primary-font-bold: "robotobold";
+  --primary-font: "robotoregular", sans-serif;
+  --primary-font-medium: "robotomedium", sans-serif;
+  --primary-font-bold: "robotobold", sans-serif;
 }
