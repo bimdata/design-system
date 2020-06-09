@@ -51,8 +51,7 @@ import BIMDataValidateIcon from './BIMDataLibraryIcons/BIMDataValidateIcon.vue';
 import BIMDataWarningIcon from './BIMDataLibraryIcons/BIMDataWarningIcon.vue';
 import BIMDataWindowedIcon from './BIMDataLibraryIcons/BIMDataWindowedIcon.vue';
 
-
-const Icons = {
+export {
   BIMDataIcon,
   BIMData3dModelIcon,
   BIMDataAddFileIcon,
@@ -105,5 +104,3 @@ const Icons = {
   BIMDataWarningIcon,
   BIMDataWindowedIcon,
 };
-
-export default Icons;
