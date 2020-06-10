@@ -24,7 +24,9 @@ export default {
     },
     state: {
       type: Boolean,
-      default: false,
+      validator(state) {
+        return state === null || typeof state === "boolean";
+      },
     },
     disabled: {
       type: Boolean,
