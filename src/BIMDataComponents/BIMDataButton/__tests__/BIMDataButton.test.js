@@ -2,9 +2,8 @@ import { shallowMount } from "@vue/test-utils";
 import BIMDataButton from "../BIMDataButton.vue";
 
 describe("BIMDataButton", () => {
-  const wrapper = shallowMount(BIMDataButton);
-
   it("should render component and match snapshot", () => {
+    const wrapper = shallowMount(BIMDataButton);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -36,6 +35,13 @@ describe("BIMDataButton", () => {
   });
 
   it("should emit a click event", () => {
-    expect(wrapper.trigger("click"));
+    const onClick = jest.fn();
+    const wrapper = shallowMount(BIMDataButton, {
+      listeners: {
+        click: onClick,
+      },
+    });
+    wrapper.trigger("click");
+    expect(onClick).toHaveBeenCalled();
   });
 });
