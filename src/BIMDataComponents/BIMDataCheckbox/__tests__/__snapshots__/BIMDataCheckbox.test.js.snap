@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BIMDataCheckbox should contain 'bimdata-checkbox' class when state false 1`] = `"<div class=\\"bimdata-checkbox\\"><span class=\\"bimdata-checkbox__mark\\"></span> <span class=\\"bimdata-checkbox__text\\"></span></div>"`;
+
+exports[`BIMDataCheckbox should contain 'bimdata-chekbox' and 'checked' class when state true 1`] = `"<div class=\\"bimdata-checkbox checked\\"><span class=\\"bimdata-checkbox__mark\\"></span> <span class=\\"bimdata-checkbox__text\\"></span></div>"`;
+
+exports[`BIMDataCheckbox should contain 'bimdata-chekbox', 'checked' and 'indeterminate' class when state null 1`] = `"<div class=\\"bimdata-checkbox indeterminate checked\\"><span class=\\"bimdata-checkbox__mark\\"></span> <span class=\\"bimdata-checkbox__text\\"></span></div>"`;
+
+exports[`BIMDataCheckbox should render component and match snapshot 1`] = `"<div class=\\"bimdata-checkbox\\"><span class=\\"bimdata-checkbox__mark\\"></span> <span class=\\"bimdata-checkbox__text\\"></span></div>"`;
+
+exports[`BIMDataCheckbox should render component with text and match snapshot 1`] = `"<div class=\\"bimdata-checkbox\\"><span class=\\"bimdata-checkbox__mark\\"></span> <span class=\\"bimdata-checkbox__text\\">text checkbox</span></div>"`;
