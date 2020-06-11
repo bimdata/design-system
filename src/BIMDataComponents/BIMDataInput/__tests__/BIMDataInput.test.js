@@ -61,6 +61,7 @@ describe("BIMDataInput", () => {
         text: "text message",
       },
     });
+    expect(wrapper.classes("not-empty")).toBe(true);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
