@@ -8,8 +8,8 @@
           <BIMDataSelect
             :options="options"
             label="label"
-            :nullValue="getNullValue"
-            :multi="getMulti"
+            :noneValue="noneValue"
+            :multi="multi"
             v-model="type"
             width="150px"
           />
@@ -19,13 +19,13 @@
           <BIMDataCheckbox
             text="multi selection"
             v-model="multi"
-            :disabled="checkboxMultiDisabled"
+            :disabled="noneValue"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="none option"
-            v-model="nullValue"
-            :disabled="checkboxNullValueDisabled"
+            v-model="noneValue"
+            :disabled="multi"
           >
           </BIMDataCheckbox>
         </template>
@@ -40,8 +40,8 @@
             &lt;BIMDataSelect
               :options="options"
               label="label"
-              :nullValue="{{ getNullValue }}"
-              :multi="{{ getMulti }}"
+              :noneValue="{{ noneValue }}"
+              :multi="{{ multi }}"
               v-model="type"
               width="150px"
             /&gt;
@@ -75,9 +75,7 @@ export default {
     return {
       type: null,
       multi: false,
-      nullValue: false,
-      checkboxMultiDisabled: false,
-      checkboxNullValueDisabled: false,
+      noneValue: false,
       options: [
         "option 1",
         "option 2",
@@ -121,7 +119,7 @@ export default {
           "Use this props to change the width of the select.",
         ],
         [
-          "nullValue",
+          "noneValue",
           "Boolean",
           "false",
           "Use this boolean if you want a 'none' value.",
@@ -129,23 +127,12 @@ export default {
       ],
     };
   },
-  computed: {
-    getNullValue() {
-      if (this.nullValue) {
-        this.checkboxMultiDisabled = true;
-        return true;
-      } else {
-        this.checkboxMultiDisabled = false;
-      }
-    },
-    getMulti() {
+  watch: {
+    multi() {
       if (this.multi) {
         this.type = [];
-        this.checkboxNullValueDisabled = true;
-        return true;
       } else {
         this.type = null;
-        this.checkboxNullValueDisabled = false;
       }
     },
   },

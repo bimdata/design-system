@@ -29,7 +29,7 @@
     </div>
     <transition name="slide-fade-down">
       <ul v-show="displayOptions" v-clickaway="away">
-        <li v-if="nullValue" :nullValue="nullValue" @click="onNullValueClick()">
+        <li v-if="noneValue" :noneValue="noneValue" @click="onNullValueClick()">
           None
         </li>
         <li
@@ -80,7 +80,7 @@ export default {
     },
     label: { type: String, default: null },
     width: { type: [String, Number] },
-    nullValue: {
+    noneValue: {
       type: Boolean,
       default: false,
     },
@@ -108,10 +108,10 @@ export default {
   },
   created() {
     this.$watch(
-      () => this.multi && this.nullValue,
+      () => this.multi && this.noneValue,
       res => {
         if (res) {
-          throw "Can not have multi and nullValue together.";
+          throw "Can not have multi and noneValue together.";
         }
       }
     );
@@ -149,8 +149,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/utilities/_text.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_text.scss";
 </style>
 
 <style lang="scss">
