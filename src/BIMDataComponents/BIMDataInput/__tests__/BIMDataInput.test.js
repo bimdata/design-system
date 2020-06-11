@@ -1,5 +1,4 @@
 import { shallowMount } from "@vue/test-utils";
-import { mount } from "@vue/test-utils";
 import BIMDataInput from "../BIMDataInput.vue";
 
 describe("BIMDataInput", () => {
@@ -83,7 +82,7 @@ describe("BIMDataInput", () => {
   });
 
   test("should render a button with a slot and match snapshot", () => {
-    const wrapper = mount(BIMDataInput, {
+    const wrapper = shallowMount(BIMDataInput, {
       slots: {
         inputIcon: "test icon slot",
       },
