@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BIMDataInput should render a button with a slot and match snapshot 1`] = `
+"<div class=\\"bimdata-input\\"><input id=\\"bimdata-input-17\\">
+  <div class=\\"bimdata-input__icon\\">test icon slot</div> <label for=\\"bimdata-input-17\\"></label> <span class=\\"bar\\"></span>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataInput should render component and match snapshot 1`] = `
+"<div class=\\"bimdata-input\\"><input id=\\"bimdata-input-1\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-1\\"></label> <span class=\\"bar\\"></span>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataInput should render component with 'not empty' class and match snapshot 1`] = `
+"<div class=\\"bimdata-input not-empty\\"><input id=\\"bimdata-input-13\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-13\\"></label> <span class=\\"bar\\"></span>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataInput should render component with error message and match snapshot 1`] = `
+"<div class=\\"bimdata-input error\\"><input id=\\"bimdata-input-5\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-5\\"></label> <span class=\\"bar\\"></span> <span class=\\"error\\">error message</span>
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataInput should render component with placeholder and match snapshot 1`] = `
+"<div class=\\"bimdata-input\\"><input id=\\"bimdata-input-3\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-3\\">input placeholder</label> <span class=\\"bar\\"></span>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataInput should render component with success message and match snapshot 1`] = `
+"<div class=\\"bimdata-input success\\"><input id=\\"bimdata-input-7\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-7\\"></label> <span class=\\"bar\\"></span>
+  <!----> <span class=\\"success\\">success message</span>
+</div>"
+`;
+
+exports[`BIMDataInput should render disabled component and match snapshot 1`] = `
+"<div class=\\"bimdata-input disabled\\"><input id=\\"bimdata-input-11\\" disabled=\\"disabled\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-11\\"></label> <span class=\\"bar\\"></span>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataInput should render loading component and match snapshot 1`] = `
+"<div class=\\"bimdata-input loading\\"><input id=\\"bimdata-input-9\\">
+  <div class=\\"bimdata-input__icon\\"></div> <label for=\\"bimdata-input-9\\"></label> <span class=\\"bar\\"></span>
+  <!---->
+  <!---->
+</div>"
+`;
