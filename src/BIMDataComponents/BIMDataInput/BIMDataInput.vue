@@ -31,6 +31,7 @@ export default {
   props: {
     text: {
       type: [String, Number, Boolean],
+      default: "",
     },
     placeholder: {
       type: String,
