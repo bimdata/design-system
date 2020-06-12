@@ -1,6 +1,6 @@
 {
   "name": "@bimdata/design-system",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "main": "./dist/js/design-system.js",
   "module": "./dist/js/design-system.esm.js",
   "files": [
@@ -12,7 +12,8 @@
     "serve": "vue-cli-service serve",
     "build-web": "vue-cli-service build",
     "build": "rollup -c",
-    "prebuild": "rm -rf dist"
+    "prebuild": "rm -rf dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "prismjs": "^1.19.0",
