@@ -81,7 +81,7 @@ describe("BIMDataInput", () => {
     expect(wrapper.find("input").element.value).toBe("message");
   });
 
-  test("should render a button with a slot and match snapshot", () => {
+  it("should render a button with a slot and match snapshot", () => {
     const wrapper = shallowMount(BIMDataInput, {
       slots: {
         inputIcon: "test icon slot",
