@@ -31,6 +31,7 @@ export default {
   props: {
     text: {
       type: [String, Number, Boolean],
+      default: "",
     },
     placeholder: {
       type: String,
@@ -82,8 +83,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/utilities/_text.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_text.scss";
 </style>
 
 <style lang="scss">

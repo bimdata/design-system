@@ -31,25 +31,17 @@
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox
-            text="error"
-            v-model="error"
-            :disabled="checkboxErrorDisabled"
-          />
-          <BIMDataCheckbox
-            text="success"
-            v-model="success"
-            :disabled="checkboxSuccessDisabled"
-          />
+          <BIMDataCheckbox text="error" v-model="error" :disabled="success" />
+          <BIMDataCheckbox text="success" v-model="success" :disabled="error" />
           <BIMDataCheckbox
             text="error message"
             v-model="errorMessage"
-            :disabled="checkboxErrorMessageDisabled"
+            :disabled="success"
           />
           <BIMDataCheckbox
             text="success message"
             v-model="successMessage"
-            :disabled="checkboxSuccessMessageDisabled"
+            :disabled="error"
           />
           <BIMDataCheckbox text="icon" v-model="inputIcon" />
           <BIMDataCheckbox text="loading" v-model="loading" />
@@ -113,10 +105,6 @@ export default {
       loading: false,
       disabled: false,
       inputIcon: false,
-      checkboxErrorDisabled: false,
-      checkboxSuccessDisabled: false,
-      checkboxErrorMessageDisabled: true,
-      checkboxSuccessMessageDisabled: true,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -158,34 +146,6 @@ export default {
         ],
       ],
     };
-  },
-  computed: {
-    errorState() {
-      if (this.error) {
-        this.checkboxSuccessDisabled = true;
-        this.checkboxSuccessMessageDisabled = true;
-        this.checkboxErrorMessageDisabled = false;
-        this.successMessage = false;
-        return !this.textInput;
-      } else {
-        this.checkboxSuccessDisabled = false;
-        this.checkboxErrorMessageDisabled = true;
-        this.errorMessage = false;
-      }
-    },
-    successState() {
-      if (this.success) {
-        this.checkboxErrorDisabled = true;
-        this.checkboxErrorMessageDisabled = true;
-        this.checkboxSuccessMessageDisabled = false;
-        this.errorMessage = false;
-        return !this.textInput;
-      } else {
-        this.checkboxErrorDisabled = false;
-        this.checkboxSuccessMessageDisabled = true;
-        this.successMessage = false;
-      }
-    },
   },
   methods: {
     getErrorMessage() {
