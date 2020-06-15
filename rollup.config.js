@@ -6,12 +6,10 @@ import copy from "rollup-plugin-copy";
 module.exports = [
   ...getSingleComponentConfigurations(),
   {
-    input: [
-      "src/BIMDataComponents/index.js"
-    ],
+    input: ["src/BIMDataComponents/index.js"],
     output: {
-      dir: 'dist/js/BIMDataComponents',
-      format: 'es'
+      dir: "dist/js/BIMDataComponents",
+      format: "es",
     },
     plugins: [
       copy({
@@ -28,12 +26,11 @@ module.exports = [
         output: "dist/css/design-system.css",
       }),
       terser(),
-    ]
+    ],
   },
 ];
 
 function getSingleComponentConfigurations() {
-
   const componentNames = [
     "BIMDataBigSpinner",
     "BIMDataButton",
@@ -50,22 +47,19 @@ function getSingleComponentConfigurations() {
     "BIMDataTable",
     "BIMDataTextarea",
     "BIMDataTooltip",
-
   ];
 
   return componentNames.map(componentName => ({
-      input: [
-        `src/BIMDataComponents/${componentName}/${componentName}.js`
-      ],
-      output: {
-        file: `dist/js/BIMDataComponents/${componentName}.js`,
-        format: 'es'
-      },
-      plugins: [
-        vue({
-          template: { isProduction: true },
-        }),
-        terser(),
-      ]
+    input: [`src/BIMDataComponents/${componentName}/${componentName}.js`],
+    output: {
+      file: `dist/js/BIMDataComponents/${componentName}.js`,
+      format: "es",
+    },
+    plugins: [
+      vue({
+        template: { isProduction: true },
+      }),
+      terser(),
+    ],
   }));
 }
