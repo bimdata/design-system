@@ -42,7 +42,7 @@ jobs:
       - run:
           name: backup previous image
           command: |
-            if export DOCKER_CLI_EXPERIMENTAL=enabled && docker manifest inspect "docker-registry.bimdata.io/bimdata/design:prev-$TAG" > /dev/null; then
+            if DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect "docker-registry.bimdata.io/bimdata/design:$TAG" > /dev/null; then
               docker pull "docker-registry.bimdata.io/bimdata/design:$TAG"
               docker image tag "docker-registry.bimdata.io/bimdata/design:$TAG" "docker-registry.bimdata.io/bimdata/design:prev-$TAG"
               docker push "docker-registry.bimdata.io/bimdata/design:prev-$TAG"
