@@ -23,7 +23,7 @@
 
         <template #import>
           import BIMDataTextarea from
-          "@/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTextarea.js";
         </template>
 
         <template #code>
