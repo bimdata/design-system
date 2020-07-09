@@ -9,7 +9,7 @@
 
         <template #import>
           import BIMDataLoading from
-          "@/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataLoading.js";
         </template>
 
         <template #code>
@@ -26,7 +26,7 @@
 
         <template #import>
           import BIMDataBigSpinner from
-          "@/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataBigSpinner.js";
         </template>
 
         <template #code>
