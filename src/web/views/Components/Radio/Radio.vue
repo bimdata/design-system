@@ -23,7 +23,7 @@
 
         <template #import>
           import BIMDataRadio from
-          "@/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataRadio.js";
         </template>
 
         <template #code>
