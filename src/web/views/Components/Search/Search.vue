@@ -37,7 +37,7 @@
 
         <template #import>
           import BIMDataSearch from
-          "@/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearch.js";
         </template>
 
         <template #code>
