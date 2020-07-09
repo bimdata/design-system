@@ -106,13 +106,16 @@ import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMD
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMData3dModelIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMData3dModelIcon.vue";
 import BIMDataAddFileIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAddFileIcon.vue";
+import BIMDataAddFolderIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAddFolderIcon.vue";
 import BIMDataAddUserIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAddUserIcon.vue";
+import BIMDataApiIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataApiIcon.vue";
 import BIMDataArrowIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataArrowIcon.vue";
 import BIMDataAttachIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataAttachIcon.vue";
 import BIMDataBcfIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataBcfIcon.vue";
 import BIMDataBuildingIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataBuildingIcon.vue";
 import BIMDataBurgerMenuIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataBurgerMenuIcon.vue";
 import BIMDataCameraIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCameraIcon.vue";
+import BIMDataCheckIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCheckIcon.vue";
 import BIMDataChevronIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 import BIMDataClickIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataClickIcon.vue";
 import BIMDataCloseIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon.vue";
@@ -126,6 +129,7 @@ import BIMDataDeployUpIcon from "../../../../../src/BIMDataComponents/BIMDataIco
 import BIMDataDetachIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDetachIcon.vue";
 import BIMDataDoubleChevronIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDoubleChevronIcon.vue";
 import BIMDataEditIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataEditIcon.vue";
+import BIMDataExportIfcIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataExportIfcIcon.vue";
 import BIMDataFailedIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataFailedIcon.vue";
 import BIMDataFilterIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataFilterIcon.vue";
 import BIMDataFolderIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataFolderIcon.vue";
@@ -133,24 +137,30 @@ import BIMDataFolderOpenIcon from "../../../../../src/BIMDataComponents/BIMDataI
 import BIMDataFullscreenIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataFullscreenIcon.vue";
 import BIMDataHideIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataHideIcon.vue";
 import BIMDataIfcIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataIfcIcon.vue";
+import BIMDataIfcFileIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataIfcFileIcon.vue";
+import BIMDataImportIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataImportIcon.vue";
 import BIMDataInformationIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataInformationIcon.vue";
 import BIMDataIsolateIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataIsolateIcon.vue";
+import BIMDataListManageIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataListManageIcon.vue";
 import BIMDataLocationIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataLocationIcon.vue";
 import BIMDataMeasureIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMeasureIcon.vue";
 import BIMDataPlusIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataPlusIcon.vue";
 import BIMDataProjectIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataProjectIcon.vue";
 import BIMDataMinusIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataMinusIcon.vue";
 import BIMDataRefreshIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRefreshIcon.vue";
+import BIMDataReprocessIfcIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataReprocessIfcIcon.vue";
 import BIMDataRulesIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataRulesIcon.vue";
 import BIMDataSandglassIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSandglassIcon.vue";
 import BIMDataSearchIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSearchIcon.vue";
 import BIMDataSectionIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSectionIcon.vue";
 import BIMDataSettingsIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSettingsIcon.vue";
 import BIMDataShowIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataShowIcon.vue";
+import BIMDataShowSelectedIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataShowSelectedIcon.vue";
 import BIMDataSocotecIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSocotecIcon.vue";
 import BIMDataStoreyIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataStoreyIcon.vue";
 import BIMDataSuccessIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataSuccessIcon.vue";
 import BIMDataTreeIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataTreeIcon.vue";
+import BIMDataUnionIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataUnionIcon.vue";
 import BIMDataUserIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataUserIcon.vue";
 import BIMDataValidateIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataValidateIcon.vue";
 import BIMDataWarningIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataWarningIcon.vue";
@@ -169,13 +179,16 @@ export default {
     BIMDataIcon,
     BIMData3dModelIcon,
     BIMDataAddFileIcon,
+    BIMDataAddFolderIcon,
     BIMDataAddUserIcon,
+    BIMDataApiIcon,
     BIMDataArrowIcon,
     BIMDataAttachIcon,
     BIMDataBcfIcon,
     BIMDataBuildingIcon,
     BIMDataBurgerMenuIcon,
     BIMDataCameraIcon,
+    BIMDataCheckIcon,
     BIMDataChevronIcon,
     BIMDataClickIcon,
     BIMDataCloseIcon,
@@ -189,6 +202,7 @@ export default {
     BIMDataDetachIcon,
     BIMDataDoubleChevronIcon,
     BIMDataEditIcon,
+    BIMDataExportIfcIcon,
     BIMDataFailedIcon,
     BIMDataFilterIcon,
     BIMDataFolderIcon,
@@ -196,24 +210,30 @@ export default {
     BIMDataFullscreenIcon,
     BIMDataHideIcon,
     BIMDataIfcIcon,
+    BIMDataIfcFileIcon,
+    BIMDataImportIcon,
     BIMDataInformationIcon,
     BIMDataIsolateIcon,
+    BIMDataListManageIcon,
     BIMDataLocationIcon,
     BIMDataMeasureIcon,
     BIMDataMinusIcon,
     BIMDataPlusIcon,
     BIMDataProjectIcon,
     BIMDataRefreshIcon,
+    BIMDataReprocessIfcIcon,
     BIMDataRulesIcon,
     BIMDataSandglassIcon,
     BIMDataSearchIcon,
     BIMDataSectionIcon,
     BIMDataSettingsIcon,
     BIMDataShowIcon,
+    BIMDataShowSelectedIcon,
     BIMDataSocotecIcon,
     BIMDataStoreyIcon,
     BIMDataSuccessIcon,
     BIMDataTreeIcon,
+    BIMDataUnionIcon,
     BIMDataUserIcon,
     BIMDataValidateIcon,
     BIMDataWarningIcon,
@@ -327,8 +347,8 @@ export default {
 // import BIMDATA COMPONENT VARIABLES
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA COMPONENT MIXINS
-  @import "../../../../assets/scss/mixins/_font-size.scss";
+// import BIMDATA COMPONENT MIXINS
+@import "../../../../assets/scss/mixins/_font-size.scss";
 
 // import COMPONENT STYLE
 @import "./_Icons.scss";
