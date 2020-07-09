@@ -9,10 +9,10 @@
     </div>
     <span
       v-if="isTooltipHover"
-      ref="tooltip"
+      ref="tooltipText"
       class="bimdata-tooltip__text"
       :class="className"
-      :style="position"
+      :style="getPosition()"
       >{{ message }}</span
     >
   </div>
@@ -28,7 +28,7 @@ export default {
       required: true,
     },
     className: {
-      type: String,
+      type: [String, Array],
       required: true,
     },
   },
@@ -40,19 +40,19 @@ export default {
       isTooltipHover: false,
     };
   },
-  mounted() {
-    this.$options.resizeObserver = new ResizeObserver(this.onResize);
-  },
   watch: {
     isTooltipHover() {
       if (this.isTooltipHover) {
         this.$nextTick(() =>
-          this.$options.resizeObserver.observe(this.$refs.tooltip)
+          this.$options.resizeObserver.observe(this.$refs.tooltipText)
         );
       } else {
-        this.$options.resizeObserver.unobserve(this.$refs.tooltip);
+        this.$options.resizeObserver.unobserve(this.$refs.tooltipText);
       }
     },
+  },
+  mounted() {
+    this.$options.resizeObserver = new ResizeObserver(this.onResize);
   },
   destroyed() {
     if (this.$options.resizeObserver) {
@@ -67,46 +67,43 @@ export default {
         this.parentHeight = entry.target.offsetParent.clientHeight;
       });
     },
-  },
-  computed: {
-    position() {
+    getPosition() {
       if (this.className) {
         if (this.className.includes("bimdata-tooltip--left")) {
           return {
-            left: -this.width - 6 + "px",
+            right: -this.width - 12 + "px",
             top: (this.parentHeight - this.height) / 2 + "px",
           };
         }
         if (this.className.includes("bimdata-tooltip--right")) {
           return {
-            right: -this.width - 6 + "px",
+            left: -this.width - 12 + "px",
             top: (this.parentHeight - this.height) / 2 + "px",
           };
         }
         if (this.className.includes("bimdata-tooltip--bottom")) {
-          return { top: this.parentHeight + 6 + "px" };
+          return { top: this.parentHeight + 12 + "px" };
         }
         if (this.className.includes("bimdata-tooltip--up")) {
-          return { top: -this.height - 6 + "px" };
+          return { top: -this.height - 12 + "px" };
         }
       }
-      return "";
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/utilities/_text.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_text.scss";
 </style>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/mixins/_font-size.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/mixins/_font-size.scss";
 
 // import BIMDATA MIXINS
 @import "../../assets/scss/mixins/_pseudo.scss";
