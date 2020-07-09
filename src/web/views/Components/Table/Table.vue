@@ -11,7 +11,7 @@
 
         <template #import>
           import BIMDataTable from
-          "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTable.js";
         </template>
 
         <template #code>
