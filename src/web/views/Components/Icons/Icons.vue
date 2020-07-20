@@ -64,12 +64,10 @@
 
         <template #import>
           <pre>
-            import BIMDataIcon from "@/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-            import {{
+            import { BIMDataIcon } from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+            import { {{
               activeIcon
-            }} from "@/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/{{
-              activeIcon
-            }}.vue"
+            }} } from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js"
           </pre>
         </template>
 
