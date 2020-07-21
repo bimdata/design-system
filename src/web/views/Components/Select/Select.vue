@@ -32,7 +32,7 @@
 
         <template #import>
           import BIMDataSelect from
-          "@/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSelect.js";
         </template>
 
         <template #code>

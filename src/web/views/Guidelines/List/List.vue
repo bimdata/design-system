@@ -6,8 +6,13 @@
         List utility classes will help you to reset list found within BIMData
         projects.
       </p>
-      <Code language="xml">
+      <Code language="html">
         &lt;ul class="bimdata-list"&gt;&lt;/ul&gt;
+      </Code>
+      <Code language="css">
+        <pre>
+          @import "~@bimdata/design-system/dist/scss/utilities/_list.scss";
+        </pre>
       </Code>
       <h3 class="bimdata-h3">Examples</h3>
       <div class="bimdata-ds__example">
@@ -35,4 +40,10 @@ export default {
 
 // import COMPONENT STYLE
 @import "./_List.scss";
+.utilities-list {
+  .bimdata-ds__code {
+    margin: 0;
+    border-bottom: 0.5px solid $color-tertiary-lightest;
+  }
+}
 </style>

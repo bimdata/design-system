@@ -71,7 +71,12 @@
 
           <template #import>
             import BIMDataButton from
-            "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+            "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
+            <pre v-if="checkboxIconChecked === true">
+              import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
+              import {BIMDataIcon} from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+              import {BIMDataChevronIcon} from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+            </pre>
           </template>
 
           <template #code>

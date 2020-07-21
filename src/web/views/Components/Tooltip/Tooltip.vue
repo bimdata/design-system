@@ -41,7 +41,7 @@
 
         <template #import>
           import BIMDataTooltip from
-          "@/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTooltip.js";
         </template>
 
         <template #code>

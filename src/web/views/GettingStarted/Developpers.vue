@@ -21,7 +21,10 @@
         in BIMData's design system:
       </p>
       <Code language="javascript">
-        import BIMDataComponents from '@bimdata/design-system'
+        <pre>
+          import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
+          import BIMDataSearch from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearch.js";
+        </pre>
       </Code>
 
       <h4 class="bimdata-h4">3. Register component</h4>
@@ -32,8 +35,8 @@
       <Code language="javascript">
         <pre>
           components: {
-          BIMDataButton : BIMDataComponents.BIMDataButton,
-          BIMDataSearch : BIMDataComponents.BIMDataSearch,
+          BIMDataButton,
+          BIMDataSearch
         }
         </pre>
       </Code>
@@ -46,10 +49,17 @@
         </pre>
       </Code>
 
-      <h4 class="bimdata-h4">5. Import components style</h4>
-      <Code language="javascript">
+      <h4 class="bimdata-h4">5. Import all components style</h4>
+      <p>If you use a scss preprocessor you can import:</p>
+      <Code language="scss">
         <pre>
-          @import "~@bimdata/design-system/dist/styles/component.css";
+          @import "~@bimdata/design-system/dist/scss/BIMData.scss";
+        </pre>
+      </Code>
+      <p>Else, you can import:</p>
+      <Code language="css">
+        <pre>
+          @import "~@bimdata/design-system/dist/css/design-system.css";
         </pre>
       </Code>
     </div>
@@ -72,4 +82,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "./_GettingStarted.scss";
+.bimdata-ds__code {
+  &:nth-child(5),
+  &:last-child {
+    margin: 0;
+  }
+}
 </style>

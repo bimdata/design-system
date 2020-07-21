@@ -13,11 +13,11 @@
       </p>
       <Code language="css">
         <pre>
-          // to use only the variables, import this line
-          @import "@/assets/scss/_BIMDataVariables.scss";
+          /* to use only the variables, import this line */
+          @import "~@bimdata/design-system/dist/scss/BIMDataVariables.scss";
 
-          // to use the color utilities add this line. BIMDataVariables are already imported in _colors.scss
-          @import "@/assets/scss/utilities/_colors.scss";
+          /* to use the color utilities classes add this line. BIMDataVariables are already imported in _colors.scss */
+          @import "~@bimdata/design-system/dist/scss/utilities/_colors.scss";
         </pre>
       </Code>
       <h3 class="bimdata-h3">Brand colors</h3>

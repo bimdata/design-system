@@ -53,7 +53,7 @@
 
         <template #import>
           import BIMDataCard from
-          "@/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
         </template>
 
         <template #code>

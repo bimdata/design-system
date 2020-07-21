@@ -50,7 +50,7 @@
 
         <template #import>
           import BIMDataInput from
-          "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataInput.js";
         </template>
 
         <template #code>

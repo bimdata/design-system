@@ -21,7 +21,7 @@
 
         <template #import>
           import BIMDataPaginatedList from
-          "@/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataPaginatedList.js";
         </template>
 
         <template #code>

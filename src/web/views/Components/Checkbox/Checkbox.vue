@@ -20,12 +20,13 @@
 
         <template #import>
           import BIMDataCheckbox from
-          "@/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCheckbox.js"
         </template>
 
         <template #code>
           <pre>
               &lt;BIMDataCheckbox
+              :disabled="{{ getCheckboxDisabled() }}"
               text="Your label here"
               v-model="checked"&gt;
               &lt;/BIMDataCheckbox&gt;
