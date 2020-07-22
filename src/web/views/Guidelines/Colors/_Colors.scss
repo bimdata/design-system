@@ -1,12 +1,10 @@
 .colors {
-  .bimdata-ds__code {
-    width: 54.5%;
-  }
   .color-swatches {
     display: flex;
+    flex-wrap: wrap;
     .color-swatche {
       margin: 12px 24px 12px 0;
-      flex-basis: 17%;
+      width: 254px;
       box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
       overflow: hidden;
       &__header,
@@ -59,12 +57,5 @@
         }
       }
     }
-  }
-  .state-colors {
-    background: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1));
-  }
-  .background-utilities-colors,
-  .text-utilities-colors {
-    background-color: $color-white;
   }
 }

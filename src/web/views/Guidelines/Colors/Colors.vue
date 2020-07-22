@@ -142,6 +142,40 @@
                 >
               </div>
             </div>
+            <div class="color-swatche__body__item">
+              <div class="label">FILL UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${brandColor.fill}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ brandColor.fill }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">STROKE UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${brandColor.stroke}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ brandColor.stroke }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -259,6 +293,40 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ variantColor.color }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">FILL UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${variantColor.fill}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ variantColor.fill }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">STROKE UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${variantColor.stroke}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ variantColor.stroke }}</span>
                 <BIMDataButton
                   class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
                   width="55px"
@@ -392,133 +460,199 @@
                 >
               </div>
             </div>
+            <div class="color-swatche__body__item">
+              <div class="label">FILL UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${commonColor.fill}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ commonColor.fill }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">STROKE UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${commonColor.stroke}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ commonColor.stroke }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="state-colors">
-        <h3 class="bimdata-h3">State colors</h3>
-        <div class="color-swatches">
+      <h3 class="bimdata-h3">State colors</h3>
+      <div class="color-swatches">
+        <div
+          class="color-swatche"
+          v-for="stateColor in stateColors"
+          :key="stateColor.id"
+        >
           <div
-            class="color-swatche"
-            v-for="alertsColor in stateColors"
-            :key="alertsColor.id"
+            class="color-swatche__header"
+            :style="{
+              'background-color': stateColor.hex,
+              color: stateColor.textcolor,
+            }"
           >
+            <div class="color-swatche__header__item">
+              <div class="label">Name</div>
+              <div class="value">{{ stateColor.name }}</div>
+            </div>
+          </div>
+          <div class="color-swatche__body">
+            <div class="color-swatche__body__item">
+              <div class="label">HEX</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.hex}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ stateColor.hex }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">RGB</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.rgb}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ stateColor.rgb }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">SCSS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.scss}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ stateColor.scss }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">CSS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.css}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ stateColor.css }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">BACKGROUND UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.background}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ stateColor.background }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+              <div class="label">COLOR UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.color}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+              >
+                <span>{{ stateColor.color }}</span>
+                <BIMDataButton
+                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                  width="55px"
+                  height="24px"
+                  >copy</BIMDataButton
+                >
+              </div>
+            </div>
+            <div class="color-swatche__body__item">
+            <div class="label">FILL UTILITY CLASS</div>
             <div
-              class="color-swatche__header"
-              :style="{
-                'background-color': alertsColor.hex,
-                color: alertsColor.textcolor,
-              }"
+              class="value"
+              v-clipboard:copy="`${stateColor.fill}`"
+              v-clipboard:success="onCopy"
+              v-clipboard:error="onError"
             >
-              <div class="color-swatche__header__item">
-                <div class="label">Name</div>
-                <div class="value">{{ alertsColor.name }}</div>
-              </div>
+              <span>{{ stateColor.fill }}</span>
+              <BIMDataButton
+                class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                width="55px"
+                height="24px"
+                >copy</BIMDataButton
+              >
             </div>
-            <div class="color-swatche__body">
-              <div class="color-swatche__body__item">
-                <div class="label">HEX</div>
-                <div
-                  class="value"
-                  v-clipboard:copy="`${alertsColor.hex}`"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <span>{{ alertsColor.hex }}</span>
-                  <BIMDataButton
-                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                    width="55px"
-                    height="24px"
-                    >copy</BIMDataButton
-                  >
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label">RGB</div>
-                <div
-                  class="value"
-                  v-clipboard:copy="`${alertsColor.rgb}`"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <span>{{ alertsColor.rgb }}</span>
-                  <BIMDataButton
-                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                    width="55px"
-                    height="24px"
-                    >copy</BIMDataButton
-                  >
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label">SCSS</div>
-                <div
-                  class="value"
-                  v-clipboard:copy="`${alertsColor.scss}`"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <span>{{ alertsColor.scss }}</span>
-                  <BIMDataButton
-                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                    width="55px"
-                    height="24px"
-                    >copy</BIMDataButton
-                  >
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label">CSS</div>
-                <div
-                  class="value"
-                  v-clipboard:copy="`${alertsColor.css}`"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <span>{{ alertsColor.css }}</span>
-                  <BIMDataButton
-                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                    width="55px"
-                    height="24px"
-                    >copy</BIMDataButton
-                  >
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label">BACKGROUND UTILITY CLASS</div>
-                <div
-                  class="value"
-                  v-clipboard:copy="`${alertsColor.background}`"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <span>{{ alertsColor.background }}</span>
-                  <BIMDataButton
-                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                    width="55px"
-                    height="24px"
-                    >copy</BIMDataButton
-                  >
-                </div>
-              </div>
-              <div class="color-swatche__body__item">
-                <div class="label">COLOR UTILITY CLASS</div>
-                <div
-                  class="value"
-                  v-clipboard:copy="`${alertsColor.color}`"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <span>{{ alertsColor.color }}</span>
-                  <BIMDataButton
-                    class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                    width="55px"
-                    height="24px"
-                    >copy</BIMDataButton
-                  >
-                </div>
-              </div>
+          </div>
+          <div class="color-swatche__body__item">
+            <div class="label">STROKE UTILITY CLASS</div>
+            <div
+              class="value"
+              v-clipboard:copy="`${stateColor.stroke}`"
+              v-clipboard:success="onCopy"
+              v-clipboard:error="onError"
+            >
+              <span>{{ stateColor.stroke }}</span>
+              <BIMDataButton
+                class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
+                width="55px"
+                height="24px"
+                >copy</BIMDataButton
+              >
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -561,6 +695,8 @@ export default {
           css: "var(--color-primary)",
           background: ".bg-primary",
           color: ".color-primary",
+          fill: ".fill-primary",
+          stroke: ".stroke-primary",
           textcolor: "#ffffff",
         },
         {
@@ -571,6 +707,8 @@ export default {
           css: "var(--color-secondary)",
           background: ".bg-secondary",
           color: ".color-secondary",
+          fill: ".fill-secondary",
+          stroke: ".stroke-secondary",
           textcolor: "#2f374a",
         },
         {
@@ -581,6 +719,8 @@ export default {
           css: "var(--color-tertiary)",
           background: ".bg-tertiary",
           color: ".color-tertiary",
+          fill: ".fill-tertiary",
+          stroke: ".stroke-tertiary",
           textcolor: "#2f374a",
         },
       ],
@@ -593,6 +733,8 @@ export default {
           css: "var(--color-tertiary-lightest)",
           background: ".bg-tertiary-lightest",
           color: ".color-tertiary-lightest",
+          fill: ".fill-tertiary-lightest",
+          stroke: ".stroke-tertiary-lightest",
           textcolor: "#2f374a",
         },
         {
@@ -603,6 +745,8 @@ export default {
           css: "var(--color-tertiary-dark)",
           background: ".bg-tertiary-dark",
           color: ".color-tertiary-dark",
+          fill: ".fill-tertiary-dark",
+          stroke: ".stroke-tertiary-dark",
           textcolor: "#ffffff",
         },
         {
@@ -613,6 +757,8 @@ export default {
           css: "var(--color-tertiary-darkest)",
           background: ".bg-tertiary-darkest",
           color: ".color-tertiary-darkest",
+          fill: ".fill-tertiary-darkest",
+          stroke: ".stroke-tertiary-darkest",
           textcolor: "#ffffff",
         },
       ],
@@ -625,6 +771,8 @@ export default {
           css: "var(--color-white)",
           background: ".bg-white",
           color: ".color-white",
+          fill: ".fill-white",
+          stroke: ".stroke-white",
           textcolor: "#2f374a",
         },
         {
@@ -635,6 +783,8 @@ export default {
           css: "var(--color-black)",
           background: ".bg-black",
           color: ".color-black",
+          fill: ".fill-black",
+          stroke: ".stroke-black",
           textcolor: "#ffffff",
         },
       ],
@@ -647,6 +797,8 @@ export default {
           css: "var(--color-high)",
           background: ".bg-high",
           color: ".color-high",
+          fill: ".fill-high",
+          stroke: ".stroke-high",
           textcolor: "#ffffff",
         },
         {
@@ -657,6 +809,8 @@ export default {
           css: "var(--color-warning)",
           background: ".bg-warning",
           color: ".color-warning",
+          fill: ".fill-warning",
+          stroke: ".stroke-warning",
           textcolor: "#ffffff",
         },
         {
@@ -667,6 +821,8 @@ export default {
           css: "var(--color-success)",
           background: ".bg-success",
           color: ".color-success",
+          fill: ".fill-success",
+          stroke: ".stroke-success",
           textcolor: "#ffffff",
         },
         {
@@ -677,6 +833,8 @@ export default {
           css: "var(--color-neutral)",
           background: ".bg-neutral",
           color: ".color-neutral",
+          fill: ".fill-neutral",
+          stroke: ".stroke-neutral",
           textcolor: "#ffffff",
         },
         {
@@ -687,6 +845,8 @@ export default {
           css: "var(--color-disabled)",
           background: ".bg-disabled",
           color: ".color-disabled",
+          fill: ".fill-disabled",
+          stroke: ".stroke-disabled",
           textcolor: "#ffffff",
         },
       ],
