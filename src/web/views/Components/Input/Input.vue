@@ -16,7 +16,7 @@
             :disabled="getDisabled()"
           >
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIcon name="show" size="s" />
+              <BIMDataIcon name="show" class="fill-tertiary-dark"/>
             </template>
           </BIMDataInput>
         </template>
@@ -163,7 +163,7 @@ export default {
     },
     getInputIcon() {
       if (this.inputIcon) {
-        return '<BIMDataIcon icon-name="search" width="18" height="18" x="23" y="23" class="bimdata-fill-default"><BIMDataShowIcon /></BIMDataIcon>';
+        return '<BIMDataIcon name="show" class="fill-tertiary-dark"/>';
       }
     },
   },

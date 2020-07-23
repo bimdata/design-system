@@ -1,8 +1,9 @@
 .bimdata-ds__demo {
   display: grid;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 300px);
-  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 300px);
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(
+      200px,
+      300px
+    );
   grid-template-rows: auto;
   position: relative;
   h3 {
@@ -30,9 +31,6 @@
     grid-column: 3 / 3;
     grid-row: 2 / 4;
     background-color: $color-tertiary-lightest;
-    h4 {
-      margin-top: 1rem;
-    }
     &__options {
       margin: 1rem 0;
     }
