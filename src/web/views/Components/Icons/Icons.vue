@@ -21,7 +21,7 @@
           <span class="icons-numbers">icons: {{ Object.keys(icons).length }}</span>
           <div class="icons">
             <div class="icon" v-for="icon of filteredList" :key="icon" :class="{ active: icon === activeIcon }" @click="onActiveIcons(icon)">
-              <BIMDataIcon :name="icon" :size="size" :class="selectedIconOptionsclass"/>
+              <BIMDataIcon :name="icon" :size="selectedIconOptionssize" :class="selectedIconOptionsclass"/>
               <p>{{ icon }}</p>
             </div>
           </div>
@@ -55,7 +55,7 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" /&gt;
+            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" /&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -98,6 +98,7 @@ export default {
       icons,
       filter: "",
       selectedIconOptionsclass: "fill-primary",
+      selectedIconOptionssize: "s",
       activeIcon: "addFile",
       iconOptions: {
         class: [
@@ -128,51 +129,51 @@ export default {
           "stroke-warning",
           "stroke-high",
         ],
+        size: [
+          "xxxs",
+          "xxs",
+          "xs",
+          "s",
+          "m",
+          "l",
+          "xl",
+          "xxl",
+          "xxxl",
+        ],
       },
       propsData: [
-        ["Props", "Type", "Default value", "Description", "Examples"],
-        ["iconName", "String", "'box'", "Use this props to name your icon", ""],
+        ["Props", "Type", "Required", "Default value", "Description", "Examples"],
         [
-          "width",
-          "Number, String",
-          "23",
-          "Use this props to change the width of the icon",
-          "",
-        ],
-        [
-          "height",
-          "Number, String",
-          "23",
-          "Use this props to change the height of the icon",
-          "",
-        ],
-        [
-          "iconColor",
+          "name",
           "String",
-          "'currentColor'",
-          "Use this props to change the height of the button",
-          "'red', 'blue', 'green' etc..",
-        ],
-        [
-          "x",
-          "Number, String",
-          "23",
-          "Use this props to place on the x axis (viewbox) your icon",
+          "true",
           "",
+          "Use this props to add an icon name to BIMDataIcon.",
+          "addFile",
         ],
         [
-          "y",
-          "Number, String",
-          "23",
-          "Use this props to place on the y axis (viewbox) your icon",
-          "",
-        ],
-        [
-          "class",
+          "color",
           "String",
-          "23",
-          "Use this props to place on the y axis (viewbox) your icon. Warning: This props outclass 'iconColor' porperty.",
-          "'bimdata-fill-grey', 'bimdata-stroke-grey'",
+          "",
+          "currentColor",
+          "This props allows you to customize the color of the icon's fill.",
+          "red, blue, green..."
+        ],
+        [
+          "size",
+          "String",
+          "",
+          "s",
+          "Several custom size are available to handle the custom icons size.",
+          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl."
+        ],
+        [
+          "customSize",
+          "[Number, String]",
+          "",
+          "null",
+          "Use this props if size options is not enought for customize size for icon. The icons are in square format, so the width equals the height.",
+          "25"
         ],
       ],
     };
@@ -196,6 +197,15 @@ export default {
         this.alerts = false;
       }, 3000);
     },
+    getIconOptionsSize() {
+      if(this.selectedIconOptionssize === "s"){
+        return null;
+      } else {
+        // return "size='${this.selectedIconOptionssize}'";
+      return `size="${this.selectedIconOptionssize}"`;
+
+      }
+    }
   },
 };
 </script>
