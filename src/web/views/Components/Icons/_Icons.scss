@@ -28,21 +28,19 @@
         right: 0;
       }
       .icons {
-        margin-top: 32px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         & > div {
-          padding: calc(#{$spacing-unit} / 2) 0 0;
-          width: 120px;
-          height: 70px;
-          margin: 6px;
+          margin: calc(#{$spacing-unit} / 2);
+          padding: $spacing-unit;
+          width: 118px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           p {
-            margin: 12px 0 0 0;
+            margin: calc(#{$spacing-unit} / 2) 0 0 0;
             font-size: calculateEm(12px);
           }
           &:hover {
@@ -55,10 +53,15 @@
         }
       }
     }
+    &__parameters__options {
+      .bimdata-radio {
+        font-size: 12px;
+      }
+    }
   }
   ::v-deep .bimdata-table {
-    th:nth-child(4),
-    td:nth-child(4) {
+    th:nth-child(5),
+    td:nth-child(5) {
       flex-grow: 3;
     }
     th:last-child,
