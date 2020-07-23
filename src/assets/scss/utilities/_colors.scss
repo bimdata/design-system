@@ -143,47 +143,60 @@
 
 /* stroke BRAND COLORS */
 .stroke-primary {
+  fill: transparent;
   stroke: $color-primary;
 }
 .stroke-secondary {
+  fill: transparent;
   stroke: $color-secondary;
 }
 .stroke-tertiary {
+  fill: transparent;
   stroke: $color-tertiary;
 }
 
 /* stroke VARIANT COLORS */
 .stroke-tertiary-lightest {
+  fill: transparent;
   stroke: $color-tertiary-lightest;
 }
 .stroke-tertiary-dark {
+  fill: transparent;
   stroke: $color-tertiary-dark;
 }
 .stroke-tertiary-darkest {
+  fill: transparent;
   stroke: $color-tertiary-darkest;
 }
 
 /* stroke COMMON COLORS */
 .stroke-white {
+  fill: transparent;
   stroke: $color-white;
 }
 .stroke-black {
+  fill: transparent;
   stroke: $color-black;
 }
 
 /* stroke STATE COLORS */
 .stroke-neutral {
+  fill: transparent;
   stroke: $color-neutral;
 }
 .stroke-success {
+  fill: transparent;
   stroke: $color-success;
 }
 .stroke-disabled {
+  fill: transparent;
   stroke: $color-disabled;
 }
 .stroke-warning {
+  fill: transparent;
   stroke: $color-warning;
 }
 .stroke-high {
+  fill: transparent;
   stroke: $color-high;
 }
