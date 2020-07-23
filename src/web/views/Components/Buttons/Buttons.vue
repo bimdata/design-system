@@ -11,7 +11,7 @@
               :class="getOverviewButtonClasses()"
               :disabled="getButtonDisabled()"
             >
-              <BIMDataIcon name="chevron" size="s" />
+              <BIMDataIcon name="chevron" size="xxxs" />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -64,7 +64,7 @@
             "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
             <pre v-if="checkboxIconChecked === true">
               import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
-              import {BIMDataIcon} from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+              import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
             </pre>
           </template>
 
@@ -195,16 +195,7 @@ export default {
     },
     getIcon() {
       if (this.checkboxIconChecked) {
-        return `<BIMDataIcon
-                  class="icon-chevron"
-                  icon-name="chevron-right"
-                  width="10"
-                  height="10"
-                  x="23"
-                  y="23"
-                >
-                  <BIMDataChevronIcon />
-                </BIMDataIcon>`;
+        return `<BIMDataIcon name="chevron" size="xxs" />`;
       }
     },
     getText() {
