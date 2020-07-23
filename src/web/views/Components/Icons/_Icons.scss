@@ -34,12 +34,15 @@
         justify-content: center;
         & > div {
           padding: calc(#{$spacing-unit} / 2) 0 0;
-          width: 147px;
-          margin: 12px;
+          width: 120px;
+          height: 70px;
+          margin: 6px;
           display: flex;
           flex-direction: column;
           align-items: center;
+          justify-content: center;
           p {
+            margin: 12px 0 0 0;
             font-size: calculateEm(12px);
           }
           &:hover {
