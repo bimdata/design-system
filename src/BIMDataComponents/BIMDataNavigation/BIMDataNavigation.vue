@@ -12,16 +12,7 @@
         width="36px"
         height="21px"
       >
-        <BIMDataIcon
-          class="icon-double-chevron-left"
-          icon-name="icon-double-chevron-left"
-          width="10"
-          height="10"
-          x="23"
-          y="23"
-        >
-          <BIMDataDoubleChevronIcon />
-        </BIMDataIcon>
+        <BIMDataIcon name="doubleChevron" size="s" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="previous">
@@ -33,16 +24,7 @@
         width="36px"
         height="21px"
       >
-        <BIMDataIcon
-          class="icon-chevron-left"
-          icon-name="chevron-left"
-          width="10"
-          height="10"
-          x="23"
-          y="23"
-        >
-          <BIMDataChevronIcon />
-        </BIMDataIcon>
+        <BIMDataIcon name="chevron" size="s" />
       </BIMDataButton>
     </li>
     <li>
@@ -57,16 +39,7 @@
         width="36px"
         height="21px"
       >
-        <BIMDataIcon
-          class="icon-chevron"
-          icon-name="chevron"
-          width="10"
-          height="10"
-          x="23"
-          y="23"
-        >
-          <BIMDataChevronIcon />
-        </BIMDataIcon>
+        <BIMDataIcon name="chevron" size="s" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="last">
@@ -78,16 +51,7 @@
         width="36px"
         height="21px"
       >
-        <BIMDataIcon
-          class="icon-double-chevron"
-          icon-name="icon-double-chevron"
-          width="10"
-          height="10"
-          x="23"
-          y="23"
-        >
-          <BIMDataDoubleChevronIcon />
-        </BIMDataIcon>
+        <BIMDataIcon name="doubleChevron" size="s" />
       </BIMDataButton>
     </li>
     <li v-if="$scopedSlots.right">
@@ -98,15 +62,11 @@
 
 <script>
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
-import BIMDataDoubleChevronIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataDoubleChevronIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
     BIMDataIcon,
-    BIMDataChevronIcon,
-    BIMDataDoubleChevronIcon,
     BIMDataButton,
   },
   props: {

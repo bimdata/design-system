@@ -15,9 +15,13 @@ export default {
 
 function highlight(el, binding, vnode) {
   const choosedLanguage = binding.arg;
-  if (!["xml", "scss", "javascript", "bash", "css"].includes(choosedLanguage)) {
+  if (
+    !["xml", "scss", "javascript", "bash", "css", "html"].includes(
+      choosedLanguage
+    )
+  ) {
     throw new Error(
-      "Supported languages are xml, javascript, css, scss and xml"
+      "Supported languages are xml, javascript, css, scss, html and bash"
     );
   }
   let textToHighlight = null;

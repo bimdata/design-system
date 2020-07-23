@@ -16,16 +16,7 @@
             :disabled="getDisabled()"
           >
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIcon
-                icon-name="search"
-                width="18"
-                height="18"
-                x="23"
-                y="23"
-                class="bimdata-fill-default"
-              >
-                <BIMDataShowIcon />
-              </BIMDataIcon>
+              <BIMDataIcon name="show" size="s" />
             </template>
           </BIMDataInput>
         </template>
@@ -84,7 +75,6 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-import BIMDataShowIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataShowIcon";
 
 export default {
   components: {
@@ -93,7 +83,6 @@ export default {
     BIMDataCheckbox,
     BIMDataInput,
     BIMDataIcon,
-    BIMDataShowIcon,
   },
   data() {
     return {

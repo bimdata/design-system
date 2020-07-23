@@ -1,97 +1,202 @@
 @import "../BIMDataVariables";
 
 /* background BRAND COLORS */
-.bg-primary{
+.bg-primary {
   background-color: $color-primary;
 }
-.bg-secondary{
+.bg-secondary {
   background-color: $color-secondary;
 }
-.bg-tertiary{
+.bg-tertiary {
   background-color: $color-tertiary;
 }
 
 /* background VARIANT COLORS */
-.bg-tertiary-lightest{
+.bg-tertiary-lightest {
   background-color: $color-tertiary-lightest;
 }
-.bg-tertiary-dark{
+.bg-tertiary-dark {
   background-color: $color-tertiary-dark;
 }
-.bg-tertiary-darkest{
+.bg-tertiary-darkest {
   background-color: $color-tertiary-darkest;
 }
 
 /* background COMMON COLORS */
-.bg-white{
+.bg-white {
   background-color: $color-white;
 }
-.bg-black{
+.bg-black {
   background-color: $color-black;
 }
 
 /* background STATE COLORS */
-.bg-neutral{
+.bg-neutral {
   background-color: $color-neutral;
 }
-.bg-success{
+.bg-success {
   background-color: $color-success;
 }
-.bg-disabled{
+.bg-disabled {
   background-color: $color-disabled;
 }
-.bg-warning{
+.bg-warning {
   background-color: $color-warning;
 }
-.bg-high{
+.bg-high {
   background-color: $color-high;
 }
 
-
 /* color BRAND COLORS */
-.color-primary{
+.color-primary {
   color: $color-primary;
 }
-.color-secondary{
+.color-secondary {
   color: $color-secondary;
 }
-.color-tertiary{
+.color-tertiary {
   color: $color-tertiary;
 }
 
-/* background VARIANT COLORS */
-.color-tertiary-lightest{
+/* color VARIANT COLORS */
+.color-tertiary-lightest {
   color: $color-tertiary-lightest;
 }
-.color-tertiary-dark{
+.color-tertiary-dark {
   color: $color-tertiary-dark;
 }
-.color-tertiary-darkest{
+.color-tertiary-darkest {
   color: $color-tertiary-darkest;
 }
 
-/* background COMMON COLORS */
-.color-white{
+/* color COMMON COLORS */
+.color-white {
   color: $color-white;
 }
-.color-black{
+.color-black {
   color: $color-black;
 }
 
-/* background STATE COLORS */
-.color-neutral{
+/* color STATE COLORS */
+.color-neutral {
   color: $color-neutral;
 }
-.color-success{
+.color-success {
   color: $color-success;
 }
-.color-disabled{
+.color-disabled {
   color: $color-disabled;
 }
-.color-warning{
+.color-warning {
   color: $color-warning;
 }
-.color-high{
+.color-high {
   color: $color-high;
 }
 
+/* fill BRAND COLORS */
+.fill-primary {
+  fill: $color-primary;
+}
+.fill-secondary {
+  fill: $color-secondary;
+}
+.fill-tertiary {
+  fill: $color-tertiary;
+}
+
+/* fill VARIANT COLORS */
+.fill-tertiary-lightest {
+  fill: $color-tertiary-lightest;
+}
+.fill-tertiary-dark {
+  fill: $color-tertiary-dark;
+}
+.fill-tertiary-darkest {
+  fill: $color-tertiary-darkest;
+}
+
+/* fill COMMON COLORS */
+.fill-white {
+  fill: $color-white;
+}
+.fill-black {
+  fill: $color-black;
+}
+
+/* fill STATE COLORS */
+.fill-neutral {
+  fill: $color-neutral;
+}
+.fill-success {
+  fill: $color-success;
+}
+.fill-disabled {
+  fill: $color-disabled;
+}
+.fill-warning {
+  fill: $color-warning;
+}
+.fill-high {
+  fill: $color-high;
+}
+
+/* stroke BRAND COLORS */
+.stroke-primary {
+  fill: transparent;
+  stroke: $color-primary;
+}
+.stroke-secondary {
+  fill: transparent;
+  stroke: $color-secondary;
+}
+.stroke-tertiary {
+  fill: transparent;
+  stroke: $color-tertiary;
+}
+
+/* stroke VARIANT COLORS */
+.stroke-tertiary-lightest {
+  fill: transparent;
+  stroke: $color-tertiary-lightest;
+}
+.stroke-tertiary-dark {
+  fill: transparent;
+  stroke: $color-tertiary-dark;
+}
+.stroke-tertiary-darkest {
+  fill: transparent;
+  stroke: $color-tertiary-darkest;
+}
+
+/* stroke COMMON COLORS */
+.stroke-white {
+  fill: transparent;
+  stroke: $color-white;
+}
+.stroke-black {
+  fill: transparent;
+  stroke: $color-black;
+}
+
+/* stroke STATE COLORS */
+.stroke-neutral {
+  fill: transparent;
+  stroke: $color-neutral;
+}
+.stroke-success {
+  fill: transparent;
+  stroke: $color-success;
+}
+.stroke-disabled {
+  fill: transparent;
+  stroke: $color-disabled;
+}
+.stroke-warning {
+  fill: transparent;
+  stroke: $color-warning;
+}
+.stroke-high {
+  fill: transparent;
+  stroke: $color-high;
+}

@@ -13,16 +13,7 @@
         <span>{{
           multi ? (value.length ? formatValue(value) : null) : value
         }}</span>
-        <BIMDataIcon
-          class="icon-chevron bimdata-fill-default"
-          icon-name="chevron-right"
-          width="10"
-          height="10"
-          x="23"
-          y="23"
-        >
-          <BIMDataChevronIcon />
-        </BIMDataIcon>
+        <BIMDataIcon name="chevron" size="s" />
       </div>
       <label>{{ label }}</label>
       <span class="bar"></span>
@@ -56,13 +47,11 @@
 import clickaway from "../../directives/click-away";
 
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 
 export default {
   components: {
     BIMDataIcon,
-    BIMDataChevronIcon,
     BIMDataCheckbox,
   },
   directives: { clickaway },

@@ -23,6 +23,7 @@
   }
   &--arrow {
     height: 28px;
+    line-height: 28px;
     font-size: calculateEm(12px);
     &::before {
       @include pseudo;

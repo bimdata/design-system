@@ -12,7 +12,8 @@
   background-repeat: no-repeat, repeat;
   background-size: auto, 75px 44px;
   position: fixed;
-  top: 0;
+  top: 25%;
+  left: 50%;
   right: -90px;
   width: 994px;
   height: 720px;
@@ -34,8 +35,10 @@
       top: 0;
       left: 0;
       animation: transform1 4s ease, color1 4s ease;
-      box-shadow: 1px 1px 0 lighten($color-primary, 2%), 2px 2px 0 lighten($color-primary, 2%),
-        3px 3px 0 lighten($color-primary, 2%), 4px 4px 0 lighten($color-primary, 2%),
+      box-shadow: 1px 1px 0 lighten($color-primary, 2%),
+        2px 2px 0 lighten($color-primary, 2%),
+        3px 3px 0 lighten($color-primary, 2%),
+        4px 4px 0 lighten($color-primary, 2%),
         5px 5px 0 lighten($color-primary, 2%);
       animation-iteration-count: infinite;
       animation-direction: alternate;
@@ -46,8 +49,10 @@
       top: -10%;
       left: -10%;
       animation: transform2 4s ease, color2 4s ease;
-      box-shadow: 1px 1px 0 darken($color-secondary, 2%), 2px 2px 0 darken($color-secondary, 2%),
-        3px 3px 0 darken($color-secondary, 2%), 4px 4px 0 darken($color-secondary, 2%),
+      box-shadow: 1px 1px 0 darken($color-secondary, 2%),
+        2px 2px 0 darken($color-secondary, 2%),
+        3px 3px 0 darken($color-secondary, 2%),
+        4px 4px 0 darken($color-secondary, 2%),
         5px 5px 0 darken($color-secondary, 2%);
       animation-iteration-count: infinite;
       animation-direction: alternate;
@@ -58,8 +63,10 @@
       top: -20%;
       left: -20%;
       animation: transform3 4s ease, color3 4s ease;
-      box-shadow: 1px 1px 0 darken($color-tertiary, 2%), 2px 2px 0 darken($color-tertiary, 2%),
-        3px 3px 0 darken($color-tertiary, 2%), 4px 4px 0 darken($color-tertiary, 2%),
+      box-shadow: 1px 1px 0 darken($color-tertiary, 2%),
+        2px 2px 0 darken($color-tertiary, 2%),
+        3px 3px 0 darken($color-tertiary, 2%),
+        4px 4px 0 darken($color-tertiary, 2%),
         5px 5px 0 darken($color-tertiary, 2%);
       animation-iteration-count: infinite;
       animation-direction: alternate;

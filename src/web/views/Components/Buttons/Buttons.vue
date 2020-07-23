@@ -11,17 +11,7 @@
               :class="getOverviewButtonClasses()"
               :disabled="getButtonDisabled()"
             >
-              <BIMDataIcon
-                class="icon-chevron"
-                icon-name="chevron-right"
-                width="10"
-                height="10"
-                x="23"
-                y="23"
-                v-if="checkboxIconChecked"
-              >
-                <BIMDataChevronIcon />
-              </BIMDataIcon>
+              <BIMDataIcon name="chevron" size="s" />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -75,7 +65,6 @@
             <pre v-if="checkboxIconChecked === true">
               import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
               import {BIMDataIcon} from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
-              import {BIMDataChevronIcon} from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
             </pre>
           </template>
 
@@ -108,7 +97,6 @@
 <script>
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
-import BIMDataChevronIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -125,7 +113,6 @@ export default {
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataIcon,
-    BIMDataChevronIcon,
   },
   data() {
     return {

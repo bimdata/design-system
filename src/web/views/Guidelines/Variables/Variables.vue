@@ -14,7 +14,7 @@
         <BIMDataTable :rows="variablesColorSummary"></BIMDataTable>
         <p>
           To see all colors and how use it
-          <router-link to="/guidelines/colors" class="color-primary"
+          <router-link to="/guidelines-utilities/colors" class="color-primary"
             >click here</router-link
           >.
         </p>
@@ -28,7 +28,7 @@
         <BIMDataTable :rows="variablesSpacingSummary"></BIMDataTable>
         <p>
           To see all spacing class and how use it
-          <router-link to="/guidelines/spacing" class="color-primary"
+          <router-link to="/guidelines-utilities/spacing" class="color-primary"
             >click here</router-link
           >.
         </p>
@@ -38,7 +38,7 @@
         <BIMDataTable :rows="variablesFontSummary"></BIMDataTable>
         <p>
           To see all fonts uses in BIMData and how use it
-          <router-link to="/guidelines/typography" class="color-primary"
+          <router-link to="/guidelines-utilities/typography" class="color-primary"
             >click here</router-link
           >.
         </p>

@@ -6,16 +6,7 @@
     :class="{ focus: focused }"
   >
     <span class="bimdata-search-icon">
-      <BIMDataIcon
-        icon-name="search"
-        width="13"
-        height="13"
-        x="23"
-        y="23"
-        class="bimdata-fill-primary"
-      >
-        <BIMDataSearchIcon />
-      </BIMDataIcon>
+      <BIMDataIcon name="search" size="xxs" />
     </span>
     <input
       :value="value"
@@ -31,16 +22,7 @@
       @click="clickClear()"
       v-if="clear && value !== ''"
     >
-      <BIMDataIcon
-        icon-name="close"
-        width="13"
-        height="13"
-        x="23"
-        y="23"
-        class="bimdata-fill-primary"
-      >
-        <BIMDataCloseIcon />
-      </BIMDataIcon>
+      <BIMDataIcon name="close" size="xxs" />
     </BIMDataButton>
   </div>
 </template>
@@ -50,14 +32,10 @@ import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
-import BIMDataSearchIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataSearchIcon.vue";
-import BIMDataCloseIcon from "../BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon.vue";
 
 export default {
   components: {
     BIMDataIcon,
-    BIMDataSearchIcon,
-    BIMDataCloseIcon,
     BIMDataButton,
   },
   directives: {

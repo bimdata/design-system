@@ -22,57 +22,56 @@ import BIMDataTable from "./BIMDataTable/BIMDataTable.vue";
 import BIMDataTextarea from "./BIMDataTextarea/BIMDataTextarea.vue";
 import BIMDataTooltip from "./BIMDataTooltip/BIMDataTooltip.vue";
 
-import BIMData3dModelIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMData3dModelIcon.vue";
-import BIMDataAddFileIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataAddFileIcon.vue";
-import BIMDataAddUserIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataAddUserIcon.vue";
-import BIMDataArrowIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataArrowIcon.vue";
-import BIMDataAttachIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataAttachIcon.vue";
-import BIMDataBcfIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataBcfIcon.vue";
-import BIMDataBuildingIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataBuildingIcon.vue";
-import BIMDataBurgerMenuIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataBurgerMenuIcon.vue";
-import BIMDataCameraIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataCameraIcon.vue";
-import BIMDataChevronIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataChevronIcon.vue";
-import BIMDataClickIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataClickIcon.vue";
-import BIMDataCloseIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataCloseIcon.vue";
-import BIMDataCloudIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataCloudIcon.vue";
-import BIMDataColorIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataColorIcon.vue";
-import BIMDataCursorIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataCursorIcon.vue";
-import BIMDataDefaultIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataDefaultIcon.vue";
-import BIMDataDeleteIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataDeleteIcon.vue";
-import BIMDataDeployDownIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployDownIcon.vue";
-import BIMDataDeployUpIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataDeployUpIcon.vue";
-import BIMDataDetachIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataDetachIcon.vue";
-import BIMDataDoubleChevronIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataDoubleChevronIcon.vue";
-import BIMDataEditIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataEditIcon.vue";
-import BIMDataFailedIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataFailedIcon.vue";
-import BIMDataFilterIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataFilterIcon.vue";
-import BIMDataFolderIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataFolderIcon.vue";
-import BIMDataFolderOpenIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataFolderOpenIcon.vue";
-import BIMDataFullscreenIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataFullscreenIcon.vue";
-import BIMDataHideIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataHideIcon.vue";
-import BIMDataIfcIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataIfcIcon.vue";
-import BIMDataInformationIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataInformationIcon.vue";
-import BIMDataIsolateIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataIsolateIcon.vue";
-import BIMDataLocationIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataLocationIcon.vue";
-import BIMDataMeasureIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataMeasureIcon.vue";
-import BIMDataPlusIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataPlusIcon.vue";
-import BIMDataProjectIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataProjectIcon.vue";
-import BIMDataMinusIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataMinusIcon.vue";
-import BIMDataRefreshIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataRefreshIcon.vue";
-import BIMDataRulesIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataRulesIcon.vue";
-import BIMDataSandglassIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataSandglassIcon.vue";
-import BIMDataSearchIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataSearchIcon.vue";
-import BIMDataSectionIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataSectionIcon.vue";
-import BIMDataSettingsIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataSettingsIcon.vue";
-import BIMDataShowIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataShowIcon.vue";
-import BIMDataSocotecIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataSocotecIcon.vue";
-import BIMDataStoreyIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataStoreyIcon.vue";
-import BIMDataSuccessIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataSuccessIcon.vue";
-import BIMDataTreeIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataTreeIcon.vue";
-import BIMDataUserIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataUserIcon.vue";
-import BIMDataValidateIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataValidateIcon.vue";
-import BIMDataWarningIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataWarningIcon.vue";
-import BIMDataWindowedIcon from "./BIMDataIcons/BIMDataLibraryIcons/BIMDataWindowedIcon.vue";
+import addFile from './BIMDataIcons/BIMDataLibraryIcons/AddFile.vue';
+import addFolder from './BIMDataIcons/BIMDataLibraryIcons/AddFolder.vue';
+import addUser from './BIMDataIcons/BIMDataLibraryIcons/AddUser.vue';
+import arrow from './BIMDataIcons/BIMDataLibraryIcons/Arrow.vue';
+import attach from './BIMDataIcons/BIMDataLibraryIcons/Attach.vue';
+import bcf from './BIMDataIcons/BIMDataLibraryIcons/Bcf.vue';
+import building from './BIMDataIcons/BIMDataLibraryIcons/Building.vue';
+import burgerMenu from './BIMDataIcons/BIMDataLibraryIcons/BurgerMenu.vue';
+import camera from './BIMDataIcons/BIMDataLibraryIcons/Camera.vue';
+import chevron from './BIMDataIcons/BIMDataLibraryIcons/Chevron.vue';
+import click from './BIMDataIcons/BIMDataLibraryIcons/Click.vue';
+import close from './BIMDataIcons/BIMDataLibraryIcons/Close.vue';
+import cloud from './BIMDataIcons/BIMDataLibraryIcons/Cloud.vue';
+import color from './BIMDataIcons/BIMDataLibraryIcons/Color.vue';
+import cursor from './BIMDataIcons/BIMDataLibraryIcons/Cursor.vue';
+import deployDown from './BIMDataIcons/BIMDataLibraryIcons/DeployDown.vue';
+import deployUp from './BIMDataIcons/BIMDataLibraryIcons/DeployUp.vue';
+import detach from './BIMDataIcons/BIMDataLibraryIcons/Detach.vue';
+import doubleChevron from './BIMDataIcons/BIMDataLibraryIcons/DoubleChevron.vue';
+import edit from './BIMDataIcons/BIMDataLibraryIcons/Edit.vue';
+import failed from './BIMDataIcons/BIMDataLibraryIcons/Failed.vue';
+import filter from './BIMDataIcons/BIMDataLibraryIcons/Filter.vue';
+import folder from './BIMDataIcons/BIMDataLibraryIcons/Folder.vue';
+import folderOpen from './BIMDataIcons/BIMDataLibraryIcons/FolderOpen.vue';
+import fullscreen from './BIMDataIcons/BIMDataLibraryIcons/Fullscreen.vue';
+import hide from './BIMDataIcons/BIMDataLibraryIcons/Hide.vue';
+import ifc from './BIMDataIcons/BIMDataLibraryIcons/Ifc.vue';
+import information from './BIMDataIcons/BIMDataLibraryIcons/Information.vue';
+import isolate from './BIMDataIcons/BIMDataLibraryIcons/Isolate.vue';
+import location from './BIMDataIcons/BIMDataLibraryIcons/Location.vue';
+import measure from './BIMDataIcons/BIMDataLibraryIcons/Measure.vue';
+import minus from './BIMDataIcons/BIMDataLibraryIcons/Minus.vue';
+import model3d from './BIMDataIcons/BIMDataLibraryIcons/Model3d.vue';
+import plus from './BIMDataIcons/BIMDataLibraryIcons/Plus.vue';
+import project from './BIMDataIcons/BIMDataLibraryIcons/Project.vue';
+import refresh from './BIMDataIcons/BIMDataLibraryIcons/Refresh.vue';
+import rules from './BIMDataIcons/BIMDataLibraryIcons/Rules.vue';
+import sandglass from './BIMDataIcons/BIMDataLibraryIcons/Sandglass.vue';
+import search from './BIMDataIcons/BIMDataLibraryIcons/Search.vue';
+import section from './BIMDataIcons/BIMDataLibraryIcons/Section.vue';
+import settings from './BIMDataIcons/BIMDataLibraryIcons/Settings.vue';
+import show from './BIMDataIcons/BIMDataLibraryIcons/Show.vue';
+import socotec from './BIMDataIcons/BIMDataLibraryIcons/Socotec.vue';
+import storey from './BIMDataIcons/BIMDataLibraryIcons/Storey.vue';
+import success from './BIMDataIcons/BIMDataLibraryIcons/Success.vue';
+import tree from './BIMDataIcons/BIMDataLibraryIcons/Tree.vue';
+import user from './BIMDataIcons/BIMDataLibraryIcons/User.vue';
+import validate from './BIMDataIcons/BIMDataLibraryIcons/Validate.vue';
+import warning from './BIMDataIcons/BIMDataLibraryIcons/Warning.vue';
+import windowed from './BIMDataIcons/BIMDataLibraryIcons/Windowed.vue';
 
 const Components = {
   BIMDataBigSpinner,
@@ -89,57 +88,57 @@ const Components = {
   BIMDataTable,
   BIMDataTextarea,
   BIMDataTooltip,
-  BIMData3dModelIcon,
-  BIMDataAddFileIcon,
-  BIMDataAddUserIcon,
-  BIMDataArrowIcon,
-  BIMDataAttachIcon,
-  BIMDataBcfIcon,
-  BIMDataBuildingIcon,
-  BIMDataBurgerMenuIcon,
-  BIMDataCameraIcon,
-  BIMDataChevronIcon,
-  BIMDataClickIcon,
-  BIMDataCloseIcon,
-  BIMDataCloudIcon,
-  BIMDataColorIcon,
-  BIMDataCursorIcon,
-  BIMDataDefaultIcon,
-  BIMDataDeleteIcon,
-  BIMDataDeployDownIcon,
-  BIMDataDeployUpIcon,
-  BIMDataDetachIcon,
-  BIMDataDoubleChevronIcon,
-  BIMDataEditIcon,
-  BIMDataFailedIcon,
-  BIMDataFilterIcon,
-  BIMDataFolderIcon,
-  BIMDataFolderOpenIcon,
-  BIMDataFullscreenIcon,
-  BIMDataHideIcon,
-  BIMDataIfcIcon,
-  BIMDataInformationIcon,
-  BIMDataIsolateIcon,
-  BIMDataLocationIcon,
-  BIMDataMeasureIcon,
-  BIMDataMinusIcon,
-  BIMDataPlusIcon,
-  BIMDataProjectIcon,
-  BIMDataRefreshIcon,
-  BIMDataRulesIcon,
-  BIMDataSandglassIcon,
-  BIMDataSearchIcon,
-  BIMDataSectionIcon,
-  BIMDataSettingsIcon,
-  BIMDataShowIcon,
-  BIMDataSocotecIcon,
-  BIMDataStoreyIcon,
-  BIMDataSuccessIcon,
-  BIMDataTreeIcon,
-  BIMDataUserIcon,
-  BIMDataValidateIcon,
-  BIMDataWarningIcon,
-  BIMDataWindowedIcon,
+  addFile,
+  addFolder,
+  addUser,
+  arrow,
+  attach,
+  bcf,
+  building,
+  burgerMenu,
+  camera,
+  chevron,
+  click,
+  close,
+  cloud,
+  color,
+  cursor,
+  // delete,
+  deployDown,
+  deployUp,
+  detach,
+  doubleChevron,
+  edit,
+  failed,
+  filter,
+  folder,
+  folderOpen,
+  fullscreen,
+  hide,
+  ifc,
+  information,
+  isolate,
+  location,
+  measure,
+  minus,
+  model3d,
+  plus,
+  project,
+  refresh,
+  rules,
+  sandglass,
+  search,
+  section,
+  settings,
+  show,
+  socotec,
+  storey,
+  success,
+  tree,
+  user,
+  validate,
+  warning,
+  windowed,
 };
 
 export default Components;
