@@ -50,9 +50,11 @@
               >
                 <span> {{ brandColor.hex }} </span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -67,9 +69,11 @@
               >
                 <span>{{ brandColor.rgb }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -84,9 +88,11 @@
               >
                 <span>{{ brandColor.scss }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -101,9 +107,11 @@
               >
                 <span>{{ brandColor.css }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -118,9 +126,11 @@
               >
                 <span>{{ brandColor.background }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -135,9 +145,11 @@
               >
                 <span>{{ brandColor.color }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -152,9 +164,11 @@
               >
                 <span>{{ brandColor.fill }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -169,9 +183,11 @@
               >
                 <span>{{ brandColor.stroke }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -209,9 +225,11 @@
               >
                 <span>{{ variantColor.hex }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -226,9 +244,11 @@
               >
                 {{ variantColor.rgb }}
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -243,9 +263,11 @@
               >
                 {{ variantColor.scss }}
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -260,9 +282,11 @@
               >
                 {{ variantColor.css }}
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -277,9 +301,11 @@
               >
                 <span>{{ variantColor.background }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -294,9 +320,11 @@
               >
                 <span>{{ variantColor.color }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -311,9 +339,11 @@
               >
                 <span>{{ variantColor.fill }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -328,9 +358,11 @@
               >
                 <span>{{ variantColor.stroke }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -368,9 +400,11 @@
               >
                 <span>{{ commonColor.hex }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -385,9 +419,11 @@
               >
                 <span>{{ commonColor.rgb }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -402,9 +438,11 @@
               >
                 <span>{{ commonColor.scss }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -419,9 +457,11 @@
               >
                 <span>{{ commonColor.css }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -436,9 +476,11 @@
               >
                 <span>{{ commonColor.background }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -453,9 +495,11 @@
               >
                 <span>{{ commonColor.color }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -470,9 +514,11 @@
               >
                 <span>{{ commonColor.fill }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -487,9 +533,11 @@
               >
                 <span>{{ commonColor.stroke }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -527,9 +575,11 @@
               >
                 <span>{{ stateColor.hex }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -544,9 +594,11 @@
               >
                 <span>{{ stateColor.rgb }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -561,9 +613,11 @@
               >
                 <span>{{ stateColor.scss }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -578,9 +632,11 @@
               >
                 <span>{{ stateColor.css }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -595,9 +651,11 @@
               >
                 <span>{{ stateColor.background }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -612,9 +670,11 @@
               >
                 <span>{{ stateColor.color }}</span>
                 <BIMDataButton
-                  class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                  width="55px"
-                  height="24px"
+                  fill
+                  radius
+                  color="default"
+                  width="55"
+                  height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -629,9 +689,11 @@
             >
               <span>{{ stateColor.fill }}</span>
               <BIMDataButton
-                class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                width="55px"
-                height="24px"
+                fill
+                radius
+                color="default"
+                width="55"
+                height="24"
                 >copy</BIMDataButton
               >
             </div>
@@ -646,9 +708,11 @@
             >
               <span>{{ stateColor.stroke }}</span>
               <BIMDataButton
-                class="bimdata-btn__fill bimdata-btn__fill--default bimdata-btn__radius"
-                width="55px"
-                height="24px"
+                fill
+                radius
+                color="default"
+                width="55"
+                height="24"
                 >copy</BIMDataButton
               >
             </div>

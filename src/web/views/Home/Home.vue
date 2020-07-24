@@ -15,7 +15,10 @@
             <h2 class="bimdata-h2">{{ title }}</h2>
             <p class="bimdata-text">{{ page.text }}</p>
             <BIMDataButton
-              class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--primary"
+              width="150"
+              radius
+              fill
+              color="primary"
             >
               Explore
             </BIMDataButton>

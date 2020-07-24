@@ -15,7 +15,9 @@
 
         <template #parameters>
           <BIMDataButton
-            class="bimdata-btn bimdata-btn__fill bimdata-btn__fill--primary bimdata-btn__radius"
+            color="primary"
+            radius
+            fill
             @click="resetRadio()"
             >Reset radio button</BIMDataButton
           >
