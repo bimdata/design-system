@@ -13,7 +13,7 @@
         <span>{{
           multi ? (value.length ? formatValue(value) : null) : value
         }}</span>
-        <BIMDataIcon name="chevron" size="s" />
+        <BIMDataIcon name="chevron" size="xxs" />
       </div>
       <label>{{ label }}</label>
       <span class="bar"></span>
