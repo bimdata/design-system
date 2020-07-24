@@ -1,26 +1,80 @@
 <template>
   <button
     class="bimdata-btn"
-    :style="{ 'min-width': width, height: height }"
+    :class="classes"
+    :style="style"
     @click="$emit('click', $event)"
+    :color="color"
   >
     <slot></slot>
   </button>
 </template>
 
 <script>
+import colors from "../../assets/colors.js"
+
 export default {
   name: "BIMDataButton",
   props: {
     width: {
       type: [Number, String],
-      default: "150px",
+      default: "32",
     },
     height: {
       type: [Number, String],
-      default: "32px",
+      default: "32",
     },
+    fill: {
+      type: Boolean,
+      default: false
+    },
+    outline: {
+      type: Boolean,
+      default: false
+    },
+    ghost: {
+      type: Boolean,
+      default: false
+    },
+    radius: {
+      type:  Boolean,
+      default: false
+    },
+    square: {
+      type:  Boolean,
+      default: false
+    },
+    rounded: {
+      type:  Boolean,
+      default: false
+    },
+    color: {
+      type: String,
+      required: true,
+      validator: color => colors.includes(color)
+    }
   },
+  computed: {
+    classes() {
+      return {
+        'bimdata-btn__fill': this.fill,
+        'bimdata-btn__outline': this.outline,
+        'bimdata-btn__ghost': this.ghost,
+        'bimdata-btn__radius': this.radius,
+        'bimdata-btn__square': this.square,
+        'bimdata-btn__rounded': this.rounded,
+        [`bimdata-btn__fill--${this.color}`]: this.fill && this.color,
+        [`bimdata-btn__outline--${this.color}`]: this.outline && this.color,
+        [`bimdata-btn__ghost--${this.color}`]: this.ghost && this.color,
+      }
+    },
+    style() {
+      return {
+        'min-width': `${this.width}px`,
+        height: `${this.height}px`
+      };
+    }
+  }
 };
 </script>
 

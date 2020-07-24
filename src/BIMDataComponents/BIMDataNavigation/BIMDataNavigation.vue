@@ -7,24 +7,26 @@
       <BIMDataButton
         @click="$emit('first')"
         :disabled="firstDisabled"
-        class="bimdata-btn__ghost"
+        ghost
+        color="default"
         :class="{ disabled: firstDisabled }"
-        width="36px"
-        height="21px"
+        width="36"
+        height="21"
       >
-        <BIMDataIcon name="doubleChevron" size="s" />
+        <BIMDataIcon name="doubleChevron" class="icon-double-chevron-left" size="xxxs" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="previous">
       <BIMDataButton
         @click="$emit('previous')"
         :disabled="previousDisabled"
-        class="bimdata-btn__ghost"
+        ghost
+        color="default"
         :class="{ disabled: previousDisabled }"
-        width="36px"
-        height="21px"
+        width="36"
+        height="21"
       >
-        <BIMDataIcon name="chevron" size="s" />
+        <BIMDataIcon name="chevron" class="icon-chevron-left" size="xxxs" />
       </BIMDataButton>
     </li>
     <li>
@@ -34,24 +36,26 @@
       <BIMDataButton
         @click="$emit('next')"
         :disabled="nextDisabled"
-        class="bimdata-btn__ghost"
+        ghost
+        color="default"
         :class="{ disabled: nextDisabled }"
-        width="36px"
-        height="21px"
+        width="36"
+        height="21"
       >
-        <BIMDataIcon name="chevron" size="s" />
+        <BIMDataIcon name="chevron" size="xxxs" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="last">
       <BIMDataButton
         @click="$emit('last')"
         :disabled="lastDisabled"
-        class="bimdata-btn__ghost"
+        ghost
+        color="default"
         :class="{ disabled: lastDisabled }"
-        width="36px"
-        height="21px"
+        width="36"
+        height="21"
       >
-        <BIMDataIcon name="doubleChevron" size="s" />
+        <BIMDataIcon name="doubleChevron" size="xxxs" />
       </BIMDataButton>
     </li>
     <li v-if="$scopedSlots.right">

@@ -16,7 +16,10 @@
                 build expressive, consistent UI at BIMData.
               </p>
               <BIMDataButton
-                class="bimdata-btn bimdata-btn__radius bimdata-btn__fill bimdata-btn__fill--secondary"
+                width="150"
+                color="secondary"
+                radius
+                fill
               >
                 Get started now
               </BIMDataButton>
@@ -36,11 +39,13 @@
               <h5 class="bimdata-h5">{{ child.title }}</h5>
               <p class="bimdata-text">{{ child.text }}</p>
               <BIMDataButton
-                class="bimdata-btn bimdata-btn__radius bimdata-btn__fill"
-                :class="
+                width="150"
+                radius
+                fill
+                :color="
                   child.title === 'Variables'
-                    ? 'bimdata-btn__fill--secondary'
-                    : 'bimdata-btn__fill--primary'
+                    ? 'secondary'
+                    : 'primary'
                 "
               >
                 {{ child.btn }}

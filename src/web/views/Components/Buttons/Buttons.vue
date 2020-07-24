@@ -7,11 +7,13 @@
         <ComponentCode :componentTitle="$route.name">
           <template #module>
             <BIMDataButton
-              :width="getButtonWidth()"
-              :class="getOverviewButtonClasses()"
+              :width="Number(widthButton)"
+              :height="Number(heightButton)"
               :disabled="getButtonDisabled()"
+              :class="getOverviewButtonClasses()"
+              :color="selectedBtnOptionsvalues"
             >
-              <BIMDataIcon name="chevron" size="xxxs" />
+              <BIMDataIcon name="chevron" size="xxxs" v-if="checkboxIconChecked"/>
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -57,6 +59,18 @@
               >
               </BIMDataCheckbox>
             </div>
+
+            <h5 class="bimdata-h5">size</h5>
+            <BIMDataInput
+              v-model="widthButton"
+              placeholder="button's min-width in px"
+              type="number"
+            ></BIMDataInput>
+            <BIMDataInput
+              v-model="heightButton"
+              placeholder="button's height in px"
+              type="number"
+            ></BIMDataInput>
           </template>
 
           <template #import>
@@ -71,12 +85,11 @@
           <template #code>
             <pre>
               &lt;BIMDataButton
-                width="{{ getButtonWidth() }}"
-                class="bimdata-btn__{{
-                selectedBtnOptionstypes
-              }} bimdata-btn__{{ selectedBtnOptionstypes }}--{{
-                selectedBtnOptionsvalues
-              }} bimdata-btn__{{ selectedBtnOptionskinds }}"
+                width="{{Number(widthButton)}}"
+                height="{{Number(heightButton)}}"
+                color="{{ selectedBtnOptionsvalues }}"
+                {{ selectedBtnOptionstypes }}
+                {{ selectedBtnOptionskinds }}
                 :disabled="{{ getButtonDisabled() }}"&gt;
                 {{ getIcon() }}
                 {{ getText() }}
@@ -95,8 +108,11 @@
 </template>
 
 <script>
+import colors from "../../../../assets/colors.js"
+
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -113,35 +129,89 @@ export default {
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataIcon,
+    BIMDataInput,
   },
   data() {
     return {
       message: "",
+      widthButton: 32,
+      heightButton: 32,
       checkboxIconChecked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
       selectedBtnOptionstypes: "fill",
       selectedBtnOptionskinds: "radius",
-      selectedBtnOptionsvalues: "default",
+      selectedBtnOptionsvalues: "primary",
       btnOptions: {
         types: ["fill", "outline", "ghost"],
         kinds: ["radius", "square", "rounded"],
-        values: ["default", "primary", "secondary", "grey", "red"],
+        values: colors,
       },
       propsData: [
-        ["Props", "Type", "Default value", "Description"],
+        ["Props", "Type", "Required", "Default value", "Description"],
+        [
+          "color",
+          "String",
+          "true",
+          "",
+          "Use this props to use ghost button",
+        ],
         [
           "width",
-          "Number, String",
-          "150px",
-          "Use this props to change the width of the button",
+          "[Number, String]",
+          "",
+          "32",
+          "Use this props to change the min-width of the button",
         ],
         [
           "height",
-          "Number, String",
-          "32px",
+          "[Number, String]",
+          "",
+          "32",
           "Use this props to change the height of the button",
         ],
+        [
+          "fill",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use fill button",
+        ],
+        [
+          "outline",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use outline button",
+        ],
+        [
+          "ghost",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use ghost button",
+        ],
+        [
+          "radius",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use radius button",
+        ],
+        [
+          "square",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use square button",
+        ],
+        [
+          "rounded",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use rounded button",
+        ]
       ],
     };
   },
@@ -181,17 +251,6 @@ export default {
   methods: {
     getOverviewButtonClasses() {
       return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
-    },
-    getButtonWidth() {
-      if (
-        this.selectedBtnOptionskinds.includes("rounded") ||
-        (this.checkboxIconChecked === true &&
-          this.checkboxTextChecked === false)
-      ) {
-        return "32px";
-      } else {
-        return "300px";
-      }
     },
     getIcon() {
       if (this.checkboxIconChecked) {

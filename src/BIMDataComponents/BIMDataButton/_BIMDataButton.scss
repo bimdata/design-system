@@ -1,5 +1,5 @@
 .bimdata-btn {
-  padding: 0;
+  padding: 0 $spacing-unit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@
     outline: none;
   }
   svg {
-    margin: 0 calc(#{$spacing-unit} / 2);
+    margin-right: calc(#{$spacing-unit} / 2);
   }
   svg:only-child {
     margin: 0;
@@ -59,15 +59,15 @@
       }
     }
     /* style BIMDATA BTN GREY FILL ------------- */
-    &--grey {
+    &--tertiary-darkest {
       background-color: $color-tertiary-dark;
       color: $color-white;
       &:hover {
         background-color: lighten($color-tertiary-dark, 10%);
       }
     }
-    /* style BIMDATA BTN GREY FILL ------------- */
-    &--red {
+    /* style BIMDATA BTN RED FILL ------------- */
+    &--high {
       background-color: $color-high;
       color: $color-white;
       &:hover {
@@ -109,14 +109,14 @@
         background-color: lighten($color-secondary, 40%);
       }
     }
-    &--grey {
+    &--tertiary-darkest {
       border-color: $color-tertiary-dark;
       color: $color-tertiary-dark;
       &:hover {
         background-color: $color-tertiary-lightest;
       }
     }
-    &--red {
+    &--high {
       border-color: $color-high;
       color: $color-high;
       &:hover {
@@ -152,13 +152,13 @@
         background-color: lighten($color-secondary, 40%);
       }
     }
-    &--grey {
+    &--tertiary-darkest {
       color: $color-tertiary-dark;
       &:hover {
         background-color: $color-tertiary-lightest;
       }
     }
-    &--red {
+    &--high {
       color: $color-high;
       &:hover {
         background-color: lighten($color-high, 40%);
