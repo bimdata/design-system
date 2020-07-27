@@ -1,7 +1,7 @@
 <template>
   <div class="spacing-system__margin">
     <h2 class="bimdata-h2">Margin</h2>
-    <ComponentCode componentTitle="margin" language="scss">
+    <ComponentCode componentTitle="margin">
       <template #module>
         <div class="ds-spacing">
           <div :class="getMarginClass()">
@@ -11,7 +11,7 @@
       </template>
 
       <template #parameters>
-        <div class="d-flex">
+        <div class="flex">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size">
             <h5 class="bimdata-h5">{{ size }}</h5>
             <BIMDataCheckbox
@@ -25,13 +25,6 @@
             </BIMDataCheckbox>
           </div>
         </div>
-      </template>
-
-      <template #import>
-        <pre>
-          // import BIMDATA COMPONENT UTILITIES
-          @import "@/assets/scss/utilities/_spacing.scss";
-        </pre>
       </template>
 
       <template #code>
