@@ -26,8 +26,8 @@
       </template>
       <template #import>
         <pre>
-          // import BIMDATA COMPONENT MIXINS
-          @import "@/assets/scss/mixins/_font-size.scss";
+          // import BIMDATA COMPONENT UTILITIES
+          @import "node_modules/@bimdata/design-system/dist/scss/utilities/text.scss"
         </pre>
       </template>
       <template #code>
@@ -38,23 +38,17 @@
         >
       </template>
     </ComponentCode>
-    <div class="m-y-12">
-      <h6 class="bimdata-h6">Class summary</h6>
-      <BIMDataTable :rows="classSummary"></BIMDataTable>
-    </div>
   </div>
 </template>
 
 <script>
 import ComponentCode from "../../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataRadio from "../../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "../../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 export default {
   components: {
     ComponentCode,
     BIMDataRadio,
-    BIMDataTable,
   },
   data() {
     return {
@@ -72,10 +66,6 @@ export default {
         ],
         weight: ["primary-font", "primary-font-medium", "primary-font-bold"],
       },
-      classSummary: [
-        ["Class Name", "Size", "Output value"],
-        ["bimdata-h1", "34px (2.4em)", "font-size: 2.42857em;"],
-      ],
     };
   },
   methods: {
