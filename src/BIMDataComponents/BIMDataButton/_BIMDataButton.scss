@@ -7,6 +7,7 @@
   border: none;
   color: $color-primary;
   cursor: pointer;
+  font-family: $primary-font;
   font-size: calculateEm(12px);
   transition: all 0.1s ease;
   &:hover {
