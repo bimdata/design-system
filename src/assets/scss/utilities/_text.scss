@@ -1,4 +1,6 @@
 @import "../BIMDataVariables";
+@import "../BIMDataFonts";
+@import "../mixins/font-size";
 
 .bimdata-h1,
 .bimdata-h2,
@@ -7,40 +9,42 @@
 .bimdata-h5,
 .bimdata-h6,
 .bimdata-text {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 /* BIMDATA FONT SIZE */
-.bimdata-h1{
+.bimdata-h1 {
   font-size: calculateEm(34px);
 }
-.bimdata-h2{
+.bimdata-h2 {
   font-size: calculateEm(30px);
-  font-family: $primary-font-bold;
 }
-.bimdata-h3{
+.bimdata-h3 {
   font-size: calculateEm(26px);
 }
-.bimdata-h4{
+.bimdata-h4 {
   font-size: calculateEm(24px);
 }
-.bimdata-h5{
+.bimdata-h5 {
   font-size: calculateEm(20px);
 }
-.bimdata-h6{
+.bimdata-h6 {
   font-size: calculateEm(16px);
 }
-.bimdata-text{
+.bimdata-text {
   font-size: calculateEm(14px);
 }
 
 /* BIMDATA FONT WEIGHT */
- .primary-font{
-   font-family: "robotoregular";
- }
- .primary-font-medium{
-   font-family: "robotomedium";
- }
- .primary-font-bold{
-   font-family: "robotobold";
- }
+.primary-font {
+  font-family: $primary-font;
+  font-weight: 400;
+}
+.primary-font-medium {
+  font-family: $primary-font-medium;
+  font-weight: 500;
+}
+.primary-font-bold {
+  font-family: $primary-font-bold;
+  font-weight: 700;
+}
