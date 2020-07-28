@@ -5,6 +5,7 @@ textarea:-webkit-autofill {
 .bimdata-textarea {
   position: relative;
   inline-size: min-content;
+  font-family: $primary-font;
   textarea {
     padding: 0px;
     width: 100%;
