@@ -8,8 +8,8 @@
           <BIMDataInput
             v-model="textInput"
             placeholder="Your placeholder here"
-            :error="errorState"
-            :success="successState"
+            :error="errorMessage"
+            :success="successMessage"
             :errorMessage="getErrorMessage()"
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"
@@ -22,17 +22,17 @@
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="error" v-model="error" :disabled="success" />
-          <BIMDataCheckbox text="success" v-model="success" :disabled="error" />
+          <BIMDataCheckbox text="error" v-model="error" :disabled="success || successMessage" />
+          <BIMDataCheckbox text="success" v-model="success" :disabled="error || errorMessage" />
           <BIMDataCheckbox
             text="error message"
             v-model="errorMessage"
-            :disabled="success"
+            :disabled="success || successMessage"
           />
           <BIMDataCheckbox
             text="success message"
             v-model="successMessage"
-            :disabled="error"
+            :disabled="error || errorMessage"
           />
           <BIMDataCheckbox text="icon" v-model="inputIcon" />
           <BIMDataCheckbox text="loading" v-model="loading" />
