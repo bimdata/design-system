@@ -1,8 +1,8 @@
 {
   "name": "@bimdata/design-system",
   "version": "0.0.18",
-  "main": "./dist/js/design-system.js",
-  "module": "./dist/js/design-system.esm.js",
+  "main": "./dist/js/index.js",
+  "module": "./dist/js/index.js",
   "files": [
     "dist/*"
   ],
