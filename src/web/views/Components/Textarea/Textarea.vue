@@ -74,7 +74,7 @@ export default {
           "name",
           "[String, Number]",
           "null",
-          "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the for of the label.",
+          "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the 'for' of the label.",
         ],
         [
           "autofocus",
@@ -139,8 +139,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Textarea.scss";
-</style>
