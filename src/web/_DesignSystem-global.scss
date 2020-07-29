@@ -46,6 +46,7 @@ pre[class*="language-"] {
       background-color: $color-secondary;
       border-radius: 3px;
       font-size: 11px;
+      line-height: 18px;
       transition: all 0.25s ease-in;
       &:hover {
         background-color: lighten($color-secondary, 10%);
