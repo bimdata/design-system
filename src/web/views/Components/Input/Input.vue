@@ -169,8 +169,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Input.scss";
-</style>
