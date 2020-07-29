@@ -1,7 +1,7 @@
 <template>
   <div class="spacing-system__padding">
     <h2 class="bimdata-h2">Padding</h2>
-    <ComponentCode componentTitle="Padding" language="scss">
+    <ComponentCode componentTitle="Padding">
       <template #module>
         <div class="ds-spacing">
           <div class="ds-spacing__padding" :class="getPaddingClass()">
@@ -11,7 +11,7 @@
       </template>
 
       <template #parameters>
-        <div class="d-flex">
+        <div class="flex">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size">
             <h5 class="bimdata-h5">{{ size }}</h5>
             <BIMDataCheckbox
@@ -25,13 +25,6 @@
             </BIMDataCheckbox>
           </div>
         </div>
-      </template>
-
-      <template #import>
-        <pre>
-          // import BIMDATA COMPONENT UTILITIES
-          @import "@/assets/scss/utilities/_spacing.scss";
-        </pre>
       </template>
 
       <template #code>

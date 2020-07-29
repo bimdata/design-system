@@ -10,7 +10,7 @@
       <slot name="parameters"></slot>
     </div>
 
-    <div class="bimdata-ds__demo__import">
+    <div class="bimdata-ds__demo__import" v-if="language">
       <pre :class="`language-${language}`" v-copy="onCopy">
       <span class="bimdata-ds__demo__import__language">{{language}}</span>
         <code :class="`language-${language}`" v-highlight:[language]>
@@ -64,7 +64,7 @@ export default {
     },
     language: {
       type: String,
-      default: "javascript",
+      default: null,
     },
   },
   directives: { highlight, copy },

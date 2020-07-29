@@ -9,7 +9,7 @@
         <img src="../../../assets/img/design-system__icon-warning.jpg" alt="" />
       </div>
 
-      <ComponentCode :componentTitle="$route.name">
+      <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataSearchInput
             :clear="true"

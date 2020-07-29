@@ -14,6 +14,7 @@
     background-color: transparent;
     border: none;
     box-sizing: border-box;
+    font-family: $primary-font;
     font-size: calculateEm(12px);
     &:focus {
       outline: none;

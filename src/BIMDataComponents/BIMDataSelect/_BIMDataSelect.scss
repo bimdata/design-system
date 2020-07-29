@@ -5,6 +5,7 @@ select:-webkit-autofill {
 // custom SELECT - BCF EDIT
 .bimdata-select {
   position: relative;
+  font-family: $primary-font;
   &__content {
     height: 32px;
     .select {

@@ -7,6 +7,7 @@ input:-webkit-autofill {
   min-height: 32px;
   margin: calc(#{$spacing-unit} * 2) 0;
   position: relative;
+  font-family: $primary-font;
   &.not-empty {
     label {
       top: -22px;

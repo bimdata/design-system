@@ -3,9 +3,9 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <nav>
-        <AnchorLink v-for="elem of elements" :key="elem" :target="elem">{{
-          elem
-        }}</AnchorLink>
+        <AnchorLink v-for="elem of elements" :key="elem" :target="elem">
+          {{ elem }}
+        </AnchorLink>
       </nav>
       <div class="spacing-system" id="spacing-system">
         <div>
@@ -22,7 +22,7 @@
           <Code language="scss">
             <pre>
               // import BIMDATA SPACING UTILITIES
-              @import "@/assets/scss/utilities/_spacing.scss";
+              @import "node_modules/@bimdata/design-system/dist/scss/mixins/spacing.scss";
             </pre>
           </Code>
         </div>
@@ -63,6 +63,7 @@ export default {
 <style lang="scss" scoped>
 // import BIMDATA VARIABLES
 @import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/scss/utilities/_flex.scss";
 
 // import COMPONENT STYLE
 @import "./_Spacing.scss";

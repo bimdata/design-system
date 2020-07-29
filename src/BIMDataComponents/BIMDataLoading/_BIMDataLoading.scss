@@ -10,6 +10,7 @@
   flex-direction: column;
   background-color: rgba($color-primary, 0.9);
   color: $color-white;
+  font-family: $primary-font;
   z-index: 2;
   &--square {
     width: 20px;
