@@ -6,6 +6,7 @@
       <ComponentCode
         :componentTitle="$route.name"
         :class="changeBackgroundColor"
+        language="javascript"
       >
         <template #module>
           <BIMDataSearch
