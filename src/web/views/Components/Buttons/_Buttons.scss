@@ -5,12 +5,4 @@
       width: 100%;
     }
   }
-  ::v-deep .bimdata-table {
-    &:first-child {
-      th:last-child,
-      td:last-child {
-        flex-grow: 2;
-      }
-    }
-  }
 }
