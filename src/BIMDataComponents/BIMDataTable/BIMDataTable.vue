@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <table class="bimdata-table">
+  <div class="bimdata-table" :class="{'bimdata-table__compensated': compensated}">
+    <table>
       <thead>
         <tr>
           <th
@@ -28,6 +28,10 @@
 <script>
 export default {
   props: {
+    compensated: {
+      type: Boolean,
+      default: false
+    },
     rows: {
       validator(rows) {
         try {
