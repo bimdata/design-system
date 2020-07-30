@@ -4,7 +4,7 @@
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
       <div class="button-overview">
-        <ComponentCode :componentTitle="$route.name" language="javascript">
+        <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/zYrQQrb" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue">
           <template #module>
             <BIMDataButton
               :width="Number(widthButton)"
