@@ -1,11 +1,11 @@
 <template>
   <div class="bimdata-ds__demo">
     <h3 class="bimdata-h3">Examples</h3>
-    <div class="bimdata-ds__demo__module">
+    <div class="bimdata-ds__demo__module" :class="{'without-options': !componentTitle}">
       <slot name="module"></slot>
     </div>
 
-    <div class="bimdata-ds__demo__parameters">
+    <div class="bimdata-ds__demo__parameters" v-if="componentTitle">
       <h4 class="bimdata-h4">{{ componentTitle }} options</h4>
       <slot name="parameters"></slot>
     </div>

@@ -25,6 +25,9 @@
     align-items: center;
     justify-content: center;
     border: 1px solid $color-tertiary;
+    &.without-options {
+      grid-column: 1/4;
+    }
   }
   &__parameters {
     padding: 1rem 1rem 1rem 2rem;
