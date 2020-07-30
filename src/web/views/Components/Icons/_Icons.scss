@@ -59,14 +59,4 @@
       }
     }
   }
-  ::v-deep .bimdata-table {
-    th:nth-child(5),
-    td:nth-child(5) {
-      flex-grow: 3;
-    }
-    th:last-child,
-    td:last-child {
-      flex-grow: 2;
-    }
-  }
 }
