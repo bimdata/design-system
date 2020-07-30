@@ -8,6 +8,22 @@
     <div class="bimdata-ds__demo__parameters" v-if="componentTitle">
       <h4 class="bimdata-h4">{{ componentTitle }} options</h4>
       <slot name="parameters"></slot>
+      <div class="bimdata-ds__demo__parameters--links" v-if="codepenLink || githubLink">
+        <BIMDataTooltip message="edit on codepen" className="bimdata-tooltip--bottom bimdata-tooltip--grey">
+          <template #content>
+            <a v-if="codepenLink" :href="codepenLink" target="_blank">
+              <img src="../../../assets/img/logo-codepen.svg"/>
+            </a>
+          </template>
+        </BIMDataTooltip>
+        <BIMDataTooltip message="view on github" className="bimdata-tooltip--bottom bimdata-tooltip--grey">
+          <template #content>
+            <a v-if="githubLink" :href="githubLink" target="_blank">
+              <img src="../../../assets/img/logo-github.svg"/>
+              </a>
+          </template>
+        </BIMDataTooltip>
+      </div>
     </div>
 
     <div class="bimdata-ds__demo__import" v-if="language">
@@ -36,10 +52,12 @@
 import highlight from "../../../../directives/highlight.js";
 import copy from "../../../../directives/copy.js";
 import Alerts from "../Alerts/Alerts.vue";
+import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
 
 export default {
   components: {
     Alerts,
+    BIMDataTooltip
   },
   data() {
     return {
@@ -66,6 +84,14 @@ export default {
       type: String,
       default: null,
     },
+    codepenLink: {
+      type: String,
+      default: null
+    },
+    githubLink: {
+      type: String,
+      default: null
+    }
   },
   directives: { highlight, copy },
 };
