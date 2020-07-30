@@ -29,7 +29,6 @@
 
         <template #parameters>
           <div
-            class="bimdata-ds__demo__parameters__options"
             v-for="[key, values] in Object.entries(iconOptions)"
             :key="key"
           >

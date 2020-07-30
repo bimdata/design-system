@@ -27,7 +27,7 @@
         </template>
 
         <template #parameters>
-          <div class="bimdata-ds__demo__parameters__options">
+          <div>
             <h5 class="bimdata-h5">Header</h5>
             <BIMDataCheckbox text="title" v-model="headerTitle">
             </BIMDataCheckbox>

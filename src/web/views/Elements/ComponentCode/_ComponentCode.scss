@@ -12,7 +12,7 @@
     }
   }
   &__module {
-    padding: 1rem;
+    padding: 1em;
     grid-area: 2 / 1 / 4 / 3;
     display: flex;
     position: relative;
@@ -25,14 +25,17 @@
     }
   }
   &__parameters {
-    padding: 1rem 1rem 1rem 2rem;
     grid-area: 2 / 3 / 4 / 4;
     background-color: $color-tertiary-lightest;
     &__options {
-      margin: 1rem 0;
+      padding: 1em 1em 1em 2em;
     }
     &--links {
+      height: 40px;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($color-tertiary, 0.4);
       .bimdata-tooltip {
         margin-right: 12px;
         a {
