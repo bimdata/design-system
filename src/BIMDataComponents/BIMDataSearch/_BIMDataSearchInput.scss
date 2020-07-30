@@ -22,7 +22,7 @@
   }
   &.focus {
     background-color: $color-white;
-    box-shadow: 0px 2px 10px rgba($color-black, 0.1);
+    box-shadow: $box-shadow;
     transition: all 0.2s ease;
   }
 
