@@ -13,6 +13,10 @@ module.exports = [
       format: "es",
     },
     plugins: [
+      replace({
+        "~@/assets": 'node_modules/@bimdata/design-system/dist',
+        delimiters: ['', '']
+      }),
       css({
         output: "dist/css/design-system.css",
       }),
@@ -29,11 +33,7 @@ module.exports = [
       }),
       vue({
         template: { isProduction: true },
-        css: true,
-      }),
-      replace({
-        "~@/assets": 'node_modules/@bimdata/design-system/dist',
-        delimiters: ['', '']
+        css: false,
       }),
       terser(),
     ],
@@ -66,12 +66,12 @@ function getSingleComponentConfigurations() {
       format: "es",
     },
     plugins: [
-      vue({
-        template: { isProduction: true },
-      }),
       replace({
         "~@/assets": 'node_modules/@bimdata/design-system/dist',
         delimiters: ['', '']
+      }),
+      vue({
+        template: { isProduction: true },
       }),
       terser(),
     ],
