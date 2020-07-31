@@ -89,7 +89,7 @@
                 color="{{ selectedBtnOptionsvalues }}"
                 {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }}
-                :disabled="{{ getButtonDisabled() }}"&gt;
+                disabled="{{ getButtonDisabled() }}"&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
