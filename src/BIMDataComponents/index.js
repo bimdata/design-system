@@ -1,4 +1,3 @@
-import "../assets/css/_BIMDataFonts.css";
 import "../assets/css/_BIMDataVariables.css";
 
 import "../assets/css/utilities/_colors.css";

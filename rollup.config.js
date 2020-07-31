@@ -24,6 +24,7 @@ module.exports = [
         targets: [
           { src: "src/assets/fonts", dest: "dist" },
           { src: "src/assets/scss", dest: "dist" },
+          { src: "src/assets/css/_BIMDataFonts.css", dest: "dist/css", rename: "fonts.css" },
           {
             src: "src/assets/scss/_BIMDataFonts.scss",
             dest:"dist/scss",
