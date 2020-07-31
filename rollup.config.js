@@ -13,6 +13,9 @@ module.exports = [
       format: "es",
     },
     plugins: [
+      css({
+        output: "dist/css/design-system.css",
+      }),
       copy({
         targets: [
           { src: "src/assets/fonts", dest: "dist" },
@@ -26,10 +29,11 @@ module.exports = [
       }),
       vue({
         template: { isProduction: true },
-        css: false,
+        css: true,
       }),
-      css({
-        output: "dist/css/design-system.css",
+      replace({
+        "~@/assets": 'node_modules/@bimdata/design-system/dist',
+        delimiters: ['', '']
       }),
       terser(),
     ],
@@ -62,12 +66,12 @@ function getSingleComponentConfigurations() {
       format: "es",
     },
     plugins: [
+      vue({
+        template: { isProduction: true },
+      }),
       replace({
         "~@/assets": 'node_modules/@bimdata/design-system/dist',
         delimiters: ['', '']
-      }),
-      vue({
-        template: { isProduction: true },
       }),
       terser(),
     ],
