@@ -84,6 +84,7 @@
     &:disabled {
       background-color: $color-disabled;
       color: $color-white;
+      cursor: auto;
     }
   }
   &__outline {
@@ -127,6 +128,7 @@
     &:disabled {
       border-color: $color-disabled;
       color: $color-disabled;
+      cursor: auto;
     }
   }
   &__ghost {
