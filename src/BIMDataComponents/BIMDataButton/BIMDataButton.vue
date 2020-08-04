@@ -71,7 +71,7 @@ export default {
     style() {
       return {
         'min-width': `${this.width}px`,
-        height: `${this.height}px`
+        'min-height': `${this.height}px`
       };
     }
   }
