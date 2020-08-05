@@ -17,8 +17,7 @@ import color from "./Color.vue";
 import cursor from "./Cursor.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
-import deployDown from "./DeployDown.vue";
-import deployUp from "./DeployUp.vue";
+import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import edit from "./Edit.vue";
@@ -80,8 +79,7 @@ export default {
   cursor,
   default: Default,
   delete: Delete,
-  deployDown,
-  deployUp,
+  deploy,
   detach,
   doubleChevron,
   edit,
