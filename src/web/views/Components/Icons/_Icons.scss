@@ -7,8 +7,11 @@
     margin: 0 0 $spacing-unit;
   }
   .bimdata-ds__demo {
+    ::v-deep.bimdata-ds__demo__module {
+      padding-top: 38px;
+      justify-content: flex-start;
+    }
     &__module {
-      padding: 0;
       .bimdata-search-bar {
         position: absolute;
         top: 0;
