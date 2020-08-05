@@ -33,6 +33,7 @@
               v-model="rotationDeg"
               placeholder="Degree of rotation"
               type="number"
+              min="0"
             ></BIMDataInput>
           <div
             v-for="[key, values] in Object.entries(iconOptions)"
