@@ -21,6 +21,7 @@ import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import edit from "./Edit.vue";
+import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import failed from "./Failed.vue";
 import filter from "./Filter.vue";
@@ -83,6 +84,7 @@ export default {
   detach,
   doubleChevron,
   edit,
+  export: Export,
   exportIfc,
   failed,
   filter,
