@@ -184,6 +184,14 @@ export default {
           "Use this props if size options is not enought for customize size for icon. The icons are in square format, so the width equals the height.",
           "25"
         ],
+        [
+          "rotate",
+          "Number",
+          "",
+          "0",
+          "Use this props for rotate your icon.",
+          "90, 180"
+        ]
       ],
     };
   },
