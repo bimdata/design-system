@@ -50,7 +50,7 @@ export default {
     },
     color: {
       type: String,
-      required: true,
+      default: "default",
       validator: color => colors.includes(color)
     }
   },
