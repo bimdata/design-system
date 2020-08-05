@@ -21,13 +21,19 @@
           <span class="icons-numbers">icons: {{ Object.keys(icons).length }}</span>
           <div class="icons">
             <div class="icon" v-for="icon of filteredList" :key="icon" :class="{ active: icon === activeIcon }" @click="onActiveIcons(icon)">
-              <BIMDataIcon :name="icon" :size="selectedIconOptionssize" :class="selectedIconOptionsclass"/>
+              <BIMDataIcon :name="icon" :size="selectedIconOptionssize" :class="selectedIconOptionsclass" :rotate="Number(rotationDeg)" />
               <p>{{ icon }}</p>
             </div>
           </div>
         </template>
 
         <template #parameters>
+          <h5 class="bimdata-h5">rotate</h5>
+            <BIMDataInput
+              v-model="rotationDeg"
+              placeholder="Degree of rotation"
+              type="number"
+            ></BIMDataInput>
           <div
             v-for="[key, values] in Object.entries(iconOptions)"
             :key="key"
@@ -54,7 +60,7 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" /&gt;
+            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" {{ getRotateDegree() }}/&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -72,6 +78,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataSearchInput from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 import icons from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/index.js";
 
@@ -87,17 +94,20 @@ export default {
     ComponentCode,
     BIMDataSearchInput,
     BIMDataRadio,
+    BIMDataInput,
     BIMDataIcon,
     BIMDataTable,
   },
   directives: { highlight, copy },
   data() {
     return {
+      rotationDeg: "",
       size: "m",
       icons,
       filter: "",
       selectedIconOptionsclass: "fill-primary",
       selectedIconOptionssize: "s",
+      checkboxIconRotate: false,
       activeIcon: "addFile",
       iconOptions: {
         class: [
@@ -138,7 +148,7 @@ export default {
           "xl",
           "xxl",
           "xxxl",
-        ],
+        ]
       },
       propsData: [
         ["Props", "Type", "Required", "Default value", "Description", "Examples"],
@@ -200,9 +210,13 @@ export default {
       if(this.selectedIconOptionssize === "s"){
         return null;
       } else {
-        // return "size='${this.selectedIconOptionssize}'";
       return `size="${this.selectedIconOptionssize}"`;
 
+      }
+    },
+    getRotateDegree() {
+      if(this.rotationDeg > 0) {
+        return `:rotate="${this.rotationDeg}"`
       }
     }
   },
