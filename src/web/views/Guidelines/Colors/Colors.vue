@@ -52,7 +52,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -71,7 +70,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -90,7 +88,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -109,7 +106,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -128,7 +124,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -147,7 +142,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -166,7 +160,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -185,7 +178,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -227,7 +219,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -246,7 +237,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -265,7 +255,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -284,7 +273,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -303,7 +291,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -322,7 +309,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -341,7 +327,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -360,7 +345,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -402,7 +386,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -421,7 +404,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -440,7 +422,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -459,7 +440,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -478,7 +458,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -497,7 +476,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -516,7 +494,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -535,7 +512,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -577,7 +553,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -596,7 +571,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -615,7 +589,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -634,7 +607,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -653,7 +625,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -672,7 +643,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -691,7 +661,6 @@
               <BIMDataButton
                 fill
                 radius
-                color="default"
                 width="55"
                 height="24"
                 >copy</BIMDataButton
@@ -710,7 +679,6 @@
               <BIMDataButton
                 fill
                 radius
-                color="default"
                 width="55"
                 height="24"
                 >copy</BIMDataButton
