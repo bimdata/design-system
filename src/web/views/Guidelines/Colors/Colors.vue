@@ -872,7 +872,7 @@ export default {
         {
           name: "Disabled",
           hex: "#bdbdbd",
-          rgb: "123, 123, 123",
+          rgb: "189, 189, 189",
           scss: "$color-disabled",
           css: "var(--color-disabled)",
           background: ".bg-disabled",
