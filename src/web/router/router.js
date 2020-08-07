@@ -25,6 +25,7 @@ import Buttons from "../views/Components/Buttons/Buttons.vue";
 import Card from "../views/Components/Card/Card.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
 import Icons from "../views/Components/Icons/Icons.vue";
+import Illustrations from "../views/Components/Illustrations/Illustrations.vue";
 import Input from "../views/Components/Input/Input.vue";
 import Loaders from "../views/Components/Loaders/Loaders.vue";
 import Pagination from "../views/Components/Pagination/Pagination.vue";
@@ -148,6 +149,11 @@ const routes = [
         path: "icons",
         name: "icons",
         component: Icons,
+      },
+      {
+        path: "illustrations",
+        name: "illustrations",
+        component: Illustrations,
       },
       {
         path: "input",
