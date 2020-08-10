@@ -6,6 +6,7 @@ import emptyTree from "./EmptyTree.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
 import shortcutRotate from "./ShortcutRotate.vue";
 import shortcutZoom from "./ShortcutZoom.vue";
+import successSplit from "./SuccessSplit.vue";
 
 export default {
   click,
@@ -15,5 +16,6 @@ export default {
   emptyTree,
   shortcutOpen,
   shortcutRotate,
-  shortcutZoom
+  shortcutZoom,
+  successSplit
 };

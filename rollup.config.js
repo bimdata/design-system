@@ -48,6 +48,7 @@ function getSingleComponentConfigurations() {
     "BIMDataCard",
     "BIMDataCheckbox",
     "BIMDataIcons",
+    "BIMDataIllustrations",
     "BIMDataInput",
     "BIMDataLoading",
     "BIMDataNavigation",

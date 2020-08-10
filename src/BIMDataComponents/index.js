@@ -11,6 +11,7 @@ import BIMDataButton from "./BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "./BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "./BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIcon from "./BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIllustration from "./BIMDataIllustrations/BIMDataIllustration.vue";
 import BIMDataInput from "./BIMDataInput/BIMDataInput.vue";
 import BIMDataLoading from "./BIMDataLoading/BIMDataLoading.vue";
 import BIMDataPaginatedList from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
@@ -29,6 +30,7 @@ const Components = {
   BIMDataCard,
   BIMDataCheckbox,
   BIMDataIcon,
+  BIMDataIllustration,
   BIMDataInput,
   BIMDataLoading,
   BIMDataPaginatedList,

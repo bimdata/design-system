@@ -30,11 +30,11 @@ export default {
     },
     x: {
       type: [Number, String],
-      default: 20,
+      default: 90,
     },
     y: {
       type: [Number, String],
-      default: 20,
+      default: 90,
     },
     customWidth: {
       type: [Number, String],
