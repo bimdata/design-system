@@ -3,74 +3,51 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle="$route.name" language="javascript">
+      <ComponentCode language="javascript">
         <template #module>
-          <!-- <BIMDataSearchInput
-            :clear="true"
-            class="bimdata-search-bar__primary"
-            placeholder="Search an icon"
-            v-model="filter"
-            width="95%"
-          /> -->
-          <!-- <span class="icons-numbers">icons: {{ Object.keys(icons).length }}</span> -->
           <div class="illustrations">
             <div class="illustration">
               <BIMDataIllustration name="click" x="23" y="30" />
               <p>clickIllustration</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyBcf" x="66" y="60" />
+              <BIMDataIllustration name="emptyBcf"/>
               <p>emptyBcf</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyBucket" x="58" y="76" />
+              <BIMDataIllustration name="emptyBucket"/>
               <p>emptyBucket</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyProperties" x="66" y="70" />
+              <BIMDataIllustration name="emptyProperties"/>
               <p>emptyProperties</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyTree" x="160" y="160" />
+              <BIMDataIllustration name="emptyTree"/>
               <p>emptyTree</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="shortcutOpen" x="147" y="101" />
+              <BIMDataIllustration name="shortcutOpen" x="200" y="200" />
               <p>shortcutOpen</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="shortcutRotate" x="175" y="130" />
+              <BIMDataIllustration name="shortcutRotate" x="200" y="200" />
               <p>shortcutRotate</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="shortcutZoom" x="124" y="153" />
+              <BIMDataIllustration name="shortcutZoom" x="200" y="200" />
               <p>shortcutZoom</p>
+            </div>
+            <div class="illustration">
+              <BIMDataIllustration name="successSplit" x="200" y="200" />
+              <p>successSplit</p>
             </div>
           </div>
         </template>
 
-        <template #parameters>
-          <!-- <div
-            v-for="[key, values] in Object.entries(iconOptions)"
-            :key="key"
-          >
-            <h5 class="bimdata-h5">{{ key }}</h5>
-            <BIMDataRadio
-              v-for="value in values"
-              :key="value"
-              :text="value"
-              :id="value"
-              :value="value"
-              :name="key"
-              v-model="$data[`selectedIconOptions${key}`]"
-            >
-            </BIMDataRadio>
-          </div> -->
-        </template>
-
         <template #import>
           <pre>
-            import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+            import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustrations.js";
           </pre>
         </template>
 
@@ -88,8 +65,8 @@
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIllustration.vue";
-import illustrations from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIllustrations/index.js";
+import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustrations/BIMDataIllustration.vue";
+import illustrations from "../../../../../src/BIMDataComponents/BIMDataIllustrations/BIMDataLibraryIllustrations/index.js";
 
 export default {
   components: {
