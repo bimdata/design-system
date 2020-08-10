@@ -1,6 +1,7 @@
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
 import addUser from "./AddUser.vue";
+import alt from "./Alt.vue";
 import api from "./Api.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
@@ -8,8 +9,11 @@ import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
 import camera from "./Camera.vue";
+import cancelCamera from "./CancelCamera.vue";
 import check from "./Check.vue";
 import chevron from "./Chevron.vue";
+import classificationCategorie from "./ClassificationCategorie.vue";
+import classificationElement from "./ClassificationElement.vue";
 import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
@@ -41,6 +45,7 @@ import minus from "./Minus.vue";
 import model3d from "./Model3d.vue";
 import plus from "./Plus.vue";
 import project from "./Project.vue";
+import quickSelect from "./QuickSelect.vue";
 import refresh from "./Refresh.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
 import rules from "./Rules.vue";
@@ -51,19 +56,24 @@ import settings from "./Settings.vue";
 import show from "./Show.vue";
 import showSelected from "./ShowSelected.vue";
 import socotec from "./Socotec.vue";
+import space from "./Space.vue";
 import storey from "./Storey.vue";
 import success from "./Success.vue";
+import system from "./System.vue";
 import tree from "./Tree.vue";
 import union from "./Union.vue";
 import user from "./User.vue";
 import validate from "./Validate.vue";
+import video from "./Video.vue";
 import warning from "./Warning.vue";
 import windowed from "./Windowed.vue";
+import zone from "./Zone.vue";
 
 export default {
   addFile,
   addFolder,
   addUser,
+  alt,
   api,
   arrow,
   attach,
@@ -71,8 +81,11 @@ export default {
   building,
   burgerMenu,
   camera,
+  cancelCamera,
   check,
   chevron,
+  classificationCategorie,
+  classificationElement,
   click,
   close,
   cloud,
@@ -104,6 +117,7 @@ export default {
   model3d,
   plus,
   project,
+  quickSelect,
   refresh,
   reprocessIfc,
   rules,
@@ -114,12 +128,16 @@ export default {
   show,
   showSelected,
   socotec,
+  space,
   storey,
   success,
+  system,
   tree,
   union,
   user,
   validate,
+  video,
   warning,
-  windowed
+  windowed,
+  zone
 };
