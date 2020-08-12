@@ -8,7 +8,7 @@
       <slot name="content"></slot>
     </div>
     <span
-      v-if="isTooltipHover"
+      v-if="message && isTooltipHover"
       ref="tooltipText"
       class="bimdata-tooltip__text"
       :class="className"
@@ -25,7 +25,6 @@ export default {
     message: {
       type: String,
       default: null,
-      required: true,
     },
     className: {
       type: [String, Array],
