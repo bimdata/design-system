@@ -10,19 +10,19 @@ import BIMDataBigSpinner from "./BIMDataBigSpinner/BIMDataBigSpinner.vue";
 import BIMDataButton from "./BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "./BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "./BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "./BIMDataIcons/BIMDataIcon.vue";
-import BIMDataIllustration from "./BIMDataIllustrations/BIMDataIllustration.vue";
+import BIMDataIcon from "./BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIllustration from "./BIMDataIllustration/BIMDataIllustration.vue";
 import BIMDataInput from "./BIMDataInput/BIMDataInput.vue";
 import BIMDataLoading from "./BIMDataLoading/BIMDataLoading.vue";
 import BIMDataPaginatedList from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataRadio from "./BIMDataRadio/BIMDataRadio.vue";
-import BIMDataSearch from "./BIMDataSearch/BIMDataSearchInput.vue";
+import BIMDataSearch from "./BIMDataSearch/BIMDataSearch.vue";
 import BIMDataSelect from "./BIMDataSelect/BIMDataSelect.vue";
 import BIMDataTable from "./BIMDataTable/BIMDataTable.vue";
 import BIMDataTextarea from "./BIMDataTextarea/BIMDataTextarea.vue";
 import BIMDataTooltip from "./BIMDataTooltip/BIMDataTooltip.vue";
 
-import icons from "./BIMDataIcons/BIMDataLibraryIcons/index.js"
+import icons from "./BIMDataIcon/BIMDataLibraryIcons/index.js"
 
 const Components = {
   BIMDataBigSpinner,

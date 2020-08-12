@@ -2,7 +2,7 @@ import { terser } from "rollup-plugin-terser";
 import vue from "rollup-plugin-vue";
 import css from "rollup-plugin-css-only";
 import copy from "rollup-plugin-copy";
-import replace from '@rollup/plugin-replace';
+import replace from "@rollup/plugin-replace";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
@@ -27,9 +27,15 @@ module.exports = [
           { src: "src/assets/css/_BIMDataFonts.css", dest: "dist/css", rename: "fonts.css" },
           {
             src: "src/assets/scss/_BIMDataFonts.scss",
-            dest:"dist/scss",
-            transform: (contents) => contents.toString().replace(/~@\/assets/g, "node_modules/@bimdata/design-system/dist")
-          }
+            dest: "dist/scss",
+            transform: contents =>
+              contents
+                .toString()
+                .replace(
+                  /~@\/assets/g,
+                  "node_modules/@bimdata/design-system/dist"
+                ),
+          },
         ],
       }),
       vue({
@@ -47,8 +53,8 @@ function getSingleComponentConfigurations() {
     "BIMDataButton",
     "BIMDataCard",
     "BIMDataCheckbox",
-    "BIMDataIcons",
-    "BIMDataIllustrations",
+    "BIMDataIcon",
+    "BIMDataIllustration",
     "BIMDataInput",
     "BIMDataLoading",
     "BIMDataNavigation",
@@ -62,15 +68,15 @@ function getSingleComponentConfigurations() {
   ];
 
   return componentNames.map(componentName => ({
-    input: [`src/BIMDataComponents/${componentName}/${componentName}.js`],
+    input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
     output: {
       file: `dist/js/BIMDataComponents/${componentName}.js`,
       format: "es",
     },
     plugins: [
       replace({
-        "~@/assets": 'node_modules/@bimdata/design-system/dist',
-        delimiters: ['', '']
+        "~@/assets": "node_modules/@bimdata/design-system/dist",
+        delimiters: ["", ""],
       }),
       vue({
         template: { isProduction: true },

@@ -16,7 +16,7 @@
             :disabled="getDisabled()"
           >
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIcon name="show" class="fill-tertiary-dark"/>
+              <BIMDataIcon name="show" class="fill-tertiary-dark" />
             </template>
           </BIMDataInput>
         </template>
@@ -74,7 +74,7 @@ import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMD
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
 export default {
   components: {

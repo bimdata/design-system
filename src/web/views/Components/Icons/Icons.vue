@@ -11,17 +11,30 @@
 
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataSearchInput
+          <BIMDataSearch
             :clear="true"
             class="bimdata-search-bar__primary"
             placeholder="Search an icon"
             v-model="filter"
             width="95%"
           />
-          <span class="icons-numbers">icons: {{ Object.keys(icons).length }}</span>
+          <span class="icons-numbers"
+            >icons: {{ Object.keys(icons).length }}</span
+          >
           <div class="icons">
-            <div class="icon" v-for="icon of filteredList" :key="icon" :class="{ active: icon === activeIcon }" @click="onActiveIcons(icon)">
-              <BIMDataIcon :name="icon" :size="selectedIconOptionssize" :class="selectedIconOptionsclass" :rotate="Number(rotationDeg)" />
+            <div
+              class="icon"
+              v-for="icon of filteredList"
+              :key="icon"
+              :class="{ active: icon === activeIcon }"
+              @click="onActiveIcons(icon)"
+            >
+              <BIMDataIcon
+                :name="icon"
+                :size="selectedIconOptionssize"
+                :class="selectedIconOptionsclass"
+                :rotate="Number(rotationDeg)"
+              />
               <p>{{ icon }}</p>
             </div>
           </div>
@@ -55,7 +68,7 @@
 
         <template #import>
           <pre>
-            import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+            import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcon.js";
           </pre>
         </template>
 
@@ -82,13 +95,13 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataSearchInput from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
-import icons from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/index.js";
+import icons from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons/index.js";
 
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
@@ -98,7 +111,7 @@ import copy from "../../../../directives/copy.js";
 export default {
   components: {
     ComponentCode,
-    BIMDataSearchInput,
+    BIMDataSearch,
     BIMDataRadio,
     BIMDataInput,
     BIMDataIcon,
@@ -144,20 +157,17 @@ export default {
           "stroke-warning",
           "stroke-high",
         ],
-        size: [
-          "xxxs",
-          "xxs",
-          "xs",
-          "s",
-          "m",
-          "l",
-          "xl",
-          "xxl",
-          "xxxl",
-        ]
+        size: ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"],
       },
       propsData: [
-        ["Props", "Type", "Required", "Default value", "Description", "Examples"],
+        [
+          "Props",
+          "Type",
+          "Required",
+          "Default value",
+          "Description",
+          "Examples",
+        ],
         [
           "name",
           "String",
@@ -172,7 +182,7 @@ export default {
           "",
           "currentColor",
           "This props allows you to customize the color of the icon's fill.",
-          "red, blue, green..."
+          "red, blue, green...",
         ],
         [
           "size",
@@ -180,7 +190,7 @@ export default {
           "",
           "s",
           "Several custom size are available to handle the custom icons size.",
-          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl."
+          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl.",
         ],
         [
           "customSize",
@@ -188,7 +198,7 @@ export default {
           "",
           "null",
           "Use this props if size options is not enought for customize size for icon. The icons are in square format, so the width equals the height.",
-          "25"
+          "25",
         ],
         [
           "rotate",
@@ -215,7 +225,7 @@ export default {
   },
   computed: {
     filteredList() {
-      return  Object.keys(icons).filter(iconName => {
+      return Object.keys(icons).filter(iconName => {
         return iconName.toLowerCase().includes(this.filter.toLowerCase());
       });
     },
@@ -233,7 +243,7 @@ export default {
       }, 3000);
     },
     getIconOptionsSize() {
-      if(this.selectedIconOptionssize === "s"){
+      if (this.selectedIconOptionssize === "s") {
         return null;
       } else {
       return `size="${this.selectedIconOptionssize}"`;

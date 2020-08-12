@@ -4,7 +4,7 @@
 
 <script>
 /* import BIMData ICONS */
-import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 
 export default {
   components: {

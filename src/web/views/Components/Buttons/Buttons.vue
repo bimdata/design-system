@@ -14,7 +14,11 @@
               :color="selectedBtnOptionsvalues"
               :icon="checkboxIconChecked && !checkboxTextChecked"
             >
-              <BIMDataIcon name="chevron" size="xxxs" v-if="checkboxIconChecked"/>
+              <BIMDataIcon
+                name="chevron"
+                size="xxxs"
+                v-if="checkboxIconChecked"
+              />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -76,7 +80,7 @@
             "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
             <pre v-if="checkboxIconChecked === true">
               import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
-              import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcons.js";
+              import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcon.js";
             </pre>
           </template>
 
@@ -106,10 +110,10 @@
 </template>
 
 <script>
-import colors from "../../../../assets/colors.js"
+import colors from "../../../../assets/colors.js";
 
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
@@ -148,13 +152,7 @@ export default {
       },
       propsData: [
         ["Props", "Type", "Required", "Default value", "Description"],
-        [
-          "color",
-          "String",
-          "true",
-          "",
-          "Use this props to use ghost button",
-        ],
+        ["color", "String", "true", "", "Use this props to use ghost button"],
         [
           "width",
           "[Number, String]",
@@ -169,13 +167,7 @@ export default {
           "32",
           "Use this props to change the height of the button",
         ],
-        [
-          "fill",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use fill button",
-        ],
+        ["fill", "Boolean", "", "false", "Use this props to use fill button"],
         [
           "outline",
           "Boolean",
@@ -183,13 +175,7 @@ export default {
           "false",
           "Use this props to use outline button",
         ],
-        [
-          "ghost",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use ghost button",
-        ],
+        ["ghost", "Boolean", "", "false", "Use this props to use ghost button"],
         [
           "radius",
           "Boolean",
@@ -210,7 +196,7 @@ export default {
           "",
           "false",
           "Use this props to use rounded button",
-        ]
+        ],
       ],
     };
   },
