@@ -1,7 +1,7 @@
 // custom PAGINATED LIST
 .bimdata-paginated-list {
   font-family: $primary-font;
-  font-size: calculateEm(12px);
+  font-size: calculateEm(14px);
   line-height: 1.5;
   &--small {
     height: 100%;
@@ -12,6 +12,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        font-size: calculateEm(12px);
         &:nth-child(odd) {
           background-color: $color-tertiary-lightest;
         }
