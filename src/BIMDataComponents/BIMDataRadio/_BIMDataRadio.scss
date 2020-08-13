@@ -4,7 +4,7 @@
   color: $color-primary;
   line-height: 1.5;
   font-family: $primary-font;
-  font-size: calculateEm(12px);
+  font-size: calculateEm(14px);
   // custom INPUT
   & > input {
     margin: 0;
@@ -49,6 +49,7 @@
     padding-left: 23px;
     display: flex;
     align-items: center;
+    font-size: calculateEm(12px);
     cursor: pointer;
     &::before,
     &::after {
