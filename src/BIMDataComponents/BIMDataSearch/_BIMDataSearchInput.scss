@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
+  font-size: calculateEm(14px);
   .bimdata-search-icon {
     padding: 0 $spacing-unit;
     display: flex;
