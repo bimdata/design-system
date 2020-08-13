@@ -70,6 +70,11 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">Summary icons size:</h5>
+        <BIMDataTable :rows="iconsSizeData"></BIMDataTable>
+      </div>
     </div>
   </main>
 </template>
@@ -194,6 +199,18 @@ export default {
           "90, 180"
         ]
       ],
+      iconsSizeData: [
+        ["Size value", "Output"],
+        ["xxxs", "10px"],
+        ["xxs", "13px"],
+        ["xs", "16px"],
+        ["s", "18px"],
+        ["m", "22px"],
+        ["l", "28px"],
+        ["xl", "36px"],
+        ["xxl", "45px"],
+        ["xxxl", "60px"],
+      ]
     };
   },
   computed: {
