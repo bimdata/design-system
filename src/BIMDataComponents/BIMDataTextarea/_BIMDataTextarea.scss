@@ -6,6 +6,7 @@ textarea:-webkit-autofill {
   position: relative;
   inline-size: min-content;
   font-family: $primary-font;
+  font-size: calculateEm(14px);
   textarea {
     padding: 0px;
     width: 100%;
@@ -15,8 +16,6 @@ textarea:-webkit-autofill {
     display: flex;
     margin: 0px;
     border: none;
-    font-size: calculateEm(14px);
-
     &:disabled {
       background-color: transparent;
       & ~ label {
