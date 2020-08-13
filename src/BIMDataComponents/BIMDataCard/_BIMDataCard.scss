@@ -2,6 +2,7 @@
   background-color: $color-white;
   box-shadow: $box-shadow;
   font-family: $primary-font;
+  font-size: calculateEm(14px);
   &__content,
   &__footer {
     font-size: calculateEm(12px);
