@@ -21,15 +21,21 @@
           <span class="icons-numbers">icons: {{ Object.keys(icons).length }}</span>
           <div class="icons">
             <div class="icon" v-for="icon of filteredList" :key="icon" :class="{ active: icon === activeIcon }" @click="onActiveIcons(icon)">
-              <BIMDataIcon :name="icon" :size="selectedIconOptionssize" :class="selectedIconOptionsclass"/>
+              <BIMDataIcon :name="icon" :size="selectedIconOptionssize" :class="selectedIconOptionsclass" :rotate="Number(rotationDeg)" />
               <p>{{ icon }}</p>
             </div>
           </div>
         </template>
 
         <template #parameters>
+          <h5 class="bimdata-h5">rotate</h5>
+            <BIMDataInput
+              v-model="rotationDeg"
+              placeholder="Degree of rotation"
+              type="number"
+              min="0"
+            ></BIMDataInput>
           <div
-            class="bimdata-ds__demo__parameters__options"
             v-for="[key, values] in Object.entries(iconOptions)"
             :key="key"
           >
@@ -55,7 +61,7 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" /&gt;
+            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" {{ getRotateDegree() }}/&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -63,6 +69,11 @@
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">Summary icons size:</h5>
+        <BIMDataTable :rows="iconsSizeData"></BIMDataTable>
       </div>
     </div>
   </main>
@@ -73,6 +84,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataSearchInput from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 import icons from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataLibraryIcons/index.js";
 
@@ -88,17 +100,20 @@ export default {
     ComponentCode,
     BIMDataSearchInput,
     BIMDataRadio,
+    BIMDataInput,
     BIMDataIcon,
     BIMDataTable,
   },
   directives: { highlight, copy },
   data() {
     return {
+      rotationDeg: "",
       size: "m",
       icons,
       filter: "",
       selectedIconOptionsclass: "fill-primary",
       selectedIconOptionssize: "s",
+      checkboxIconRotate: false,
       activeIcon: "addFile",
       iconOptions: {
         class: [
@@ -139,7 +154,7 @@ export default {
           "xl",
           "xxl",
           "xxxl",
-        ],
+        ]
       },
       propsData: [
         ["Props", "Type", "Required", "Default value", "Description", "Examples"],
@@ -175,7 +190,27 @@ export default {
           "Use this props if size options is not enought for customize size for icon. The icons are in square format, so the width equals the height.",
           "25"
         ],
+        [
+          "rotate",
+          "Number",
+          "",
+          "0",
+          "Use this props for rotate your icon.",
+          "90, 180"
+        ]
       ],
+      iconsSizeData: [
+        ["Size value", "Output"],
+        ["xxxs", "10px"],
+        ["xxs", "13px"],
+        ["xs", "16px"],
+        ["s", "18px"],
+        ["m", "22px"],
+        ["l", "28px"],
+        ["xl", "36px"],
+        ["xxl", "45px"],
+        ["xxxl", "60px"],
+      ]
     };
   },
   computed: {
@@ -201,9 +236,13 @@ export default {
       if(this.selectedIconOptionssize === "s"){
         return null;
       } else {
-        // return "size='${this.selectedIconOptionssize}'";
       return `size="${this.selectedIconOptionssize}"`;
 
+      }
+    },
+    getRotateDegree() {
+      if(this.rotationDeg > 0) {
+        return `:rotate="${this.rotationDeg}"`
       }
     }
   },

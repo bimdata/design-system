@@ -3,7 +3,7 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle="$route.name" language="javascript">
+      <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/zYqYZrr" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue">
         <template #module>
           <BIMDataTextarea
             label="textarea label"
@@ -74,7 +74,7 @@ export default {
           "name",
           "[String, Number]",
           "null",
-          "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the for of the label.",
+          "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the 'for' of the label.",
         ],
         [
           "autofocus",
@@ -139,8 +139,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Textarea.scss";
-</style>

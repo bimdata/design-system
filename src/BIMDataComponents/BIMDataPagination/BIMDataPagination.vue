@@ -16,7 +16,7 @@
       >
     </template>
     <span class="bimdata-pagination__item">
-      <BIMDataButton ghost color="default" width="50" height="21">
+      <BIMDataButton ghost width="50" height="21">
         {{ currentPage }}
       </BIMDataButton>
     </span>

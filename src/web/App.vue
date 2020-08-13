@@ -45,6 +45,5 @@ export default {
 // import BIMDATA STYLE
 @import "../assets/scss/BIMData.scss";
 
-@import "../assets/css/_BIMDataFonts.css";
 @import "../assets/css/_BIMDataVariables.css";
 </style>

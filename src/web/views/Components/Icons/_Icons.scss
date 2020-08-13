@@ -7,8 +7,11 @@
     margin: 0 0 $spacing-unit;
   }
   .bimdata-ds__demo {
+    ::v-deep.bimdata-ds__demo__module {
+      padding-top: 38px;
+      justify-content: flex-start;
+    }
     &__module {
-      padding: 0;
       .bimdata-search-bar {
         position: absolute;
         top: 0;
@@ -57,16 +60,6 @@
       .bimdata-radio {
         font-size: 12px;
       }
-    }
-  }
-  ::v-deep .bimdata-table {
-    th:nth-child(5),
-    td:nth-child(5) {
-      flex-grow: 3;
-    }
-    th:last-child,
-    td:last-child {
-      flex-grow: 2;
     }
   }
 }

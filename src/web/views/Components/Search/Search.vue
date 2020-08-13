@@ -18,7 +18,6 @@
 
         <template #parameters>
           <div
-            class="bimdata-ds__demo__parameters__options"
             v-for="[key, values] in Object.entries(searchOptions)"
             :key="key"
           >
@@ -132,8 +131,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Search.scss";
-</style>

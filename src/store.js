@@ -143,6 +143,13 @@ export default new Vuex.Store({
           btn: "View icons",
         },
         {
+          title: "Illustrations",
+          img: require("./web/assets/img/icon-icons.svg"),
+          path: "illustrations",
+          text: "Illustrations are used to provide additional visual context.",
+          btn: "View illustrations",
+        },
+        {
           title: "Input",
           img: require("./web/assets/img/icon-input.svg"),
           path: "input",

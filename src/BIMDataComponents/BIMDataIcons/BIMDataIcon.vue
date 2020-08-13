@@ -53,16 +53,28 @@ export default {
     customSize: {
       type: [Number, String],
       default: null
+    },
+    rotate: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
     style() {
       const pixelSize = this.getPixelSize(this.size);
-      return {
-        width: `${pixelSize}px`,
-        height: `${pixelSize}px`
-      };
-    }
+      if(this.rotate > 0){
+        return {
+          width: `${pixelSize}px`,
+          height: `${pixelSize}px`,
+          transform: 'rotate('+this.rotate+'deg)'
+        }
+      } else {
+        return {
+          width: `${pixelSize}px`,
+          height: `${pixelSize}px`
+        };
+      }
+    },
   },
   methods: {
     getPixelSize() {

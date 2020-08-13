@@ -16,7 +16,6 @@
 
         <template #parameters>
           <div
-            class="bimdata-ds__demo__parameters__options"
             v-for="[key, values] in Object.entries(tooltipOptions)"
             :key="key"
           >
@@ -32,7 +31,7 @@
             >
             </BIMDataRadio>
           </div>
-          <div class="bimdata-ds__demo__parameters__options">
+          <div>
             <h5 class="bimdata-h5">modifiers</h5>
             <BIMDataCheckbox text="arrow" v-model="checkboxArrowChecked">
             </BIMDataCheckbox>

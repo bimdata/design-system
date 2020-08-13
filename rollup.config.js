@@ -13,10 +13,18 @@ module.exports = [
       format: "es",
     },
     plugins: [
+      replace({
+        "~@/assets": 'node_modules/@bimdata/design-system/dist',
+        delimiters: ['', '']
+      }),
+      css({
+        output: "dist/css/design-system.css",
+      }),
       copy({
         targets: [
           { src: "src/assets/fonts", dest: "dist" },
           { src: "src/assets/scss", dest: "dist" },
+          { src: "src/assets/css/_BIMDataFonts.css", dest: "dist/css", rename: "fonts.css" },
           {
             src: "src/assets/scss/_BIMDataFonts.scss",
             dest:"dist/scss",
@@ -27,9 +35,6 @@ module.exports = [
       vue({
         template: { isProduction: true },
         css: false,
-      }),
-      css({
-        output: "dist/css/design-system.css",
       }),
       terser(),
     ],
@@ -43,6 +48,7 @@ function getSingleComponentConfigurations() {
     "BIMDataCard",
     "BIMDataCheckbox",
     "BIMDataIcons",
+    "BIMDataIllustrations",
     "BIMDataInput",
     "BIMDataLoading",
     "BIMDataNavigation",

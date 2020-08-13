@@ -52,7 +52,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -71,7 +70,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -90,7 +88,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -109,7 +106,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -128,7 +124,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -147,7 +142,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -166,7 +160,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -185,7 +178,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -227,7 +219,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -246,7 +237,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -265,7 +255,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -284,7 +273,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -303,7 +291,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -322,7 +309,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -341,7 +327,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -360,7 +345,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -402,7 +386,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -421,7 +404,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -440,7 +422,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -459,7 +440,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -478,7 +458,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -497,7 +476,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -516,7 +494,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -535,7 +512,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -577,7 +553,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -596,7 +571,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -615,7 +589,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -634,7 +607,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -653,7 +625,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -672,7 +643,6 @@
                 <BIMDataButton
                   fill
                   radius
-                  color="default"
                   width="55"
                   height="24"
                   >copy</BIMDataButton
@@ -691,7 +661,6 @@
               <BIMDataButton
                 fill
                 radius
-                color="default"
                 width="55"
                 height="24"
                 >copy</BIMDataButton
@@ -710,7 +679,6 @@
               <BIMDataButton
                 fill
                 radius
-                color="default"
                 width="55"
                 height="24"
                 >copy</BIMDataButton
@@ -757,10 +725,10 @@ export default {
           rgb: "47, 55, 74",
           scss: "$color-primary",
           css: "var(--color-primary)",
-          background: ".bg-primary",
-          color: ".color-primary",
-          fill: ".fill-primary",
-          stroke: ".stroke-primary",
+          background: "bg-primary",
+          color: "color-primary",
+          fill: "fill-primary",
+          stroke: "stroke-primary",
           textcolor: "#ffffff",
         },
         {
@@ -769,10 +737,10 @@ export default {
           rgb: "249, 199, 44",
           scss: "$color-secondary",
           css: "var(--color-secondary)",
-          background: ".bg-secondary",
-          color: ".color-secondary",
-          fill: ".fill-secondary",
-          stroke: ".stroke-secondary",
+          background: "bg-secondary",
+          color: "color-secondary",
+          fill: "fill-secondary",
+          stroke: "stroke-secondary",
           textcolor: "#2f374a",
         },
         {
@@ -781,10 +749,10 @@ export default {
           rgb: "216, 216, 216",
           scss: "$color-tertiary",
           css: "var(--color-tertiary)",
-          background: ".bg-tertiary",
-          color: ".color-tertiary",
-          fill: ".fill-tertiary",
-          stroke: ".stroke-tertiary",
+          background: "bg-tertiary",
+          color: "color-tertiary",
+          fill: "fill-tertiary",
+          stroke: "stroke-tertiary",
           textcolor: "#2f374a",
         },
       ],
@@ -795,10 +763,10 @@ export default {
           rgb: "247, 247, 247",
           scss: "$color-tertiary-lightest",
           css: "var(--color-tertiary-lightest)",
-          background: ".bg-tertiary-lightest",
-          color: ".color-tertiary-lightest",
-          fill: ".fill-tertiary-lightest",
-          stroke: ".stroke-tertiary-lightest",
+          background: "bg-tertiary-lightest",
+          color: "color-tertiary-lightest",
+          fill: "fill-tertiary-lightest",
+          stroke: "stroke-tertiary-lightest",
           textcolor: "#2f374a",
         },
         {
@@ -807,10 +775,10 @@ export default {
           rgb: "123, 123, 123",
           scss: "$color-tertiary-darkest",
           css: "var(--color-tertiary-dark)",
-          background: ".bg-tertiary-dark",
-          color: ".color-tertiary-dark",
-          fill: ".fill-tertiary-dark",
-          stroke: ".stroke-tertiary-dark",
+          background: "bg-tertiary-dark",
+          color: "color-tertiary-dark",
+          fill: "fill-tertiary-dark",
+          stroke: "stroke-tertiary-dark",
           textcolor: "#ffffff",
         },
         {
@@ -819,10 +787,10 @@ export default {
           rgb: "96, 96, 96",
           scss: "$color-tertiary-darkestest",
           css: "var(--color-tertiary-darkest)",
-          background: ".bg-tertiary-darkest",
-          color: ".color-tertiary-darkest",
-          fill: ".fill-tertiary-darkest",
-          stroke: ".stroke-tertiary-darkest",
+          background: "bg-tertiary-darkest",
+          color: "color-tertiary-darkest",
+          fill: "fill-tertiary-darkest",
+          stroke: "stroke-tertiary-darkest",
           textcolor: "#ffffff",
         },
       ],
@@ -833,10 +801,10 @@ export default {
           rgb: "255, 255, 255",
           scss: "$color-white",
           css: "var(--color-white)",
-          background: ".bg-white",
-          color: ".color-white",
-          fill: ".fill-white",
-          stroke: ".stroke-white",
+          background: "bg-white",
+          color: "color-white",
+          fill: "fill-white",
+          stroke: "stroke-white",
           textcolor: "#2f374a",
         },
         {
@@ -845,10 +813,10 @@ export default {
           rgb: "0, 0, 0",
           scss: "$color-black",
           css: "var(--color-black)",
-          background: ".bg-black",
-          color: ".color-black",
-          fill: ".fill-black",
-          stroke: ".stroke-black",
+          background: "bg-black",
+          color: "color-black",
+          fill: "fill-black",
+          stroke: "stroke-black",
           textcolor: "#ffffff",
         },
       ],
@@ -859,10 +827,10 @@ export default {
           rgb: "255, 61, 30",
           scss: "$color-high",
           css: "var(--color-high)",
-          background: ".bg-high",
-          color: ".color-high",
-          fill: ".fill-high",
-          stroke: ".stroke-high",
+          background: "bg-high",
+          color: "color-high",
+          fill: "fill-high",
+          stroke: "stroke-high",
           textcolor: "#ffffff",
         },
         {
@@ -871,10 +839,10 @@ export default {
           rgb: "255, 145, 0",
           scss: "$color-warning",
           css: "var(--color-warning)",
-          background: ".bg-warning",
-          color: ".color-warning",
-          fill: ".fill-warning",
-          stroke: ".stroke-warning",
+          background: "bg-warning",
+          color: "color-warning",
+          fill: "fill-warning",
+          stroke: "stroke-warning",
           textcolor: "#ffffff",
         },
         {
@@ -883,10 +851,10 @@ export default {
           rgb: "0, 175, 80",
           scss: "$color-success",
           css: "var(--color-success)",
-          background: ".bg-success",
-          color: ".color-success",
-          fill: ".fill-success",
-          stroke: ".stroke-success",
+          background: "bg-success",
+          color: "color-success",
+          fill: "fill-success",
+          stroke: "stroke-success",
           textcolor: "#ffffff",
         },
         {
@@ -895,22 +863,22 @@ export default {
           rgb: "32, 93, 189",
           scss: "$color-neutral",
           css: "var(--color-neutral)",
-          background: ".bg-neutral",
-          color: ".color-neutral",
-          fill: ".fill-neutral",
-          stroke: ".stroke-neutral",
+          background: "bg-neutral",
+          color: "color-neutral",
+          fill: "fill-neutral",
+          stroke: "stroke-neutral",
           textcolor: "#ffffff",
         },
         {
           name: "Disabled",
           hex: "#bdbdbd",
-          rgb: "123, 123, 123",
+          rgb: "189, 189, 189",
           scss: "$color-disabled",
           css: "var(--color-disabled)",
-          background: ".bg-disabled",
-          color: ".color-disabled",
-          fill: ".fill-disabled",
-          stroke: ".stroke-disabled",
+          background: "bg-disabled",
+          color: "color-disabled",
+          fill: "fill-disabled",
+          stroke: "stroke-disabled",
           textcolor: "#ffffff",
         },
       ],

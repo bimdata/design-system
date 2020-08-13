@@ -53,13 +53,13 @@
       <p>If you use a scss preprocessor you can import:</p>
       <Code language="scss">
         <pre>
-          @import "~@bimdata/design-system/dist/scss/BIMData.scss";
+          @import "node_modules/@bimdata/design-system/dist/scss/BIMData.scss";
         </pre>
       </Code>
       <p>Else, you can import:</p>
       <Code language="css">
         <pre>
-          @import "~@bimdata/design-system/dist/css/design-system.css";
+          @import "node_modules/@bimdata/design-system/dist/css/design-system.css";
         </pre>
       </Code>
     </div>

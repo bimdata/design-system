@@ -8,7 +8,6 @@
         @click="$emit('first')"
         :disabled="firstDisabled"
         ghost
-        color="default"
         :class="{ disabled: firstDisabled }"
         width="36"
         height="21"
@@ -21,7 +20,6 @@
         @click="$emit('previous')"
         :disabled="previousDisabled"
         ghost
-        color="default"
         :class="{ disabled: previousDisabled }"
         width="36"
         height="21"
@@ -37,7 +35,6 @@
         @click="$emit('next')"
         :disabled="nextDisabled"
         ghost
-        color="default"
         :class="{ disabled: nextDisabled }"
         width="36"
         height="21"
@@ -50,7 +47,6 @@
         @click="$emit('last')"
         :disabled="lastDisabled"
         ghost
-        color="default"
         :class="{ disabled: lastDisabled }"
         width="36"
         height="21"
