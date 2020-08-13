@@ -8,7 +8,7 @@
           <div class="illustrations">
             <div class="illustration">
               <BIMDataIllustration name="click" x="23" y="30" />
-              <p>clickIllustration</p>
+              <p>click</p>
             </div>
             <div class="illustration">
               <BIMDataIllustration name="emptyBcf"/>
