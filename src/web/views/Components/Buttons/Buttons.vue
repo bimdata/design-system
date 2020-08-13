@@ -7,11 +7,12 @@
         <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/XWdrKXw" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue">
           <template #module>
             <BIMDataButton
-              :width="Number(widthButton)"
-              :height="Number(heightButton)"
+              :width="widthButton"
+              :height="heightButton"
               :disabled="getButtonDisabled()"
               :class="getOverviewButtonClasses()"
               :color="selectedBtnOptionsvalues"
+              :icon="checkboxIconChecked && !checkboxTextChecked"
             >
               <BIMDataIcon name="chevron" size="xxxs" v-if="checkboxIconChecked"/>
               <span v-if="checkboxTextChecked">
@@ -62,13 +63,11 @@
             <h5 class="bimdata-h5">size</h5>
             <BIMDataInput
               v-model="widthButton"
-              placeholder="button's min-width in px"
-              type="number"
+              placeholder="button's min-width in px or %"
             ></BIMDataInput>
             <BIMDataInput
               v-model="heightButton"
-              placeholder="button's height in px"
-              type="number"
+              placeholder="button's min-height in px or %"
             ></BIMDataInput>
           </template>
 
@@ -84,8 +83,8 @@
           <template #code>
             <pre>
               &lt;BIMDataButton
-                width="{{Number(widthButton)}}"
-                height="{{Number(heightButton)}}"
+                width="{{widthButton}}"
+                height="{{heightButton}}"
                 color="{{ selectedBtnOptionsvalues }}"
                 {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }}
@@ -109,7 +108,7 @@
 <script>
 import colors from "../../../../assets/colors.js"
 
-import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+// import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
@@ -123,7 +122,7 @@ export default {
   name: "Buttons",
   components: {
     ComponentCode,
-    BIMDataButton,
+    // BIMDataButton,
     BIMDataTable,
     BIMDataRadio,
     BIMDataCheckbox,
@@ -133,11 +132,12 @@ export default {
   data() {
     return {
       message: "",
-      widthButton: 32,
-      heightButton: 32,
+      widthButton: "32px",
+      heightButton: "32px",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
+      selectedBtnOptionsicons: "icon",
       selectedBtnOptionstypes: "fill",
       selectedBtnOptionskinds: "radius",
       selectedBtnOptionsvalues: "primary",
@@ -253,7 +253,7 @@ export default {
     },
     getIcon() {
       if (this.checkboxIconChecked) {
-        return `<BIMDataIcon name="chevron" size="xxs" />`;
+        return `<BIMDataIcon name="chevron" size="xxxs" />`;
       }
     },
     getText() {

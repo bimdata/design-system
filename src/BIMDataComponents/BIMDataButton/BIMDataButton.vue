@@ -17,12 +17,12 @@ export default {
   name: "BIMDataButton",
   props: {
     width: {
-      type: [Number, String],
-      default: "32",
+      type: String,
+      default: "32px",
     },
     height: {
-      type: [Number, String],
-      default: "32",
+      type: String,
+      default: "32px",
     },
     fill: {
       type: Boolean,
@@ -48,6 +48,10 @@ export default {
       type:  Boolean,
       default: false
     },
+    icon: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String,
       default: "default",
@@ -57,6 +61,7 @@ export default {
   computed: {
     classes() {
       return {
+        'bimdata-btn__icon': this.icon,
         'bimdata-btn__fill': this.fill,
         'bimdata-btn__outline': this.outline,
         'bimdata-btn__ghost': this.ghost,
@@ -70,8 +75,8 @@ export default {
     },
     style() {
       return {
-        'min-width': `${this.width}px`,
-        'min-height': `${this.height}px`
+        'min-width': `${this.width}`,
+        'min-height': `${this.height}`
       };
     }
   }

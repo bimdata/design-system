@@ -1,5 +1,6 @@
 .bimdata-btn {
   padding: 0 $spacing-unit;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +9,7 @@
   color: $color-primary;
   cursor: pointer;
   font-family: $primary-font;
-  font-size: calculateEm(12px);
+  font-size: 12px;
   transition: all 0.1s ease;
   &:hover {
     transition: all 0.25s ease-in;
@@ -22,6 +23,9 @@
   svg:only-child {
     margin: 0;
   }
+  &__icon {
+    padding: 0;
+  }
   /* style BIMDATA BTN RADIUS ------------------ */
   &__radius {
     border-radius: 3px;
@@ -30,11 +34,11 @@
     border-radius: 0;
   }
   &__rounded {
-    padding: 0;
     border-radius: 50%;
   }
   /* style BIMDATA BTN FILL -------------------- */
   &__fill {
+    background-color: $color-white;
     justify-content: center;
     /* style BIMDATA BTN DEFAULT FILL ---------- */
     &--default {
