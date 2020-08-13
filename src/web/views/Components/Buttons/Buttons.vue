@@ -108,7 +108,7 @@
 <script>
 import colors from "../../../../assets/colors.js"
 
-// import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
@@ -122,7 +122,7 @@ export default {
   name: "Buttons",
   components: {
     ComponentCode,
-    // BIMDataButton,
+    BIMDataButton,
     BIMDataTable,
     BIMDataRadio,
     BIMDataCheckbox,
