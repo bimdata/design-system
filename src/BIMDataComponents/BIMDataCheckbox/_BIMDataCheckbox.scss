@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   font-family: $primary-font;
+  font-size: calculateEm(14px);
   cursor: pointer;
   user-select: none;
   :after,
@@ -36,7 +37,7 @@
   &__text {
     width: calc(100% - 13px - 5px);
     margin-left: 5px;
-    font-size: calculateEm(11px);
+    font-size: calculateEm(12px);
   }
 }
 
