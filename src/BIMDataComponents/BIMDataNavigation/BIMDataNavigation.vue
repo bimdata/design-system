@@ -12,7 +12,11 @@
         width="36"
         height="21"
       >
-        <BIMDataIcon name="doubleChevron" class="icon-double-chevron-left" size="xxxs" />
+        <BIMDataIcon
+          name="doubleChevron"
+          class="icon-double-chevron-left"
+          size="xxxs"
+        />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="previous">
@@ -61,7 +65,7 @@
 </template>
 
 <script>
-import BIMDataIcon from "../../BIMDataComponents/BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
@@ -107,8 +111,8 @@ export default {
 </script>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA LIST
 @import "../../assets/scss/utilities/_list.scss";

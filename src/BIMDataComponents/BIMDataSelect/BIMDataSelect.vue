@@ -46,7 +46,7 @@
 <script>
 import clickaway from "../../directives/click-away";
 
-import BIMDataIcon from "../BIMDataIcons/BIMDataIcon.vue";
+import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 
 export default {
@@ -138,8 +138,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/utilities/_text.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_text.scss";
 </style>
 
 <style lang="scss">

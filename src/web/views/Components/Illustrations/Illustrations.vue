@@ -47,7 +47,7 @@
 
         <template #import>
           <pre>
-            import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustrations.js";
+            import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustration.js";
           </pre>
         </template>
 
@@ -65,8 +65,8 @@
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustrations/BIMDataIllustration.vue";
-import illustrations from "../../../../../src/BIMDataComponents/BIMDataIllustrations/BIMDataLibraryIllustrations/index.js";
+import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
+import illustrations from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataLibraryIllustrations/index.js";
 
 export default {
   components: {

@@ -64,7 +64,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 
-import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 
 export default {
   components: {

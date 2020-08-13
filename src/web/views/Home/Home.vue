@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <BIMDataSearchInput
+    <BIMDataSearch
       v-model="filter"
       :autofocus="true"
       placeholder="Search"
@@ -14,12 +14,7 @@
             <img :src="page.img" />
             <h2 class="bimdata-h2">{{ title }}</h2>
             <p class="bimdata-text">{{ page.text }}</p>
-            <BIMDataButton
-              width="150"
-              radius
-              fill
-              color="primary"
-            >
+            <BIMDataButton width="150" radius fill color="primary">
               Explore
             </BIMDataButton>
           </router-link>
@@ -32,13 +27,13 @@
 <script>
 import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataSearchInput from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearchInput.vue";
+import BIMDataSearch from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 
 export default {
   components: {
     BIMDataCard,
     BIMDataButton,
-    BIMDataSearchInput,
+    BIMDataSearch,
   },
   props: {
     text: {
