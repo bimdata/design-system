@@ -52,8 +52,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -70,8 +70,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -88,8 +88,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -106,8 +106,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -124,8 +124,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -142,8 +142,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -160,8 +160,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -178,8 +178,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -219,8 +219,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -237,8 +237,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -255,8 +255,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -274,7 +274,7 @@
                   fill
                   radius
                   width="55"
-                  height="24"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -291,8 +291,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -309,8 +309,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -327,8 +327,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -345,8 +345,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -386,8 +386,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -404,8 +404,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -422,8 +422,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -440,8 +440,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -458,8 +458,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -476,8 +476,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -494,8 +494,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -553,8 +553,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -571,8 +571,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -589,8 +589,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -607,8 +607,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -625,8 +625,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -643,8 +643,8 @@
                 <BIMDataButton
                   fill
                   radius
-                  width="55"
-                  height="24"
+                  width="55px"
+                  height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -773,7 +773,7 @@ export default {
           name: "Tertiary Dark",
           hex: "#7a7a7a",
           rgb: "123, 123, 123",
-          scss: "$color-tertiary-darkest",
+          scss: "$color-tertiary-dark",
           css: "var(--color-tertiary-dark)",
           background: "bg-tertiary-dark",
           color: "color-tertiary-dark",
@@ -785,7 +785,7 @@ export default {
           name: "Tertiary Darkest",
           hex: "#606060",
           rgb: "96, 96, 96",
-          scss: "$color-tertiary-darkestest",
+          scss: "$color-tertiary-darkest",
           css: "var(--color-tertiary-darkest)",
           background: "bg-tertiary-darkest",
           color: "color-tertiary-darkest",
