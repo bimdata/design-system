@@ -7,7 +7,7 @@
         :key="elementKey ? element[elementKey] : element"
         @click="$emit('element-click', element)"
       >
-        <slot name="element" :element="element">{{ element }}</slot>
+        <slot name="element" :element="element">{{ element && element.toString() }}</slot>
       </li>
     </ul>
     <template v-if="list.length === 0">
