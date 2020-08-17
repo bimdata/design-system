@@ -27,6 +27,10 @@
               <p>emptyTree</p>
             </div>
             <div class="illustration">
+              <BIMDataIllustration name="logo"/>
+              <p>logo</p>
+            </div>
+            <div class="illustration">
               <BIMDataIllustration name="shortcutOpen" x="200" y="200" />
               <p>shortcutOpen</p>
             </div>
