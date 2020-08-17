@@ -9,8 +9,8 @@
         :disabled="firstDisabled"
         ghost
         :class="{ disabled: firstDisabled }"
-        width="36"
-        height="21"
+        width="36px"
+        height="21px"
       >
         <BIMDataIcon
           name="doubleChevron"
@@ -25,8 +25,8 @@
         :disabled="previousDisabled"
         ghost
         :class="{ disabled: previousDisabled }"
-        width="36"
-        height="21"
+        width="36px"
+        height="21px"
       >
         <BIMDataIcon name="chevron" class="icon-chevron-left" size="xxxs" />
       </BIMDataButton>
@@ -40,8 +40,8 @@
         :disabled="nextDisabled"
         ghost
         :class="{ disabled: nextDisabled }"
-        width="36"
-        height="21"
+        width="36px"
+        height="21px"
       >
         <BIMDataIcon name="chevron" size="xxxs" />
       </BIMDataButton>
@@ -52,8 +52,8 @@
         :disabled="lastDisabled"
         ghost
         :class="{ disabled: lastDisabled }"
-        width="36"
-        height="21"
+        width="36px"
+        height="21px"
       >
         <BIMDataIcon name="doubleChevron" size="xxxs" />
       </BIMDataButton>
@@ -115,7 +115,7 @@ export default {
 @import "../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA LIST
-@import "../../assets/scss/utilities/_list.scss";
+// @import "../../assets/scss/utilities/_list.scss";
 
 @import "./_BIMDataNavigation.scss";
 </style>

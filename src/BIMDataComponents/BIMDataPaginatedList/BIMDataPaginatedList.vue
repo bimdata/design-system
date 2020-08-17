@@ -79,18 +79,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/utilities/_text.scss";
-</style>
-
 <style lang="scss">
   // import BIMDATA VARIABLES
   @import "../../assets/scss/_BIMDataVariables.scss";
 
   // import BIMDATA UTILITIES
   @import "../../assets/scss/mixins/_font-size.scss";
-  @import "../../assets/scss/utilities/_list.scss";
 
 // import BIMDATA STYLE COMPONENT
 @import "./_BIMDataPaginatedList.scss";

@@ -3,6 +3,7 @@ import emptyBcf from "./EmptyBcf.vue";
 import emptyBucket from "./EmptyBucket.vue";
 import emptyProperties from "./EmptyProperties.vue";
 import emptyTree from "./EmptyTree.vue";
+import logo from "./Logo.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
 import shortcutRotate from "./ShortcutRotate.vue";
 import shortcutZoom from "./ShortcutZoom.vue";
@@ -14,6 +15,7 @@ export default {
   emptyBucket,
   emptyProperties,
   emptyTree,
+  logo,
   shortcutOpen,
   shortcutRotate,
   shortcutZoom,

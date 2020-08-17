@@ -22,7 +22,7 @@
           <Code language="scss">
             <pre>
               // import BIMDATA SPACING UTILITIES
-              @import "node_modules/@bimdata/design-system/dist/scss/mixins/spacing.scss";
+              @import "node_modules/@bimdata/design-system/dist/scss/utilities/spacing.scss";
             </pre>
           </Code>
         </div>
