@@ -1,0 +1,9 @@
+.bimdata-spinner {
+  display: flex;
+  &--square {
+    width: $spacing-unit;
+    height: $spacing-unit;
+    border: 2px $color-primary solid;
+    animation: bimdataspinner 1.4s linear infinite;
+  }
+}
