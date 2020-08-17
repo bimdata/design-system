@@ -15,9 +15,11 @@ import BIMDataIllustration from "./BIMDataIllustration/BIMDataIllustration.vue";
 import BIMDataInput from "./BIMDataInput/BIMDataInput.vue";
 import BIMDataLoading from "./BIMDataLoading/BIMDataLoading.vue";
 import BIMDataPaginatedList from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
+import BIMDataPieSpinner from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";
 import BIMDataRadio from "./BIMDataRadio/BIMDataRadio.vue";
 import BIMDataSearch from "./BIMDataSearch/BIMDataSearch.vue";
 import BIMDataSelect from "./BIMDataSelect/BIMDataSelect.vue";
+import BIMDataSpinner from "./BIMDataSpinner/BIMDataSpinner.vue";
 import BIMDataTable from "./BIMDataTable/BIMDataTable.vue";
 import BIMDataTextarea from "./BIMDataTextarea/BIMDataTextarea.vue";
 import BIMDataTooltip from "./BIMDataTooltip/BIMDataTooltip.vue";
@@ -34,9 +36,11 @@ const Components = {
   BIMDataInput,
   BIMDataLoading,
   BIMDataPaginatedList,
+  BIMDataPieSpinner,
   BIMDataRadio,
   BIMDataSearch,
   BIMDataSelect,
+  BIMDataSpinner,
   BIMDataTable,
   BIMDataTextarea,
   BIMDataTooltip,
