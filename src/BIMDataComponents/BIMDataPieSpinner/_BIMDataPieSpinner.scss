@@ -1,0 +1,27 @@
+.bimdata-pie-spinner {
+  position: relative;
+  &__inside {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  svg {
+    position: absolute;
+  }
+  &__path {
+    stroke-dasharray: var(--dasharray);
+    animation: clock var(--delay) linear var(--iteration) running forwards;
+    @keyframes clock {
+      from {
+        stroke-dashoffset: var(--dashoffset-from);
+      }
+      to {
+        stroke-dashoffset: var(--dashoffset-to);
+      }
+    }
+  }
+  &:hover .bimdata-pie-spinner__path{
+    animation-play-state: paused;
+  }
+}
