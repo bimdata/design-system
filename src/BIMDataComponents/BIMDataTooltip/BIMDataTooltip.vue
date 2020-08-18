@@ -8,7 +8,7 @@
       <slot name="content"></slot>
     </div>
     <span
-      v-if="message && isTooltipHover"
+      v-if="isDisplayed"
       ref="tooltipText"
       class="bimdata-tooltip__text"
       :class="className"
@@ -39,9 +39,14 @@ export default {
       isTooltipHover: false,
     };
   },
+  computed: {
+    isDisplayed() {
+      return this.message && this.isTooltipHover;
+    },
+  },
   watch: {
-    isTooltipHover() {
-      if (this.isTooltipHover) {
+    isDisplayed() {
+      if (this.isDisplayed) {
         this.$nextTick(() =>
           this.$options.resizeObserver.observe(this.$refs.tooltipText)
         );
