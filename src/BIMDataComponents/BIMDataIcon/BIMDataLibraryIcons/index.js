@@ -50,6 +50,7 @@ import refresh from "./Refresh.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
 import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
+import screenConfig from "./ScreenConfig.vue";
 import search from "./Search.vue";
 import section from "./Section.vue";
 import settings from "./Settings.vue";
@@ -122,6 +123,7 @@ export default {
   reprocessIfc,
   rules,
   sandglass,
+  screenConfig,
   search,
   section,
   settings,
@@ -139,5 +141,5 @@ export default {
   video,
   warning,
   windowed,
-  zone
+  zone,
 };
