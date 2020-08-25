@@ -60,6 +60,7 @@ import socotec from "./Socotec.vue";
 import space from "./Space.vue";
 import storey from "./Storey.vue";
 import success from "./Success.vue";
+import swap from "./Swap.vue";
 import system from "./System.vue";
 import tree from "./Tree.vue";
 import union from "./Union.vue";
@@ -67,7 +68,11 @@ import user from "./User.vue";
 import validate from "./Validate.vue";
 import video from "./Video.vue";
 import warning from "./Warning.vue";
+import windowBottom from "./WindowBottom.vue";
 import windowed from "./Windowed.vue";
+import windowLeft from "./WindowLeft.vue";
+import windowRight from "./WindowRight.vue";
+import windowTop from "./WindowTop.vue";
 import zone from "./Zone.vue";
 
 export default {
@@ -133,6 +138,7 @@ export default {
   space,
   storey,
   success,
+  swap,
   system,
   tree,
   union,
@@ -140,6 +146,10 @@ export default {
   validate,
   video,
   warning,
+  windowBottom,
   windowed,
+  windowLeft,
+  windowRight,
+  windowTop,
   zone,
 };
