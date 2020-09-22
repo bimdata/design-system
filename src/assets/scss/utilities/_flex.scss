@@ -1,55 +1,55 @@
-.flex{
+.flex {
   display: flex;
   /* flex direction */
-  &-row{
+  &-row {
     flex-direction: row;
   }
-  &-col{
+  &-col {
     flex-direction: column;
   }
 }
 
 /* align items */
-.items-start{
+.items-start {
   align-items: flex-start;
 }
-.items-center{
+.items-center {
   align-items: center;
 }
-.items-end{
+.items-end {
   align-items: flex-end;
 }
 
 /* align content */
-.content-start{
+.content-start {
   align-content: flex-start;
 }
-.content-center{
+.content-center {
   align-content: center;
 }
-.content-end{
+.content-end {
   align-content: flex-end;
 }
-.content-between{
-  align-content: between;
+.content-between {
+  align-content: space-between;
 }
-.content-around{
-  align-content: flex-around;
+.content-around {
+  align-content: space-around;
 }
 
 /* justify content */
-.justify-start{
+.justify-start {
   justify-content: flex-start;
 }
-.justify-center{
+.justify-center {
   justify-content: center;
 }
-.justify-end{
+.justify-end {
   justify-content: flex-end;
 }
-.justify-between{
+.justify-between {
   justify-content: space-between;
 }
-.justify-around{
+.justify-around {
   justify-content: space-around;
 }
