@@ -133,7 +133,14 @@ export default new Vuex.Store({
           path: "checkbox",
           text:
             "Checkboxes are used to enables users to pick multiple options from a group.",
-          btn: "View icons",
+        },
+        {
+          title: "Dropdown",
+          img: require("./web/assets/img/icon-dropdown.svg"),
+          path: "dropdown",
+          text:
+            "Checkboxes are used to enables users to pick multiple options from a group.",
+          btn: "View dropdown",
         },
         {
           title: "Icons",
