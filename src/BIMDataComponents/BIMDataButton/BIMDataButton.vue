@@ -5,6 +5,7 @@
     :style="style"
     @click="$emit('click', $event)"
     :color="color"
+    type="button"
   >
     <slot></slot>
   </button>
