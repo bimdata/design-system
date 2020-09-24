@@ -1,13 +1,13 @@
 // custom BASE PAGINATION
 .bimdata-pagination {
   &__number {
-    padding: 0 $spacing-unit;
     width: auto;
-    min-width: 100px;
     text-align: left;
+    font-size: 10px;
   }
   &__item {
     .bimdata-btn {
+      padding: 0;
       justify-content: center;
     }
     &.active {
