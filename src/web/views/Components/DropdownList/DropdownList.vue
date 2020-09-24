@@ -45,6 +45,7 @@
             >
             </BIMDataRadio>
           </div>
+
         </template>
         <template #import>
           import BIMDataDropdownList from
@@ -65,6 +66,16 @@
           </pre>
         </template>
       </ComponentCode>
+
+      <div class="m-t-24">
+        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
+
+      <div class="m-t-24">
+        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataTable :rows="slotData"></BIMDataTable>
+      </div>
     </div>
   </main>
 </template>
@@ -74,6 +85,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 import BIMDataDropdownList from "../../../../../src/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
 export default {
@@ -82,6 +94,7 @@ export default {
     BIMDataInput,
     BIMDataCheckbox,
     BIMDataRadio,
+    BIMDataTable,
     BIMDataDropdownList,
   },
   data() {
@@ -107,7 +120,22 @@ export default {
         "item 10",
         "item 11",
         "item 12",
-      ]
+      ],
+      propsData: [
+        ["Props", "Type", "Default value", "Validator", "Description"],
+        ["list", "Array", "() => []", "", ""],
+        ["perPage", "Number", "10", "", ""],
+        ["elementKey", "String", "", "", ""],
+        ["disabled", "Boolean", "false", "", ""],
+        ["transitionName", "String", "'up'", "'up' or 'down' values", ""],
+        ["directionClass", "String", "'down'", "'up', 'down', 'right' or 'left' values", ""],
+
+
+      ],
+      slotData: [
+        ["Props", "Type", "Required", "Default value", "Description"],
+        ["color", "String", "true", "", "Use this props to use ghost button"],
+      ],
     }
   }
 };
