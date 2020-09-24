@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import BIMDataCardBand from "../BIMDataCard/BIMDataCardBand.vue";
+import BIMDataCardBand from "./BIMDataCardBand.vue";
 
 export default {
   components: {
