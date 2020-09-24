@@ -55,14 +55,14 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-markup.svg"),
           path: "variables",
           text: "See all defines and usable BIMData variables and how use it.",
-          btn: "View Variables",
+          btn: "View variables",
         },
         {
           title: "Colors",
           path: "colors",
           img: require("./web/assets/img/icon-colors.svg"),
           text: "BIMData uses a color palette to achieve clean interfaces.",
-          btn: "View Colors",
+          btn: "View colors",
         },
         {
           title: "Grid",
@@ -70,7 +70,7 @@ export default new Vuex.Store({
           path: "grid",
           text:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View Grid",
+          btn: "View grid",
         },
         {
           title: "list",
@@ -118,14 +118,14 @@ export default new Vuex.Store({
           path: "buttons",
           text:
             "Buttons are used to trigger actions based on a user's interaction.",
-          btn: "View Buttons",
+          btn: "View buttons",
         },
         {
           title: "Cards",
           img: require("./web/assets/img/icon-card.svg"),
           path: "cards",
           text: "Cards are used to groups a related content.",
-          btn: "View Cards",
+          btn: "View cards",
         },
         {
           title: "Checkbox",
@@ -133,6 +133,7 @@ export default new Vuex.Store({
           path: "checkbox",
           text:
             "Checkboxes are used to enables users to pick multiple options from a group.",
+          btn: "View checkbox",
         },
         {
           title: "Dropdown",
@@ -170,7 +171,7 @@ export default new Vuex.Store({
           path: "loaders",
           text:
             "Loaders are used to notify a user that data or page is being retrieved.",
-          btn: "View Loaders",
+          btn: "View loaders",
         },
         {
           title: "Pagination",
