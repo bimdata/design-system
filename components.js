@@ -2,6 +2,7 @@ export { default as BIMDataBigSpinner } from "./dist/js/BIMDataComponents/BIMDat
 export { default as BIMDataButton } from "./dist/js/BIMDataComponents/BIMDataButton.js";
 export { default as BIMDataCard } from "./dist/js/BIMDataComponents/BIMDataCard.js";
 export { default as BIMDataCheckbox } from "./dist/js/BIMDataComponents/BIMDataCheckbox.js";
+export { default as BIMDataDropdownList } from "./dist/js/BIMDataComponents/BIMDataDropdownList.js";
 export { default as BIMDataIcon } from "./dist/js/BIMDataComponents/BIMDataIcon.js";
 export { default as BIMDataIllustration } from "./dist/js/BIMDataComponents/BIMDataIllustration.js";
 export { default as BIMDataInput } from "./dist/js/BIMDataComponents/BIMDataInput.js";
