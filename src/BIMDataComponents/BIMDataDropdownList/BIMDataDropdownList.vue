@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import clickaway from "../../directives/click-away";
+import clickaway from "../../directives/click-away.js";
 
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
@@ -102,7 +102,9 @@ export default {
 <style lang="scss">
 // import BIMDATA VARIABLES
 @import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/_BIMDataTransitions.scss";
 
 // import BIMDATA STYLE COMPONENT
+@import "./_BIMDataSubmenus.scss";
 @import "./_BIMDataDropdownList.scss";
 </style>

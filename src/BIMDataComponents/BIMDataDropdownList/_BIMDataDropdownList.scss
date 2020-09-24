@@ -1,5 +1,4 @@
 .bimdata-dropdown-list {
-  //margin: 0 $spacing-unit;
   height: 42px;
   position: relative;
   display: flex;
@@ -7,11 +6,12 @@
   justify-content: center;
   &__content {
     padding: 0 $spacing-unit;
-    min-width: 372px;
+    min-width: 220px;
     min-height: 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 13px;
     background-color: $color-tertiary-lightest;
     border: 1px solid $color-tertiary;
     border-radius: 3px;
@@ -40,11 +40,6 @@
   }
   &[direction*="up"] {
     .bimdata-dropdown-list__content {
-      min-width: auto;
-      justify-content: flex-start;
-      svg {
-        margin: 0 calc(#{$spacing-unit} / 2);
-      }
       &.active {
         .bimdata-btn {
           svg {
@@ -54,7 +49,22 @@
       }
     }
   }
+  &[direction*="right"],
+  &[direction*="left"] {
+    .bimdata-dropdown-list__content {
+      &.active {
+        .bimdata-btn {
+          svg {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
   .bimdata-paginated-list {
+    &__elements {
+      font-size: 11px;
+    }
     & > ul:first-child {
       padding: calc(12px / 2) 0;
       overflow: auto;

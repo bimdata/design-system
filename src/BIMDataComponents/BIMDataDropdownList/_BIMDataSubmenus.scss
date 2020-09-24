@@ -20,12 +20,12 @@
       }
     }
   }
-  // custom SUBMENU MODEL
-  &--down {
-    margin-top: calc(#{$spacing-unit} / 2);
+  &--up,
+  &--down,
+  &--right,
+  &--left {
     width: 100%;
     left: 0;
-    top: 35px;
     border-radius: 3px;
     z-index: 2;
     li {
@@ -42,38 +42,52 @@
       }
     }
   }
+  &--up {
+    margin-bottom: calc(#{$spacing-unit} / 2);
+    top: auto;
+    bottom: 35px;
+  }
+  // custom SUBMENU MODEL
+  &--down {
+    margin-top: calc(#{$spacing-unit} / 2);
+    top: 35px;
+  }
   // custom SUBMENU TOOLS MENU
   &--right {
+    left: calc(100% + 12px);
+    right: auto;
     &__simple {
       padding: $spacing-unit;
       width: 187px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      right: calc(#{$size-btn-options} + #{$spacing-unit});
+      left: calc(100% + #{$spacing-unit});
       top: 0;
     }
     &__panel {
       width: 400px;
       height: calc(var(--plugin-units-height) - (2 * 12px));
-      right: calc(#{$size-btn-options} + #{$spacing-unit});
+      left: calc(100% + #{$spacing-unit});
       z-index: 1;
     }
     &__free {
-      right: calc(#{$size-btn-options} + #{$spacing-unit});
+      left: calc(100% + #{$spacing-unit});
       z-index: 1;
     }
   }
   // custom SUBMENU PLUGIN MENU
   &--left {
+    right: calc(100% + 12px);
+    left: auto;
     &__panel {
       width: 400px;
       height: calc(var(--plugin-units-height) - (2 * 12px));
-      left: calc(#{$size-btn-options} + #{$spacing-unit});
+      right: calc(100% + #{$spacing-unit});
       z-index: 1;
     }
     &__free {
-      left: calc(#{$size-btn-options} + #{$spacing-unit});
+      right: calc(100% + #{$spacing-unit});
       z-index: 1;
     }
     &__simple {
@@ -82,7 +96,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      left: calc(#{$size-btn-options} + #{$spacing-unit});
+      right: calc(100% + #{$spacing-unit});
       top: 0;
     }
   }
