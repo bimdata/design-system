@@ -7,6 +7,7 @@
   background-color: $color-white;
   &__item {
     .bimdata-btn {
+      padding: 0;
       justify-content: center;
       .icon-double-chevron-left,
       .icon-chevron-left {

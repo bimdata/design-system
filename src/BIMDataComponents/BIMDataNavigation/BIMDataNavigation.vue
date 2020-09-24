@@ -9,7 +9,7 @@
         :disabled="firstDisabled"
         ghost
         :class="{ disabled: firstDisabled }"
-        width="36px"
+        width="21px"
         height="21px"
       >
         <BIMDataIcon
@@ -25,7 +25,7 @@
         :disabled="previousDisabled"
         ghost
         :class="{ disabled: previousDisabled }"
-        width="36px"
+        width="21px"
         height="21px"
       >
         <BIMDataIcon name="chevron" class="icon-chevron-left" size="xxxs" />
@@ -40,7 +40,7 @@
         :disabled="nextDisabled"
         ghost
         :class="{ disabled: nextDisabled }"
-        width="36px"
+        width="21px"
         height="21px"
       >
         <BIMDataIcon name="chevron" size="xxxs" />
@@ -52,7 +52,7 @@
         :disabled="lastDisabled"
         ghost
         :class="{ disabled: lastDisabled }"
-        width="36px"
+        width="21px"
         height="21px"
       >
         <BIMDataIcon name="doubleChevron" size="xxxs" />
