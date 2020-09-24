@@ -10,10 +10,17 @@
             id="radiotest"
             value="radiotest"
             v-model="selectedMode"
+            :disabled="checkboxDisabledChecked"
           ></BIMDataRadio>
         </template>
 
         <template #parameters>
+          <BIMDataCheckbox
+            class="m-b-12"
+            text="disabled"
+            v-model="checkboxDisabledChecked"
+          >
+          </BIMDataCheckbox>
           <BIMDataButton
             color="primary"
             radius
@@ -34,7 +41,8 @@
             text="click on me !"
             id="radiotest"
             value="radiotest"
-            v-model="selectedMode"&gt;
+            v-model="selectedMode"
+            :disabled="checkboxDisabledChecked"&gt;
           &lt;/BIMDataRadio&gt;
           </pre>
         </template>
@@ -50,21 +58,23 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
+import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 export default {
   components: {
     ComponentCode,
     BIMDataTable,
-    BIMDataRadio,
     BIMDataButton,
+    BIMDataCheckbox,
+    BIMDataRadio,
   },
   data() {
     return {
       selectedMode: null,
+      checkboxDisabledChecked: false,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["text", "String", "null", "Use this props to add a label text"],
