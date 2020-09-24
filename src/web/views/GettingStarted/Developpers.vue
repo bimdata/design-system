@@ -17,13 +17,25 @@
 
       <h4 class="bimdata-h4">2. Import component</h4>
       <p class="bimdata-text">
-        Once you’ve installed the package you can import any component available
+        Once you’ve installed the package you can individually import any component available
         in BIMData's design system:
       </p>
       <Code language="javascript">
         <pre>
           import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
-          import BIMDataSearch from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearch.js";
+        </pre>
+      </Code>
+
+      <p class="bimdata-text">
+        Or you can import them more easily like this:
+      </p>
+      <Code language="javascript">
+        <pre>
+          import {
+            BIMDataIcon,
+            BIMDataPaginatedList,
+            BIMDataButton,
+          } from "@bimdata/design-system/components.js";
         </pre>
       </Code>
 

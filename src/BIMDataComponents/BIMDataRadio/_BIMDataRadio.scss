@@ -86,4 +86,26 @@
       }
     }
   }
+  &.disabled {
+    color: $color-disabled;
+    pointer-events: none;
+    span {
+      cursor: default;
+      &::before {
+        border-color: $color-disabled;
+      }
+    }
+    & > input {
+      &:checked {
+        & + span {
+          &::before {
+            border-color: $color-disabled;
+          }
+          &::after {
+            background-color: $color-disabled;
+          }
+        }
+      }
+    }
+  }
 }
