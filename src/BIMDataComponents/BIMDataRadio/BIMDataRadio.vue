@@ -1,5 +1,5 @@
 <template>
-  <label class="bimdata-radio">
+  <label class="bimdata-radio" :class="{disabled}">
     <input
       type="radio"
       @input="onInput"
@@ -7,6 +7,7 @@
       :name="name"
       :id="id"
       :value="value"
+      :disabled="disabled"
     />
     <span class="bimdata-radio__text">{{ text }}</span>
   </label>
@@ -31,6 +32,10 @@ export default {
     },
     value: {},
     selectedValue: {},
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     onInput() {
