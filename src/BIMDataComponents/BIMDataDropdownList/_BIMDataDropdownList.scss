@@ -29,6 +29,14 @@
         }
       }
     }
+    &.disabled {
+      cursor: default;
+      color: $color-disabled;
+      .bimdata-btn {
+        cursor: default;
+        color: $color-disabled;
+      }
+    }
   }
   &[direction*="up"] {
     .bimdata-dropdown-list__content {
