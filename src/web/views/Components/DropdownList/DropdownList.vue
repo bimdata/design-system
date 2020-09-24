@@ -12,8 +12,18 @@
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection,"
           >
-            <template #header>
+            <template #header v-if="checkboxHeaderChecked">
               dropdown list example
+            </template>
+            <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
+              hi
+            </template>
+            <template #element v-if="checkboxElementChecked">
+              <BIMDataCheckbox
+                text="custom list with checkbox"
+                v-model="customListCheckbox"
+              >
+              </BIMDataCheckbox>
             </template>
           </BIMDataDropdownList>
         </template>
@@ -45,7 +55,22 @@
             >
             </BIMDataRadio>
           </div>
-
+          <h5 class="bimdata-h5">slots</h5>
+          <BIMDataCheckbox
+            text="header"
+            v-model="checkboxHeaderChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            text="contentAfterBtn"
+            v-model="checkboxAfterBtnChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            text="element"
+            v-model="checkboxElementChecked"
+          >
+          </BIMDataCheckbox>
         </template>
         <template #import>
           import BIMDataDropdownList from
@@ -54,15 +79,13 @@
         <template #code>
           <pre>
             &lt;BIMDataDropdownList
-            :list="list"
-            :perPage="{{ numberInput }}"
-            elementKey="dropdown"
-            :disabled="{{checkboxDisabledChecked}}"
-          &gt;
-            &lt;template #header&gt;
-              dropdown list example
-            &lt;/template&gt;
-          &lt;/BIMDataDropdownList&gt;
+              :list="list"
+              :perPage="{{ numberInput }}"
+              elementKey="dropdown"
+              :disabled="{{checkboxDisabledChecked}}"
+            &gt;
+              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
+            &lt;/BIMDataDropdownList&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -101,6 +124,10 @@ export default {
     return {
       numberInput: 6,
       checkboxDisabledChecked: false,
+      checkboxHeaderChecked: true,
+      checkboxAfterBtnChecked: false,
+      checkboxElementChecked: false,
+      customListCheckbox: false,
       dropdownOptions: {
         transition: ["up", "down"],
         direction: ["up", "down", "right", "left"],
@@ -121,6 +148,11 @@ export default {
         "item 11",
         "item 12",
       ],
+      listCustom:[
+        { name: 'Square', sides: 4 },
+        { name: 'Hexagon', sides: 6 },
+        { name: 'Triangle', sides: 3 }
+      ],
       propsData: [
         ["Props", "Type", "Default value", "Validator", "Description"],
         ["list", "Array", "() => []", "", ""],
@@ -133,9 +165,39 @@ export default {
 
       ],
       slotData: [
-        ["Props", "Type", "Required", "Default value", "Description"],
-        ["color", "String", "true", "", "Use this props to use ghost button"],
+        ["Slot name", "Description"],
+        ["#header", "Use this slot for add content before the icon button"],
+        ["#contentAfterBtn", "Use this slot for add content after the icon button"],
+        ["#element", "Use this slot to custum the elements list"],
       ],
+    }
+  },
+  methods: {
+    getHeader(){
+      if(this.checkboxHeaderChecked){
+        return `<template #header>
+              dropdown list example
+            </template>
+            `
+      }
+    },
+    getContentAfterBtn(){
+      if(this.checkboxAfterBtnChecked){
+        return `<template #contentAfterBtn>
+              hi
+            </template>
+            `
+      }
+    },
+    getElement(){
+      if(this.checkboxElementChecked){
+        return `<template #element>
+                <BIMDataCheckbox
+                  text="custom list with checkbox"
+                  v-model="customListCheckbox"
+                >
+             </template>`
+      }
     }
   }
 };
