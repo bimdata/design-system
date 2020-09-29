@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BIMDataCard should render a button with a content slot and match snapshot 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <!---->
+  <!---->
+  <div class=\\"bimdata-card__content\\"><span>content slot</span></div>
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render a button with a footer slot and match snapshot 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <!---->
+  <!---->
+  <!---->
+  <footer class=\\"bimdata-card__footer\\"><span>footer slot</span></footer>
+</div>"
+`;
+
+exports[`BIMDataCard should render a button with a headerIcons slot and match snapshot 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <bimdatacardband-stub class=\\"bimdata-card__header\\"></bimdatacardband-stub>
+  <!---->
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render a button with a left slot and match snapshot 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <!---->
+  <bimdatacardband-stub class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render a button with a left slot and match snapshot 2`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <!---->
+  <bimdatacardband-stub class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render component and match snapshot 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render component with a custom width 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 350px;\\">
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render component with submenu text 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <!---->
+  <bimdatacardband-stub text=\\"Submenu text card\\" class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`BIMDataCard should render component with title header 1`] = `
+"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+  <bimdatacardband-stub text=\\"Hearder title card\\" class=\\"bimdata-card__header\\"></bimdatacardband-stub>
+  <!---->
+  <!---->
+  <!---->
+</div>"
+`;
