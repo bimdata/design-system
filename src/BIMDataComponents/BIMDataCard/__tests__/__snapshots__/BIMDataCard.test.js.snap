@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BIMDataCard should render a button with a content slot and match snapshot 1`] = `
+exports[`BIMDataCard should render a card with a content slot and match snapshot 1`] = `
 "<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
   <!---->
   <!---->
@@ -9,7 +9,7 @@ exports[`BIMDataCard should render a button with a content slot and match snapsh
 </div>"
 `;
 
-exports[`BIMDataCard should render a button with a footer slot and match snapshot 1`] = `
+exports[`BIMDataCard should render a card with a footer slot and match snapshot 1`] = `
 "<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
   <!---->
   <!---->
@@ -18,7 +18,7 @@ exports[`BIMDataCard should render a button with a footer slot and match snapsho
 </div>"
 `;
 
-exports[`BIMDataCard should render a button with a headerIcons slot and match snapshot 1`] = `
+exports[`BIMDataCard should render a card with a headerIcons slot and match snapshot 1`] = `
 "<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
   <bimdatacardband-stub class=\\"bimdata-card__header\\"></bimdatacardband-stub>
   <!---->
@@ -27,7 +27,7 @@ exports[`BIMDataCard should render a button with a headerIcons slot and match sn
 </div>"
 `;
 
-exports[`BIMDataCard should render a button with a left slot and match snapshot 1`] = `
+exports[`BIMDataCard should render a card with a left slot and match snapshot 1`] = `
 "<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
   <!---->
   <bimdatacardband-stub class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
@@ -36,7 +36,7 @@ exports[`BIMDataCard should render a button with a left slot and match snapshot 
 </div>"
 `;
 
-exports[`BIMDataCard should render a button with a left slot and match snapshot 2`] = `
+exports[`BIMDataCard should render a card with a left slot and match snapshot 2`] = `
 "<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
   <!---->
   <bimdatacardband-stub class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
