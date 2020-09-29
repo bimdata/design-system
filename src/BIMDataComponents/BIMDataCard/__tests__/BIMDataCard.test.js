@@ -34,7 +34,7 @@ describe("BIMDataCard", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should render a button with a headerIcons slot and match snapshot", () => {
+  it("should render a card with a headerIcons slot and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCard, {
       slots: {
         headerIcons: "<span>header icons slot</span>",
@@ -43,7 +43,7 @@ describe("BIMDataCard", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should render a button with a left slot and match snapshot", () => {
+  it("should render a card with a left slot and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCard, {
       slots: {
         left: "<span>left slot</span>",
@@ -52,7 +52,7 @@ describe("BIMDataCard", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should render a button with a left slot and match snapshot", () => {
+  it("should render a card with a left slot and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCard, {
       slots: {
         right: "<span>right slot</span>",
@@ -61,7 +61,7 @@ describe("BIMDataCard", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should render a button with a content slot and match snapshot", () => {
+  it("should render a card with a content slot and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCard, {
       slots: {
         content: "<span>content slot</span>",
@@ -70,7 +70,7 @@ describe("BIMDataCard", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should render a button with a footer slot and match snapshot", () => {
+  it("should render a card with a footer slot and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCard, {
       slots: {
         footer: "<span>footer slot</span>",
