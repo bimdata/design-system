@@ -10,7 +10,8 @@
             elementKey="dropdown"
             :disabled="checkboxDisabledChecked"
             :transitionName="selectedDropdownOptionstransition"
-            :directionClass="selectedDropdownOptionsdirection,"
+            :directionClass="selectedDropdownOptionsdirection"
+            :loading="checkboxLoadingChecked"
           >
             <template #header v-if="checkboxHeaderChecked">
               dropdown list example
@@ -30,8 +31,15 @@
         <template #parameters>
           <h5 class="bimdata-h5">modifiers</h5>
           <BIMDataCheckbox
+            class="m-y-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-t-12 m-b-24"
+            text="loading"
+            v-model="checkboxLoadingChecked"
           >
           </BIMDataCheckbox>
           <BIMDataInput
@@ -124,6 +132,7 @@ export default {
     return {
       numberInput: 6,
       checkboxDisabledChecked: false,
+      checkboxLoadingChecked: false,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
@@ -202,7 +211,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "./_DropdownList.scss";
-</style>
