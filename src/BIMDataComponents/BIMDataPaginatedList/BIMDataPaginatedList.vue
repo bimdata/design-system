@@ -1,34 +1,40 @@
 <template>
   <div class="bimdata-paginated-list">
-    <slot name="header"></slot>
-    <ul class="bimdata-list bimdata-paginated-list__elements">
-      <li
-        v-for="element of page"
-        :key="elementKey ? element[elementKey] : element"
-        @click="$emit('element-click', element)"
-      >
-        <slot name="element" :element="element">{{ element && element.toString() }}</slot>
-      </li>
-    </ul>
-    <template v-if="list.length === 0">
-      <slot name="empty"></slot>
-    </template>
-    <BIMDataPagination
-      v-if="totalPages > 1"
-      :length="list.length"
-      :currentPage="currentPage"
-      @pagechanged="onPageChange"
-      :totalPages="totalPages"
-      :perPage="perPage"
-    />
+    <BIMDataSpinner v-if="loading" />
+    <div v-else>
+      <slot name="header"></slot>
+      <ul class="bimdata-list bimdata-paginated-list__elements">
+        <li
+          v-for="element of page"
+          :key="elementKey ? element[elementKey] : element"
+          @click="$emit('element-click', element)"
+        >
+          <slot name="element" :element="element">{{ element && element.toString() }}</slot>
+        </li>
+      </ul>
+      <template v-if="list.length === 0">
+        <slot name="empty"></slot>
+      </template>
+      <BIMDataPagination
+        v-if="totalPages > 1"
+        :length="list.length"
+        :currentPage="currentPage"
+        @pagechanged="onPageChange"
+        :totalPages="totalPages"
+        :perPage="perPage"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import BIMDataPagination from "../BIMDataPagination/BIMDataPagination.vue";
+import BIMDataSpinner from "../BIMDataSpinner/BIMDataSpinner.vue";
+
 export default {
   components: {
     BIMDataPagination,
+    BIMDataSpinner
   },
   props: {
     list: {
@@ -44,6 +50,10 @@ export default {
     },
     elementKey: {
       type: String,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

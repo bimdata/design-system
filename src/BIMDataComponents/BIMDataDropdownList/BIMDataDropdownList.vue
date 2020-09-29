@@ -24,17 +24,18 @@
     </div>
     <transition :name="`slide-fade-${transitionName}`">
       <BIMDataPaginatedList
-        :class="`submenu submenu--${directionClass}`"
-        v-show="displayed"
-        :list="list"
-        :perPage="perPage"
-        :elementKey="elementKey"
-        @element-click="$emit('element-click', $event)"
-      >
-        <template #element="{element}">
-          <slot name="element" :element="element" :close="away"></slot>
-        </template>
-      </BIMDataPaginatedList>
+      :class="`submenu submenu--${directionClass}`"
+      v-show="displayed"
+      :list="list"
+      :perPage="perPage"
+      :elementKey="elementKey"
+      @element-click="$emit('element-click', $event)"
+      :loading="loading"
+    >
+      <template #element="{element}">
+        <slot name="element" :element="element" :close="away"></slot>
+      </template>
+    </BIMDataPaginatedList>
     </transition>
   </div>
 </template>
@@ -79,6 +80,10 @@ export default {
       default: "down",
       validator: directionClass =>
         ["down", "up", "right", "left"].includes(directionClass),
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
