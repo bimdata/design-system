@@ -1,5 +1,4 @@
 @import "../BIMDataVariables";
-@import "../BIMDataFonts";
 @import "../mixins/font-size";
 
 .bimdata-h1,
@@ -37,11 +36,11 @@
 
 /* BIMDATA FONT WEIGHT */
 .primary-font {
-  font-family: $primary-font;
+  font-family: "robotoregular", sans-serif;
 }
 .primary-font-medium {
-  font-family: $primary-font-medium;
+  font-family: "robotomedium", sans-serif;
 }
 .primary-font-bold {
-  font-family: $primary-font-bold;
+  font-family: "robotobold", sans-serif;
 }
