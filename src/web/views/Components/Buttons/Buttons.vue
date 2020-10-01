@@ -92,7 +92,7 @@
                 color="{{ selectedBtnOptionsvalues }}"
                 {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }}
-                disabled="{{ getButtonDisabled() }}"&gt;
+                {{ getButtonDisabled() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -248,7 +248,9 @@ export default {
       }
     },
     getButtonDisabled() {
-      return this.checkboxDisabledChecked;
+      if(this.checkboxDisabledChecked){
+        return `disabled="true"`;
+      }
     },
   },
 };
