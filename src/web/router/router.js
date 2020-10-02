@@ -35,6 +35,7 @@ import Search from "../views/Components/Search/Search.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
 import Textarea from "../views/Components/Textarea/Textarea.vue";
+import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
 
 Vue.use(VueRouter);
@@ -200,6 +201,11 @@ const routes = [
         path: "textarea",
         name: "textarea",
         component: Textarea,
+      },
+      {
+        path: "toggle",
+        name: "toggle",
+        component: Toggle,
       },
       {
         path: "tooltips",
