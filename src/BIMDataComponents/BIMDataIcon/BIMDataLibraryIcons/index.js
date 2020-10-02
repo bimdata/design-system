@@ -24,11 +24,13 @@ import Delete from "./Delete.vue";
 import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
 import doubleChevron from "./DoubleChevron.vue";
+import down from "./Down.vue";
 import edit from "./Edit.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import failed from "./Failed.vue";
 import filter from "./Filter.vue";
+import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
@@ -38,6 +40,7 @@ import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
 import information from "./Information.vue";
 import isolate from "./Isolate.vue";
+import left from "./Left.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
 import measure from "./Measure.vue";
@@ -46,8 +49,11 @@ import model3d from "./Model3d.vue";
 import plus from "./Plus.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
+import redo from "./Redo.vue";
 import refresh from "./Refresh.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
+import reset from "./Reset.vue";
+import right from "./Right.vue";
 import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
 import screenConfig from "./ScreenConfig.vue";
@@ -63,7 +69,9 @@ import success from "./Success.vue";
 import swap from "./Swap.vue";
 import system from "./System.vue";
 import tree from "./Tree.vue";
+import undo from "./Undo.vue";
 import union from "./Union.vue";
+import up from "./Up.vue";
 import user from "./User.vue";
 import validate from "./Validate.vue";
 import video from "./Video.vue";
@@ -102,11 +110,13 @@ export default {
   deploy,
   detach,
   doubleChevron,
+  down,
   edit,
   export: Export,
   exportIfc,
   failed,
   filter,
+  fitView,
   folder,
   folderOpen,
   fullscreen,
@@ -116,6 +126,7 @@ export default {
   import: Import,
   information,
   isolate,
+  left,
   listManage,
   location,
   measure,
@@ -124,8 +135,11 @@ export default {
   plus,
   project,
   quickSelect,
+  redo,
   refresh,
   reprocessIfc,
+  reset,
+  right,
   rules,
   sandglass,
   screenConfig,
@@ -141,7 +155,9 @@ export default {
   swap,
   system,
   tree,
+  undo,
   union,
+  up,
   user,
   validate,
   video,
