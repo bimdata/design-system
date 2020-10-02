@@ -221,6 +221,13 @@ export default new Vuex.Store({
           btn: "View textarea",
         },
         {
+          title: "Toggles",
+          img: require("./web/assets/img/icon-toggle.svg"),
+          path: "toggle",
+          text: "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
+          btn: "View toggle",
+        },
+        {
           title: "Tooltips",
           img: require("./web/assets/img/icon-tooltip.svg"),
           path: "tooltips",
