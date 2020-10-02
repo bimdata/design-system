@@ -1,6 +1,6 @@
 {
   "name": "@bimdata/design-system",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "main": "./dist/js/BIMDataComponents/index.js",
   "module": "./dist/js/BIMDataComponents/index.js",
   "files": [
