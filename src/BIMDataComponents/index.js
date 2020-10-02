@@ -22,6 +22,8 @@ import BIMDataSelect from "./BIMDataSelect/BIMDataSelect.vue";
 import BIMDataSpinner from "./BIMDataSpinner/BIMDataSpinner.vue";
 import BIMDataTable from "./BIMDataTable/BIMDataTable.vue";
 import BIMDataTextarea from "./BIMDataTextarea/BIMDataTextarea.vue";
+import BIMDataToggle from "./BIMDataToggle/BIMDataToggle.vue";
+
 import BIMDataTooltip from "./BIMDataTooltip/BIMDataTooltip.vue";
 
 import icons from "./BIMDataIcon/BIMDataLibraryIcons/index.js"
@@ -43,6 +45,7 @@ const Components = {
   BIMDataSpinner,
   BIMDataTable,
   BIMDataTextarea,
+  BIMDataToggle,
   BIMDataTooltip,
   icons,
 };

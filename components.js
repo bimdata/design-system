@@ -16,4 +16,5 @@ export { default as BIMDataSelect } from "./dist/js/BIMDataComponents/BIMDataSel
 export { default as BIMDataSpinner } from "./dist/js/BIMDataComponents/BIMDataSpinner.js";
 export { default as BIMDataTable } from "./dist/js/BIMDataComponents/BIMDataTable.js";
 export { default as BIMDataTextarea } from "./dist/js/BIMDataComponents/BIMDataTextarea.js";
+export { default as BIMDataToggle } from "./dist/js/BIMDataComponents/BIMDataToggle.js";
 export { default as BIMDataTooltip } from "./dist/js/BIMDataComponents/BIMDataTooltip.js";
