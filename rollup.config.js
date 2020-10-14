@@ -14,8 +14,8 @@ module.exports = [
     },
     plugins: [
       replace({
-        "~@/assets": 'node_modules/@bimdata/design-system/dist',
-        delimiters: ['', '']
+        "~@/assets": "node_modules/@bimdata/design-system/dist",
+        delimiters: ["", ""],
       }),
       css({
         output: "dist/css/design-system.css",
@@ -24,7 +24,11 @@ module.exports = [
         targets: [
           { src: "src/assets/fonts", dest: "dist" },
           { src: "src/assets/scss", dest: "dist" },
-          { src: "src/assets/css/_BIMDataFonts.css", dest: "dist/css", rename: "fonts.css" },
+          {
+            src: "src/assets/css/_BIMDataFonts.css",
+            dest: "dist/css",
+            rename: "fonts.css",
+          },
           {
             src: "src/assets/scss/_BIMDataFonts.scss",
             dest: "dist/scss",
@@ -73,10 +77,17 @@ function getSingleComponentConfigurations() {
 
   return componentNames.map(componentName => ({
     input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
-    output: {
-      file: `dist/js/BIMDataComponents/${componentName}.js`,
-      format: "es",
-    },
+    output: [
+      {
+        file: `dist/js/BIMDataComponents/${componentName}.js`,
+        format: "es",
+      },
+      {
+        name: componentName,
+        file: `dist/js/BIMDataComponents/${componentName}.umd.js`,
+        format: "umd",
+      },
+    ],
     plugins: [
       replace({
         "~@/assets": "node_modules/@bimdata/design-system/dist",
