@@ -75,28 +75,40 @@ function getSingleComponentConfigurations() {
     "BIMDataTooltip",
   ];
 
-  return componentNames.map(componentName => ({
-    input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
-    output: [
-      {
+  return [
+    ...componentNames.map(componentName => ({
+      input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
+      output: {
         file: `dist/js/BIMDataComponents/${componentName}.js`,
         format: "es",
       },
-      {
-        name: componentName,
-        file: `dist/js/BIMDataComponents/${componentName}.umd.js`,
-        format: "umd",
+      plugins: [
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+        }),
+        vue({
+          template: { isProduction: true },
+        }),
+        terser(),
+      ],
+    })),
+    ...componentNames.map(componentName => ({
+      input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
+      output: {
+        file: `dist/js/BIMDataComponents/${componentName}.ssr.js`,
+        format: "cjs",
       },
-    ],
-    plugins: [
-      replace({
-        "~@/assets": "node_modules/@bimdata/design-system/dist",
-        delimiters: ["", ""],
-      }),
-      vue({
-        template: { isProduction: true },
-      }),
-      terser(),
-    ],
-  }));
+      plugins: [
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+        }),
+        vue({
+          template: { isProduction: true, optimizeSSR: true },
+        }),
+        terser(),
+      ],
+    })),
+  ];
 }
