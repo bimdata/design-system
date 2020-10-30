@@ -6,48 +6,22 @@ import "../assets/css/utilities/_list.css";
 import "../assets/css/utilities/_spacing.css";
 import "../assets/css/utilities/_text.css";
 
-import BIMDataBigSpinner from "./BIMDataBigSpinner/BIMDataBigSpinner.vue";
-import BIMDataButton from "./BIMDataButton/BIMDataButton.vue";
-import BIMDataCard from "./BIMDataCard/BIMDataCard.vue";
-import BIMDataCheckbox from "./BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "./BIMDataIcon/BIMDataIcon.vue";
-import BIMDataIllustration from "./BIMDataIllustration/BIMDataIllustration.vue";
-import BIMDataInput from "./BIMDataInput/BIMDataInput.vue";
-import BIMDataLoading from "./BIMDataLoading/BIMDataLoading.vue";
-import BIMDataPaginatedList from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
-import BIMDataPieSpinner from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";
-import BIMDataRadio from "./BIMDataRadio/BIMDataRadio.vue";
-import BIMDataSearch from "./BIMDataSearch/BIMDataSearch.vue";
-import BIMDataSelect from "./BIMDataSelect/BIMDataSelect.vue";
-import BIMDataSpinner from "./BIMDataSpinner/BIMDataSpinner.vue";
-import BIMDataTable from "./BIMDataTable/BIMDataTable.vue";
-import BIMDataTextarea from "./BIMDataTextarea/BIMDataTextarea.vue";
-import BIMDataToggle from "./BIMDataToggle/BIMDataToggle.vue";
-
-import BIMDataTooltip from "./BIMDataTooltip/BIMDataTooltip.vue";
-
-import icons from "./BIMDataIcon/BIMDataLibraryIcons/index.js"
-
-const Components = {
-  BIMDataBigSpinner,
-  BIMDataButton,
-  BIMDataCard,
-  BIMDataCheckbox,
-  BIMDataIcon,
-  BIMDataIllustration,
-  BIMDataInput,
-  BIMDataLoading,
-  BIMDataPaginatedList,
-  BIMDataPieSpinner,
-  BIMDataRadio,
-  BIMDataSearch,
-  BIMDataSelect,
-  BIMDataSpinner,
-  BIMDataTable,
-  BIMDataTextarea,
-  BIMDataToggle,
-  BIMDataTooltip,
-  icons,
-};
-
-export default Components;
+export { default as BIMDataBigSpinner } from "./BIMDataBigSpinner/BIMDataBigSpinner.vue";
+export { default as BIMDataButton } from "./BIMDataButton/BIMDataButton.vue";
+export { default as BIMDataCard } from "./BIMDataCard/BIMDataCard.vue";
+export { default as BIMDataCheckbox } from "./BIMDataCheckbox/BIMDataCheckbox.vue";
+export { default as BIMDataIcon } from "./BIMDataIcon/BIMDataIcon.vue";
+export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
+export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
+export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";
+export { default as BIMDataPaginatedList } from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
+export { default as BIMDataPieSpinner } from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";
+export { default as BIMDataRadio } from "./BIMDataRadio/BIMDataRadio.vue";
+export { default as BIMDataSearch } from "./BIMDataSearch/BIMDataSearch.vue";
+export { default as BIMDataSelect } from "./BIMDataSelect/BIMDataSelect.vue";
+export { default as BIMDataSpinner } from "./BIMDataSpinner/BIMDataSpinner.vue";
+export { default as BIMDataTable } from "./BIMDataTable/BIMDataTable.vue";
+export { default as BIMDataTextarea } from "./BIMDataTextarea/BIMDataTextarea.vue";
+export { default as BIMDataToggle } from "./BIMDataToggle/BIMDataToggle.vue";
+export { default as BIMDataTooltip } from "./BIMDataTooltip/BIMDataTooltip.vue";
+export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index.js";
