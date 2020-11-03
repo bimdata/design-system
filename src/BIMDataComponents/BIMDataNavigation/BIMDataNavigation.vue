@@ -114,5 +114,9 @@ export default {
 // import BIMDATA VARIABLES
 @import "../../assets/scss/_BIMDataVariables.scss";
 
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_list.scss";
+
+// import BIMDATA STYLE COMPONENT
 @import "./_BIMDataNavigation.scss";
 </style>
