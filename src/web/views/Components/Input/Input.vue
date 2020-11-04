@@ -8,8 +8,8 @@
           <BIMDataInput
             v-model="textInput"
             placeholder="Your placeholder here"
-            :error="errorMessage"
-            :success="successMessage"
+            :error="error"
+            :success="success"
             :errorMessage="getErrorMessage()"
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"

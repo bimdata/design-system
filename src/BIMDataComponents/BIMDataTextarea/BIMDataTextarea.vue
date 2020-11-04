@@ -4,7 +4,7 @@
     :class="{
       'not-empty':
         (this.message !== null && this.message !== '') ||
-        this.placeholder !== null,
+        this.placeholder !== null, error, success
     }"
     :style="{ 'min-width': width, 'min-height': height }"
   >
@@ -19,6 +19,8 @@
     />
     <label :for="name">{{ label }}</label>
     <span class="bar"></span>
+    <span v-if="error" class="error">{{ errorMessage }}</span>
+    <span v-if="success" class="success">{{ successMessage }}</span>
   </div>
 </template>
 
@@ -70,6 +72,31 @@ export default {
       type: Boolean,
       default: false,
     },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    success: {
+      type: Boolean,
+      default: false,
+    },
+    errorMessage: {
+      type: String,
+      default: "",
+    },
+    successMessage: {
+      type: String,
+      default: "",
+    },
+  },
+  created() {
+    this.$watch(
+      () => this.success && this.error,
+      successAndError => {
+        if (successAndError)
+          throw "Textarea state cannot be both success and error.";
+      }
+    );
   },
   methods: {
     focus() {
