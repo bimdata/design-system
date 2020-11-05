@@ -24,12 +24,10 @@ textarea:-webkit-autofill {
         cursor: default;
       }
     }
-
     &:focus {
       outline: none;
       & ~ label {
         top: -26px;
-        color: $color-primary;
         font-size: calculateEm(10px);
       }
       & ~ .bar {
@@ -67,9 +65,6 @@ textarea:-webkit-autofill {
       width: 0;
       height: 2px;
       @include pseudo;
-      bottom: 0;
-      left: 0;
-      right: 0;
       background-color: $color-primary;
       transform: scaleX(0);
     }
