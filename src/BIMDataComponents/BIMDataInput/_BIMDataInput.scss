@@ -63,9 +63,6 @@ input:-webkit-autofill {
       width: 0;
       height: 2px;
       @include pseudo;
-      bottom: 0;
-      left: 0;
-      right: 0;
       background-color: $color-primary;
       transform: scaleX(0);
     }
