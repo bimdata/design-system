@@ -3,6 +3,7 @@
   font-family: $primary-font;
   font-size: calculateEm(14px);
   line-height: 1.5;
+  overflow: auto;
   &--small {
     height: 100%;
     position: relative;
