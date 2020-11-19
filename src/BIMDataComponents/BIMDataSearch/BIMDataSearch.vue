@@ -9,6 +9,7 @@
       <BIMDataIcon name="search" size="xxs" />
     </span>
     <input
+      ref="input"
       :value="value"
       v-focus="autofocus"
       @focus="focused = true"
@@ -86,6 +87,9 @@ export default {
     },
     focus() {
       this.$refs.input && this.$refs.input.focus();
+    },
+    blur() {
+      this.$refs.input && this.$refs.input.blur();
     },
     clickClear() {
       this.$emit("input", "");
