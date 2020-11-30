@@ -30,6 +30,11 @@
 .bimdata-text {
   font-size: 14px;
 }
+.bimdata-link {
+  color: var(--primary-font);
+  border-bottom: 1px solid var(--primary-font);
+  font-weight: bold;
+}
 
 /* BIMDATA FONT WEIGHT */
 .primary-font {
