@@ -1,7 +1,7 @@
 # design-system
 
 <p align="center">
-  <img width="1280" height="640" src="./screenshots/design-system_illustration.png" alt="Design system illustration" />
+  <img src="./screenshots/design-system_illustration.png" alt="Design system illustration" />
 </p>
 
 ## Project setup
