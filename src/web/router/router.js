@@ -9,7 +9,6 @@ import Content from "../views/Layout/Content.vue";
 import Designers from "../views/GettingStarted/Designers.vue";
 import Developpers from "../views/GettingStarted/Developpers.vue";
 import Releases from "../views/GettingStarted/Releases.vue";
-import InternalDoc from "../views/GettingStarted/InternalDoc.vue";
 
 // import GUIDELINES
 import Colors from "../views/Guidelines/Colors/Colors.vue";
@@ -69,11 +68,6 @@ const routes = [
         path: "releases",
         name: "releases",
         component: Releases,
-      },
-      {
-        path: "internal-doc",
-        name: "internal-doc",
-        component: InternalDoc,
       },
     ],
   },
