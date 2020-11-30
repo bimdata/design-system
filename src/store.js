@@ -101,7 +101,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-typo.svg"),
           path: "typography",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Indispensable for defining visual identity and organizing content.",
           btn: "View typography",
         },
       ],
