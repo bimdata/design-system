@@ -77,7 +77,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-list.svg"),
           path: "list",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Minimal layout container for displaying a group of items.",
           btn: "View list",
         },
         {
