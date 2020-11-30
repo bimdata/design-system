@@ -27,14 +27,14 @@ export default new Vuex.Store({
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
           btn: "Getting started",
         },
-        {
-          title: "Releases",
-          img: require("./web/assets/img/icon-release.svg"),
-          path: "releases",
-          text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View releases",
-        },
+        // {
+        //   title: "Releases",
+        //   img: require("./web/assets/img/icon-release.svg"),
+        //   path: "releases",
+        //   text:
+        //     "Discover the new features of the BIMData Design system.",
+        //   btn: "View releases",
+        // },
       ],
     },
     "Guidelines & Utilities": {
