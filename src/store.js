@@ -35,6 +35,14 @@ export default new Vuex.Store({
         //     "Discover the new features of the BIMData Design system.",
         //   btn: "View releases",
         // },
+        {
+          title: "InternalDoc",
+          img: require("./web/assets/img/icon-doc.svg"),
+          path: "internal-doc",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+          btn: "Getting started",
+        },
       ],
     },
     "Guidelines & Utilities": {
