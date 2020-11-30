@@ -85,7 +85,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-markup.svg"),
           path: "markup",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "How to name your classes to respect the structure already in place.",
           btn: "View markup",
         },
         {
