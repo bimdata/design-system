@@ -64,14 +64,14 @@ export default new Vuex.Store({
           text: "BIMData uses a color palette to achieve clean interfaces.",
           btn: "View colors",
         },
-        {
-          title: "Grid",
-          img: require("./web/assets/img/icon-grid.svg"),
-          path: "grid",
-          text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View grid",
-        },
+        // {
+        //   title: "Grid",
+        //   img: require("./web/assets/img/icon-grid.svg"),
+        //   path: "grid",
+        //   text:
+        //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+        //   btn: "View grid",
+        // },
         {
           title: "list",
           img: require("./web/assets/img/icon-list.svg"),
