@@ -40,7 +40,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-doc.svg"),
           path: "internal-doc",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Documentation, if you want to add your own components",
           btn: "Getting started",
         },
       ],
