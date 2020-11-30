@@ -16,8 +16,8 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-designers.svg"),
           path: "designers",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "Getting started",
+            "Collection of tools and resources you need to start designing with the BIMData design system.",
+          btn: "Get design kit",
         },
         {
           title: "Developpers",
