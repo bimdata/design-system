@@ -26,9 +26,6 @@
                 <h4>GUIDELINES & UTILITIES</h4>
                 <p>Colors</p>
               </div>
-              <div>
-                <BIMDataIcon name="chevron" class="fill-primary" />
-              </div>
             </div>
           </template>
         </BIMDataCard>
@@ -39,11 +36,9 @@
 
 <script>
 import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
-import BIMDataIcon from "../../../../dist/js/BIMDataComponents/BIMDataIcon.js";
 export default {
   components: {
     BIMDataCard,
-    BIMDataIcon,
   },
 };
 </script>
