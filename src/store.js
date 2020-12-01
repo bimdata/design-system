@@ -16,31 +16,31 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-designers.svg"),
           path: "designers",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "Getting started",
+            "Collection of tools and resources you need to start designing with the BIMData design system.",
+          btn: "Get design kit",
         },
         {
           title: "Developpers",
           img: require("./web/assets/img/icon-developpers.svg"),
           path: "developpers",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "Getting started",
+            "How to use the BIMData design system in your projects.",
+          btn: "Get dev kit",
         },
-        {
-          title: "Releases",
-          img: require("./web/assets/img/icon-release.svg"),
-          path: "releases",
-          text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View releases",
-        },
+        // {
+        //   title: "Releases",
+        //   img: require("./web/assets/img/icon-release.svg"),
+        //   path: "releases",
+        //   text:
+        //     "Discover the new features of the BIMData Design system.",
+        //   btn: "View releases",
+        // },
         {
           title: "InternalDoc",
           img: require("./web/assets/img/icon-doc.svg"),
           path: "internal-doc",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Documentation, if you want to add your own components",
           btn: "Getting started",
         },
       ],
@@ -64,20 +64,20 @@ export default new Vuex.Store({
           text: "BIMData uses a color palette to achieve clean interfaces.",
           btn: "View colors",
         },
-        {
-          title: "Grid",
-          img: require("./web/assets/img/icon-grid.svg"),
-          path: "grid",
-          text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-          btn: "View grid",
-        },
+        // {
+        //   title: "Grid",
+        //   img: require("./web/assets/img/icon-grid.svg"),
+        //   path: "grid",
+        //   text:
+        //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+        //   btn: "View grid",
+        // },
         {
           title: "list",
           img: require("./web/assets/img/icon-list.svg"),
           path: "list",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Minimal layout container for displaying a group of items.",
           btn: "View list",
         },
         {
@@ -85,7 +85,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-markup.svg"),
           path: "markup",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "How to name your classes to respect the structure already in place.",
           btn: "View markup",
         },
         {
@@ -101,7 +101,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-typo.svg"),
           path: "typography",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
+            "Indispensable for defining visual identity and organizing content.",
           btn: "View typography",
         },
       ],
