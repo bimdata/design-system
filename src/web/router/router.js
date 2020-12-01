@@ -13,7 +13,7 @@ import InternalDoc from "../views/GettingStarted/InternalDoc.vue";
 
 // import GUIDELINES
 import Colors from "../views/Guidelines/Colors/Colors.vue";
-import Grid from "../views/Guidelines/Grid/Grid.vue";
+// import Grid from "../views/Guidelines/Grid/Grid.vue";
 import List from "../views/Guidelines/List/List.vue";
 import Markup from "../views/Guidelines/Markup/Markup.vue";
 import Spacing from "../views/Guidelines/Spacing/Spacing.vue";
@@ -91,11 +91,11 @@ const routes = [
         name: "colors",
         component: Colors,
       },
-      {
-        path: "grid",
-        name: "grid",
-        component: Grid,
-      },
+      // {
+      //   path: "grid",
+      //   name: "grid",
+      //   component: Grid,
+      // },
       {
         path: "list",
         name: "list",
