@@ -5,7 +5,9 @@
     @click="onClick"
   >
     <span class="bimdata-checkbox__mark"></span>
-    <span class="bimdata-checkbox__text">{{ text }}</span>
+    <span class="bimdata-checkbox__text">
+      <slot>{{ text }}</slot>
+    </span>
   </div>
 </template>
 
