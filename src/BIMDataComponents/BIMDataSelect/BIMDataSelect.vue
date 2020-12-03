@@ -31,12 +31,12 @@
           }"
           @click="onOptionClick(option)"
         >
-          <BIMDataCheckbox
-            v-if="multi"
-            :text="option"
-            :state="value.includes(option)"
-          ></BIMDataCheckbox>
-          <span v-else>{{ option }}</span>
+          <BIMDataCheckbox v-if="multi" :state="value.includes(option)">
+            <slot name="option" :option="option">{{ option }}</slot>
+          </BIMDataCheckbox>
+          <span v-else>
+            <slot name="option" :option="option">{{ option }}</slot>
+          </span>
         </li>
       </ul>
     </transition>
