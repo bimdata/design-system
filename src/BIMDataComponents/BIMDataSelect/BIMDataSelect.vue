@@ -10,9 +10,9 @@
         @click="displayOptions = !displayOptions"
         :class="{ active: displayOptions }"
       >
-        <span>{{
-          multi ? (value.length ? formatValue(value) : null) : value
-        }}</span>
+        <span>
+          {{ displayedValue }}
+        </span>
         <BIMDataIcon name="chevron" size="xxs" />
       </div>
       <label>{{ label }}</label>
@@ -32,10 +32,10 @@
           @click="onOptionClick(option)"
         >
           <BIMDataCheckbox v-if="multi" :state="value.includes(option)">
-            <slot name="option" :option="option">{{ option }}</slot>
+            {{ optionKey ? option && option[optionKey] : option }}
           </BIMDataCheckbox>
           <span v-else>
-            <slot name="option" :option="option">{{ option }}</slot>
+            {{ optionKey ? option && option[optionKey] : option }}
           </span>
         </li>
       </ul>
@@ -59,6 +59,10 @@ export default {
     event: "option-click",
   },
   props: {
+    optionKey: {
+      type: String,
+      default: null,
+    },
     options: { type: Array, default: () => [] },
     multi: {
       type: Boolean,
@@ -79,6 +83,17 @@ export default {
       displayOptions: false,
       selectedOptions: this.value,
     };
+  },
+  computed: {
+    displayedValue() {
+      if (this.value === null || this.value === undefined) {
+        return null;
+      } else if (this.multi) {
+        return this.formatValue(this.value);
+      } else {
+        return this.optionKey ? this.value[this.optionKey] : this.value;
+      }
+    },
   },
   watch: {
     multi() {
@@ -131,7 +146,9 @@ export default {
       this.displayOptions = false;
     },
     formatValue(value) {
-      return value.reduce((acc, cur) => `${acc}, ${cur}`);
+      return value
+        .map(e => (this.optionKey ? e[this.optionKey] : e))
+        .join(", ");
     },
   },
 };
