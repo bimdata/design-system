@@ -89,14 +89,6 @@ jobs:
 workflows:
   test_and_deploy:
     jobs:
-      - deploy_docker_dev:
-          type: approval
-          filters:
-            branches:
-              ignore:
-                - master
-                - release
-                - develop
       - build_and_push:
           filters:
             branches:
@@ -107,11 +99,3 @@ workflows:
       - deploy:
           requires:
             - build_and_push
-      - build_and_push:
-          name: build_and_push_docker_dev
-          requires:
-            - deploy_docker_dev
-      - deploy:
-          name: deploy_dev
-          requires:
-            - build_and_push_docker_dev
