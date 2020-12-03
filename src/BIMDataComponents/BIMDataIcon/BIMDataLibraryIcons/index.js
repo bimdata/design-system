@@ -8,6 +8,7 @@ import attach from "./Attach.vue";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
+import calendar from "./Calendar.vue";
 import camera from "./Camera.vue";
 import cancelCamera from "./CancelCamera.vue";
 import check from "./Check.vue";
@@ -26,6 +27,7 @@ import detach from "./Detach.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import down from "./Down.vue";
 import edit from "./Edit.vue";
+import expanded from "./Expanded.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import failed from "./Failed.vue";
@@ -51,6 +53,7 @@ import plus from "./Plus.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
 import redo from "./Redo.vue";
+import reduced from "./Reduced.vue";
 import refresh from "./Refresh.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
 import reset from "./Reset.vue";
@@ -95,6 +98,7 @@ export default {
   bcf,
   building,
   burgerMenu,
+  calendar,
   camera,
   cancelCamera,
   check,
@@ -113,6 +117,7 @@ export default {
   doubleChevron,
   down,
   edit,
+  expanded,
   export: Export,
   exportIfc,
   failed,
@@ -138,6 +143,7 @@ export default {
   project,
   quickSelect,
   redo,
+  reduced,
   refresh,
   reprocessIfc,
   reset,
