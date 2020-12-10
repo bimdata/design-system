@@ -73,6 +73,22 @@ select:-webkit-autofill {
             background-color: darken($color-tertiary, 5%);
           }
         }
+        &.disabled {
+          color: $color-disabled;
+          cursor: default;
+        }
+        &.option-group {
+          color: $color-tertiary-darkest;
+          font-weight: bold;
+          &:hover {
+            background-color: transparent;
+            cursor: default;
+          }
+          & ~ li:not(.option-group) {
+            padding-left: 24px;
+          }
+        }
+
         &:hover {
           background-color: $color-tertiary-lightest;
           transition: all ease 0.2s;
