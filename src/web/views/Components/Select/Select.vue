@@ -6,6 +6,17 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataSelect
+            v-if="getOptionKey"
+            :options="optionsGroup"
+            label="label"
+            :nullValue="getNullValue"
+            :multi="getMulti"
+            optionKey="label"
+            v-model="type"
+            width="150px"
+          />
+          <BIMDataSelect
+            v-else
             :options="options"
             label="label"
             :nullValue="getNullValue"
@@ -28,6 +39,12 @@
             :disabled="checkboxNullValueDisabled"
           >
           </BIMDataCheckbox>
+          <BIMDataCheckbox
+            text="group option"
+            v-model="groupOption"
+            :disabled="checkboxGroupOptionDisabled"
+          >
+          </BIMDataCheckbox>
         </template>
 
         <template #import>
@@ -42,6 +59,7 @@
               label="label"
               :nullValue="{{ getNullValue }}"
               :multi="{{ getMulti }}"
+              {{ getOptionKeyLabel }}
               v-model="type"
               width="150px"
             /&gt;
@@ -53,11 +71,41 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">How to add option group to BIMDataSelect:</h5>
+        <p>
+          To add optgroup to BIMDataSelect add optionGroup: true property to the
+          option object. Remember to provide an optionKey to display your object
+          correctly.
+        </p>
+        <p>Example :</p>
+        <Code language="javascript">
+          { label: "Title 2", optionGroup: true },
+        </Code>
+      </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">
+          How to add 'disabled' class to an element list to BIMDataSelect:
+        </h5>
+        <p>
+          To disabled an option, add disabled: true property to the option
+          object. Remember to provide an optionKey to display your object
+          correctly.
+        </p>
+        <p>Example:</p>
+        <Code language="javascript">
+          { label: "Option 2", disabled: true },
+        </Code>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import Code from "../../Elements/Code/Code.vue";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -66,6 +114,7 @@ import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BI
 
 export default {
   components: {
+    Code,
     ComponentCode,
     BIMDataTable,
     BIMDataCheckbox,
@@ -76,8 +125,10 @@ export default {
       type: null,
       multi: false,
       nullValue: false,
+      groupOption: false,
       checkboxMultiDisabled: false,
       checkboxNullValueDisabled: false,
+      checkboxGroupOptionDisabled: false,
       options: [
         "option 1",
         "option 2",
@@ -87,6 +138,17 @@ export default {
         "option 6",
         "option 7",
         "option 8",
+      ],
+      optionsGroup: [
+        { label: "Title", optionGroup: true },
+        { label: "option 1" },
+        { label: "option 2" },
+        { label: "Title 2", optionGroup: true },
+        { label: "option 3" },
+        { label: "option 4", disabled: true },
+        { label: "option 5" },
+        { label: "option 6" },
+        { label: "option 7" },
       ],
       propsData: [
         ["Props", "Type", "Default value", "Description"],
@@ -104,7 +166,7 @@ export default {
         ],
         [
           "value",
-          "[String, Array]",
+          "[String, Array, Object]",
           "/",
           "Use this props to select by default a value from the list of options.",
         ],
@@ -126,6 +188,12 @@ export default {
           "false",
           "Use this boolean if you want a 'none' value.",
         ],
+        [
+          "optionKey",
+          "String",
+          "null",
+          "Use this prop if your options are in an object array and you don't want to just display the object but a specific key on the object",
+        ],
       ],
     };
   },
@@ -146,6 +214,18 @@ export default {
       } else {
         this.type = null;
         this.checkboxNullValueDisabled = false;
+      }
+    },
+    getOptionKey() {
+      if (this.groupOption) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getOptionKeyLabel() {
+      if (this.getOptionKey) {
+        return 'optionKey="label"';
       }
     },
   },

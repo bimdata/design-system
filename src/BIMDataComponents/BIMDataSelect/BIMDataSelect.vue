@@ -28,15 +28,26 @@
           :key="index"
           :class="{
             selected: multi ? value.includes(option) : option === value,
+            disabled: optionKey && option.disabled,
+            'option-group': isOptionGroup(option),
           }"
           @click="onOptionClick(option)"
         >
-          <BIMDataCheckbox v-if="multi" :state="value.includes(option)">
-            {{ optionKey ? option && option[optionKey] : option }}
-          </BIMDataCheckbox>
-          <span v-else>
-            {{ optionKey ? option && option[optionKey] : option }}
-          </span>
+          <span v-if="isOptionGroup(option)">{{
+            option[optionKey]
+          }}</span>
+          <template v-else>
+            <BIMDataCheckbox
+              v-if="multi"
+              :state="value.includes(option)"
+              :disabled="optionKey && option.disabled"
+            >
+              {{ optionKey ? option && option[optionKey] : option }}
+            </BIMDataCheckbox>
+            <span v-else>
+              {{ optionKey ? option && option[optionKey] : option }}
+            </span>
+          </template>
         </li>
       </ul>
     </transition>
@@ -63,13 +74,16 @@ export default {
       type: String,
       default: null,
     },
-    options: { type: Array, default: () => [] },
+    options: {
+      type: Array,
+      default: () => [],
+    },
     multi: {
       type: Boolean,
       default: false,
     },
     value: {
-      type: [String, Array],
+      type: [String, Array, Object],
     },
     label: { type: String, default: null },
     width: { type: [String, Number] },
@@ -121,7 +135,11 @@ export default {
     );
   },
   methods: {
+    isOptionGroup(option) {
+      return this.optionKey && option && option.optionGroup;
+    },
     onOptionClick(option) {
+      if (this.optionKey && (option.disabled || option.optionGroup)) return;
       if (this.multi) {
         if (this.value.includes(option)) {
           this.$emit(
