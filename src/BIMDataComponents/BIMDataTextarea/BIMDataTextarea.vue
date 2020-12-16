@@ -3,8 +3,8 @@
     class="bimdata-textarea"
     :class="{
       'not-empty':
-        (this.message !== null && this.message !== '') ||
-        this.placeholder !== null, error, success
+        (message !== null && message !== '') ||
+        placeholder !== null, error, success
     }"
     :style="{ 'min-width': width, 'min-height': height }"
   >
