@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-input"
-    :class="{ error, success, disabled, loading, 'not-empty': !!this.text }"
+    :class="{ error, success, disabled, loading, 'not-empty': !!text }"
   >
     <input
       ref="input"
