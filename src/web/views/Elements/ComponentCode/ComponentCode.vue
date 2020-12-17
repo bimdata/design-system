@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
+import highlight from "../../../../BIMDataDirectives/highlight.js";
+import copy from "../../../../BIMDataDirectives/copy.js";
 import Alerts from "../Alerts/Alerts.vue";
 import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
 
