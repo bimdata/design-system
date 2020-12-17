@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import clickaway from "../../directives/click-away";
+import clickaway from "../../BIMDataDirectives/click-away";
 
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -92,6 +92,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'option-click'
+  ],
   data() {
     return {
       displayOptions: false,

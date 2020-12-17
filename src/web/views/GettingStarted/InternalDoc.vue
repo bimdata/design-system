@@ -82,8 +82,8 @@
 <script>
 import Code from "../Elements/Code/Code.vue";
 
-import highlight from "../../../directives/highlight.js";
-import copy from "../../../directives/copy.js";
+import highlight from "../../../BIMDataDirectives/highlight.js";
+import copy from "../../../BIMDataDirectives/copy.js";
 
 export default {
   directives: { highlight, copy },

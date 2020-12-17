@@ -65,7 +65,11 @@ export default {
       type: Number,
       default: 63
     }
-  }
+  },
+  emits: [
+    'lap',
+    'stop'
+  ]
 };
 </script>
 

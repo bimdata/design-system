@@ -1,8 +1,11 @@
 import { terser } from "rollup-plugin-terser";
-import vue from "rollup-plugin-vue";
+import vue2 from "rollup-plugin-vue2";
+import vue3 from "rollup-plugin-vue3";
 import css from "rollup-plugin-css-only";
 import copy from "rollup-plugin-copy";
 import replace from "@rollup/plugin-replace";
+import postcss from "rollup-plugin-postcss";
+import alias from "@rollup/plugin-alias";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
@@ -42,7 +45,7 @@ module.exports = [
           },
         ],
       }),
-      vue({
+      vue2({
         template: { isProduction: true },
         css: false,
       }),
@@ -76,37 +79,46 @@ function getSingleComponentConfigurations() {
   ];
 
   return [
+    // Build Vue 2.x compatible components
     ...componentNames.map(componentName => ({
       input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
       output: {
         file: `dist/js/BIMDataComponents/${componentName}.js`,
-        format: "es",
+        format: "esm",
       },
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
         }),
-        vue({
+        vue2({
           template: { isProduction: true },
         }),
         terser(),
       ],
     })),
+    // Build Vue 3.x compatible components
     ...componentNames.map(componentName => ({
       input: [`src/BIMDataComponents/${componentName}/${componentName}.vue`],
       output: {
-        file: `dist/js/BIMDataComponents/${componentName}.ssr.js`,
-        format: "cjs",
+        file: `dist/js/BIMDataComponents/vue3/${componentName}.js`,
+        format: "esm",
       },
       plugins: [
+        alias({
+          entries: [
+            { find: /BIMDataDirectives\//, replacement: "BIMDataDirectives/vue3/" },
+          ],
+        }),
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
         }),
-        vue({
-          template: { isProduction: true, optimizeSSR: true },
+        vue3({
+          template: { isProduction: true },
+          preprocessStyles: true
         }),
+        postcss(),
         terser(),
       ],
     })),

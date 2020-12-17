@@ -62,6 +62,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'input'
+  ],
   created() {
     this.$watch(
       () => this.success && this.error,

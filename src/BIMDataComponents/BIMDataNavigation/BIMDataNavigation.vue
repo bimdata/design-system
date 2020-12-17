@@ -107,6 +107,12 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'first',
+    'previous',
+    'next',
+    'last'
+  ],
 };
 </script>
 

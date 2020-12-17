@@ -59,6 +59,9 @@ export default {
       validator: color => colors.includes(color)
     }
   },
+  emits: [
+    'click'
+  ],
   computed: {
     classes() {
       return {

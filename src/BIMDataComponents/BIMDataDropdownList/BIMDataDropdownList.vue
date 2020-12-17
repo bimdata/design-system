@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import clickaway from "../../directives/click-away.js";
+import clickaway from "../../BIMDataDirectives/click-away.js";
 
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
@@ -86,6 +86,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'element-click'
+  ],
   data() {
     return {
       displayed: false,

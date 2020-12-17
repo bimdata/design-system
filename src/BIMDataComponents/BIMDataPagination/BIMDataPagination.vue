@@ -53,6 +53,9 @@ export default {
       },
     },
   },
+  emits: [
+    'pagechanged'
+  ],
   computed: {
     firstIndex() {
       return this.perPage * (this.currentPage - 1) + 1;

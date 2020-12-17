@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-import clickaway from "../../directives/click-away.js";
+import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
 /* import BIMData ICONS */
@@ -75,6 +75,11 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'input',
+    'enter',
+    'clear'
+  ],
   data() {
     return {
       inputVisible: false,

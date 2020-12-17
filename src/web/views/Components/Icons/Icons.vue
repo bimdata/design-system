@@ -105,8 +105,8 @@ import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDat
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
+import highlight from "../../../../BIMDataDirectives/highlight.js";
+import copy from "../../../../BIMDataDirectives/copy.js";
 
 export default {
   components: {

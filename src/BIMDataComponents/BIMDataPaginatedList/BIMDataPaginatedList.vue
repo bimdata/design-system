@@ -56,6 +56,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'element-click'
+  ],
   data() {
     return {
       currentPage: 1,

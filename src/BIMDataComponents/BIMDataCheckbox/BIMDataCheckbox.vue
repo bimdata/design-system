@@ -35,6 +35,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'change'
+  ],
   computed: {
     indeterminate() {
       return this.state === null;
