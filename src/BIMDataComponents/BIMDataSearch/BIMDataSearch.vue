@@ -10,18 +10,18 @@
     </span>
     <input
       ref="input"
-      :value="value"
+      :value="modelValue"
       v-focus="autofocus"
       @focus="focused = true"
       @blur="focused = false"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       @keyup.enter="$emit('enter', $event.target.value)"
     />
     <BIMDataButton
       width="25px"
       @click="clickClear()"
-      v-if="clear && value !== ''"
+      v-if="clear && modelValue !== ''"
     >
       <BIMDataIcon name="close" size="xxs" />
     </BIMDataButton>
@@ -50,9 +50,8 @@ export default {
     clickaway,
   },
   props: {
-    value: {
+    modelValue: {
       type: String,
-      required: true,
     },
     placeholder: {
       type: String,
@@ -76,9 +75,9 @@ export default {
     },
   },
   emits: [
-    'input',
-    'enter',
-    'clear'
+    "update:modelValue",
+    "enter",
+    "clear"
   ],
   data() {
     return {
@@ -97,7 +96,7 @@ export default {
       this.$refs.input && this.$refs.input.blur();
     },
     clickClear() {
-      this.$emit("input", "");
+      this.$emit("update:modelValue", "");
       this.$emit("clear");
     },
   },

@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-select"
-    :class="{ 'not-empty': value != null && value != value.length }"
+    :class="{ 'not-empty': modelValue != null && modelValue != modelValue.length }"
     :style="{ 'min-width': width }"
   >
     <div class="bimdata-select__content">
@@ -27,7 +27,7 @@
           v-for="(option, index) of options"
           :key="index"
           :class="{
-            selected: multi ? value.includes(option) : option === value,
+            selected: multi ? modelValue.includes(option) : option === modelValue,
             disabled: optionKey && option.disabled,
             'option-group': isOptionGroup(option),
           }"
@@ -39,7 +39,7 @@
           <template v-else>
             <BIMDataCheckbox
               v-if="multi"
-              :state="value.includes(option)"
+              :modelValue="modelValue.includes(option)"
               :disabled="optionKey && option.disabled"
             >
               {{ optionKey ? option && option[optionKey] : option }}
@@ -67,7 +67,8 @@ export default {
   },
   directives: { clickaway },
   model: {
-    event: "option-click",
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
     optionKey: {
@@ -82,7 +83,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    value: {
+    modelValue: {
       type: [String, Array, Object],
     },
     label: { type: String, default: null },
@@ -93,35 +94,35 @@ export default {
     },
   },
   emits: [
-    'option-click'
+    "update:modelValue"
   ],
   data() {
     return {
       displayOptions: false,
-      selectedOptions: this.value,
+      selectedOptions: this.modelValue,
     };
   },
   computed: {
     displayedValue() {
-      if (this.value === null || this.value === undefined) {
+      if (this.modelValue === null || this.modelValue === undefined) {
         return null;
       } else if (this.multi) {
-        return this.formatValue(this.value);
+        return this.formatValue(this.modelValue);
       } else {
-        return this.optionKey ? this.value[this.optionKey] : this.value;
+        return this.optionKey ? this.modelValue[this.optionKey] : this.modelValue;
       }
     },
   },
   watch: {
     multi() {
-      if (this.multi && !Array.isArray(this.value)) {
+      if (this.multi && !Array.isArray(this.modelValue)) {
         throw "value must be an array in multi mode.";
       }
       if (
         !this.multi &&
-        typeof this.value !== "string" &&
-        typeof this.value !== "number" &&
-        this.value !== null
+        typeof this.modelValue !== "string" &&
+        typeof this.modelValue !== "number" &&
+        this.modelValue !== null
       ) {
         throw "value must be a string or a number in non-multi mode.";
       }
@@ -144,23 +145,20 @@ export default {
     onOptionClick(option) {
       if (this.optionKey && (option.disabled || option.optionGroup)) return;
       if (this.multi) {
-        if (this.value.includes(option)) {
-          this.$emit(
-            "option-click",
-            this.value.filter(val => val !== option)
-          );
+        if (this.modelValue.includes(option)) {
+          this.$emit("update:modelValue", this.modelValue.filter(val => val !== option));
         } else {
-          const copy = Array.from(this.value);
+          const copy = Array.from(this.modelValue);
           copy.push(option);
-          this.$emit("option-click", copy);
+          this.$emit("update:modelValue", copy);
         }
       } else {
-        this.$emit("option-click", option);
+        this.$emit("update:modelValue", option);
         this.displayOptions = !this.displayOptions;
       }
     },
     onNullValueClick() {
-      this.$emit("option-click", null);
+      this.$emit("update:modelValue", null);
       this.displayOptions = !this.displayOptions;
     },
     away() {
