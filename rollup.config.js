@@ -5,6 +5,7 @@ import css from "rollup-plugin-css-only";
 import copy from "rollup-plugin-copy";
 import replace from "@rollup/plugin-replace";
 import postcss from "rollup-plugin-postcss";
+import alias from "@rollup/plugin-alias";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
@@ -104,6 +105,11 @@ function getSingleComponentConfigurations() {
         format: "esm",
       },
       plugins: [
+        alias({
+          entries: [
+            { find: /BIMDataDirectives\//, replacement: "BIMDataDirectives/vue3/" },
+          ],
+        }),
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
