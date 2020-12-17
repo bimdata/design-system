@@ -86,6 +86,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'element-click'
+  ],
   data() {
     return {
       displayed: false,

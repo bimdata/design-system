@@ -92,6 +92,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'option-click'
+  ],
   data() {
     return {
       displayOptions: false,

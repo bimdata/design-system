@@ -75,6 +75,11 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'input',
+    'enter',
+    'clear'
+  ],
   data() {
     return {
       inputVisible: false,

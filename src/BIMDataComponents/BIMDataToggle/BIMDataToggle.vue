@@ -28,6 +28,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'input'
+  ],
   computed: {
     checkedValue: {
       get() {

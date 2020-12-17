@@ -44,6 +44,9 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'switch-theme'
+  ],
   methods: {
     switchTheme() {
       this.$emit("switch-theme");

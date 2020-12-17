@@ -37,6 +37,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'input'
+  ],
   methods: {
     onInput() {
       this.$emit("input", this.value);
