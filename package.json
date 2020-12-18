@@ -5,7 +5,8 @@
   "module": "./dist/js/BIMDataComponents/index.js",
   "files": [
     "dist/*",
-    "components.js"
+    "components.js",
+    "screenshots/*"
   ],
   "scripts": {
     "test": "vue-cli-service test:unit",
