@@ -19,6 +19,10 @@
 npm i @bimdata/design-system
 ```
 
+## :raising_hand: Compatibility
+
+BIMData Design System is a library compatible with Vue 2 and Vue 3.
+
 ## :open_hands: Contributing
 
 We are always on the lookout for contributors to help us fix bugs, create new features, or help us improve project documentation. If you are interested, feel free to create a [PR](https://github.com/bimdata/bimdata-viewer-sdk/pulls) or open a [discussion](https://github.com/bimdata/bimdata-viewer-sdk/discussions) on this topic.
