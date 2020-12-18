@@ -76,11 +76,12 @@ export default {
   },
   watch: {
     list: {
-      handler(list) {
-        if (list.length < this.perPage * (this.currentPage - 1) + 1) {
+      handler() {
+        if (this.list.length < this.perPage * (this.currentPage - 1) + 1) {
           this.currentPage = 1;
         }
       },
+      deep: true,
       immediate: true,
     },
   },

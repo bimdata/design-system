@@ -16,18 +16,18 @@ export default {
   name: "BIMDataCheckbox",
   inheritAttrs: false,
   model: {
-    prop: "state",
-    event: "change",
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
     text: {
       type: String,
       default: null,
     },
-    state: {
+    modelValue: {
       type: Boolean,
-      validator(state) {
-        return state === null || typeof state === "boolean";
+      validator(value) {
+        return value === null || typeof value === "boolean";
       },
     },
     disabled: {
@@ -36,20 +36,20 @@ export default {
     },
   },
   emits: [
-    'change'
+    "update:modelValue"
   ],
   computed: {
     indeterminate() {
-      return this.state === null;
+      return this.modelValue === null;
     },
     checked() {
-      return this.state === true || this.indeterminate;
+      return this.modelValue === true || this.indeterminate;
     },
   },
   methods: {
     onClick() {
       if (!this.disabled) {
-        this.$emit("change", this.checked ? false : true);
+        this.$emit("update:modelValue", this.checked ? false : true);
       }
     },
   },

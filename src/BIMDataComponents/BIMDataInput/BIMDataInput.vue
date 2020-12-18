@@ -1,14 +1,14 @@
 <template>
   <div
     class="bimdata-input"
-    :class="{ error, success, disabled, loading, 'not-empty': !!text }"
+    :class="{ error, success, disabled, loading, 'not-empty': !!modelValue }"
   >
     <input
       ref="input"
       :id="`bimdata-input-${_uid}`"
-      @input="$emit('input', $event.currentTarget.value)"
+      @input="$emit('update:modelValue', $event.currentTarget.value)"
       :disabled="disabled"
-      :value="text"
+      :value="modelValue"
       @focus="$event.target.select()"
       v-bind="$attrs"
     />
@@ -25,11 +25,11 @@
 <script>
 export default {
   model: {
-    prop: "text",
-    event: "input",
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
-    text: {
+    modelValue: {
       type: [String, Number, Boolean],
       default: "",
     },
@@ -63,7 +63,7 @@ export default {
     },
   },
   emits: [
-    'input'
+    "update:modelValue"
   ],
   created() {
     this.$watch(

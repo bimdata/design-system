@@ -3,7 +3,7 @@
     class="bimdata-textarea"
     :class="{
       'not-empty':
-        (message !== null && message !== '') ||
+        (modelValue !== null && modelValue !== '') ||
         placeholder !== null, error, success
     }"
     :style="{ 'min-width': width, 'min-height': height }"
@@ -12,10 +12,10 @@
       v-focus="autofocus"
       :name="name"
       :id="name"
-      :value="message"
+      :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
-      @input="$emit('input', $event.currentTarget.value)"
+      @input="$emit('update:modelValue', $event.currentTarget.value)"
     />
     <label :for="name">{{ label }}</label>
     <span class="bar"></span>
@@ -36,15 +36,15 @@ export default {
     },
   },
   model: {
-    prop: "message",
-    event: "input",
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
     name: {
       type: [String, Number],
       default: "",
     },
-    message: {
+    modelValue: {
       type: [String, Number],
       default: null,
     },
@@ -90,7 +90,7 @@ export default {
     },
   },
   emits: [
-    'input'
+    "update:modelValue"
   ],
   created() {
     this.$watch(
