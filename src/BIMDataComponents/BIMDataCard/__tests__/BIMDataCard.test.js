@@ -10,8 +10,8 @@ describe("BIMDataCard", () => {
   it("should render component with title header", () => {
     const wrapper = shallowMount(BIMDataCard, {
       propsData: {
-        titleHeader: "Hearder title card"
-      }
+        titleHeader: "Hearder title card",
+      },
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -19,8 +19,8 @@ describe("BIMDataCard", () => {
   it("should render component with submenu text", () => {
     const wrapper = shallowMount(BIMDataCard, {
       propsData: {
-        submenuText: "Submenu text card"
-      }
+        submenuText: "Submenu text card",
+      },
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -28,8 +28,8 @@ describe("BIMDataCard", () => {
   it("should render component with a custom width", () => {
     const wrapper = shallowMount(BIMDataCard, {
       propsData: {
-        width: "350px"
-      }
+        width: "350px",
+      },
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -78,5 +78,4 @@ describe("BIMDataCard", () => {
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
-
 });

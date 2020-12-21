@@ -3,7 +3,6 @@ import BIMDataNavigation from "../BIMDataNavigation.vue";
 import BIMDataButton from "../../BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../BIMDataIcon/BIMDataIcon.vue";
 
-
 describe("BIMDataNavigation", () => {
   it("should render component and match snapshot", () => {
     const wrapper = shallowMount(BIMDataNavigation);
@@ -39,8 +38,8 @@ describe("BIMDataNavigation", () => {
         first: false,
         last: false,
         previous: false,
-        next: false
-      }
+        next: false,
+      },
     });
     expect(wrapper.findComponent(BIMDataButton).exists()).toBe(false);
   });
@@ -56,8 +55,8 @@ describe("BIMDataNavigation", () => {
         firstDisabled: true,
         previousDisabled: true,
         nextDisabled: true,
-        lastDisabled: true
-      }
+        lastDisabled: true,
+      },
     });
     expect(wrapper.findComponent(BIMDataButton).classes("disabled")).toBe(true);
     expect(wrapper.html()).toMatchSnapshot();
@@ -65,29 +64,29 @@ describe("BIMDataNavigation", () => {
 
   it("should emit first event", async () => {
     const wrapper = shallowMount(BIMDataNavigation);
-    wrapper.vm.$emit('first');
+    wrapper.vm.$emit("first");
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted('first')).toBeTruthy();
+    expect(wrapper.emitted("first")).toBeTruthy();
   });
 
   it("should emit previous event", async () => {
     const wrapper = shallowMount(BIMDataNavigation);
-    wrapper.vm.$emit('previous');
+    wrapper.vm.$emit("previous");
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted('previous')).toBeTruthy();
+    expect(wrapper.emitted("previous")).toBeTruthy();
   });
 
   it("should emit next event", async () => {
     const wrapper = shallowMount(BIMDataNavigation);
-    wrapper.vm.$emit('next');
+    wrapper.vm.$emit("next");
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted('next')).toBeTruthy();
+    expect(wrapper.emitted("next")).toBeTruthy();
   });
 
   it("should emit last event", async () => {
     const wrapper = shallowMount(BIMDataNavigation);
-    wrapper.vm.$emit('last');
+    wrapper.vm.$emit("last");
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted('last')).toBeTruthy();
+    expect(wrapper.emitted("last")).toBeTruthy();
   });
 });

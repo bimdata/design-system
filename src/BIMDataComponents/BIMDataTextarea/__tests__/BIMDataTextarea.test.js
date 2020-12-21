@@ -25,7 +25,7 @@ describe("BIMDataTextarea", () => {
         modelValue: null,
       },
       listeners: {
-        'update:modelValue': onInput,
+        "update:modelValue": onInput,
       },
     });
     expect(wrapper.find("textarea").element.value).toBe("");

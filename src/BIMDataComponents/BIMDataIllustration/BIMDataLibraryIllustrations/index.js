@@ -19,5 +19,5 @@ export default {
   shortcutOpen,
   shortcutRotate,
   shortcutZoom,
-  successSplit
+  successSplit,
 };

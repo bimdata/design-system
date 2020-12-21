@@ -107,7 +107,10 @@ function getSingleComponentConfigurations() {
       plugins: [
         alias({
           entries: [
-            { find: /BIMDataDirectives\//, replacement: "BIMDataDirectives/vue3/" },
+            {
+              find: /BIMDataDirectives\//,
+              replacement: "BIMDataDirectives/vue3/",
+            },
           ],
         }),
         replace({
@@ -116,7 +119,7 @@ function getSingleComponentConfigurations() {
         }),
         vue3({
           template: { isProduction: true },
-          preprocessStyles: true
+          preprocessStyles: true,
         }),
         postcss(),
         terser(),

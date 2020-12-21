@@ -58,7 +58,7 @@ describe("BIMDataCheckbox", () => {
         modelValue: false,
       },
       listeners: {
-        'update:modelValue': onClick,
+        "update:modelValue": onClick,
       },
     });
     wrapper.trigger("click");
@@ -72,7 +72,7 @@ describe("BIMDataCheckbox", () => {
         modelValue: true,
       },
       listeners: {
-        'update:modelValue': onClick,
+        "update:modelValue": onClick,
       },
     });
     wrapper.trigger("click");
@@ -86,7 +86,7 @@ describe("BIMDataCheckbox", () => {
         modelValue: null,
       },
       listeners: {
-        'update:modelValue': onClick,
+        "update:modelValue": onClick,
       },
     });
     wrapper.trigger("click");

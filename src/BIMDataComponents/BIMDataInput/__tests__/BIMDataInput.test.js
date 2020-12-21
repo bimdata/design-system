@@ -68,7 +68,7 @@ describe("BIMDataInput", () => {
     const onInput = jest.fn();
     const wrapper = shallowMount(BIMDataInput, {
       listeners: {
-        'update:modelValue': onInput,
+        "update:modelValue": onInput,
       },
     });
     expect(wrapper.find("input").element.value).toBe("");

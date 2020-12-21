@@ -23,8 +23,7 @@ export default new Vuex.Store({
           title: "Developpers",
           img: require("./web/assets/img/icon-developpers.svg"),
           path: "developpers",
-          text:
-            "How to use the BIMData design system in your projects.",
+          text: "How to use the BIMData design system in your projects.",
           btn: "Get dev kit",
         },
         // {
@@ -39,8 +38,7 @@ export default new Vuex.Store({
           title: "InternalDoc",
           img: require("./web/assets/img/icon-doc.svg"),
           path: "internal-doc",
-          text:
-            "Documentation, if you want to add your own components",
+          text: "Documentation, if you want to add your own components",
           btn: "Getting started",
         },
       ],
@@ -76,8 +74,7 @@ export default new Vuex.Store({
           title: "list",
           img: require("./web/assets/img/icon-list.svg"),
           path: "list",
-          text:
-            "Minimal layout container for displaying a group of items.",
+          text: "Minimal layout container for displaying a group of items.",
           btn: "View list",
         },
         {
@@ -224,7 +221,8 @@ export default new Vuex.Store({
           title: "Toggles",
           img: require("./web/assets/img/icon-toggle.svg"),
           path: "toggle",
-          text: "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
+          text:
+            "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
           btn: "View toggle",
         },
         {
