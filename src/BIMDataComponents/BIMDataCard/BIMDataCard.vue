@@ -3,7 +3,7 @@
     <BIMDataCardBand
       :text="titleHeader"
       class="bimdata-card__header"
-      v-if="titleHeader || $scopedSlots.headerIcons"
+      v-if="titleHeader || $slots.headerIcons"
     >
       <template #right>
         <slot name="headerIcons"></slot>
@@ -12,7 +12,7 @@
     <BIMDataCardBand
       class="bimdata-card__submenu"
       :text="submenuText"
-      v-if="$scopedSlots.left || submenuText || $scopedSlots.right"
+      v-if="$slots.left || submenuText || $slots.right"
     >
       <template #left>
         <slot name="left"></slot>
@@ -21,10 +21,10 @@
         <slot name="right"></slot>
       </template>
     </BIMDataCardBand>
-    <div class="bimdata-card__content" v-if="$scopedSlots.content">
+    <div class="bimdata-card__content" v-if="$slots.content">
       <slot name="content"></slot>
     </div>
-    <footer class="bimdata-card__footer" v-if="$scopedSlots.footer">
+    <footer class="bimdata-card__footer" v-if="$slots.footer">
       <slot name="footer"></slot>
     </footer>
   </div>
