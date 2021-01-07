@@ -18,6 +18,10 @@
 
 <script>
 export default {
+  model: {
+    prop: "modelValue",
+    event: "update:modelValue",
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -28,9 +32,7 @@ export default {
       default: false,
     },
   },
-  emits: [
-    "update:modelValue"
-  ],
+  emits: ["update:modelValue"],
   computed: {
     checkedValue: {
       get() {
@@ -44,7 +46,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "../../assets/scss/_BIMDataVariables.scss";
 @import "./_BIMDataToggle.scss";
 </style>
