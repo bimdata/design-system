@@ -11,23 +11,27 @@
               <p>click</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyBcf"/>
+              <BIMDataIllustration name="emptyBcf" />
               <p>emptyBcf</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyBucket"/>
+              <BIMDataIllustration name="emptyBucket" />
               <p>emptyBucket</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyProperties"/>
+              <BIMDataIllustration name="emptyProperties" />
               <p>emptyProperties</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyTree"/>
+              <BIMDataIllustration name="emptySectionPlanes" />
+              <p>emptySectionPlanes</p>
+            </div>
+            <div class="illustration">
+              <BIMDataIllustration name="emptyTree" />
               <p>emptyTree</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="logo"/>
+              <BIMDataIllustration name="logo" />
               <p>logo</p>
             </div>
             <div class="illustration">
@@ -68,25 +72,23 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
 import illustrations from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataLibraryIllustrations/index.js";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataRadio,
     BIMDataIllustration,
   },
   data() {
     return {
-      illustrations
-    }
+      illustrations,
+    };
   },
-}
+};
 </script>
 
 <style lang="scss">
-  // import COMPONENT STYLE
+// import COMPONENT STYLE
 @import "./_Illustrations.scss";
 </style>

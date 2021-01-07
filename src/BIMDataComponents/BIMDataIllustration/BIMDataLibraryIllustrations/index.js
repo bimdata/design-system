@@ -2,6 +2,7 @@ import click from "./Click.vue";
 import emptyBcf from "./EmptyBcf.vue";
 import emptyBucket from "./EmptyBucket.vue";
 import emptyProperties from "./EmptyProperties.vue";
+import emptySectionPlanes from "./EmptySectionPlanes.vue";
 import emptyTree from "./EmptyTree.vue";
 import logo from "./Logo.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
@@ -14,6 +15,7 @@ export default {
   emptyBcf,
   emptyBucket,
   emptyProperties,
+  emptySectionPlanes,
   emptyTree,
   logo,
   shortcutOpen,
