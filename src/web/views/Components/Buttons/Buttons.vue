@@ -4,7 +4,12 @@
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
       <div class="button-overview">
-        <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/XWdrKXw" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue">
+        <ComponentCode
+          :componentTitle="$route.name"
+          language="javascript"
+          codepenLink="https://codepen.io/bimdata/pen/XWdrKXw"
+          githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue"
+        >
           <template #module>
             <BIMDataButton
               :width="widthButton"
@@ -14,11 +19,7 @@
               :color="selectedBtnOptionsvalues"
               :icon="checkboxIconChecked && !checkboxTextChecked"
             >
-              <BIMDataIcon
-                name="chevron"
-                size="xxxs"
-                v-if="checkboxIconChecked"
-              />
+              <BIMDataIcon name="chevron" size="xxxs" v-if="checkboxIconChecked" />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -27,10 +28,7 @@
           </template>
 
           <template #parameters>
-            <div
-              v-for="[key, values] in Object.entries(btnOptions)"
-              :key="key"
-            >
+            <div v-for="[key, values] in Object.entries(btnOptions)" :key="key">
               <h5 class="bimdata-h5">{{ key }}</h5>
               <BIMDataRadio
                 v-for="value in values"
@@ -87,11 +85,12 @@
           <template #code>
             <pre>
               &lt;BIMDataButton
-                width="{{widthButton}}"
-                height="{{heightButton}}"
+                width="{{ widthButton }}"
+                height="{{ heightButton }}"
                 color="{{ selectedBtnOptionsvalues }}"
                 {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }}
+                {{ getIconClass() }}
                 {{ getButtonDisabled() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
@@ -248,10 +247,15 @@ export default {
       }
     },
     getButtonDisabled() {
-      if(this.checkboxDisabledChecked){
+      if (this.checkboxDisabledChecked) {
         return `disabled="true"`;
       }
     },
+    getIconClass() {
+      if(this.checkboxIconChecked){
+        return 'icon';
+      }
+    }
   },
 };
 </script>
