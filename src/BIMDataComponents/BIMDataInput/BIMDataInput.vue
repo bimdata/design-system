@@ -5,7 +5,7 @@
   >
     <input
       ref="input"
-      :id="`bimdata-input-${_uid}`"
+      :id="`bimdata-input-${uuid}`"
       @input="$emit('update:modelValue', $event.currentTarget.value)"
       :disabled="disabled"
       :value="modelValue"
@@ -15,7 +15,7 @@
     <div class="bimdata-input__icon">
       <slot name="inputIcon"></slot>
     </div>
-    <label :for="`bimdata-input-${_uid}`">{{ placeholder }}</label>
+    <label :for="`bimdata-input-${uuid}`">{{ placeholder }}</label>
     <span class="bar"></span>
     <span v-if="error" class="error">{{ errorMessage }}</span>
     <span v-if="success" class="success">{{ successMessage }}</span>
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+let uuid = 0;
+
 export default {
   model: {
     prop: "modelValue",
@@ -65,6 +67,10 @@ export default {
   emits: [
     "update:modelValue"
   ],
+  beforeCreate() {
+    this.uuid = uuid.toString();
+    uuid += 1;
+  },
   created() {
     this.$watch(
       () => this.success && this.error,
