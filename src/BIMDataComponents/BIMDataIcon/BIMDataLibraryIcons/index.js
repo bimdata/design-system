@@ -1,6 +1,7 @@
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
 import addUser from "./AddUser.vue";
+import alphabeticalSort from "./AlphabeticalSort.vue";
 import alt from "./Alt.vue";
 import api from "./Api.vue";
 import arrow from "./Arrow.vue";
@@ -27,6 +28,7 @@ import detach from "./Detach.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import down from "./Down.vue";
 import edit from "./Edit.vue";
+import ellipsis from "./Ellipsis.vue";
 import expanded from "./Expanded.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
@@ -45,6 +47,7 @@ import isolate from "./Isolate.vue";
 import left from "./Left.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
+import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3d.vue";
@@ -91,6 +94,7 @@ export default {
   addFile,
   addFolder,
   addUser,
+  alphabeticalSort,
   alt,
   api,
   arrow,
@@ -117,6 +121,7 @@ export default {
   doubleChevron,
   down,
   edit,
+  ellipsis,
   expanded,
   export: Export,
   exportIfc,
@@ -135,6 +140,7 @@ export default {
   left,
   listManage,
   location,
+  logout,
   measure,
   minus,
   model3d,
