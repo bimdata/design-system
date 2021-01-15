@@ -77,7 +77,15 @@
 
       <h4 class="bimdata-h4">Notes</h4>
       <ul class="bimdata-list">
-        <li>If you use 'scoped' for your scss or css stylesheet and you want to customize the BIMData components, consider using the deep selector. More information on the <a href="https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors" target="_blank">Vue.js documentation</a>.</li>
+        <li class="m-b-24">If you use 'scoped' for your scss or css stylesheet and you want to customize the BIMData components, consider using the deep selector. More information on the <a href="https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors" target="_blank">Vue.js documentation</a>.</li>
+        <li class="m-y-24">
+          Path for import js only :
+          <pre>@bimdata/design-system</pre>
+        </li>
+        <li class="m-y-24">
+          Path for import js + css style :
+          <pre>@bimdata/design-system/components.js</pre>
+        </li>
       </ul>
     </div>
   </main>
