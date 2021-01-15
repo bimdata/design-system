@@ -3,6 +3,7 @@
     class="bimdata-dropdown-list"
     v-clickaway="away"
     :direction="directionClass"
+    :closeOnElementClick="closeOnElementClick"
   >
     <div
       class="bimdata-dropdown-list__content"
@@ -24,18 +25,18 @@
     </div>
     <transition :name="`slide-fade-${transitionName}`">
       <BIMDataPaginatedList
-      :class="`submenu submenu--${directionClass}`"
-      v-show="displayed"
-      :list="list"
-      :perPage="perPage"
-      :elementKey="elementKey"
-      @element-click="$emit('element-click', $event)"
-      :loading="loading"
-    >
-      <template #element="{element}">
-        <slot name="element" :element="element" :close="away"></slot>
-      </template>
-    </BIMDataPaginatedList>
+        :class="`submenu submenu--${directionClass}`"
+        v-show="displayed"
+        :list="list"
+        :perPage="perPage"
+        :elementKey="elementKey"
+        @element-click="onElementClick"
+        :loading="loading"
+      >
+        <template #element="{element}">
+          <slot name="element" :element="element" :close="away"></slot>
+        </template>
+      </BIMDataPaginatedList>
     </transition>
   </div>
 </template>
@@ -85,10 +86,12 @@ export default {
       type: Boolean,
       default: false,
     },
+    closeOnElementClick: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: [
-    'element-click'
-  ],
+  emits: ["element-click"],
   data() {
     return {
       displayed: false,
@@ -98,6 +101,12 @@ export default {
     onHeaderClick() {
       if (!this.disabled) {
         this.displayed = !this.displayed;
+      }
+    },
+    onElementClick($event) {
+      this.$emit("element-click", $event);
+      if (this.closeOnElementClick) {
+        this.displayed = false;
       }
     },
     away() {
