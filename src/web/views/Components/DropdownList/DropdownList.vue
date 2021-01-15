@@ -3,6 +3,8 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <ComponentCode :componentTitle="$route.name" language="javascript">
+
+        <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
           <BIMDataDropdownList
             :list="list"
@@ -12,22 +14,26 @@
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
             :loading="checkboxLoadingChecked"
+            :closeOnElementClick="checkboxCloseOnElementClickChecked"
+            @element-click="onItemClick"
           >
             <template #header v-if="checkboxHeaderChecked">
-              dropdown list example
+              <span v-if="selectedItem">{{ item }}</span>
+              <span v-else>dropdown list example</span>
             </template>
             <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
               hi
             </template>
-            <template #element v-if="checkboxElementChecked">
-              <BIMDataCheckbox
-                text="custom list with checkbox"
-                v-model="customListCheckbox"
-              >
-              </BIMDataCheckbox>
+            <template #element="{ element }" v-if="checkboxElementChecked">
+              <div class="flex items-center">
+                <BIMDataIcon name="chevron" size="xxxs" class="fill-primary m-r-6" />
+                {{ element }}
+              </div>
             </template>
           </BIMDataDropdownList>
         </template>
+
+        <!-- bloc PARAMETERS - right side -->
         <template #parameters>
           <h5 class="bimdata-h5">modifiers</h5>
           <BIMDataCheckbox
@@ -37,9 +43,15 @@
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
-            class="m-t-12 m-b-24"
+            class="m-y-12"
             text="loading"
             v-model="checkboxLoadingChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-t-12 m-b-24"
+            text="close on element click"
+            v-model="checkboxCloseOnElementClickChecked"
           >
           </BIMDataCheckbox>
           <BIMDataInput
@@ -64,22 +76,18 @@
             </BIMDataRadio>
           </div>
           <h5 class="bimdata-h5">slots</h5>
-          <BIMDataCheckbox
-            text="header"
-            v-model="checkboxHeaderChecked"
-          >
+          <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="contentAfterBtn"
             v-model="checkboxAfterBtnChecked"
           >
           </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="element"
-            v-model="checkboxElementChecked"
-          >
+          <BIMDataCheckbox text="element" v-model="checkboxElementChecked">
           </BIMDataCheckbox>
         </template>
+
+        <!-- bloc IMPORTS LINES CODE -->
         <template #import>
           import BIMDataDropdownList from
           "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataDropdownList.js";
@@ -90,7 +98,8 @@
               :list="list"
               :perPage="{{ numberInput }}"
               elementKey="dropdown"
-              :disabled="{{checkboxDisabledChecked}}"
+              :disabled="{{ checkboxDisabledChecked }}"
+              :closeOnElementClick="{{ checkboxCloseOnElementClickChecked }}"
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
             &lt;/BIMDataDropdownList&gt;
@@ -98,6 +107,7 @@
         </template>
       </ComponentCode>
 
+      <!-- bloc DOCUMENTATION -->
       <div class="m-t-24">
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
@@ -117,6 +127,7 @@ import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMD
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
 import BIMDataDropdownList from "../../../../../src/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
 export default {
@@ -126,13 +137,16 @@ export default {
     BIMDataCheckbox,
     BIMDataRadio,
     BIMDataTable,
+    BIMDataIcon,
     BIMDataDropdownList,
   },
   data() {
     return {
+      selectedItem: null,
       numberInput: 6,
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
+      checkboxCloseOnElementClickChecked: false,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
@@ -157,57 +171,87 @@ export default {
         "item 11",
         "item 12",
       ],
-      listCustom:[
-        { name: 'Square', sides: 4 },
-        { name: 'Hexagon', sides: 6 },
-        { name: 'Triangle', sides: 3 }
-      ],
       propsData: [
         ["Props", "Type", "Default value", "Validator", "Description"],
         ["list", "Array", "() => []", "", ""],
-        ["perPage", "Number", "10", "", ""],
+        [
+          "perPage",
+          "Number",
+          "10",
+          "",
+          "Use this props to choose the number of elements per page, before displaying the pagination.",
+        ],
         ["elementKey", "String", "", "", ""],
         ["disabled", "Boolean", "false", "", ""],
-        ["transitionName", "String", "'up'", "'up' or 'down' values", ""],
-        ["directionClass", "String", "'down'", "'up', 'down', 'right' or 'left' values", ""],
-
-
+        [
+          "transitionName",
+          "String",
+          "'up'",
+          "'up' or 'down' values",
+          "Use this props to choose the opening transition of the submenu",
+        ],
+        [
+          "directionClass",
+          "String",
+          "'down'",
+          "'up', 'down', 'right' or 'left' values",
+          "Use this props to choose the opening of the submenu.",
+        ],
+        [
+          "closeOnElementClick",
+          "Boolean",
+          "false",
+          "",
+          "Use this props to close the dropdown submenu when clicking on the item.",
+        ],
       ],
       slotData: [
         ["Slot name", "Description"],
         ["#header", "Use this slot for add content before the icon button"],
-        ["#contentAfterBtn", "Use this slot for add content after the icon button"],
+        [
+          "#contentAfterBtn",
+          "Use this slot for add content after the icon button",
+        ],
         ["#element", "Use this slot to custum the elements list"],
       ],
-    }
+    };
+  },
+  computed: {
+    item() {
+      return this.selectedItem;
+    },
   },
   methods: {
-    getHeader(){
-      if(this.checkboxHeaderChecked){
+    onItemClick(list) {
+      // console.log(this.selectedItem = list);
+      this.selectedItem = list;
+    },
+    getHeader() {
+      if (this.checkboxHeaderChecked) {
         return `<template #header>
               dropdown list example
             </template>
-            `
+            `;
       }
     },
-    getContentAfterBtn(){
-      if(this.checkboxAfterBtnChecked){
+    getContentAfterBtn() {
+      if (this.checkboxAfterBtnChecked) {
         return `<template #contentAfterBtn>
               hi
             </template>
-            `
+            `;
       }
     },
-    getElement(){
-      if(this.checkboxElementChecked){
-        return `<template #element>
-                <BIMDataCheckbox
-                  text="custom list with checkbox"
-                  v-model="customListCheckbox"
-                >
-             </template>`
+    getElement() {
+      if (this.checkboxElementChecked) {
+        return `<template #element="{ element }">
+                <div class="flex items-center">
+                  <BIMDataIcon name="chevron" size="xxxs" class="fill-primary m-r-6" />
+                  {{ element }}
+                </div>
+             </template>`;
       }
-    }
-  }
+    },
+  },
 };
 </script>
