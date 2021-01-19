@@ -204,6 +204,20 @@ export default {
           "",
           "Use this props to close the dropdown submenu when clicking on the item.",
         ],
+        [
+          "width",
+          "String",
+          "220px",
+          "",
+          "Use this props to custom width of BIMDataDropdownList component.",
+        ],
+        [
+          "height",
+          "String",
+          "36px",
+          "",
+          "Use this props to custom height of BIMDataDropdownList component.",
+        ],
       ],
       slotData: [
         ["Slot name", "Description"],

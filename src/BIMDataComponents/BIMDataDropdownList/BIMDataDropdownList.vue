@@ -9,6 +9,7 @@
       class="bimdata-dropdown-list__content"
       :class="{ active: displayed, disabled }"
       @click="onHeaderClick"
+      :style="style"
     >
       <slot name="header"></slot>
       <BIMDataButton
@@ -33,7 +34,11 @@
         @element-click="onElementClick"
         :loading="loading"
       >
-        <template #element="{element}">
+        <template
+          #element="{element}"
+          :class="{ 'option-group': isOptionGroup(element) }"
+          @click="onOptionClick(element)"
+        >
           <slot name="element" :element="element" :close="away"></slot>
         </template>
       </BIMDataPaginatedList>
@@ -90,12 +95,28 @@ export default {
       type: Boolean,
       default: false,
     },
+    width: {
+      type: String,
+      default: "220px",
+    },
+    height: {
+      type: String,
+      default: "36px",
+    },
   },
   emits: ["element-click"],
   data() {
     return {
       displayed: false,
     };
+  },
+  computed: {
+    style() {
+      return {
+        "min-width": `${this.width}`,
+        "min-height": `${this.height}`,
+      };
+    },
   },
   methods: {
     onHeaderClick() {
@@ -111,6 +132,13 @@ export default {
     },
     away() {
       this.displayed = false;
+    },
+    isOptionGroup(element) {
+      consola.log(element);
+      // return this.optionKey && element && element.optionGroup;
+    },
+    onOptionClick(element) {
+      consola.log(element);
     },
   },
 };
