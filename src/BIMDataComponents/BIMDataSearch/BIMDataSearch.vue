@@ -3,7 +3,7 @@
     class="bimdata-search-bar"
     v-clickaway="away"
     :style="{ width: width, height: height }"
-    :class="{ focus: focused }"
+    :class="{ focus: focused, ...classes }"
   >
     <span class="bimdata-search-icon">
       <BIMDataIcon name="search" size="xxs" />
@@ -30,6 +30,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
+import colors from "../../assets/colors.js"
 
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
@@ -73,6 +74,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    radius: {
+      type:  Boolean,
+      default: false
+    },
+    square: {
+      type:  Boolean,
+      default: false
+    },
+    color: {
+      type: String,
+      default: "default",
+      validator: color => colors.includes(color)
+    }
   },
   emits: [
     "update:modelValue",
@@ -84,6 +98,15 @@ export default {
       inputVisible: false,
       focused: false,
     };
+  },
+  computed: {
+    classes() {
+      return {
+        'bimdata-search-bar__radius': this.radius,
+        'bimdata-search-bar__square': this.square,
+        [`bimdata-search-bar--${this.color}`]: this.color,
+      };
+    }
   },
   methods: {
     away() {
