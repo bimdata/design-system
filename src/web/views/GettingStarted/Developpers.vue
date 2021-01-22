@@ -39,6 +39,26 @@
         </pre>
       </Code>
 
+      <h6 class="bimdata-h6">About Vue 2.x vs. Vue 3.x</h6>
+      <p>
+        The design system was originally developed with Vue 2.6+.
+        As a result the components imported as described above won't work in Vue 3.x applications.
+      </p>
+      <p>
+        To fix this we adapted each components to be compatible with Vue 3.x
+        and added a new "Vue 3 ready" version of them to the design system package.
+      </p>
+      <p>
+        To use Vue 3 compatible components, all you need to do is adding a <code class="code-highlight">vue3/</code>
+        prefix before component name in the <code class="code-highlight">import</code> module name as follow:
+      </p>
+      <Code language="javascript">
+        <pre>
+          import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/vue3/BIMDataButton.js";
+          //                                                      vue3 prefix here -> ^^^^
+        </pre>
+      </Code>
+
       <h4 class="bimdata-h4">3. Register component</h4>
       <p class="bimdata-text">
         into your <code class="code-highlight">.vue</code> file, define your
