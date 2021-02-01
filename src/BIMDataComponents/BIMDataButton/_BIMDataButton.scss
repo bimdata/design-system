@@ -273,43 +273,32 @@
     top: 0;
     animation: ripple 1s;
   }
-  &:focus:not(:active)::after {
+  &:focus:active::after {
     display: block;
   }
   &.bimdata-btn__ripple--default {
-    &::after {
+    &:focus:active::after {
       background-color: darken($color-tertiary-lightest, 10%);
     }
   }
   &.bimdata-btn__ripple--primary {
-    &::after {
+    &:focus:active::after {
       background-color: lighten($color-primary, 10%);
     }
   }
   &.bimdata-btn__ripple--secondary {
-    &::after {
+    &:focus:active::after {
       background-color: lighten($color-secondary, 10%);
     }
   }
   &.bimdata-btn__ripple--tertiary-darkest {
-    &::after {
+    &:focus:active::after {
       background-color: lighten($color-tertiary-darkest, 10%);
     }
   }
   &.bimdata-btn__ripple--high {
-    &::after {
+    &:focus:active::after {
       background-color: lighten($color-high, 10%);
     }
-  }
-}
-
-@keyframes ripple {
-  from {
-    opacity: 1;
-    transform: scale(0);
-  }
-  to {
-    opacity: 0;
-    transform: scale(20);
   }
 }
