@@ -145,7 +145,7 @@ export default {
       selectedBtnOptionskinds: "radius",
       selectedBtnOptionsvalues: "primary",
       btnOptions: {
-        types: ["fill", "outline", "ghost"],
+        types: ["fill", "outline", "ghost", "ripple"],
         kinds: ["radius", "square", "rounded"],
         values: colors,
       },
@@ -175,6 +175,7 @@ export default {
           "Use this props to use outline button",
         ],
         ["ghost", "Boolean", "", "false", "Use this props to use ghost button"],
+        ["ripple", "Boolean", "", "false", "Use this props to use button with ripple effect"],
         [
           "radius",
           "Boolean",
