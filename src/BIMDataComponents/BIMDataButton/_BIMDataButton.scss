@@ -272,7 +272,6 @@
     left: 0;
     top: 0;
     animation: ripple 1s;
-    opacity: 0;
   }
   &:focus:not(:active)::after {
     display: block;
