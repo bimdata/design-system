@@ -94,6 +94,79 @@
       cursor: auto;
     }
   }
+  &__ripple {
+    background-position: center;
+    transition: background 0.8s;
+    &--default {
+      background-color: transparent;
+      color: $color-primary;
+      &:hover {
+        background: transparent
+          radial-gradient(circle, transparent 1%, $color-tertiary-lightest 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: darken($color-tertiary-lightest, 5%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--primary {
+      background-color: $color-primary;
+      color: $color-white;
+      &:hover {
+        background: $color-primary
+          radial-gradient(circle, transparent 1%, $color-primary 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-primary, 10%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--secondary {
+      background-color: $color-secondary;
+      color: $color-primary;
+      &:hover {
+        background: $color-secondary
+          radial-gradient(circle, transparent 1%, $color-secondary 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-secondary, 10%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--tertiary-darkest {
+      background-color: $color-tertiary-darkest;
+      color: $color-white;
+      &:hover {
+        background: $color-tertiary-darkest
+          radial-gradient(circle, transparent 1%, $color-tertiary-darkest 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-tertiary-darkest, 10%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--high {
+      background-color: $color-high;
+      color: $color-white;
+      &:hover {
+        background: $color-high
+          radial-gradient(circle, transparent 1%, $color-high 1%) center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-high, 15%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+  }
   &__outline {
     justify-content: center;
     border: 1px solid;
