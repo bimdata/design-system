@@ -94,6 +94,79 @@
       cursor: auto;
     }
   }
+  &__ripple {
+    background-position: center;
+    transition: background 0.8s;
+    &--default {
+      background-color: transparent;
+      color: $color-primary;
+      &:hover {
+        background: transparent
+          radial-gradient(circle, transparent 1%, $color-tertiary-lightest 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: darken($color-tertiary-lightest, 5%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--primary {
+      background-color: $color-primary;
+      color: $color-white;
+      &:hover {
+        background: $color-primary
+          radial-gradient(circle, transparent 1%, $color-primary 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-primary, 10%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--secondary {
+      background-color: $color-secondary;
+      color: $color-primary;
+      &:hover {
+        background: $color-secondary
+          radial-gradient(circle, transparent 1%, $color-secondary 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-secondary, 10%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--tertiary-darkest {
+      background-color: $color-tertiary-darkest;
+      color: $color-white;
+      &:hover {
+        background: $color-tertiary-darkest
+          radial-gradient(circle, transparent 1%, $color-tertiary-darkest 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-tertiary-darkest, 10%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &--high {
+      background-color: $color-high;
+      color: $color-white;
+      &:hover {
+        background: $color-high
+          radial-gradient(circle, transparent 1%, $color-high 1%) center/15000%;
+      }
+      &:active {
+        background-color: lighten($color-high, 15%);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+  }
   &__outline {
     justify-content: center;
     border: 1px solid;
@@ -177,6 +250,55 @@
     &:disabled {
       color: $color-disabled;
       cursor: auto;
+    }
+  }
+}
+.bimdata-btn__icon.bimdata-btn__ripple {
+  position: relative;
+  overflow: hidden;
+  svg {
+    z-index: 1;
+  }
+  &:active {
+    background-color: inherit;
+  }
+  &::after {
+    display: none;
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    animation: ripple 1s;
+  }
+  &:focus:active::after {
+    display: block;
+  }
+  &.bimdata-btn__ripple--default {
+    &:focus:active::after {
+      background-color: darken($color-tertiary-lightest, 10%);
+    }
+  }
+  &.bimdata-btn__ripple--primary {
+    &:focus:active::after {
+      background-color: lighten($color-primary, 10%);
+    }
+  }
+  &.bimdata-btn__ripple--secondary {
+    &:focus:active::after {
+      background-color: lighten($color-secondary, 10%);
+    }
+  }
+  &.bimdata-btn__ripple--tertiary-darkest {
+    &:focus:active::after {
+      background-color: lighten($color-tertiary-darkest, 10%);
+    }
+  }
+  &.bimdata-btn__ripple--high {
+    &:focus:active::after {
+      background-color: lighten($color-high, 10%);
     }
   }
 }
