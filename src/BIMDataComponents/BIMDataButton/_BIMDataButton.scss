@@ -254,51 +254,19 @@
   }
 }
 .bimdata-btn__icon.bimdata-btn__ripple {
-  position: relative;
-  overflow: hidden;
-  svg {
-    z-index: 1;
-  }
-  &:active {
-    background-color: inherit;
-  }
-  &::after {
-    display: none;
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    animation: ripple 1s;
-  }
-  &:focus:active::after {
-    display: block;
-  }
   &.bimdata-btn__ripple--default {
-    &:focus:active::after {
-      background-color: darken($color-tertiary-lightest, 10%);
-    }
+    @include darkenRipple($color-tertiary-lightest, 20, 20%);
   }
   &.bimdata-btn__ripple--primary {
-    &:focus:active::after {
-      background-color: lighten($color-primary, 10%);
-    }
+    @include lightenRipple($color-primary, 20, 50%);
   }
   &.bimdata-btn__ripple--secondary {
-    &:focus:active::after {
-      background-color: lighten($color-secondary, 10%);
-    }
+    @include lightenRipple($color-secondary, 20, 50%);
   }
   &.bimdata-btn__ripple--tertiary-darkest {
-    &:focus:active::after {
-      background-color: lighten($color-tertiary-darkest, 10%);
-    }
+    @include lightenRipple($color-tertiary-darkest, 20, 50%);
   }
   &.bimdata-btn__ripple--high {
-    &:focus:active::after {
-      background-color: lighten($color-high, 10%);
-    }
+    @include lightenRipple($color-high, 20, 50%);
   }
 }
