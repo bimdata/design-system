@@ -44,7 +44,7 @@
           <pre>
             &lt;BIMDataSearch placeholder="Search"
               color="{{ selectedSearchOptionsstyle }}"
-              {{ selectedSearchOptionskinds}}&gt;
+              {{ selectedSearchOptionskinds }}&gt;
             &lt;/BIMDataSearch&gt;
           </pre>
         </template>
@@ -84,13 +84,7 @@ export default {
       },
       propsData: [
         ["Props", "Type", "Default value", "Description", "Required"],
-        [
-          "value",
-          "String",
-          "",
-          "",
-          "true"
-        ],
+        ["value", "String", "", "", "true"],
         [
           "placeholder",
           "String",
@@ -130,7 +124,7 @@ export default {
           "square",
           "Boolean",
           "false",
-          "Use this prop to use radius search bar",
+          "Use this prop to use square search bar",
           "",
         ],
         [
