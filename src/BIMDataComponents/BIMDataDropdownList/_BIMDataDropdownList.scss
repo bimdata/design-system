@@ -62,6 +62,18 @@
   .bimdata-paginated-list {
     &__elements {
       font-size: 11px;
+      .option-group {
+        width: 100%;
+        color: $color-tertiary-darkest;
+        font-weight: bold;
+        &:hover {
+          background-color: transparent;
+          cursor: default;
+        }
+      }
+      span:not(.option-group) {
+        padding-left: 12px;
+      }
     }
     & > ul:first-child {
       padding: calc(12px / 2) 0;
