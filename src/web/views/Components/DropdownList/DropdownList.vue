@@ -3,10 +3,40 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <ComponentCode :componentTitle="$route.name" language="javascript">
-
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
           <BIMDataDropdownList
+            v-if="getOptionKey"
+            :list="optionsGroup"
+            :perPage="Number(numberInput)"
+            elementKey="dropdown"
+            :disabled="checkboxDisabledChecked"
+            :transitionName="selectedDropdownOptionstransition"
+            :directionClass="selectedDropdownOptionsdirection"
+            :loading="checkboxLoadingChecked"
+            :closeOnElementClick="checkboxCloseOnElementClickChecked"
+            @element-click="onItemClick"
+          >
+            <template #header v-if="checkboxHeaderChecked">
+              <span v-if="selectedItem">{{ item.label }}</span>
+              <span v-else>dropdown group option list example</span>
+            </template>
+            <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
+              hi
+            </template>
+            <template #element="{ element }" v-if="checkboxElementChecked">
+              <div class="flex items-center">
+                <BIMDataIcon
+                  name="chevron"
+                  size="xxxs"
+                  class="fill-primary m-r-6"
+                />
+                {{ element }}
+              </div>
+            </template>
+          </BIMDataDropdownList>
+          <BIMDataDropdownList
+            v-else
             :list="list"
             :perPage="Number(numberInput)"
             elementKey="dropdown"
@@ -26,7 +56,11 @@
             </template>
             <template #element="{ element }" v-if="checkboxElementChecked">
               <div class="flex items-center">
-                <BIMDataIcon name="chevron" size="xxxs" class="fill-primary m-r-6" />
+                <BIMDataIcon
+                  name="chevron"
+                  size="xxxs"
+                  class="fill-primary m-r-6"
+                />
                 {{ element }}
               </div>
             </template>
@@ -49,9 +83,15 @@
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
-            class="m-t-12 m-b-24"
+            class="m-t-12"
             text="close on element click"
             v-model="checkboxCloseOnElementClickChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-t-12 m-b-24"
+            text="group option"
+            v-model="groupOption"
           >
           </BIMDataCheckbox>
           <BIMDataInput
@@ -83,7 +123,11 @@
             v-model="checkboxAfterBtnChecked"
           >
           </BIMDataCheckbox>
-          <BIMDataCheckbox text="element" v-model="checkboxElementChecked">
+          <BIMDataCheckbox
+            text="element"
+            v-model="checkboxElementChecked"
+            :disabled="checkboxElementCheckedDisabled"
+          >
           </BIMDataCheckbox>
         </template>
 
@@ -144,6 +188,7 @@ export default {
     return {
       selectedItem: null,
       numberInput: 6,
+      groupOption: false,
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
@@ -151,6 +196,7 @@ export default {
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
       customListCheckbox: false,
+      checkboxElementCheckedDisabled: false,
       dropdownOptions: {
         transition: ["up", "down"],
         direction: ["up", "down", "right", "left"],
@@ -170,6 +216,17 @@ export default {
         "item 10",
         "item 11",
         "item 12",
+      ],
+      optionsGroup: [
+        { label: "Title", optionGroup: true },
+        { label: "option 1" },
+        { label: "option 2" },
+        { label: "Title 2", optionGroup: true },
+        { label: "option 3" },
+        { label: "option 4", disabled: true },
+        { label: "option 5" },
+        { label: "option 6" },
+        { label: "option 7" },
       ],
       propsData: [
         ["Props", "Type", "Default value", "Validator", "Description"],
@@ -234,6 +291,13 @@ export default {
     item() {
       return this.selectedItem;
     },
+    getOptionKey() {
+      if (this.groupOption) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   methods: {
     onItemClick(list) {
@@ -266,6 +330,13 @@ export default {
              </template>`;
       }
     },
+    getElementSlot(){
+      if(this.groupOption) {
+        this.checkboxElementCheckedDisabled = true;
+      } else {
+        this.checkboxElementCheckedDisabled = false;
+      }
+    }
   },
 };
 </script>
