@@ -19,6 +19,7 @@
         fill
         width="21px"
         height="21px"
+        class="m-l-6"
       >
         <BIMDataIcon name="chevron" size="xxxs" />
       </BIMDataButton>
@@ -34,12 +35,17 @@
         @element-click="onElementClick"
         :loading="loading"
       >
-        <template
-          #element="{element}"
-          :class="{ 'option-group': isOptionGroup(element) }"
-          @click="onOptionClick(element)"
-        >
-          <slot name="element" :element="element" :close="away"></slot>
+        <template #element="{element}">
+          <div v-if="element.label">
+            <span
+              :class="{ 'option-group': isOptionGroup(element) }"
+              @click="onOptionClick(element.label)"
+              v-if="isOptionGroup(element)"
+              >{{ element.label }}</span
+            >
+            <span v-else>{{ element.label }}</span>
+          </div>
+          <slot v-else name="element" :element="element" :close="away"></slot>
         </template>
       </BIMDataPaginatedList>
     </transition>
@@ -71,6 +77,7 @@ export default {
     },
     elementKey: {
       type: String,
+      default: null,
     },
     disabled: {
       type: Boolean,
@@ -134,11 +141,10 @@ export default {
       this.displayed = false;
     },
     isOptionGroup(element) {
-      consola.log(element);
-      // return this.optionKey && element && element.optionGroup;
+      return this.elementKey && element && element.optionGroup;
     },
     onOptionClick(element) {
-      consola.log(element);
+      if (this.elementKey && element.optionGroup) return;
     },
   },
 };
