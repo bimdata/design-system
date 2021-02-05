@@ -42,7 +42,6 @@
           <BIMDataCheckbox
             text="group option"
             v-model="groupOption"
-            :disabled="checkboxGroupOptionDisabled"
           >
           </BIMDataCheckbox>
         </template>
@@ -128,7 +127,6 @@ export default {
       groupOption: false,
       checkboxMultiDisabled: false,
       checkboxNullValueDisabled: false,
-      checkboxGroupOptionDisabled: false,
       options: [
         "option 1",
         "option 2",
