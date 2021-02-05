@@ -161,11 +161,26 @@
         <h5 class="bimdata-h5">Slots:</h5>
         <BIMDataTable :rows="slotData"></BIMDataTable>
       </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">How to add option group to BIMDataDropdownList:</h5>
+        <p>
+          To add optgroup to BIMDataDropdownList add optionGroup: true property to the
+          option object. Remember to provide an optionKey to display your object
+          correctly.
+        </p>
+        <p>Example :</p>
+        <Code language="javascript">
+          { label: "Title 2", optionGroup: true },
+        </Code>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import Code from "../../Elements/Code/Code.vue";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -176,6 +191,7 @@ import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDat
 import BIMDataDropdownList from "../../../../../src/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
 export default {
   components: {
+    Code,
     ComponentCode,
     BIMDataInput,
     BIMDataCheckbox,
