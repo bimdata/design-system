@@ -293,8 +293,10 @@ export default {
     },
     getOptionKey() {
       if (this.groupOption) {
+        this.checkboxElementCheckedDisabled = true;
         return true;
       } else {
+        this.checkboxElementCheckedDisabled = false;
         return false;
       }
     },
@@ -330,13 +332,6 @@ export default {
              </template>`;
       }
     },
-    getElementSlot(){
-      if(this.groupOption) {
-        this.checkboxElementCheckedDisabled = true;
-      } else {
-        this.checkboxElementCheckedDisabled = false;
-      }
-    }
   },
 };
 </script>
