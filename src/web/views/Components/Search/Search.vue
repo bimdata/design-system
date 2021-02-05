@@ -42,9 +42,9 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataSearch placeholder="Search" class="bimdata-search-bar__{{
-              selectedSearchOptionskinds
-            }} bimdata-search-bar__{{ selectedSearchOptionsstyle }}"&gt;
+            &lt;BIMDataSearch placeholder="Search"
+              color="{{ selectedSearchOptionsstyle }}"
+              {{ selectedSearchOptionskinds }}&gt;
             &lt;/BIMDataSearch&gt;
           </pre>
         </template>
@@ -111,6 +111,27 @@ export default {
           "Boolean",
           "false",
           "Use this boolean to add an autofocus on the input search",
+          "",
+        ],
+        [
+          "radius",
+          "Boolean",
+          "false",
+          "Use this prop to use radius search bar",
+          "",
+        ],
+        [
+          "square",
+          "Boolean",
+          "false",
+          "Use this prop to use square search bar",
+          "",
+        ],
+        [
+          "color",
+          "String",
+          "default",
+          "Use this prop to select search bar color: 'default', 'primary', 'secondary'",
           "",
         ],
       ],
