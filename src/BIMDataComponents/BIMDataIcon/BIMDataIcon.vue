@@ -23,13 +23,13 @@ const sizeToPixel = {
   l: 28,
   xl: 36,
   xxl: 45,
-  xxxl: 60
+  xxxl: 60,
 };
 
 export default {
   name: "BIMDataIcon",
   components: {
-    ...formatIconComponentsNames(icons)
+    ...formatIconComponentsNames(icons),
   },
   props: {
     name: {
@@ -37,41 +37,41 @@ export default {
       required: true,
       validator(value) {
         return Object.keys(icons).includes(value);
-      }
+      },
     },
     color: {
       type: String,
-      default: "currentColor"
+      default: "currentColor",
     },
     size: {
       type: String,
       default: "s",
       validator(value) {
         return Object.keys(sizeToPixel).includes(value);
-      }
+      },
     },
     customSize: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     rotate: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   computed: {
     style() {
       const pixelSize = this.getPixelSize(this.size);
-      if(this.rotate > 0){
+      if (this.rotate > 0) {
         return {
           width: `${pixelSize}px`,
           height: `${pixelSize}px`,
-          transform: 'rotate('+this.rotate+'deg)'
-        }
+          transform: "rotate(" + this.rotate + "deg)",
+        };
       } else {
         return {
           width: `${pixelSize}px`,
-          height: `${pixelSize}px`
+          height: `${pixelSize}px`,
         };
       }
     },
@@ -79,8 +79,8 @@ export default {
   methods: {
     getPixelSize() {
       return this.customSize ? this.customSize : sizeToPixel[this.size];
-    }
-  }
+    },
+  },
 };
 
 function formatIconComponentsNames(icons = {}) {
