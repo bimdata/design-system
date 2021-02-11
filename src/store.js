@@ -215,7 +215,7 @@ export default new Vuex.Store({
           img: require("./web/assets/img/icon-tabs.svg"),
           path: "tabs",
           text:
-            "BIMData Tabs component",
+            "Tabs component provide a nice interface to switch between different views",
           btn: "View tabs",
         },
         {
