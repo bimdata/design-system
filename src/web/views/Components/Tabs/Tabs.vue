@@ -10,12 +10,13 @@
             :width="width"
             :height="height"
             :tabSize="tabSize"
-            @tab-click="activeTab = $event"
+            @tab-selected="activeTab = $event"
+            :selected="0"
           />
           <div class="active-tab">Active Tab: {{ activeTab || "none" }}</div>
         </template>
         <template #parameters>
-          <h5 class="bimdata-h5">Parameters</h5>
+          <h5 class="bimdata-h5">Properties</h5>
           <BIMDataInput
             type="number"
             v-model="tabNumber"
@@ -45,7 +46,7 @@
               {{ `width="${width}"` }}
               {{ `height="${height}"` }}
               {{ `tabSize="${tabSize}"` }}
-              @tab-click="activeTab = $event"
+              @tab-selected="activeTab = $event"
             /&gt;
           </pre>
         </template>
@@ -54,6 +55,11 @@
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
+      </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">Events:</h5>
+        <BIMDataTable :rows="eventsData"></BIMDataTable>
       </div>
     </div>
   </main>
@@ -80,7 +86,6 @@ export default {
       tabSize: "100",
       activeTab: "",
 
-      tabsOptions: {},
       propsData: [
         ["Props", "Type", "Required", "Default value", "Description"],
         [
@@ -110,6 +115,29 @@ export default {
           "",
           "20%",
           "The size of tabs in px or %",
+        ],
+        [
+          "selected",
+          "[String, Number]",
+          "",
+          "",
+          "The name (or index) of the tab to be selected",
+        ],
+      ],
+
+      eventsData: [
+        ["Event", "Data Type", "Data", "Description"],
+        [
+          "tab-click",
+          "String",
+          "The name of the clicked tab",
+          "This event is fired when a tab is clicked",
+        ],
+        [
+          "tab-selected",
+          "String",
+          "The name of the selected tab",
+          "This event is fired when a tab is selected",
         ],
       ],
     };

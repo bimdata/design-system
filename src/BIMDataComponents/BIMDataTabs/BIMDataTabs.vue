@@ -21,9 +21,9 @@
       }"
     >
       <li
-        v-for="(tab, i) of tabs"
+        v-for="tab of tabs"
         :key="tab"
-        :ref="`tab-${i}`"
+        ref="tab"
         class="bimdata-tabs__content__element"
         :class="{ active: tab === activeTab }"
         :style="{ minWidth: tabWidth }"
@@ -98,9 +98,6 @@ export default {
     },
   },
   watch: {
-    width() {
-      this.$nextTick(() => this._setScrollValues());
-    },
     tabs() {
       this.$nextTick(() => this._setScrollValues());
     },
@@ -108,17 +105,22 @@ export default {
       this.$nextTick(() => this._setScrollValues());
     },
     selected(value) {
-      if (typeof value === "number" && value >= 0 && value < this.tabs.length) {
-        this.activeTab = this.tabs[value];
-        this.$emit("tab-selected", this.activeTab);
-      } else if (this.tabs.includes(value)) {
-        this.activeTab = value;
-        this.$emit("tab-selected", this.activeTab);
-      }
+      this._setSelected(value);
     },
   },
   mounted() {
+    this._setSelected(this.selected);
     this._setScrollValues();
+    this.resizeObserver = new ResizeObserver(() => this._setScrollValues());
+    this.resizeObserver.observe(this.$refs.container);
+  },
+  // Vue 2.x
+  beforeDestroy() {
+    this.resizeObserver.disconnect();
+  },
+  // Vue 3.x (for compatibility purpose)
+  beforeUnmount() {
+    this.resizeObserver.disconnect();
   },
   methods: {
     onLeftClick() {
@@ -132,10 +134,20 @@ export default {
     onTabClick(tab) {
       this.activeTab = tab;
       this.$emit("tab-click", tab);
+      this.$emit("tab-selected", tab);
+    },
+    _setSelected(value) {
+      if (typeof value === "number" && value >= 0 && value < this.tabs.length) {
+        this.activeTab = this.tabs[value];
+        this.$emit("tab-selected", this.activeTab);
+      } else if (this.tabs.includes(value)) {
+        this.activeTab = value;
+        this.$emit("tab-selected", this.activeTab);
+      }
     },
     _setScrollValues() {
       this.displayIndex = 0;
-      let tw = this.$refs["tab-0"][0].offsetWidth;
+      let tw = this.$refs.tab[0].offsetWidth;
       let cw = this.$refs.container.offsetWidth;
       if (this.tabs.length * tw > cw) {
         cw -= 64; // Take buttons size into account
