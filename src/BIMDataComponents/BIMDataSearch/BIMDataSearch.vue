@@ -30,7 +30,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import colors from "../../assets/colors.js"
+import colors from "../../assets/colors.js";
 
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
@@ -49,6 +49,10 @@ export default {
       },
     },
     clickaway,
+  },
+  model: {
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
     modelValue: {
@@ -75,24 +79,20 @@ export default {
       default: false,
     },
     radius: {
-      type:  Boolean,
-      default: false
+      type: Boolean,
+      default: false,
     },
     square: {
-      type:  Boolean,
-      default: false
+      type: Boolean,
+      default: false,
     },
     color: {
       type: String,
       default: "default",
-      validator: color => colors.includes(color)
-    }
+      validator: color => colors.includes(color),
+    },
   },
-  emits: [
-    "update:modelValue",
-    "enter",
-    "clear"
-  ],
+  emits: ["update:modelValue", "enter", "clear"],
   data() {
     return {
       inputVisible: false,
@@ -102,11 +102,11 @@ export default {
   computed: {
     classes() {
       return {
-        'bimdata-search-bar__radius': this.radius,
-        'bimdata-search-bar__square': this.square,
+        "bimdata-search-bar__radius": this.radius,
+        "bimdata-search-bar__square": this.square,
         [`bimdata-search-bar--${this.color}`]: this.color,
       };
-    }
+    },
   },
   methods: {
     away() {
