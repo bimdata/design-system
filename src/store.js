@@ -211,6 +211,14 @@ export default new Vuex.Store({
           btn: "View table",
         },
         {
+          title: "Tabs",
+          img: require("./web/assets/img/icon-tabs.svg"),
+          path: "tabs",
+          text:
+            "BIMData Tabs component",
+          btn: "View tabs",
+        },
+        {
           title: "Textarea",
           img: require("./web/assets/img/icon-textarea.svg"),
           path: "textarea",
