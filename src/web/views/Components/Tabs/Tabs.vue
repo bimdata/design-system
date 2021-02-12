@@ -90,10 +90,10 @@ export default {
         ["Props", "Type", "Required", "Default value", "Description"],
         [
           "tabs",
-          "Array<String>",
+          "Array<{ id: String, label: String }>",
           "true",
           "",
-          "The list of tab items (i.e. tab names)",
+          "The list of tab items (i.e. tabs id and label)",
         ],
         [
           "width",
@@ -144,7 +144,10 @@ export default {
   },
   computed: {
     tabs() {
-      return [...Array(+this.tabNumber).keys()].map(i => `Tab ${i + 1}`);
+      return [...Array(+this.tabNumber).keys()].map(i => ({
+        id: i,
+        label: `Tab ${i + 1}`,
+      }));
     },
   },
 };

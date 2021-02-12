@@ -22,14 +22,14 @@
     >
       <li
         v-for="tab of tabs"
-        :key="tab"
+        :key="tab.id"
         ref="tab"
         class="bimdata-tabs__content__element"
         :class="{ active: tab === activeTab }"
         :style="{ minWidth: tabWidth }"
         @click="onTabClick(tab)"
       >
-        {{ tab }}
+        {{ tab.label }}
       </li>
     </ul>
     <BIMDataButton
