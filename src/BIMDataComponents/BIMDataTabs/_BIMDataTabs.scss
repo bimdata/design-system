@@ -12,7 +12,7 @@
     }
   }
 
-  &__content {
+  &__container {
     position: relative;
     display: flex;
     padding: 0;
@@ -20,7 +20,7 @@
     overflow: hidden;
     scroll-behavior: smooth;
 
-    &__element {
+    &__tab {
       box-sizing: border-box;
       position: relative;
       display: flex;
