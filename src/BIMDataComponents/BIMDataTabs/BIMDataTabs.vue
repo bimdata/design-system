@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import BIMDataButton from "../BIMDataButton/BIMDataButton";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon";
+import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 
 export default {
   components: {
