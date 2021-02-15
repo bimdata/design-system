@@ -1,12 +1,11 @@
 <template>
   <div
-    class="bimdata-dropdown-list"
+    class="bimdata-dropdown"
     v-clickaway="away"
     :direction="directionClass"
-    :closeOnElementClick="closeOnElementClick"
   >
     <div
-      class="bimdata-dropdown-list__content"
+      class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
       @click="onHeaderClick"
       :style="style"
@@ -16,7 +15,7 @@
         color="default"
         icon
         radius
-        fill
+        fillitem
         width="21px"
         height="21px"
       >
@@ -25,21 +24,20 @@
       <slot name="contentAfterBtn"></slot>
     </div>
     <transition :name="`slide-fade-${transitionName}`">
-      <BIMDataPaginatedList
-        :class="`submenu submenu--${directionClass}`"
+      <ul
         v-show="displayed"
+        class="bimdata-list submenu bimdata-dropdown__elements"
+        :class="`submenu--${directionClass}`"
         :list="list"
-        :perPage="perPage"
-        :elementKey="elementKey"
-        @element-click="onElementClick"
-        :loading="loading"
       >
-        <template
-          #element="{element}"
+        <li
+          v-for="element of list"
+          :key="element"
+          @click="onElementClick(element)"
         >
-          <slot name="element" :element="element" :close="away"></slot>
-        </template>
-      </BIMDataPaginatedList>
+          <slot name="element">{{ element }}</slot>
+        </li>
+      </ul>
     </transition>
   </div>
 </template>
@@ -63,13 +61,6 @@ export default {
       type: Array,
       default: () => [],
     },
-    perPage: {
-      type: Number,
-      default: 10,
-    },
-    elementKey: {
-      type: String,
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -84,14 +75,6 @@ export default {
       default: "down",
       validator: directionClass =>
         ["down", "up", "right", "left"].includes(directionClass),
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    closeOnElementClick: {
-      type: Boolean,
-      default: false,
     },
     width: {
       type: String,
@@ -122,11 +105,9 @@ export default {
         this.displayed = !this.displayed;
       }
     },
-    onElementClick($event) {
-      this.$emit("element-click", $event);
-      if (this.closeOnElementClick) {
-        this.displayed = false;
-      }
+    onElementClick(element) {
+      this.$emit("element-click", element);
+      this.away();
     },
     away() {
       this.displayed = false;
@@ -142,5 +123,5 @@ export default {
 
 // import BIMDATA STYLE COMPONENT
 @import "./_BIMDataSubmenus.scss";
-@import "./_BIMDataDropdownList.scss";
+@import "./_BIMDataDropdown.scss";
 </style>
