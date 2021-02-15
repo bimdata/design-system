@@ -140,7 +140,8 @@ export default {
 @import "../../assets/scss/_BIMDataVariables.scss";
 @import "../../assets/scss/_BIMDataTransitions.scss";
 
+@import "../../assets/scss/elements/_BIMDataSubmenus.scss";
+
 // import BIMDATA STYLE COMPONENT
-@import "./_BIMDataSubmenus.scss";
 @import "./_BIMDataDropdownList.scss";
 </style>
