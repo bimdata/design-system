@@ -35,16 +35,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
-import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
-import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-
 export default {
-  components: {
-    BIMDataIcon,
-    BIMDataPaginatedList,
-    BIMDataButton,
-  },
   directives: { clickaway },
   props: {
     list: {
