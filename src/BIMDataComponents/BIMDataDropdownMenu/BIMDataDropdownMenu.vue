@@ -123,5 +123,5 @@ export default {
 
 // import BIMDATA STYLE COMPONENT
 @import "./_BIMDataSubmenus.scss";
-@import "./_BIMDataDropdown.scss";
+@import "./_BIMDataDropdownMenu.scss";
 </style>

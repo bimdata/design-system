@@ -6,7 +6,7 @@
 
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
-          <BIMDataDropdown
+          <BIMDataDropdownMenu
             :list="list"
             :disabled="checkboxDisabledChecked"
             :transitionName="selectedDropdownOptionstransition"
@@ -18,7 +18,7 @@
             <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
               hi
             </template>
-          </BIMDataDropdown>
+          </BIMDataDropdownMenu>
         </template>
 
         <!-- bloc PARAMETERS - right side -->
@@ -95,7 +95,7 @@ import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMD
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
-import BIMDataDropdown from "../../../../../src/BIMDataComponents/BIMDataDropdown/BIMDataDropdown.vue";
+import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
   components: {
     ComponentCode,
@@ -103,7 +103,7 @@ export default {
     BIMDataRadio,
     BIMDataTable,
     BIMDataIcon,
-    BIMDataDropdown,
+    BIMDataDropdownMenu,
   },
   data() {
     return {
