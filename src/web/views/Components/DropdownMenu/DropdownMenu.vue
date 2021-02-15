@@ -13,7 +13,7 @@
             :directionClass="selectedDropdownOptionsdirection"
           >
             <template #header v-if="checkboxHeaderChecked">
-              <span>dropdown example</span>
+              <span>dropdown menu example</span>
             </template>
             <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
               hi
@@ -63,13 +63,12 @@
         </template>
         <template #code>
           <pre>
-            &lt;BIMDataDropdown
+            &lt;BIMDataDropdownMenu
               :list="list"
-              elementKey="dropdown"
               :disabled="{{ checkboxDisabledChecked }}"
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }}
-            &lt;/BIMDataDropdown&gt;
+            &lt;/BIMDataDropdownMenu&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -173,7 +172,7 @@ export default {
     getHeader() {
       if (this.checkboxHeaderChecked) {
         return `<template #header>
-              dropdown list example
+              dropdown menu example
             </template>
             `;
       }
