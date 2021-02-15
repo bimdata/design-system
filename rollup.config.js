@@ -61,6 +61,7 @@ function getSingleComponentConfigurations() {
     "BIMDataCard",
     "BIMDataCheckbox",
     "BIMDataDropdownList",
+    "BIMDataDropdownMenu",
     "BIMDataIcon",
     "BIMDataIllustration",
     "BIMDataInput",
