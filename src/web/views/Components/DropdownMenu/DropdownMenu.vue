@@ -15,7 +15,7 @@
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
             </template>
-            <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
+            <template #contentAfterHeader v-if="checkboxAfterBtnChecked">
               hi
             </template>
           </BIMDataDropdownMenu>
@@ -50,7 +50,7 @@
           <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
           </BIMDataCheckbox>
           <BIMDataCheckbox
-            text="contentAfterBtn"
+            text="contentAfterHeader"
             v-model="checkboxAfterBtnChecked"
           >
           </BIMDataCheckbox>
@@ -159,10 +159,10 @@ export default {
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["#header", "Use this slot for add content before the icon button"],
+        ["#header", "Use this slot for add content "],
         [
-          "#contentAfterBtn",
-          "Use this slot for add content after the icon button",
+          "#contentAfterHeader",
+          "Use this slot for add content after the header slot",
         ],
         ["#element", "Use this slot to custum the elements list"],
       ],
@@ -179,7 +179,7 @@ export default {
     },
     getContentAfterBtn() {
       if (this.checkboxAfterBtnChecked) {
-        return `<template #contentAfterBtn>
+        return `<template #contentAfterHeader>
               hi
             </template>
             `;

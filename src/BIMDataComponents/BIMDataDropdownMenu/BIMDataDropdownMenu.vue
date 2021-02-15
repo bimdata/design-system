@@ -11,17 +11,7 @@
       :style="style"
     >
       <slot name="header"></slot>
-      <BIMDataButton
-        color="default"
-        icon
-        radius
-        fillitem
-        width="21px"
-        height="21px"
-      >
-        <BIMDataIcon name="chevron" size="xxxs" />
-      </BIMDataButton>
-      <slot name="contentAfterBtn"></slot>
+      <slot name="contentAfterHeader"></slot>
     </div>
     <transition :name="`slide-fade-${transitionName}`">
       <ul
