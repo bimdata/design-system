@@ -63,8 +63,8 @@
 
         <!-- bloc IMPORTS LINES CODE -->
         <template #import>
-          import BIMDataDropdown from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataDropdown.js";
+          import BIMDataDropdownMenu from
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataDropdownMenu.js";
         </template>
         <template #code>
           <pre>
