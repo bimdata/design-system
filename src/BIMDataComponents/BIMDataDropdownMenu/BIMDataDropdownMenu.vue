@@ -1,45 +1,27 @@
 <template>
   <div
-    class="bimdata-dropdown-list"
+    class="bimdata-dropdown"
     v-clickaway="away"
     :direction="directionClass"
-    :closeOnElementClick="closeOnElementClick"
   >
     <div
-      class="bimdata-dropdown-list__content"
+      class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
       @click="onHeaderClick"
       :style="style"
     >
       <slot name="header"></slot>
-      <BIMDataButton
-        color="default"
-        icon
-        radius
-        fill
-        width="21px"
-        height="21px"
-      >
-        <BIMDataIcon name="chevron" size="xxxs" />
-      </BIMDataButton>
-      <slot name="contentAfterBtn"></slot>
+      <slot name="contentAfterHeader"></slot>
     </div>
     <transition :name="`slide-fade-${transitionName}`">
-      <BIMDataPaginatedList
-        :class="`submenu submenu--${directionClass}`"
+      <div
         v-show="displayed"
-        :list="list"
-        :perPage="perPage"
-        :elementKey="elementKey"
-        @element-click="onElementClick"
-        :loading="loading"
+        class="submenu bimdata-dropdown__elements"
+        :class="`submenu--${directionClass}`"
+        @click="away()"
       >
-        <template
-          #element="{element}"
-        >
-          <slot name="element" :element="element" :close="away"></slot>
-        </template>
-      </BIMDataPaginatedList>
+        <slot name="element"></slot>
+      </div>
     </transition>
   </div>
 </template>
@@ -47,29 +29,9 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
-import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
-import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-
 export default {
-  components: {
-    BIMDataIcon,
-    BIMDataPaginatedList,
-    BIMDataButton,
-  },
   directives: { clickaway },
   props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-    perPage: {
-      type: Number,
-      default: 10,
-    },
-    elementKey: {
-      type: String,
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -85,14 +47,6 @@ export default {
       validator: directionClass =>
         ["down", "up", "right", "left"].includes(directionClass),
     },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    closeOnElementClick: {
-      type: Boolean,
-      default: false,
-    },
     width: {
       type: String,
       default: "220px",
@@ -102,7 +56,6 @@ export default {
       default: "36px",
     },
   },
-  emits: ["element-click"],
   data() {
     return {
       displayed: false,
@@ -122,12 +75,6 @@ export default {
         this.displayed = !this.displayed;
       }
     },
-    onElementClick($event) {
-      this.$emit("element-click", $event);
-      if (this.closeOnElementClick) {
-        this.displayed = false;
-      }
-    },
     away() {
       this.displayed = false;
     },
@@ -143,5 +90,5 @@ export default {
 @import "../../assets/scss/elements/_BIMDataSubmenus.scss";
 
 // import BIMDATA STYLE COMPONENT
-@import "./_BIMDataDropdownList.scss";
+@import "./_BIMDataDropdownMenu.scss";
 </style>

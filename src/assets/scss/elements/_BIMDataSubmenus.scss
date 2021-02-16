@@ -24,6 +24,7 @@
   &--down,
   &--right,
   &--left {
+    padding: calc(#{$spacing-unit} / 2) 0;
     width: 100%;
     left: 0;
     border-radius: 3px;
@@ -43,18 +44,16 @@
     }
   }
   &--up {
-    margin-bottom: calc(#{$spacing-unit} / 2);
     top: auto;
-    bottom: 35px;
+    bottom: calc(100% + #{$spacing-unit} / 2);
   }
   // custom SUBMENU MODEL
   &--down {
-    margin-top: calc(#{$spacing-unit} / 2);
-    top: 35px;
+    top: calc(100% + #{$spacing-unit} / 2);
   }
   // custom SUBMENU TOOLS MENU
   &--right {
-    left: calc(100% + 12px);
+    left: calc(100% + #{$spacing-unit} / 2);
     right: auto;
     &__simple {
       padding: $spacing-unit;
@@ -78,7 +77,7 @@
   }
   // custom SUBMENU PLUGIN MENU
   &--left {
-    right: calc(100% + 12px);
+    right: calc(100% + #{$spacing-unit} / 2);
     left: auto;
     &__panel {
       width: 400px;

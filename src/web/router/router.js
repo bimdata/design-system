@@ -24,7 +24,8 @@ import Variables from "../views/Guidelines/Variables/Variables.vue";
 import Buttons from "../views/Components/Buttons/Buttons.vue";
 import Card from "../views/Components/Card/Card.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
-import Dropdown from "../views/Components/DropdownList/DropdownList.vue";
+import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
+import DropdownList from "../views/Components/DropdownList/DropdownList.vue";
 import Icons from "../views/Components/Icons/Icons.vue";
 import Illustrations from "../views/Components/Illustrations/Illustrations.vue";
 import Input from "../views/Components/Input/Input.vue";
@@ -149,9 +150,14 @@ const routes = [
         component: Checkbox,
       },
       {
-        path: "dropdown",
-        name: "dropdown",
-        component: Dropdown,
+        path: "dropdownmenu",
+        name: "dropdownmenu",
+        component: DropdownMenu,
+      },
+      {
+        path: "dropdownlist",
+        name: "dropdownlist",
+        component: DropdownList,
       },
       {
         path: "icons",
