@@ -69,7 +69,6 @@
         <template #code>
           <pre>
             &lt;BIMDataDropdownMenu
-              :list="list"
               :disabled="{{ checkboxDisabledChecked }}"
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
