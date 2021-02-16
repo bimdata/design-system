@@ -3,11 +3,9 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <ComponentCode :componentTitle="$route.name" language="javascript">
-
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
           <BIMDataDropdownMenu
-            :list="list"
             :disabled="checkboxDisabledChecked"
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
@@ -15,8 +13,13 @@
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
             </template>
-            <template #contentAfterHeader v-if="checkboxAfterBtnChecked">
+            <template #contentAfterHeader v-if="checkboxAfterHeaderChecked">
               hi
+            </template>
+            <template #element v-if="checkboxElementSlotChecked">
+              <ul class="bimdata-list">
+                <li v-for="element of list" :key="element">{{ element }}</li>
+              </ul>
             </template>
           </BIMDataDropdownMenu>
         </template>
@@ -51,8 +54,10 @@
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="contentAfterHeader"
-            v-model="checkboxAfterBtnChecked"
+            v-model="checkboxAfterHeaderChecked"
           >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox text="element" v-model="checkboxElementSlotChecked">
           </BIMDataCheckbox>
         </template>
 
@@ -67,7 +72,7 @@
               :list="list"
               :disabled="{{ checkboxDisabledChecked }}"
             &gt;
-              {{ getHeader() }} {{ getContentAfterBtn() }}
+              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
           </pre>
         </template>
@@ -108,7 +113,8 @@ export default {
     return {
       checkboxDisabledChecked: false,
       checkboxHeaderChecked: true,
-      checkboxAfterBtnChecked: false,
+      checkboxAfterHeaderChecked: false,
+      checkboxElementSlotChecked: false,
       customListCheckbox: false,
       dropdownOptions: {
         transition: ["up", "down"],
@@ -116,17 +122,9 @@ export default {
       },
       selectedDropdownOptionstransition: "up",
       selectedDropdownOptionsdirection: "down",
-      list: [
-        "item 01",
-        "item 02",
-        "item 03",
-        "item 04",
-        "item 05",
-        "item 06",
-      ],
+      list: ["item 01", "item 02", "item 03", "item 04", "item 05", "item 06"],
       propsData: [
         ["Props", "Type", "Default value", "Validator", "Description"],
-        ["list", "Array", "() => []", "", ""],
         ["disabled", "Boolean", "false", "", ""],
         [
           "transitionName",
@@ -164,7 +162,7 @@ export default {
           "#contentAfterHeader",
           "Use this slot for add content after the header slot",
         ],
-        ["#element", "Use this slot to custum the elements list"],
+        ["#element", "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice."],
       ],
     };
   },
@@ -178,9 +176,19 @@ export default {
       }
     },
     getContentAfterBtn() {
-      if (this.checkboxAfterBtnChecked) {
+      if (this.checkboxAfterHeaderChecked) {
         return `<template #contentAfterHeader>
               hi
+            </template>
+            `;
+      }
+    },
+    getElement() {
+      if (this.checkboxElementSlotChecked) {
+        return `<template #element>
+              <ul class="bimdata-list">
+                <li v-for="element of list" :key="element">{{element}}</li>
+              </ul>
             </template>
             `;
       }

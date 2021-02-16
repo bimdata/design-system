@@ -14,20 +14,14 @@
       <slot name="contentAfterHeader"></slot>
     </div>
     <transition :name="`slide-fade-${transitionName}`">
-      <ul
+      <div
         v-show="displayed"
-        class="bimdata-list submenu bimdata-dropdown__elements"
+        class="submenu bimdata-dropdown__elements"
         :class="`submenu--${directionClass}`"
-        :list="list"
+        @click="away()"
       >
-        <li
-          v-for="element of list"
-          :key="element"
-          @click="onElementClick(element)"
-        >
-          <slot name="element">{{ element }}</slot>
-        </li>
-      </ul>
+        <slot name="element"></slot>
+      </div>
     </transition>
   </div>
 </template>
@@ -38,10 +32,6 @@ import clickaway from "../../BIMDataDirectives/click-away.js";
 export default {
   directives: { clickaway },
   props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -66,7 +56,6 @@ export default {
       default: "36px",
     },
   },
-  emits: ["element-click"],
   data() {
     return {
       displayed: false,
@@ -85,10 +74,6 @@ export default {
       if (!this.disabled) {
         this.displayed = !this.displayed;
       }
-    },
-    onElementClick(element) {
-      this.$emit("element-click", element);
-      this.away();
     },
     away() {
       this.displayed = false;
