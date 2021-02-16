@@ -12,7 +12,7 @@
     }
   }
 
-  &__content {
+  &__container {
     position: relative;
     display: flex;
     padding: 0;
@@ -20,7 +20,7 @@
     overflow: hidden;
     scroll-behavior: smooth;
 
-    &__element {
+    &__tab {
       box-sizing: border-box;
       position: relative;
       display: flex;
@@ -28,7 +28,6 @@
       align-items: center;
       padding: 0 $spacing-unit / 2;
       text-align: center;
-      font-size: calculateEm(11px);
       color: $color-tertiary-darkest;
       cursor: pointer;
 

@@ -14,7 +14,7 @@
     </BIMDataButton>
     <ul
       ref="container"
-      class="bimdata-tabs__content"
+      class="bimdata-tabs__container"
       :style="{
         width: containerWidth,
         minHeight: containerHeight,
@@ -22,14 +22,13 @@
     >
       <li
         v-for="tab of tabs"
-        :key="tab"
-        ref="tab"
-        class="bimdata-tabs__content__element"
-        :class="{ active: tab === activeTab }"
+        :key="tab.id"
+        class="bimdata-tabs__container__tab"
+        :class="{ active: tab.id === activeTab.id }"
         :style="{ minWidth: tabWidth }"
         @click="onTabClick(tab)"
       >
-        {{ tab }}
+        {{ tab.label }}
       </li>
     </ul>
     <BIMDataButton
@@ -43,8 +42,8 @@
 </template>
 
 <script>
-import BIMDataButton from "../BIMDataButton/BIMDataButton";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon";
+import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 
 export default {
   components: {
@@ -77,7 +76,7 @@ export default {
     return {
       scrollValues: [],
       displayIndex: 0,
-      activeTab: "",
+      activeTab: {},
     };
   },
   computed: {
@@ -140,22 +139,30 @@ export default {
       if (typeof value === "number" && value >= 0 && value < this.tabs.length) {
         this.activeTab = this.tabs[value];
         this.$emit("tab-selected", this.activeTab);
-      } else if (this.tabs.includes(value)) {
-        this.activeTab = value;
-        this.$emit("tab-selected", this.activeTab);
+      } else {
+        const tab = this.tabs.find(t => t.id === value);
+        if (tab) {
+          this.activeTab = tab;
+          this.$emit("tab-selected", this.activeTab);
+        }
       }
     },
     _setScrollValues() {
       this.displayIndex = 0;
-      let tw = this.$refs.tab[0].offsetWidth;
-      let cw = this.$refs.container.offsetWidth;
-      if (this.tabs.length * tw > cw) {
-        cw -= 64; // Take buttons size into account
-        this.scrollValues = [0].concat(
-          this.tabs.map((_, i) => (i + 1) * tw - cw).filter(v => v > 0)
-        );
-      } else {
-        this.scrollValues = [];
+      if (this.tabs.length > 0) {
+        let cw = this.$refs.container.offsetWidth;
+        let tw = this.$refs.container.querySelector(
+          ".bimdata-tabs__container__tab"
+        ).offsetWidth;
+
+        if (this.tabs.length * tw > cw) {
+          cw -= 64; // Take buttons size into account
+          this.scrollValues = [0].concat(
+            this.tabs.map((_, i) => (i + 1) * tw - cw).filter(v => v > 0)
+          );
+        } else {
+          this.scrollValues = [];
+        }
       }
     },
   },
