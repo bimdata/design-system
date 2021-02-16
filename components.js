@@ -3,6 +3,7 @@ export { default as BIMDataButton } from "./dist/js/BIMDataComponents/BIMDataBut
 export { default as BIMDataCard } from "./dist/js/BIMDataComponents/BIMDataCard.js";
 export { default as BIMDataCheckbox } from "./dist/js/BIMDataComponents/BIMDataCheckbox.js";
 export { default as BIMDataDropdownList } from "./dist/js/BIMDataComponents/BIMDataDropdownList.js";
+export { default as BIMDataDropdownMenu } from "./dist/js/BIMDataComponents/BIMDataDropdownMenu.js";
 export { default as BIMDataIcon } from "./dist/js/BIMDataComponents/BIMDataIcon.js";
 export { default as BIMDataIllustration } from "./dist/js/BIMDataComponents/BIMDataIllustration.js";
 export { default as BIMDataInput } from "./dist/js/BIMDataComponents/BIMDataInput.js";
@@ -15,6 +16,7 @@ export { default as BIMDataSearch } from "./dist/js/BIMDataComponents/BIMDataSea
 export { default as BIMDataSelect } from "./dist/js/BIMDataComponents/BIMDataSelect.js";
 export { default as BIMDataSpinner } from "./dist/js/BIMDataComponents/BIMDataSpinner.js";
 export { default as BIMDataTable } from "./dist/js/BIMDataComponents/BIMDataTable.js";
+export { default as BIMDataTabs } from "./dist/js/BIMDataComponents/BIMDataTabs.js";
 export { default as BIMDataTextarea } from "./dist/js/BIMDataComponents/BIMDataTextarea.js";
 export { default as BIMDataToggle } from "./dist/js/BIMDataComponents/BIMDataToggle.js";
 export { default as BIMDataTooltip } from "./dist/js/BIMDataComponents/BIMDataTooltip.js";
