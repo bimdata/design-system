@@ -75,6 +75,16 @@
           </Code>
         </li>
       </ol>
+
+      <h3 class="bimdata-h3">
+        How to add a new component to the build of design system
+      </h3>
+      <p>For a correct build, don't forget to add your new component in the following 3 files:</p>
+      <ul>
+        <li>./rollup.config.js</li>
+        <li>./components.js</li>
+        <li>./src/BIMDataComponents/index.js</li>
+      </ul>
     </div>
   </main>
 </template>
