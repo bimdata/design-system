@@ -20,7 +20,7 @@
     }
     &.active {
       background-color: $color-white;
-      border: none;
+      border: 1px solid transparent;
       box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
       .bimdata-btn {
         svg {
