@@ -104,7 +104,7 @@ export default {
       return {
         "bimdata-search-bar__radius": this.radius,
         "bimdata-search-bar__square": this.square,
-        [`bimdata-search-bar--${this.color}`]: this.color,
+        [`bimdata-search-bar__${this.color}`]: this.color,
       };
     },
   },
