@@ -85,13 +85,8 @@
           <template #code>
             <pre>
               &lt;BIMDataButton
-                width="{{ widthButton }}"
-                height="{{ heightButton }}"
-                color="{{ selectedBtnOptionsvalues }}"
-                {{ selectedBtnOptionstypes }}
-                {{ selectedBtnOptionskinds }}
-                {{ getIconClass() }}
-                {{ getButtonDisabled() }}&gt;
+                {{ getWidthBtn() }} {{ getHeightBtn() }} color="{{ selectedBtnOptionsvalues }}" {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ getIconClass() }} {{ getButtonDisabled() }}
+                &gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -243,7 +238,9 @@ export default {
       }
     },
     getText() {
-      if (this.checkboxTextChecked) {
+      if (this.checkboxTextChecked && this.checkboxIconChecked) {
+        return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}</span>`;
+      } else {
         return `Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}`;
       }
     },
@@ -255,6 +252,16 @@ export default {
     getIconClass() {
       if(this.checkboxIconChecked){
         return 'icon';
+      }
+    },
+    getWidthBtn() {
+      if(this.widthButton != '32px'){
+        return `width="${this.widthButton}"`;
+      }
+    },
+    getHeightBtn() {
+      if(this.heightButton != '32px'){
+        return `height="${this.heightButton}"`;
       }
     }
   },
