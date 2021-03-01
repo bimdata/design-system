@@ -1,5 +1,3 @@
-import "../assets/css/_BIMDataVariables.css";
-
 import "../assets/css/utilities/_colors.css";
 import "../assets/css/utilities/_flex.css";
 import "../assets/css/utilities/_list.css";
