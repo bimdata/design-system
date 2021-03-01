@@ -63,8 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/scss/_BIMDataVariables.scss";
-
 @import "./_keyframes.scss";
 @import "./_Home.scss";
 </style>

@@ -117,9 +117,6 @@ export default {
 </script>
 
 <style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
 // import BIMDATA UTILITIES
 @import "../../assets/scss/utilities/_list.scss";
 

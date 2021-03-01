@@ -6,28 +6,29 @@
   justify-content: center;
   user-select: none;
   &__content {
-    padding: 0 $spacing-unit;
+    padding: 0 var(--spacing-unit);
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 13px;
-    border: 1px solid $color-tertiary;
+    border: 1px solid var(--color-tertiary);
     border-radius: 3px;
+    color: var(--color-primary);
     cursor: pointer;
     .bimdata-btn {
-      background-color: $color-tertiary-lightest;
+      background-color: var(--color-tertiary-lighten);
     }
     &.active {
-      background-color: $color-white;
+      background-color: var(--color-highlight);
       border: 1px solid transparent;
-      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+      box-shadow: var(--box-shadow);
     }
     &.disabled {
       cursor: default;
-      color: $color-disabled;
+      color: var(--color-disabled);
       .bimdata-btn {
         cursor: default;
-        color: $color-disabled;
+        color: var(--color-disabled);
       }
     }
   }

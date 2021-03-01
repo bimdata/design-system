@@ -1,26 +1,26 @@
 textarea:-webkit-autofill {
-  box-shadow: 0 0 0px 1000px $color-white inset;
+  box-shadow: 0 0 0px 1000px var(--color-highlight) inset;
 }
 
 .bimdata-textarea {
-  margin: $spacing-unit 0;
+  margin: var(--spacing-unit) 0;
   position: relative;
   inline-size: min-content;
-  font-family: $primary-font;
-  font-size: calculateEm(14px);
+  font-family: var(--primary-font);
   textarea {
+    margin: 0px;
     padding: 0px;
     width: 100%;
     min-width: inherit;
     max-width: 100%;
     min-height: inherit;
     display: flex;
-    margin: 0px;
+    background-color: transparent;
     border: none;
     &:disabled {
       background-color: transparent;
       & ~ label {
-        color: $color-disabled;
+        color: var(--color-disabled);
         cursor: default;
       }
     }
@@ -42,8 +42,7 @@ textarea:-webkit-autofill {
   &.not-empty {
     label {
       top: -26px;
-      color: $color-primary;
-      font-size: calculateEm(10px);
+      color: var(--color-primary);
     }
   }
   label {
@@ -53,51 +52,48 @@ textarea:-webkit-autofill {
     font-size: calculateEm(12px);
     transform: translateY(8px);
     transition: 0.2s ease all;
-    color: $color-tertiary-dark;
+    color: var(--color-tertiary-dark);
     cursor: pointer;
   }
   .bar {
     width: 100%;
     height: 1px;
     display: block;
-    background: $color-tertiary;
+    background: var(--color-tertiary);
     &::after {
       width: 0;
       height: 2px;
-      @include pseudo;
-      background-color: $color-primary;
+      background-color: var(--color-primary);
       transform: scaleX(0);
     }
   }
   .error {
-    color: $color-high;
-    font-size: calculateEm(11px);
+    color: var(--color-high);
   }
   .success {
-    color: $color-success;
-    font-size: calculateEm(11px);
+    color: var(--color-success);
   }
   &.error {
     label {
-      color: $color-high;
+      color: var(--color-high);
     }
     .bar {
-      background-color: $color-high;
+      background-color: var(--color-high);
       &::before,
       &::after {
-        background-color: $color-high;
+        background-color: var(--color-high);
       }
     }
   }
   &.success {
     label {
-      color: $color-success;
+      color: var(--color-success);
     }
     .bar {
-      background-color: $color-success;
+      background-color: var(--color-success);
       &::before,
       &::after {
-        background-color: $color-success;
+        background-color: var(--color-success);
       }
     }
   }

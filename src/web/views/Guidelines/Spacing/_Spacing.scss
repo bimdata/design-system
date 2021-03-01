@@ -1,6 +1,6 @@
 .article-spacing {
   nav {
-    height: calc(#{$spacing-unit} * 3);
+    height: calc(var(--spacing-unit) * 3);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     &__item {
-      margin-right: $spacing-unit;
+      margin-right: var(--spacing-unit);
       flex: 1;
       pre {
         margin-bottom: 0;

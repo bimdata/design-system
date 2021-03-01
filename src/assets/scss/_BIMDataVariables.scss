@@ -1,36 +1,127 @@
-/* base COLORS --------------------------------------------- */
-/* brand colors */
-$color-primary: rgba(47, 55, 74, 1);
-$color-secondary: rgba(249, 199, 44, 1);
-$color-tertiary: rgba(216, 216, 216, 1);
+:root {
+  /* color primary ------------------------------------ */
+  --color-primary-h: 222;
+  --color-primary-s: 22%;
 
-/* variant colors */
-$color-tertiary-lightest: lighten($color-tertiary, 12%);
-$color-tertiary-dark: darken($color-tertiary, 37%);
-$color-tertiary-darkest: darken($color-tertiary, 47%);
+  /* color primary lighten & darken */
+  --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), 24%);
+  --color-primary-darken: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    14%
+  );
+  --color-primary-lighten: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    34%
+  );
 
-/* common colors */
-$color-white: rgba(255, 255, 255, 1);
-$color-black: rgba(0, 0, 0, 1);
+  /* color secondary ---------------------------------- */
+  --color-secondary-h: 45;
+  --color-secondary-s: 94%;
 
-/* state colors */
-$color-neutral: rgba(32, 93, 189, 1);
-$color-success: rgba(0, 175, 80, 1);
-$color-disabled: rgba(189, 189, 189, 1);
-$color-warning: rgba(255, 145, 0, 1);
-$color-high: rgba(255, 61, 30, 1);
+  /* color secondary lighten & darken */
+  --color-secondary: hsl(
+    var(--color-secondary-h),
+    var(--color-secondary-s),
+    57%
+  );
+  --color-secondary-darken: hsl(
+    var(--color-secondary-h),
+    var(--color-secondary-s),
+    47%
+  );
+  --color-secondary-lighten: hsl(
+    var(--color-secondary-h),
+    var(--color-secondary-s),
+    67%
+  );
 
-/* base FONT SIZE ----------------------------------------- */
-$font-size: 14px;
+  /* color tertiary ----------------------------------- */
+  --color-tertiary-h: 0;
+  --color-tertiary-s: 0%;
 
-/* base BOX-SHADOW ----------------------------------------- */
-$box-shadow: 0px 2px 10px rgba($color-black, 0.1);
+  /* color tertiary lighten & darken */
+  --color-tertiary: hsl(var(--color-tertiary-h), var(--color-tertiary-s), 85%);
+  --color-tertiary-darken: hsl(
+    var(--color-tertiary-h),
+    var(--color-tertiary-s),
+    75%
+  );
+  --color-tertiary-lighten: hsl(
+    var(--color-tertiary-h),
+    var(--color-tertiary-s),
+    95%
+  );
 
-/* base SPACING UNIT -------------------------------------- */
-$spacing-unit: 12px;
-$size-btn-options: 45px;
+  /* color tertiary dark ------------------------------- */
+  /* color tertiary dark lighten & darken */
+  --color-tertiary-dark: hsl(
+    var(--color-tertiary-h),
+    var(--color-tertiary-s),
+    48%
+  );
+  --color-tertiary-dark-darken: hsl(
+    var(--color-tertiary-h),
+    var(--color-tertiary-s),
+    38%
+  );
+  --color-tertiary-dark-lighten: hsl(
+    var(--color-tertiary-h),
+    var(--color-tertiary-s),
+    58%
+  );
 
-/* base FONTS -------------------------------------- */
-$primary-font: "robotoregular", sans-serif;
-$primary-font-medium: "robotomedium", sans-serif;
-$primary-font-bold: "robotobold", sans-serif;
+  /* color high ----------------------------------- */
+  --color-high-h: 8;
+  --color-high-s: 100%;
+
+  /* color high lighten & darken */
+  --color-high: hsl(var(--color-high-h), var(--color-high-s), 56%);
+  --color-high-darken: hsl(var(--color-high-h), var(--color-high-s), 46%);
+  --color-high-lighten: hsl(var(--color-high-h), var(--color-high-s), 66%);
+
+  /* common colors */
+  --color-highlight: rgba(255, 255, 255, 1);
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-neutral: rgba(32, 93, 189, 1);
+  --color-success: rgba(0, 175, 80, 1);
+  --color-disabled: rgba(189, 189, 189, 1);
+  --color-warning: rgba(255, 145, 0, 1);
+  --box-shadow: 0px 2px 10px var(--color-shadow);
+
+  /* base FONT SIZE ----------------------------------------- */
+  --font-size: 14px;
+
+  /* base BOX-SHADOW ----------------------------------------- */
+  // $box-shadow: 0px 2px 10px rgba($color-black, 0.1);
+
+  /* base SPACING UNIT -------------------------------------- */
+  --spacing-unit: 12px;
+  --size-btn-options: 45px;
+
+  /* base FONTS -------------------------------------- */
+  --primary-font: "robotoregular", sans-serif;
+  --primary-font-medium: "robotomedium", sans-serif;
+  --primary-font-bold: "robotobold", sans-serif;
+}
+
+/* THEME DARK variables ------------------------------------------------------ */
+:root.bimdata-ds-theme-dark {
+  /* brand colors*/
+  --color-primary: rgba(255, 255, 255, 1);
+  --color-secondary: rgba(249, 199, 44, 1);
+  --color-tertiary: rgba(216, 216, 216, 1);
+
+  /* variant colors*/
+  /* --color-tertiary-lightest: rgba(47, 55, 74, 1); */
+  --color-tertiary-lighten: rgba(30, 33, 44, 1);
+  --color-tertiary-dark: rgba(123, 123, 123, 1);
+  --color-tertiary-darkest: rgba(247, 247, 247, 1);
+
+  /* common colors*/
+  /* --color-highlight: rgba(55, 64, 86, 1); */
+  --color-highlight: rgba(17, 19, 28, 1);
+
+  --color-shadow: rgba(0, 0, 0, 0.5);
+}

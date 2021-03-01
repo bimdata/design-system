@@ -4,7 +4,7 @@
   height: 38px;
   justify-content: center;
   align-items: center;
-  background-color: $color-white;
+  background-color: var(--color-highlight);
   &__item {
     .bimdata-btn {
       padding: 0;

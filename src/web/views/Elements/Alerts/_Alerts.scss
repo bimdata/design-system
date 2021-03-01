@@ -8,12 +8,12 @@
   justify-content: center;
   height: 36px;
   font-size: 12px;
-  color: $color-white;
+  color: var(--color-highlight);
   &.success {
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
   &.error {
-    background-color: $color-high;
+    background-color: var(--color-high);
   }
 }
 .fade-enter-active,

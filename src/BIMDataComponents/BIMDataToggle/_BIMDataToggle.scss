@@ -42,8 +42,8 @@
       box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15);
       &::after {
         left: 0;
-        background: #2f374a;
-        box-shadow: 0 0 1px #2f374a;
+        background: var(--color-primary);
+        box-shadow: 0 0 1pxvar (--color-primary);
         transform: translateX(24px - 8px);
       }
     }
@@ -60,7 +60,7 @@
   &.disabled {
     cursor: default;
     span {
-      color: $color-disabled;
+      color: var(--color-disabled);
     }
     .toggle__switch {
       &::after {

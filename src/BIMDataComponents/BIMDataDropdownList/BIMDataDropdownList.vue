@@ -137,9 +137,7 @@ export default {
 
 <style lang="scss">
 // import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
 @import "../../assets/scss/_BIMDataTransitions.scss";
-
 @import "../../assets/scss/elements/_BIMDataSubmenus.scss";
 
 // import BIMDATA STYLE COMPONENT

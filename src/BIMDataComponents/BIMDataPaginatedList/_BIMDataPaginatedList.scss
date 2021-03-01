@@ -1,7 +1,6 @@
 // custom PAGINATED LIST
 .bimdata-paginated-list {
-  font-family: $primary-font;
-  font-size: calculateEm(14px);
+  font-family: var(--primary-font);
   line-height: 1.5;
   overflow: auto;
   &--small {
@@ -15,10 +14,14 @@
         justify-content: space-between;
         font-size: calculateEm(12px);
         &:nth-child(odd) {
-          background-color: $color-tertiary-lightest;
+          background-color: var(--color-tertiary-lighten);
         }
         &:nth-child(even) {
-          background-color: darken($color-tertiary-lightest, 5%);
+          background-color: hsl(
+            var(--color-tertiary-h),
+            var(--color-tertiary-s),
+            92%
+          );
         }
       }
     }

@@ -1,36 +1,42 @@
 .bimdata-card {
-  background-color: $color-white;
-  box-shadow: $box-shadow;
-  font-family: $primary-font;
-  font-size: calculateEm(14px);
+  background-color: var(--color-highlight);
+  box-shadow: var(--box-shadow);
+  font-family: var(--primary-font);
   &__content,
   &__footer {
     font-size: calculateEm(12px);
   }
   &__header {
-    padding: 10px $spacing-unit;
+    padding: 10px var(--spacing-unit);
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $color-tertiary-lightest;
-    color: $color-primary;
-    font-size: calculateEm(13px);
+    background-color: var(--color-tertiary-lighten);
+    color: var(--color-primary);
   }
   &__submenu {
-    padding: calc(#{$spacing-unit} / 2) $spacing-unit;
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
     display: flex;
     align-items: center;
     position: relative;
-    background: $color-white;
-    box-shadow: 0px 2px 4px rgba($color-black, 0.1);
-    font-size: calculateEm(12px);
+    color: var(--color-primary);
+    background: var(--color-highlight);
+    box-shadow: var(--box-shadow);
   }
   &__content {
-    padding: $spacing-unit;
-    color: $color-tertiary-dark;
+    padding: var(--spacing-unit);
+    color: var(--color-tertiary-dark);
   }
   &__footer {
-    padding: 0 $spacing-unit $spacing-unit;
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
+    color: var(--color-primary);
+  }
+}
+
+// THEME DARK
+.bimdata-ds-theme-dark {
+  .bimdata-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }

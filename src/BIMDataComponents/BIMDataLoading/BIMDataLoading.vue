@@ -8,9 +8,6 @@
 </template>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
-
 // import BIMDATA COMPONENT KEYFRAMES
 @import "./_keyframes.scss";
 

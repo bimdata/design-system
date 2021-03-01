@@ -78,7 +78,7 @@ export default {
           "--color-tertiary-darkest",
           "rgba(96, 96, 96, 1);",
         ],
-        ["$color-white", "--color-white", "rgba(255, 255, 255, 1);"],
+        ["var(--color-highlight)", "--color-white", "rgba(255, 255, 255, 1);"],
         ["$color-black", "--color-black", "rgba(0, 0, 0, 1);"],
         ["$color-neutral", "--color-neutral", "rgba(32, 93, 189, 1);"],
         ["$color-success", "--color-success", "rgba(0, 175, 80, 1);"],
@@ -107,8 +107,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../assets/scss/_BIMDataVariables.scss";
-
 @import "../../../../assets/scss/utilities/_colors.scss";
 
 @import "./_Variables.scss";

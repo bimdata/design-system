@@ -4,9 +4,9 @@
   align-items: center;
   background-image: radial-gradient(
       closest-side,
-      rgba($color-white, 0.94),
-      rgba($color-white, 0.94),
-      rgba($color-white, 1)
+      rgba(var(--color-highlight), 0.94),
+      rgba(var(--color-highlight), 0.94),
+      rgba(var(--color-highlight), 1)
     ),
     url("../../../assets/img/grid.svg");
   background-repeat: no-repeat, repeat;
@@ -35,11 +35,12 @@
       top: 0;
       left: 0;
       animation: transform1 4s ease, color1 4s ease;
-      box-shadow: 1px 1px 0 lighten($color-primary, 2%),
-        2px 2px 0 lighten($color-primary, 2%),
-        3px 3px 0 lighten($color-primary, 2%),
-        4px 4px 0 lighten($color-primary, 2%),
-        5px 5px 0 lighten($color-primary, 2%);
+      box-shadow: 1px 1px 0
+          hsl(var(--color-primary-h), var(--color-primary-s), 2%),
+        2px 2px 0 hsl(var(--color-primary-h), var(--color-primary-s), 2%),
+        3px 3px 0 hsl(var(--color-primary-h), var(--color-primary-s), 2%),
+        4px 4px 0 hsl(var(--color-primary-h), var(--color-primary-s), 2%),
+        5px 5px 0 hsl(var(--color-primary-h), var(--color-primary-s), 2%);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
@@ -49,11 +50,12 @@
       top: -10%;
       left: -10%;
       animation: transform2 4s ease, color2 4s ease;
-      box-shadow: 1px 1px 0 darken($color-secondary, 2%),
-        2px 2px 0 darken($color-secondary, 2%),
-        3px 3px 0 darken($color-secondary, 2%),
-        4px 4px 0 darken($color-secondary, 2%),
-        5px 5px 0 darken($color-secondary, 2%);
+      box-shadow: 1px 1px 0
+          hsl(var(--color-secondary-h), var(--color-secondary-s), 55%),
+        2px 2px 0 hsl(var(--color-secondary-h), var(--color-secondary-s), 55%),
+        3px 3px 0 hsl(var(--color-secondary-h), var(--color-secondary-s), 55%),
+        4px 4px 0 hsl(var(--color-secondary-h), var(--color-secondary-s), 55%),
+        5px 5px 0 hsl(var(--color-secondary-h), var(--color-secondary-s), 55%);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
@@ -63,11 +65,12 @@
       top: -20%;
       left: -20%;
       animation: transform3 4s ease, color3 4s ease;
-      box-shadow: 1px 1px 0 darken($color-tertiary, 2%),
-        2px 2px 0 darken($color-tertiary, 2%),
-        3px 3px 0 darken($color-tertiary, 2%),
-        4px 4px 0 darken($color-tertiary, 2%),
-        5px 5px 0 darken($color-tertiary, 2%);
+      box-shadow: 1px 1px 0
+          hsl(var(--color-tertiary-h), var(--color-tertiary-s), 83%),
+        2px 2px 0 hsl(var(--color-tertiary-h), var(--color-tertiary-s), 83%),
+        3px 3px 0 hsl(var(--color-tertiary-h), var(--color-tertiary-s), 83%),
+        4px 4px 0 hsl(var(--color-tertiary-h), var(--color-tertiary-s), 83%),
+        5px 5px 0 hsl(var(--color-tertiary-h), var(--color-tertiary-s), 83%);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }

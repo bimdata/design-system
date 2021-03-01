@@ -1,8 +1,8 @@
 .utilities-list {
   ul {
-    outline: 2px dotted $color-tertiary-darkest;
+    outline: 2px dotted var(--color-tertiary-darkest);
     li {
-      outline: 1px dotted $color-tertiary;
+      outline: 1px dotted var(--color-tertiary);
     }
   }
 }

@@ -758,15 +758,15 @@ export default {
       ],
       variantColors: [
         {
-          name: "Tertiary Lightest",
+          name: "Tertiary Lighten",
           hex: "#f7f7f7",
           rgb: "247, 247, 247",
-          scss: "$color-tertiary-lightest",
-          css: "var(--color-tertiary-lightest)",
-          background: "bg-tertiary-lightest",
-          color: "color-tertiary-lightest",
-          fill: "fill-tertiary-lightest",
-          stroke: "stroke-tertiary-lightest",
+          scss: "$color-tertiary-lighten",
+          css: "var(--color-tertiary-lighten)",
+          background: "bg-tertiary-lighten",
+          color: "color-tertiary-lighten",
+          fill: "fill-tertiary-lighten",
+          stroke: "stroke-tertiary-lighten",
           textcolor: "#2f374a",
         },
         {
@@ -799,8 +799,8 @@ export default {
           name: "White",
           hex: "#ffffff",
           rgb: "255, 255, 255",
-          scss: "$color-white",
-          css: "var(--color-white)",
+          scss: "var(--color-highlight)",
+          css: "var(--color-highlight)",
           background: "bg-white",
           color: "color-white",
           fill: "fill-white",
@@ -906,9 +906,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// import BIMDATA VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
-
 // import BIMDATA MIXINS
 @import "../../../../assets/scss/mixins/_font-size.scss";
 
