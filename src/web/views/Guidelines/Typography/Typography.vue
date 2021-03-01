@@ -25,7 +25,7 @@
           </Code>
         </div>
         <div class="m-t-24">
-          <p>Use this scss variables like a 'font-family' property :</p>
+          <p>Use this css variables like a 'font-family' property :</p>
           <BIMDataTable :rows="weightUtilities"></BIMDataTable>
           <Code language="scss">
             <pre>
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <div class="typography-use m-y-12">
+      <!-- <div class="typography-use m-y-12">
         <h3 class="bimdata-h3">How to further customize font-size</h3>
         <p>
           If the size options set above are not enought to customize the font size, you can use this mixin to customize font-size in 'em'.
@@ -52,7 +52,7 @@
             </pre>
           </Code>
         </div>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>
@@ -90,9 +90,9 @@ export default {
       ],
       weightUtilities: [
         ["Font weight utility class", "Output value"],
-        ["$primary-font", "'robotoregular', sans-serif"],
-        ["$primary-font-medium", "'robotomedium', sans-serif"],
-        ["$primary-font-bold", "'robotobold', sans-serif"],
+        ["var(--primary-font)", "'robotoregular', sans-serif"],
+        ["var(--primary-font-medium)", "'robotomedium', sans-serif"],
+        ["var(--primary-font-bold)", "'robotobold', sans-serif"],
       ],
     }
   },
