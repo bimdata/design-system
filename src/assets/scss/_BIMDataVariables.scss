@@ -81,13 +81,45 @@
   --color-high-darken: hsl(var(--color-high-h), var(--color-high-s), 46%);
   --color-high-lighten: hsl(var(--color-high-h), var(--color-high-s), 66%);
 
+  /* color warning ----------------------------------- */
+  --color-warning-h: 34;
+  --color-warning-s: 100%;
+
+  /* color warning lighten & darken */
+  --color-warning: hsl(var(--color-warning-h), var(--color-warning-s), 50%);
+  --color-warning-darken: hsl(
+    var(--color-warning-h),
+    var(--color-warning-s),
+    40%
+  );
+  --color-warning-lighten: hsl(
+    var(--color-warning-h),
+    var(--color-warning-s),
+    60%
+  );
+
+  /* color success ----------------------------------- */
+  --color-success-h: 147;
+  --color-success-s: 100%;
+
+  /* color success lighten & darken */
+  --color-success: hsl(var(--color-success-h), var(--color-success-s), 34%);
+  --color-success-darken: hsl(
+    var(--color-success-h),
+    var(--color-success-s),
+    24%
+  );
+  --color-success-lighten: hsl(
+    var(--color-success-h),
+    var(--color-success-s),
+    44%
+  );
+
   /* common colors */
   --color-highlight: rgba(255, 255, 255, 1);
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-neutral: rgba(32, 93, 189, 1);
-  --color-success: rgba(0, 175, 80, 1);
   --color-disabled: rgba(189, 189, 189, 1);
-  --color-warning: rgba(255, 145, 0, 1);
   --box-shadow: 0px 2px 10px var(--color-shadow);
 
   /* base FONT SIZE ----------------------------------------- */
