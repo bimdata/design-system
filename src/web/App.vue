@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-ds" :class="theme">
+  <div class="bimdata-ds">
     <Navigation :theme="theme" @switch-theme="switchTheme()"></Navigation>
     <router-view />
   </div>
@@ -18,15 +18,20 @@ export default {
   },
   data() {
     return {
-      theme: "theme-light",
+      theme: "bimdata-ds-theme-light",
     };
   },
   methods: {
     switchTheme() {
-      if (this.theme === "theme-light") {
-        this.theme = "theme-dark";
+      if (this.theme === "bimdata-ds-theme-light") {
+        this.theme = "bimdata-ds-theme-dark";
+        document.documentElement.classList.remove("bimdata-ds-theme-light");
+        document.documentElement.classList.add("bimdata-ds-theme-dark");
+
       } else {
-        this.theme = "theme-light";
+        this.theme = "bimdata-ds-theme-light";
+        document.documentElement.classList.remove("bimdata-ds-theme-dark");
+        document.documentElement.classList.add("bimdata-ds-theme-light");
       }
     },
   },

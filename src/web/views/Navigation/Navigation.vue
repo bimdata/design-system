@@ -2,7 +2,8 @@
   <header class="bimdata-ds__header">
     <div class="bimdata-ds__logo">
       <router-link to="/">
-        <img src="../../assets/img/design-system__logo.svg" alt />
+        <img v-if="!checkDarkMode()" src="../../assets/img/design-system__logo.svg" alt />
+        <img v-else src="../../assets/img/design-system__logo-home.svg" alt />
       </router-link>
     </div>
     <div class="bimdata-ds__navigation">
@@ -15,8 +16,8 @@
       </ul>
     </div>
     <div class="bimdata-ds__dark">
-      <i class="moon" v-if="theme === 'theme-light'" @click="switchTheme"></i>
-      <i class="sun" v-if="theme === 'theme-dark'" @click="switchTheme"></i>
+      <i class="moon" v-if="theme === 'bimdata-ds-theme-light'" @click="switchTheme"></i>
+      <i class="sun" v-if="theme === 'bimdata-ds-theme-dark'" @click="switchTheme"></i>
     </div>
     <span class="bimdata-ds__version">v {{ $options.version }}</span>
   </header>
@@ -51,6 +52,9 @@ export default {
     switchTheme() {
       this.$emit("switch-theme");
     },
+    checkDarkMode(){
+      return document.documentElement.classList.contains('bimdata-ds-theme-dark');
+    }
   },
   computed: {
     items() {
@@ -58,7 +62,7 @@ export default {
         title,
         ...page,
       }));
-    },
+    }
   },
 };
 </script>
