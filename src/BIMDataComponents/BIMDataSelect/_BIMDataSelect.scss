@@ -6,6 +6,7 @@ select:-webkit-autofill {
 .bimdata-select {
   position: relative;
   font-family: var(--primary-font);
+  font-size: 14px;
   user-select: none;
   &__content {
     height: 32px;
@@ -34,6 +35,7 @@ select:-webkit-autofill {
           position: absolute;
           top: -24px;
           color: var(--color-primary);
+          font-size: 10px;
           transform: translateY(6px);
           transition: 0.2s ease all;
         }
@@ -65,7 +67,7 @@ select:-webkit-autofill {
         display: flex;
         align-items: center;
         cursor: pointer;
-        font-size: calculateEm(12px);
+        font-size: 12px;
         &.selected {
           background-color: var(--color-tertiary);
           &:hover {
@@ -99,13 +101,14 @@ select:-webkit-autofill {
     label {
       top: -24px;
       color: var(--color-primary);
+      font-size: 10px;
     }
   }
   label {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: calculateEm(12px);
+    font-size: 12px;
     transform: translateY(6px);
     transition: 0.2s ease all;
     color: var(--color-tertiary-dark);
@@ -118,9 +121,10 @@ select:-webkit-autofill {
     background: var(--color-tertiary);
     bottom: 0;
     &::after {
+      content: "";
+      position: absolute;
       width: 0;
       height: 2px;
-      @include pseudo;
       bottom: 0;
       left: 0;
       right: 0;

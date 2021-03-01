@@ -7,6 +7,7 @@ textarea:-webkit-autofill {
   position: relative;
   inline-size: min-content;
   font-family: var(--primary-font);
+  font-size: 14px;
   textarea {
     margin: 0px;
     padding: 0px;
@@ -28,7 +29,7 @@ textarea:-webkit-autofill {
       outline: none;
       & ~ label {
         top: -26px;
-        font-size: calculateEm(10px);
+        font-size: 10px;
       }
       & ~ .bar {
         &:after {
@@ -43,13 +44,14 @@ textarea:-webkit-autofill {
     label {
       top: -26px;
       color: var(--color-primary);
+      font-size: 10px;
     }
   }
   label {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: calculateEm(12px);
+    font-size: 12px;
     transform: translateY(8px);
     transition: 0.2s ease all;
     color: var(--color-tertiary-dark);
@@ -61,6 +63,8 @@ textarea:-webkit-autofill {
     display: block;
     background: var(--color-tertiary);
     &::after {
+      content: "";
+      position: absolute;
       width: 0;
       height: 2px;
       background-color: var(--color-primary);
@@ -69,9 +73,12 @@ textarea:-webkit-autofill {
   }
   .error {
     color: var(--color-high);
+    // font-size: calculateEm(11px);
+    font-size: 11px;
   }
   .success {
     color: var(--color-success);
+    font-size: 11px;
   }
   &.error {
     label {

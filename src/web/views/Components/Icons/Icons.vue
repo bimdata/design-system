@@ -260,9 +260,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// import BIMDATA COMPONENT MIXINS
-@import "../../../../assets/scss/mixins/_font-size.scss";
-
 // import COMPONENT STYLE
 @import "./_Icons.scss";
 </style>

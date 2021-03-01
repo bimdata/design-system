@@ -65,7 +65,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../assets/scss/utilities/_list.scss";
-@import "../../../assets/scss/mixins/_font-size.scss";
 
 @import "./_DesignSystem-navigation.scss";
 </style>

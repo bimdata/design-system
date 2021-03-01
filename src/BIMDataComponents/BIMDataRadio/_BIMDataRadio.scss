@@ -4,6 +4,7 @@
   color: var(--color-primary);
   line-height: 1.5;
   font-family: var(--primary-font);
+  font-size: 14px;
   // custom INPUT
   & > input {
     margin: 0;
@@ -52,11 +53,12 @@
     padding-left: 23px;
     display: flex;
     align-items: center;
-    font-size: calculateEm(12px);
+    font-size: 12px;
     cursor: pointer;
     &::before,
     &::after {
-      @include pseudo;
+      content: "";
+      position: absolute;
       border-radius: 50%;
       transition: all 0.2s ease;
     }

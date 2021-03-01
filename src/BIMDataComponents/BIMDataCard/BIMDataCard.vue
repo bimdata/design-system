@@ -58,9 +58,6 @@ export default {
 </style>
 
 <style lang="scss">
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-
 // import BIMDATA STYLE COMPONENT
 @import "./_BIMDataCard.scss";
 </style>

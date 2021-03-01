@@ -62,12 +62,6 @@ export default {
 </style>
 
 <style lang="scss">
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_pseudo.scss";
-
 // import BIMDATA STYLE COMPONENT
 @import "./_BIMDataCheckbox.scss";
 </style>

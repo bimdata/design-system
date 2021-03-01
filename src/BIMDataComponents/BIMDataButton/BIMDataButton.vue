@@ -99,9 +99,6 @@ export default {
 </style>
 
 <style lang="scss">
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_font-size.scss";
-
 // import BIMDATA STYLE COMPONENT
 @import "./_keyframes.scss";
 @import "./_BIMDataButton.scss";

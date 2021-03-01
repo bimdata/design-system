@@ -44,6 +44,7 @@
           justify-content: center;
           p {
             margin: calc(var(--spacing-unit) / 2) 0 0 0;
+            font-size: 12px;
             color: var(--color-primary);
           }
           &:hover {

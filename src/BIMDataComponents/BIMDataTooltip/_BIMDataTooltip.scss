@@ -1,6 +1,7 @@
 .bimdata-tooltip {
   position: relative;
   font-family: var(--primary-font);
+  font-size: 14px;
   &__text {
     padding: 0 6px;
     width: max-content;
@@ -16,7 +17,7 @@
     opacity: 0;
     text-align: center;
     word-wrap: break-word;
-    font-size: calculateEm(11px);
+    font-size: 11px;
     z-index: 2;
     &::first-letter {
       text-transform: capitalize;
@@ -25,9 +26,10 @@
   &--arrow {
     height: 28px;
     line-height: 28px;
-    font-size: calculateEm(12px);
+    font-size: 12px;
     &::before {
-      @include pseudo;
+      content: "";
+      position: absolute;
       top: calc((28px - 8px) / 2);
       border-style: solid;
       border-width: 0 0 8px 8px;

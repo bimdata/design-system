@@ -11,12 +11,12 @@
       &__body {
         &__item {
           .label {
-            font-size: calculateEm(9px);
+            font-size: 9px;
             line-height: 16px;
             text-transform: uppercase;
           }
           .value {
-            font-size: calculateEm(11px);
+            font-size: 11px;
             display: flex;
             justify-content: space-between;
             cursor: pointer;

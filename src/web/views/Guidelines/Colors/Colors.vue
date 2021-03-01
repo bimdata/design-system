@@ -906,9 +906,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// import BIMDATA MIXINS
-@import "../../../../assets/scss/mixins/_font-size.scss";
-
 // import ALERT COMPONENT STYLE
 @import "../../../../web/views/Elements/Alerts/_Alerts.scss";
 

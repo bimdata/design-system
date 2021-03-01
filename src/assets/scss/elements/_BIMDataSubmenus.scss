@@ -133,7 +133,7 @@
           padding: calc(var(--spacing-unit) / 2);
           background-color: var(--color-highlight);
           cursor: pointer;
-          font-size: calculateEm(12px);
+          font-size: 12px;
           display: flex;
           align-items: center;
           svg {
