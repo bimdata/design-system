@@ -54,6 +54,11 @@
         <h5 class="bimdata-h5">Props:</h5>
         <BIMDataTable :rows="propsData"></BIMDataTable>
       </div>
+
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">Events:</h5>
+        <BIMDataTable :rows="eventsData"></BIMDataTable>
+      </div>
     </div>
   </main>
 </template>
@@ -134,6 +139,11 @@ export default {
           "Use this prop to select search bar color: 'default', 'primary', 'secondary'",
           "",
         ],
+      ],
+      eventsData: [
+        ["Event", "Payload", "Description"],
+        ["update-modelvalue", "string", "The updated value of the input."],
+        ["enter", "string", "The value of the input hen the enter key is pressed."],
       ],
     };
   },
