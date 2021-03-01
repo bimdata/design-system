@@ -6,9 +6,12 @@
 @import "./utilities/text.scss";
 
 // import GLOBAL STYLE
+@import "./BIMDataFonts.scss";
 @import "./BIMDataGlobal.scss";
 @import "./BIMDataGrid.scss";
+@import "./BIMDataTransitions.scss";
 @import "./BIMDataVariables.scss";
 
 // import ELEMENTS
 @import "./elements/BIMDataScrollbar.scss";
+@import "./elements/BIMDataSubmenus.scss";
