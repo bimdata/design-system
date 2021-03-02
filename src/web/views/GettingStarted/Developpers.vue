@@ -123,6 +123,29 @@
           </Code>
         </li>
       </ul>
+
+      <h5 class="bimdata-h5">SSR & BIMDataComponents compatibility</h5>
+      <ul class="bimdata-list">
+        <li class="m-b-24">
+          BIMDataComponents are compatible with SSR.
+          More information on the SSR on the
+          <a
+            href="https://vuejs.org/v2/guide/ssr.html"
+            target="_blank"
+            >Vue.js documentation</a
+          >.
+        </li>
+        <li class="m-y-24">
+          <span>If you want to be SSR compatible, import:</span>
+          <Code language="javascript">
+            <pre>import { BIMDataButton } from '@bimdata/design-system'</pre>
+          </Code>
+          <span>This allows you to import only the js of the components.</span>
+        </li>
+        <li class="m-y-24">
+          <span>Don't forget to import the stylesheet globally, like this:</span>
+          <Code language="javascript">
+            <pre>import './node_modules/@bimdata/design-system/dist/css/design-system.css'</pre>
           </Code>
         </li>
       </ul>
