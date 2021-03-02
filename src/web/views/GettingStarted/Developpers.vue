@@ -113,13 +113,16 @@
         <li class="m-y-24">
           Path for import js only :
           <Code language="javascript">
-            <pre>@bimdata/design-system</pre>
+            <pre>import { BIMDataButton } from '@bimdata/design-system'</pre>
           </Code>
         </li>
         <li class="m-y-24">
           Path for import js + css style :
           <Code language="javascript">
-            <pre>@bimdata/design-system/components.js</pre>
+            <pre>import { BIMDataButton } from '@bimdata/design-system/components.js'</pre>
+          </Code>
+        </li>
+      </ul>
           </Code>
         </li>
       </ul>
