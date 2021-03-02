@@ -98,6 +98,7 @@
       </Code>
 
       <h4 class="bimdata-h4">Notes</h4>
+      <h5 class="bimdata-h5">Scoped style & BIMDataComponents custom</h5>
       <ul class="bimdata-list">
         <li class="m-b-24">
           If you use 'scoped' for your scss or css stylesheet and you want to
