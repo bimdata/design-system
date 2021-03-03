@@ -121,7 +121,7 @@ export default {
           "[String, Number]",
           "",
           "",
-          "The name (or index) of the tab to be selected",
+          "The id (or index) of the tab to be selected",
         ],
       ],
 
@@ -130,13 +130,14 @@ export default {
         [
           "tab-click",
           "String",
-          "The name of the clicked tab",
-          "This event is fired when a tab is clicked",
+          "The clicked tab item",
+          "This event is fired when a tab is clicked. " +
+            "Note that clicking a tab will select it, so a 'tab-click' event always comes with an associated 'tab-selected' event.",
         ],
         [
           "tab-selected",
           "String",
-          "The name of the selected tab",
+          "The selected tab item",
           "This event is fired when a tab is selected",
         ],
       ],
