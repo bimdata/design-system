@@ -17,8 +17,8 @@
 
       <h4 class="bimdata-h4">2. Import component</h4>
       <p class="bimdata-text">
-        Once you’ve installed the package you can individually import any component available
-        in BIMData's design system:
+        Once you’ve installed the package you can individually import any
+        component available in BIMData's design system:
       </p>
       <Code language="javascript">
         <pre>
@@ -41,16 +41,18 @@
 
       <h6 class="bimdata-h6">About Vue 2.x vs. Vue 3.x</h6>
       <p>
-        The design system was originally developed with Vue 2.6+.
-        As a result the components imported as described above won't work in Vue 3.x applications.
+        The design system was originally developed with Vue 2.6+. As a result
+        the components imported as described above won't work in Vue 3.x
+        applications.
       </p>
       <p>
-        To fix this we adapted each components to be compatible with Vue 3.x
-        and added a new "Vue 3 ready" version of them to the design system package.
+        To fix this we adapted each components to be compatible with Vue 3.x and
+        added a new "Vue 3 ready" version of them to the design system package.
       </p>
       <p>
-        To use Vue 3 compatible components, all you need to do is adding a <code class="code-highlight">vue3/</code>
-        prefix before component name in the <code class="code-highlight">import</code> module name as follow:
+        To use Vue 3 compatible components, all you need to do is adding a
+        <code class="code-highlight">vue3/</code> prefix before component name
+        in the <code class="code-highlight">import</code> module name as follow:
       </p>
       <Code language="javascript">
         <pre>
@@ -96,15 +98,55 @@
       </Code>
 
       <h4 class="bimdata-h4">Notes</h4>
+      <h5 class="bimdata-h5">Scoped style & BIMDataComponents custom</h5>
       <ul class="bimdata-list">
-        <li class="m-b-24">If you use 'scoped' for your scss or css stylesheet and you want to customize the BIMData components, consider using the deep selector. More information on the <a href="https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors" target="_blank">Vue.js documentation</a>.</li>
+        <li class="m-b-24">
+          If you use 'scoped' for your scss or css stylesheet and you want to
+          customize the BIMData components, consider using the deep selector.
+          More information on the
+          <a
+            href="https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors"
+            target="_blank"
+            >Vue.js documentation</a
+          >.
+        </li>
         <li class="m-y-24">
           Path for import js only :
-          <pre>@bimdata/design-system</pre>
+          <Code language="javascript">
+            <pre>import { BIMDataButton } from '@bimdata/design-system'</pre>
+          </Code>
         </li>
         <li class="m-y-24">
           Path for import js + css style :
-          <pre>@bimdata/design-system/components.js</pre>
+          <Code language="javascript">
+            <pre>import { BIMDataButton } from '@bimdata/design-system/components.js'</pre>
+          </Code>
+        </li>
+      </ul>
+
+      <h5 class="bimdata-h5">SSR & BIMDataComponents compatibility</h5>
+      <ul class="bimdata-list">
+        <li class="m-b-24">
+          BIMDataComponents are compatible with SSR.
+          More information on the SSR on the
+          <a
+            href="https://vuejs.org/v2/guide/ssr.html"
+            target="_blank"
+            >Vue.js documentation</a
+          >.
+        </li>
+        <li class="m-y-24">
+          <span>If you want to be SSR compatible, import:</span>
+          <Code language="javascript">
+            <pre>import { BIMDataButton } from '@bimdata/design-system'</pre>
+          </Code>
+          <span>This allows you to import only the js of the components.</span>
+        </li>
+        <li class="m-y-24">
+          <span>Don't forget to import the stylesheet globally, like this:</span>
+          <Code language="javascript">
+            <pre>import './node_modules/@bimdata/design-system/dist/css/design-system.css'</pre>
+          </Code>
         </li>
       </ul>
     </div>
