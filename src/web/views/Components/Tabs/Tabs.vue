@@ -106,14 +106,14 @@ export default {
           "height",
           "[String, Number]",
           "",
-          "30px",
+          "32px",
           "Use this props to change the min-height of the tabs container",
         ],
         [
           "tabSize",
           "[String, Number]",
           "",
-          "20%",
+          "120px",
           "The size of tabs in px or %",
         ],
         [

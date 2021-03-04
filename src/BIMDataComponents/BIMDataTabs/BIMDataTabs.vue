@@ -57,7 +57,7 @@ export default {
     },
     height: {
       type: [String, Number],
-      default: "30px",
+      default: "32px",
     },
     tabs: {
       type: Array,
@@ -65,7 +65,7 @@ export default {
     },
     tabSize: {
       type: [String, Number],
-      default: "20%",
+      default: "120px",
     },
     selected: {
       type: [String, Number],
