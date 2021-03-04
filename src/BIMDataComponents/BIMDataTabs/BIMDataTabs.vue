@@ -57,7 +57,7 @@ export default {
     },
     height: {
       type: [String, Number],
-      default: "30px",
+      default: "32px",
     },
     tabs: {
       type: Array,
@@ -65,7 +65,7 @@ export default {
     },
     tabSize: {
       type: [String, Number],
-      default: "20%",
+      default: "120px",
     },
     selected: {
       type: [String, Number],
@@ -155,8 +155,10 @@ export default {
           ".bimdata-tabs__container__tab"
         ).offsetWidth;
 
-        if (this.tabs.length * tw > cw) {
-          cw -= 64; // Take buttons size into account
+        const shouldComputeScrollValues =
+          Math.floor(((this.tabs.length * tw - cw) * 10) / tw) > 0;
+
+        if (shouldComputeScrollValues) {
           this.scrollValues = [0].concat(
             this.tabs.map((_, i) => (i + 1) * tw - cw).filter(v => v > 0)
           );
