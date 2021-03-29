@@ -4,15 +4,17 @@
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataTable :rows="rowData" :compensated="compensated"></BIMDataTable>
+          <BIMDataTable
+            :rows="rowData"
+            :compensated="compensated"
+          ></BIMDataTable>
         </template>
 
         <template #parameters>
           <BIMDataCheckbox
             text="compensated"
             v-model="compensated"
-          >
-          </BIMDataCheckbox>
+          ></BIMDataCheckbox>
         </template>
 
         <template #import>
@@ -22,7 +24,11 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataTable :rows="rowData" compensated="{{compensated}}"&gt;&lt;/BIMDataTable&gt;
+            &lt;BIMDataTable
+              :rows="rowData"
+              compensated="{{ compensated }}"
+            &gt;
+            &lt;/BIMDataTable&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -38,16 +44,13 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
 
 export default {
   components: {
     ComponentCode,
     BIMDataTable,
-    BIMDataInput,
-    BIMDataCheckbox
+    BIMDataCheckbox,
   },
   data() {
     return {
@@ -61,20 +64,18 @@ export default {
         ["Props", "Type", "Description", "Example"],
         [
           "rows",
-          "[String, Number]",
-          "Use this props to add header and body content to your table.",
-          "In this example, rows is worth : "
+          "Array",
+          "Use this props to define table rows. Rows are defined using an array of arrays containing only strings or numbers.",
+          "[ ['First name', 'Last name', 'Age'], ['John', 'Doe', 23], ['Jane', 'Doe', 24] ]",
         ],
         [
           "compensated",
           "Boolean",
           "Use this props to render a dense table.",
-          ""
-        ]
-      ]
+          "",
+        ],
+      ],
     };
   },
 };
 </script>
-
-<style lang="scss" scoped></style>
