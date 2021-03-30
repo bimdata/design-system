@@ -16,47 +16,44 @@
                 @update:modelValue="toggleFullSelection"
               />
             </th>
-            <template v-for="(column, j) of columns">
-              <th
-                :key="`head-row-0-col-${j}`"
-                :style="{
-                  width: column.width || 'auto',
-                  textAlign: column.align || 'left',
-                }"
-              >
-                {{ column.id ? column.label || column.id : column }}
-              </th>
-            </template>
+            <th
+              v-for="(column, j) of columns"
+              :key="`head-row-0-col-${j}`"
+              :style="{
+                width: column.width || 'auto',
+                textAlign: column.align || 'left',
+              }"
+            >
+              {{ column.id ? column.label || column.id : column }}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <template v-for="(row, i) of rows">
-            <tr
-              :key="`body-row-${i}`"
-              v-if="row"
-              v-show="displayedRows.includes(i)"
-              :style="{ height: `${rowHeight}px` }"
+          <tr
+            v-for="(row, i) of rows"
+            :key="`body-row-${i}`"
+            v-show="displayedRows.includes(i)"
+            :style="{ height: `${rowHeight}px` }"
+          >
+            <td class="cell-checkbox" v-if="selectable">
+              <BIMDataCheckbox
+                :modelValue="selection.has(i)"
+                @update:modelValue="toggleSelection(i)"
+              />
+            </td>
+            <td
+              v-for="(column, j) of columns"
+              :key="`body-row-${i}-col-${j}`"
+              :style="{
+                width: column.width || 'auto',
+                textAlign: column.align || 'left',
+              }"
             >
-              <td class="cell-checkbox" v-if="selectable">
-                <BIMDataCheckbox
-                  :modelValue="selection.has(i)"
-                  @update:modelValue="toggleSelection(i)"
-                />
-              </td>
-              <td
-                v-for="(column, j) of columns"
-                :key="`body-row-${i}-col-${j}`"
-                :style="{
-                  width: column.width || 'auto',
-                  textAlign: column.align || 'left',
-                }"
-              >
-                <slot :name="`cell-${column.id}`" :row="row">
-                  {{ row[column.id] || row[j] || "" }}
-                </slot>
-              </td>
-            </tr>
-          </template>
+              <slot :name="`cell-${column.id}`" :row="row">
+                {{ row[column.id] || row[j] || "" }}
+              </slot>
+            </td>
+          </tr>
         </tbody>
       </table>
       <div
