@@ -4,7 +4,7 @@
       <h2 class="bimdata-h2">{{ $route.name }} (Simple use case)</h2>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <GenericTable
+          <BIMDataTable
             :columns="columns"
             :rows="rows"
             :rowHeight="+rowHeight"
@@ -74,7 +74,7 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <GenericTable
+        <BIMDataTable
           :rowHeight="36"
           :columns="propsData[0]"
           :rows="propsData.slice(1)"
@@ -82,7 +82,7 @@
       </div>
       <div class="m-t-12">
         <h5 class="bimdata-h5">Events:</h5>
-        <GenericTable
+        <BIMDataTable
           :rowHeight="36"
           :columns="eventsData[0]"
           :rows="eventsData.slice(1)"
@@ -164,7 +164,7 @@
       </div>
       <div class="m-b-12">
         <strong>Here is the result:</strong>
-        <GenericTable
+        <BIMDataTable
           :columns="advancedExample.columns"
           :rows="advancedExample.rows"
         >
@@ -177,7 +177,7 @@
           <template #cell-country="{ row }">
             <CountryCustomCell :country="row.country" />
           </template>
-        </GenericTable>
+        </BIMDataTable>
       </div>
       <div>
         If you to know more about dynamic slot names and scoped slots check out
@@ -204,7 +204,7 @@
       <h2 class="bimdata-h2">Reference</h2>
       <div class="m-b-12">
         <h5 class="bimdata-h5">Columns:</h5>
-        <GenericTable
+        <BIMDataTable
           :rowHeight="36"
           :columns="columnsData[0]"
           :rows="columnsData.slice(1)"
@@ -219,7 +219,7 @@ import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import GenericTable from "../../../../BIMDataComponents/BIMDataTable/GenericTable.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import AgeCustomCell from "./AgeCustomCell.vue";
 import CountryCustomCell from "./CountryCustomCell.vue";
 
@@ -229,7 +229,7 @@ export default {
     ComponentCode,
     BIMDataCheckbox,
     BIMDataInput,
-    GenericTable,
+    BIMDataTable,
     AgeCustomCell,
     CountryCustomCell,
   },
