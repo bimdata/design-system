@@ -1,8 +1,8 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <ComponentCode :componentTitle="$route.name" language="javascript">
+      <h2 class="bimdata-h2">DropdownMenu</h2>
+      <ComponentCode componentTitle="DropdownMenu" language="javascript">
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
           <BIMDataDropdownMenu
@@ -80,12 +80,12 @@
       <!-- bloc DOCUMENTATION -->
       <div class="m-t-24">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-24">
         <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotData"></BIMDataTable>
+        <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
       </div>
     </div>
   </main>
@@ -96,7 +96,6 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
 import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
@@ -105,7 +104,6 @@ export default {
     BIMDataCheckbox,
     BIMDataRadio,
     BIMDataTable,
-    BIMDataIcon,
     BIMDataDropdownMenu,
   },
   data() {
@@ -156,12 +154,15 @@ export default {
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["#header", "Use this slot for add content "],
+        ["header", "Use this slot for add content "],
         [
-          "#contentAfterHeader",
+          "contentAfterHeader",
           "Use this slot for add content after the header slot",
         ],
-        ["#element", "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice."],
+        [
+          "element",
+          "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice.",
+        ],
       ],
     };
   },

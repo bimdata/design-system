@@ -2,7 +2,12 @@
   <main class="article article-checkbox">
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/dyMyvYW" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue">
+      <ComponentCode
+        :componentTitle="$route.name"
+        language="javascript"
+        codepenLink="https://codepen.io/bimdata/pen/dyMyvYW"
+        githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
+      >
         <template #module>
           <BIMDataCheckbox
             :text="getCheckboxText()"
@@ -37,7 +42,7 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>
   </main>

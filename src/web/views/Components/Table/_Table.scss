@@ -10,10 +10,17 @@
   }
 }
 
-.example-controls {
+.simple-example-controls {
   margin: 6px 0;
 
   .bimdata-input {
     margin-top: 24px;
+  }
+}
+
+.advanced-example-result {
+  .bimdata-table {
+    margin: 6px 0;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   }
 }

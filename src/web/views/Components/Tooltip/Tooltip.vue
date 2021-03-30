@@ -56,12 +56,12 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotsData"></BIMDataTable>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -109,7 +109,7 @@ export default {
         ],
       ],
       slotsData: [
-        ["slot name", "Description"],
+        ["Slot name", "Description"],
         [
           "content",
           "Allows you to wrap any element to add a tooltip to the hover.",

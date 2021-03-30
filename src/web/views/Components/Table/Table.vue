@@ -5,50 +5,56 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataTable
-            :columns="columns"
-            :rows="rows"
-            :rowHeight="+rowHeight"
-            :selectable="selectable"
-            :paginated="paginated"
-            :perPage="+perPage"
-            @selection-changed="selection = $event"
+            :columns="simpleExample.columns"
+            :rows="simpleExample.rows"
+            :rowHeight="+simpleExample.rowHeight"
+            :selectable="simpleExample.selectable"
+            :paginated="simpleExample.paginated"
+            :perPage="+simpleExample.perPage"
+            @selection-changed="simpleExample.selection = $event"
           />
           <div class="selection-box">
             <div class="selection-box__label">Selection :</div>
             <div
               class="selection-box__item"
-              v-for="(s, i) of selection"
+              v-for="(s, i) of simpleExample.selection"
               :key="i"
             >
               {{ `[${i}] - ${s.join(", ")}` }}
             </div>
-            <div v-show="selection.length === 0">
+            <div v-show="simpleExample.selection.length === 0">
               ( None )
             </div>
           </div>
         </template>
 
         <template #parameters>
-          <div class="example-controls">
+          <div class="simple-example-controls">
             <h6 class="bimdata-h6">Style</h6>
             <BIMDataInput
               type="number"
               placeholder="Rows height in px"
-              v-model="rowHeight"
+              v-model="simpleExample.rowHeight"
             />
           </div>
           <div class="example-controls">
             <h6 class="bimdata-h6">Selection</h6>
-            <BIMDataCheckbox text="selectable" v-model="selectable" />
+            <BIMDataCheckbox
+              text="selectable"
+              v-model="simpleExample.selectable"
+            />
           </div>
           <div class="example-controls">
             <h6 class="bimdata-h6">Pagination</h6>
-            <BIMDataCheckbox text="paginated" v-model="paginated" />
+            <BIMDataCheckbox
+              text="paginated"
+              v-model="simpleExample.paginated"
+            />
             <BIMDataInput
               type="number"
-              :disabled="!paginated"
+              :disabled="!simpleExample.paginated"
               placeholder="Number of rows per page"
-              v-model="perPage"
+              v-model="simpleExample.perPage"
             />
           </div>
         </template>
@@ -63,10 +69,14 @@
             &lt;BIMDataTable
               :columns="columns"
               :rows="rows"
-              {{ `:rowHeight="${rowHeight}"` }}
-              {{ selectable ? ':selectable="true"' : "" }}
-              {{ paginated ? ':paginated="true"' : "" }}
-              {{ paginated ? `:perPage="${perPage}"` : "" }}
+              {{ `:rowHeight="${simpleExample.rowHeight}"` }}
+              {{ simpleExample.selectable ? ':selectable="true"' : "" }}
+              {{ simpleExample.paginated ? ':paginated="true"' : "" }}
+              {{
+              simpleExample.paginated
+                ? `:perPage="${simpleExample.perPage}"`
+                : ""
+            }}
             /&gt;
           </pre>
         </template>
@@ -162,7 +172,7 @@
         In addition, cell slots are <em>scoped slots</em> so you can access row
         data using the <strong>row</strong> scoped prop.
       </div>
-      <div class="m-b-12">
+      <div class="advanced-example-result m-b-12">
         <strong>Here is the result:</strong>
         <BIMDataTable
           :columns="advancedExample.columns"
@@ -235,20 +245,22 @@ export default {
   },
   data() {
     return {
-      columns: ["First name", "Last name", "Age", "Country"],
-      rows: [
-        ["John", "Doe", 26, "Germany"],
-        ["Jane", "Doe", 21, "Austria"],
-        ["Martine", "Durand", 35, "France"],
-        ["Giuseppe", "Bompiani", 64, "Italy"],
-        ["Enrico", "Fermi", 41, "Italy"],
-        ["Lev Davidovitch", "Landau", 23, "Russia"],
-      ],
-      rowHeight: 50,
-      selectable: false,
-      selection: [],
-      paginated: false,
-      perPage: 4,
+      simpleExample: {
+        columns: ["First name", "Last name", "Age", "Country"],
+        rows: [
+          ["John", "Doe", 26, "Germany"],
+          ["Jane", "Doe", 21, "Austria"],
+          ["Martine", "Durand", 35, "France"],
+          ["Giuseppe", "Bompiani", 64, "Italy"],
+          ["Enrico", "Fermi", 41, "Italy"],
+          ["Lev Davidovitch", "Landau", 23, "Russia"],
+        ],
+        rowHeight: 50,
+        selectable: false,
+        selection: [],
+        paginated: false,
+        perPage: 4,
+      },
 
       advancedExample: {
         columns: [
@@ -283,41 +295,65 @@ export default {
 
       // Props docmentation
       propsData: [
-        ["Props", "Type", "Description", "Example"],
+        [
+          "Props",
+          "Type",
+          "Required",
+          "Default value",
+          "Description",
+          "Example",
+        ],
         [
           "columns",
           "Array",
+          "true",
           "Use this props to define table columns.",
           "['First name', 'Last name', 'Age']",
         ],
         [
           "rows",
           "Array",
+          "true",
           "Use this props to define table rows.",
           "[ ['John', 'Doe', 23], ['Jane', 'Doe', 24] ]",
         ],
         [
           "rowHeight",
           "Number",
+          "",
+          "50",
           "Use this prop to set rows height (in px)",
-          "Defaults to 50",
+          "",
         ],
         [
           "selectable",
           "Boolean",
+          "",
+          "false",
           "Use this props to make rows selectable.",
           "",
         ],
-        ["paginated", "Boolean", "Use this prop to have a paginated table", ""],
+        [
+          "paginated",
+          "Boolean",
+          "",
+          "false",
+          "Use this prop to have a paginated table",
+          "",
+        ],
         [
           "perPage",
           "Number",
+          "",
+          "10",
           "Use this prop to control the number of rows per page (when paginated)",
-          "Defaults to 10",
+          "",
         ],
         [
           "placeholder",
           "String",
+          "",
+          "",
           "A text to display when the table is empty",
           "",
         ],

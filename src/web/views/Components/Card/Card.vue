@@ -83,12 +83,12 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotsData"></BIMDataTable>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -141,22 +141,22 @@ export default {
         ],
       ],
       slotsData: [
-        ["slot name", "Description"],
-        ["#headerIcons", "Use this slot to add icons to header. "],
+        ["Slot name", "Description"],
+        ["headerIcons", "Use this slot to add icons to header. "],
         [
-          "#left",
+          "left",
           "Use this slot to add text, icons, or component to the card submenu on the left",
         ],
         [
-          "#right",
+          "right",
           "Use this slot to add text, icons, or component to the card submenu on the right",
         ],
         [
-          "#content",
+          "content",
           "Use this slot to add text, icons, or component into card content",
         ],
         [
-          "#footer",
+          "footer",
           "Use this slot to add text, icons, or component into card footer",
         ],
       ],

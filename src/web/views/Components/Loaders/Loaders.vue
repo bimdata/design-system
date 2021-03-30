@@ -56,11 +56,7 @@
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
           <BIMDataPieSpinner :delay="50">
-            <BIMDataIcon
-              name="close"
-              size="xxxs"
-              class="fill-primary"
-            />
+            <BIMDataIcon name="close" size="xxxs" class="fill-primary" />
           </BIMDataPieSpinner>
         </template>
 
@@ -84,9 +80,11 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">BIMDataPieSpinner props:</h5>
-        <BIMDataTable :rows="propsBIMDataPieSpinner"></BIMDataTable>
+        <BIMDataTable
+          :columns="propsBIMDataPieSpinner[0]"
+          :rows="propsBIMDataPieSpinner.slice(1)"
+        ></BIMDataTable>
       </div>
-
     </div>
   </main>
 </template>
@@ -115,17 +113,17 @@ export default {
     return {
       propsBIMDataPieSpinner: [
         ["Props", "Type", "Default value", "Description"],
-        ["width", "Number", "22", "width"],
-        ["strokeWidth", "Number", "2", "Description"],
-        ["stroke", "String", "currentColor", "couleur"],
-        ["delay", "Number", "1", "temps de l'animation"],
-        ["laps", "[Number, String]", "1", "nombre de tours"],
-        ["dashOffsetFrom", "Number", "0", "Description"],
-        ["dashOffsetTo", "Number", "63", "Description"],
-        ["dashArray", "Number", "63", "Description"],
-      ]
-    }
-  }
+        ["width", "Number", "22", "Spinner width"],
+        ["strokeWidth", "Number", "2", "Stroke size in px"],
+        ["stroke", "String", "currentColor", "Stroke color"],
+        ["delay", "Number", "1", "Animation duration in seconds"],
+        ["laps", "[Number, String]", "1", "Number of spins"],
+        ["dashOffsetFrom", "Number", "0", ""],
+        ["dashOffsetTo", "Number", "63", ""],
+        ["dashArray", "Number", "63", ""],
+      ],
+    };
+  },
 };
 </script>
 

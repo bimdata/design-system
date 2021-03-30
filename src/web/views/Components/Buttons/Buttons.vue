@@ -19,7 +19,11 @@
               :color="selectedBtnOptionsvalues"
               :icon="checkboxIconChecked && !checkboxTextChecked"
             >
-              <BIMDataIcon name="chevron" size="xxxs" v-if="checkboxIconChecked" />
+              <BIMDataIcon
+                name="chevron"
+                size="xxxs"
+                v-if="checkboxIconChecked"
+              />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
@@ -85,7 +89,11 @@
           <template #code>
             <pre>
               &lt;BIMDataButton
-                {{ getWidthBtn() }} {{ getHeightBtn() }} color="{{ selectedBtnOptionsvalues }}" {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{ getIconClass() }} {{ getButtonDisabled() }}
+                {{ getWidthBtn() }} {{ getHeightBtn() }} color="{{
+                selectedBtnOptionsvalues
+              }}" {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{
+                getIconClass()
+              }} {{ getButtonDisabled() }}
                 &gt;
                 {{ getIcon() }}
                 {{ getText() }}
@@ -96,7 +104,7 @@
 
         <div class="m-t-24">
           <h5 class="bimdata-h5">Props:</h5>
-          <BIMDataTable :rows="propsData"></BIMDataTable>
+          <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
         </div>
       </div>
     </div>
@@ -170,7 +178,13 @@ export default {
           "Use this props to use outline button",
         ],
         ["ghost", "Boolean", "", "false", "Use this props to use ghost button"],
-        ["ripple", "Boolean", "", "false", "Use this props to use button with ripple effect"],
+        [
+          "ripple",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use button with ripple effect",
+        ],
         [
           "radius",
           "Boolean",
@@ -234,7 +248,7 @@ export default {
     },
     getIcon() {
       if (this.checkboxIconChecked) {
-        return `<BIMDataIcon name="chevron" size="xxxs" />`;
+        return '<BIMDataIcon name="chevron" size="xxxs" />';
       }
     },
     getText() {
@@ -246,24 +260,24 @@ export default {
     },
     getButtonDisabled() {
       if (this.checkboxDisabledChecked) {
-        return `disabled="true"`;
+        return 'disabled="true"';
       }
     },
     getIconClass() {
-      if(this.checkboxIconChecked){
-        return 'icon';
+      if (this.checkboxIconChecked) {
+        return "icon";
       }
     },
     getWidthBtn() {
-      if(this.widthButton != '32px'){
+      if (this.widthButton != "32px") {
         return `width="${this.widthButton}"`;
       }
     },
     getHeightBtn() {
-      if(this.heightButton != '32px'){
+      if (this.heightButton != "32px") {
         return `height="${this.heightButton}"`;
       }
-    }
+    },
   },
 };
 </script>

@@ -133,20 +133,18 @@ export default new Vuex.Store({
           btn: "View checkbox",
         },
         {
-          title: "DropdownMenu",
-          img: require("./web/assets/img/icon-dropdown.svg"),
-          path: "dropdownmenu",
-          text:
-            "Dropdown component shows a simple menu.",
-          btn: "View dropdown menu",
-        },
-        {
           title: "DropdownList",
           img: require("./web/assets/img/icon-dropdown.svg"),
           path: "dropdownlist",
-          text:
-            "DropdownList component shows a menu with an paginated list.",
+          text: "DropdownList component shows a menu with an paginated list.",
           btn: "View dropdown list",
+        },
+        {
+          title: "DropdownMenu",
+          img: require("./web/assets/img/icon-dropdown.svg"),
+          path: "dropdownmenu",
+          text: "Dropdown component shows a simple menu.",
+          btn: "View dropdown menu",
         },
         {
           title: "Icons",

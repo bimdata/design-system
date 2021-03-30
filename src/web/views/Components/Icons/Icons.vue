@@ -42,16 +42,13 @@
 
         <template #parameters>
           <h5 class="bimdata-h5">rotate</h5>
-            <BIMDataInput
-              v-model="rotationDeg"
-              placeholder="Degree of rotation"
-              type="number"
-              min="0"
-            ></BIMDataInput>
-          <div
-            v-for="[key, values] in Object.entries(iconOptions)"
-            :key="key"
-          >
+          <BIMDataInput
+            v-model="rotationDeg"
+            placeholder="Degree of rotation"
+            type="number"
+            min="0"
+          ></BIMDataInput>
+          <div v-for="[key, values] in Object.entries(iconOptions)" :key="key">
             <h5 class="bimdata-h5">{{ key }}</h5>
             <BIMDataRadio
               v-for="value in values"
@@ -74,19 +71,26 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" {{ getRotateDegree() }}/&gt;
+            &lt;BIMDataIcon name="{{ activeIcon }}" {{
+              getIconOptionsSize()
+            }} class="{{ selectedIconOptionsclass }}" {{
+              getRotateDegree()
+            }}/&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Summary icons size:</h5>
-        <BIMDataTable :rows="iconsSizeData"></BIMDataTable>
+        <BIMDataTable
+          :columns="iconsSizeData[0]"
+          :rows="iconsSizeData.slice(1)"
+        />
       </div>
     </div>
   </main>
@@ -206,8 +210,8 @@ export default {
           "",
           "0",
           "Use this props for rotate your icon.",
-          "90, 180"
-        ]
+          "90, 180",
+        ],
       ],
       iconsSizeData: [
         ["Size value", "Output"],
@@ -220,7 +224,7 @@ export default {
         ["xl", "36px"],
         ["xxl", "45px"],
         ["xxxl", "60px"],
-      ]
+      ],
     };
   },
   computed: {
@@ -246,15 +250,14 @@ export default {
       if (this.selectedIconOptionssize === "s") {
         return null;
       } else {
-      return `size="${this.selectedIconOptionssize}"`;
-
+        return `size="${this.selectedIconOptionssize}"`;
       }
     },
     getRotateDegree() {
-      if(this.rotationDeg > 0) {
-        return `:rotate="${this.rotationDeg}"`
+      if (this.rotationDeg > 0) {
+        return `:rotate="${this.rotationDeg}"`;
       }
-    }
+    },
   },
 };
 </script>

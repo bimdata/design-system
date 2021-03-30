@@ -54,12 +54,12 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Events:</h5>
-        <BIMDataTable :rows="eventsData"></BIMDataTable>
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
   </main>

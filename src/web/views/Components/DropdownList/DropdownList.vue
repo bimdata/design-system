@@ -1,9 +1,8 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <ComponentCode :componentTitle="$route.name" language="javascript">
-
+      <h2 class="bimdata-h2">DropdownList</h2>
+      <ComponentCode componentTitle="DropdownList" language="javascript">
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
           <BIMDataDropdownList
@@ -26,7 +25,11 @@
             </template>
             <template #element="{ element }" v-if="checkboxElementChecked">
               <div class="flex items-center">
-                <BIMDataIcon name="chevron" size="xxxs" class="fill-primary m-r-6" />
+                <BIMDataIcon
+                  name="chevron"
+                  size="xxxs"
+                  class="fill-primary m-r-6"
+                />
                 {{ element }}
               </div>
             </template>
@@ -110,12 +113,12 @@
       <!-- bloc DOCUMENTATION -->
       <div class="m-t-24">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-24">
         <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotData"></BIMDataTable>
+        <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
       </div>
     </div>
   </main>
@@ -221,12 +224,12 @@ export default {
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["#header", "Use this slot for add content before the icon button"],
+        ["header", "Use this slot for add content before the icon button"],
         [
-          "#contentAfterBtn",
+          "contentAfterBtn",
           "Use this slot for add content after the icon button",
         ],
-        ["#element", "Use this slot to custum the elements list"],
+        ["element", "Use this slot to custum the elements list"],
       ],
     };
   },
