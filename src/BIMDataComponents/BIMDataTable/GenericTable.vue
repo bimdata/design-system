@@ -268,5 +268,5 @@ export default {
 @import "../../assets/scss/_BIMDataVariables.scss";
 
 // Component styles
-@import "./GenericTable.scss";
+@import "./_GenericTable.scss";
 </style>
