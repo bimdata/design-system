@@ -1,0 +1,19 @@
+.selection-box {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  padding-left: 72px;
+
+  &__label {
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+}
+
+.example-controls {
+  margin: 6px 0;
+
+  .bimdata-input {
+    margin-top: 24px;
+  }
+}

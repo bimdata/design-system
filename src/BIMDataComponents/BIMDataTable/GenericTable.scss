@@ -1,0 +1,57 @@
+.generic-table {
+  width: 100%;
+  font-size: 0.9rem;
+  background-color: $color-white;
+
+  &__container {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      tbody tr:nth-child(odd) {
+        background-color: $color-tertiary-lightest;
+      }
+
+      th,
+      td {
+        min-height: $spacing-unit * 2;
+        padding: 0 $spacing-unit;
+
+        &.cell-checkbox:deep() {
+          width: 42px;
+        }
+      }
+
+      th {
+        font-weight: bold;
+        color: $color-primary;
+      }
+
+      td {
+        color: $color-tertiary-darkest;
+      }
+    }
+
+    &__placeholder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: $spacing-unit;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: $color-tertiary-lightest;
+    }
+  }
+
+  &__page-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: $spacing-unit;
+
+    &__text {
+      margin: 0 $spacing-unit;
+    }
+  }
+}
