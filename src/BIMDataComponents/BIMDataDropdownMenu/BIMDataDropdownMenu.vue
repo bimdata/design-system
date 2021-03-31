@@ -6,7 +6,7 @@
   >
     <div
       class="bimdata-dropdown__content"
-      :class="{ active: displayed, disabled }"
+      :class="{ active: displayed, disabled, border }"
       @click="onHeaderClick"
       :style="style"
     >
@@ -49,11 +49,15 @@ export default {
     },
     width: {
       type: String,
-      default: "220px",
+      default: "auto",
     },
     height: {
       type: String,
       default: "36px",
+    },
+    border: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
