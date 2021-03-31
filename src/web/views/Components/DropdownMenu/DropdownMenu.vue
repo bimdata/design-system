@@ -94,6 +94,7 @@
               getHeightDropdownMenu()
             }}
               :disabled="{{ checkboxDisabledChecked }}"
+              {{ getBorderDropdownMenu() }}
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
@@ -188,8 +189,8 @@ export default {
           "Boolean",
           "true",
           "",
-          "Use this props to add or remove border to Dropdown menu."
-        ]
+          "Use this props to add or remove border to Dropdown menu.",
+        ],
       ],
       slotData: [
         ["Slot name", "Description"],
@@ -240,6 +241,11 @@ export default {
     getHeightDropdownMenu() {
       if (this.heightDropdownMenu != "36px") {
         return `height="${this.heightDropdownMenu}"`;
+      }
+    },
+    getBorderDropdownMenu() {
+      if (!this.checkboxBorderChecked) {
+        return `:border="${this.checkboxBorderChecked}"`;
       }
     },
   },
