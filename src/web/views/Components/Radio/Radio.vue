@@ -3,7 +3,12 @@
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
 
-      <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/MWyWQep" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue">
+      <ComponentCode
+        :componentTitle="$route.name"
+        language="javascript"
+        codepenLink="https://codepen.io/bimdata/pen/MWyWQep"
+        githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue"
+      >
         <template #module>
           <BIMDataRadio
             text="click on me !"
@@ -21,11 +26,7 @@
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
-          <BIMDataButton
-            color="primary"
-            radius
-            fill
-            @click="resetRadio()"
+          <BIMDataButton color="primary" radius fill @click="resetRadio()"
             >Reset radio button</BIMDataButton
           >
         </template>
@@ -50,7 +51,7 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>
   </main>

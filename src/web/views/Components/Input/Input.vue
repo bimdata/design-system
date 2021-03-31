@@ -22,8 +22,16 @@
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="error" v-model="error" :disabled="success || successMessage" />
-          <BIMDataCheckbox text="success" v-model="success" :disabled="error || errorMessage" />
+          <BIMDataCheckbox
+            text="error"
+            v-model="error"
+            :disabled="success || successMessage"
+          />
+          <BIMDataCheckbox
+            text="success"
+            v-model="success"
+            :disabled="error || errorMessage"
+          />
           <BIMDataCheckbox
             text="error message"
             v-model="errorMessage"
@@ -47,14 +55,16 @@
         <template #code>
           <pre>
             &lt;BIMDataInput
-            v-model="textInput"
-            placeholder="Your placeholder here"
-            :error="!textInput"
-            errorMessage="your error message here"
-            :loading="{{ getLoading() }}"&gt;
+              v-model="textInput"
+              placeholder="Your placeholder here"
+              :error="!textInput"
+              errorMessage="your error message here"
+              :loading="{{ getLoading() }}"&gt;
+
               &lt;template #inputIcon v-if="inputIcon"&gt;
                 {{ getInputIcon() }}
               &lt;/template&gt;
+
             &lt;/BIMDataInput&gt;
           </pre>
         </template>
@@ -62,7 +72,11 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+      </div>
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -94,6 +108,8 @@ export default {
       loading: false,
       disabled: false,
       inputIcon: false,
+
+      // Props documentation
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -133,6 +149,12 @@ export default {
           "false",
           "Use this boolean to disabled your input.",
         ],
+      ],
+
+      // Slots documentation
+      slotsData: [
+        ["Slot name", "Description"],
+        ["inputIcon", "Use this slot to add an icon as input suffix."],
       ],
     };
   },

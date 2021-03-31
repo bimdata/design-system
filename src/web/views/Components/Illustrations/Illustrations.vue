@@ -58,12 +58,6 @@
             import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustration.js";
           </pre>
         </template>
-
-        <template #code>
-          <!-- <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" {{ getRotateDegree() }}/&gt;
-          </pre> -->
-        </template>
       </ComponentCode>
     </div>
   </main>

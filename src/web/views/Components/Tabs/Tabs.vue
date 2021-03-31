@@ -54,12 +54,12 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Events:</h5>
-        <BIMDataTable :rows="eventsData"></BIMDataTable>
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -129,14 +129,14 @@ export default {
         ["Event", "Data Type", "Data", "Description"],
         [
           "tab-click",
-          "String",
+          "Object",
           "The clicked tab item",
           "This event is fired when a tab is clicked. " +
             "Note that clicking a tab will select it, so a 'tab-click' event always comes with an associated 'tab-selected' event.",
         ],
         [
           "tab-selected",
-          "String",
+          "Object",
           "The selected tab item",
           "This event is fired when a tab is selected",
         ],

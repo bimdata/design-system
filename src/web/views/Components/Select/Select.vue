@@ -69,7 +69,7 @@
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
@@ -227,6 +227,7 @@ export default {
       if (this.getOptionKey) {
         return 'optionKey="label"';
       }
+      return "";
     },
   },
 };

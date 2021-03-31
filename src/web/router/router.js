@@ -150,14 +150,14 @@ const routes = [
         component: Checkbox,
       },
       {
-        path: "dropdownmenu",
-        name: "dropdownmenu",
-        component: DropdownMenu,
-      },
-      {
         path: "dropdownlist",
         name: "dropdownlist",
         component: DropdownList,
+      },
+      {
+        path: "dropdownmenu",
+        name: "dropdownmenu",
+        component: DropdownMenu,
       },
       {
         path: "icons",
@@ -207,7 +207,7 @@ const routes = [
       {
         path: "tabs",
         name: "tabs",
-        component: Tabs
+        component: Tabs,
       },
       {
         path: "textarea",
