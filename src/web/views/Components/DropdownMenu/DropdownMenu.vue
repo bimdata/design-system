@@ -7,14 +7,17 @@
         <template #module>
           <BIMDataDropdownMenu
             :disabled="checkboxDisabledChecked"
+            :border="checkboxBorderChecked"
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
+            :width="widthDropdownMenu"
+            :height="heightDropdownMenu"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
             </template>
             <template #contentAfterHeader v-if="checkboxAfterHeaderChecked">
-              hi
+              <span class="m-l-6">hi</span>
             </template>
             <template #element v-if="checkboxElementSlotChecked">
               <ul class="bimdata-list">
@@ -33,6 +36,25 @@
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="border"
+            v-model="checkboxBorderChecked"
+          >
+          </BIMDataCheckbox>
+          <h5 class="bimdata-h5">size</h5>
+          <div class="m-t-24">
+            <BIMDataInput
+              v-model="widthDropdownMenu"
+              placeholder="dropdown menu's min-width in px or %"
+            ></BIMDataInput>
+          </div>
+          <div class="m-t-24">
+            <BIMDataInput
+              v-model="heightDropdownMenu"
+              placeholder="dropdown menu's min-height in px or %"
+            ></BIMDataInput>
+          </div>
           <div
             v-for="[key, values] in Object.entries(dropdownOptions)"
             :key="key"
@@ -68,7 +90,9 @@
         </template>
         <template #code>
           <pre>
-            &lt;BIMDataDropdownMenu
+            &lt;BIMDataDropdownMenu {{ getWidthDropdownMenu() }} {{
+              getHeightDropdownMenu()
+            }}
               :disabled="{{ checkboxDisabledChecked }}"
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
@@ -97,6 +121,7 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
@@ -107,10 +132,15 @@ export default {
     BIMDataTable,
     BIMDataIcon,
     BIMDataDropdownMenu,
+    BIMDataInput,
   },
   data() {
     return {
+      widthDropdownMenu: "auto",
+      heightDropdownMenu: "36px",
+      borderDropdownMenu: "1px solid #d8d8d8",
       checkboxDisabledChecked: false,
+      checkboxBorderChecked: true,
       checkboxHeaderChecked: true,
       checkboxAfterHeaderChecked: false,
       checkboxElementSlotChecked: false,
@@ -142,7 +172,7 @@ export default {
         [
           "width",
           "String",
-          "220px",
+          "auto",
           "",
           "Use this props to custom width of BIMDataDropdownList component.",
         ],
@@ -153,6 +183,13 @@ export default {
           "",
           "Use this props to custom height of BIMDataDropdownList component.",
         ],
+        [
+          "border",
+          "Boolean",
+          "true",
+          "",
+          "Use this props to add or remove border to Dropdown menu."
+        ]
       ],
       slotData: [
         ["Slot name", "Description"],
@@ -161,7 +198,10 @@ export default {
           "#contentAfterHeader",
           "Use this slot for add content after the header slot",
         ],
-        ["#element", "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice."],
+        [
+          "#element",
+          "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice.",
+        ],
       ],
     };
   },
@@ -190,6 +230,16 @@ export default {
               </ul>
             </template>
             `;
+      }
+    },
+    getWidthDropdownMenu() {
+      if (this.widthDropdownMenu != "auto") {
+        return `width="${this.widthDropdownMenu}"`;
+      }
+    },
+    getHeightDropdownMenu() {
+      if (this.heightDropdownMenu != "36px") {
+        return `height="${this.heightDropdownMenu}"`;
       }
     },
   },
