@@ -3,7 +3,9 @@ import addFolder from "./AddFolder.vue";
 import addUser from "./AddUser.vue";
 import alphabeticalSort from "./AlphabeticalSort.vue";
 import alt from "./Alt.vue";
+import angle from "./Angle.vue";
 import api from "./Api.vue";
+import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
 import bcf from "./Bcf.vue";
@@ -25,11 +27,14 @@ import Default from "./Default.vue";
 import Delete from "./Delete.vue";
 import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
+import distance from "./Distance.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import down from "./Down.vue";
+import download from "./Download.vue";
 import edit from "./Edit.vue";
 import ellipsis from "./Ellipsis.vue";
 import expanded from "./Expanded.vue";
+import explosion from "./Explosion.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import failed from "./Failed.vue";
@@ -67,12 +72,14 @@ import screenConfig from "./ScreenConfig.vue";
 import search from "./Search.vue";
 import section from "./Section.vue";
 import settings from "./Settings.vue";
+import share from "./Share.vue";
 import show from "./Show.vue";
 import showSelected from "./ShowSelected.vue";
 import socotec from "./Socotec.vue";
 import space from "./Space.vue";
 import storey from "./Storey.vue";
 import success from "./Success.vue";
+import surface from "./Surface.vue";
 import swap from "./Swap.vue";
 import system from "./System.vue";
 import tree from "./Tree.vue";
@@ -96,7 +103,9 @@ export default {
   addUser,
   alphabeticalSort,
   alt,
+  angle,
   api,
+  archive,
   arrow,
   attach,
   bcf,
@@ -118,11 +127,14 @@ export default {
   delete: Delete,
   deploy,
   detach,
+  distance,
   doubleChevron,
   down,
+  download,
   edit,
   ellipsis,
   expanded,
+  explosion,
   export: Export,
   exportIfc,
   failed,
@@ -160,12 +172,14 @@ export default {
   search,
   section,
   settings,
+  share,
   show,
   showSelected,
   socotec,
   space,
   storey,
   success,
+  surface,
   swap,
   system,
   tree,
