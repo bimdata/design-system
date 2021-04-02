@@ -9,7 +9,12 @@
       @input="$emit('update:modelValue', $event.currentTarget.value)"
       :disabled="disabled"
       :value="modelValue"
-      @focus="$event.target.select()"
+      @focus="
+        $event.target.select();
+        $emit('focus', $event);
+      "
+      @blur="$emit('blur', $event)"
+      @keypress="$emit('keypress', $event)"
       v-bind="$attrs"
     />
     <div class="bimdata-input__icon">
@@ -64,9 +69,7 @@ export default {
       default: false,
     },
   },
-  emits: [
-    "update:modelValue"
-  ],
+  emits: ["update:modelValue", "blur", "keypress", "focus"],
   beforeCreate() {
     this.uuid = uuid.toString();
     uuid += 1;

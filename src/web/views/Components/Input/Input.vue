@@ -78,6 +78,10 @@
         <h5 class="bimdata-h5">Slots:</h5>
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
+      <div class="m-t-12">
+        <h5 class="bimdata-h5">Events:</h5>
+        <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
@@ -155,6 +159,15 @@ export default {
       slotsData: [
         ["Slot name", "Description"],
         ["inputIcon", "Use this slot to add an icon as input suffix."],
+      ],
+
+      // Events documentation
+      eventData: [
+        ["Event name", "Payload"],
+        ["update:modelValue", "The value of the input."],
+        ["blur", "The native blur event."],
+        ["keypress", "The native keypress event."],
+        ["focus", "The native focus event."],
       ],
     };
   },
