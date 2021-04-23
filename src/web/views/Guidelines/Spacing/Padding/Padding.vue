@@ -40,15 +40,27 @@
       <h3 class="bimdata-h3">Class summary</h3>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Global</h6>
-        <BIMDataTable :rows="globalClassData"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="globalClassData[0]"
+          :rows="globalClassData.slice(1)"
+        />
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Top, Bottom, Vertical</h6>
-        <BIMDataTable :rows="verticalClassData"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="verticalClassData[0]"
+          :rows="verticalClassData.slice(1)"
+        />
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Left, Right, Horizontal</h6>
-        <BIMDataTable :rows="horizontalClassData"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="horizontalClassData[0]"
+          :rows="horizontalClassData.slice(1)"
+        />
       </div>
     </div>
   </div>

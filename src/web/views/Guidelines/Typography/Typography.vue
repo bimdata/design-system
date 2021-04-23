@@ -2,12 +2,16 @@
   <main class="article typography">
     <div class="article-wrapper">
       <h2 class="bimdata-h2">{{ $route.name }}</h2>
-        <FontSize></FontSize>
+      <FontSize></FontSize>
       <div class="typography-size m-y-12">
         <h3 class="bimdata-h3">Font size</h3>
         <p>Use this css classes in html class :</p>
-        <BIMDataTable :rows="sizeClass"></BIMDataTable>
-         <Code language="scss">
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="sizeClass[0]"
+          :rows="sizeClass.slice(1)"
+        />
+        <Code language="scss">
           <pre>
             @import "node_modules/@bimdata/design-system/dist/scss/utilities/text.scss"
           </pre>
@@ -17,7 +21,11 @@
         <h3 class="bimdata-h3">Font weights</h3>
         <div class="m-b-24">
           <p>Use this css classes in html class :</p>
-          <BIMDataTable class="m-t-12" :rows="weightClass"></BIMDataTable>
+          <BIMDataTable
+            :rowHeight="36"
+            :columns="weightClass[0]"
+            :rows="weightClass.slice(1)"
+          />
           <Code language="scss">
             <pre>
               @import "node_modules/@bimdata/design-system/dist/scss/utilities/text.scss"
@@ -26,7 +34,11 @@
         </div>
         <div class="m-t-24">
           <p>Use this scss variables like a 'font-family' property :</p>
-          <BIMDataTable :rows="weightUtilities"></BIMDataTable>
+          <BIMDataTable
+            :rowHeight="36"
+            :columns="weightUtilities[0]"
+            :rows="weightUtilities.slice(1)"
+          />
           <Code language="scss">
             <pre>
               @import "node_modules/@bimdata/design-system/dist/scss/BIMDataVariables.scss"
@@ -38,7 +50,8 @@
       <div class="typography-use m-y-12">
         <h3 class="bimdata-h3">How to further customize font-size</h3>
         <p>
-          If the size options set above are not enought to customize the font size, you can use this mixin to customize font-size in 'em'.
+          If the size options set above are not enought to customize the font
+          size, you can use this mixin to customize font-size in 'em'.
         </p>
         <div class="typography-use__content">
           <Code language="scss">
@@ -63,14 +76,13 @@ import Code from "../../Elements/Code/Code.vue";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
-
 export default {
   components: {
     FontSize,
     Code,
-    BIMDataTable
+    BIMDataTable,
   },
-  data(){
+  data() {
     return {
       sizeClass: [
         ["Class Name", "Size in px", "Output value"],
@@ -94,7 +106,7 @@ export default {
         ["$primary-font-medium", "'robotomedium', sans-serif"],
         ["$primary-font-bold", "'robotobold', sans-serif"],
       ],
-    }
+    };
   },
 };
 </script>

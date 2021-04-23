@@ -11,7 +11,11 @@
       </Code>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Colors variables summary</h6>
-        <BIMDataTable :rows="variablesColorSummary"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesColorSummary[0]"
+          :rows="variablesColorSummary.slice(1)"
+        />
         <p>
           To see all colors and how use it
           <router-link to="/guidelines-utilities/colors" class="color-primary"
@@ -21,11 +25,19 @@
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Font-size variables summary</h6>
-        <BIMDataTable :rows="variablesFontsizeSummary"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesFontsizeSummary[0]"
+          :rows="variablesFontsizeSummary.slice(1)"
+        />
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Spacing variables summary</h6>
-        <BIMDataTable :rows="variablesSpacingSummary"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesSpacingSummary[0]"
+          :rows="variablesSpacingSummary.slice(1)"
+        />
         <p>
           To see all spacing class and how use it
           <router-link to="/guidelines-utilities/spacing" class="color-primary"
@@ -35,7 +47,11 @@
       </div>
       <div class="m-y-12">
         <h6 class="bimdata-h6">Fonts variables summary</h6>
-        <BIMDataTable :rows="variablesFontSummary"></BIMDataTable>
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesFontSummary[0]"
+          :rows="variablesFontSummary.slice(1)"
+        />
         <p>
           To see all fonts uses in BIMData and how use it
           <router-link to="/guidelines-utilities/typography" class="color-primary"
