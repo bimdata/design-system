@@ -31,6 +31,7 @@ import distance from "./Distance.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import down from "./Down.vue";
 import download from "./Download.vue";
+import drag from "./Drag.vue";
 import edit from "./Edit.vue";
 import ellipsis from "./Ellipsis.vue";
 import expanded from "./Expanded.vue";
@@ -77,6 +78,7 @@ import show from "./Show.vue";
 import showSelected from "./ShowSelected.vue";
 import socotec from "./Socotec.vue";
 import space from "./Space.vue";
+import split from "./Split.vue";
 import storey from "./Storey.vue";
 import success from "./Success.vue";
 import surface from "./Surface.vue";
@@ -131,6 +133,7 @@ export default {
   doubleChevron,
   down,
   download,
+  drag,
   edit,
   ellipsis,
   expanded,
@@ -177,6 +180,7 @@ export default {
   showSelected,
   socotec,
   space,
+  split,
   storey,
   success,
   surface,
