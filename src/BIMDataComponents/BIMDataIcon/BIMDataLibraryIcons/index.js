@@ -69,6 +69,7 @@ import reset from "./Reset.vue";
 import right from "./Right.vue";
 import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
+import save from "./Save.vue";
 import screenConfig from "./ScreenConfig.vue";
 import search from "./Search.vue";
 import section from "./Section.vue";
@@ -171,6 +172,7 @@ export default {
   right,
   rules,
   sandglass,
+  save,
   screenConfig,
   search,
   section,
