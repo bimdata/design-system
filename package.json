@@ -11,7 +11,7 @@
   "scripts": {
     "test": "vue-cli-service test:unit",
     "lint": "npx eslint .",
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build-web": "vue-cli-service build",
     "build": "rollup -c",
     "prebuild": "rm -rf dist",
