@@ -1,0 +1,91 @@
+.icon {
+  &-fill {
+    &--black {
+      fill: $color-black;
+    }
+    &--default {
+      fill: currentColor;
+    }
+    &--disabled {
+      fill: $color-disabled;
+    }
+    &--high {
+      fill: $color-high;
+    }
+    &--neutral {
+      fill: $color-neutral;
+    }
+    &--primary {
+      fill: $color-primary;
+    }
+    &--secondary {
+      fill: $color-secondary;
+    }
+    &--success {
+      fill: $color-success;
+    }
+    &--tertiary {
+      fill: $color-tertiary;
+    }
+    &--tertiary-dark {
+      fill: $color-tertiary-dark;
+    }
+    &--tertiary-darkest {
+      fill: $color-tertiary-darkest;
+    }
+    &--tertiary-lightest {
+      fill: $color-tertiary-lightest;
+    }
+    &--warning {
+      fill: $color-warning;
+    }
+    &--white {
+      fill: $color-white;
+    }
+  }
+  &-stroke {
+    fill: transparent;
+    &--black {
+      stroke: $color-black;
+    }
+    &--default {
+      stroke: currentColor;
+    }
+    &--disabled {
+      stroke: $color-disabled;
+    }
+    &--high {
+      stroke: $color-high;
+    }
+    &--neutral {
+      stroke: $color-neutral;
+    }
+    &--primary {
+      stroke: $color-primary;
+    }
+    &--secondary {
+      stroke: $color-secondary;
+    }
+    &--success {
+      stroke: $color-success;
+    }
+    &--tertiary {
+      stroke: $color-tertiary;
+    }
+    &--tertiary-dark {
+      stroke: $color-tertiary-dark;
+    }
+    &--tertiary-darkest {
+      stroke: $color-tertiary-darkest;
+    }
+    &--tertiary-lightest {
+      stroke: $color-tertiary-lightest;
+    }
+    &--warning {
+      stroke: $color-warning;
+    }
+    &--white {
+      stroke: $color-white;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+export default Object.freeze([
+  "black",
+  "default",
+  "disabled",
+  "high",
+  "neutral",
+  "primary",
+  "secondary",
+  "success",
+  "tertiary",
+  "tertiary-dark",
+  "tertiary-darkest",
+  "tertiary-lightest",
+  "warning",
+  "white",
+]);
