@@ -11,7 +11,7 @@
       </template>
 
       <template #parameters>
-        <div class="flex">
+        <div class="grid">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size">
             <h5 class="bimdata-h5">{{ size }}</h5>
             <BIMDataCheckbox
@@ -225,6 +225,154 @@ export default {
           },
           {
             class: "p-l-24",
+            checked: false,
+            text: "left padding",
+          },
+        ],
+        "30px": [
+          {
+            class: "p-30",
+            checked: true,
+            text: "global padding",
+          },
+          {
+            class: "p-y-30",
+            checked: false,
+            text: "vertical padding",
+          },
+          {
+            class: "p-x-30",
+            checked: false,
+            text: "horizontal padding",
+          },
+          {
+            class: "p-t-30",
+            checked: false,
+            text: "top padding",
+          },
+          {
+            class: "p-b-30",
+            checked: false,
+            text: "bottom padding",
+          },
+          {
+            class: "p-r-30",
+            checked: false,
+            text: "right padding",
+          },
+          {
+            class: "p-l-30",
+            checked: false,
+            text: "left padding",
+          },
+        ],
+        "36px": [
+          {
+            class: "p-36",
+            checked: false,
+            text: "global padding",
+          },
+          {
+            class: "p-y-36",
+            checked: false,
+            text: "vertical padding",
+          },
+          {
+            class: "p-x-36",
+            checked: false,
+            text: "horizontal padding",
+          },
+          {
+            class: "p-t-36",
+            checked: false,
+            text: "top padding",
+          },
+          {
+            class: "p-b-36",
+            checked: false,
+            text: "bottom padding",
+          },
+          {
+            class: "p-r-36",
+            checked: false,
+            text: "right padding",
+          },
+          {
+            class: "p-l-36",
+            checked: false,
+            text: "left padding",
+          },
+        ],
+        "42px": [
+          {
+            class: "p-42",
+            checked: false,
+            text: "global padding",
+          },
+          {
+            class: "p-y-42",
+            checked: false,
+            text: "vertical padding",
+          },
+          {
+            class: "p-x-42",
+            checked: false,
+            text: "horizontal padding",
+          },
+          {
+            class: "p-t-42",
+            checked: false,
+            text: "top padding",
+          },
+          {
+            class: "p-b-42",
+            checked: false,
+            text: "bottom padding",
+          },
+          {
+            class: "p-r-42",
+            checked: false,
+            text: "right padding",
+          },
+          {
+            class: "p-l-42",
+            checked: false,
+            text: "left padding",
+          },
+        ],
+        "48px": [
+          {
+            class: "p-48",
+            checked: false,
+            text: "global padding",
+          },
+          {
+            class: "p-y-48",
+            checked: false,
+            text: "vertical padding",
+          },
+          {
+            class: "p-x-48",
+            checked: false,
+            text: "horizontal padding",
+          },
+          {
+            class: "p-t-48",
+            checked: false,
+            text: "top padding",
+          },
+          {
+            class: "p-b-48",
+            checked: false,
+            text: "bottom padding",
+          },
+          {
+            class: "p-r-48",
+            checked: false,
+            text: "right padding",
+          },
+          {
+            class: "p-l-48",
             checked: false,
             text: "left padding",
           },
