@@ -1,10 +1,10 @@
 // mixin MARGIN & PADDING
-$spaceamounts: (6, 12, 18, 24);
+$spaceamounts: (6, 12, 18, 24, 30, 36, 42, 48);
 $sides: (top, bottom, left, right, all, horizontal, vertical);
 
 @each $space in $spaceamounts {
   @each $side, $value in $sides {
-    @if $side == 'all' {
+    @if $side == "all" {
       // global MARGIN & PADDING
       .m-#{$space} {
         margin: #{$space}px;
@@ -12,7 +12,7 @@ $sides: (top, bottom, left, right, all, horizontal, vertical);
       .p-#{$space} {
         padding: #{$space}px;
       }
-    } @else if ($side == 'horizontal') {
+    } @else if ($side == "horizontal") {
       // horizontal MARGIN & PADDING
       .m-x-#{$space} {
         margin-right: #{$space}px;
@@ -22,8 +22,7 @@ $sides: (top, bottom, left, right, all, horizontal, vertical);
         padding-right: #{$space}px;
         padding-left: #{$space}px;
       }
-    }
-    @else if ($side == 'vertical') {
+    } @else if ($side == "vertical") {
       // vertical MARGIN & PADDING
       .m-y-#{$space} {
         margin-top: #{$space}px;

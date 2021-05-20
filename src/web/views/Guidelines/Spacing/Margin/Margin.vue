@@ -11,7 +11,7 @@
       </template>
 
       <template #parameters>
-        <div class="flex">
+        <div class="grid">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size">
             <h5 class="bimdata-h5">{{ size }}</h5>
             <BIMDataCheckbox
@@ -251,6 +251,182 @@ export default {
           },
           {
             class: "m-l-24",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "30px": [
+          {
+            class: "m-30",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-30",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-30",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-30",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-30",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-30",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-30",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "36px": [
+          {
+            class: "m-36",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-36",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-36",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-36",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-36",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-36",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-36",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "42px": [
+          {
+            class: "m-42",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-42",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-42",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-42",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-42",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-42",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-42",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "48px": [
+          {
+            class: "m-48",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-48",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-48",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-48",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-48",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-48",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-48",
             checked: false,
             text: "left margin",
             disabled: false,

@@ -17,24 +17,30 @@ $grid-mobile-gutter: 20px;
 $grid-mobile-breakpoint: 620px;
 
 // pixels to % variables
-$desk-grid-width: 100% - (($grid-desktop-sideMargin * 2 / $grid-desktop-breakpoint) * 100%);
-$tab-grid-width: 100% - (($grid-tablet-sideMargin * 2 / $grid-tablet-breakpoint) * 100%);
-$mob-grid-width: 100% - (($grid-mobile-sideMargin * 2 / $grid-mobile-breakpoint) * 100%);
+$desk-grid-width: 100% -
+  (($grid-desktop-sideMargin * 2 / $grid-desktop-breakpoint) * 100%);
+$tab-grid-width: 100% -
+  (($grid-tablet-sideMargin * 2 / $grid-tablet-breakpoint) * 100%);
+$mob-grid-width: 100% -
+  (($grid-mobile-sideMargin * 2 / $grid-mobile-breakpoint) * 100%);
 
 $desk-gutter: (
   (
-    $grid-desktop-gutter / ($grid-desktop-breakpoint - ($grid-desktop-sideMargin * 2))
-  ) * 100%
+      $grid-desktop-gutter /
+        ($grid-desktop-breakpoint - ($grid-desktop-sideMargin * 2))
+    ) * 100%
 );
 $tab-gutter: (
   (
-    $grid-tablet-gutter / ($grid-tablet-breakpoint - ($grid-tablet-sideMargin * 2))
-  ) * 100%
+      $grid-tablet-gutter /
+        ($grid-tablet-breakpoint - ($grid-tablet-sideMargin * 2))
+    ) * 100%
 );
 $mob-gutter: (
   (
-    $grid-mobile-gutter / ($grid-mobile-breakpoint - ($grid-mobile-sideMargin * 2))
-  ) * 100%
+      $grid-mobile-gutter /
+        ($grid-mobile-breakpoint - ($grid-mobile-sideMargin * 2))
+    ) * 100%
 );
 
 // FUNCTIONS AND MiXINS
@@ -71,7 +77,7 @@ $mob-gutter: (
 }
 
 // CLASSES
-.grid {
+.bd-grid {
   @include grid-base($desk-grid-width);
   @media screen and (max-width: $grid-tablet-breakpoint) {
     width: $tab-grid-width;
