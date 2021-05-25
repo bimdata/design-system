@@ -94,6 +94,8 @@ export default {
     },
     classes() {
       return {
+        "icon-fill": this.fill,
+        "icon-stroke": this.stroke,
         [`icon-fill--${this.color}`]: this.fill && this.color,
         [`icon-stroke--${this.color}`]: this.stroke && this.color,
       };
