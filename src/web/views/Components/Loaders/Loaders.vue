@@ -18,6 +18,13 @@
           </pre>
         </template>
       </ComponentCode>
+      <div class="article-loader__doc">
+        <h6>Basic usage :</h6>
+        <p>
+          Should be used to indicate that data is being loaded. (For example:
+          form validation)
+        </p>
+      </div>
 
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
@@ -35,6 +42,10 @@
           </pre>
         </template>
       </ComponentCode>
+      <div class="article-loader__doc">
+        <h6>Basic usage :</h6>
+        <p>Must be used for page changes and loads.</p>
+      </div>
 
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
@@ -52,6 +63,13 @@
           </pre>
         </template>
       </ComponentCode>
+      <div class="article-loader__doc">
+        <h6>Basic usage :</h6>
+        <p>
+          Should be used to indicate a 'pending' status. (For example: treatment
+          of ifc)
+        </p>
+      </div>
 
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
@@ -77,6 +95,13 @@
           </pre>
         </template>
       </ComponentCode>
+      <div class="article-loader__doc">
+        <h6>Basic usage :</h6>
+        <p>
+          Must be used during a timed automatic closing (For example: closing of
+          a modal after X minutes)
+        </p>
+      </div>
 
       <div class="m-t-12">
         <h5 class="bimdata-h5">BIMDataPieSpinner props:</h5>
