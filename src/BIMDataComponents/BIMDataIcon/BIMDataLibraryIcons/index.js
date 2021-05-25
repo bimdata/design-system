@@ -58,6 +58,7 @@ import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3d.vue";
 import parameters from "./Parameters.vue";
+import path from "./Path.vue";
 import plus from "./Plus.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
@@ -161,6 +162,7 @@ export default {
   minus,
   model3d,
   parameters,
+  path,
   plus,
   project,
   quickSelect,
