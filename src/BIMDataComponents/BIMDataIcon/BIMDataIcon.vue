@@ -1,11 +1,13 @@
 <template>
   <svg
-    :fill="color"
+    :fill="fillColor"
     width="100%"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     :style="style"
+    :color="color"
+    :class="classes"
   >
     <component :is="`bimdata-${name}`" />
   </svg>
@@ -13,6 +15,8 @@
 
 <script>
 import icons from "./BIMDataLibraryIcons/index.js";
+
+import iconsColors from "../../assets/iconsColors.js";
 
 const sizeToPixel = {
   xxxs: 10,
@@ -41,7 +45,20 @@ export default {
     },
     color: {
       type: String,
+      default: "default",
+      validator: color => iconsColors.includes(color),
+    },
+    fillColor: {
+      type: String,
       default: "currentColor",
+    },
+    fill: {
+      type: Boolean,
+      default: false,
+    },
+    stroke: {
+      type: Boolean,
+      default: false,
     },
     size: {
       type: String,
@@ -75,6 +92,12 @@ export default {
         };
       }
     },
+    classes() {
+      return {
+        [`icon-fill--${this.color}`]: this.fill && this.color,
+        [`icon-stroke--${this.color}`]: this.stroke && this.color,
+      };
+    },
   },
   methods: {
     getPixelSize() {
@@ -96,4 +119,5 @@ function formatIconComponentsNames(icons = {}) {
 <style lang="scss">
 // import BIMDATA VARIABLES
 @import "../../assets/scss/_BIMDataVariables.scss";
+@import "./_BIMDataIcon.scss";
 </style>

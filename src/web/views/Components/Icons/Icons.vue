@@ -32,7 +32,7 @@
               <BIMDataIcon
                 :name="icon"
                 :size="selectedIconOptionssize"
-                :class="selectedIconOptionsclass"
+                :class="getOverviewIconClasses()"
                 :rotate="Number(rotationDeg)"
               />
               <p>{{ icon }}</p>
@@ -73,9 +73,9 @@
           <pre>
             &lt;BIMDataIcon name="{{ activeIcon }}" {{
               getIconOptionsSize()
-            }} class="{{ selectedIconOptionsclass }}" {{
-              getRotateDegree()
-            }}/&gt;
+            }} {{ selectedIconOptionstypes }} color="{{
+              selectedIconOptionsvalues
+            }}" {{ getRotateDegree() }}/&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -112,6 +112,8 @@ import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMD
 import highlight from "../../../../BIMDataDirectives/highlight.js";
 import copy from "../../../../BIMDataDirectives/copy.js";
 
+import iconsColors from "../../../../assets/iconsColors.js";
+
 export default {
   components: {
     ComponentCode,
@@ -128,39 +130,14 @@ export default {
       size: "m",
       icons,
       filter: "",
-      selectedIconOptionsclass: "fill-primary",
+      selectedIconOptionstypes: "fill",
+      selectedIconOptionsvalues: "default",
       selectedIconOptionssize: "s",
       checkboxIconRotate: false,
       activeIcon: "addFile",
       iconOptions: {
-        class: [
-          "fill-primary",
-          "fill-secondary",
-          "fill-tertiary",
-          "fill-tertiary-lightest",
-          "fill-tertiary-dark",
-          "fill-tertiary-darkest",
-          "fill-white",
-          "fill-black",
-          "fill-neutral",
-          "fill-success",
-          "fill-disabled",
-          "fill-warning",
-          "fill-high",
-          "stroke-primary",
-          "stroke-secondary",
-          "stroke-tertiary",
-          "stroke-tertiary-lightest",
-          "stroke-tertiary-dark",
-          "stroke-tertiary-darkest",
-          "stroke-white",
-          "stroke-black",
-          "stroke-neutral",
-          "stroke-success",
-          "stroke-disabled",
-          "stroke-warning",
-          "stroke-high",
-        ],
+        types: ["fill", "stroke"],
+        values: iconsColors,
         size: ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"],
       },
       propsData: [
@@ -173,28 +150,12 @@ export default {
           "Examples",
         ],
         [
-          "name",
-          "String",
-          "true",
-          "",
-          "Use this props to add an icon name to BIMDataIcon.",
-          "addFile",
-        ],
-        [
           "color",
           "String",
           "",
-          "currentColor",
+          "default that matches currentColor",
           "This props allows you to customize the color of the icon's fill.",
-          "red, blue, green...",
-        ],
-        [
-          "size",
-          "String",
-          "",
-          "s",
-          "Several custom size are available to handle the custom icons size.",
-          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl.",
+          "List of 'values' above",
         ],
         [
           "customSize",
@@ -205,12 +166,36 @@ export default {
           "25",
         ],
         [
+          "fillColor",
+          "String",
+          "",
+          "currentColor",
+          "Use this props if values colors is not enought for customize fill for icon.",
+          "red, blue, green...",
+        ],
+        [
+          "name",
+          "String",
+          "true",
+          "",
+          "Use this props to add an icon name to BIMDataIcon.",
+          "addFile",
+        ],
+        [
           "rotate",
           "Number",
           "",
           "0",
           "Use this props for rotate your icon.",
           "90, 180",
+        ],
+        [
+          "size",
+          "String",
+          "",
+          "s",
+          "Several custom size are available to handle the custom icons size.",
+          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl.",
         ],
       ],
       iconsSizeData: [
@@ -257,6 +242,9 @@ export default {
       if (this.rotationDeg > 0) {
         return `:rotate="${this.rotationDeg}"`;
       }
+    },
+    getOverviewIconClasses() {
+      return `icon-${this.selectedIconOptionstypes} icon-${this.selectedIconOptionstypes}--${this.selectedIconOptionsvalues}`;
     },
   },
 };
