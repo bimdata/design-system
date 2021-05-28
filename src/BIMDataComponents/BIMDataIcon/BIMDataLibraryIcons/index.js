@@ -44,12 +44,14 @@ import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
+import group from "./Group.vue";
 import hide from "./Hide.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
 import information from "./Information.vue";
 import isolate from "./Isolate.vue";
+import key from "./Key.vue";
 import left from "./Left.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
@@ -72,6 +74,7 @@ import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
 import save from "./Save.vue";
 import screenConfig from "./ScreenConfig.vue";
+import screenshot from "./Screenshot.vue";
 import search from "./Search.vue";
 import section from "./Section.vue";
 import settings from "./Settings.vue";
@@ -148,12 +151,14 @@ export default {
   folder,
   folderOpen,
   fullscreen,
+  group,
   hide,
   ifc,
   ifcFile,
   import: Import,
   information,
   isolate,
+  key,
   left,
   listManage,
   location,
@@ -176,6 +181,7 @@ export default {
   sandglass,
   save,
   screenConfig,
+  screenshot,
   search,
   section,
   settings,
