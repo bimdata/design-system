@@ -42,6 +42,7 @@ import failed from "./Failed.vue";
 import filter from "./Filter.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
+import folderMove from "./FolderMove.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
 import group from "./Group.vue";
@@ -90,6 +91,7 @@ import surface from "./Surface.vue";
 import swap from "./Swap.vue";
 import system from "./System.vue";
 import tree from "./Tree.vue";
+import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
 import union from "./Union.vue";
 import up from "./Up.vue";
@@ -149,6 +151,7 @@ export default {
   filter,
   fitView,
   folder,
+  folderMove,
   folderOpen,
   fullscreen,
   group,
@@ -197,6 +200,7 @@ export default {
   swap,
   system,
   tree,
+  unarchive,
   undo,
   union,
   up,
