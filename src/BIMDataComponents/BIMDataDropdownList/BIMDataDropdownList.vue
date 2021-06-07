@@ -4,6 +4,7 @@
     v-clickaway="away"
     :direction="directionClass"
     :closeOnElementClick="closeOnElementClick"
+    :style="style"
   >
     <div
       class="bimdata-dropdown-list__content"
