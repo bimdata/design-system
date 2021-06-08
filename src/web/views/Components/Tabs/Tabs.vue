@@ -62,20 +62,83 @@
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
+
+    <div class="article-wrapper">
+      <h2 class="bimdata-h2">Custom tabs</h2>
+      <div class="m-b-12">
+        The tabs component also allow you to define a custom tab content by
+        means of
+        <a href="https://v3.vuejs.org/guide/component-slots.html#scoped-slots"
+          >scoped slots</a
+        >.<br />
+        Below is an example of how to do this.
+      </div>
+      <div class="m-b-12">
+        <Code language="xml">
+          <pre>
+            &lt;BIMDataTabs
+              :tabs="[
+                { id: 0, text: 'IFC', icon: 'ifc' },
+                { id: 1, text: 'BCF', icon: 'bcf' },
+                { id: 2, text: 'My Account', icon: 'user' },
+                { id: 3, text: 'Settings', icon: 'settings' },
+              ]"
+              width="100%"
+              height="40px"
+              tabSize="220px"
+              :selected="0"
+            &gt;
+              &lt;template #tab="{ tab }"&gt;
+                &lt;BIMDataIcon :name="tab.icon" size="xs" /&gt;
+                &lt;span style="margin-left: 6px;"&gt;
+                  {{ "{{ tab.text }" + "}" }}
+                &lt;/span&gt;
+              &lt;/template&gt;
+            &lt;/BIMDataTabs&gt;
+          </pre>
+        </Code>
+      </div>
+      <div class="m-b-12">
+        Result:
+      </div>
+      <div class="m-b-12">
+        <BIMDataTabs
+          :tabs="[
+            { id: 0, text: 'IFC', icon: 'ifc' },
+            { id: 1, text: 'BCF', icon: 'bcf' },
+            { id: 2, text: 'My Account', icon: 'user' },
+            { id: 3, text: 'Settings', icon: 'settings' },
+          ]"
+          width="100%"
+          height="40px"
+          tabSize="220px"
+          :selected="0"
+        >
+          <template #tab="{ tab }">
+            <BIMDataIcon :name="tab.icon" size="xs" />
+            <span style="margin-left: 6px;">{{ tab.text }}</span>
+          </template>
+        </BIMDataTabs>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
+import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataTabs from "../../../../BIMDataComponents/BIMDataTabs/BIMDataTabs.vue";
+import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
+    BIMDataIcon,
     BIMDataInput,
     BIMDataTable,
     BIMDataTabs,
+    Code,
     ComponentCode,
   },
   data() {
