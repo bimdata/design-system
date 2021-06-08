@@ -193,6 +193,13 @@ export default new Vuex.Store({
           btn: "View radio",
         },
         {
+          title: "ResponsiveGrid",
+          img: require("./web/assets/img/icon-grid.svg"),
+          path: "responsive-grid",
+          text: "Display a list of item with a responsive grid layout",
+          btn: "View responsive grid",
+        },
+        {
           title: "Search",
           img: require("./web/assets/img/icon-search.svg"),
           path: "search",

@@ -70,6 +70,7 @@ function getSingleComponentConfigurations() {
     "BIMDataPaginatedList",
     "BIMDataPieSpinner",
     "BIMDataRadio",
+    "BIMDataResponsiveGrid",
     "BIMDataSearch",
     "BIMDataSelect",
     "BIMDataSpinner",

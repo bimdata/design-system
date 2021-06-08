@@ -20,6 +20,7 @@ export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";
 export { default as BIMDataPaginatedList } from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
 export { default as BIMDataPieSpinner } from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";
 export { default as BIMDataRadio } from "./BIMDataRadio/BIMDataRadio.vue";
+export { default as BIMDataResponsiveGrid } from "./BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 export { default as BIMDataSearch } from "./BIMDataSearch/BIMDataSearch.vue";
 export { default as BIMDataSelect } from "./BIMDataSelect/BIMDataSelect.vue";
 export { default as BIMDataSpinner } from "./BIMDataSpinner/BIMDataSpinner.vue";
