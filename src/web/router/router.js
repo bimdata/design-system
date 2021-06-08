@@ -32,6 +32,7 @@ import Input from "../views/Components/Input/Input.vue";
 import Loaders from "../views/Components/Loaders/Loaders.vue";
 import Pagination from "../views/Components/Pagination/Pagination.vue";
 import Radio from "../views/Components/Radio/Radio.vue";
+import ResponsiveGrid from "../views/Components/ResponsiveGrid/ResponsiveGrid.vue";
 import Search from "../views/Components/Search/Search.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
@@ -188,6 +189,11 @@ const routes = [
         path: "radio",
         name: "radio",
         component: Radio,
+      },
+      {
+        path: "responsive-grid",
+        name: "responsive-grid",
+        component: ResponsiveGrid,
       },
       {
         path: "search",
