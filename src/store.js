@@ -196,7 +196,7 @@ export default new Vuex.Store({
           title: "ResponsiveGrid",
           img: require("./web/assets/img/icon-grid.svg"),
           path: "responsive-grid",
-          text: "Display a list of item with a responsive grid layout",
+          text: "Display a list of item with a responsive layout",
           btn: "View responsive grid",
         },
         {

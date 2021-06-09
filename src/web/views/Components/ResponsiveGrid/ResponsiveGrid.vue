@@ -5,30 +5,29 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataResponsiveGrid
-            style="width: 100%; height: 100%;"
+            class="demo-grid"
             :itemWidth="itemWidth"
             :rowGap="rowGap"
             :columnGap="columnGap"
           >
             <div
+              class="demo-grid-item"
+              :style="{ width: itemWidth, height: itemWidth }"
               v-for="(n, i) of Array.from({ length: +nbItem })"
               :key="i"
-              class="item-box"
-              :style="{ width: itemWidth }"
-              style="background-color: blue; color: white;"
             >
-              {{ `Box ${i + 1}` }}
+              {{ `Item ${i + 1}` }}
             </div>
           </BIMDataResponsiveGrid>
         </template>
 
         <template #parameters>
-          <div>
-            <h5 class="bimdata-h5">Parameters</h5>
+          <div class="demo-parameters">
             <BIMDataInput
               v-model="nbItem"
               placeholder="Number of items"
               type="number"
+              min="1"
             />
             <BIMDataInput v-model="itemWidth" placeholder="Item width" />
             <BIMDataInput v-model="rowGap" placeholder="Row gap" />
@@ -42,7 +41,21 @@
         </template>
 
         <template #code>
-          <pre></pre>
+          <pre>
+            &lt;BIMDataResponsiveGrid
+              {{ `itemWidth="${itemWidth}"` }}
+              {{ `rowGap="${rowGap}"` }}
+              {{ `columnGap="${columnGap}"` }}
+            &gt;
+              &lt;div
+                {{ `style="width: ${itemWidth}; height: ${itemWidth}"` }}
+                v-for="i of items"
+                :key="i"
+              &gt;
+                {{ "{{ Item ${i + 1} }" + "}" }}
+              &lt;/div&gt;
+            &lt;/BIMDataResponsiveGrid&gt;
+          </pre>
         </template>
       </ComponentCode>
 
@@ -70,18 +83,21 @@ export default {
   },
   data() {
     return {
-      nbItem: 5,
+      nbItem: 10,
       itemWidth: "150px",
       rowGap: "6px",
       columnGap: "18px",
       propsData: [
         ["Props", "Type", "Default value", "Description"],
-        ["itemWidth", "String", "100px", "Use this props to set item width"],
-        ["rowGap", "String", "12px", "Use this props to set row gap"],
-        ["columnGap", "String", "12px", "Use this props to set column gap"],
+        ["itemWidth", "String", "100px", "Define available width for items"],
+        ["rowGap", "String", "12px", "Define the space between two rows"],
+        ["columnGap", "String", "12px", "Define the space between two columns"],
       ],
     };
   },
-  methods: {},
 };
 </script>
+
+<style scoped lang="scss">
+@import "./_ResponsiveGrid.scss";
+</style>

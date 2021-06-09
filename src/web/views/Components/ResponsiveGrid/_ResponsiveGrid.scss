@@ -1,0 +1,23 @@
+@import "../../../../assets/scss/BIMDataVariables";
+
+.demo-grid {
+  width: 100%;
+  height: 100%;
+}
+
+.demo-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-tertiary-lightest;
+  color: $color-primary;
+  font-weight: bold;
+}
+
+.demo-parameters {
+  margin: $spacing-unit/2 0;
+
+  .bimdata-input {
+    margin-top: $spacing-unit * 2;
+  }
+}
