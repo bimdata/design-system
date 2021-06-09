@@ -99,6 +99,7 @@
         />
       </div>
     </div>
+
     <div class="article-wrapper">
       <h2 class="bimdata-h2">Advanced use case</h2>
       <div class="m-b-12">

@@ -28,7 +28,9 @@
         :style="{ minWidth: tabWidth }"
         @click="onTabClick(tab)"
       >
-        {{ tab.label }}
+        <slot name="tab" :tab="tab">
+          {{ tab.label }}
+        </slot>
       </li>
     </ul>
     <BIMDataButton
