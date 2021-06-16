@@ -232,6 +232,13 @@ export default new Vuex.Store({
           btn: "View tabs",
         },
         {
+          title: "Text",
+          img: require("./web/assets/img/icon-textarea.svg"),
+          path: "text",
+          text: "Text",
+          btn: "View text",
+        },
+        {
           title: "Textarea",
           img: require("./web/assets/img/icon-textarea.svg"),
           path: "textarea",

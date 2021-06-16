@@ -37,6 +37,7 @@ import Search from "../views/Components/Search/Search.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
 import Tabs from "../views/Components/Tabs/Tabs.vue";
+import Text from "../views/Components/Text/Text.vue";
 import Textarea from "../views/Components/Textarea/Textarea.vue";
 import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
@@ -214,6 +215,11 @@ const routes = [
         path: "tabs",
         name: "tabs",
         component: Tabs,
+      },
+      {
+        path: "text",
+        name: "text",
+        component: Text,
       },
       {
         path: "textarea",
