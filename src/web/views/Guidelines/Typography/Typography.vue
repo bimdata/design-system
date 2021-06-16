@@ -86,12 +86,11 @@ export default {
     return {
       sizeClass: [
         ["Class Name", "Size in px", "Output value"],
-        ["bimdata-h1", "34px", "font-size: 2.42857em;"],
-        ["bimdata-h2", "30px", "font-size: 2.14286em;"],
-        ["bimdata-h3", "26px", "font-size: 1.85714em;"],
-        ["bimdata-h4", "24px", "font-size: 1.71429em;"],
-        ["bimdata-h5", "20px", "font-size: 1.42857em;"],
-        ["bimdata-h6", "16px", "font-size: 1.14286em;"],
+        ["bimdata-h1", "30px", "font-size: 2.14286em;"],
+        ["bimdata-h2", "26px", "font-size: 1.85714em;"],
+        ["bimdata-h3", "24px", "font-size: 1.71429em;"],
+        ["bimdata-h4", "20px", "font-size: 1.42857em;"],
+        ["bimdata-h5", "16px", "font-size: 1.14286em;"],
         ["bimdata-text", "14px", "font-size: 1em;"],
       ],
       weightClass: [

@@ -10,21 +10,18 @@
 
 /* BIMDATA FONT SIZE */
 .bimdata-h1 {
-  font-size: 34px;
-}
-.bimdata-h2 {
   font-size: 30px;
 }
-.bimdata-h3 {
+.bimdata-h2 {
   font-size: 26px;
 }
-.bimdata-h4 {
+.bimdata-h3 {
   font-size: 24px;
 }
-.bimdata-h5 {
+.bimdata-h4 {
   font-size: 20px;
 }
-.bimdata-h6 {
+.bimdata-h5 {
   font-size: 16px;
 }
 .bimdata-text {

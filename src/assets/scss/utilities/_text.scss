@@ -1,4 +1,5 @@
 @import "../BIMDataVariables";
+@import "../BIMDataFonts";
 @import "../mixins/font-size";
 
 .bimdata-h1,
@@ -13,21 +14,18 @@
 
 /* BIMDATA FONT SIZE */
 .bimdata-h1 {
-  font-size: calculateEm(34px);
-}
-.bimdata-h2 {
   font-size: calculateEm(30px);
 }
-.bimdata-h3 {
+.bimdata-h2 {
   font-size: calculateEm(26px);
 }
-.bimdata-h4 {
+.bimdata-h3 {
   font-size: calculateEm(24px);
 }
-.bimdata-h5 {
+.bimdata-h4 {
   font-size: calculateEm(20px);
 }
-.bimdata-h6 {
+.bimdata-h5 {
   font-size: calculateEm(16px);
 }
 .bimdata-text {
