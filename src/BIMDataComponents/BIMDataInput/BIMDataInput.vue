@@ -15,6 +15,7 @@
       "
       @blur="$emit('blur', $event)"
       @keypress="$emit('keypress', $event)"
+      @change="$emit('change', $event)"
       v-bind="$attrs"
     />
     <div class="bimdata-input__icon">
