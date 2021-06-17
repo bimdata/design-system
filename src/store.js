@@ -233,7 +233,7 @@ export default new Vuex.Store({
         },
         {
           title: "Text",
-          img: require("./web/assets/img/icon-textarea.svg"),
+          img: require("./web/assets/img/icon-text.svg"),
           path: "text",
           text: "Text",
           btn: "View text",
