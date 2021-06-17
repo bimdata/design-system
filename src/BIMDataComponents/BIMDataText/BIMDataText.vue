@@ -35,7 +35,7 @@ export default {
     },
     color: {
       type: String,
-      default: "default",
+      default: "color-tertiary-dark",
       validator: color =>
         [
           "color-primary",
@@ -76,13 +76,13 @@ export default {
       } else {
         if (this.component === "h1") {
           return "30px";
-        } if (this.component === "h2") {
+        } else if (this.component === "h2") {
           return "26px";
-        } if (this.component === "h3") {
+        } else if (this.component === "h3") {
           return "24px";
-        } if (this.component === "h4") {
+        } else if (this.component === "h4") {
           return "20px";
-        } if (this.component === "h5") {
+        } else if (this.component === "h5") {
           return "16px";
         } else {
           return "14px";

@@ -11,25 +11,29 @@
       >
         <template #module>
           <BIMDataText
-            :component="componentText"
+            :component="selectedTextComponent"
             :color="selectedTextOptionscolor"
+            :display="displayText"
             :fontSize="fontSizeText"
+            :fontWeight="selectedTextFontWeight"
             :lineHeight="lineHeightText"
+            :margin="marginText"
+            :padding="paddingText"
           >
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             <BIMDataText
-              :component="'span'"
+              component="span"
               color="color-primary"
               fontWeight="primary-font-bold"
               >reprehenderit</BIMDataText
             >
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum."</BIMDataText
-          >
+            officia deserunt mollit anim id est laborum."
+          </BIMDataText>
         </template>
 
         <template #parameters>
@@ -48,24 +52,68 @@
           </div>
           <div class="article-text__component">
             <h5 class="bimdata-h5">Component</h5>
-            <BIMDataInput
-              @change="componentText = $event.currentTarget.value"
-              :modelValue="componentText"
-              placeholder="Heading elements or text block (don't forget to press enter)"
-            ></BIMDataInput>
+            <BIMDataRadio
+              v-for="componentText in componentsText"
+              :key="componentText"
+              :text="componentText"
+              :id="componentText"
+              :value="componentText"
+              :name="componentText"
+              v-model="selectedTextComponent"
+            >
+            </BIMDataRadio>
+            <p>
+              By default, BIMData has set font-size / line-height for each title
+              / text block above. If you want to configure yours, and override
+              those of BIMData, use the 2 inputs below
+            </p>
           </div>
           <div>
             <h5 class="bimdata-h5">Font size</h5>
             <BIMDataInput
               v-model="fontSizeText"
-              placeholder="Change font-size"
+              placeholder="Change font-size (in px or em)"
             ></BIMDataInput>
           </div>
           <div>
             <h5 class="bimdata-h5">Line-height</h5>
             <BIMDataInput
               v-model="lineHeightText"
-              placeholder="Change line-height"
+              placeholder="Change line-height (in px or em)"
+            ></BIMDataInput>
+          </div>
+          <div>
+            <h5 class="bimdata-h5">font-weight</h5>
+            <BIMDataRadio
+              v-for="value in fontWeightText"
+              :key="value"
+              :text="value"
+              :id="value"
+              :value="value"
+              :name="value"
+              v-model="selectedTextFontWeight"
+            >
+            </BIMDataRadio>
+          </div>
+          <div>
+            <h5 class="bimdata-h5">Display</h5>
+            <BIMDataInput
+              v-model="displayText"
+              placeholder="Change display CSS property"
+            ></BIMDataInput>
+          </div>
+          <div>
+            <h5 class="bimdata-h5">Margin</h5>
+            <BIMDataInput
+              v-model="marginText"
+              placeholder="Change margin"
+            ></BIMDataInput>
+          </div>
+          <div>
+            <h5 class="bimdata-h5">Padding</h5>
+            <BIMDataInput
+              v-model="paddingText"
+              placeholder="Change padding"
             ></BIMDataInput>
           </div>
         </template>
@@ -77,14 +125,25 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataTextarea
-              label="textarea label"
-              name="example"
-              v-model="textarea"
-              :autofocus="{{ getAutofocus() }}"
-              :placeholder="{{ getPlaceholder() }}"
-              :disabled="{{ getDisabled() }}"
-            /&gt;
+            &lt;BIMDataText
+            {{ getComponent() }}
+            {{ getColor() }}
+            {{ getDisplay() }}
+            {{ getFontWeight() }}
+            {{ getFontSize() }}
+            {{ getLineHeight() }}
+            {{ getMargin() }}
+            {{ getPadding() }}
+          &gt;
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+              &lt;BIMDataText component="span" color="color-primary" fontWeight="primary-font-bold"&gt;reprehenderit&lt;/BIMDataText&gt;
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum."
+          &lt;/BIMDataText&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -120,9 +179,15 @@ export default {
       placeholder: false,
       disabled: false,
       selectedTextOptionscolor: "color-tertiary-dark",
-      componentText: "p",
-      fontSizeText: "14px",
-      lineHeightText: "18px",
+      selectedTextFontWeight: "primary-font",
+      selectedTextComponent: "p",
+      displayText: "inline-block",
+      fontSizeText: "",
+      lineHeightText: "",
+      marginText: "",
+      paddingText: "",
+      fontWeightText: ["primary-font", "primary-font-medium", "primary-font-bold"],
+      componentsText: ["h1", "h2", "h3", "h4", "h5", "p"],
       textOptions: {
         color: [
           "color-primary",
@@ -143,69 +208,95 @@ export default {
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
-          "name",
-          "[String, Number]",
-          "null",
-          "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the 'for' of the label.",
-        ],
-        [
-          "autofocus",
-          "Boolean",
-          "false",
-          "Use this boolean to add an autofocus on your textarea.",
-        ],
-        [
-          "placeholder",
+          "component",
           "String",
-          "null",
-          "Use this props to add a placeholder to your textarea.",
+          "p",
+          "",
         ],
         [
-          "label",
+          "display",
           "String",
-          "' '",
-          "Use this props to add a label to your textarea.",
+          "inline-block",
+          "",
         ],
         [
-          "width",
-          "[Number, String]",
-          "150px",
-          "Use this props to change the width of the textarea component.",
+          "fontSize",
+          "String",
+          "14px",
+          "",
         ],
         [
-          "height",
-          "[Number, String]",
-          "32px",
-          "Use this props to change the height of the textarea component.",
+          "fontWeight",
+          "String",
+          "primary-font",
+          "",
         ],
         [
-          "disabled",
-          "Boolean",
-          "false",
-          "Use this boolean to disabled your textarea.",
+          "lineHeight",
+          "String",
+          "18px",
+          "",
+        ],
+        [
+          "margin",
+          "String",
+          "0px",
+          "",
+        ],
+        [
+          "padding",
+          "String",
+          "0px",
+          "",
+        ],
+        [
+          "color",
+          "String",
+          "color-tertiary-dark",
+          "",
         ],
       ],
     };
   },
   methods: {
-    getAutofocus() {
-      if (this.autofocus) {
-        return true;
-      } else {
-        return false;
+    getColor() {
+      if (this.selectedTextOptionscolor != "color-tertiary-darkest") {
+        return `color="${this.selectedTextOptionscolor}"`;
       }
     },
-    getPlaceholder() {
-      if (this.placeholder) {
-        this.placeholder = true;
-        return "placeholder here";
+    getComponent() {
+      if (this.selectedTextComponent != "p") {
+        return `component="${this.selectedTextComponent}"`;
       }
     },
-    getDisabled() {
-      if (this.disabled) {
-        return true;
-      } else {
-        return false;
+    getDisplay() {
+      if (this.displayText != "inline-block") {
+        return `display="${this.displayText}"`;
+      }
+    },
+    getFontSize() {
+      if (this.fontSizeText != "") {
+        return `fontSize="${this.fontSizeText}"`;
+      }
+    },
+    getLineHeight() {
+      if (this.lineHeightText != "") {
+        return `lineHeight="${this.lineHeightText}"`;
+      }
+    },
+    getFontWeight() {
+      if (this.selectedTextFontWeight != "primary-font") {
+        return `fontWeight="${this.selectedTextFontWeight}"`;
+      }
+    },
+    getMargin() {
+      if (this.marginText != "") {
+        return `margin="${this.marginText}"`;
+      }
+    },
+    getPadding() {
+      if (this.paddingText != "") {
+        return `padding="${this.paddingText}"`;
       }
     },
   },
