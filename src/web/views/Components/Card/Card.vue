@@ -1,7 +1,9 @@
 <template>
   <main class="article article-card">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataCard
@@ -28,13 +30,23 @@
 
         <template #parameters>
           <div>
-            <h5 class="bimdata-h5">Header</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Header</BIMDataText
+            >
             <BIMDataCheckbox text="title" v-model="headerTitle">
             </BIMDataCheckbox>
             <BIMDataCheckbox text="icons" v-model="headerIcons">
             </BIMDataCheckbox>
 
-            <h5 class="bimdata-h5">Submenu</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Submenu</BIMDataText
+            >
             <BIMDataCheckbox text="left" v-model="submenuLeft">
             </BIMDataCheckbox>
             <BIMDataCheckbox text="text" v-model="submenuText">
@@ -42,11 +54,21 @@
             <BIMDataCheckbox text="right" v-model="submenuIcons">
             </BIMDataCheckbox>
 
-            <h5 class="bimdata-h5">Content</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Content</BIMDataText
+            >
             <BIMDataCheckbox text="content" v-model="content">
             </BIMDataCheckbox>
 
-            <h5 class="bimdata-h5">Footer</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Footer</BIMDataText
+            >
             <BIMDataCheckbox text="footer" v-model="footer"> </BIMDataCheckbox>
           </div>
         </template>
@@ -82,12 +104,16 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
@@ -101,6 +127,7 @@ import BIMDataBurgerMenu from "../../../../../src/BIMDataComponents/BIMDataBurge
 import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
@@ -109,6 +136,7 @@ export default {
     BIMDataCard,
     BIMDataCheckbox,
     BIMDataTable,
+    BIMDataText,
   },
   data() {
     return {

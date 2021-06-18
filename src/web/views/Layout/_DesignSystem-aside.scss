@@ -8,11 +8,6 @@
   background-color: $color-tertiary-lightest;
   overflow-y: auto;
   overflow-x: hidden;
-  &__title {
-    margin: 0;
-    padding: 30px 24px 0;
-    color: $color-primary;
-  }
   &__text {
     li {
       a {

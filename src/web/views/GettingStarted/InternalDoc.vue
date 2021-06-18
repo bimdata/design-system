@@ -1,17 +1,20 @@
 <template>
   <main class="article internal-doc">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <p class="bimdata-text">
-        All the design system resources are in the directory:
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText margin="5px 0 10px"
+        >All the design system resources are in the directory:
         <code class="code-highlight">src/web/views</code>. The following
         explanations concern the addition of a new component. If you want to add
         another element (utilities, guidelines etc), follow the same
-        instructions but do it in the corresponding folder.
-      </p>
-      <h3 class="bimdata-h3">
-        How to add a new component to the design system
-      </h3>
+        instructions but do it in the corresponding folder.</BIMDataText
+      >
+
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px"
+        >How to add a new component to the design system</BIMDataText
+      >
       <ol>
         <li>
           In the <code class="code-highlight">Components</code> directory create
@@ -22,14 +25,17 @@
               &lt;template&gt;
                 &lt;main class="article [your-custom-class]"&gt;
                   &lt;div class="article-wrapper"&gt;
-                    &lt;h2 class="bimdata-h2"&gt; &#123;&#123;getRouteName()&#125;&#125; &lt;/h2&gt;
+                    &lt;BIMDataText component="h1" color="color-primary"&gt; &#123;&#123;getRouteName()&#125;&#125; &lt;/BIMDataText&gt;
                   &lt;/div&gt;
                 &lt;/main&gt;
               &lt;/template&gt;
 
               &lt;script&gt;
+              import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
               export default {
-
+                components: {
+                  BIMDataText,
+                },
               }
               &lt;/script&gt;
 
@@ -76,10 +82,13 @@
         </li>
       </ol>
 
-      <h3 class="bimdata-h3">
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px">
         How to add a new component to the build of design system
-      </h3>
-      <p>For a correct build, don't forget to add your new component in the following 3 files:</p>
+      </BIMDataText>
+      <p>
+        For a correct build, don't forget to add your new component in the
+        following 3 files:
+      </p>
       <ul>
         <li>./rollup.config.js</li>
         <li>./components.js</li>
@@ -91,6 +100,7 @@
 
 <script>
 import Code from "../Elements/Code/Code.vue";
+import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import highlight from "../../../BIMDataDirectives/highlight.js";
 import copy from "../../../BIMDataDirectives/copy.js";
@@ -99,6 +109,7 @@ export default {
   directives: { highlight, copy },
   components: {
     Code,
+    BIMDataText,
   },
   methods: {
     getRouteName() {

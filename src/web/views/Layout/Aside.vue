@@ -1,9 +1,9 @@
 <template>
   <aside class="aside">
     <div style="flex-grow: 1; overflow-y: auto;">
-      <h4 class="bimdata-h4 aside__title" @click="onTitleClick">
-        {{ $route.name }}
-      </h4>
+      <BIMDataText component="h4" color="color-primary" padding="30px 24px 0" @click="onTitleClick">{{
+        $route.name
+      }}</BIMDataText>
       <ul class="aside__text bimdata-list">
         <li v-for="child in getPageChildren()" :key="child.id">
           <router-link :to="{ name: child.path }">
@@ -17,7 +17,12 @@
 </template>
 
 <script>
+import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+
 export default {
+  components: {
+    BIMDataText,
+  },
   methods: {
     getPageChildren() {
       return Object.values(this.$store.state).find(

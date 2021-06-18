@@ -1,8 +1,9 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataInput
@@ -71,15 +72,21 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Slots:</BIMDataText
+        >
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Events:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Events:</BIMDataText
+        >
         <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
       </div>
     </div>
@@ -88,11 +95,12 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
@@ -101,6 +109,7 @@ export default {
     BIMDataCheckbox,
     BIMDataInput,
     BIMDataIcon,
+    BIMDataText,
   },
   data() {
     return {

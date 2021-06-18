@@ -6,11 +6,13 @@
         <div class="colors-animations__box colors-animations__box2"></div>
         <div class="colors-animations__box colors-animations__box3"></div>
       </div>
-      <h2 class="bimdata-h2 primary-font-bold">{{ $route.name }}</h2>
-      <p class="bimdata-text">
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText margin="10px 0 15px">
         For maintainability, please use these instead of hardcoding color
         values.
-      </p>
+      </BIMDataText>
       <Code language="css">
         <pre>
           /* to use only the variables, import this line */
@@ -20,7 +22,7 @@
           @import "~@bimdata/design-system/dist/scss/utilities/_colors.scss";
         </pre>
       </Code>
-      <h3 class="bimdata-h3">Brand colors</h3>
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px">Brand colors</BIMDataText>
       <div class="color-swatches">
         <div
           class="color-swatche"
@@ -49,11 +51,7 @@
                 v-clipboard:error="onError"
               >
                 <span> {{ brandColor.hex }} </span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -67,11 +65,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.rgb }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -85,11 +79,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.scss }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -103,11 +93,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.css }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -121,11 +107,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.background }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -139,11 +121,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.color }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -157,11 +135,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.fill }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -175,11 +149,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ brandColor.stroke }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -187,7 +157,7 @@
           </div>
         </div>
       </div>
-      <h3 class="bimdata-h3">Variant colors</h3>
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px">Variant colors</BIMDataText>
       <div class="color-swatches">
         <div
           class="color-swatche"
@@ -216,11 +186,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ variantColor.hex }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -234,11 +200,7 @@
                 v-clipboard:error="onError"
               >
                 {{ variantColor.rgb }}
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -252,11 +214,7 @@
                 v-clipboard:error="onError"
               >
                 {{ variantColor.scss }}
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -270,11 +228,7 @@
                 v-clipboard:error="onError"
               >
                 {{ variantColor.css }}
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55"
-                  height="24px"
+                <BIMDataButton fill radius width="55" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -288,11 +242,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ variantColor.background }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -306,11 +256,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ variantColor.color }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -324,11 +270,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ variantColor.fill }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -342,11 +284,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ variantColor.stroke }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -354,7 +292,7 @@
           </div>
         </div>
       </div>
-      <h3 class="bimdata-h3">Common colors</h3>
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px">Common colors</BIMDataText>
       <div class="color-swatches">
         <div
           class="color-swatche"
@@ -383,11 +321,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.hex }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -401,11 +335,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.rgb }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -419,11 +349,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.scss }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -437,11 +363,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.css }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -455,11 +377,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.background }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -473,11 +391,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.color }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -491,11 +405,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.fill }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -509,11 +419,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ commonColor.stroke }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55"
-                  height="24"
+                <BIMDataButton fill radius width="55" height="24"
                   >copy</BIMDataButton
                 >
               </div>
@@ -521,7 +427,7 @@
           </div>
         </div>
       </div>
-      <h3 class="bimdata-h3">State colors</h3>
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px">State colors</BIMDataText>
       <div class="color-swatches">
         <div
           class="color-swatche"
@@ -550,11 +456,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ stateColor.hex }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -568,11 +470,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ stateColor.rgb }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -586,11 +484,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ stateColor.scss }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -604,11 +498,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ stateColor.css }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -622,11 +512,7 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ stateColor.background }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
@@ -640,51 +526,39 @@
                 v-clipboard:error="onError"
               >
                 <span>{{ stateColor.color }}</span>
-                <BIMDataButton
-                  fill
-                  radius
-                  width="55px"
-                  height="24px"
+                <BIMDataButton fill radius width="55px" height="24px"
                   >copy</BIMDataButton
                 >
               </div>
             </div>
             <div class="color-swatche__body__item">
-            <div class="label">FILL UTILITY CLASS</div>
-            <div
-              class="value"
-              v-clipboard:copy="`${stateColor.fill}`"
-              v-clipboard:success="onCopy"
-              v-clipboard:error="onError"
-            >
-              <span>{{ stateColor.fill }}</span>
-              <BIMDataButton
-                fill
-                radius
-                width="55"
-                height="24"
-                >copy</BIMDataButton
+              <div class="label">FILL UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.fill}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
               >
+                <span>{{ stateColor.fill }}</span>
+                <BIMDataButton fill radius width="55" height="24"
+                  >copy</BIMDataButton
+                >
+              </div>
             </div>
-          </div>
-          <div class="color-swatche__body__item">
-            <div class="label">STROKE UTILITY CLASS</div>
-            <div
-              class="value"
-              v-clipboard:copy="`${stateColor.stroke}`"
-              v-clipboard:success="onCopy"
-              v-clipboard:error="onError"
-            >
-              <span>{{ stateColor.stroke }}</span>
-              <BIMDataButton
-                fill
-                radius
-                width="55"
-                height="24"
-                >copy</BIMDataButton
+            <div class="color-swatche__body__item">
+              <div class="label">STROKE UTILITY CLASS</div>
+              <div
+                class="value"
+                v-clipboard:copy="`${stateColor.stroke}`"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
               >
+                <span>{{ stateColor.stroke }}</span>
+                <BIMDataButton fill radius width="55" height="24"
+                  >copy</BIMDataButton
+                >
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -706,11 +580,14 @@
 
 <script>
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+
 import Code from "../../Elements/Code/Code.vue";
 
 export default {
   components: {
     BIMDataButton,
+    BIMDataText,
     Code,
   },
   data() {

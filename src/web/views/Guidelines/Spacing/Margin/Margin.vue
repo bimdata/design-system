@@ -1,6 +1,8 @@
 <template>
   <div class="spacing-system__margin">
-    <h2 class="bimdata-h2">Margin</h2>
+    <BIMDataText component="h1" color="color-primary">{{
+      $route.name
+    }}</BIMDataText>
     <ComponentCode componentTitle="margin">
       <template #module>
         <div class="ds-spacing">
@@ -13,7 +15,12 @@
       <template #parameters>
         <div class="grid">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size">
-            <h5 class="bimdata-h5">{{ size }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ size }}</BIMDataText
+            >
             <BIMDataCheckbox
               :text="value.text"
               v-model="value.checked"
@@ -36,9 +43,13 @@
       </template>
     </ComponentCode>
     <div class="m-y-12">
-      <h3 class="bimdata-h3">Class summary</h3>
+      <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
+        >Class summary</BIMDataText
+      >
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Global</h6>
+        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px"
+          >Global</BIMDataText
+        >
         <BIMDataTable
           :rowHeight="36"
           :columns="globalClassData[0]"
@@ -46,7 +57,9 @@
         />
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Top, Bottom, Vertical</h6>
+        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px"
+          >Top, Bottom, Vertical</BIMDataText
+        >
         <BIMDataTable
           :rowHeight="36"
           :columns="verticalClassData[0]"
@@ -54,7 +67,9 @@
         />
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Left, Right, Horizontal</h6>
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
+          >Left, Right, Horizontal</BIMDataText
+        >
         <BIMDataTable
           :rowHeight="36"
           :columns="horizontalClassData[0]"
@@ -68,14 +83,15 @@
 <script>
 import ComponentCode from "../../../../views/Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
 import BIMDataTable from "../../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
     BIMDataCheckbox,
     BIMDataTable,
+    BIMDataText,
   },
   data() {
     return {

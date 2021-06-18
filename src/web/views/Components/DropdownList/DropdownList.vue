@@ -1,7 +1,9 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">DropdownList</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode componentTitle="DropdownList" language="javascript">
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
@@ -38,7 +40,9 @@
 
         <!-- bloc PARAMETERS - right side -->
         <template #parameters>
-          <h5 class="bimdata-h5">modifiers</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >modifiers</BIMDataText
+          >
           <BIMDataCheckbox
             class="m-y-12"
             text="disabled"
@@ -66,7 +70,12 @@
             v-for="[key, values] in Object.entries(dropdownOptions)"
             :key="key"
           >
-            <h5 class="bimdata-h5">{{ key }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ key }}</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -78,7 +87,9 @@
             >
             </BIMDataRadio>
           </div>
-          <h5 class="bimdata-h5">slots</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >slots</BIMDataText
+          >
           <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
           </BIMDataCheckbox>
           <BIMDataCheckbox
@@ -112,12 +123,16 @@
 
       <!-- bloc DOCUMENTATION -->
       <div class="m-t-24">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-24">
-        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
         <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
       </div>
     </div>
@@ -131,6 +146,7 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import BIMDataDropdownList from "../../../../../src/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
 export default {
@@ -142,6 +158,7 @@ export default {
     BIMDataTable,
     BIMDataIcon,
     BIMDataDropdownList,
+    BIMDataText,
   },
   data() {
     return {

@@ -1,28 +1,44 @@
 <template>
   <div class="bimdata-ds__demo">
-    <h3 class="bimdata-h3">Examples</h3>
-    <div class="bimdata-ds__demo__module" :class="{'without-options': !componentTitle}">
+    <BIMDataText component="h3" color="color-primary" margin="10px 0"
+      >Examples</BIMDataText
+    >
+    <div
+      class="bimdata-ds__demo__module"
+      :class="{ 'without-options': !componentTitle }"
+    >
       <slot name="module"></slot>
     </div>
 
     <div class="bimdata-ds__demo__parameters" v-if="componentTitle">
       <div class="bimdata-ds__demo__parameters__options">
-        <h4 class="bimdata-h4">{{ componentTitle }} options</h4>
+        <BIMDataText component="h4" color="color-primary" margin="10px 0"
+          >{{ componentTitle }} options</BIMDataText
+        >
         <slot name="parameters"></slot>
       </div>
-      <div class="bimdata-ds__demo__parameters--links" v-if="codepenLink || githubLink">
-        <BIMDataTooltip message="edit on codepen" className="bimdata-tooltip--up bimdata-tooltip--grey">
+      <div
+        class="bimdata-ds__demo__parameters--links"
+        v-if="codepenLink || githubLink"
+      >
+        <BIMDataTooltip
+          message="edit on codepen"
+          className="bimdata-tooltip--up bimdata-tooltip--grey"
+        >
           <template #content>
             <a v-if="codepenLink" :href="codepenLink" target="_blank">
-              <img src="../../../assets/img/logo-codepen.svg"/>
+              <img src="../../../assets/img/logo-codepen.svg" />
             </a>
           </template>
         </BIMDataTooltip>
-        <BIMDataTooltip message="view on github" className="bimdata-tooltip--up bimdata-tooltip--grey">
+        <BIMDataTooltip
+          message="view on github"
+          className="bimdata-tooltip--up bimdata-tooltip--grey"
+        >
           <template #content>
             <a v-if="githubLink" :href="githubLink" target="_blank">
-              <img src="../../../assets/img/logo-github.svg"/>
-              </a>
+              <img src="../../../assets/img/logo-github.svg" />
+            </a>
           </template>
         </BIMDataTooltip>
       </div>
@@ -55,11 +71,13 @@ import highlight from "../../../../BIMDataDirectives/highlight.js";
 import copy from "../../../../BIMDataDirectives/copy.js";
 import Alerts from "../Alerts/Alerts.vue";
 import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     Alerts,
-    BIMDataTooltip
+    BIMDataTooltip,
+    BIMDataText,
   },
   data() {
     return {
@@ -88,12 +106,12 @@ export default {
     },
     codepenLink: {
       type: String,
-      default: null
+      default: null,
     },
     githubLink: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   directives: { highlight, copy },
 };

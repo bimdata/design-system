@@ -1,8 +1,9 @@
 <template>
   <main class="article article-select">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataSelect
@@ -68,12 +69,16 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">How to add option group to BIMDataSelect:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >How to add option group to BIMDataSelect:</BIMDataText
+        >
         <p>
           To add optgroup to BIMDataSelect add optionGroup: true property to the
           option object. Remember to provide an optionKey to display your object
@@ -86,9 +91,10 @@
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">
-          How to add 'disabled' class to an element list to BIMDataSelect:
-        </h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >How to add 'disabled' class to an element list to
+          BIMDataSelect:</BIMDataText
+        >
         <p>
           To disabled an option, add disabled: true property to the option
           object. Remember to provide an optionKey to display your object
@@ -109,8 +115,8 @@ import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
 import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
@@ -119,6 +125,7 @@ export default {
     BIMDataTable,
     BIMDataCheckbox,
     BIMDataSelect,
+    BIMDataText,
   },
   data() {
     return {

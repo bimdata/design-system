@@ -1,8 +1,9 @@
 <template>
   <main class="article article-textarea">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
         language="javascript"
@@ -38,7 +39,12 @@
 
         <template #parameters>
           <div v-for="[key, values] in Object.entries(textOptions)" :key="key">
-            <h5 class="bimdata-h5">{{ key }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ key }}</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -51,7 +57,12 @@
             </BIMDataRadio>
           </div>
           <div class="article-text__component">
-            <h5 class="bimdata-h5">Component</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Component</BIMDataText
+            >
             <BIMDataRadio
               v-for="componentText in componentsText"
               :key="componentText"
@@ -69,21 +80,36 @@
             </p>
           </div>
           <div>
-            <h5 class="bimdata-h5">Font size</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Font size</BIMDataText
+            >
             <BIMDataInput
               v-model="fontSizeText"
               placeholder="Change font-size (in px or em)"
             ></BIMDataInput>
           </div>
           <div>
-            <h5 class="bimdata-h5">Line-height</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Line-height</BIMDataText
+            >
             <BIMDataInput
               v-model="lineHeightText"
               placeholder="Change line-height (in px or em)"
             ></BIMDataInput>
           </div>
           <div>
-            <h5 class="bimdata-h5">font-weight</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Font-weight</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in fontWeightText"
               :key="value"
@@ -96,21 +122,36 @@
             </BIMDataRadio>
           </div>
           <div>
-            <h5 class="bimdata-h5">Display</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Display</BIMDataText
+            >
             <BIMDataInput
               v-model="displayText"
               placeholder="Change display CSS property"
             ></BIMDataInput>
           </div>
           <div>
-            <h5 class="bimdata-h5">Margin</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Margin</BIMDataText
+            >
             <BIMDataInput
               v-model="marginText"
               placeholder="Change margin"
             ></BIMDataInput>
           </div>
           <div>
-            <h5 class="bimdata-h5">Padding</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Padding</BIMDataText
+            >
             <BIMDataInput
               v-model="paddingText"
               placeholder="Change padding"
@@ -149,7 +190,9 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>

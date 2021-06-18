@@ -5,11 +5,13 @@
         <span :class="getOverviewTextClasses()">text</span>
       </template>
       <template #parameters>
-        <div
-          v-for="[key, values] in Object.entries(textClasses)"
-          :key="key"
-        >
-          <h5 class="bimdata-h5">{{ key }}</h5>
+        <div v-for="[key, values] in Object.entries(textClasses)" :key="key">
+          <BIMDataText
+            component="h5"
+            color="color-primary"
+            margin="15px 0 10px"
+            >{{ key }}</BIMDataText
+          >
           <BIMDataRadio
             v-for="value in values"
             :text="value"
@@ -43,11 +45,13 @@
 <script>
 import ComponentCode from "../../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataRadio from "../../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataText from "../../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
     BIMDataRadio,
+    BIMDataText,
   },
   data() {
     return {
