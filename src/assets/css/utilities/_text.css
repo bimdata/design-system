@@ -1,32 +1,4 @@
-.bimdata-h1,
-.bimdata-h2,
-.bimdata-h3,
-.bimdata-h4,
-.bimdata-h5,
-.bimdata-h6,
-.bimdata-text {
-  margin: 0.5em 0;
-}
-
 /* BIMDATA FONT SIZE */
-.bimdata-h1 {
-  font-size: 30px;
-}
-.bimdata-h2 {
-  font-size: 26px;
-}
-.bimdata-h3 {
-  font-size: 24px;
-}
-.bimdata-h4 {
-  font-size: 20px;
-}
-.bimdata-h5 {
-  font-size: 16px;
-}
-.bimdata-text {
-  font-size: 14px;
-}
 .bimdata-link {
   color: var(--primary-font);
   border-bottom: 1px solid var(--primary-font);
