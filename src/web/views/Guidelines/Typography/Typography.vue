@@ -4,22 +4,25 @@
       <BIMDataText component="h1" color="color-primary">{{
         $route.name
       }}</BIMDataText>
-      <FontSize></FontSize>
       <div class="typography-size m-y-12">
         <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
           >Font size</BIMDataText
         >
-        <BIMDataText>Use this css classes in html class :</BIMDataText>
+        <div class="m-b-24">
+          <BIMDataText
+            >If you use
+            <router-link class="bimdata-link" to="../components/text"
+              >&lt;BIMDataText&gt;</router-link
+            >
+            component, you have the possibility of having pre-defined titles
+            :</BIMDataText
+          >
+        </div>
         <BIMDataTable
           :rowHeight="36"
           :columns="sizeClass[0]"
           :rows="sizeClass.slice(1)"
         />
-        <Code language="scss">
-          <pre>
-            @import "node_modules/@bimdata/design-system/dist/scss/utilities/text.scss"
-          </pre>
-        </Code>
       </div>
       <div class="typography-weight m-y-12">
         <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
@@ -60,11 +63,13 @@
         <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
           >How to further customize font-size</BIMDataText
         >
-        <BIMDataText
-          >If the size options set above are not enought to customize the font
-          size, you can use this mixin to customize font-size in
-          'em'.</BIMDataText
-        >
+        <div class="m-b-24">
+          <BIMDataText
+            >If the size options set above are not enought to customize the font
+            size, you can use this mixin to customize font-size in
+            'em'.</BIMDataText
+          >
+        </div>
         <div class="typography-use__content">
           <Code language="scss">
             <pre>
@@ -83,7 +88,6 @@
 </template>
 
 <script>
-import FontSize from "./FontSize/FontSize.vue";
 import Code from "../../Elements/Code/Code.vue";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
@@ -91,7 +95,6 @@ import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDat
 
 export default {
   components: {
-    FontSize,
     Code,
     BIMDataTable,
     BIMDataText,
@@ -99,13 +102,13 @@ export default {
   data() {
     return {
       sizeClass: [
-        ["Class Name", "Size in px", "Output value"],
-        ["bimdata-h1", "30px", "font-size: 2.14286em;"],
-        ["bimdata-h2", "26px", "font-size: 1.85714em;"],
-        ["bimdata-h3", "24px", "font-size: 1.71429em;"],
-        ["bimdata-h4", "20px", "font-size: 1.42857em;"],
-        ["bimdata-h5", "16px", "font-size: 1.14286em;"],
-        ["bimdata-text", "14px", "font-size: 1em;"],
+        ["Component", "Size (px / em)", "Line-height (px / em)"],
+        ["h1", "30px / 2.1em", "36px / 2.6em"],
+        ["h2", "26px / 1.9em", "30px / 2.1em"],
+        ["h3", "24px / 1.7em", "26px / 1.9em"],
+        ["h4", "20px / 1.4em", "24px / 1.7em"],
+        ["h5", "16px / 1.1em", "20px / 1.4em"],
+        ["p", "14px / 1em", "18px / 1.3em"],
       ],
       weightClass: [
         ["Class Name", "Output value"],
