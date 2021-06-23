@@ -29,3 +29,13 @@
     </div>
   </main>
 </template>
+
+<script>
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+
+export default {
+  components: {
+    BIMDataText,
+  },
+};
+</script>
