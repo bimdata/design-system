@@ -1,4 +1,12 @@
-/* BIMDATA FONT SIZE */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
 .bimdata-link {
   color: var(--primary-font);
   border-bottom: 1px solid var(--primary-font);

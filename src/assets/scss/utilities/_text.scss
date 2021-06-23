@@ -2,7 +2,15 @@
 @import "../BIMDataFonts";
 @import "../mixins/font-size";
 
-/* BIMDATA FONT SIZE */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
 .bimdata-link {
   color: $color-primary;
   border-bottom: 1px solid $color-primary;
