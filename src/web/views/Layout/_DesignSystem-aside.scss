@@ -8,6 +8,11 @@
   background-color: $color-tertiary-lightest;
   overflow-y: auto;
   overflow-x: hidden;
+  h4 {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
   &__text {
     li {
       a {

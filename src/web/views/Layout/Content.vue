@@ -31,21 +31,21 @@
         <BIMDataCard
           v-for="child in $store.state[$route.name].children"
           :key="child.id"
-          :class="{ 'bimdata-card__primary': child.title === 'Variables' }"
+          :class="{ 'bimdata-card__primary': child.title === 'Variables' || child.title === 'Utilities' }"
         >
           {{ child.title }}
           <template #content>
             <router-link :to="child.path" append>
-              <img v-if="child.title !== 'Variables'" :src="child.img" />
+              <img v-if="child.title !== 'Variables' || child.title !== 'Utilities'" :src="child.img" />
               <BIMDataText component="h5" color="color-primary" margin="10px">{{
                 child.title
               }}</BIMDataText>
-              <BIMDataText color="color-text">{{ child.text }}</BIMDataText>
+              <BIMDataText color="color-tertiary-darkest">{{ child.text }}</BIMDataText>
               <BIMDataButton
                 width="150"
                 radius
                 fill
-                :color="child.title === 'Variables' ? 'secondary' : 'primary'"
+                :color="child.title === 'Variables' || child.title === 'Utilities' ? 'secondary' : 'primary'"
               >
                 {{ child.btn }}
               </BIMDataButton>
