@@ -4,10 +4,10 @@
       <BIMDataText component="h1" color="color-primary">{{
         $route.name
       }}</BIMDataText>
-      <p class="bimdata-text">
-        List utility classes will help you to reset list found within BIMData
-        projects.
-      </p>
+      <BIMDataText margin="5px 0"
+        >List utility classes will help you to reset list found within BIMData
+        projects.</BIMDataText
+      >
       <Code language="html">
         &lt;ul class="bimdata-list"&gt;&lt;/ul&gt;
       </Code>

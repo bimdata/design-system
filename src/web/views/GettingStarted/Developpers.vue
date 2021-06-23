@@ -32,9 +32,9 @@
         </pre>
       </Code>
 
-      <p class="bimdata-text">
-        Or you can import them more easily like this:
-      </p>
+      <BIMDataText margin="5px 0"
+        >Or you can import them more easily like this:</BIMDataText
+      >
       <Code language="javascript">
         <pre>
           import {
@@ -73,7 +73,8 @@
       >
       <BIMDataText margin="5px 0"
         >into your <code class="code-highlight">.vue</code> file, define your
-        component into <code class="code-highlight">components</code> option</BIMDataText
+        component into
+        <code class="code-highlight">components</code> option</BIMDataText
       >
       <Code language="javascript">
         <pre>

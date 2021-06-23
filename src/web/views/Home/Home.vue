@@ -15,7 +15,7 @@
             <BIMDataText component="h1" color="color-primary">{{
               title
             }}</BIMDataText>
-            <p class="bimdata-text">{{ page.text }}</p>
+            <BIMDataText margin="5px 0">{{ page.text }}</BIMDataText>
             <BIMDataButton width="150" radius fill color="primary">
               Explore
             </BIMDataButton>
@@ -30,12 +30,14 @@
 import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearch from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
+import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     BIMDataCard,
     BIMDataButton,
     BIMDataSearch,
+    BIMDataText,
   },
   props: {
     text: {
