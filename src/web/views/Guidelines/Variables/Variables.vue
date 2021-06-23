@@ -22,7 +22,7 @@
         />
         <BIMDataText margin="10px 0 15px">
           To see all colors and how use it
-          <router-link to="/guidelines-utilities/colors" class="color-primary"
+          <router-link to="/guidelines-utilities/colors" class="bimdata-link"
             >click here</router-link
           >.</BIMDataText
         >
@@ -48,7 +48,7 @@
         />
         <BIMDataText margin="10px 0 15px">
           To see all spacing class and how use it
-          <router-link to="/guidelines-utilities/spacing" class="color-primary"
+          <router-link to="/guidelines-utilities/spacing" class="bimdata-link"
             >click here</router-link
           >.</BIMDataText
         >
@@ -66,7 +66,7 @@
           To see all fonts uses in BIMData and how use it
           <router-link
             to="/guidelines-utilities/typography"
-            class="color-primary"
+            class="bimdata-link"
             >click here</router-link
           >.</BIMDataText
         >
@@ -140,6 +140,4 @@ export default {
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
 @import "../../../../assets/scss/utilities/_colors.scss";
-
-@import "./_Variables.scss";
 </style>
