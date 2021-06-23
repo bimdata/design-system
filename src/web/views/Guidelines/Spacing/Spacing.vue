@@ -4,17 +4,13 @@
       <BIMDataText component="h1" color="color-primary">{{
         $route.name
       }}</BIMDataText>
-      <nav>
-        <AnchorLink v-for="elem of elements" :key="elem" :target="elem">
-          {{ elem }}
-        </AnchorLink>
-      </nav>
+      <AnchorLink :navElements="elements" />
       <div class="spacing-system" id="spacing-system">
         <div>
           <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
             >The spacing system</BIMDataText
           >
-          <BIMDataText
+          <BIMDataText display="block"
             >All spacing is defined by a base value of 12 pixels. This value of
             12 px is the basic unit of measurement for spacing.</BIMDataText
           >
