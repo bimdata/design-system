@@ -18,6 +18,7 @@ import List from "../views/Guidelines/List/List.vue";
 import Markup from "../views/Guidelines/Markup/Markup.vue";
 import Spacing from "../views/Guidelines/Spacing/Spacing.vue";
 import Typography from "../views/Guidelines/Typography/Typography.vue";
+import Utilities from "../views/Guidelines/Utilities/Utilities.vue";
 import Variables from "../views/Guidelines/Variables/Variables.vue";
 
 // import COMPONENTS
@@ -119,6 +120,11 @@ const routes = [
         path: "typography",
         name: "typography",
         component: Typography,
+      },
+      {
+        path: "utilities",
+        name: "utilities",
+        component: Utilities,
       },
       {
         path: "variables",

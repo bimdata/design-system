@@ -49,8 +49,13 @@ export default new Vuex.Store({
       path: "guidelines-utilities",
       children: [
         {
+          title: "Utilities",
+          path: "utilities",
+          text: "Summary of all defined and usable classes and how use them.",
+          btn: "View utilities",
+        },
+        {
           title: "Variables",
-          img: require("./web/assets/img/icon-markup.svg"),
           path: "variables",
           text: "See all defines and usable BIMData variables and how use it.",
           btn: "View variables",
