@@ -9,7 +9,7 @@
       }}</BIMDataText>
       <div class="content-box">
         <BIMDataCard
-          class="bimdata-card__primary"
+          class="bimdata-card__secondary"
           v-if="$route.name === 'Components'"
         >
           <template #content>
@@ -21,7 +21,7 @@
                 >Learn how to quickly get started with our component library to
                 build expressive, consistent UI at BIMData.</BIMDataText
               >
-              <BIMDataButton width="150" color="secondary" radius fill>
+              <BIMDataButton width="150" color="primary" radius fill>
                 Get started now
               </BIMDataButton>
             </router-link>
@@ -31,7 +31,7 @@
         <BIMDataCard
           v-for="child in $store.state[$route.name].children"
           :key="child.id"
-          :class="{ 'bimdata-card__primary': child.title === 'Variables' || child.title === 'Utilities' }"
+          :class="{ 'bimdata-card__secondary': child.title === 'Variables' || child.title === 'Utilities' }"
         >
           {{ child.title }}
           <template #content>
@@ -45,7 +45,7 @@
                 width="150"
                 radius
                 fill
-                :color="child.title === 'Variables' || child.title === 'Utilities' ? 'secondary' : 'primary'"
+                color="primary"
               >
                 {{ child.btn }}
               </BIMDataButton>
