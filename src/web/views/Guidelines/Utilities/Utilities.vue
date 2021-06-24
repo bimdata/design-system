@@ -62,6 +62,36 @@
           :rows="textUtilities.slice(1)"
         />
       </div>
+      <div id="import">
+        <BIMDataText component="h3" color="color-primary" margin="40px 0 15px"
+          >Import</BIMDataText
+        >
+        <BIMDataText
+          component="h5"
+          display="block"
+          color="color-primary"
+          margin="20px 0 0"
+          >CSS</BIMDataText
+        >
+        <Code language="css">
+          <pre>
+          /* To be able to use these utility classes, import them into your css stylesheet:
+          N.B. This import is a global import of all the style of BIMData. If you have already imported it elsewhere, you already have access to these classes. */
+          @import "~@bimdata/design-system/dist/css/design-system.css";
+        </pre
+          >
+        </Code>
+        <BIMDataText component="h5" color="color-primary" margin="20px 0 0"
+          >SCSS</BIMDataText
+        >
+        <Code language="scss">
+          <pre>
+          /* To be able to use these utility classes, import them into your scss stylesheet: */
+          @import "~@bimdata/design-system/dist/scss/BIMDataUtilities.scss";
+        </pre
+          >
+        </Code>
+      </div>
     </div>
   </main>
 </template>
@@ -70,16 +100,18 @@
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import AnchorLink from "../../Elements/AnchorLink/AnchorLink.vue";
+import Code from "../../Elements/Code/Code.vue";
 
 export default {
   components: {
     BIMDataTable,
     BIMDataText,
     AnchorLink,
+    Code,
   },
   data() {
     return {
-      navElements: ["colors", "flexbox", "grid", "spacing", "text"],
+      navElements: ["colors", "flexbox", "grid", "spacing", "text", "import"],
       colorsUtilities: [
         ["Class name", "Output value"],
         ["bg-primary", "background-color: #2f374a;"],
