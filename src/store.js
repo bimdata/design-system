@@ -51,12 +51,14 @@ export default new Vuex.Store({
         {
           title: "Utilities",
           path: "utilities",
+          img: require("./web/assets/img/icon-utilities2.svg"),
           text: "Summary of all defined and usable classes and how use them.",
           btn: "View utilities",
         },
         {
           title: "Variables",
           path: "variables",
+          img: require("./web/assets/img/icon-variables.svg"),
           text: "See all defines and usable BIMData variables and how use it.",
           btn: "View variables",
         },
