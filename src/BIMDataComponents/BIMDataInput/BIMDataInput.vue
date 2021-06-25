@@ -2,6 +2,7 @@
   <div
     class="bimdata-input"
     :class="{ error, success, disabled, loading, 'not-empty': !!modelValue }"
+    :style="style"
   >
     <input
       ref="input"
@@ -69,6 +70,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    margin: {
+      type: String,
+      default: "12px 0px",
+    },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus"],
   beforeCreate() {
@@ -83,6 +88,13 @@ export default {
           throw "Input state cannot be both success and error.";
       }
     );
+  },
+  computed: {
+    style() {
+      return {
+        margin: `${this.margin}`,
+      };
+    },
   },
   methods: {
     focus() {
