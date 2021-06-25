@@ -1,8 +1,9 @@
 <template>
   <main class="article article-search">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
         :class="changeBackgroundColor"
@@ -21,7 +22,12 @@
             v-for="[key, values] in Object.entries(searchOptions)"
             :key="key"
           >
-            <h5 class="bimdata-h5">{{ key }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ key }}</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -51,7 +57,9 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>
@@ -63,8 +71,8 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-
 import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
@@ -72,6 +80,7 @@ export default {
     BIMDataTable,
     BIMDataRadio,
     BIMDataSearch,
+    BIMDataText,
   },
   data() {
     return {

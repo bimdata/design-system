@@ -1,7 +1,9 @@
 <template>
   <main class="article article-table">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }} (Simple use case)</h2>
+      <BIMDataText component="h1" color="color-primary"
+        >{{ $route.name }} (Simple use case)</BIMDataText
+      >
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataTable
@@ -30,7 +32,12 @@
 
         <template #parameters>
           <div class="simple-example-controls">
-            <h6 class="bimdata-h6">Style</h6>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Style</BIMDataText
+            >
             <BIMDataInput
               type="number"
               placeholder="Rows height in px"
@@ -38,15 +45,26 @@
             />
           </div>
           <div class="example-controls">
-            <h6 class="bimdata-h6">Selection</h6>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Sélection</BIMDataText
+            >
             <BIMDataCheckbox
               text="selectable"
               v-model="simpleExample.selectable"
             />
           </div>
           <div class="example-controls">
-            <h6 class="bimdata-h6">Pagination</h6>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Pagination</BIMDataText
+            >
             <BIMDataCheckbox
+              class="m-b-24"
               text="paginated"
               v-model="simpleExample.paginated"
             />
@@ -83,7 +101,9 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable
           :rowHeight="36"
           :columns="propsData[0]"
@@ -91,7 +111,9 @@
         />
       </div>
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Events:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
         <BIMDataTable
           :rowHeight="36"
           :columns="eventsData[0]"
@@ -101,7 +123,9 @@
     </div>
 
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">Advanced use case</h2>
+      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px"
+        >Advanced use case</BIMDataText
+      >
       <div class="m-b-12">
         In the example above we show a table using simple data, columns and rows
         are simply arrays of strings. However, it often happens that rows are
@@ -212,9 +236,13 @@
         </ul>
       </div>
 
-      <h2 class="bimdata-h2">Reference</h2>
+      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px"
+        >Reference</BIMDataText
+      >
       <div class="m-b-12">
-        <h5 class="bimdata-h5">Columns:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Columns:</BIMDataText
+        >
         <BIMDataTable
           :rowHeight="36"
           :columns="columnsData[0]"
@@ -231,6 +259,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import AgeCustomCell from "./AgeCustomCell.vue";
 import CountryCustomCell from "./CountryCustomCell.vue";
 
@@ -241,6 +270,7 @@ export default {
     BIMDataCheckbox,
     BIMDataInput,
     BIMDataTable,
+    BIMDataText,
     AgeCustomCell,
     CountryCustomCell,
   },

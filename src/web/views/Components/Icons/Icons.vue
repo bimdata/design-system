@@ -1,9 +1,13 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <h3 class="bimdata-h3">Size usage for designers</h3>
-      <p class="bimdata-text">Use a 23px box for icons of 23px.</p>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText component="h3" color="color-primary" margin="10px 0"
+        >Size usage for designers</BIMDataText
+      >
+      <BIMDataText>Use a 23px box for icons of 23px.</BIMDataText>
       <div>
         <img src="../../../assets/img/design-system__icon-plus.jpg" alt="" />
         <img src="../../../assets/img/design-system__icon-warning.jpg" alt="" />
@@ -41,7 +45,9 @@
         </template>
 
         <template #parameters>
-          <h5 class="bimdata-h5">rotate</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >rotate</BIMDataText
+          >
           <BIMDataInput
             v-model="rotationDeg"
             placeholder="Degree of rotation"
@@ -49,7 +55,12 @@
             min="0"
           ></BIMDataInput>
           <div v-for="[key, values] in Object.entries(iconOptions)" :key="key">
-            <h5 class="bimdata-h5">{{ key }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ key }}</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -81,12 +92,16 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Summary icons size:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Summary icons size:</BIMDataText
+        >
         <BIMDataTable
           :columns="iconsSizeData[0]"
           :rows="iconsSizeData.slice(1)"
@@ -102,12 +117,12 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import icons from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons/index.js";
 
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 import highlight from "../../../../BIMDataDirectives/highlight.js";
 import copy from "../../../../BIMDataDirectives/copy.js";
@@ -122,6 +137,7 @@ export default {
     BIMDataInput,
     BIMDataIcon,
     BIMDataTable,
+    BIMDataText,
   },
   directives: { highlight, copy },
   data() {

@@ -1,7 +1,9 @@
 <template>
   <main class="article article-tooltip">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataTooltip
@@ -19,7 +21,12 @@
             v-for="[key, values] in Object.entries(tooltipOptions)"
             :key="key"
           >
-            <h5 class="bimdata-h5">{{ key }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ key }}</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -32,7 +39,12 @@
             </BIMDataRadio>
           </div>
           <div>
-            <h5 class="bimdata-h5">modifiers</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >modifiers</BIMDataText
+            >
             <BIMDataCheckbox text="arrow" v-model="checkboxArrowChecked">
             </BIMDataCheckbox>
           </div>
@@ -55,12 +67,16 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
@@ -69,18 +85,20 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTooltip,
-    BIMDataRadio,
     BIMDataCheckbox,
+    BIMDataRadio,
     BIMDataTable,
+    BIMDataText,
+    BIMDataTooltip,
   },
   data() {
     return {

@@ -1,8 +1,9 @@
 <template>
   <main class="article article-illustrations">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode language="javascript">
         <template #module>
           <div class="illustrations">
@@ -69,10 +70,13 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
 import illustrations from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataLibraryIllustrations/index.js";
 
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+
 export default {
   components: {
     ComponentCode,
     BIMDataIllustration,
+    BIMDataText,
   },
   data() {
     return {

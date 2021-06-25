@@ -40,11 +40,11 @@
           }
         }
       }
-      &.bimdata-card__primary {
-        background-color: $color-primary;
+      &.bimdata-card__secondary {
+        background-color: $color-secondary;
         h5,
         p {
-          color: $color-white;
+          color: $color-primary;
         }
       }
       &:hover {

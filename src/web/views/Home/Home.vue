@@ -12,8 +12,10 @@
         <template #content>
           <router-link :to="{ path: `/${page.path}` }">
             <img :src="page.img" />
-            <h2 class="bimdata-h2">{{ title }}</h2>
-            <p class="bimdata-text">{{ page.text }}</p>
+            <BIMDataText component="h1" color="color-primary">{{
+              title
+            }}</BIMDataText>
+            <BIMDataText margin="5px 0">{{ page.text }}</BIMDataText>
             <BIMDataButton width="150" radius fill color="primary">
               Explore
             </BIMDataButton>
@@ -28,12 +30,14 @@
 import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearch from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
+import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     BIMDataCard,
     BIMDataButton,
     BIMDataSearch,
+    BIMDataText,
   },
   props: {
     text: {

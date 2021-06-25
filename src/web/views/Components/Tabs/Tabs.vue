@@ -1,8 +1,9 @@
 <template>
   <main class="article article-tabs">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataTabs
@@ -16,7 +17,9 @@
           <div class="active-tab">Active Tab: {{ activeTab || "none" }}</div>
         </template>
         <template #parameters>
-          <h5 class="bimdata-h5">Properties</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >Properties</BIMDataText
+          >
           <BIMDataInput
             type="number"
             v-model="tabNumber"
@@ -53,18 +56,24 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Events:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
 
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">Custom tabs</h2>
+      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px"
+        >Custom tabs</BIMDataText
+      >
       <div class="m-b-12">
         The tabs component also allow you to define a custom tab content by
         means of
@@ -129,6 +138,7 @@ import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.v
 import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataTabs from "../../../../BIMDataComponents/BIMDataTabs/BIMDataTabs.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -138,6 +148,7 @@ export default {
     BIMDataInput,
     BIMDataTable,
     BIMDataTabs,
+    BIMDataText,
     Code,
     ComponentCode,
   },

@@ -1,7 +1,9 @@
 <template>
   <main class="article article-loader">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode language="javascript">
         <template #module>
           <BIMDataLoading></BIMDataLoading>
@@ -104,7 +106,9 @@
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">BIMDataPieSpinner props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >BIMDataPieSpinner props:</BIMDataText
+        >
         <BIMDataTable
           :columns="propsBIMDataPieSpinner[0]"
           :rows="propsBIMDataPieSpinner.slice(1)"
@@ -121,6 +125,7 @@ import BIMDataSpinner from "../../../../../src/BIMDataComponents/BIMDataSpinner/
 import BIMDataPieSpinner from "../../../../../src/BIMDataComponents/BIMDataPieSpinner/BIMDataPieSpinner.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -132,6 +137,7 @@ export default {
     BIMDataPieSpinner,
     BIMDataIcon,
     BIMDataTable,
+    BIMDataText,
     ComponentCode,
   },
   data() {

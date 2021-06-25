@@ -18,6 +18,7 @@ import List from "../views/Guidelines/List/List.vue";
 import Markup from "../views/Guidelines/Markup/Markup.vue";
 import Spacing from "../views/Guidelines/Spacing/Spacing.vue";
 import Typography from "../views/Guidelines/Typography/Typography.vue";
+import Utilities from "../views/Guidelines/Utilities/Utilities.vue";
 import Variables from "../views/Guidelines/Variables/Variables.vue";
 
 // import COMPONENTS
@@ -37,6 +38,7 @@ import Search from "../views/Components/Search/Search.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
 import Tabs from "../views/Components/Tabs/Tabs.vue";
+import Text from "../views/Components/Text/Text.vue";
 import Textarea from "../views/Components/Textarea/Textarea.vue";
 import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
@@ -118,6 +120,11 @@ const routes = [
         path: "typography",
         name: "typography",
         component: Typography,
+      },
+      {
+        path: "utilities",
+        name: "utilities",
+        component: Utilities,
       },
       {
         path: "variables",
@@ -214,6 +221,11 @@ const routes = [
         path: "tabs",
         name: "tabs",
         component: Tabs,
+      },
+      {
+        path: "text",
+        name: "text",
+        component: Text,
       },
       {
         path: "textarea",

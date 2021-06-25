@@ -1,44 +1,44 @@
 <template>
   <main class="article designers">
     <div class="article-wrapper">
-      <h1 class="bimdata-h1">Designers</h1>
-      <p class="bimdata-text"></p>
-      <h4 class="bimdata-h4">Tooling</h4>
-      <p class="bimdata-text">
-        We use Figma for all our entire design workflow.
-      </p>
-      <h4 class="bimdata-h4">Fonts</h4>
-      <p class="bimdata-text">
-        We use Roboto fonts, you can download and install them
+      <BIMDataText component="h1" color="color-primary">Designers</BIMDataText>
+      <BIMDataText component="h4" color="color-primary" margin="20px 0 10px"
+        >Tooling</BIMDataText
+      >
+      <BIMDataText margin="5px 0"
+        >We use Figma for all our entire design workflow.</BIMDataText
+      >
+      <BIMDataText component="h4" color="color-primary" margin="20px 0 10px"
+        >Fonts</BIMDataText
+      >
+      <BIMDataText margin="5px 0"
+        >We use Roboto fonts, you can download and install them
         <a
           href="https://fonts.google.com/specimen/Roboto?query=Roboto"
           target="_blank"
-          class="bimdata-link"
           >here</a
-        >
-      </p>
-      <h4 class="bimdata-h4">Other important resources</h4>
-      <router-link to="../guidelines-utilities/colors">
-        <BIMDataCard>
-          <template #content>
-            <div class="flex justify-between items-center">
-              <div>
-                <h4>GUIDELINES & UTILITIES</h4>
-                <p>Colors</p>
-              </div>
-            </div>
-          </template>
-        </BIMDataCard>
-      </router-link>
+        ></BIMDataText
+      >
+
+      <BIMDataText component="h4" color="color-primary" margin="20px 0 10px"
+        >Other important resources</BIMDataText
+      >
+      <BIMDataText margin="5px 0"
+        >You can also check our
+        <router-link to="../guidelines-utilities/colors"
+          >brand colors</router-link
+        ></BIMDataText
+      >
     </div>
   </main>
 </template>
 
 <script>
-import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+
 export default {
   components: {
-    BIMDataCard,
+    BIMDataText,
   },
 };
 </script>

@@ -1,26 +1,27 @@
 <template>
   <main class="article">
     <div class="article-wrapper">
-      <h1 class="bimdata-h1">{{ $route.name }}</h1>
-      <p class="bimdata-text">{{ $store.state[$route.name].text }}</p>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText margin="10px 0 15px">{{
+        $store.state[$route.name].text
+      }}</BIMDataText>
       <div class="content-box">
         <BIMDataCard
-          class="bimdata-card__primary"
+          class="bimdata-card__secondary"
           v-if="$route.name === 'Components'"
         >
           <template #content>
             <router-link to="../getting-started">
-              <h5 class="bimdata-h5">Getting started</h5>
-              <p class="bimdata-text">
-                Learn how to quickly get started with our component library to
-                build expressive, consistent UI at BIMData.
-              </p>
-              <BIMDataButton
-                width="150"
-                color="secondary"
-                radius
-                fill
+              <BIMDataText component="h5" color="color-white" margin="10px"
+                >Getting started</BIMDataText
               >
+              <BIMDataText color="color-white"
+                >Learn how to quickly get started with our component library to
+                build expressive, consistent UI at BIMData.</BIMDataText
+              >
+              <BIMDataButton width="150" color="primary" radius fill>
                 Get started now
               </BIMDataButton>
             </router-link>
@@ -30,23 +31,21 @@
         <BIMDataCard
           v-for="child in $store.state[$route.name].children"
           :key="child.id"
-          :class="{ 'bimdata-card__primary': child.title === 'Variables' }"
+          :class="{ 'bimdata-card__secondary': child.title === 'Variables' || child.title === 'Utilities' }"
         >
           {{ child.title }}
           <template #content>
             <router-link :to="child.path" append>
-              <img v-if="child.title !== 'Variables'" :src="child.img" />
-              <h5 class="bimdata-h5">{{ child.title }}</h5>
-              <p class="bimdata-text">{{ child.text }}</p>
+              <img v-if="child.title !== 'Variables' || child.title !== 'Utilities'" :src="child.img" />
+              <BIMDataText component="h5" color="color-primary" margin="10px">{{
+                child.title
+              }}</BIMDataText>
+              <BIMDataText color="color-tertiary-darkest">{{ child.text }}</BIMDataText>
               <BIMDataButton
                 width="150"
                 radius
                 fill
-                :color="
-                  child.title === 'Variables'
-                    ? 'secondary'
-                    : 'primary'
-                "
+                color="primary"
               >
                 {{ child.btn }}
               </BIMDataButton>
@@ -61,11 +60,13 @@
 <script>
 import BIMDataButton from "../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataText from "../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataCard,
+    BIMDataText,
   },
   methods: {},
 };

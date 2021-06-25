@@ -49,9 +49,16 @@ export default new Vuex.Store({
       path: "guidelines-utilities",
       children: [
         {
+          title: "Utilities",
+          path: "utilities",
+          img: require("./web/assets/img/icon-utilities2.svg"),
+          text: "Summary of all defined and usable classes and how use them.",
+          btn: "View utilities",
+        },
+        {
           title: "Variables",
-          img: require("./web/assets/img/icon-markup.svg"),
           path: "variables",
+          img: require("./web/assets/img/icon-variables.svg"),
           text: "See all defines and usable BIMData variables and how use it.",
           btn: "View variables",
         },
@@ -230,6 +237,13 @@ export default new Vuex.Store({
           text:
             "Tabs component provide a nice interface to switch between different views",
           btn: "View tabs",
+        },
+        {
+          title: "Text",
+          img: require("./web/assets/img/icon-text.svg"),
+          path: "text",
+          text: "Text",
+          btn: "View text",
         },
         {
           title: "Textarea",

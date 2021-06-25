@@ -1,7 +1,9 @@
 <template>
   <main class="article toggle">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataToggle v-model="toggled" :disabled="checkboxDisabledChecked">
@@ -15,14 +17,18 @@
         </template>
 
         <template #parameters>
-          <h5 class="bimdata-h5">modifiers</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >modifiers</BIMDataText
+          >
           <BIMDataCheckbox
             text="disabled"
             v-model="checkboxDisabledChecked"
             class="m-y-12"
           >
           </BIMDataCheckbox>
-          <h5 class="bimdata-h5">slotss</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >slots</BIMDataText
+          >
           <BIMDataCheckbox
             text="default"
             v-model="checkboxDefaultSlotChecked"
@@ -51,12 +57,16 @@
       </ComponentCode>
 
       <div class="m-t-24">
-        <h5 class="bimdata-h5">Props:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-24">
-        <h5 class="bimdata-h5">Slots:</h5>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
@@ -65,16 +75,19 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
+
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataToggle,
     BIMDataCheckbox,
     BIMDataTable,
+    BIMDataText,
+    BIMDataToggle,
   },
   data() {
     return {

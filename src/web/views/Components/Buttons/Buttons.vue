@@ -1,8 +1,9 @@
 <template>
   <main class="article article-buttons">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <div class="button-overview">
         <ComponentCode
           :componentTitle="$route.name"
@@ -33,7 +34,12 @@
 
           <template #parameters>
             <div v-for="[key, values] in Object.entries(btnOptions)" :key="key">
-              <h5 class="bimdata-h5">{{ key }}</h5>
+              <BIMDataText
+                component="h5"
+                color="color-primary"
+                margin="15px 0 10px"
+                >{{ key }}</BIMDataText
+              >
               <BIMDataRadio
                 v-for="value in values"
                 :key="value"
@@ -46,7 +52,12 @@
               </BIMDataRadio>
             </div>
             <div>
-              <h5 class="bimdata-h5">modifiers</h5>
+              <BIMDataText
+                component="h5"
+                color="color-primary"
+                margin="15px 0 10px"
+                >modifiers</BIMDataText
+              >
               <BIMDataCheckbox
                 text="icon"
                 v-model="checkboxIconChecked"
@@ -66,7 +77,7 @@
               </BIMDataCheckbox>
             </div>
 
-            <h5 class="bimdata-h5">size</h5>
+            <BIMDataText component="h5" color="color-primary" margin="15px 0 0">size</BIMDataText>
             <BIMDataInput
               v-model="widthButton"
               placeholder="button's min-width in px or %"
@@ -103,7 +114,7 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <h5 class="bimdata-h5">Props:</h5>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 0">Props:</BIMDataText>
           <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
         </div>
       </div>
@@ -117,6 +128,7 @@ import colors from "../../../../assets/colors.js";
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -134,6 +146,7 @@ export default {
     BIMDataCheckbox,
     BIMDataIcon,
     BIMDataInput,
+    BIMDataText,
   },
   data() {
     return {
