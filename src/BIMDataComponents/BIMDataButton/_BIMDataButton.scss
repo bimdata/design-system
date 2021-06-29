@@ -17,15 +17,6 @@
   &:focus {
     outline: none;
   }
-  svg {
-    margin-right: calc(#{$spacing-unit} / 2);
-  }
-  svg {
-    &:only-child,
-    &:last-child {
-      margin: 0;
-    }
-  }
   &__icon {
     padding: 0;
   }

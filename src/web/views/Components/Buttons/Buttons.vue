@@ -24,6 +24,7 @@
                 name="chevron"
                 size="xxxs"
                 v-if="checkboxIconChecked"
+                :margin="getIconMargin()"
               />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
@@ -77,7 +78,9 @@
               </BIMDataCheckbox>
             </div>
 
-            <BIMDataText component="h5" color="color-primary" margin="15px 0 0">size</BIMDataText>
+            <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+              >size</BIMDataText
+            >
             <BIMDataInput
               v-model="widthButton"
               placeholder="button's min-width in px or %"
@@ -114,7 +117,9 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 0">Props:</BIMDataText>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+            >Props:</BIMDataText
+          >
           <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
         </div>
       </div>
@@ -260,15 +265,28 @@ export default {
       return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
     },
     getIcon() {
+      if (this.checkboxIconChecked && this.checkboxTextChecked) {
+        return '<BIMDataIcon name="chevron" size="xxxs" margin="0 12px 0 0" />';
+      }
       if (this.checkboxIconChecked) {
-        return '<BIMDataIcon name="chevron" size="xxxs" />';
+        return '<BIMDataIcon name="chevron" size="xxxs"/>';
       }
     },
     getText() {
       if (this.checkboxTextChecked && this.checkboxIconChecked) {
         return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}</span>`;
-      } else {
+      }
+      if (this.checkboxTextChecked) {
         return `Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}`;
+      } else {
+        return "";
+      }
+    },
+    getIconMargin() {
+      if (this.checkboxTextChecked && this.checkboxIconChecked) {
+        return "0 12px 0 0";
+      } else {
+        return "0";
       }
     },
     getButtonDisabled() {

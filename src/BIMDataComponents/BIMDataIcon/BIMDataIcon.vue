@@ -75,6 +75,10 @@ export default {
       type: Number,
       default: 0,
     },
+    margin: {
+      type: String,
+      default: "0px",
+    },
   },
   computed: {
     style() {
@@ -84,11 +88,13 @@ export default {
           width: `${pixelSize}px`,
           height: `${pixelSize}px`,
           transform: "rotate(" + this.rotate + "deg)",
+          margin: `${this.margin}`,
         };
       } else {
         return {
           width: `${pixelSize}px`,
           height: `${pixelSize}px`,
+          margin: `${this.margin}`,
         };
       }
     },
