@@ -1,52 +1,64 @@
 <template>
   <div
     class="bimdata-select"
-    :class="{ 'not-empty': modelValue != null && modelValue != modelValue.length }"
+    :class="{
+      active: displayOptions,
+      'not-empty': modelValue !== null,
+    }"
     :style="{ 'min-width': width }"
   >
     <div class="bimdata-select__content">
       <div
-        class="select"
+        class="bimdata-select__content__value"
         @click="displayOptions = !displayOptions"
-        :class="{ active: displayOptions }"
       >
-        <span>
-          {{ displayedValue }}
-        </span>
-        <BIMDataIcon name="chevron" size="xxs" />
+        <span>{{ displayedValue }}</span>
+        <BIMDataIcon
+          name="chevron"
+          size="xxs"
+          :rotate="displayOptions ? 90 : 0"
+        />
       </div>
-      <label>{{ label }}</label>
-      <span class="bar"></span>
+      <label class="bimdata-select__content__label">
+        {{ label }}
+      </label>
+      <span class="bimdata-select__content__underline"></span>
     </div>
+
     <transition name="slide-fade-down">
-      <ul v-show="displayOptions" v-clickaway="away">
-        <li v-if="nullValue" :nullValue="nullValue" @click="onNullValueClick()">
+      <ul
+        v-show="displayOptions"
+        class="bimdata-select__option-list"
+        v-clickaway="() => (displayOptions = false)"
+      >
+        <li
+          v-if="nullValue"
+          class="bimdata-select__option-list__entry"
+          @click="onNullValueClick()"
+        >
           None
         </li>
         <li
+          class="bimdata-select__option-list__entry"
           v-for="(option, index) of options"
           :key="index"
           :class="{
-            selected: multi ? modelValue.includes(option) : option === modelValue,
-            disabled: optionKey && option.disabled,
+            selected: isSelected(option),
+            disabled: isDisabled(option),
             'option-group': isOptionGroup(option),
           }"
           @click="onOptionClick(option)"
         >
-          <span v-if="isOptionGroup(option)">{{
-            option[optionKey]
-          }}</span>
-          <template v-else>
+          <template v-if="multi">
             <BIMDataCheckbox
-              v-if="multi"
-              :modelValue="modelValue.includes(option)"
-              :disabled="optionKey && option.disabled"
+              :modelValue="isSelected(option)"
+              :disabled="isDisabled(option)"
             >
-              {{ optionKey ? option && option[optionKey] : option }}
+              {{ optionLabel(option) }}
             </BIMDataCheckbox>
-            <span v-else>
-              {{ optionKey ? option && option[optionKey] : option }}
-            </span>
+          </template>
+          <template v-else>
+            {{ optionLabel(option) }}
           </template>
         </li>
       </ul>
@@ -56,22 +68,27 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away";
-
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+// Components
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 
 export default {
   components: {
     BIMDataIcon,
     BIMDataCheckbox,
   },
-  directives: { clickaway },
+  directives: {
+    clickaway,
+  },
   model: {
     prop: "modelValue",
     event: "update:modelValue",
   },
   props: {
-    optionKey: {
+    width: {
+      type: [String, Number],
+    },
+    label: {
       type: String,
       default: null,
     },
@@ -79,23 +96,25 @@ export default {
       type: Array,
       default: () => [],
     },
+    optionKey: {
+      type: String,
+    },
+    optionLabelKey: {
+      type: String,
+    },
+    modelValue: {
+      type: [String, Object, Array],
+    },
     multi: {
       type: Boolean,
       default: false,
     },
-    modelValue: {
-      type: [String, Array, Object],
-    },
-    label: { type: String, default: null },
-    width: { type: [String, Number] },
     nullValue: {
       type: Boolean,
       default: false,
     },
   },
-  emits: [
-    "update:modelValue"
-  ],
+  emits: ["update:modelValue"],
   data() {
     return {
       displayOptions: false,
@@ -107,16 +126,25 @@ export default {
       if (this.modelValue === null || this.modelValue === undefined) {
         return null;
       } else if (this.multi) {
-        return this.formatValue(this.modelValue);
+        return this.modelValue
+          .map(v => (this.optionKey ? v[this.optionKey] : v))
+          .join(", ");
       } else {
-        return this.optionKey ? this.modelValue[this.optionKey] : this.modelValue;
+        return this.optionKey
+          ? this.modelValue[this.optionKey]
+          : this.modelValue;
       }
     },
   },
   watch: {
     multi() {
+      if (this.nullValue) {
+        throw new Error("Can not have multi and nullValue together.");
+      }
       if (this.multi && !Array.isArray(this.modelValue)) {
-        throw "value must be an array in multi mode.";
+        throw new Error(
+          "[BIMDataSelect]: value must be an array in multi mode."
+        );
       }
       if (
         !this.multi &&
@@ -124,50 +152,60 @@ export default {
         typeof this.modelValue !== "number" &&
         this.modelValue !== null
       ) {
-        throw "value must be a string or a number in non-multi mode.";
+        throw new Error(
+          "value must be a string or a number in non-multi mode."
+        );
+      }
+    },
+    nullValue() {
+      if (this.multi) {
+        throw new Error("Can not have multi and nullValue together.");
       }
     },
   },
-  created() {
-    this.$watch(
-      () => this.multi && this.nullValue,
-      res => {
-        if (res) {
-          throw "Can not have multi and nullValue together.";
-        }
-      }
-    );
-  },
   methods: {
+    optionValue(option) {
+      return this.optionKey && option ? option[this.optionKey] : option;
+    },
+    optionLabel(option) {
+      if (this.optionLabelKey && option) {
+        return option[this.optionLabelKey];
+      }
+      if (this.optionKey && option) {
+        return option[this.optionKey];
+      }
+      return option;
+    },
+    isSelected(option) {
+      const optionValue = this.optionValue(option);
+      return this.multi
+        ? this.modelValue.includes(optionValue)
+        : this.modelValue === optionValue;
+    },
+    isDisabled(option) {
+      return this.optionKey && option && option.disabled;
+    },
     isOptionGroup(option) {
       return this.optionKey && option && option.optionGroup;
     },
-    onOptionClick(option) {
-      if (this.optionKey && (option.disabled || option.optionGroup)) return;
-      if (this.multi) {
-        if (this.modelValue.includes(option)) {
-          this.$emit("update:modelValue", this.modelValue.filter(val => val !== option));
-        } else {
-          const copy = Array.from(this.modelValue);
-          copy.push(option);
-          this.$emit("update:modelValue", copy);
-        }
-      } else {
-        this.$emit("update:modelValue", option);
-        this.displayOptions = !this.displayOptions;
-      }
-    },
     onNullValueClick() {
-      this.$emit("update:modelValue", null);
+      this.$emit("update:modelValue", this.multi ? [] : null);
       this.displayOptions = !this.displayOptions;
     },
-    away() {
-      this.displayOptions = false;
-    },
-    formatValue(value) {
-      return value
-        .map(e => (this.optionKey ? e[this.optionKey] : e))
-        .join(", ");
+    onOptionClick(option) {
+      if (this.optionKey && (option.disabled || option.optionGroup)) {
+        return;
+      }
+      let value = this.optionValue(option);
+      if (this.multi) {
+        if (this.isSelected(option)) {
+          value = this.modelValue.filter(v => v !== value);
+        } else {
+          value = this.modelValue.concat(value);
+        }
+      }
+      this.$emit("update:modelValue", value);
+      this.displayOptions = !this.displayOptions;
     },
   },
 };
@@ -176,9 +214,7 @@ export default {
 <style lang="scss" scoped>
 // import BIMDATA UTILITIES
 @import "../../assets/scss/utilities/_text.scss";
-</style>
 
-<style lang="scss">
 // import BIMDATA VARIABLES
 @import "../../assets/scss/_BIMDataVariables.scss";
 
