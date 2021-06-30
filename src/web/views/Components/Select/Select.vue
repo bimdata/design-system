@@ -1,51 +1,37 @@
 <template>
   <main class="article article-select">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataSelect
-            v-if="getOptionKey"
-            :options="optionsGroup"
-            label="label"
-            :nullValue="getNullValue"
-            :multi="getMulti"
-            optionKey="label"
-            v-model="type"
             width="150px"
-          />
-          <BIMDataSelect
-            v-else
+            label="label"
+            :multi="isMulti"
             :options="options"
-            label="label"
-            :nullValue="getNullValue"
-            :multi="getMulti"
-            v-model="type"
-            width="150px"
+            :nullValue="hasNullValue"
+            v-model="selection"
           />
+          <BIMDataText margin="18px 0">
+            Selection:
+            {{ selection && isMulti ? selection.join(", ") : selection }}
+          </BIMDataText>
         </template>
 
         <template #parameters>
           <BIMDataCheckbox
-            text="multi selection"
-            v-model="multi"
-            :disabled="checkboxMultiDisabled"
-          >
-          </BIMDataCheckbox>
+            text="Multi selection"
+            v-model="isMulti"
+            :disabled="hasNullValue"
+          />
           <BIMDataCheckbox
-            text="none option"
-            v-model="nullValue"
-            :disabled="checkboxNullValueDisabled"
-          >
-          </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="group option"
-            v-model="groupOption"
-            :disabled="checkboxGroupOptionDisabled"
-          >
-          </BIMDataCheckbox>
+            text="None option"
+            v-model="hasNullValue"
+            :disabled="isMulti"
+          />
+          <BIMDataCheckbox text="Group option" v-model="hasOptionGroups" />
         </template>
 
         <template #import>
@@ -56,29 +42,28 @@
         <template #code>
           <pre>
             &lt;BIMDataSelect
-              :options="options"
-              label="label"
-              :nullValue="{{ getNullValue }}"
-              :multi="{{ getMulti }}"
-              {{ getOptionKeyLabel }}
-              v-model="type"
               width="150px"
+              label="label"
+              {{ isMulti ? ':multi="true"' : "" }}
+              :options="options"
+              {{ hasNullValue ? ':nullValue="true"' : "" }}
+              v-model="selection"
             /&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >How to add option group to BIMDataSelect:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          How to add option group to BIMDataSelect:
+        </BIMDataText>
         <p>
           To add optgroup to BIMDataSelect add optionGroup: true property to the
           option object. Remember to provide an optionKey to display your object
@@ -91,10 +76,9 @@
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >How to add 'disabled' class to an element list to
-          BIMDataSelect:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          How to add 'disabled' class to an element list to BIMDataSelect:
+        </BIMDataText>
         <p>
           To disabled an option, add disabled: true property to the option
           object. Remember to provide an optionKey to display your object
@@ -110,32 +94,28 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
-
-import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import Code from "../../Elements/Code/Code.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    Code,
-    ComponentCode,
-    BIMDataTable,
     BIMDataCheckbox,
     BIMDataSelect,
+    BIMDataTable,
     BIMDataText,
+    Code,
+    ComponentCode,
   },
   data() {
     return {
-      type: null,
-      multi: false,
-      nullValue: false,
-      groupOption: false,
-      checkboxMultiDisabled: false,
-      checkboxNullValueDisabled: false,
-      checkboxGroupOptionDisabled: false,
+      isMulti: false,
+      hasNullValue: false,
+      hasOptionGroups: false,
+      selection: null,
       options: [
         "option 1",
         "option 2",
@@ -147,10 +127,10 @@ export default {
         "option 8",
       ],
       optionsGroup: [
-        { label: "Title", optionGroup: true },
+        { label: "Group 1", optionGroup: true },
         { label: "option 1" },
         { label: "option 2" },
-        { label: "Title 2", optionGroup: true },
+        { label: "Group 2", optionGroup: true },
         { label: "option 3" },
         { label: "option 4", disabled: true },
         { label: "option 5" },
@@ -205,37 +185,37 @@ export default {
     };
   },
   computed: {
-    getNullValue() {
-      if (this.nullValue) {
-        this.checkboxMultiDisabled = true;
-        return true;
-      } else {
-        this.checkboxMultiDisabled = false;
-      }
-    },
-    getMulti() {
-      if (this.multi) {
-        this.type = [];
-        this.checkboxNullValueDisabled = true;
-        return true;
-      } else {
-        this.type = null;
-        this.checkboxNullValueDisabled = false;
-      }
-    },
-    getOptionKey() {
-      if (this.groupOption) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    getOptionKeyLabel() {
-      if (this.getOptionKey) {
-        return 'optionKey="label"';
-      }
-      return "";
-    },
+    // getNullValue() {
+    //   if (this.nullValue) {
+    //     this.checkboxMultiDisabled = true;
+    //   } else {
+    //     this.checkboxMultiDisabled = false;
+    //   }
+    //   return this.nullValue;
+    // },
+    // getMulti() {
+    //   if (this.multi) {
+    //     this.type = [];
+    //     this.checkboxNullValueDisabled = true;
+    //   } else {
+    //     this.type = null;
+    //     this.checkboxNullValueDisabled = false;
+    //   }
+    //   return this.multi;
+    // },
+    // getOptionKey() {
+    //   if (this.groupOption) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // },
+    // getOptionKeyLabel() {
+    //   if (this.getOptionKey) {
+    //     return 'optionKey="label"';
+    //   }
+    //   return "";
+    // },
   },
 };
 </script>
