@@ -76,6 +76,7 @@ function getSingleComponentConfigurations() {
     "BIMDataSpinner",
     "BIMDataTable",
     "BIMDataTabs",
+    "BIMDataText",
     "BIMDataTextarea",
     "BIMDataToggle",
     "BIMDataTooltip",
