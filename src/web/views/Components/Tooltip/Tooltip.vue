@@ -57,7 +57,7 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataTooltip message="tooltip here" :className="{{
+            &lt;BIMDataTooltip message="tooltip here" className="{{
               getOverviewTooltipClasses()
             }}"&gt;
               &lt;template #content&gt;&lt;span&gt;Hover me&lt;/span&gt;&lt;/template&gt;

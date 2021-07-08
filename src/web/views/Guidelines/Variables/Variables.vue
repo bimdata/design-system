@@ -39,6 +39,16 @@
       </div>
       <div class="m-y-12">
         <BIMDataText component="h6" color="color-primary"
+          >Box-shadow variables summary</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesBoxShadowSummary[0]"
+          :rows="variablesBoxShadowSummary.slice(1)"
+        />
+      </div>
+      <div class="m-y-12">
+        <BIMDataText component="h6" color="color-primary"
           >Spacing variables summary</BIMDataText
         >
         <BIMDataTable
@@ -119,6 +129,14 @@ export default {
       variablesFontsizeSummary: [
         ["SCSS Variable Name", "CSS Variable Name", "Output value"],
         ["$font-size", "--font-size", "14px;"],
+      ],
+      variablesBoxShadowSummary: [
+        ["SCSS Variable Name", "CSS Variable Name", "Output value"],
+        [
+          "$box-shadow",
+          "--box-shadow",
+          "0px 2px 10px rgba($color-black, 0.1);",
+        ],
       ],
       variablesSpacingSummary: [
         ["SCSS Variable Name", "CSS Variable Name", "Output value"],

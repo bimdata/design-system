@@ -3,6 +3,7 @@
   box-shadow: $box-shadow;
   font-family: $primary-font;
   font-size: calculateEm(14px);
+  overflow: auto;
   &__content,
   &__footer {
     font-size: calculateEm(12px);
@@ -28,9 +29,37 @@
   }
   &__content {
     padding: $spacing-unit;
-    color: $color-tertiary-dark;
+    color: $color-tertiary-darkest;
   }
   &__footer {
     padding: 0 $spacing-unit $spacing-unit;
+  }
+
+  &__primary {
+    background-color: $color-primary;
+    color: $color-white;
+    .bimdata-card__header,
+    .bimdata-card__submenu {
+      background-color: $color-primary;
+    }
+    .bimdata-card__header {
+      color: $color-white;
+      filter: saturate(0.8);
+    }
+    .bimdata-card__content {
+      color: $color-white;
+    }
+  }
+  &__secondary {
+    background-color: $color-secondary;
+    color: $color-primary;
+    .bimdata-card__header,
+    .bimdata-card__submenu {
+      background-color: $color-secondary;
+    }
+    .bimdata-card__header {
+      color: $color-primary;
+      filter: saturate(0.8);
+    }
   }
 }

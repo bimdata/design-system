@@ -9,6 +9,9 @@
           <BIMDataCard
             :titleHeader="getHeaderTitle()"
             :submenuText="getSubmenuText()"
+            :width="widthCard"
+            :borderRadius="borderRadiusCard"
+            :bgColor="selectedBgColorCard"
           >
             <template #headerIcons v-if="headerIcons">
               {{ getHeaderIcons() }}
@@ -70,6 +73,38 @@
               >Footer</BIMDataText
             >
             <BIMDataCheckbox text="footer" v-model="footer"> </BIMDataCheckbox>
+
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Parameters</BIMDataText
+            >
+            <BIMDataInput
+              v-model="widthCard"
+              margin="20px 0"
+              placeholder="card's min-width in px or %"
+            ></BIMDataInput>
+            <BIMDataInput
+              v-model="borderRadiusCard"
+              placeholder="card's border-radius in px or %"
+            ></BIMDataInput>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Background-colors</BIMDataText
+            >
+            <BIMDataRadio
+              v-for="colorCard in colorsCard"
+              :key="colorCard"
+              :text="colorCard"
+              :id="colorCard"
+              :value="colorCard"
+              :name="colorCard"
+              v-model="selectedBgColorCard"
+            >
+            </BIMDataRadio>
           </div>
         </template>
 
@@ -82,7 +117,7 @@
           <pre>
             &lt;BIMDataCard :titleHeader="{{
               getHeaderTitle()
-            }}" :submenuText="{{ getSubmenuText() }}"&gt;
+            }}" :submenuText="{{ getSubmenuText() }}" {{ getCardColor() }}&gt;
             &lt;template #headerIcons v-if="headerIcons"&gt;
               {{ getHeaderIcons() }}
             &lt;/template&gt;
@@ -126,6 +161,8 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataBurgerMenu from "../../../../../src/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
 import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
@@ -135,6 +172,8 @@ export default {
     BIMDataBurgerMenu,
     BIMDataCard,
     BIMDataCheckbox,
+    BIMDataInput,
+    BIMDataRadio,
     BIMDataTable,
     BIMDataText,
   },
@@ -147,6 +186,10 @@ export default {
       submenuIcons: true,
       content: true,
       footer: true,
+      widthCard: "215px",
+      borderRadiusCard: "0px",
+      colorsCard: ["default", "primary", "secondary"],
+      selectedBgColorCard: "default",
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -224,6 +267,11 @@ export default {
     getFooter() {
       if (this.footer) {
         return "text footer or any component";
+      }
+    },
+    getCardColor() {
+      if (this.selectedBgColorCard !== "default") {
+        return `bgColor="${this.selectedBgColorCard}"`;
       }
     },
   },

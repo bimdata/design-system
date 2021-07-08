@@ -1,5 +1,9 @@
 <template>
-  <div class="bimdata-card" :style="{ 'min-width': width }">
+  <div
+    class="bimdata-card"
+    :class="classes"
+    :style="{ 'min-width': width, 'border-radius': borderRadius }"
+  >
     <BIMDataCardBand
       :text="titleHeader"
       class="bimdata-card__header"
@@ -31,6 +35,7 @@
 </template>
 
 <script>
+import colors from "../../assets/colors.js"
 import BIMDataCardBand from "./BIMDataCardBand.vue";
 
 export default {
@@ -47,6 +52,22 @@ export default {
     width: {
       type: [Number, String],
       default: "215px",
+    },
+    borderRadius: {
+      type: String,
+      default: "0px",
+    },
+    bgColor: {
+      type: String,
+      default: "default",
+      validator: color => colors.includes(color)
+    }
+  },
+  computed: {
+    classes() {
+      return {
+        [`bimdata-card__${this.bgColor}`]: this.bgColor,
+      };
     },
   },
 };
