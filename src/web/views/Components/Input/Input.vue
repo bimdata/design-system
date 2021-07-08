@@ -15,6 +15,7 @@
             :successMessage="getSuccessMessage()"
             :loading="getLoading()"
             :disabled="getDisabled()"
+            :margin="marginInput"
           >
             <template #inputIcon v-if="inputIcon">
               <BIMDataIcon name="show" class="fill-tertiary-dark" />
@@ -46,6 +47,19 @@
           <BIMDataCheckbox text="icon" v-model="inputIcon" />
           <BIMDataCheckbox text="loading" v-model="loading" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
+
+          <div>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Margin</BIMDataText
+            >
+            <BIMDataInput
+              v-model="marginInput"
+              placeholder="Change margin"
+            ></BIMDataInput>
+          </div>
         </template>
 
         <template #import>
@@ -60,7 +74,8 @@
               placeholder="Your placeholder here"
               :error="!textInput"
               errorMessage="your error message here"
-              :loading="{{ getLoading() }}"&gt;
+              :loading="{{ getLoading() }}"
+              {{ getMargin() }}&gt;
 
               &lt;template #inputIcon v-if="inputIcon"&gt;
                 {{ getInputIcon() }}
@@ -121,7 +136,7 @@ export default {
       loading: false,
       disabled: false,
       inputIcon: false,
-
+      marginInput: "12px 0px",
       // Props documentation
       propsData: [
         ["Props", "Type", "Default value", "Description"],
@@ -208,6 +223,11 @@ export default {
     getInputIcon() {
       if (this.inputIcon) {
         return '<BIMDataIcon name="show" class="fill-tertiary-dark"/>';
+      }
+    },
+    getMargin() {
+      if (this.marginInput != "12px 0px") {
+        return `margin="${this.marginInput}"`;
       }
     },
   },
