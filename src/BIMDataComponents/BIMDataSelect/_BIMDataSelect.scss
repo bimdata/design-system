@@ -1,3 +1,8 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/utilities/_text.scss";
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/mixins/_pseudo.scss";
+
 .bimdata-select {
   position: relative;
   font-family: $primary-font;
@@ -48,6 +53,17 @@
     }
   }
 
+  &.active,
+  &.not-empty {
+    .bimdata-select__content {
+      .bimdata-select__content__label {
+        top: -18px;
+        font-size: calculateEm(10px);
+        color: $color-primary;
+      }
+    }
+  }
+
   &__option-list {
     position: absolute;
     z-index: 11;
@@ -91,20 +107,10 @@
           background-color: transparent;
           cursor: default;
         }
-        & ~ &:not(.option-group) {
-          padding-left: $spacing-unit * 2;
-        }
       }
-    }
-  }
 
-  &.active,
-  &.not-empty {
-    .bimdata-select__content {
-      .bimdata-select__content__label {
-        top: -18px;
-        font-size: calculateEm(10px);
-        color: $color-primary;
+      &.option-group ~ &:not(.option-group) {
+        padding-left: $spacing-unit * 2;
       }
     }
   }
