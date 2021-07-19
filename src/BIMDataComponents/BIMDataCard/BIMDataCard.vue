@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import colors from "../../assets/colors.js"
+import colors from "../../assets/cardsColors.js";
 import BIMDataCardBand from "./BIMDataCardBand.vue";
 
 export default {
@@ -57,15 +57,20 @@ export default {
       type: String,
       default: "0px",
     },
+    boxShadow: {
+      type: Boolean,
+      default: true,
+    },
     bgColor: {
       type: String,
       default: "default",
-      validator: color => colors.includes(color)
-    }
+      validator: color => colors.includes(color),
+    },
   },
   computed: {
     classes() {
       return {
+        "bimdata-card__shadowed": this.boxShadow,
         [`bimdata-card__${this.bgColor}`]: this.bgColor,
       };
     },

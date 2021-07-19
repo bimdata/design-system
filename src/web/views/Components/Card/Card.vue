@@ -12,6 +12,7 @@
             :width="widthCard"
             :borderRadius="borderRadiusCard"
             :bgColor="selectedBgColorCard"
+            :boxShadow="checkboxBoxShadowed"
           >
             <template #headerIcons v-if="headerIcons">
               {{ getHeaderIcons() }}
@@ -105,6 +106,16 @@
               v-model="selectedBgColorCard"
             >
             </BIMDataRadio>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Box shadow</BIMDataText
+            >
+            <BIMDataCheckbox
+              text="box shadow"
+              v-model="checkboxBoxShadowed"
+            ></BIMDataCheckbox>
           </div>
         </template>
 
@@ -117,7 +128,9 @@
           <pre>
             &lt;BIMDataCard :titleHeader="{{
               getHeaderTitle()
-            }}" :submenuText="{{ getSubmenuText() }}" {{ getCardColor() }}&gt;
+            }}" :submenuText="{{ getSubmenuText() }}" {{ getCardColor() }} {{
+              getBorderRadius()
+            }} {{ getBoxShadow() }} &gt;
             &lt;template #headerIcons v-if="headerIcons"&gt;
               {{ getHeaderIcons() }}
             &lt;/template&gt;
@@ -186,9 +199,10 @@ export default {
       submenuIcons: true,
       content: true,
       footer: true,
+      checkboxBoxShadowed: true,
       widthCard: "215px",
       borderRadiusCard: "0px",
-      colorsCard: ["default", "primary", "secondary"],
+      colorsCard: ["default", "primary", "secondary", "tertiary-lightest"],
       selectedBgColorCard: "default",
       propsData: [
         ["Props", "Type", "Default value", "Description"],
@@ -272,6 +286,16 @@ export default {
     getCardColor() {
       if (this.selectedBgColorCard !== "default") {
         return `bgColor="${this.selectedBgColorCard}"`;
+      }
+    },
+    getBorderRadius() {
+      if (this.borderRadiusCard !== "0px") {
+        return `borderRadius="${this.borderRadiusCard}"`;
+      }
+    },
+    getBoxShadow() {
+      if (this.checkboxBoxShadowed) {
+        return "boxShadow";
       }
     },
   },
