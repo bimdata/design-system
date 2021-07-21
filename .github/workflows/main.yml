@@ -1,5 +1,4 @@
-
-name: design system
+name: main
 
 on: push
 
@@ -34,6 +33,7 @@ jobs:
           context: .
           file: etc/Dockerfile
           push: true
+          pull: true
           tags: |
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ github.sha }}
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ steps.tag.outputs.tag }}
