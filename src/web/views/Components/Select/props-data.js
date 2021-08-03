@@ -6,7 +6,7 @@ export default [
   [
     "width",
     "[String, Number]",
-    "",
+    "100%",
     "Set the selector width.",
   ],
   [

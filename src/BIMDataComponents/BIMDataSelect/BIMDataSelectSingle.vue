@@ -3,7 +3,7 @@
     class="bimdata-select"
     :class="{
       active: isOpen,
-      'not-empty': modelValue !== null,
+      'not-empty': modelValue !== undefined && modelValue !== null,
     }"
     :style="{ width }"
   >

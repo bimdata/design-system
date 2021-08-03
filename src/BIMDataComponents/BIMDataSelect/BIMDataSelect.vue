@@ -24,6 +24,7 @@ export default {
   props: {
     width: {
       type: [String, Number],
+      default: "100%",
     },
     label: {
       type: String,
