@@ -1,51 +1,64 @@
 <template>
   <main class="article article-select">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataSelect
-            v-if="getOptionKey"
-            :options="optionsGroup"
-            label="label"
-            :nullValue="getNullValue"
-            :multi="getMulti"
-            optionKey="label"
-            v-model="type"
-            width="150px"
-          />
-          <BIMDataSelect
-            v-else
-            :options="options"
-            label="label"
-            :nullValue="getNullValue"
-            :multi="getMulti"
-            v-model="type"
-            width="150px"
-          />
+          <div class="m-t-24">
+            <BIMDataSelect
+              :multi="isMulti"
+              width="200px"
+              label="Selector label"
+              :options="options"
+              :optionKey="optionKey"
+              :optionLabelKey="optionLabelKey"
+              :nullValue="hasNullValue"
+              v-model="selection"
+            />
+          </div>
+          <BIMDataText margin="18px 0">
+            Selection:
+            <template v-if="isMulti">
+              [
+              <ul style="list-style: none;">
+                <li v-for="(s, index) of selection" :key="index">
+                  {{ JSON.stringify(s) }}
+                </li>
+              </ul>
+              ]
+            </template>
+            <template v-else>
+              {{ selection }}
+            </template>
+          </BIMDataText>
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox
-            text="multi selection"
-            v-model="multi"
-            :disabled="checkboxMultiDisabled"
-          >
-          </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="none option"
-            v-model="nullValue"
-            :disabled="checkboxNullValueDisabled"
-          >
-          </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="group option"
-            v-model="groupOption"
-            :disabled="checkboxGroupOptionDisabled"
-          >
-          </BIMDataCheckbox>
+          <div class="m-t-12">
+            <BIMDataCheckbox
+              text="Multi selection"
+              :disabled="hasNullValue"
+              :modelValue="isMulti"
+              @update:modelValue="toggleMulti"
+            />
+          </div>
+          <div class="m-t-12">
+            <BIMDataCheckbox
+              text="None option"
+              :disabled="isMulti"
+              v-model="hasNullValue"
+            />
+          </div>
+          <div class="m-t-24">
+            <BIMDataSelect
+              label="Option set"
+              :options="['string', 'object', 'group']"
+              :modelValue="optionSet"
+              @update:modelValue="changeOptionSet"
+            />
+          </div>
         </template>
 
         <template #import>
@@ -56,53 +69,72 @@
         <template #code>
           <pre>
             &lt;BIMDataSelect
+              {{ isMulti ? ':multi="true"' : "" }}
+              width="200px"
+              label="Selector label"
               :options="options"
-              label="label"
-              :nullValue="{{ getNullValue }}"
-              :multi="{{ getMulti }}"
-              {{ getOptionKeyLabel }}
-              v-model="type"
-              width="150px"
+              {{ optionKey ? `optionKey="${optionKey}"` : "" }}
+              {{ optionLabelKey ? `optionLabelKey="${optionLabelKey}"` : "" }}
+              {{ hasNullValue ? ':nullValue="true"' : "" }}
+              v-model="selection"
             /&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >How to add option group to BIMDataSelect:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Note about 'v-model' and 'optionKey' prop:
+        </BIMDataText>
         <p>
-          To add optgroup to BIMDataSelect add optionGroup: true property to the
-          option object. Remember to provide an optionKey to display your object
-          correctly.
+          When you use <strong>v-model</strong> in combination with
+          <strong>optionKey</strong> to bind a variable to the selector value,
+          the bounded variable will contain the value of the selection, that is
+          the selected option (or list of options).
+        </p>
+        <p>
+          Put another way, the <strong>optionKey</strong> prop allows you to
+          control which option field is used to determine the selected options
+          but it does not affect the selector model value.
+        </p>
+      </div>
+
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          How to add option group to BIMDataSelect:
+        </BIMDataText>
+        <p>
+          To add an option group to BIMDataSelect add an option entry with
+          property <strong><em>optionGroup: true</em></strong> . Remember to
+          provide an <strong>optionKey</strong> or
+          <strong>optionLabelKey</strong> to display your options properly.
         </p>
         <p>Example :</p>
         <Code language="javascript">
-          { label: "Title 2", optionGroup: true },
+          { label: "Title 2", optionGroup: true }
         </Code>
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >How to add 'disabled' class to an element list to
-          BIMDataSelect:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          How to add 'disabled' class to an element list to BIMDataSelect:
+        </BIMDataText>
         <p>
-          To disabled an option, add disabled: true property to the option
-          object. Remember to provide an optionKey to display your object
-          correctly.
+          To disabled an option, add
+          <strong><em>disabled: true property</em></strong> to the option
+          object. Remember to provide an <strong>optionKey</strong> or
+          <strong>optionLabelKey</strong> to display your options properly.
         </p>
         <p>Example:</p>
         <Code language="javascript">
-          { label: "Option 2", disabled: true },
+          { label: "Option 2", disabled: true }
         </Code>
       </div>
     </div>
@@ -110,131 +142,66 @@
 </template>
 
 <script>
+import { stringOptions, objectOptions, groupOptions } from "./option-sets";
+import propsData from "./props-data";
+// Components
+import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataSelect from "../../../../BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import Code from "../../Elements/Code/Code.vue";
-
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
-    Code,
-    ComponentCode,
-    BIMDataTable,
     BIMDataCheckbox,
     BIMDataSelect,
+    BIMDataTable,
     BIMDataText,
+    Code,
+    ComponentCode,
   },
   data() {
     return {
-      type: null,
-      multi: false,
-      nullValue: false,
-      groupOption: false,
-      checkboxMultiDisabled: false,
-      checkboxNullValueDisabled: false,
-      checkboxGroupOptionDisabled: false,
-      options: [
-        "option 1",
-        "option 2",
-        "option 3",
-        "option 4",
-        "option 5",
-        "option 6",
-        "option 7",
-        "option 8",
-      ],
-      optionsGroup: [
-        { label: "Title", optionGroup: true },
-        { label: "option 1" },
-        { label: "option 2" },
-        { label: "Title 2", optionGroup: true },
-        { label: "option 3" },
-        { label: "option 4", disabled: true },
-        { label: "option 5" },
-        { label: "option 6" },
-        { label: "option 7" },
-      ],
-      propsData: [
-        ["Props", "Type", "Default value", "Description"],
-        [
-          "options",
-          "Array",
-          "() => []",
-          "This props allows you to display a list of options",
-        ],
-        [
-          "multi",
-          "Boolean",
-          "false",
-          "Use this boolean to select multiple options from a list of options.",
-        ],
-        [
-          "value",
-          "[String, Array, Object]",
-          "/",
-          "Use this props to select by default a value from the list of options.",
-        ],
-        [
-          "label",
-          "String",
-          "null",
-          "Use this props to set a value of the label.",
-        ],
-        [
-          "width",
-          "[Number, String]",
-          "/",
-          "Use this props to change the width of the select.",
-        ],
-        [
-          "nullValue",
-          "Boolean",
-          "false",
-          "Use this boolean if you want a 'none' value.",
-        ],
-        [
-          "optionKey",
-          "String",
-          "null",
-          "Use this prop if your options are in an object array and you don't want to just display the object but a specific key on the object",
-        ],
-      ],
+      isMulti: false,
+      hasNullValue: false,
+      optionSet: "string",
+      options: stringOptions,
+      optionKey: null,
+      optionLabelKey: null,
+      selection: null,
+      propsData,
     };
   },
-  computed: {
-    getNullValue() {
-      if (this.nullValue) {
-        this.checkboxMultiDisabled = true;
-        return true;
+  methods: {
+    toggleMulti(value) {
+      if (value) {
+        this.selection = [];
       } else {
-        this.checkboxMultiDisabled = false;
+        this.selection = null;
       }
+      this.isMulti = value;
     },
-    getMulti() {
-      if (this.multi) {
-        this.type = [];
-        this.checkboxNullValueDisabled = true;
-        return true;
-      } else {
-        this.type = null;
-        this.checkboxNullValueDisabled = false;
+    changeOptionSet(value) {
+      switch (value) {
+        case "string":
+          this.optionKey = null;
+          this.optionLabelKey = null;
+          this.options = stringOptions;
+          break;
+        case "object":
+          this.optionKey = "id";
+          this.optionLabelKey = "name";
+          this.options = objectOptions;
+          break;
+        case "group":
+          this.optionKey = "label";
+          this.optionLabelKey = null;
+          this.options = groupOptions;
+          break;
       }
-    },
-    getOptionKey() {
-      if (this.groupOption) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    getOptionKeyLabel() {
-      if (this.getOptionKey) {
-        return 'optionKey="label"';
-      }
-      return "";
+      this.selection = this.isMulti ? [] : null;
+      this.optionSet = value;
     },
   },
 };
