@@ -1,12 +1,12 @@
 <template>
   <main class="article">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
-      <BIMDataText margin="10px 0 15px">{{
-        $store.state[$route.name].text
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
+      <BIMDataText margin="10px 0 15px">
+        {{ $store.state[$route.name].text }}
+      </BIMDataText>
       <div class="content-box">
         <BIMDataCard
           class="bimdata-card__secondary"
