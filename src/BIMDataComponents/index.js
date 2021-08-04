@@ -29,6 +29,7 @@ export { default as BIMDataTable } from "./BIMDataTable/BIMDataTable.vue";
 export { default as BIMDataTabs } from "./BIMDataTabs/BIMDataTabs.vue";
 export { default as BIMDataText } from "./BIMDataText/BIMDataText.vue";
 export { default as BIMDataTextarea } from "./BIMDataTextarea/BIMDataTextarea.vue";
+export { default as BIMDataTextbox } from "./BIMDataTextbox/BIMDataTextbox.vue";
 export { default as BIMDataToggle } from "./BIMDataToggle/BIMDataToggle.vue";
 export { default as BIMDataTooltip } from "./BIMDataTooltip/BIMDataTooltip.vue";
 export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index.js";

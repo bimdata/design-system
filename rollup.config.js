@@ -118,6 +118,7 @@ function getSingleComponentConfigurations() {
     "BIMDataTabs",
     "BIMDataText",
     "BIMDataTextarea",
+    "BIMDataTextbox",
     "BIMDataToggle",
     "BIMDataTooltip",
   ];

@@ -40,6 +40,7 @@ import Table from "../views/Components/Table/Table.vue";
 import Tabs from "../views/Components/Tabs/Tabs.vue";
 import Text from "../views/Components/Text/Text.vue";
 import Textarea from "../views/Components/Textarea/Textarea.vue";
+import Textbox from "../views/Components/Textbox/Textbox.vue";
 import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
 
@@ -234,6 +235,11 @@ const routes = [
         path: "textarea",
         name: "textarea",
         component: Textarea,
+      },
+      {
+        path: "textbox",
+        name: "textbox",
+        component: Textbox,
       },
       {
         path: "toggle",
