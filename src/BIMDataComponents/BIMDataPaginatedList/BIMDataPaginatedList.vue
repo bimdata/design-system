@@ -9,7 +9,9 @@
           :key="elementKey ? element[elementKey] : element"
           @click="$emit('element-click', element)"
         >
-          <slot name="element" :element="element">{{ element && element.toString() }}</slot>
+          <slot name="element" :element="element">
+            {{ element && element.toString() }}
+          </slot>
         </li>
       </ul>
       <template v-if="list.length === 0">
@@ -34,7 +36,7 @@ import BIMDataSpinner from "../BIMDataSpinner/BIMDataSpinner.vue";
 export default {
   components: {
     BIMDataPagination,
-    BIMDataSpinner
+    BIMDataSpinner,
   },
   props: {
     list: {
@@ -56,9 +58,7 @@ export default {
       default: false,
     },
   },
-  emits: [
-    'element-click'
-  ],
+  emits: ["element-click"],
   data() {
     return {
       currentPage: 1,
@@ -94,12 +94,12 @@ export default {
 </script>
 
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
-  // import BIMDATA UTILITIES
-  @import "../../assets/scss/mixins/_font-size.scss";
-  @import "../../assets/scss/utilities/_list.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/utilities/_list.scss";
 
 // import BIMDATA STYLE COMPONENT
 @import "./_BIMDataPaginatedList.scss";

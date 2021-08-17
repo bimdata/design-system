@@ -75,7 +75,14 @@ export default {
       default: "12px 0px",
     },
   },
-  emits: ["update:modelValue", "blur", "keypress", "focus"],
+  emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
+  computed: {
+    style() {
+      return {
+        margin: `${this.margin}`,
+      };
+    },
+  },
   beforeCreate() {
     this.uuid = uuid.toString();
     uuid += 1;
@@ -88,13 +95,6 @@ export default {
           throw "Input state cannot be both success and error.";
       }
     );
-  },
-  computed: {
-    style() {
-      return {
-        margin: `${this.margin}`,
-      };
-    },
   },
   methods: {
     focus() {

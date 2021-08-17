@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BIMDataCard should render a card with a content slot and match snapshot 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <!---->
   <!---->
   <div class=\\"bimdata-card__content\\"><span>content slot</span></div>
@@ -10,7 +10,7 @@ exports[`BIMDataCard should render a card with a content slot and match snapshot
 `;
 
 exports[`BIMDataCard should render a card with a footer slot and match snapshot 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <!---->
   <!---->
   <!---->
@@ -19,7 +19,7 @@ exports[`BIMDataCard should render a card with a footer slot and match snapshot 
 `;
 
 exports[`BIMDataCard should render a card with a headerIcons slot and match snapshot 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <bimdatacardband-stub class=\\"bimdata-card__header\\"></bimdatacardband-stub>
   <!---->
   <!---->
@@ -28,7 +28,7 @@ exports[`BIMDataCard should render a card with a headerIcons slot and match snap
 `;
 
 exports[`BIMDataCard should render a card with a left slot and match snapshot 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <!---->
   <bimdatacardband-stub class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
   <!---->
@@ -37,7 +37,7 @@ exports[`BIMDataCard should render a card with a left slot and match snapshot 1`
 `;
 
 exports[`BIMDataCard should render a card with a left slot and match snapshot 2`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <!---->
   <bimdatacardband-stub class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
   <!---->
@@ -46,7 +46,7 @@ exports[`BIMDataCard should render a card with a left slot and match snapshot 2`
 `;
 
 exports[`BIMDataCard should render component and match snapshot 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <!---->
   <!---->
   <!---->
@@ -55,7 +55,7 @@ exports[`BIMDataCard should render component and match snapshot 1`] = `
 `;
 
 exports[`BIMDataCard should render component with a custom width 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 350px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 350px; border-radius: 0px;\\">
   <!---->
   <!---->
   <!---->
@@ -64,7 +64,7 @@ exports[`BIMDataCard should render component with a custom width 1`] = `
 `;
 
 exports[`BIMDataCard should render component with submenu text 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <!---->
   <bimdatacardband-stub text=\\"Submenu text card\\" class=\\"bimdata-card__submenu\\"></bimdatacardband-stub>
   <!---->
@@ -73,7 +73,7 @@ exports[`BIMDataCard should render component with submenu text 1`] = `
 `;
 
 exports[`BIMDataCard should render component with title header 1`] = `
-"<div class=\\"bimdata-card\\" style=\\"min-width: 215px;\\">
+"<div class=\\"bimdata-card bimdata-card__default\\" style=\\"min-width: 215px; border-radius: 0px;\\">
   <bimdatacardband-stub text=\\"Hearder title card\\" class=\\"bimdata-card__header\\"></bimdatacardband-stub>
   <!---->
   <!---->

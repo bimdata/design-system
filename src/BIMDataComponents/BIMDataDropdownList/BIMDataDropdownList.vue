@@ -35,9 +35,7 @@
         @element-click="onElementClick"
         :loading="loading"
       >
-        <template
-          #element="{element}"
-        >
+        <template #element="{element}">
           <slot name="element" :element="element" :close="away"></slot>
         </template>
       </BIMDataPaginatedList>
