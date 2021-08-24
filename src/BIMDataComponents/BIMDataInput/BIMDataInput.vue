@@ -91,8 +91,9 @@ export default {
     this.$watch(
       () => this.success && this.error,
       successAndError => {
-        if (successAndError)
-          throw "Input state cannot be both success and error.";
+        if (successAndError) {
+          throw new Error("Input state cannot be both success and error.");
+        }
       }
     );
   },
