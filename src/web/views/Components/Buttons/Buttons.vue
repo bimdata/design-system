@@ -317,3 +317,8 @@ export default {
 // import COMPONENT STYLE
 @import "./_Buttons.scss";
 </style>
+
+<style lang="css">
+@import "../../../../assets/css/_BIMDataVariables.css";
+@import "./buttons.css";
+</style>

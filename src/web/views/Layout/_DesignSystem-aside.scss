@@ -5,7 +5,7 @@
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
-  background-color: $color-tertiary-lightest;
+  background-color: var(--color-tertiary-lightest);
   overflow-y: auto;
   overflow-x: hidden;
   h4 {
@@ -19,28 +19,28 @@
         padding: 8px 24px;
         display: flex;
         align-items: center;
-        color: $color-primary;
+        color: var(--color-primary);
         position: relative;
         line-height: 24px;
         text-decoration: none;
         font-size: calculateEm(14px);
         img {
           width: 30px;
-          margin-right: $spacing-unit;
+          margin-right: var(--spacing-unit);
         }
         &.router-link-exact-active {
           &:hover {
             &::before {
-              background-color: darken($color-primary, 10%);
+              background-color: var(--color-primary-600);
             }
           }
           &::before {
-            background-color: $color-primary;
+            background-color: var(--color-primary);
           }
         }
         &:hover {
           &::before {
-            background-color: rgba($color-primary, 0.6);
+            background-color: var(--color-primary-600);
           }
         }
         &::before {

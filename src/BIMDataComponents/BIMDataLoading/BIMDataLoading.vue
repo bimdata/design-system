@@ -18,7 +18,10 @@ export default {
 
 <style lang="scss">
 // import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/css/_BIMDataVariables.css";
+
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_colors-variation.scss";
 
 // import BIMDATA COMPONENT KEYFRAMES
 @import "./_keyframes.scss";

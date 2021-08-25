@@ -3,6 +3,7 @@
     class="bimdata-checkbox"
     :class="{ indeterminate, disabled, checked }"
     @click="onClick"
+    :style="style"
   >
     <span class="bimdata-checkbox__mark"></span>
     <span class="bimdata-checkbox__text">
@@ -34,6 +35,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    margin: {
+      type: String,
+      default: "0px",
+    },
   },
   emits: [
     "update:modelValue"
@@ -44,6 +49,11 @@ export default {
     },
     checked() {
       return this.modelValue === true || this.indeterminate;
+    },
+    style() {
+      return {
+        margin: `${this.margin}`,
+      };
     },
   },
   methods: {
@@ -63,7 +73,7 @@ export default {
 
 <style lang="scss">
 // import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/css/_BIMDataVariables.css";
 
 // import BIMDATA UTILITIES
 @import "../../assets/scss/mixins/_font-size.scss";

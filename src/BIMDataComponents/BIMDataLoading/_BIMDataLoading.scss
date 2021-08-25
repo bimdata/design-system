@@ -8,15 +8,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba($color-primary, 0.9);
-  color: $color-white;
-  font-family: $primary-font;
+  background-color: alpha(var(--color-primary), 0.9);
+  color: var(--color-white);
+  font-family: var(--primary-font);
   z-index: 2;
   &--square {
     width: 20px;
     height: 20px;
     position: relative;
-    border: 2px $color-white solid;
+    border: 2px var(--color-white) solid;
     animation: bimdataloading 1.4s linear infinite;
   }
   &--text {

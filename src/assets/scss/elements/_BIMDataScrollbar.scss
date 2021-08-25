@@ -7,16 +7,16 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: rgba($color-tertiary-dark, 0.3);
+  background-color: var(--color-tertiary-dark-400);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $color-primary;
+  background: var(--color-primary);
   height: 48px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $color-tertiary-dark;
+  background: var(--color-tertiary-dark);
 }

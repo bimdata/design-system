@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../assets/css/_BIMDataVariables.css";
 
 @import "./_DesignSystem-aside.scss";
 </style>

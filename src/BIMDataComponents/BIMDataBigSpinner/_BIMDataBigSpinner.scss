@@ -1,21 +1,21 @@
 // import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/css/_BIMDataVariables.css";
 
 .animate-draw {
   opacity: 1;
   animation: 0.5s ease-in-out 0s infinite alternate fadeInOut;
 }
 #draw-blue {
-  fill: $color-primary;
-  stroke: $color-primary;
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
 }
 #draw-yellow-1 {
   animation-delay: 0.1s;
-  fill: $color-secondary;
-  stroke: $color-secondary;
+  fill: var(--color-secondary);
+  stroke: var(--color-secondary);
 }
 #draw-yellow-2 {
   animation-delay: 0.2s;
-  fill: $color-secondary;
-  stroke: $color-secondary;
+  fill: var(--color-secondary);
+  stroke: var(--color-secondary);
 }

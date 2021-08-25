@@ -1,91 +1,91 @@
 .icon {
   &-fill {
     &--black {
-      fill: $color-black;
+      fill: var(--color-black);
     }
     &--default {
       fill: currentColor;
     }
     &--disabled {
-      fill: $color-disabled;
+      fill: var(--color-disabled);
     }
     &--high {
-      fill: $color-high;
+      fill: var(--color-high);
     }
     &--neutral {
-      fill: $color-neutral;
+      fill: var(--color-neutral);
     }
     &--primary {
-      fill: $color-primary;
+      fill: var(--color-primary);
     }
     &--secondary {
-      fill: $color-secondary;
+      fill: var(--color-secondary);
     }
     &--success {
-      fill: $color-success;
+      fill: var(--color-success);
     }
     &--tertiary {
-      fill: $color-tertiary;
+      fill: var(--color-tertiary);
     }
     &--tertiary-dark {
-      fill: $color-tertiary-dark;
+      fill: var(--color-tertiary-dark);
     }
     &--tertiary-darkest {
-      fill: $color-tertiary-darkest;
+      fill: var(--color-tertiary-darkest);
     }
     &--tertiary-lightest {
-      fill: $color-tertiary-lightest;
+      fill: var(--color-tertiary-lightest);
     }
     &--warning {
-      fill: $color-warning;
+      fill: var(--color-warning);
     }
     &--white {
-      fill: $color-white;
+      fill: var(--color-white);
     }
   }
   &-stroke {
     fill: transparent;
     &--black {
-      stroke: $color-black;
+      stroke: var(--color-black);
     }
     &--default {
       stroke: currentColor;
     }
     &--disabled {
-      stroke: $color-disabled;
+      stroke: var(--color-disabled);
     }
     &--high {
-      stroke: $color-high;
+      stroke: var(--color-high);
     }
     &--neutral {
-      stroke: $color-neutral;
+      stroke: var(--color-neutral);
     }
     &--primary {
-      stroke: $color-primary;
+      stroke: var(--color-primary);
     }
     &--secondary {
-      stroke: $color-secondary;
+      stroke: var(--color-secondary);
     }
     &--success {
-      stroke: $color-success;
+      stroke: var(--color-success);
     }
     &--tertiary {
-      stroke: $color-tertiary;
+      stroke: var(--color-tertiary);
     }
     &--tertiary-dark {
-      stroke: $color-tertiary-dark;
+      stroke: var(--color-tertiary-dark);
     }
     &--tertiary-darkest {
-      stroke: $color-tertiary-darkest;
+      stroke: var(--color-tertiary-darkest);
     }
     &--tertiary-lightest {
-      stroke: $color-tertiary-lightest;
+      stroke: var(--color-tertiary-lightest);
     }
     &--warning {
-      stroke: $color-warning;
+      stroke: var(--color-warning);
     }
     &--white {
-      stroke: $color-white;
+      stroke: var(--color-white);
     }
   }
 }

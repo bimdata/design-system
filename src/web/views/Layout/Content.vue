@@ -79,7 +79,7 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA VARIABLES
-@import "../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../assets/css/_BIMDataVariables.css";
 
 // import COMPONENT STYLE
 @import "./_DesignSystem-content.scss";

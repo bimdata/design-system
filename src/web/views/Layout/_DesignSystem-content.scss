@@ -11,7 +11,7 @@
       min-height: 250px;
       display: inline-flex;
       flex-grow: 1;
-      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+      box-shadow: var(--box-shadow);
       transition: all ease 0.1s;
       ::v-deep &__content {
         width: 100%;
@@ -23,7 +23,7 @@
           justify-content: center;
           h5,
           p {
-            color: $color-primary;
+            color: var(--color-primary);
           }
           p {
             height: 60px;
@@ -35,20 +35,20 @@
           button {
             margin: 0.5em 0;
             svg {
-              margin-left: $spacing-unit;
+              margin-left: var(--spacing-unit);
             }
           }
         }
       }
       &.bimdata-card__secondary {
-        background-color: $color-secondary;
+        background-color: var(--color-secondary);
         h5,
         p {
-          color: $color-primary;
+          color: var(--color-primary);
         }
       }
       &:hover {
-        box-shadow: 0 2px 10px 0 rgba($color-black, 0.2);
+        box-shadow: var(--box-shadow);
         transition: all ease 0.1s;
       }
     }

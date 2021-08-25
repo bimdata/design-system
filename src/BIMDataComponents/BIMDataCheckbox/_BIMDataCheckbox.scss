@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-size: calculateEm(14px);
   cursor: pointer;
   user-select: none;
@@ -19,7 +19,7 @@
     position: relative;
     top: 0;
     left: 0;
-    border: solid 1px $color-primary;
+    border: solid 1px var(--color-primary);
     border-radius: 2px;
     box-sizing: border-box;
     &::after {
@@ -44,14 +44,15 @@
 /* custom CHECKMARK CHECKED ------------------------------------ */
 .bimdata-checkbox.checked > .bimdata-checkbox__mark,
 .bimdata-checkbox.indeterminate > .bimdata-checkbox__mark {
-  background-color: $color-primary;
+  background-color: var(--color-primary);
 }
-.bimdata-checkbox:not(.indeterminate):not(.checked) > .bimdata-checkbox__mark::after {
+.bimdata-checkbox:not(.indeterminate):not(.checked)
+  > .bimdata-checkbox__mark::after {
   border-color: transparent;
 }
 .bimdata-checkbox:not(.indeterminate) > .bimdata-checkbox__mark::after,
 .bimdata-checkbox.checked > .bimdata-checkbox__mark::after {
-  border: solid 1px $color-white;
+  border: solid 1px var(--color-white);
   border-left: none;
   border-top: none;
   border-width: 0 1px 1px 0;
@@ -67,15 +68,15 @@
   &.disabled {
     cursor: default;
     & > .bimdata-checkbox__mark {
-      border-color: $color-tertiary;
+      border-color: var(--color-tertiary);
     }
     > .bimdata-checkbox__text {
-      color: $color-tertiary;
+      color: var(--color-tertiary);
     }
   }
   &.checked.disabled {
     & > .bimdata-checkbox__mark {
-      background-color: $color-tertiary;
+      background-color: var(--color-tertiary);
     }
   }
 }

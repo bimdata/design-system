@@ -1,12 +1,12 @@
-@import "@/assets/scss/_BIMDataVariables.scss";
+@import "../assets/css/_BIMDataVariables.css";
 
 html,
 body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: $primary-font;
-  color: $color-primary;
+  font-family: var(--primary-font);
+  color: var(--color-primary);
   display: flex;
   overflow: hidden;
 }
@@ -37,19 +37,19 @@ pre[class*="language-"] {
   }
   .bimdata-btn {
     position: absolute;
-    top: calc(#{$spacing-unit} / 2);
-    right: calc(#{$spacing-unit} / 2);
+    top: calc(var(--spacing-unit) / 2);
+    right: calc(var(--spacing-unit) / 2);
     cursor: pointer;
     &__fill--secondary {
       border: none;
-      color: $color-primary;
-      background-color: $color-secondary;
+      color: var(--color-primary);
+      background-color: var(--color-secondary);
       border-radius: 3px;
       font-size: 11px;
       line-height: 18px;
       transition: all 0.25s ease-in;
       &:hover {
-        background-color: lighten($color-secondary, 10%);
+        background-color: var(--color-secondary-400);
         transition: all 0.25s ease-in;
       }
     }
@@ -84,10 +84,10 @@ pre[class*="language-"] {
 
 /* custom HIGHLIGHT */
 .code-highlight {
-  background-color: $color-tertiary-lightest;
+  background-color: var(--color-tertiary-lightest);
   padding: 3px 5px;
   margin: 0 2px;
   border-radius: 2px;
-  color: #2f374a;
+  color: var(--color-primary);
   font-weight: bold;
 }

@@ -1,28 +1,132 @@
 :root{
-  /* base COLORS --------------------------------------------- */
-  /* brand colors*/
-  --color-primary: rgba(47, 55, 74, 1);
-  --color-secondary: rgba(249, 199, 44, 1);
-  --color-tertiary: rgba(216, 216, 216, 1);
+  /* base COLORS ------------------------------------------- */
+  /* lightness & darkness transform base values */
+  --lightnessTransform: 10%;
+  --darknessTransform: 10%;
 
-  /* variant colors*/
-  --color-tertiary-lightest: rgba(247, 247, 247, 1);
-  --color-tertiary-dark: rgba(123, 123, 123, 1);
-  --color-tertiary-darkest: rgba(96, 96, 96, 1);
+  /* ------------------------------------------
+  color PRIMARY
+  --------------------------------------------- */
+  /* hsl primary color */
+  --color-primary-h: 222;
+  --color-primary-s: 22%;
+  --color-primary-l: 24%;
+  /* primary color variables */
+  --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+  --color-primary-600: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - var(--darknessTransform)));
+  --color-primary-400: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) + var(--lightnessTransform)));
+  --color-primary-100: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) + 73%));
 
-  /* common colors*/
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
+  /* ------------------------------------------
+  color SECONDARY
+  --------------------------------------------- */
+  /* hsl secondary color */
+  --color-secondary-h: 45;
+  --color-secondary-s: 94%;
+  --color-secondary-l: 57%;
+  /* secondary color variables */
+  --color-secondary: hsl(var(--color-secondary-h), var(--color-secondary-s), var(--color-secondary-l));
+  --color-secondary-600: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) - var(--darknessTransform)));
+  --color-secondary-400: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) + var(--lightnessTransform)));
+  --color-secondary-100: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) + 40%));
 
-  /* state colors*/
-  --color-neutral: rgba(32, 93, 189, 1);
-  --color-success: rgba(0, 175, 80, 1);
-  --color-disabled: rgba(189, 189, 189, 1);
-  --color-warning: rgba(255, 145, 0, 1);
-  --color-high: rgba(255, 61, 30, 1);
+  /* ------------------------------------------
+  color TERTIARY
+  --------------------------------------------- */
+  /* hsl tertiary color */
+  --color-tertiary-h: 0;
+  --color-tertiary-s: 0%;
+  --color-tertiary-l: 85%;
+  /* tertiary color variables */
+  --color-tertiary: hsl(var(--color-tertiary-h), var(--color-tertiary-s), var(--color-tertiary-l));
+  --color-tertiary-600: hsl(var(--color-tertiary-h), var(--color-tertiary-s), calc(var(--color-tertiary-l) - var(--darknessTransform)));
+  --color-tertiary-400: hsl(var(--color-tertiary-h), var(--color-tertiary-s), calc(var(--color-tertiary-l) + var(--lightnessTransform)));
+  --color-tertiary-100: hsl(var(--color-tertiary-h), var(--color-tertiary-s), calc(var(--color-tertiary-l) + 12%));
+
+  /* hsl tertiary dark color */
+  --color-tertiary-dark-h: 0;
+  --color-tertiary-dark-s: 0%;
+  --color-tertiary-dark-l: 48%;
+  /* tertiary dark color variables */
+  --color-tertiary-dark: hsl(var(--color-tertiary-dark-h), var(--color-tertiary-dark-s), var(--color-tertiary-dark-l));
+  --color-tertiary-dark-600: hsl(var(--color-tertiary-dark-h), var(--color-tertiary-dark-s), calc(var(--color-tertiary-dark-l) - var(--darknessTransform)));
+  --color-tertiary-dark-400: hsl(var(--color-tertiaryv-h), var(--color-tertiary-dark-s), calc(var(--color-tertiary-dark-l) + var(--lightnessTransform)));
+  --color-tertiary-dark-100: hsl(var(--color-tertiary-dark-h), var(--color-tertiary-dark-s), calc(var(--color-tertiary-dark-l) + 49%));
+
+  /* tertiary lightest color variables */
+  --color-tertiary-lightest: var(--color-tertiary-100);
+  --color-tertiary-darkest: var(--color-tertiary-dark-600);
+
+  /* ------------------------------------------
+  colors STATE
+  --------------------------------------------- */
+  /* hsl neutral color */
+  --color-neutral-h: 217;
+  --color-neutral-s: 71%;
+  --color-neutral-l: 43%;
+  /* neutral color variables */
+  --color-neutral: hsl(var(--color-neutral-h), var(--color-neutral-s), var(--color-neutral-l));
+  --color-neutral-600: hsl(var(--color-neutral-h), var(--color-neutral-s), calc(var(--color-neutral-l) - var(--darknessTransform)));
+  --color-neutral-400: hsl(var(--color-neutral-h), var(--color-neutral-s), calc(var(--color-neutral-l) + var(--lightnessTransform)));
+  --color-neutral-100: hsl(var(--color-neutral-h), var(--color-neutral-s), calc(var(--color-neutral-l) + 54%));
+
+  /* hsl success color */
+  --color-success-h: 147;
+  --color-success-s: 100%;
+  --color-success-l: 34%;
+  /* success color variables */
+  --color-success: hsl(var(--color-success-h), var(--color-success-s), var(--color-success-l));
+  --color-success-600: hsl(var(--color-success-h), var(--color-success-s), calc(var(--color-success-l) - var(--darknessTransform)));
+  --color-success-400: hsl(var(--color-success-h), var(--color-success-s), calc(var(--color-success-l) + var(--lightnessTransform)));
+  --color-success-100: hsl(var(--color-success-h), var(--color-success-s), calc(var(--color-success-l) + 63%));
+
+   /* hsl disabled color */
+   --color-disabled-h: 0;
+   --color-disabled-s: 0%;
+   --color-disabled-l: 74%;
+   /* disabled color variables */
+   --color-disabled: hsl(var(--color-disabled-h), var(--color-disabled-s), var(--color-disabled-l));
+   --color-disabled-600: hsl(var(--color-disabled-h), var(--color-disabled-s), calc(var(--color-disabled-l) - var(--darknessTransform)));
+   --color-disabled-400: hsl(var(--color-disabled-h), var(--color-disabled-s), calc(var(--color-disabled-l) + var(--lightnessTransform)));
+   --color-disabled-100: hsl(var(--color-disabled-h), var(--color-disabled-s), calc(var(--color-disabled-l) + 23%));
+
+  /* hsl warning color */
+  --color-warning-h: 34;
+  --color-warning-s: 100%;
+  --color-warning-l: 50%;
+  /* warning color variables */
+  --color-warning: hsl(var(--color-warning-h), var(--color-warning-s), var(--color-warning-l));
+  --color-warning-600: hsl(var(--color-warning-h), var(--color-warning-s), calc(var(--color-warning-l) - var(--darknessTransform)));
+  --color-warning-400: hsl(var(--color-warning-h), var(--color-warning-s), calc(var(--color-warning-l) + var(--lightnessTransform)));
+  --color-warning-100: hsl(var(--color-warning-h), var(--color-warning-s), calc(var(--color-warning-l) + 47%));
+
+  /* hsl high color */
+  --color-high-h: 8;
+  --color-high-s: 100%;
+  --color-high-l: 56%;
+  /* high color variables */
+  --color-high: hsl(var(--color-high-h), var(--color-high-s), var(--color-high-l));
+  --color-high-600: hsl(var(--color-high-h), var(--color-high-s), calc(var(--color-high-l) - var(--darknessTransform)));
+  --color-high-400: hsl(var(--color-high-h), var(--color-high-s), calc(var(--color-high-l) + var(--lightnessTransform)));
+  --color-high-100: hsl(var(--color-high-h), var(--color-high-s), calc(var(--color-high-l) + 41%));
+
+   /* ------------------------------------------
+  colors COMMON
+  --------------------------------------------- */
+  --color-white: rgba(255, 255, 255);
+   /* hsl black color */
+   --color-black-h: 0;
+   --color-black-s: 0%;
+   --color-black-l: 0%;
+   /* black color variables */
+   --color-black: hsl(var(--color-black-h), var(--color-black-s), var(--color-black-l));
+   --color-black-100: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), .1);
 
   /* base FONT SIZE ----------------------------------------- */
   --font-size: 14px;
+
+  /* base BOX-SHADOW ----------------------------------------- */
+  --box-shadow: 0px 2px 10px var(--color-black-100);
 
   /* base SPACING UNIT -------------------------------------- */
   --spacing-unit: 12px;
