@@ -43,7 +43,7 @@
         &__item {
           padding: calc(var(--spacing-unit) / 2) 0;
           .label {
-            color: var(--color-primary-600);
+            color: lightness(var(--color-primary), 0.8);
           }
           .value {
             position: relative;

@@ -20,20 +20,11 @@
   @return hsla($color-h, $color-s, $color-l, $opacity);
 }
 
-@function lighten($color, $lightnessTransform) {
+@function lightness($color, $lightnessTransform) {
   $color: str-replace($color, "var(");
   $color: str-replace($color, ")");
   $color-h: var(#{$color + "-h"});
   $color-s: var(#{$color + "-s"});
   $color-l: var(#{$color + "-l"});
-  @return hsl($color-h, $color-s, calc(#{$color-l} + #{$lightnessTransform}));
-}
-
-@function darken($color, $darknessTransform) {
-  $color: str-replace($color, "var(");
-  $color: str-replace($color, ")");
-  $color-h: var(#{$color + "-h"});
-  $color-s: var(#{$color + "-s"});
-  $color-l: var(#{$color + "-l"});
-  @return hsl($color-h, $color-s, calc(#{$color-l} - #{$darknessTransform}));
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessTransform}));
 }

@@ -1,4 +1,4 @@
-@import "../assets/css/_BIMDataVariables.css";
+@import "../assets/scss/_BIMDataVariables.scss";
 
 html,
 body {
@@ -49,7 +49,7 @@ pre[class*="language-"] {
       line-height: 18px;
       transition: all 0.25s ease-in;
       &:hover {
-        background-color: var(--color-secondary-400);
+        background-color: lightness(var(--color-secondary), 0.8);
         transition: all 0.25s ease-in;
       }
     }

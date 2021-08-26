@@ -46,7 +46,7 @@
       background-color: var(--color-primary);
       color: var(--color-white);
       &:hover {
-        background-color: var(--color-primary-400);
+        background-color: lightness(var(--color-primary), 1.2);
       }
     }
     /* style BIMDATA BTN SECONDARY FILL ---------- */
@@ -54,9 +54,7 @@
       background-color: var(--color-secondary);
       color: var(--color-primary);
       &:hover {
-        background-color: var(--color-secondary-400);
-
-        // background-color: hsl(var(--color-secondary), 10%);
+        background-color: lightness(var(--color-secondary), 1.2);
       }
     }
     /* style BIMDATA BTN GREY FILL ------------- */
@@ -64,7 +62,7 @@
       background-color: var(--color-tertiary-dark);
       color: var(--color-white);
       &:hover {
-        background-color: var(--color-tertiary-darkest);
+        background-color: lightness(var(--color-tertiary-dark), 1.2);
       }
     }
     /* style BIMDATA BTN RED FILL ------------- */
@@ -72,7 +70,7 @@
       background-color: var(--color-high);
       color: var(--color-white);
       &:hover {
-        background: var(--color-high-400);
+        background: lightness(var(--color-high), 1.1);
       }
     }
     /* style BIMDATA BTN FILL BTN ICON --------- */
@@ -117,7 +115,7 @@
           center/15000%;
       }
       &:active {
-        background-color: var(--color-primary-400);
+        background-color: lightness(var(--color-primary), 1.8);
         background-size: 100%;
         transition: background 0s;
       }
@@ -131,7 +129,7 @@
           center/15000%;
       }
       &:active {
-        background-color: var(--color-secondary-400);
+        background-color: lightness(var(--color-secondary), 1.2);
         background-size: 100%;
         transition: background 0s;
       }
@@ -163,7 +161,7 @@
           center/15000%;
       }
       &:active {
-        background-color: var(--color-high-400);
+        background-color: lightness(var(--color-high), 1.2);
         background-size: 100%;
         transition: background 0s;
       }
@@ -228,13 +226,13 @@
     &--primary {
       color: var(--color-primary);
       &:hover {
-        background-color: var(--color-primary-100);
+        background-color: lightness(var(--color-primary), 4);
       }
     }
     &--secondary {
       color: var(--color-secondary);
       &:hover {
-        background-color: var(--color-secondary-100);
+        background-color: lightness(var(--color-secondary), 1.7);
       }
     }
     &--tertiary-darkest {
@@ -246,29 +244,12 @@
     &--high {
       color: var(--color-high);
       &:hover {
-        background-color: var(--color-high-100);
+        background-color: lightness(var(--color-high), 1.75);
       }
     }
     &:disabled {
       color: var(--color-disabled);
       cursor: auto;
     }
-  }
-}
-.bimdata-btn__icon.bimdata-btn__ripple {
-  &.bimdata-btn__ripple--default {
-    @include darkenRipple(var(--color-tertiary-lightest), 20, 20%);
-  }
-  &.bimdata-btn__ripple--primary {
-    @include lightenRipple(var(--color-primary), 20, 50%);
-  }
-  &.bimdata-btn__ripple--secondary {
-    @include lightenRipple(var(--color-secondary), 20, 50%);
-  }
-  &.bimdata-btn__ripple--tertiary-darkest {
-    @include lightenRipple(var(--color-tertiary-darkest), 20, 50%);
-  }
-  &.bimdata-btn__ripple--high {
-    @include lightenRipple(var(--color-high), 20, 50%);
   }
 }

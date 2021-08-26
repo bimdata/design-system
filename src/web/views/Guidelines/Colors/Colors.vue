@@ -784,9 +784,10 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA VARIABLES
-@import "../../../../assets/css/_BIMDataVariables.css";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA MIXINS
+@import "../../../../assets/scss/mixins/_colors-variation.scss";
 @import "../../../../assets/scss/mixins/_font-size.scss";
 
 // import ALERT COMPONENT STYLE

@@ -319,6 +319,6 @@ export default {
 </style>
 
 <style lang="css">
-@import "../../../../assets/css/_BIMDataVariables.css";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 @import "./buttons.css";
 </style>

@@ -570,7 +570,7 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA COMPONENT VARIABLES
-@import "../../../../../assets/css/_BIMDataVariables.css";
+@import "../../../../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA UTILITIES
 @import "../../../../../assets/scss/utilities/_flex.scss";

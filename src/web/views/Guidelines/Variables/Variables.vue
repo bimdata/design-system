@@ -9,7 +9,7 @@
         code into your project:</BIMDataText
       >
       <Code language="css">
-        @import "@/assets/css/_BIMDataVariables.css";
+        @import "@/assets/scss/_BIMDataVariables.scss";
       </Code>
       <div class="m-y-12">
         <BIMDataText component="h6" color="color-primary"
@@ -155,7 +155,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../assets/css/_BIMDataVariables.css";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 @import "../../../../assets/scss/utilities/_colors.scss";
 </style>

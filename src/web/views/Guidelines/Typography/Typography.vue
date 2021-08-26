@@ -128,7 +128,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../assets/css/_BIMDataVariables.css";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 @import "./_Typography.scss";
 </style>

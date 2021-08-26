@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/css/_BIMDataVariables.css";
+@import "../../../assets/scss/_BIMDataVariables.scss";
 @import "../../../assets/scss/utilities/_list.scss";
 @import "../../../assets/scss/mixins/_font-size.scss";
 

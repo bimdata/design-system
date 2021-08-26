@@ -47,6 +47,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/css/_BIMDataVariables.css";
+@import "../../assets/scss/_BIMDataVariables.scss";
 @import "./_BIMDataToggle.scss";
 </style>

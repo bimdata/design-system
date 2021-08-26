@@ -14,8 +14,7 @@
     left: -2px;
     top: -2px;
     border-radius: 50%;
-    // background-color: alpha(var(--color-primary), 0.6);
-    background-color: var(--color-primary-600);
+    background-color: lightness(var(--color-primary), 0.8);
     outline: none;
     opacity: 0;
     transform: scale(1);
@@ -25,7 +24,7 @@
     z-index: -1;
     // custom CHECKED
     &:checked {
-      background-color: var(--color-primary-400);
+      background-color: lightness(var(--color-primary), 0.8);
       & + span {
         &::before {
           border-color: var(--color-primary);
@@ -64,7 +63,7 @@
     }
     // custom CIRCLE
     &::before {
-      border: 1px solid var(--color-primary-600);
+      border: 1px solid lightness(var(--color-primary), 0.8);
       width: 13px;
       height: 13px;
       top: 3px;

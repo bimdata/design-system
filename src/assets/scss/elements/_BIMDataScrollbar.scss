@@ -7,7 +7,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: var(--color-tertiary-dark-400);
+  background-color: lightness(var(--color-tertiary-lightest), 0.9);
 }
 
 /* Handle */

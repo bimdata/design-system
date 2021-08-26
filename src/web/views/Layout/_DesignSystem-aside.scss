@@ -31,7 +31,7 @@
         &.router-link-exact-active {
           &:hover {
             &::before {
-              background-color: var(--color-primary-600);
+              background-color: lightness(var(--color-primary), 0.8);
             }
           }
           &::before {
@@ -40,7 +40,7 @@
         }
         &:hover {
           &::before {
-            background-color: var(--color-primary-600);
+            background-color: lightness(var(--color-primary), 0.8);
           }
         }
         &::before {

@@ -268,7 +268,7 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/css/_BIMDataVariables.css";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA COMPONENT MIXINS
 @import "../../../../assets/scss/mixins/_font-size.scss";
