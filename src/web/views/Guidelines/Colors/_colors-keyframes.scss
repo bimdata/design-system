@@ -27,7 +27,7 @@
     background-color: var(--color-primary);
   }
   100% {
-    background-color: lightness(var(--color-primary), 8);
+    background-color: var(--color-primary-400);
   }
 }
 @keyframes color2 {
@@ -35,7 +35,7 @@
     background-color: var(--color-secondary);
   }
   100% {
-    background-color: lightness(var(--color-secondary), 0.8);
+    background-color: var(--color-secondary-400);
   }
 }
 @keyframes color3 {

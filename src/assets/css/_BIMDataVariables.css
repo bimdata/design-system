@@ -1,113 +1,85 @@
-:root{
+:root {
   /* base COLORS ------------------------------------------- */
-  /* lightness & darkness transform base values */
-  --lightnessTransform: 10%;
-  --darknessTransform: 10%;
+  /* --------------------------------
+  color PRIMARY & VARIANTS -------------------------------- */
+  --color-primary-100: rgba(248, 249, 250, 1);
+  --color-primary-400: rgba(67, 78, 105, 1);
+  --color-primary: rgba(47, 55, 74, 1);
+  --color-primary-600: rgba(27, 32, 43, 1);
 
-  /* ------------------------------------------
-  color PRIMARY
-  --------------------------------------------- */
-  /* hsl primary color */
-  --color-primary-h: 222;
-  --color-primary-s: 22%;
-  --color-primary-l: 24%;
-  /* primary color variables */
-  --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+  /* --------------------------------
+  color SECONDARY & VARIANTS -------------------------------- */
+  --color-secondary-100: rgba(255, 252, 242, 1);
+  --color-secondary-400: rgba(250, 212, 94, 1);
+  --color-secondary: rgba(249, 199, 44, 1);
+  --color-secondary-600: rgba(235, 180, 7, 1);
 
-  /* ------------------------------------------
-  color SECONDARY
-  --------------------------------------------- */
-  /* hsl secondary color */
-  --color-secondary-h: 45;
-  --color-secondary-s: 94%;
-  --color-secondary-l: 57%;
-  /* secondary color variables */
-  --color-secondary: hsl(var(--color-secondary-h), var(--color-secondary-s), var(--color-secondary-l));
+  /* --------------------------------
+  color TERTIARY & VARIANTS -------------------------------- */
+  --color-tertiary-100: rgba(250, 250, 250, 1);
+  --color-tertiary-400: rgba(229, 229, 229, 1);
+  --color-tertiary: rgba(216, 216, 216, 1);
+  --color-tertiary-600: rgba(190, 190, 190, 1);
 
-  /* ------------------------------------------
-  color TERTIARY
-  --------------------------------------------- */
-  /* hsl tertiary color */
-  --color-tertiary-h: 0;
-  --color-tertiary-s: 0%;
-  --color-tertiary-l: 85%;
-  /* tertiary color variables */
-  --color-tertiary: hsl(var(--color-tertiary-h), var(--color-tertiary-s), var(--color-tertiary-l));
+  /* --------------------------------
+  color TERTIARY LIGHTEST & VARIANTS -------------------------------- */
+  --color-tertiary-lightest: rgba(247, 247, 247, 1);
+  --color-tertiary-lightest-600: rgba(221, 221, 221, 1);
 
-  /* hsl tertiary dark color */
-  --color-tertiary-dark-h: 0;
-  --color-tertiary-dark-s: 0%;
-  --color-tertiary-dark-l: 48%;
-  /* tertiary dark color variables */
-  --color-tertiary-dark: hsl(var(--color-tertiary-dark-h), var(--color-tertiary-dark-s), var(--color-tertiary-dark-l));
+  /* --------------------------------
+  color TERTIARY DARK & VARIANTS -------------------------------- */
+  --color-tertiary-dark-100: rgba(238, 238, 238, 1);
+  --color-tertiary-dark-400: rgba(148, 148, 148, 1);
+  --color-tertiary-dark: rgba(123, 123, 123, 1);
+  --color-tertiary-dark-600: rgba(97, 97, 97, 1);
 
-  /* tertiary lightest color variables */
-  --color-tertiary-lightest-h: 0;
-  --color-tertiary-lightest-s: 0%;
-  --color-tertiary-lightest-l: 97%;
-  --color-tertiary-lightest: hsl(
-    var(--color-tertiary-lightest-h),
-    var(--color-tertiary-lightest-s),
-    var(--color-tertiary-lightest-l)
-  );
+  /* --------------------------------
+  color TERTIARY DARKEST & VARIANTS -------------------------------- */
+  --color-tertiary-darkest-100: rgba(247, 247, 247, 1);
+  --color-tertiary-darkest-400: rgba(121, 121, 121, 1);
+  --color-tertiary-darkest: rgba(96, 96, 96, 1);
+  --color-tertiary-darkest-600: rgba(70, 70, 70, 1);
 
-  --color-tertiary-darkest-h: 0;
-  --color-tertiary-darkest-s: 0%;
-  --color-tertiary-darkest-l: 75%;
-  --color-tertiary-darkest: hsl(
-    var(--color-tertiary-darkest-h),
-    var(--color-tertiary-darkest-s),
-    var(--color-tertiary-darkest-l)
-  );
+  /* --------------------------------
+  color WHITE -------------------------------- */
+  --color-white: rgba(255, 255, 255, 1);
 
-  /* ------------------------------------------
-  colors STATE
-  --------------------------------------------- */
-  /* hsl neutral color */
-  --color-neutral-h: 217;
-  --color-neutral-s: 71%;
-  --color-neutral-l: 43%;
-  /* neutral color variables */
-  --color-neutral: hsl(var(--color-neutral-h), var(--color-neutral-s), var(--color-neutral-l));
+  /* --------------------------------
+  color BLACK & VARIANTS -------------------------------- */
+  --color-black-100: rgba(0, 0, 0, 0.1);
+  --color-black: rgba(0, 0, 0, 1);
 
-  /* hsl success color */
-  --color-success-h: 147;
-  --color-success-s: 100%;
-  --color-success-l: 34%;
-  /* success color variables */
-  --color-success: hsl(var(--color-success-h), var(--color-success-s), var(--color-success-l));
+  /* --------------------------------
+  color NEUTRAL & VARIANTS -------------------------------- */
+  --color-neutral-100: rgba(226, 235, 250, 1);
+  --color-neutral-400: rgba(51, 116, 221, 1);
+  --color-neutral: rgba(32, 93, 189, 1);
+  --color-neutral-600: rgba(25, 71, 145, 1);
 
-   /* hsl disabled color */
-   --color-disabled-h: 0;
-   --color-disabled-s: 0%;
-   --color-disabled-l: 74%;
-   /* disabled color variables */
-   --color-disabled: hsl(var(--color-disabled-h), var(--color-disabled-s), var(--color-disabled-l));
+  /* --------------------------------
+  color SUCCESS & VARIANTS -------------------------------- */
+  --color-success-100: rgba(226, 255, 239, 1);
+  --color-success-400: rgba(0, 226, 102, 1);
+  --color-success: rgba(0, 175, 80, 1);
+  --color-success-600: rgba(0, 124, 56, 1);
 
-  /* hsl warning color */
-  --color-warning-h: 34;
-  --color-warning-s: 100%;
-  --color-warning-l: 50%;
-  /* warning color variables */
-  --color-warning: hsl(var(--color-warning-h), var(--color-warning-s), var(--color-warning-l));
+  /* --------------------------------
+  color DISABLED & VARIANTS -------------------------------- */
+  --color-disabled: rgba(189, 189, 189, 1);
 
-  /* hsl high color */
-  --color-high-h: 8;
-  --color-high-s: 100%;
-  --color-high-l: 56%;
-  /* high color variables */
-  --color-high: hsl(var(--color-high-h), var(--color-high-s), var(--color-high-l));
+  /* --------------------------------
+  color WARNING & VARIANTS -------------------------------- */
+  --color-warning-100: rgba(255, 233, 204, 1);
+  --color-warning-400: rgba(255, 167, 51, 1);
+  --color-warning: rgba(255, 145, 0, 1);
+  --color-warning-600: rgba(204, 116, 0, 1);
 
-   /* ------------------------------------------
-  colors COMMON
-  --------------------------------------------- */
-  --color-white: rgba(255, 255, 255);
-   /* hsl black color */
-   --color-black-h: 0;
-   --color-black-s: 0%;
-   --color-black-l: 0%;
-   /* black color variables */
-   --color-black: hsl(var(--color-black-h), var(--color-black-s), var(--color-black-l));
+  /* --------------------------------
+  color HIGH & VARIANTS -------------------------------- */
+  --color-high-100: rgba(255, 237, 234, 1);
+  --color-high-400: rgba(255, 104, 81, 1);
+  --color-high: rgba(255, 61, 30, 1);
+  --color-high-600: rgba(234, 31, 0, 1);
 
   /* base FONT SIZE ----------------------------------------- */
   --font-size: 14px;

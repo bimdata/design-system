@@ -46,7 +46,7 @@
       background-color: var(--color-primary);
       color: var(--color-white);
       &:hover {
-        background-color: lightness(var(--color-primary), 1.2);
+        background-color: var(--color-primary-400);
       }
     }
     /* style BIMDATA BTN SECONDARY FILL ---------- */
@@ -54,15 +54,15 @@
       background-color: var(--color-secondary);
       color: var(--color-primary);
       &:hover {
-        background-color: lightness(var(--color-secondary), 1.2);
+        background-color: var(--color-secondary-400);
       }
     }
     /* style BIMDATA BTN GREY FILL ------------- */
     &--tertiary-darkest {
-      background-color: var(--color-tertiary-dark);
+      background-color: var(--color-tertiary-darkest);
       color: var(--color-white);
       &:hover {
-        background-color: lightness(var(--color-tertiary-dark), 1.2);
+        background-color: var(--color-tertiary-darkest-400);
       }
     }
     /* style BIMDATA BTN RED FILL ------------- */
@@ -70,7 +70,7 @@
       background-color: var(--color-high);
       color: var(--color-white);
       &:hover {
-        background: lightness(var(--color-high), 1.1);
+        background-color: var(--color-high-400);
       }
     }
     /* style BIMDATA BTN FILL BTN ICON --------- */
@@ -101,6 +101,7 @@
           center/15000%;
       }
       &:active {
+        // background-color: var(--color-tertiary--lightest-600);
         background-color: var(--color-tertiary-lightest);
         background-size: 100%;
         transition: background 0s;
@@ -115,7 +116,7 @@
           center/15000%;
       }
       &:active {
-        background-color: lightness(var(--color-primary), 1.8);
+        background-color: var(--color-primary-400);
         background-size: 100%;
         transition: background 0s;
       }
@@ -129,7 +130,7 @@
           center/15000%;
       }
       &:active {
-        background-color: lightness(var(--color-secondary), 1.2);
+        background-color: var(--color-secondary-400);
         background-size: 100%;
         transition: background 0s;
       }
@@ -147,7 +148,7 @@
           center/15000%;
       }
       &:active {
-        background-color: var(--color-tertiary-dark);
+        background-color: var(--color-tertiary-dark-400);
         background-size: 100%;
         transition: background 0s;
       }
@@ -161,7 +162,7 @@
           center/15000%;
       }
       &:active {
-        background-color: lightness(var(--color-high), 1.2);
+        background-color: var(--color-high-400);
         background-size: 100%;
         transition: background 0s;
       }
@@ -174,35 +175,35 @@
       border-color: var(--color-tertiary);
       color: var(--color-primary);
       &:hover {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-tertiary-100);
       }
     }
     &--primary {
       border-color: var(--color-primary);
       color: var(--color-primary);
       &:hover {
-        background-color: alpha(var(--color-primary), 4%);
+        background-color: var(--color-primary-100);
       }
     }
     &--secondary {
       border-color: var(--color-secondary);
       color: var(--color-primary);
       &:hover {
-        background-color: alpha(var(--color-secondary), 6%);
+        background-color: var(--color-secondary-100);
       }
     }
     &--tertiary-darkest {
-      border-color: var(--color-tertiary-dark);
-      color: var(--color-tertiary-dark);
+      border-color: var(--color-tertiary-darkest);
+      color: var(--color-tertiary-darkest);
       &:hover {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-tertiary-darkest-100);
       }
     }
     &--high {
       border-color: var(--color-high);
       color: var(--color-high);
       &:hover {
-        background-color: alpha(var(--color-high), 6%);
+        background-color: var(--color-high-100);
       }
     }
     &:disabled {
@@ -220,31 +221,31 @@
     &--default {
       color: var(--color-primary);
       &:hover {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-tertiary-100);
       }
     }
     &--primary {
       color: var(--color-primary);
       &:hover {
-        background-color: lightness(var(--color-primary), 4);
+        background-color: var(--color-primary-100);
       }
     }
     &--secondary {
       color: var(--color-secondary);
       &:hover {
-        background-color: lightness(var(--color-secondary), 1.7);
+        background-color: var(--color-secondary-100);
       }
     }
     &--tertiary-darkest {
-      color: var(--color-tertiary-dark);
+      color: var(--color-tertiary-darkest);
       &:hover {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-tertiary-darkest-100);
       }
     }
     &--high {
       color: var(--color-high);
       &:hover {
-        background-color: lightness(var(--color-high), 1.75);
+        background-color: var(--color-high-100);
       }
     }
     &:disabled {
