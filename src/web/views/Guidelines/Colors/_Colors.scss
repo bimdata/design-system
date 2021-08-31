@@ -2,9 +2,10 @@
   .color-swatches {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-end;
     .color-swatche {
-      margin: 12px 24px 12px 0;
-      width: 254px;
+      margin: 12px 12px 12px 0;
+      width: 260px;
       box-shadow: var(--box-shadow);
       overflow: hidden;
       &__header,
@@ -24,7 +25,7 @@
         }
       }
       &__header {
-        height: 140px;
+        height: 90px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -43,7 +44,7 @@
         &__item {
           padding: calc(var(--spacing-unit) / 2) 0;
           .label {
-            color: lightness(var(--color-primary), 0.8);
+            color: var(--color-primary-400);
           }
           .value {
             position: relative;
@@ -55,6 +56,16 @@
             }
           }
         }
+      }
+      &:first-child {
+        margin: 12px 50px 12px 0;
+        width: 320px;
+        .color-swatche__header {
+          height: 140px;
+        }
+      }
+      &:nth-child(2) {
+        border: 1px solid var(--color-tertiary-dark-100);
       }
     }
   }
