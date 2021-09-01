@@ -32,19 +32,20 @@
       <BIMDataText component="h5" color="color-primary" margin="10px 0"
         >Primary Color & variants</BIMDataText
       >
-      <PrimaryColors :primaryColor="primaryColors" />
+      <ColorSwatche :colors="primaryColors"></ColorSwatche>
 
       <!-- color SECONDARY -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Secondary Color & variants</BIMDataText
       >
-      <SecondaryColors :secondaryColor="secondaryColors" />
+      <ColorSwatche :colors="secondaryColors"></ColorSwatche>
 
       <!-- color TERTIARY -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Tertiary Color & variants</BIMDataText
       >
-      <TertiaryColors :tertiaryColor="tertiaryColors" />
+      <ColorSwatche :colors="tertiaryColors"></ColorSwatche>
+      <!-- <TertiaryColors :tertiaryColor="tertiaryColors" /> -->
 
       <!----------------------------------
         VARIANT COLORS
@@ -56,19 +57,19 @@
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Tertiary Lightest Color & variants</BIMDataText
       >
-      <TertiaryLightestColors :tertiaryLightestColor="tertiaryLightestColor" />
+      <ColorSwatche :colors="tertiaryLightestColors"></ColorSwatche>
 
       <!-- color TERTIARY DARK -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Tertiary Dark Color & variants</BIMDataText
       >
-      <TertiaryDarkColors :tertiaryDarkColor="tertiaryDarkColor" />
+      <ColorSwatche :colors="tertiaryDarkColors"></ColorSwatche>
 
       <!-- color TERTIARY DARKEST -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Tertiary Darkest Color & variants</BIMDataText
       >
-      <TertiaryDarkestColors :tertiaryDarkestColor="tertiaryDarkestColor" />
+      <ColorSwatche :colors="tertiaryDarkestColors"></ColorSwatche>
 
       <!----------------------------------
         COMMON COLORS
@@ -80,13 +81,13 @@
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >White Color & variants</BIMDataText
       >
-      <WhiteColors :whiteColor="whiteColor" />
+      <ColorSwatche :colors="whiteColors"></ColorSwatche>
 
       <!-- color BLACK -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Black Color & variants</BIMDataText
       >
-      <BlackColors :blackColor="blackColor" />
+      <ColorSwatche :colors="blackColors"></ColorSwatche>
 
       <!----------------------------------
         STATE COLORS
@@ -98,32 +99,31 @@
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >High Color & variants</BIMDataText
       >
-      <HighColors :highColor="highColor" />
+      <ColorSwatche :colors="highColors"></ColorSwatche>
 
       <!-- color WARNING -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Warning Color & variants</BIMDataText
       >
-      <WarningColors :warningColor="warningColor" />
+      <ColorSwatche :colors="warningColors"></ColorSwatche>
 
       <!-- color SUCCESS -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Success Color & variants</BIMDataText
       >
-      <SuccessColors :successColor="successColor" />
+      <ColorSwatche :colors="successColors"></ColorSwatche>
 
       <!-- color NEUTRAL -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Neutral Color & variants</BIMDataText
       >
-      <NeutralColors :neutralColor="neutralColor" />
+      <ColorSwatche :colors="neutralColors"></ColorSwatche>
 
       <!-- color DISABLED -->
       <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
         >Disabled Color & variants</BIMDataText
       >
-      <DisabledColors :disabledColor="disabledColor" />
-
+      <ColorSwatche :colors="disabledColors"></ColorSwatche>
     </div>
   </main>
 </template>
@@ -131,20 +131,21 @@
 <script>
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import PrimaryColors from "./PrimaryColors.vue";
-import SecondaryColors from "./SecondaryColors.vue";
-import TertiaryColors from "./TertiaryColors.vue";
-import TertiaryLightestColors from "./TertiaryLightestColors.vue";
-import TertiaryDarkColors from "./TertiaryDarkColors.vue";
-import TertiaryDarkestColors from "./TertiaryDarkestColors.vue";
-import WhiteColors from "./WhiteColors.vue";
-import BlackColors from "./BlackColors.vue";
-import HighColors from "./HighColors.vue";
-import WarningColors from "./WarningColors.vue";
-import SuccessColors from "./SuccessColors.vue";
-import NeutralColors from "./NeutralColors.vue";
-import DisabledColors from "./DisabledColors.vue";
 
+import ColorSwatche from "./ColorSwatche.vue";
+import primaryColors from "./js/primaryColors";
+import secondaryColors from "./js/secondaryColors";
+import tertiaryColors from "./js/tertiaryColors";
+import tertiaryLightestColors from "./js/tertiaryLightestColors";
+import tertiaryDarkColors from "./js/tertiaryDarkColors";
+import tertiaryDarkestColors from "./js/tertiaryDarkestColors";
+import whiteColors from "./js/whiteColors";
+import blackColors from "./js/blackColors";
+import highColors from "./js/highColors";
+import warningColors from "./js/warningColors";
+import successColors from "./js/successColors";
+import neutralColors from "./js/neutralColors";
+import disabledColors from "./js/disabledColors";
 
 import Code from "../../Elements/Code/Code.vue";
 
@@ -153,73 +154,24 @@ export default {
     BIMDataButton,
     BIMDataText,
     Code,
-    PrimaryColors,
-    SecondaryColors,
-    TertiaryColors,
-    TertiaryLightestColors,
-    TertiaryDarkColors,
-    TertiaryDarkestColors,
-    WhiteColors,
-    BlackColors,
-    HighColors,
-    WarningColors,
-    SuccessColors,
-    NeutralColors,
-    DisabledColors,
+    ColorSwatche,
   },
-  props: {
-    primaryColors: {
-      type: Array,
-      default: () => [],
-    },
-    secondaryColors: {
-      type: Array,
-      default: () => [],
-    },
-    tertiaryColors: {
-      type: Array,
-      default: () => [],
-    },
-    tertiaryLightestColors: {
-      type: Array,
-      default: () => [],
-    },
-    tertiaryDarkColors: {
-      type: Array,
-      default: () => [],
-    },
-    tertiaryDarkestColors: {
-      type: Array,
-      default: () => [],
-    },
-    whiteColors: {
-      type: Array,
-      default: () => [],
-    },
-    blackColors: {
-      type: Array,
-      default: () => [],
-    },
-    highColors: {
-      type: Array,
-      default: () => [],
-    },
-    warningColors: {
-      type: Array,
-      default: () => [],
-    },
-    successColors: {
-      type: Array,
-      default: () => [],
-    },
-    neutralColors: {
-      type: Array,
-      default: () => [],
-    },
-    disabledColors: {
-      type: Array,
-      default: () => [],
-    },
+  data() {
+    return {
+      primaryColors,
+      secondaryColors,
+      tertiaryColors,
+      tertiaryLightestColors,
+      tertiaryDarkColors,
+      tertiaryDarkestColors,
+      whiteColors,
+      blackColors,
+      highColors,
+      warningColors,
+      successColors,
+      neutralColors,
+      disabledColors,
+    };
   },
 };
 </script>
