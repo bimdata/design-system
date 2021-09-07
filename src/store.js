@@ -269,5 +269,26 @@ export default new Vuex.Store({
         },
       ],
     },
+    "Smart Components": {
+      text: "Smart components are components that are smart.",
+      img: require("./web/assets/img/icon-components.svg"),
+      path: "smart-components",
+      children: [
+        {
+          path: "file-manager",
+          img: require("./web/assets/img/icon-list.svg"),
+          title: "FileManager",
+          text: "Navigate into a project file tree.",
+          btn: "View file manager",
+        },
+        {
+          path: "file-tree",
+          img: require("./web/assets/img/icon-list.svg"),
+          title: "FileTree",
+          text: "Display a project file tree.",
+          btn: "View file tree",
+        },
+      ],
+    },
   },
 });
