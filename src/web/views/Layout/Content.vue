@@ -14,13 +14,13 @@
         >
           <template #content>
             <router-link to="../getting-started">
-              <BIMDataText component="h5" color="color-white" margin="10px"
-                >Getting started</BIMDataText
-              >
-              <BIMDataText color="color-white"
-                >Learn how to quickly get started with our component library to
-                build expressive, consistent UI at BIMData.</BIMDataText
-              >
+              <BIMDataText component="h5" color="color-white" margin="10px">
+                Getting started
+              </BIMDataText>
+              <BIMDataText color="color-white" display="block" padding="12px 0">
+                Learn how to quickly get started with our component library to
+                build expressive, consistent UI at BIMData.
+              </BIMDataText>
               <BIMDataButton width="150" color="primary" radius fill>
                 Get started now
               </BIMDataButton>
@@ -31,22 +31,27 @@
         <BIMDataCard
           v-for="child in $store.state[$route.name].children"
           :key="child.id"
-          :class="{ 'bimdata-card__secondary': child.title === 'Variables' || child.title === 'Utilities' }"
+          :class="{
+            'bimdata-card__secondary':
+              child.title === 'Variables' || child.title === 'Utilities',
+          }"
         >
           {{ child.title }}
           <template #content>
             <router-link :to="child.path" append>
-              <img v-if="child.title !== 'Variables' || child.title !== 'Utilities'" :src="child.img" />
-              <BIMDataText component="h5" color="color-primary" margin="10px">{{
-                child.title
-              }}</BIMDataText>
-              <BIMDataText color="color-tertiary-darkest">{{ child.text }}</BIMDataText>
-              <BIMDataButton
-                width="150"
-                radius
-                fill
-                color="primary"
-              >
+              <img
+                v-if="
+                  child.title !== 'Variables' || child.title !== 'Utilities'
+                "
+                :src="child.img"
+              />
+              <BIMDataText component="h5" color="color-primary" margin="10px">
+                {{ child.title }}
+              </BIMDataText>
+              <BIMDataText color="color-tertiary-darkest">
+                {{ child.text }}
+              </BIMDataText>
+              <BIMDataButton width="150" radius fill color="primary">
                 {{ child.btn }}
               </BIMDataButton>
             </router-link>

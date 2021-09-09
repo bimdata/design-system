@@ -65,6 +65,7 @@ import path from "./Path.vue";
 import plus from "./Plus.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
+import readonlyFolder from "./ReadonlyFolder.vue";
 import redo from "./Redo.vue";
 import reduced from "./Reduced.vue";
 import refresh from "./Refresh.vue";
@@ -174,6 +175,7 @@ export default {
   plus,
   project,
   quickSelect,
+  readonlyFolder,
   redo,
   reduced,
   refresh,
