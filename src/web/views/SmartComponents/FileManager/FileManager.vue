@@ -1,6 +1,8 @@
 <template>
   <div class="main-container">
-    <BIMDataFileManager :project="project" :fileStructure="fileStructure" />
+    <div style="width: 500px; height: 500px;">
+      <BIMDataFileManager :project="project" :fileStructure="fileStructure" />
+    </div>
   </div>
 </template>
 

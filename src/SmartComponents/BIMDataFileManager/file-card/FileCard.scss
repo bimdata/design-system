@@ -1,0 +1,46 @@
+@import "../../../assets/scss/BIMDataVariables";
+
+.file-card {
+  width: 140px;
+  height: 162px;
+
+  ::v-deep {
+    .bimdata-card__content {
+      position: relative;
+      height: 96px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+
+    .bimdata-card__footer {
+      box-sizing: border-box;
+      overflow: hidden;
+      height: calc(100% - 96px);
+      padding: $spacing-unit;
+      border-top: 1px solid $color-tertiary-lightest;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__btn-menu {
+    position: absolute;
+    top: $spacing-unit / 3;
+    right: 0;
+  }
+
+  &__name {
+    font-size: 12px;
+    font-weight: bold;
+    color: $color-tertiary-darkest;
+  }
+
+  &__date {
+    font-size: 10px;
+    color: $color-tertiary-dark;
+  }
+}

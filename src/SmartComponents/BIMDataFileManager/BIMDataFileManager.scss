@@ -1,3 +1,21 @@
+@import "../../assets/scss/BIMDataVariables.scss";
+
 .bimdata-file-manager {
-  // TODO
+  width: 100%;
+  padding: $spacing-unit;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit;
+
+  &__breadcrumb {
+    height: 32px;
+  }
+
+  &__search {
+    background-color: $color-tertiary-lightest;
+    &.focus {
+      background-color: $color-white;
+    }
+  }
 }

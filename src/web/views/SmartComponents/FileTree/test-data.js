@@ -874,7 +874,4 @@ const fileStructure = {
   ],
 };
 
-export default {
-  project,
-  fileStructure,
-};
+export { project, fileStructure };
