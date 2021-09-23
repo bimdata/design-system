@@ -1,6 +1,6 @@
 <template>
   <label
-    :for="`bimdata-toggle-${uuid}`"
+    :for="`bimdata-toggle-${_uid}`"
     :class="{ active: modelValue, disabled }"
     class="toggle__button"
   >
@@ -8,7 +8,7 @@
     <input
       type="checkbox"
       :disabled="disabled"
-      :id="`bimdata-toggle-${uuid}`"
+      :id="`bimdata-toggle-${_uid}`"
       v-model="checkedValue"
     />
     <span class="toggle__switch"></span>
@@ -17,8 +17,6 @@
 </template>
 
 <script>
-let uuid = 0;
-
 export default {
   model: {
     prop: "modelValue",
@@ -44,10 +42,6 @@ export default {
         this.$emit("update:modelValue", newValue);
       },
     },
-  },
-  beforeCreate() {
-    this.uuid = uuid.toString();
-    uuid += 1;
   },
 };
 </script>
