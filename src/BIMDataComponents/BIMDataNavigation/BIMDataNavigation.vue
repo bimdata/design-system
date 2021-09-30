@@ -1,6 +1,6 @@
 <template>
   <ul class="bimdata-list bimdata-navigation">
-    <li v-if="$scopedSlots.left">
+    <li class="bimdata-navigation__left">
       <slot name="left"></slot>
     </li>
     <li class="bimdata-navigation__item" v-if="first">
@@ -12,11 +12,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon
-          name="doubleChevron"
-          class="icon-double-chevron-left"
-          size="xxxs"
-        />
+        <BIMDataIcon name="doubleChevron" size="xxxs" :rotate="180" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="previous">
@@ -28,7 +24,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="chevron" class="icon-chevron-left" size="xxxs" />
+        <BIMDataIcon name="chevron" size="xxxs" :rotate="180" />
       </BIMDataButton>
     </li>
     <li>
@@ -58,7 +54,7 @@
         <BIMDataIcon name="doubleChevron" size="xxxs" />
       </BIMDataButton>
     </li>
-    <li v-if="$scopedSlots.right">
+    <li class="bimdata-navigation__right">
       <slot name="right"></slot>
     </li>
   </ul>
@@ -111,13 +107,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA UTILITIES
-@import "../../assets/scss/utilities/_list.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataNavigation.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataNavigation.scss"></style>

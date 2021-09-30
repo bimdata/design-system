@@ -1,12 +1,20 @@
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/utilities/_list.scss";
+
 // custom PAGINATED LIST
 .bimdata-paginated-list {
   font-family: $primary-font;
   font-size: calculateEm(14px);
   line-height: 1.5;
   overflow: auto;
+
   &--small {
     height: 100%;
     position: relative;
+
     .bimdata-paginated-list__elements {
       li {
         padding: 6px;
@@ -23,14 +31,11 @@
       }
     }
   }
+
   &--empty {
     height: auto;
   }
-  .bcf--bucket {
-    &__content {
-      height: calc(304px - 37px - 4px);
-    }
-  }
+
   .bimdata-spinner {
     padding: 12px 0;
     justify-content: center;
