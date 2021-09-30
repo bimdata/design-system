@@ -1,7 +1,7 @@
 <template>
-  <div :is="component" :style="style" :class="classes">
+  <component :is="component" :style="style" :class="classes">
     <slot></slot>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -95,13 +95,17 @@ export default {
       } else {
         if (this.component === "h1") {
           return "36px";
-        } if (this.component === "h2") {
+        }
+        if (this.component === "h2") {
           return "30px";
-        } if (this.component === "h3") {
+        }
+        if (this.component === "h3") {
           return "26px";
-        } if (this.component === "h4") {
+        }
+        if (this.component === "h4") {
           return "24px";
-        } if (this.component === "h5") {
+        }
+        if (this.component === "h5") {
           return "20px";
         } else {
           return "18px";
