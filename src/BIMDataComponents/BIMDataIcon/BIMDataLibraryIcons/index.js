@@ -60,6 +60,7 @@ import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3d.vue";
+import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import path from "./Path.vue";
 import plus from "./Plus.vue";
@@ -170,6 +171,7 @@ export default {
   measure,
   minus,
   model3d,
+  organization,
   parameters,
   path,
   plus,
