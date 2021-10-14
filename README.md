@@ -11,7 +11,7 @@
 - [BIMData Viewer](https://www.npmjs.com/package/@bimdata/viewer)
 - [BIMData Viewer SDK](https://github.com/bimdata/bimdata-viewer-sdk)
 - BIMData Marketplace (coming soon..)
-- BIMData Platform (coming soon..)
+- [BIMData Platform](https://platform.bimdata.io)
 
 ## :runner: Getting started
 
