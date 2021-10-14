@@ -4,6 +4,12 @@
   display: inline-block;
   position: relative;
 
+  &__text {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
   &__tooltip {
     position: absolute;
     z-index: 2;
@@ -13,6 +19,7 @@
     padding: $spacing-unit/3 $spacing-unit/2;
     border-radius: 3px;
     text-align: center;
+    white-space: normal;
     word-wrap: break-word;
 
     &::before {
