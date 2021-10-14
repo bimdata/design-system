@@ -2,16 +2,23 @@
 export default [
   ["Name", "Type", "Default value", "Description"],
   [
+    "width",
+    "String",
+    "100%",
+    "Width of the box, can be any valid CSS width value.",
+  ],
+  [
     "text",
     "String",
     "",
     "The text to display in the text box.",
   ],
   [
-    "maxLength",
+    "textMinWidth",
     "Number",
-    "",
-    "Maximum number of characters to display.",
+    "32",
+    "Minimum text with in pixel. " +
+      "If the box width is less than this width the text won't be displayed.",
   ],
   [
     "cutPosition",

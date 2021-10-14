@@ -9,10 +9,9 @@
           <div>
             Hover over the text box to show full text.
           </div>
-          <div class="m-24">
+          <div class="m-24" :style="{ width: `${boxWidth}px` }">
             <BIMDataTextbox
               :text="text"
-              :maxLength="maxLength"
               :cutPosition="cutPosition"
               :cutSymbol="cutSymbol"
               :tooltipPosition="tooltipPosition"
@@ -30,8 +29,8 @@
           <BIMDataInput
             margin="24px 0"
             type="number"
-            placeholder="Max length"
-            v-model="maxLength"
+            placeholder="Box width (in px)"
+            v-model="boxWidth"
           />
           <BIMDataInput
             margin="24px 0"
@@ -77,9 +76,8 @@
           <pre>
             &lt;BIMDataTextbox
               :text="text"
-              {{ `:maxLength="${maxLength}"` }}
               {{ `:cutSymbol="${cutSymbol}"` }}`
-              {{ `:cutOn="${cutOn}"` }}
+              {{ `:cutPosition="${cutPosition}"` }}
               {{ `:tooltipPosition="${tooltipPosition}"` }}`
               {{ `:tooltipColor="${tooltipColor}"` }}`
             /&gt;
@@ -122,7 +120,7 @@ export default {
     return {
       // Parameters
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      maxLength: 16,
+      boxWidth: 200,
       cutSymbol: "...",
       cutPosition: "middle",
       tooltipPosition: "bottom",

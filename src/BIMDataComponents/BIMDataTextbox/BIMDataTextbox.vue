@@ -1,10 +1,13 @@
 <template>
   <div
     class="bimdata-textbox"
+    :style="{ width }"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
   >
-    {{ displayedText }}
+    <div ref="textbox" class="bimdata-textbox__text">
+      {{ displayedText }}
+    </div>
     <div
       v-if="tooltip && displayedText !== text"
       v-show="showTooltip"
@@ -22,13 +25,17 @@
 <script>
 export default {
   props: {
+    width: {
+      type: String,
+      default: "100%",
+    },
     text: {
       type: String,
       required: true,
     },
-    maxLength: {
+    textMinWidth: {
       type: Number,
-      validator: value => value > 0,
+      default: 32,
     },
     cutPosition: {
       type: String,
@@ -60,42 +67,92 @@ export default {
   data() {
     return {
       showTooltip: false,
+      displayedText: "",
     };
   },
-  computed: {
-    displayedText() {
-      const text = this.$props.text;
-      const l = text.length;
-      const c = this.$props.cutSymbol.length;
-      const max = this.$props.maxLength;
-      if (max && max < l && max > c) {
-        let cutIndex,
-          head = "",
-          tail = "";
-        switch (this.$props.cutPosition) {
-          case "start":
-            cutIndex = l - (max - c);
-            tail = text.slice(cutIndex);
-            break;
-          case "middle":
-            cutIndex = (max - c) / 2;
-            head = text.slice(0, Math.ceil(cutIndex));
-            tail = text.slice(l - Math.floor(cutIndex));
-            break;
-          case "end":
-            cutIndex = max - c;
-            head = text.slice(0, cutIndex);
-            break;
-        }
-        return `${head}${this.$props.cutSymbol}${tail}`;
-      } else {
+  watch: {
+    text: "setDisplayedText",
+    cutPosition: "setDisplayedText",
+    cutSymbol: "setDisplayedText",
+  },
+  mounted() {
+    const observer = new ResizeObserver(() => this.setDisplayedText());
+    observer.observe(this.$refs.textbox);
+
+    this.setDisplayedText();
+  },
+  methods: {
+    setDisplayedText() {
+      this.displayedText = this.getDisplayedText(
+        this.$props.text,
+        this.$props.textMinWidth,
+        this.$props.cutPosition,
+        this.$props.cutSymbol
+      );
+    },
+    getDisplayedText(text, minWidth, cutPosition, cutSymbol) {
+      const textbox = this.$refs.textbox;
+      if (!textbox) {
+        return "";
+      }
+      if (textbox.clientWidth < minWidth) {
+        console.warn(
+          `[BIMDataTextbox] textbox width is less than ${minWidth}px, text won't be displayed.`
+        );
+        return "";
+      }
+
+      const box = document.createElement("div");
+      document.body.appendChild(box);
+      box.style.whiteSpace = "nowrap";
+
+      box.innerText = cutSymbol;
+      if (box.clientWidth > textbox.clientWidth - 4) {
+        document.body.removeChild(box);
+        console.warn(
+          "[BIMDataTextbox] cut symbol is larger than textbox width, text won't be displayed."
+        );
+        return "";
+      }
+
+      box.innerText = text;
+      if (box.clientWidth <= textbox.clientWidth) {
+        document.body.removeChild(box);
         return text;
       }
+
+      let newText = text;
+      let shrinkText,
+        cutIndex,
+        head = "",
+        tail = "";
+      switch (cutPosition) {
+        case "start":
+          shrinkText = () => (tail = newText.slice(1));
+          break;
+        case "middle":
+          shrinkText = () => {
+            cutIndex = Math.floor(newText.length / 2);
+            head = newText.slice(0, cutIndex);
+            tail = newText.slice(cutIndex + 1);
+          };
+          break;
+        case "end":
+          shrinkText = () => (head = newText.slice(0, -1));
+          break;
+      }
+
+      while (box.clientWidth > textbox.clientWidth) {
+        shrinkText();
+        newText = `${head}${tail}`;
+        box.innerText = `${head}${cutSymbol}${tail}`;
+      }
+      document.body.removeChild(box);
+
+      return box.innerText;
     },
   },
 };
 </script>
 
-<style scoped lang="scss">
-@import "./_BIMDataTextbox.scss";
-</style>
+<style scoped lang="scss" src="./BIMDataTextbox.scss"></style>
