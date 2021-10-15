@@ -14,24 +14,11 @@ export default [
     "The text to display in the text box.",
   ],
   [
-    "textMinWidth",
-    "Number",
-    "32",
-    "Minimum text with in pixel. " +
-      "If the box width is less than this width the text won't be displayed.",
-  ],
-  [
     "cutPosition",
     "String (Enum)",
     "middle",
     "Position at which the text is cut (if it is). " +
       "Must be one of: 'start', 'middle' or 'end'.",
-  ],
-  [
-    "cutSymbol",
-    "String",
-    "...",
-    "Symbol (string) to display in place of the hidden text.",
   ],
   [
     "tooltip",

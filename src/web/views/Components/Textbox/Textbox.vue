@@ -13,7 +13,6 @@
             <BIMDataTextbox
               :text="text"
               :cutPosition="cutPosition"
-              :cutSymbol="cutSymbol"
               :tooltipPosition="tooltipPosition"
               :tooltipColor="tooltipColor"
             />
@@ -31,12 +30,6 @@
             type="number"
             placeholder="Box width (in px)"
             v-model="boxWidth"
-          />
-          <BIMDataInput
-            margin="24px 0"
-            type="text"
-            placeholder="Cut symbol"
-            v-model="cutSymbol"
           />
           <div class="m-t-24">
             <BIMDataSelect
@@ -121,7 +114,6 @@ export default {
       // Parameters
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       boxWidth: 200,
-      cutSymbol: "...",
       cutPosition: "middle",
       tooltipPosition: "bottom",
       tooltipColor: "primary",

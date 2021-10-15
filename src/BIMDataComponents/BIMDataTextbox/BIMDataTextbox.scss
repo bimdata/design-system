@@ -1,13 +1,24 @@
 @import "../../assets/scss/_BIMDataVariables.scss";
 
 .bimdata-textbox {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
 
   &__text {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+    &--head {
+      flex-grow: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &--tail {
+      width: 48%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: "";
+      direction: rtl;
+    }
   }
 
   &__tooltip {

@@ -1,15 +1,23 @@
 <template>
   <div
+    ref="textBox"
     class="bimdata-textbox"
     :style="{ width }"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
   >
-    <div ref="textbox" class="bimdata-textbox__text">
-      {{ displayedText }}
-    </div>
+    <span
+      ref="textHead"
+      class="bimdata-textbox__text--head"
+      :style="{ direction: cutPosition === 'start' ? 'rtl' : 'ltr' }"
+    >
+      {{ textHead }}
+    </span>
+    <span class="bimdata-textbox__text--tail" v-show="textTail">
+      {{ textTail }}
+    </span>
     <div
-      v-if="tooltip && displayedText !== text"
+      v-if="tooltip && isOverflowing"
       v-show="showTooltip"
       class="bimdata-textbox__tooltip"
       :class="[
@@ -33,18 +41,10 @@ export default {
       type: String,
       required: true,
     },
-    textMinWidth: {
-      type: Number,
-      default: 32,
-    },
     cutPosition: {
       type: String,
       default: "middle",
       validator: value => ["start", "middle", "end"].includes(value),
-    },
-    cutSymbol: {
-      type: String,
-      default: "...",
     },
     tooltip: {
       type: Boolean,
@@ -67,90 +67,36 @@ export default {
   data() {
     return {
       showTooltip: false,
-      displayedText: "",
+      isOverflowing: false,
     };
   },
-  watch: {
-    text: "setDisplayedText",
-    cutPosition: "setDisplayedText",
-    cutSymbol: "setDisplayedText",
+  computed: {
+    textHead() {
+      const text = this.$props.text;
+      if (this.isOverflowing && this.$props.cutPosition === "middle") {
+        const tailSize = Math.floor(text.length / 2);
+        return text.slice(0, -tailSize);
+      }
+      return text;
+    },
+    textTail() {
+      const text = this.$props.text;
+      if (this.isOverflowing && this.$props.cutPosition === "middle") {
+        const tailSize = Math.floor(text.length / 2);
+        return text.slice(-tailSize);
+      }
+      return "";
+    },
   },
   mounted() {
-    const observer = new ResizeObserver(() => this.setDisplayedText());
-    observer.observe(this.$refs.textbox);
-
-    this.setDisplayedText();
-  },
-  methods: {
-    setDisplayedText() {
-      this.displayedText = this.getDisplayedText(
-        this.$props.text,
-        this.$props.textMinWidth,
-        this.$props.cutPosition,
-        this.$props.cutSymbol
-      );
-    },
-    getDisplayedText(text, minWidth, cutPosition, cutSymbol) {
-      const textbox = this.$refs.textbox;
-      if (!textbox) {
-        return "";
+    const observer = new ResizeObserver(() => {
+      const textHead = this.$refs.textHead;
+      if (textHead) {
+        this.isOverflowing = textHead.clientWidth < textHead.scrollWidth;
       }
-      if (textbox.clientWidth < minWidth) {
-        console.warn(
-          `[BIMDataTextbox] textbox width is less than ${minWidth}px, text won't be displayed.`
-        );
-        return "";
-      }
+    });
 
-      const box = document.createElement("div");
-      document.body.appendChild(box);
-      box.style.whiteSpace = "nowrap";
-
-      box.innerText = cutSymbol;
-      if (box.clientWidth > textbox.clientWidth - 4) {
-        document.body.removeChild(box);
-        console.warn(
-          "[BIMDataTextbox] cut symbol is larger than textbox width, text won't be displayed."
-        );
-        return "";
-      }
-
-      box.innerText = text;
-      if (box.clientWidth <= textbox.clientWidth) {
-        document.body.removeChild(box);
-        return text;
-      }
-
-      let newText = text;
-      let shrinkText,
-        cutIndex,
-        head = "",
-        tail = "";
-      switch (cutPosition) {
-        case "start":
-          shrinkText = () => (tail = newText.slice(1));
-          break;
-        case "middle":
-          shrinkText = () => {
-            cutIndex = Math.floor(newText.length / 2);
-            head = newText.slice(0, cutIndex);
-            tail = newText.slice(cutIndex + 1);
-          };
-          break;
-        case "end":
-          shrinkText = () => (head = newText.slice(0, -1));
-          break;
-      }
-
-      while (box.clientWidth > textbox.clientWidth) {
-        shrinkText();
-        newText = `${head}${tail}`;
-        box.innerText = `${head}${cutSymbol}${tail}`;
-      }
-      document.body.removeChild(box);
-
-      return box.innerText;
-    },
+    observer.observe(this.$refs.textBox);
   },
 };
 </script>
