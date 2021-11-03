@@ -9,6 +9,9 @@ $color-tertiary-lightest: lighten($color-tertiary, 12%);
 $color-tertiary-dark: darken($color-tertiary, 37%);
 $color-tertiary-darkest: darken($color-tertiary, 47%);
 
+/* color TEXT  */
+$color-text: rgba(47, 55, 74, 1);
+
 /* common colors */
 $color-white: rgba(255, 255, 255, 1);
 $color-black: rgba(0, 0, 0, 1);
@@ -76,6 +79,10 @@ $primary-font-bold: "robotobold", sans-serif;
   --color-tertiary-darkest-400: rgba(121, 121, 121, 1);
   --color-tertiary-darkest: rgba(96, 96, 96, 1);
   --color-tertiary-darkest-600: rgba(70, 70, 70, 1);
+
+  /* --------------------------------
+  color TEXT -------------------------------- */
+  --color-text: rgba(47, 55, 74, 1);
 
   /* --------------------------------
   color WHITE -------------------------------- */
