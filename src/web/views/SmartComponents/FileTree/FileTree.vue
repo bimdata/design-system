@@ -1,22 +1,20 @@
 <template>
   <div class="main-container">
-    <BIMDataFileTree :project="project" :fileStructure="fileStructure" />
+    <BIMDataSmartFileTree
+      :spaceId="515"
+      :projectId="756"
+      apiUrl="https://api-staging.bimdata.io"
+      accessToken="fc83e49ca9444d3ea41d212599f39040"
+    />
   </div>
 </template>
 
 <script>
-import { project, fileStructure } from "./test-data.js";
-import BIMDataFileTree from "../../../../SmartComponents/BIMDataFileTree/BIMDataFileTree.vue";
+import BIMDataSmartFileTree from "../../../../SmartComponents/BIMDataSmartFileTree/BIMDataSmartFileTree.js";
 
 export default {
   components: {
-    BIMDataFileTree,
-  },
-  data() {
-    return {
-      project,
-      fileStructure,
-    };
+    BIMDataSmartFileTree,
   },
 };
 </script>

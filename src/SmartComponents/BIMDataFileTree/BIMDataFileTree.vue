@@ -1,16 +1,19 @@
 <template>
   <div class="bimdata-file-tree">
-    <FileTreeNode :file="fileStructure" />
+    <FileTreeNode v-if="fileStructure" :file="fileStructure" />
+    <BIMDataSpinner v-else />
   </div>
 </template>
 
 <script>
 import { getDescendants } from "./file-tree-utils.js";
 // Components
+import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
 import FileTreeNode from "./file-tree-node/FileTreeNode.vue";
 
 export default {
   components: {
+    BIMDataSpinner,
     FileTreeNode,
   },
   provide() {
@@ -20,13 +23,8 @@ export default {
     };
   },
   props: {
-    project: {
-      type: Object,
-      required: true,
-    },
     fileStructure: {
       type: Object,
-      required: true,
     },
     selectedFile: {
       type: Object,
@@ -43,9 +41,11 @@ export default {
   watch: {
     fileStructure: {
       handler: function (struct) {
-        const files = getDescendants(struct);
-        if (files.every(file => file.id !== this.selectedFileID.value)) {
-          this.selectedFileID.value = struct.id;
+        if (struct) {
+          const files = getDescendants(struct);
+          if (files.every(file => file.id !== this.selectedFileID.value)) {
+            this.selectedFileID.value = struct.id;
+          }
         }
       },
       immediate: true,

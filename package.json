@@ -68,5 +68,8 @@
     "transformIgnorePatterns": [
       "/node_modules/"
     ]
+  },
+  "dependencies": {
+    "@bimdata/typescript-fetch-api-client": "^6.17.2"
   }
 }
