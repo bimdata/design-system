@@ -1,11 +1,7 @@
 <template>
   <div class="container-color">
     <div class="color-swatches">
-      <div
-        class="color-swatche"
-        v-for="color in colors"
-        :key="color.id"
-      >
+      <div class="color-swatche" v-for="color in colors" :key="color.id">
         <div
           class="color-swatche__header"
           :style="{
@@ -150,77 +146,23 @@
 </template>
 
 <script>
-import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataButton from "../../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 export default {
   components: {
     BIMDataButton,
-  },
-  data() {
-    return {
-      alerts: false,
-      alertType: null,
-      message: "",
-      // colors: [
-      //   {
-      //     name: "Disabled",
-      //     hex: "#bdbdbd",
-      //     rgb: "189, 189, 189",
-      //     scss: "$color-disabled",
-      //     css: "var(--color-disabled)",
-      //     background: "bg-disabled",
-      //     color: "color-disabled",
-      //     fill: "fill-disabled",
-      //     stroke: "stroke-disabled",
-      //     textcolor: "#ffffff",
-      //   },
-      // ],
-    };
   },
   props: {
     colors: {
       type: Array,
       default: () => [],
     },
-    // colorName: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorHex: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorRgb: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorScss: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorCss: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorBackground: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorColor: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorFill: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorStroke: {
-    //   type: String,
-    //   default: "",
-    // },
-    // colorTextcolor: {
-    //   type: String,
-    //   default: "",
-    // },
+  },
+  data() {
+    return {
+      alerts: false,
+      alertType: null,
+      message: "",
+    };
   },
   methods: {
     onCopy(e) {
@@ -242,3 +184,8 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "../../../../../assets/scss/mixins/_font-size.scss";
+@import "./_ColorSwatche.scss";
+</style>
