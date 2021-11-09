@@ -89,9 +89,9 @@
       }
 
       &.selected {
-        background-color: var(--color-tertiary);
+        background-color: var(--color-tertiary-400);
         &:hover {
-          background-color: var(--color-tertiary-600);
+          background-color: var(--color-tertiary);
         }
       }
 
