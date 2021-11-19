@@ -1,55 +1,138 @@
 <template>
   <div class="bimdata-file-manager">
-    <div class="bimdata-file-manager__breadcrumb">
-      <!-- TODO -->
-    </div>
-    <BIMDataSearch
-      class="bimdata-file-manager__search"
-      width="100%"
-      placeholder="Search"
-      v-model="searchText"
-      clear
-    />
-    <BIMDataResponsiveGrid
-      class="bimdata-file-manager__container"
-      itemWidth="140px"
-    >
-      <FileCard v-for="file of files" :key="file.id" :file="file" />
-    </BIMDataResponsiveGrid>
+    <template v-if="fileStructure">
+      <BIMDataSearch
+        class="bimdata-file-manager__search"
+        width="100%"
+        placeholder="Search"
+        v-model="searchText"
+        clear
+      />
+      <BIMDataBreadcrumb
+        :steps="steps"
+        @click="onBreadcrumClick"
+        label="name"
+        @back="onBreadcrumBack"
+      />
+      <BIMDataResponsiveGrid
+        class="bimdata-file-manager__container"
+        itemWidth="140px"
+      >
+        <FileCard
+          v-for="file of files"
+          :key="file.id"
+          :file="file"
+          @open-folder="openFolder(file)"
+        />
+      </BIMDataResponsiveGrid>
+    </template>
+    <BIMDataSpinner v-else />
   </div>
 </template>
 
 <script>
 import BIMDataResponsiveGrid from "../../BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
+import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMDataBreadcrumb.vue";
+import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
 import FileCard from "./file-card/FileCard.vue";
 
 export default {
   components: {
     BIMDataResponsiveGrid,
     BIMDataSearch,
+    BIMDataBreadcrumb,
+    BIMDataSpinner,
     FileCard,
   },
   props: {
-    project: {
-      type: Object,
-      required: true,
-    },
     fileStructure: {
       type: Object,
-      required: true,
     },
   },
   data() {
     return {
-      files: [],
-      parent: null,
+      currentFileStructure: null,
       searchText: "",
     };
   },
-  created() {
-    this.parent = this.fileStructure;
-    this.files = this.fileStructure.children || [];
+  computed: {
+    files() {
+      if (this.searchText) {
+        return (
+          (this.currentFileStructure && this.currentFileStructure.children) ||
+          []
+        ).filter(file => file.name.toLowerCase().includes(this.searchText));
+      } else {
+        return (
+          (this.currentFileStructure && this.currentFileStructure.children) ||
+          []
+        );
+      }
+    },
+    steps() {
+      const steps = [];
+      if (this.currentFileStructure) {
+        steps.push(this.currentFileStructure);
+        let parent = this.getParent(
+          this.fileStructure,
+          this.currentFileStructure
+        );
+        while (parent) {
+          steps.unshift(parent);
+
+          parent = this.getParent(this.fileStructure, parent);
+        }
+      }
+
+      return steps;
+    },
+  },
+  watch: {
+    fileStructure(value) {
+      if (value) {
+        this.currentFileStructure = this.fileStructure;
+      }
+    },
+  },
+  methods: {
+    onBreadcrumClick(step) {
+      this.currentFileStructure = step;
+    },
+    onBreadcrumBack() {
+      const to = this.steps[this.steps.length - 2];
+      if (to) {
+        this.currentFileStructure = to;
+      }
+    },
+    openFolder(file) {
+      this.currentFileStructure = file;
+    },
+    back() {
+      const parent = this.getParent(
+        this.fileStructure,
+        this.currentFileStructure
+      );
+
+      if (parent) {
+        this.currentFileStructure = parent;
+      } else {
+        this.currentFileStructure = this.fileStructure;
+      }
+    },
+    getParent(parent, fileStructure) {
+      if (!Array.isArray(parent.children)) return;
+      if (parent.children.includes(fileStructure)) {
+        return parent;
+      } else {
+        for (let child of parent.children) {
+          const newParent = this.getParent(child, fileStructure);
+          if (newParent) {
+            return newParent;
+          }
+        }
+      }
+    },
   },
 };
 </script>

@@ -1,24 +1,22 @@
 <template>
   <div class="main-container">
-    <div style="width: 500px; height: 500px;">
-      <BIMDataFileManager :project="project" :fileStructure="fileStructure" />
+    <div style="width: 90%; height: 90%;">
+      <BIMDataSmartFileManager
+        :spaceId="515"
+        :projectId="756"
+        apiUrl="https://api-staging.bimdata.io"
+        accessToken="fc83e49ca9444d3ea41d212599f39040"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { project, fileStructure } from "./test-data.js";
-import BIMDataFileManager from "../../../../SmartComponents/BIMDataFileManager/BIMDataFileManager.vue";
+import BIMDataSmartFileManager from "../../../../SmartComponents/BIMDataSmartFileManager/BIMDataSmartFileManager.js";
 
 export default {
   components: {
-    BIMDataFileManager,
-  },
-  data() {
-    return {
-      project,
-      fileStructure,
-    };
+    BIMDataSmartFileManager,
   },
 };
 </script>

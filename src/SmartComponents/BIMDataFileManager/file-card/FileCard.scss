@@ -27,6 +27,14 @@
     }
   }
 
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__btn-menu {
     position: absolute;
     top: $spacing-unit / 3;
@@ -37,6 +45,11 @@
     font-size: 12px;
     font-weight: bold;
     color: $color-tertiary-darkest;
+    word-break: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
   }
 
   &__date {
