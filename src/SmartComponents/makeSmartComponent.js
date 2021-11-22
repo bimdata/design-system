@@ -1,8 +1,9 @@
 import { makeBIMDataApiClient } from "@bimdata/typescript-fetch-api-client";
 
-export default function makeSmartComponent(component, fetchers) {
+export default function makeSmartComponent(component, fetchers, props = {}) {
   return {
     props: {
+      ...props,
       apiUrl: {
         type: String,
         default: "https://api.bimdata.io",
@@ -34,8 +35,12 @@ export default function makeSmartComponent(component, fetchers) {
     render(h) {
       return h(component, {
         props: Object.fromEntries(
-          Object.keys(fetchers).map(prop => [prop, this[prop]])
+          [...Object.keys(fetchers), ...Object.keys(props)].map(prop => [
+            prop,
+            this[prop],
+          ])
         ),
+        on: this.$listeners,
       });
     },
   };

@@ -23,6 +23,10 @@
           :key="file.id"
           :file="file"
           @open-folder="openFolder(file)"
+          :select="select"
+          :multi="multi"
+          :selected="isFileSelected(file)"
+          @toggle-select="onToggleFileSelect(file)"
         />
       </BIMDataResponsiveGrid>
     </template>
@@ -33,8 +37,9 @@
 <script>
 import BIMDataResponsiveGrid from "../../BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
-import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMDataBreadcrumb.vue";
 import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
+import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMDataBreadcrumb.vue";
+
 import FileCard from "./file-card/FileCard.vue";
 
 export default {
@@ -46,8 +51,20 @@ export default {
     FileCard,
   },
   props: {
+    selectedFiles: {
+      type: Array,
+      default: () => [],
+    },
     fileStructure: {
       type: Object,
+    },
+    select: {
+      type: Boolean,
+      default: false,
+    },
+    multi: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -57,6 +74,9 @@ export default {
     };
   },
   computed: {
+    multiSelect() {
+      return this.select && this.multi;
+    },
     files() {
       if (this.searchText) {
         return (
@@ -89,6 +109,11 @@ export default {
     },
   },
   watch: {
+    multi() {
+      this.selectedFiles.forEach(selectedFile =>
+        this.$emit("file-deselected", selectedFile)
+      );
+    },
     fileStructure(value) {
       if (value) {
         this.currentFileStructure = this.fileStructure;
@@ -96,6 +121,21 @@ export default {
     },
   },
   methods: {
+    onToggleFileSelect(file) {
+      if (this.isFileSelected(file)) {
+        this.$emit("file-deselected", file);
+      } else {
+        if (!this.multi) {
+          this.selectedFiles.forEach(selectedFile =>
+            this.$emit("file-deselected", selectedFile)
+          );
+        }
+        this.$emit("file-selected", file);
+      }
+    },
+    isFileSelected(file) {
+      return this.selectedFiles.includes(file);
+    },
     onBreadcrumClick(step) {
       this.currentFileStructure = step;
     },

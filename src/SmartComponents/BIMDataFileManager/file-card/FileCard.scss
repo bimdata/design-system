@@ -39,6 +39,10 @@
     position: absolute;
     top: $spacing-unit / 3;
     right: 0;
+
+    &--select {
+      margin: 4px;
+    }
   }
 
   &__name {
