@@ -35,9 +35,9 @@
       top: 0;
       left: 0;
       animation: transform1 4s ease, color1 4s ease;
-      box-shadow: 1px 1px 0 var(--color-primary-600),
-        2px 2px 0 var(--color-primary-600), 3px 3px 0 var(--color-primary-600),
-        4px 4px 0 var(--color-primary-600), 5px 5px 0 var(--color-primary-600);
+      box-shadow: 1px 1px 0 var(--color-primary-dark),
+        2px 2px 0 var(--color-primary-dark), 3px 3px 0 var(--color-primary-dark),
+        4px 4px 0 var(--color-primary-dark), 5px 5px 0 var(--color-primary-dark);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
@@ -47,11 +47,11 @@
       top: -10%;
       left: -10%;
       animation: transform2 4s ease, color2 4s ease;
-      box-shadow: 1px 1px 0 var(--color-secondary-600),
-        2px 2px 0 var(--color-secondary-600),
-        3px 3px 0 var(--color-secondary-600),
-        4px 4px 0 var(--color-secondary-600),
-        5px 5px 0 var(--color-secondary-600);
+      box-shadow: 1px 1px 0 var(--color-secondary-dark),
+        2px 2px 0 var(--color-secondary-dark),
+        3px 3px 0 var(--color-secondary-dark),
+        4px 4px 0 var(--color-secondary-dark),
+        5px 5px 0 var(--color-secondary-dark);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
@@ -61,9 +61,9 @@
       top: -20%;
       left: -20%;
       animation: transform3 4s ease, color3 4s ease;
-      box-shadow: 1px 1px 0 var(--color-tertiary-600),
-        2px 2px 0 var(--color-tertiary-600), 3px 3px 0 var(--color-tertiary-600),
-        4px 4px 0 var(--color-tertiary-600), 5px 5px 0 var(--color-tertiary-600);
+      box-shadow: 1px 1px 0 var(--color-silver-dark),
+        2px 2px 0 var(--color-silver-dark), 3px 3px 0 var(--color-silver-dark),
+        4px 4px 0 var(--color-silver-dark), 5px 5px 0 var(--color-silver-dark);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }

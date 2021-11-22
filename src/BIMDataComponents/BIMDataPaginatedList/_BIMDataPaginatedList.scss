@@ -23,10 +23,10 @@
         justify-content: space-between;
         font-size: calculateEm(12px);
         &:nth-child(odd) {
-          background-color: var(--color-tertiary-lightest);
+          background-color: var(--color-silver-light);
         }
         &:nth-child(even) {
-          background-color: hsl(var(--color-tertiary-lightest), 5%);
+          background-color: hsl(var(--color-silver-light), 5%);
         }
       }
     }

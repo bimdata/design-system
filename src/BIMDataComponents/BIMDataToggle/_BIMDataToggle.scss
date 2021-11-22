@@ -60,7 +60,7 @@
   &.disabled {
     cursor: default;
     span {
-      color: var(--color-disabled);
+      color: var(--color-silver-dark);
     }
     .toggle__switch {
       &::after {

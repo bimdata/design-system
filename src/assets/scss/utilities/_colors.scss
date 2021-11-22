@@ -7,38 +7,33 @@
 .bg-secondary {
   background-color: var(--color-secondary);
 }
-.bg-tertiary {
-  background-color: var(--color-tertiary);
-}
 
-/* background VARIANT COLORS */
-.bg-tertiary-lightest {
-  background-color: var(--color-tertiary-lightest);
-}
-.bg-tertiary-dark {
-  background-color: var(--color-tertiary-dark);
-}
-.bg-tertiary-darkest {
-  background-color: var(--color-tertiary-darkest);
-}
-
-/* background COMMON COLORS */
+/* background GREY SHADES - NEUTRAL */
 .bg-white {
   background-color: var(--color-white);
+}
+.bg-silver-light {
+  background-color: var(--color-silver-light);
+}
+.bg-silver {
+  background-color: var(--color-silver);
+}
+.bg-silver-dark {
+  background-color: var(--color-silver-dark);
+}
+.bg-granite-light {
+  background-color: var(--color-granite-light);
+}
+.bg-granite {
+  background-color: var(--color-granite);
 }
 .bg-black {
   background-color: var(--color-black);
 }
 
 /* background STATE COLORS */
-.bg-neutral {
-  background-color: var(--color-neutral);
-}
 .bg-success {
   background-color: var(--color-success);
-}
-.bg-disabled {
-  background-color: var(--color-disabled);
 }
 .bg-warning {
   background-color: var(--color-warning);
@@ -54,38 +49,33 @@
 .color-secondary {
   color: var(--color-secondary);
 }
-.color-tertiary {
-  color: var(--color-tertiary);
-}
 
-/* color VARIANT COLORS */
-.color-tertiary-lightest {
-  color: var(--color-tertiary-lightest);
-}
-.color-tertiary-dark {
-  color: var(--color-tertiary-dark);
-}
-.color-tertiary-darkest {
-  color: var(--color-tertiary-darkest);
-}
-
-/* color COMMON COLORS */
+/* color GREY SHADES - NEUTRAL */
 .color-white {
   color: var(--color-white);
+}
+.color-silver-light {
+  color: var(--color-silver-light);
+}
+.color-silver {
+  color: var(--color-silver);
+}
+.color-silver-dark {
+  color: var(--color-silver-dark);
+}
+.color-granite-light {
+  color: var(--color-granite-light);
+}
+.color-granite {
+  color: var(--color-granite);
 }
 .color-black {
   color: var(--color-black);
 }
 
 /* color STATE COLORS */
-.color-neutral {
-  color: var(--color-neutral);
-}
 .color-success {
   color: var(--color-success);
-}
-.color-disabled {
-  color: var(--color-disabled);
 }
 .color-warning {
   color: var(--color-warning);
@@ -101,38 +91,33 @@
 .fill-secondary {
   fill: var(--color-secondary);
 }
-.fill-tertiary {
-  fill: var(--color-tertiary);
-}
 
-/* fill VARIANT COLORS */
-.fill-tertiary-lightest {
-  fill: var(--color-tertiary-lightest);
-}
-.fill-tertiary-dark {
-  fill: var(--color-tertiary-dark);
-}
-.fill-tertiary-darkest {
-  fill: var(--color-tertiary-darkest);
-}
-
-/* fill COMMON COLORS */
+/* fill GREY SHADES - NEUTRAL */
 .fill-white {
   fill: var(--color-white);
+}
+.fill-silver-light {
+  fill: var(--color-silver-light);
+}
+.fill-silver {
+  fill: var(--color-silver);
+}
+.fill-silver-dark {
+  fill: var(--color-silver-dark);
+}
+.fill-granite-light {
+  fill: var(--color-granite-light);
+}
+.fill-granite {
+  fill: var(--color-granite);
 }
 .fill-black {
   fill: var(--color-black);
 }
 
 /* fill STATE COLORS */
-.fill-neutral {
-  fill: var(--color-neutral);
-}
 .fill-success {
   fill: var(--color-success);
-}
-.fill-disabled {
-  fill: var(--color-disabled);
 }
 .fill-warning {
   fill: var(--color-warning);
@@ -150,29 +135,31 @@
   fill: transparent;
   stroke: var(--color-secondary);
 }
-.stroke-tertiary {
-  fill: transparent;
-  stroke: var(--color-tertiary);
-}
 
-/* stroke VARIANT COLORS */
-.stroke-tertiary-lightest {
-  fill: transparent;
-  stroke: var(--color-tertiary-lightest);
-}
-.stroke-tertiary-dark {
-  fill: transparent;
-  stroke: var(--color-tertiary-dark);
-}
-.stroke-tertiary-darkest {
-  fill: transparent;
-  stroke: var(--color-tertiary-darkest);
-}
-
-/* stroke COMMON COLORS */
+/* stroke GREY SHADES - NEUTRAL */
 .stroke-white {
   fill: transparent;
   stroke: var(--color-white);
+}
+.stroke-silver-light {
+  fill: transparent;
+  stroke: var(--color-silver-light);
+}
+.stroke-silver {
+  fill: transparent;
+  stroke: var(--color-silver);
+}
+.stroke-silver-dark {
+  fill: transparent;
+  stroke: var(--color-silver-dark);
+}
+.stroke-granite-light {
+  fill: transparent;
+  stroke: var(--color-granite-light);
+}
+.stroke-granite {
+  fill: transparent;
+  stroke: var(--color-granite);
 }
 .stroke-black {
   fill: transparent;
@@ -180,17 +167,9 @@
 }
 
 /* stroke STATE COLORS */
-.stroke-neutral {
-  fill: transparent;
-  stroke: var(--color-neutral);
-}
 .stroke-success {
   fill: transparent;
   stroke: var(--color-success);
-}
-.stroke-disabled {
-  fill: transparent;
-  stroke: var(--color-disabled);
 }
 .stroke-warning {
   fill: transparent;

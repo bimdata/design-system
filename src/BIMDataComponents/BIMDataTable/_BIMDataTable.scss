@@ -10,7 +10,7 @@
       border-spacing: 0;
 
       tbody tr:nth-child(odd) {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-silver-light);
       }
 
       th,
@@ -29,7 +29,7 @@
       }
 
       td {
-        color: var(--color-tertiary-darkest);
+        color: var(--color-granite);
       }
     }
 
@@ -40,7 +40,7 @@
       padding: var(--spacing-unit);
       font-size: 1rem;
       font-weight: bold;
-      background-color: var(--color-tertiary-lightest);
+      background-color: var(--color-silver-light);
     }
   }
 

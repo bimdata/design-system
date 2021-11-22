@@ -16,13 +16,13 @@
     align-items: center;
     justify-content: space-between;
     font-size: 13px;
-    background-color: var(--color-tertiary-lightest);
-    border: 1px solid var(--color-tertiary);
+    background-color: var(--color-silver-light);
+    border: 1px solid var(--color-silver);
     border-radius: 3px;
     cursor: pointer;
 
     .bimdata-btn {
-      background-color: var(--color-tertiary-lightest);
+      background-color: var(--color-silver-light);
     }
 
     &.active {
@@ -38,10 +38,10 @@
 
     &.disabled {
       cursor: default;
-      color: var(--color-disabled);
+      color: var(--color-silver-dark);
       .bimdata-btn {
         cursor: default;
-        color: var(--color-disabled);
+        color: var(--color-silver-dark);
       }
     }
   }

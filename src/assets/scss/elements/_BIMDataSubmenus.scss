@@ -33,7 +33,7 @@
       padding: calc(var(--spacing-unit) / 2);
       cursor: pointer;
       &:hover {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-silver-light);
       }
       &.disabled {
         cursor: inherit;
@@ -57,7 +57,7 @@
     right: auto;
     &__simple {
       padding: var(--spacing-unit);
-      width: 187px;
+      width: 229px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -140,7 +140,7 @@
             margin-right: var(--spacing-unit);
           }
           &:hover {
-            background-color: var(--color-tertiary-lightest);
+            background-color: var(--color-silver-light);
           }
         }
       }

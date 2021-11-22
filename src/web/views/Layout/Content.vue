@@ -48,7 +48,7 @@
               <BIMDataText component="h5" color="color-primary" margin="10px">
                 {{ child.title }}
               </BIMDataText>
-              <BIMDataText color="color-tertiary-darkest">
+              <BIMDataText color="color-granite">
                 {{ child.text }}
               </BIMDataText>
               <BIMDataButton width="150" radius fill color="primary">

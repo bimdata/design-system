@@ -11,7 +11,7 @@
   input {
     width: 100%;
     height: 100%;
-    color: var(--color-tertiary-darkest);
+    color: var(--color-granite);
     background-color: transparent;
     border: none;
     box-sizing: border-box;
@@ -34,7 +34,7 @@
     border-radius: 0;
   }
   &__primary {
-    background-color: var(--color-tertiary-lightest);
+    background-color: var(--color-silver-light);
   }
   &__secondary {
     background-color: var(--color-white);

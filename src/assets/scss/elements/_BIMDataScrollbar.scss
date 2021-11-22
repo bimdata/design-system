@@ -7,7 +7,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: var(--color-tertiary);
+  background-color: var(--color-silver);
 }
 
 /* Handle */
@@ -18,5 +18,5 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-tertiary-dark);
+  background: var(--color-granite-light);
 }

@@ -36,7 +36,7 @@
   // custom TEXT CHECKBOX
   &__text {
     width: calc(100% - 13px - 5px);
-    margin-left: 5px;
+    margin-left: 6px;
     font-size: calculateEm(12px);
   }
 }
@@ -68,15 +68,15 @@
   &.disabled {
     cursor: default;
     & > .bimdata-checkbox__mark {
-      border-color: var(--color-tertiary);
+      border-color: var(--color-silver-dark);
     }
     > .bimdata-checkbox__text {
-      color: var(--color-tertiary);
+      color: var(--color-silver-dark);
     }
   }
   &.checked.disabled {
     & > .bimdata-checkbox__mark {
-      background-color: var(--color-tertiary);
+      background-color: var(--color-silver-dark);
     }
   }
 }

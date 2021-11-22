@@ -1,14 +1,9 @@
 .color-palettes {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    "primary tertiary-lightest white high warning"
-    "secondary tertiary-dark disabled success neutral"
-    "tertiary tertiary-darkest black . .";
-  // gap: 0 6px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   .color-palette {
-    width: 284px;
+    width: 237px;
     overflow: hidden;
     cursor: pointer;
 
@@ -39,45 +34,6 @@
           opacity: 0.5;
         }
       }
-    }
-    &:nth-child(1) {
-      grid-area: primary;
-    }
-    &:nth-child(2) {
-      grid-area: secondary;
-    }
-    &:nth-child(3) {
-      grid-area: tertiary;
-    }
-    &:nth-child(4) {
-      grid-area: tertiary-lightest;
-    }
-    &:nth-child(5) {
-      grid-area: tertiary-dark;
-    }
-    &:nth-child(6) {
-      grid-area: tertiary-darkest;
-    }
-    &:nth-child(7) {
-      grid-area: white;
-    }
-    &:nth-child(8) {
-      grid-area: disabled;
-    }
-    &:nth-child(9) {
-      grid-area: high;
-    }
-    &:nth-child(10) {
-      grid-area: warning;
-    }
-    &:nth-child(11) {
-      grid-area: success;
-    }
-    &:nth-child(12) {
-      grid-area: neutral;
-    }
-    &:nth-child(13) {
-      grid-area: black;
     }
   }
 }

@@ -44,7 +44,7 @@
         &__item {
           padding: calc(var(--spacing-unit) / 2) 0;
           .label {
-            color: var(--color-primary-400);
+            color: var(--color-primary-light);
           }
           .value {
             position: relative;
@@ -57,16 +57,6 @@
           }
         }
       }
-      // &:first-child {
-      //   margin: 12px 50px 12px 0;
-      //   width: 320px;
-      //   .color-swatche__header {
-      //     height: 140px;
-      //   }
-      // }
-      // &:nth-child(2) {
-      //   border: 1px solid var(--color-tertiary-dark-100);
-      // }
     }
   }
 }

@@ -149,7 +149,7 @@ export default {
   computed: {
     changeBackgroundColor() {
       return {
-        "bimdata-ds__demo__tertiary-lightest":
+        "bimdata-ds__demo__silver-light":
           this.selectedSearchOptionsstyle === "secondary",
       };
     },

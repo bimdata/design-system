@@ -1,6 +1,6 @@
 export default Object.freeze([
   {
-    name: "Primary",
+    name: "Primary / Text",
     hex: "#2f374a",
     textcolor: "#ffffff",
   },
@@ -10,29 +10,34 @@ export default Object.freeze([
     textcolor: "#2f374a",
   },
   {
-    name: "Tertiary",
-    hex: "#d8d8d8",
+    name: "White",
+    hex: "#ffffff",
     textcolor: "#2f374a",
   },
   {
-    name: "Tertiary Lightest",
+    name: "Silver Light",
     hex: "#f7f7f7",
     textcolor: "#2f374a",
   },
   {
-    name: "Tertiary Dark",
-    hex: "#7b7b7b",
+    name: "Silver",
+    hex: "#d8d8d8",
+    textcolor: "#2f374a",
+  },
+  {
+    name: "Silver Dark",
+    hex: "#bdbdbd",
+    textcolor: "#2f374a",
+  },
+  {
+    name: "Granite Light",
+    hex: "#7a7a7a",
     textcolor: "#ffffff",
   },
   {
-    name: "Tertiary Darkest",
+    name: "Granite",
     hex: "#606060",
     textcolor: "#ffffff",
-  },
-  {
-    name: "White",
-    hex: "#ffffff",
-    textcolor: "#2f374a",
   },
   {
     name: "Black",
@@ -53,15 +58,5 @@ export default Object.freeze([
     name: "Success",
     hex: "#00af50",
     textcolor: "#ffffff",
-  },
-  {
-    name: "Neutral",
-    hex: "#205dbd",
-    textcolor: "#ffffff",
-  },
-  {
-    name: "Disabled",
-    hex: "#bdbdbd",
-    textcolor: "#000000",
   },
 ]);

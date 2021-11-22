@@ -78,10 +78,10 @@
     }
   }
   &--grey {
-    background-color: var(--color-tertiary-dark);
+    background-color: var(--color-granite-light);
     &.bimdata-tooltip--arrow {
       &::before {
-        border-color: transparent transparent var(--color-tertiary-dark);
+        border-color: transparent transparent var(--color-granite-light);
       }
     }
   }

@@ -27,7 +27,7 @@
     background-color: var(--color-primary);
   }
   100% {
-    background-color: var(--color-primary-400);
+    background-color: var(--color-primary-light);
   }
 }
 @keyframes color2 {
@@ -35,14 +35,14 @@
     background-color: var(--color-secondary);
   }
   100% {
-    background-color: var(--color-secondary-400);
+    background-color: var(--color-secondary-light);
   }
 }
 @keyframes color3 {
   0% {
-    background-color: var(--color-tertiary);
+    background-color: var(--color-silver);
   }
   100% {
-    background-color: var(--color-tertiary-400);
+    background-color: var(--color-silver-dark);
   }
 }

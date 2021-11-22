@@ -7,13 +7,10 @@
       fill: currentColor;
     }
     &--disabled {
-      fill: var(--color-disabled);
+      fill: var(--color-silver-dark);
     }
     &--high {
       fill: var(--color-high);
-    }
-    &--neutral {
-      fill: var(--color-neutral);
     }
     &--primary {
       fill: var(--color-primary);
@@ -24,17 +21,17 @@
     &--success {
       fill: var(--color-success);
     }
-    &--tertiary {
-      fill: var(--color-tertiary);
+    &--silver {
+      fill: var(--color-silver);
     }
-    &--tertiary-dark {
-      fill: var(--color-tertiary-dark);
+    &--granite-light {
+      fill: var(--color-granite-light);
     }
-    &--tertiary-darkest {
-      fill: var(--color-tertiary-darkest);
+    &--granite {
+      fill: var(--color-granite);
     }
-    &--tertiary-lightest {
-      fill: var(--color-tertiary-lightest);
+    &--silver-light {
+      fill: var(--color-silver-light);
     }
     &--warning {
       fill: var(--color-warning);
@@ -52,7 +49,7 @@
       stroke: currentColor;
     }
     &--disabled {
-      stroke: var(--color-disabled);
+      stroke: var(--color-silver-dark);
     }
     &--high {
       stroke: var(--color-high);
@@ -69,17 +66,17 @@
     &--success {
       stroke: var(--color-success);
     }
-    &--tertiary {
-      stroke: var(--color-tertiary);
+    &--silver {
+      stroke: var(--color-silver);
     }
-    &--tertiary-dark {
-      stroke: var(--color-tertiary-dark);
+    &--granite-light {
+      stroke: var(--color-granite-light);
     }
-    &--tertiary-darkest {
-      stroke: var(--color-tertiary-darkest);
+    &--granite {
+      stroke: var(--color-granite);
     }
-    &--tertiary-lightest {
-      stroke: var(--color-tertiary-lightest);
+    &--silver-light {
+      stroke: var(--color-silver-light);
     }
     &--warning {
       stroke: var(--color-warning);

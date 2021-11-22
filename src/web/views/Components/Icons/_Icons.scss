@@ -47,11 +47,11 @@
             font-size: calculateEm(12px);
           }
           &:hover {
-            background-color: var(--color-tertiary-lightest);
+            background-color: var(--color-silver-light);
             cursor: pointer;
           }
           &.active {
-            background-color: var(--color-tertiary-lightest);
+            background-color: var(--color-silver-light);
           }
         }
       }

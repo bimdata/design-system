@@ -86,22 +86,22 @@
     }
   }
   &.disabled {
-    color: var(--color-disabled);
+    color: var(--color-silver-dark);
     pointer-events: none;
     span {
       cursor: default;
       &::before {
-        border-color: var(--color-disabled);
+        border-color: var(--color-silver-dark);
       }
     }
     & > input {
       &:checked {
         & + span {
           &::before {
-            border-color: var(--color-disabled);
+            border-color: var(--color-silver-dark);
           }
           &::after {
-            background-color: var(--color-disabled);
+            background-color: var(--color-silver-dark);
           }
         }
       }

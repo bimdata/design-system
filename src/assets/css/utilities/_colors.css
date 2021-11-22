@@ -5,38 +5,33 @@
 .bg-secondary{
   background-color: var(--color-secondary);
 }
-.bg-tertiary{
-  background-color: var(--color-tertiary);
-}
 
-/* background VARIANT COLORS */
-.bg-tertiary-lightest{
-  background-color: var(--color-tertiary-lightest);
-}
-.bg-tertiary-dark{
-  background-color: var(--color-tertiary-dark);
-}
-.bg-tertiary-darkest{
-  background-color: var(--color-tertiary-darkest);
-}
-
-/* background COMMON COLORS */
+/* colors GREY SHADES - NEUTRAL */
 .bg-white{
   background-color: var(--color-white);
+}
+.bg-silver{
+  background-color: var(--color-silver);
+}
+.bg-silver-light{
+  background-color: var(--color-silver-light);
+}
+.bg-silver-dark{
+  background-color: var(--color-silver-dark);
+}
+.bg-granite-light{
+  background-color: var(--color-granite-light);
+}
+.bg-granite{
+  background-color: var(--color-granite);
 }
 .bg-black{
   background-color: var(--color-black);
 }
 
 /* background STATE COLORS */
-.bg-neutral{
-  background-color: var(--color-neutral);
-}
 .bg-success{
   background-color: var(--color-success);
-}
-.bg-disabled{
-  background-color: var(--color-disabled);
 }
 .bg-warning{
   background-color: var(--color-warning);
@@ -45,7 +40,6 @@
   background-color: var(--color-high);
 }
 
-
 /* color BRAND COLORS */
 .color-primary{
   color: var(--color-primary);
@@ -53,38 +47,33 @@
 .color-secondary{
   color: var(--color-secondary);
 }
-.color-tertiary{
-  color: var(--color-tertiary);
-}
 
 /* background VARIANT COLORS */
-.color-tertiary-lightest{
-  color: var(--color-tertiary-lightest);
-}
-.color-tertiary-dark{
-  color: var(--color-tertiary-dark);
-}
-.color-tertiary-darkest{
-  color: var(--color-tertiary-darkest);
-}
-
-/* background COMMON COLORS */
 .color-white{
   color: var(--color-white);
+}
+.color-silver-light{
+  color: var(--color-silver-light);
+}
+.color-silver{
+  color: var(--color-silver);
+}
+.color-silver-dark{
+  color: var(--color-silver-dark);
+}
+.color-granite-light{
+  color: var(--color-granite-light);
+}
+.color-granite{
+  color: var(--color-granite);
 }
 .color-black{
   color: var(--color-black);
 }
 
 /* background STATE COLORS */
-.color-neutral{
-  color: var(--color-neutral);
-}
 .color-success{
   color: var(--color-success);
-}
-.color-disabled{
-  color: var(--color-disabled);
 }
 .color-warning{
   color: var(--color-warning);

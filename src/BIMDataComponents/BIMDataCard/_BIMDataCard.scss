@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--color-tertiary-lightest);
+    background-color: var(--color-silver-light);
     color: var(--color-primary);
     font-size: calculateEm(13px);
   }
@@ -29,7 +29,7 @@
   }
   &__content {
     padding: var(--spacing-unit);
-    color: var(--color-tertiary-darkest);
+    color: var(--color-granite);
   }
   &__footer {
     padding: 0 var(--spacing-unit) var(--spacing-unit);

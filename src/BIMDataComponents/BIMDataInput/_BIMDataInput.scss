@@ -49,14 +49,14 @@ input:-webkit-autofill {
     font-size: calculateEm(12px);
     transform: translateY(8px);
     transition: 0.2s ease all;
-    color: var(--color-tertiary-dark);
+    color: var(--color-granite-light);
     cursor: pointer;
   }
   .bar {
     width: 100%;
     height: 1px;
     display: block;
-    background: var(--color-tertiary);
+    background: var(--color-silver);
     &::after,
     &::before {
       width: 0;

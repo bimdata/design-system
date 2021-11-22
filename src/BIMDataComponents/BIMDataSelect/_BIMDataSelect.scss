@@ -39,7 +39,7 @@
       left: 0;
       font-size: calculateEm(12px);
       transition: 0.2s ease all;
-      color: var(--color-tertiary-dark);
+      color: var(--color-granite-light);
       transition: 0.2s ease all;
     }
 
@@ -49,7 +49,7 @@
       position: absolute;
       bottom: 0;
       display: block;
-      background: var(--color-tertiary);
+      background: var(--color-silver);
     }
   }
 
@@ -84,24 +84,24 @@
       cursor: pointer;
 
       &:hover {
-        background-color: var(--color-tertiary-lightest);
+        background-color: var(--color-silver-light);
         transition: all 0.2s ease;
       }
 
       &.selected {
-        background-color: var(--color-tertiary-400);
+        background-color: var(--color-silver-light);
         &:hover {
-          background-color: var(--color-tertiary);
+          background-color: var(--color-silver);
         }
       }
 
       &.disabled {
-        color: var(--color-disabled);
+        color: var(--color-silver-dark);
         cursor: default;
       }
 
       &.option-group {
-        color: var(--color-tertiary-darkest);
+        color: var(--color-granite);
         font-weight: bold;
         &:hover {
           background-color: transparent;
