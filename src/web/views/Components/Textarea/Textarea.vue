@@ -38,9 +38,9 @@
               label="textarea label"
               name="example"
               v-model="textarea"
-              :autofocus="{{ getAutofocus() }}"
-              :placeholder="{{ getPlaceholder() }}"
-              :disabled="{{ getDisabled() }}"
+              {{ autofocus ? ':autofocus="true"' : "" }}
+              {{ placeholder ? ':placeholder="true"' : "" }}
+              {{ disabled ? ':disabled="true"' : "" }}
             /&gt;
           </pre>
         </template>
