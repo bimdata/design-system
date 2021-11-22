@@ -359,6 +359,14 @@ export default {
           "",
         ],
         [
+          "tableWidth",
+          "[Number, String]",
+          "",
+          "100%",
+          "Use this prop to set table widt (in px)",
+          "",
+        ],
+        [
           "selectable",
           "Boolean",
           "",
