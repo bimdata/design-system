@@ -45,10 +45,14 @@
                 "
                 :src="child.img"
               />
-              <BIMDataText component="h5" color="color-primary" margin="10px">
+              <BIMDataText
+                component="h5"
+                color="color-primary"
+                margin="12px 0 0"
+              >
                 {{ child.title }}
               </BIMDataText>
-              <BIMDataText color="color-granite">
+              <BIMDataText margin="18px 0" color="color-granite">
                 {{ child.text }}
               </BIMDataText>
               <BIMDataButton width="150" radius fill color="primary">
