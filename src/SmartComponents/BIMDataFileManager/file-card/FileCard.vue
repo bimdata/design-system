@@ -92,7 +92,12 @@ export default {
   },
   methods: {
     getFileExtension(file) {
-      return file.name.match(/\.([0-9a-z]+$)/)[1];
+      const extension = file.name.match(/\.([0-9a-z]+$)/)[1];
+      if (extension && extension.toLowerCase() === "ifczip") {
+        return "ifc";
+      } else {
+        return extension;
+      }
     },
     onDoubleClick() {
       if (this.isFolder) {
