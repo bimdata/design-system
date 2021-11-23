@@ -6,6 +6,7 @@ import copy from "rollup-plugin-copy";
 import replace from "@rollup/plugin-replace";
 import postcss from "rollup-plugin-postcss";
 import alias from "@rollup/plugin-alias";
+import image from "@rollup/plugin-image";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
@@ -49,6 +50,7 @@ module.exports = [
         template: { isProduction: true },
         css: false,
       }),
+      image(),
       terser(),
     ],
   },

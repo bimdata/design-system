@@ -29,7 +29,7 @@
           <BIMDataIcon name="folder" size="xxl" fill color="primary" />
         </template>
         <template v-else>
-          <component :is="getIcon(file.type)" />
+          <BIMDataFileIcon :name="getFileExtension(file)" />
         </template>
       </div>
     </template>
@@ -50,10 +50,7 @@ import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue"
 import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataRadio from "../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
-import PDF_FileIcon from "./fileIcons/PDF_FileIcon.vue";
-import PNG_FileIcon from "./fileIcons/PNG_FileIcon.vue";
-import IFC_FileIcon from "./fileIcons/IFC_FileIcon.vue";
+import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
 
 export default {
   components: {
@@ -62,9 +59,7 @@ export default {
     BIMDataIcon,
     BIMDataRadio,
     BIMDataCheckbox,
-    PDF_FileIcon,
-    PNG_FileIcon,
-    IFC_FileIcon,
+    BIMDataFileIcon,
   },
   props: {
     file: {
@@ -96,14 +91,8 @@ export default {
     },
   },
   methods: {
-    getIcon(type) {
-      if (type === "Pdf") {
-        return PDF_FileIcon;
-      } else if (type === "Ifc") {
-        return IFC_FileIcon;
-      } else if (type === "Png") {
-        return PNG_FileIcon;
-      }
+    getFileExtension(file) {
+      return file.name.match(/\.([0-9a-z]+$)/)[1];
     },
     onDoubleClick() {
       if (this.isFolder) {
