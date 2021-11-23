@@ -35,9 +35,9 @@ export default function makeSmartComponent(component, fetchers, props = {}) {
     render(h) {
       return h(component, {
         props: Object.fromEntries(
-          [...Object.keys(fetchers), ...Object.keys(props)].map(prop => [
-            prop,
-            this[prop],
+          [...Object.keys(fetchers), ...Object.keys(props)].map(key => [
+            key,
+            this[key],
           ])
         ),
         on: this.$listeners,

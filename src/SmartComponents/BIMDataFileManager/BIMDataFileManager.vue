@@ -51,10 +51,6 @@ export default {
     FileCard,
   },
   props: {
-    selectedFiles: {
-      type: Array,
-      default: () => [],
-    },
     fileStructure: {
       type: Object,
     },
@@ -71,6 +67,7 @@ export default {
     return {
       currentFileStructure: null,
       searchText: "",
+      selectedFiles: [],
     };
   },
   computed: {
@@ -110,9 +107,12 @@ export default {
   },
   watch: {
     multi() {
-      this.selectedFiles.forEach(selectedFile =>
-        this.$emit("file-deselected", selectedFile)
-      );
+      this.selectedFiles = [];
+      this.$emit("selection-change", this.selectedFiles);
+    },
+    select() {
+      this.selectedFiles = [];
+      this.$emit("selection-change", this.selectedFiles);
     },
     fileStructure(value) {
       if (value) {
@@ -123,15 +123,16 @@ export default {
   methods: {
     onToggleFileSelect(file) {
       if (this.isFileSelected(file)) {
-        this.$emit("file-deselected", file);
+        this.selectedFiles = this.selectedFiles.filter(
+          selectedFile => selectedFile !== file
+        );
       } else {
         if (!this.multi) {
-          this.selectedFiles.forEach(selectedFile =>
-            this.$emit("file-deselected", selectedFile)
-          );
+          this.selectedFiles = [];
         }
-        this.$emit("file-selected", file);
+        this.selectedFiles.push(file);
       }
+      this.$emit("selection-change", this.selectedFiles);
     },
     isFileSelected(file) {
       return this.selectedFiles.includes(file);

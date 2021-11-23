@@ -1,5 +1,9 @@
 <template>
-  <BIMDataCard class="file-card" width="140px">
+  <BIMDataCard
+    class="file-card"
+    :class="{ 'file-card--selected': selected }"
+    width="140px"
+  >
     <template #content>
       <div @dblclick="onDoubleClick" class="file-card__content">
         <div class="file-card__btn-menu">

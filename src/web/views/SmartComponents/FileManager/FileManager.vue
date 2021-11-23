@@ -6,19 +6,15 @@
       }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <div style="width: 90%; height: 90%;">
-            <BIMDataSmartFileManager
-              :spaceId="515"
-              :projectId="756"
-              apiUrl="https://api-staging.bimdata.io"
-              accessToken="fc83e49ca9444d3ea41d212599f39040"
-              :select="selectChecked"
-              :multi="multiChecked"
-              @file-selected="onFileSelected"
-              @file-deselected="onFileDeselected"
-              :selectedFiles="selectedFiles"
-            />
-          </div>
+          <BIMDataSmartFileManager
+            :spaceId="515"
+            :projectId="756"
+            apiUrl="https://api-staging.bimdata.io"
+            accessToken="fc83e49ca9444d3ea41d212599f39040"
+            :select="selectChecked"
+            :multi="multiChecked"
+            @selection-change="onSelectionChange"
+          />
         </template>
 
         <template #parameters>
@@ -64,6 +60,12 @@
         >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
@@ -87,9 +89,9 @@ export default {
   },
   data() {
     return {
-      selectedFiles: [],
       selectChecked: false,
       multiChecked: false,
+      selectedFiles: [],
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -109,16 +111,15 @@ export default {
           "Set the mode in multi select. Ignored if select is false.",
         ],
       ],
+      eventsData: [
+        ["Event name", "Payload"],
+        ["selection-change", "An array of selected files"],
+      ],
     };
   },
   methods: {
-    onFileSelected(file) {
-      this.selectedFiles.push(file);
-    },
-    onFileDeselected(file) {
-      this.selectedFiles = this.selectedFiles.filter(
-        selectedFile => selectedFile !== file
-      );
+    onSelectionChange(selectedFiles) {
+      this.selectedFiles = selectedFiles;
     },
   },
 };

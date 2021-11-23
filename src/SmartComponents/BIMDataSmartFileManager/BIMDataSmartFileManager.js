@@ -20,9 +20,5 @@ export default makeSmartComponent(
       type: Boolean,
       default: false,
     },
-    selectedFiles: {
-      type: Array,
-      default: () => [],
-    },
   }
 );
