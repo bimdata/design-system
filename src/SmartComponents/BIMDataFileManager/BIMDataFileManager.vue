@@ -1,6 +1,13 @@
 <template>
   <div class="bimdata-file-manager">
     <template v-if="fileStructure">
+      <NewFolderButton
+        :projectId="projectId"
+        :spaceId="spaceId"
+        :apiClient="apiClient"
+        :folder="currentFolder"
+        @success="onNewFolder"
+      />
       <BIMDataSearch
         class="bimdata-file-manager__search"
         width="100%"
@@ -35,12 +42,16 @@
 </template>
 
 <script>
+import { makeBIMDataApiClient } from "@bimdata/typescript-fetch-api-client";
+
 import BIMDataResponsiveGrid from "../../BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
 import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMDataBreadcrumb.vue";
 
 import FileCard from "./file-card/FileCard.vue";
+import NewFolderButton from "./newFolder/NewFolderButton.vue";
+import trads from "./i18n.js";
 
 export default {
   components: {
@@ -49,10 +60,33 @@ export default {
     BIMDataBreadcrumb,
     BIMDataSpinner,
     FileCard,
+    NewFolderButton,
+  },
+  provide() {
+    return {
+      $translate: key => (trads[this.locale] || trads["en"])[key],
+    };
   },
   props: {
-    fileStructure: {
-      type: Object,
+    locale: {
+      type: String,
+      default: "en",
+    },
+    apiUrl: {
+      type: String,
+      default: "https://api.bimdata.io",
+    },
+    spaceId: {
+      type: Number,
+      required: true,
+    },
+    projectId: {
+      type: Number,
+      required: true,
+    },
+    accessToken: {
+      type: String,
+      required: true,
     },
     select: {
       type: Boolean,
@@ -65,9 +99,11 @@ export default {
   },
   data() {
     return {
-      currentFileStructure: null,
+      currentFolder: null, //TODO spinner while waiting
       searchText: "",
       selectedFiles: [],
+      apiClient: null,
+      fileStructure: null,
     };
   },
   computed: {
@@ -77,24 +113,18 @@ export default {
     files() {
       if (this.searchText) {
         return (
-          (this.currentFileStructure && this.currentFileStructure.children) ||
+          (this.currentFolder && this.currentFolder.children) ||
           []
         ).filter(file => file.name.toLowerCase().includes(this.searchText));
       } else {
-        return (
-          (this.currentFileStructure && this.currentFileStructure.children) ||
-          []
-        );
+        return (this.currentFolder && this.currentFolder.children) || [];
       }
     },
     steps() {
       const steps = [];
-      if (this.currentFileStructure) {
-        steps.push(this.currentFileStructure);
-        let parent = this.getParent(
-          this.fileStructure,
-          this.currentFileStructure
-        );
+      if (this.currentFolder) {
+        steps.push(this.currentFolder);
+        let parent = this.getParent(this.fileStructure, this.currentFolder);
         while (parent) {
           steps.unshift(parent);
 
@@ -106,6 +136,9 @@ export default {
     },
   },
   watch: {
+    accessToken(token) {
+      this.apiClient.accessToken = token;
+    },
     multi() {
       this.selectedFiles = [];
       this.$emit("selection-change", this.selectedFiles);
@@ -114,13 +147,38 @@ export default {
       this.selectedFiles = [];
       this.$emit("selection-change", this.selectedFiles);
     },
-    fileStructure(value) {
-      if (value) {
-        this.currentFileStructure = this.fileStructure;
+  },
+  async created() {
+    this.apiClient = makeBIMDataApiClient({
+      apiUrl: this.apiUrl,
+      accessToken: this.accessToken,
+    });
+
+    this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
+      {
+        cloudPk: this.spaceId,
+        id: this.projectId,
       }
-    },
+    );
+
+    this.currentFolder = this.fileStructure;
   },
   methods: {
+    async onNewFolder() {
+      const currentFolderId = this.currentFolder.id;
+
+      this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
+        {
+          cloudPk: this.spaceId,
+          id: this.projectId,
+        }
+      );
+
+      const currentFolder = this.getFolder(currentFolderId);
+      if (currentFolder) {
+        this.currentFolder = currentFolder;
+      }
+    },
     onToggleFileSelect(file) {
       if (this.isFileSelected(file)) {
         this.selectedFiles = this.selectedFiles.filter(
@@ -138,27 +196,24 @@ export default {
       return this.selectedFiles.includes(file);
     },
     onBreadcrumClick(step) {
-      this.currentFileStructure = step;
+      this.currentFolder = step;
     },
     onBreadcrumBack() {
       const to = this.steps[this.steps.length - 2];
       if (to) {
-        this.currentFileStructure = to;
+        this.currentFolder = to;
       }
     },
     openFolder(file) {
-      this.currentFileStructure = file;
+      this.currentFolder = file;
     },
     back() {
-      const parent = this.getParent(
-        this.fileStructure,
-        this.currentFileStructure
-      );
+      const parent = this.getParent(this.fileStructure, this.currentFolder);
 
       if (parent) {
-        this.currentFileStructure = parent;
+        this.currentFolder = parent;
       } else {
-        this.currentFileStructure = this.fileStructure;
+        this.currentFolder = this.fileStructure;
       }
     },
     getParent(parent, fileStructure) {
@@ -170,6 +225,18 @@ export default {
           const newParent = this.getParent(child, fileStructure);
           if (newParent) {
             return newParent;
+          }
+        }
+      }
+    },
+    getFolder(id, parent = this.fileStructure) {
+      if (parent.id === id) {
+        return parent;
+      } else {
+        for (let child of parent.children || []) {
+          const folder = this.getFolder(id, child);
+          if (folder) {
+            return folder;
           }
         }
       }
