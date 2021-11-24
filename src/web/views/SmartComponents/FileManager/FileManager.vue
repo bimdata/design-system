@@ -6,7 +6,7 @@
       }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataSmartFileManager
+          <BIMDataFileManager
             :spaceId="515"
             :projectId="756"
             apiUrl="https://api-staging.bimdata.io"
@@ -26,12 +26,6 @@
             :disabled="!selectChecked"
           >
           </BIMDataCheckbox>
-          <p>Selected Files:</p>
-          <ul>
-            <li v-for="selectedFile of selectedFiles" :key="selectedFile.id">
-              {{ selectedFile.name }}
-            </li>
-          </ul>
         </template>
 
         <template #import>
@@ -71,7 +65,7 @@
 </template>
 
 <script>
-import BIMDataSmartFileManager from "../../../../SmartComponents/BIMDataSmartFileManager/BIMDataSmartFileManager.js";
+import BIMDataFileManager from "../../../../SmartComponents/BIMDataFileManager/BIMDataFileManager.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -81,7 +75,7 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 
 export default {
   components: {
-    BIMDataSmartFileManager,
+    BIMDataFileManager,
     ComponentCode,
     BIMDataTable,
     BIMDataText,
