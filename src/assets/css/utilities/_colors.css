@@ -1,84 +1,179 @@
 /* background BRAND COLORS */
-.bg-primary{
+.bg-primary {
   background-color: var(--color-primary);
 }
-.bg-secondary{
+.bg-secondary {
   background-color: var(--color-secondary);
 }
 
-/* colors GREY SHADES - NEUTRAL */
-.bg-white{
+/* background GREY SHADES - NEUTRAL */
+.bg-white {
   background-color: var(--color-white);
 }
-.bg-silver{
-  background-color: var(--color-silver);
-}
-.bg-silver-light{
+.bg-silver-light {
   background-color: var(--color-silver-light);
 }
-.bg-silver-dark{
+.bg-silver {
+  background-color: var(--color-silver);
+}
+.bg-silver-dark {
   background-color: var(--color-silver-dark);
 }
-.bg-granite-light{
+.bg-granite-light {
   background-color: var(--color-granite-light);
 }
-.bg-granite{
+.bg-granite {
   background-color: var(--color-granite);
 }
-.bg-black{
+.bg-black {
   background-color: var(--color-black);
 }
 
 /* background STATE COLORS */
-.bg-success{
+.bg-success {
   background-color: var(--color-success);
 }
-.bg-warning{
+.bg-warning {
   background-color: var(--color-warning);
 }
-.bg-high{
+.bg-high {
   background-color: var(--color-high);
 }
 
 /* color BRAND COLORS */
-.color-primary{
+.color-primary {
   color: var(--color-primary);
 }
-.color-secondary{
+.color-secondary {
   color: var(--color-secondary);
 }
 
-/* background VARIANT COLORS */
-.color-white{
+/* color GREY SHADES - NEUTRAL */
+.color-white {
   color: var(--color-white);
 }
-.color-silver-light{
+.color-silver-light {
   color: var(--color-silver-light);
 }
-.color-silver{
+.color-silver {
   color: var(--color-silver);
 }
-.color-silver-dark{
+.color-silver-dark {
   color: var(--color-silver-dark);
 }
-.color-granite-light{
+.color-granite-light {
   color: var(--color-granite-light);
 }
-.color-granite{
+.color-granite {
   color: var(--color-granite);
 }
-.color-black{
+.color-black {
   color: var(--color-black);
 }
 
-/* background STATE COLORS */
-.color-success{
+/* color STATE COLORS */
+.color-success {
   color: var(--color-success);
 }
-.color-warning{
+.color-warning {
   color: var(--color-warning);
 }
-.color-high{
+.color-high {
   color: var(--color-high);
 }
 
+/* fill BRAND COLORS */
+.fill-primary {
+  fill: var(--color-primary);
+}
+.fill-secondary {
+  fill: var(--color-secondary);
+}
+
+/* fill GREY SHADES - NEUTRAL */
+.fill-white {
+  fill: var(--color-white);
+}
+.fill-silver-light {
+  fill: var(--color-silver-light);
+}
+.fill-silver {
+  fill: var(--color-silver);
+}
+.fill-silver-dark {
+  fill: var(--color-silver-dark);
+}
+.fill-granite-light {
+  fill: var(--color-granite-light);
+}
+.fill-granite {
+  fill: var(--color-granite);
+}
+.fill-black {
+  fill: var(--color-black);
+}
+
+/* fill STATE COLORS */
+.fill-success {
+  fill: var(--color-success);
+}
+.fill-warning {
+  fill: var(--color-warning);
+}
+.fill-high {
+  fill: var(--color-high);
+}
+
+/* stroke BRAND COLORS */
+.stroke-primary {
+  fill: transparent;
+  stroke: var(--color-primary);
+}
+.stroke-secondary {
+  fill: transparent;
+  stroke: var(--color-secondary);
+}
+
+/* stroke GREY SHADES - NEUTRAL */
+.stroke-white {
+  fill: transparent;
+  stroke: var(--color-white);
+}
+.stroke-silver-light {
+  fill: transparent;
+  stroke: var(--color-silver-light);
+}
+.stroke-silver {
+  fill: transparent;
+  stroke: var(--color-silver);
+}
+.stroke-silver-dark {
+  fill: transparent;
+  stroke: var(--color-silver-dark);
+}
+.stroke-granite-light {
+  fill: transparent;
+  stroke: var(--color-granite-light);
+}
+.stroke-granite {
+  fill: transparent;
+  stroke: var(--color-granite);
+}
+.stroke-black {
+  fill: transparent;
+  stroke: var(--color-black);
+}
+
+/* stroke STATE COLORS */
+.stroke-success {
+  fill: transparent;
+  stroke: var(--color-success);
+}
+.stroke-warning {
+  fill: transparent;
+  stroke: var(--color-warning);
+}
+.stroke-high {
+  fill: transparent;
+  stroke: var(--color-high);
+}
