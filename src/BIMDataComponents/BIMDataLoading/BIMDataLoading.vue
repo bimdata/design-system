@@ -16,16 +16,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_colors-variation.scss";
-
-// import BIMDATA COMPONENT KEYFRAMES
-@import "./_keyframes.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataLoading.scss";
-</style>
+<style lang="scss" src="./_BIMDataLoading.scss"></style>

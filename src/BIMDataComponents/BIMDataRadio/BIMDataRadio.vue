@@ -1,5 +1,5 @@
 <template>
-  <label class="bimdata-radio" :class="{disabled}">
+  <label class="bimdata-radio" :class="{ disabled }">
     <input
       type="radio"
       @input="onInput"
@@ -17,7 +17,7 @@
 export default {
   model: {
     prop: "modelValue",
-    event: "update:modelValue"
+    event: "update:modelValue",
   },
   props: {
     text: {
@@ -38,9 +38,7 @@ export default {
       default: false,
     },
   },
-  emits: [
-    "update:modelValue"
-  ],
+  emits: ["update:modelValue"],
   methods: {
     onInput() {
       this.$emit("update:modelValue", this.value);
@@ -49,22 +47,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA UTILITIES
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_colors-variation.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./BIMDataRadio.scss";
-</style>
+<style lang="scss" src="./_BIMDataRadio.scss"></style>

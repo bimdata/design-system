@@ -8,7 +8,6 @@
       <slot name="content"></slot>
     </div>
     <span
-      v-if="isDisplayed"
       ref="tooltipText"
       class="bimdata-tooltip__text"
       :class="className"
@@ -58,7 +57,8 @@ export default {
   mounted() {
     this.$options.resizeObserver = new ResizeObserver(this.onResize);
   },
-  unmounted() { // for Vue3 compatibility (destroyed => unmounted)
+  unmounted() {
+    // for Vue3 compatibility (destroyed => unmounted)
     this.onDestroy();
   },
   destroyed() {
@@ -103,22 +103,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA UTILITIES
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_pseudo.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_keyframes.scss";
-@import "./_BIMDataTooltip.scss";
-</style>
+<style lang="scss" src="./_BIMDataTooltip.scss"></style>
