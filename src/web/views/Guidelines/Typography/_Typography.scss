@@ -3,7 +3,7 @@
   &-size {
     &__content {
       &__item {
-        margin-bottom: calc(#{$spacing-unit} * 2);
+        margin-bottom: calc(var(--spacing-unit) * 2);
       }
     }
   }
@@ -17,17 +17,17 @@
         flex: 1;
         &:nth-child(1) {
           p {
-            font-family: $primary-font;
+            font-family: var(--primary-font);
           }
         }
         &:nth-child(2) {
           p {
-            font-family: $primary-font-medium;
+            font-family: var(--primary-font-medium);
           }
         }
         &:nth-child(3) {
           p {
-            font-family: $primary-font-bold;
+            font-family: var(--primary-font-bold);
           }
         }
       }

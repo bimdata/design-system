@@ -38,6 +38,7 @@
                 :size="selectedIconOptionssize"
                 :class="getOverviewIconClasses()"
                 :rotate="Number(rotationDeg)"
+                :margin="marginIcon"
               />
               <p>{{ icon }}</p>
             </div>
@@ -45,6 +46,15 @@
         </template>
 
         <template #parameters>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >margin</BIMDataText
+          >
+          <BIMDataInput
+            v-model="marginIcon"
+            placeholder="margin around icon"
+            type="number"
+            min="0"
+          ></BIMDataInput>
           <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
             >rotate</BIMDataText
           >
@@ -86,7 +96,7 @@
               getIconOptionsSize()
             }} {{ selectedIconOptionstypes }} color="{{
               selectedIconOptionsvalues
-            }}" {{ getRotateDegree() }}/&gt;
+            }}" {{ getRotateDegree() }} {{ getMarginIcon() }}/&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -142,6 +152,7 @@ export default {
   directives: { highlight, copy },
   data() {
     return {
+      marginIcon: "0",
       rotationDeg: "",
       size: "m",
       icons,
@@ -158,12 +169,12 @@ export default {
       },
       propsData: [
         [
-          "Props",
-          "Type",
-          "Required",
-          "Default value",
-          "Description",
-          "Examples",
+          { id: "props", label: "Props", width: "70px" },
+          { id: "type", label: "Type", width: "70px" },
+          { id: "required", label: "Required", width: "30px" },
+          { id: "defaultValue", label: "Default value", width: "150px" },
+          { id: "description", label: "Description", width: "300px" },
+          { id: "examples", label: "Examples", width: "150px" },
         ],
         [
           "color",
@@ -188,6 +199,14 @@ export default {
           "currentColor",
           "Use this props if values colors is not enought for customize fill for icon.",
           "red, blue, green...",
+        ],
+        [
+          "margin",
+          "String",
+          "",
+          "0px",
+          "Use this props to add margin value.",
+          "0 6px 0 0",
         ],
         [
           "name",
@@ -239,14 +258,6 @@ export default {
     onActiveIcons(iconName) {
       this.activeIcon = iconName;
     },
-    onCopy() {
-      this.alerts = true;
-      this.message = "copied successfully !";
-      this.alertType = "success";
-      setTimeout(() => {
-        this.alerts = false;
-      }, 3000);
-    },
     getIconOptionsSize() {
       if (this.selectedIconOptionssize === "s") {
         return null;
@@ -257,6 +268,11 @@ export default {
     getRotateDegree() {
       if (this.rotationDeg > 0) {
         return `:rotate="${this.rotationDeg}"`;
+      }
+    },
+    getMarginIcon() {
+      if (this.marginIcon > 0) {
+        return `:margin="${this.marginIcon}"`;
       }
     },
     getOverviewIconClasses() {

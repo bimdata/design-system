@@ -15,7 +15,7 @@
     a {
       height: 20px;
       display: inline-flex;
-      color: $color-primary;
+      color: var(--color-primary);
       position: relative;
       font-weight: 700;
       overflow: hidden;
@@ -23,7 +23,7 @@
         content: "";
         width: 100%;
         height: 2px;
-        background-color: $color-primary;
+        background-color: var(--color-primary);
         position: absolute;
         left: 0;
         bottom: 0;

@@ -11,7 +11,7 @@
               {{ toggled ? "on" : "off" }}
             </span>
             <template #right v-if="checkboxRightSlotChecked">
-              right content
+              <span>right content</span>
             </template>
           </BIMDataToggle>
         </template>
@@ -50,8 +50,10 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataToggle {{ getToggleDisabled() }}&gt;
-            &lt;/BIMDataToggle&gt;
+            &lt;BIMDataToggle v-model="toggled" {{ getToggleDisabled() }}&gt;
+            {{ getDefaultSlot() }}
+            {{ getRightSlot() }}
+          &lt;/BIMDataToggle&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -125,6 +127,16 @@ export default {
     getToggleDisabled() {
       if (this.checkboxDisabledChecked) {
         return 'disabled="true"';
+      }
+    },
+    getDefaultSlot() {
+      if (this.checkboxDefaultSlotChecked) {
+        return "<span>off</span>";
+      }
+    },
+    getRightSlot() {
+      if (this.checkboxRightSlotChecked) {
+        return "<template #right><span>right content</span></template>";
       }
     },
   },

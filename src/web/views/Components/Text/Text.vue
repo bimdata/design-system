@@ -221,7 +221,7 @@ export default {
       autofocus: false,
       placeholder: false,
       disabled: false,
-      selectedTextOptionscolor: "color-tertiary-dark",
+      selectedTextOptionscolor: "color-granite-light",
       selectedTextFontWeight: "primary-font",
       selectedTextComponent: "p",
       displayText: "inline-block",
@@ -239,17 +239,16 @@ export default {
         color: [
           "color-primary",
           "color-secondary",
-          "color-tertiary",
-          "color-tertiary-lightest",
-          "color-tertiary-dark",
-          "color-tertiary-darkest",
+          "color-silver",
+          "color-silver-light",
+          "color-silver-dark",
+          "color-granite-light",
+          "color-granite",
           "color-white",
           "color-black",
           "color-high",
           "color-warning",
           "color-success",
-          "color-neutral",
-          "color-disabled",
         ],
       },
       propsData: [
@@ -299,7 +298,7 @@ export default {
         [
           "color",
           "String",
-          "color-tertiary-dark",
+          "color-granite-light",
           "Use this prop to customize the color of the text block. To know the authorized values, refer to the 'COLOR UTILITY CLASS' line of the Guidelines & Utilities ; Colors page.",
         ],
       ],
@@ -307,7 +306,7 @@ export default {
   },
   methods: {
     getColor() {
-      if (this.selectedTextOptionscolor != "color-tertiary-darkest") {
+      if (this.selectedTextOptionscolor != "color-granite") {
         return `color="${this.selectedTextOptionscolor}"`;
       }
     },

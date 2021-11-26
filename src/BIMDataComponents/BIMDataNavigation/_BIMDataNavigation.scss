@@ -1,6 +1,3 @@
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-// import BIMDATA UTILITIES
 @import "../../assets/scss/utilities/_list.scss";
 
 .bimdata-navigation {
@@ -9,8 +6,7 @@
   height: 38px;
   justify-content: center;
   align-items: center;
-  background-color: $color-white;
-
+  background-color: var(--color-white);
   &__item {
     padding: 6px 2px;
 

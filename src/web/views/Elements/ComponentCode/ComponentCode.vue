@@ -12,7 +12,11 @@
 
     <div class="bimdata-ds__demo__parameters" v-if="componentTitle">
       <div class="bimdata-ds__demo__parameters__options">
-        <BIMDataText component="h4" color="color-primary" margin="10px 0"
+        <BIMDataText
+          component="h4"
+          color="color-primary"
+          margin="10px 0"
+          display="block"
           >{{ componentTitle }} options</BIMDataText
         >
         <slot name="parameters"></slot>
@@ -79,23 +83,7 @@ export default {
     BIMDataTooltip,
     BIMDataText,
   },
-  data() {
-    return {
-      alerts: false,
-      alertType: null,
-      message: "",
-    };
-  },
-  methods: {
-    onCopy() {
-      this.alerts = true;
-      this.message = "copied successfully !";
-      this.alertType = "success";
-      setTimeout(() => {
-        this.alerts = false;
-      }, 3000);
-    },
-  },
+  directives: { highlight, copy },
   props: {
     componentTitle: {
       type: String,
@@ -113,7 +101,23 @@ export default {
       default: null,
     },
   },
-  directives: { highlight, copy },
+  data() {
+    return {
+      alerts: false,
+      alertType: null,
+      message: "",
+    };
+  },
+  methods: {
+    onCopy() {
+      this.alerts = true;
+      this.message = "copied successfully !";
+      this.alertType = "success";
+      setTimeout(() => {
+        this.alerts = false;
+      }, 3000);
+    },
+  },
 };
 </script>
 

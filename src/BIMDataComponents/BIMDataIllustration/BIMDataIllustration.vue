@@ -18,7 +18,7 @@ import illustrations from "./BIMDataLibraryIllustrations/index.js";
 export default {
   name: "BIMDataIcon",
   components: {
-    ...formatIconComponentsNames(illustrations)
+    ...formatIconComponentsNames(illustrations),
   },
   props: {
     name: {
@@ -26,7 +26,7 @@ export default {
       required: true,
       validator(value) {
         return Object.keys(illustrations).includes(value);
-      }
+      },
     },
     x: {
       type: [Number, String],
@@ -43,7 +43,7 @@ export default {
     customHeight: {
       type: [Number, String],
       default: null,
-    }
+    },
   },
   computed: {
     width() {
@@ -51,7 +51,6 @@ export default {
     },
     height() {
       return `${this.y}px`;
-
     },
     viewBox() {
       return `0 0 ${this.x} ${this.y}`;
@@ -59,7 +58,7 @@ export default {
     style() {
       return {
         width: `${this.customWidth}px`,
-        height: `${this.customHeight}px`
+        height: `${this.customHeight}px`,
       };
     },
   },
@@ -74,8 +73,3 @@ function formatIconComponentsNames(illustrations = {}) {
   return illustrationsCopy;
 }
 </script>
-
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-</style>

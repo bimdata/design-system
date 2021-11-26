@@ -11,8 +11,8 @@
   }
   .ds-spacing {
     &__padding {
-      background-color: $color-primary;
-      color: $color-white;
+      background-color: var(--color-primary);
+      color: var(--color-white);
       text-align: center;
       font-size: calculateEm(12px);
       span {
@@ -21,7 +21,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        outline: 1px dotted $color-tertiary-lightest;
+        outline: 1px dotted var(--color-silver-light);
       }
     }
   }

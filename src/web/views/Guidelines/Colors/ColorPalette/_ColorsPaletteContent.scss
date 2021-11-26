@@ -1,0 +1,62 @@
+.colors-container {
+  .color-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    .color-swatche {
+      margin: 12px 12px 12px 0;
+      width: 320px;
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      &__header,
+      &__body {
+        &__item {
+          .label {
+            font-size: calculateEm(9px);
+            line-height: 16px;
+            text-transform: uppercase;
+          }
+          .value {
+            font-size: calculateEm(11px);
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+          }
+        }
+      }
+      &__header {
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: self-start;
+        background-color: var(--color-primary);
+        &__item {
+          padding: 6px 12px;
+          .label {
+            opacity: 0.5;
+          }
+        }
+      }
+      &__body {
+        padding: 6px 12px;
+        background-color: #fcfcfc;
+        &__item {
+          padding: calc(var(--spacing-unit) / 2) 0;
+          .label {
+            color: var(--color-primary-light);
+          }
+          .value {
+            position: relative;
+            color: var(--color-primary);
+            .bimdata-btn {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
