@@ -1,15 +1,24 @@
 <template>
   <div class="bimdata-loading">
     <span class="bimdata-loading--square"></span>
-    <p class="bimdata-text bimdata-loading--text">
-      <span>loading...</span>
-    </p>
+    <BIMDataText color="color-white" margin="12px 0 0"
+      ><span>loading...</span></BIMDataText
+    >
   </div>
 </template>
 
+<script>
+import BIMDataText from "../BIMDataText/BIMDataText.vue";
+export default {
+  components: {
+    BIMDataText,
+  },
+};
+</script>
+
 <style lang="scss">
-  // import BIMDATA VARIABLES
-  @import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA VARIABLES
+@import "../../assets/scss/_BIMDataVariables.scss";
 
 // import BIMDATA COMPONENT KEYFRAMES
 @import "./_keyframes.scss";

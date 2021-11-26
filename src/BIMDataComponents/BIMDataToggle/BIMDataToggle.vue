@@ -1,7 +1,7 @@
 <template>
   <label
     :for="`bimdata-toggle-${_uid}`"
-    :class="{ active: value, disabled }"
+    :class="{ active: modelValue, disabled }"
     class="toggle__button"
   >
     <slot></slot>
@@ -18,30 +18,35 @@
 
 <script>
 export default {
+  model: {
+    prop: "modelValue",
+    event: "update:modelValue",
+  },
   props: {
     disabled: {
       type: Boolean,
       default: false,
     },
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
   },
+  emits: ["update:modelValue"],
   computed: {
     checkedValue: {
       get() {
-        return this.value;
+        return this.modelValue;
       },
       set(newValue) {
-        this.$emit("input", newValue);
+        this.$emit("update:modelValue", newValue);
       },
     },
   },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "../../assets/scss/_BIMDataVariables.scss";
 @import "./_BIMDataToggle.scss";
 </style>

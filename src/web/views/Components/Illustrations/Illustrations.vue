@@ -1,8 +1,9 @@
 <template>
   <main class="article article-illustrations">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode language="javascript">
         <template #module>
           <div class="illustrations">
@@ -11,23 +12,27 @@
               <p>click</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyBcf"/>
+              <BIMDataIllustration name="emptyBcf" />
               <p>emptyBcf</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyBucket"/>
+              <BIMDataIllustration name="emptyBucket" />
               <p>emptyBucket</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyProperties"/>
+              <BIMDataIllustration name="emptyProperties" />
               <p>emptyProperties</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="emptyTree"/>
+              <BIMDataIllustration name="emptySectionPlanes" />
+              <p>emptySectionPlanes</p>
+            </div>
+            <div class="illustration">
+              <BIMDataIllustration name="emptyTree" />
               <p>emptyTree</p>
             </div>
             <div class="illustration">
-              <BIMDataIllustration name="logo"/>
+              <BIMDataIllustration name="logo" />
               <p>logo</p>
             </div>
             <div class="illustration">
@@ -54,12 +59,6 @@
             import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustration.js";
           </pre>
         </template>
-
-        <template #code>
-          <!-- <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" {{ getRotateDegree() }}/&gt;
-          </pre> -->
-        </template>
       </ComponentCode>
     </div>
   </main>
@@ -68,25 +67,26 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
 import illustrations from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataLibraryIllustrations/index.js";
+
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataRadio,
     BIMDataIllustration,
+    BIMDataText,
   },
   data() {
     return {
-      illustrations
-    }
+      illustrations,
+    };
   },
-}
+};
 </script>
 
 <style lang="scss">
-  // import COMPONENT STYLE
+// import COMPONENT STYLE
 @import "./_Illustrations.scss";
 </style>

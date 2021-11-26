@@ -11,9 +11,7 @@
     class="bimdata-pagination"
   >
     <template #left>
-      <span class="bimdata-pagination__number"
-        >{{ firstIndex }} - {{ lastIndex }} of {{ length }}</span
-      >
+      {{ firstIndex }} - {{ lastIndex }} of {{ length }}
     </template>
     <span class="bimdata-pagination__item">
       <BIMDataButton ghost width="21px" height="21px">
@@ -53,6 +51,7 @@ export default {
       },
     },
   },
+  emits: ["pagechanged"],
   computed: {
     firstIndex() {
       return this.perPage * (this.currentPage - 1) + 1;
@@ -84,10 +83,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataPagination.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataPagination.scss"></style>

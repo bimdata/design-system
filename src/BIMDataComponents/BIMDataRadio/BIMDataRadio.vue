@@ -3,7 +3,7 @@
     <input
       type="radio"
       @input="onInput"
-      :checked="selectedValue === value"
+      :checked="modelValue === value"
       :name="name"
       :id="id"
       :value="value"
@@ -16,7 +16,8 @@
 <script>
 export default {
   model: {
-    prop: "selectedValue",
+    prop: "modelValue",
+    event: "update:modelValue"
   },
   props: {
     text: {
@@ -31,15 +32,18 @@ export default {
       type: [String, Number],
     },
     value: {},
-    selectedValue: {},
+    modelValue: {},
     disabled: {
       type: Boolean,
       default: false,
     },
   },
+  emits: [
+    "update:modelValue"
+  ],
   methods: {
     onInput() {
-      this.$emit("input", this.value);
+      this.$emit("update:modelValue", this.value);
     },
   },
 };

@@ -1,157 +1,62 @@
 <template>
-  <div
-    class="bimdata-select"
-    :class="{ 'not-empty': value != null && value != value.length }"
-    :style="{ 'min-width': width }"
-  >
-    <div class="bimdata-select__content">
-      <div
-        class="select"
-        @click="displayOptions = !displayOptions"
-        :class="{ active: displayOptions }"
-      >
-        <span>{{
-          multi ? (value.length ? formatValue(value) : null) : value
-        }}</span>
-        <BIMDataIcon name="chevron" size="xxs" />
-      </div>
-      <label>{{ label }}</label>
-      <span class="bar"></span>
-    </div>
-    <transition name="slide-fade-down">
-      <ul v-show="displayOptions" v-clickaway="away">
-        <li v-if="nullValue" :nullValue="nullValue" @click="onNullValueClick()">
-          None
-        </li>
-        <li
-          v-for="(option, index) of options"
-          :key="index"
-          :class="{
-            selected: multi ? value.includes(option) : option === value,
-          }"
-          @click="onOptionClick(option)"
-        >
-          <BIMDataCheckbox
-            v-if="multi"
-            :text="option"
-            :state="value.includes(option)"
-          ></BIMDataCheckbox>
-          <span v-else>{{ option }}</span>
-        </li>
-      </ul>
-    </transition>
-  </div>
+  <component
+    :is="selectorComponent"
+    v-bind="$props"
+    :modelValue="modelValue"
+    @update:modelValue="$emit('update:modelValue', $event)"
+  />
 </template>
 
 <script>
-import clickaway from "../../directives/click-away";
-
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
-import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
+// Components
+import BIMDataSelectMulti from "./BIMDataSelectMulti.vue";
+import BIMDataSelectSingle from "./BIMDataSelectSingle.vue";
 
 export default {
   components: {
-    BIMDataIcon,
-    BIMDataCheckbox,
+    BIMDataSelectMulti,
+    BIMDataSelectSingle,
   },
-  directives: { clickaway },
   model: {
-    event: "option-click",
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
-    options: { type: Array, default: () => [] },
+    width: {
+      type: [String, Number],
+      default: "100%",
+    },
+    label: {
+      type: String,
+      default: null,
+    },
+    options: {
+      type: Array,
+      default: () => [],
+    },
+    optionKey: {
+      type: String,
+    },
+    optionLabelKey: {
+      type: String,
+    },
+    modelValue: {
+      type: [String, Object, Array],
+    },
     multi: {
       type: Boolean,
       default: false,
     },
-    value: {
-      type: [String, Array],
-    },
-    label: { type: String, default: null },
-    width: { type: [String, Number] },
     nullValue: {
       type: Boolean,
       default: false,
     },
   },
-  data() {
-    return {
-      displayOptions: false,
-      selectedOptions: this.value,
-    };
-  },
-  watch: {
-    multi() {
-      if (this.multi && !Array.isArray(this.value)) {
-        throw "value must be an array in multi mode.";
-      }
-      if (
-        !this.multi &&
-        typeof this.value !== "string" &&
-        typeof this.value !== "number" &&
-        this.value !== null
-      ) {
-        throw "value must be a string or a number in non-multi mode.";
-      }
-    },
-  },
-  created() {
-    this.$watch(
-      () => this.multi && this.nullValue,
-      res => {
-        if (res) {
-          throw "Can not have multi and nullValue together.";
-        }
-      }
-    );
-  },
-  methods: {
-    onOptionClick(option) {
-      if (this.multi) {
-        if (this.value.includes(option)) {
-          this.$emit(
-            "option-click",
-            this.value.filter(val => val !== option)
-          );
-        } else {
-          const copy = Array.from(this.value);
-          copy.push(option);
-          this.$emit("option-click", copy);
-        }
-      } else {
-        this.$emit("option-click", option);
-        this.displayOptions = !this.displayOptions;
-      }
-    },
-    onNullValueClick() {
-      this.$emit("option-click", null);
-      this.displayOptions = !this.displayOptions;
-    },
-    away() {
-      this.displayOptions = false;
-    },
-    formatValue(value) {
-      return value.reduce((acc, cur) => `${acc}, ${cur}`);
+  emits: ["update:modelValue"],
+  computed: {
+    selectorComponent() {
+      return this.multi ? "BIMDataSelectMulti" : "BIMDataSelectSingle";
     },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import BIMDATA UTILITIES
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_pseudo.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataSelect.scss";
-</style>

@@ -1,7 +1,9 @@
 <template>
   <main class="article article-pagination">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataPaginatedList
@@ -34,13 +36,17 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Props:</BIMDataText
+        >
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Slots:</BIMDataText
+        >
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -51,6 +57,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataPaginatedList from "../../../../../src/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
@@ -58,6 +65,7 @@ export default {
     BIMDataPaginatedList,
     BIMDataInput,
     BIMDataTable,
+    BIMDataText,
   },
   data() {
     return {
@@ -98,11 +106,11 @@ export default {
         ],
       ],
       slotsData: [
-        ["slot name", "Description"],
-        ["#header", "Use this slot to add a header to your paginated list."],
-        ["#element", "Template of each element"],
+        ["Slot name", "Description"],
+        ["header", "Use this slot to add a header to your paginated list."],
+        ["element", "Template of each element"],
         [
-          "#empty",
+          "empty",
           "Use this slot to customize the display if your list is empty.",
         ],
       ],

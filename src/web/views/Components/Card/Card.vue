@@ -1,12 +1,17 @@
 <template>
   <main class="article article-card">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataCard
             :titleHeader="getHeaderTitle()"
             :submenuText="getSubmenuText()"
+            :width="widthCard"
+            :borderRadius="borderRadiusCard"
+            :bgColor="selectedBgColorCard"
           >
             <template #headerIcons v-if="headerIcons">
               {{ getHeaderIcons() }}
@@ -28,13 +33,23 @@
 
         <template #parameters>
           <div>
-            <h5 class="bimdata-h5">Header</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Header</BIMDataText
+            >
             <BIMDataCheckbox text="title" v-model="headerTitle">
             </BIMDataCheckbox>
             <BIMDataCheckbox text="icons" v-model="headerIcons">
             </BIMDataCheckbox>
 
-            <h5 class="bimdata-h5">Submenu</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Submenu</BIMDataText
+            >
             <BIMDataCheckbox text="left" v-model="submenuLeft">
             </BIMDataCheckbox>
             <BIMDataCheckbox text="text" v-model="submenuText">
@@ -42,12 +57,54 @@
             <BIMDataCheckbox text="right" v-model="submenuIcons">
             </BIMDataCheckbox>
 
-            <h5 class="bimdata-h5">Content</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Content</BIMDataText
+            >
             <BIMDataCheckbox text="content" v-model="content">
             </BIMDataCheckbox>
 
-            <h5 class="bimdata-h5">Footer</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Footer</BIMDataText
+            >
             <BIMDataCheckbox text="footer" v-model="footer"> </BIMDataCheckbox>
+
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Parameters</BIMDataText
+            >
+            <BIMDataInput
+              v-model="widthCard"
+              margin="20px 0"
+              placeholder="card's min-width in px or %"
+            ></BIMDataInput>
+            <BIMDataInput
+              v-model="borderRadiusCard"
+              placeholder="card's border-radius in px or %"
+            ></BIMDataInput>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >Background-colors</BIMDataText
+            >
+            <BIMDataRadio
+              v-for="colorCard in colorsCard"
+              :key="colorCard"
+              :text="colorCard"
+              :id="colorCard"
+              :value="colorCard"
+              :name="colorCard"
+              v-model="selectedBgColorCard"
+            >
+            </BIMDataRadio>
           </div>
         </template>
 
@@ -60,7 +117,7 @@
           <pre>
             &lt;BIMDataCard :titleHeader="{{
               getHeaderTitle()
-            }}" :submenuText="{{ getSubmenuText() }}"&gt;
+            }}" :submenuText="{{ getSubmenuText() }}" {{ getCardColor() }}&gt;
             &lt;template #headerIcons v-if="headerIcons"&gt;
               {{ getHeaderIcons() }}
             &lt;/template&gt;
@@ -82,13 +139,17 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -100,7 +161,10 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataBurgerMenu from "../../../../../src/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
 import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
@@ -108,7 +172,10 @@ export default {
     BIMDataBurgerMenu,
     BIMDataCard,
     BIMDataCheckbox,
+    BIMDataInput,
+    BIMDataRadio,
     BIMDataTable,
+    BIMDataText,
   },
   data() {
     return {
@@ -119,6 +186,10 @@ export default {
       submenuIcons: true,
       content: true,
       footer: true,
+      widthCard: "215px",
+      borderRadiusCard: "0px",
+      colorsCard: ["default", "primary", "secondary"],
+      selectedBgColorCard: "default",
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -141,22 +212,22 @@ export default {
         ],
       ],
       slotsData: [
-        ["slot name", "Description"],
-        ["#headerIcons", "Use this slot to add icons to header. "],
+        ["Slot name", "Description"],
+        ["headerIcons", "Use this slot to add icons to header. "],
         [
-          "#left",
+          "left",
           "Use this slot to add text, icons, or component to the card submenu on the left",
         ],
         [
-          "#right",
+          "right",
           "Use this slot to add text, icons, or component to the card submenu on the right",
         ],
         [
-          "#content",
+          "content",
           "Use this slot to add text, icons, or component into card content",
         ],
         [
-          "#footer",
+          "footer",
           "Use this slot to add text, icons, or component into card footer",
         ],
       ],
@@ -196,6 +267,11 @@ export default {
     getFooter() {
       if (this.footer) {
         return "text footer or any component";
+      }
+    },
+    getCardColor() {
+      if (this.selectedBgColorCard !== "default") {
+        return `bgColor="${this.selectedBgColorCard}"`;
       }
     },
   },

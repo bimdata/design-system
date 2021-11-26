@@ -18,22 +18,27 @@ import List from "../views/Guidelines/List/List.vue";
 import Markup from "../views/Guidelines/Markup/Markup.vue";
 import Spacing from "../views/Guidelines/Spacing/Spacing.vue";
 import Typography from "../views/Guidelines/Typography/Typography.vue";
+import Utilities from "../views/Guidelines/Utilities/Utilities.vue";
 import Variables from "../views/Guidelines/Variables/Variables.vue";
 
 // import COMPONENTS
 import Buttons from "../views/Components/Buttons/Buttons.vue";
 import Card from "../views/Components/Card/Card.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
-import Dropdown from '../views/Components/DropdownList/DropdownList.vue'
+import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
+import DropdownList from "../views/Components/DropdownList/DropdownList.vue";
 import Icons from "../views/Components/Icons/Icons.vue";
 import Illustrations from "../views/Components/Illustrations/Illustrations.vue";
 import Input from "../views/Components/Input/Input.vue";
 import Loaders from "../views/Components/Loaders/Loaders.vue";
 import Pagination from "../views/Components/Pagination/Pagination.vue";
 import Radio from "../views/Components/Radio/Radio.vue";
+import ResponsiveGrid from "../views/Components/ResponsiveGrid/ResponsiveGrid.vue";
 import Search from "../views/Components/Search/Search.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
+import Tabs from "../views/Components/Tabs/Tabs.vue";
+import Text from "../views/Components/Text/Text.vue";
 import Textarea from "../views/Components/Textarea/Textarea.vue";
 import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
@@ -117,6 +122,11 @@ const routes = [
         component: Typography,
       },
       {
+        path: "utilities",
+        name: "utilities",
+        component: Utilities,
+      },
+      {
         path: "variables",
         name: "variables",
         component: Variables,
@@ -148,9 +158,14 @@ const routes = [
         component: Checkbox,
       },
       {
-        path: "dropdown",
-        name: "dropdown",
-        component: Dropdown,
+        path: "dropdownlist",
+        name: "dropdownlist",
+        component: DropdownList,
+      },
+      {
+        path: "dropdownmenu",
+        name: "dropdownmenu",
+        component: DropdownMenu,
       },
       {
         path: "icons",
@@ -183,6 +198,11 @@ const routes = [
         component: Radio,
       },
       {
+        path: "responsive-grid",
+        name: "responsive-grid",
+        component: ResponsiveGrid,
+      },
+      {
         path: "search",
         name: "search",
         component: Search,
@@ -196,6 +216,16 @@ const routes = [
         path: "table",
         name: "table",
         component: Table,
+      },
+      {
+        path: "tabs",
+        name: "tabs",
+        component: Tabs,
+      },
+      {
+        path: "text",
+        name: "text",
+        component: Text,
       },
       {
         path: "textarea",

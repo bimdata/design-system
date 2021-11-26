@@ -1,6 +1,6 @@
 <template>
   <div class="spacing-system__margin">
-    <h2 class="bimdata-h2">Margin</h2>
+    <BIMDataText component="h1" color="color-primary">Margin</BIMDataText>
     <ComponentCode componentTitle="margin">
       <template #module>
         <div class="ds-spacing">
@@ -11,9 +11,14 @@
       </template>
 
       <template #parameters>
-        <div class="flex">
+        <div class="grid">
           <div v-for="[size, values] in Object.entries(checkboxes)" :key="size">
-            <h5 class="bimdata-h5">{{ size }}</h5>
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ size }}</BIMDataText
+            >
             <BIMDataCheckbox
               :text="value.text"
               v-model="value.checked"
@@ -36,18 +41,38 @@
       </template>
     </ComponentCode>
     <div class="m-y-12">
-      <h3 class="bimdata-h3">Class summary</h3>
+      <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
+        >Class summary</BIMDataText
+      >
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Global</h6>
-        <BIMDataTable :rows="globalClassData"></BIMDataTable>
+        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px"
+          >Global</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="globalClassData[0]"
+          :rows="globalClassData.slice(1)"
+        />
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Top, Bottom, Vertical</h6>
-        <BIMDataTable :rows="verticalClassData"></BIMDataTable>
+        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px"
+          >Top, Bottom, Vertical</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="verticalClassData[0]"
+          :rows="verticalClassData.slice(1)"
+        />
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Left, Right, Horizontal</h6>
-        <BIMDataTable :rows="horizontalClassData"></BIMDataTable>
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
+          >Left, Right, Horizontal</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="horizontalClassData[0]"
+          :rows="horizontalClassData.slice(1)"
+        />
       </div>
     </div>
   </div>
@@ -56,14 +81,15 @@
 <script>
 import ComponentCode from "../../../../views/Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
 import BIMDataTable from "../../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
     BIMDataCheckbox,
     BIMDataTable,
+    BIMDataText,
   },
   data() {
     return {
@@ -239,6 +265,182 @@ export default {
           },
           {
             class: "m-l-24",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "30px": [
+          {
+            class: "m-30",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-30",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-30",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-30",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-30",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-30",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-30",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "36px": [
+          {
+            class: "m-36",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-36",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-36",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-36",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-36",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-36",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-36",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "42px": [
+          {
+            class: "m-42",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-42",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-42",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-42",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-42",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-42",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-42",
+            checked: false,
+            text: "left margin",
+            disabled: false,
+          },
+        ],
+        "48px": [
+          {
+            class: "m-48",
+            checked: false,
+            text: "global margin",
+            disabled: false,
+          },
+          {
+            class: "m-y-48",
+            checked: false,
+            text: "vertical margin",
+            disabled: false,
+          },
+          {
+            class: "m-x-48",
+            checked: false,
+            text: "horizontal margin",
+            disabled: false,
+          },
+          {
+            class: "m-t-48",
+            checked: false,
+            text: "top margin",
+            disabled: false,
+          },
+          {
+            class: "m-b-48",
+            checked: false,
+            text: "bottom margin",
+            disabled: false,
+          },
+          {
+            class: "m-r-48",
+            checked: false,
+            text: "right margin",
+            disabled: false,
+          },
+          {
+            class: "m-l-48",
             checked: false,
             text: "left margin",
             disabled: false,

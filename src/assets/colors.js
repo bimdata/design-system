@@ -1,3 +1,7 @@
 export default Object.freeze([
-  "default", "primary", "secondary", "tertiary-darkest", "high"
+  "default",
+  "primary",
+  "secondary",
+  "high",
+  "tertiary-darkest",
 ]);

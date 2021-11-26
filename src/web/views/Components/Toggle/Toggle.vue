@@ -1,54 +1,73 @@
 <template>
   <main class="article toggle">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataToggle
-            v-model="toggled"
-            :disabled="checkboxDisabledChecked"
-          >
-          <span v-if="checkboxDefaultSlotChecked">
-            {{toggled ? "on" : "off"}}
-          </span>
-          <template #right v-if="checkboxRightSlotChecked">
-            right content
-          </template>
+          <BIMDataToggle v-model="toggled" :disabled="checkboxDisabledChecked">
+            <span v-if="checkboxDefaultSlotChecked">
+              {{ toggled ? "on" : "off" }}
+            </span>
+            <template #right v-if="checkboxRightSlotChecked">
+              right content
+            </template>
           </BIMDataToggle>
         </template>
 
         <template #parameters>
-          <h5 class="bimdata-h5">modifiers</h5>
-          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" class="m-y-12">
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >modifiers</BIMDataText
+          >
+          <BIMDataCheckbox
+            text="disabled"
+            v-model="checkboxDisabledChecked"
+            class="m-y-12"
+          >
           </BIMDataCheckbox>
-          <h5 class="bimdata-h5">slotss</h5>
-          <BIMDataCheckbox text="default" v-model="checkboxDefaultSlotChecked" class="m-y-12">
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >slots</BIMDataText
+          >
+          <BIMDataCheckbox
+            text="default"
+            v-model="checkboxDefaultSlotChecked"
+            class="m-y-12"
+          >
           </BIMDataCheckbox>
-          <BIMDataCheckbox text="right" v-model="checkboxRightSlotChecked" class="m-y-12">
+          <BIMDataCheckbox
+            text="right"
+            v-model="checkboxRightSlotChecked"
+            class="m-y-12"
+          >
           </BIMDataCheckbox>
         </template>
 
         <template #import>
           import BIMDataToggle from
-            "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataToggle.js";
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataToggle.js";
         </template>
 
         <template #code>
           <pre>
-            &lt;BIMDataToggle {{getToggleDisabled()}}&gt;
+            &lt;BIMDataToggle {{ getToggleDisabled() }}&gt;
             &lt;/BIMDataToggle&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-24">
-        <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-24">
-        <h5 class="bimdata-h5">Slots:</h5>
-        <BIMDataTable :rows="slotsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -56,16 +75,19 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
+
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataToggle,
     BIMDataCheckbox,
-    BIMDataTable
+    BIMDataTable,
+    BIMDataText,
+    BIMDataToggle,
   },
   data() {
     return {
@@ -78,10 +100,10 @@ export default {
         ["disabled", "String", "false", "Use this props to disabled toggle"],
       ],
       slotsData: [
-        ["Slots", "Description"],
+        ["Slot name", "Description"],
         ["default", "Use this slot to add content before the toggle switch"],
-        ["#right", "Use this slot to add content after the toggle switch"],
-      ]
+        ["right", "Use this slot to add content after the toggle switch"],
+      ],
     };
   },
   methods: {
@@ -101,11 +123,11 @@ export default {
       }
     },
     getToggleDisabled() {
-      if(this.checkboxDisabledChecked){
-        return `disabled="true"`;
+      if (this.checkboxDisabledChecked) {
+        return 'disabled="true"';
       }
     },
-  }
+  },
 };
 </script>
 

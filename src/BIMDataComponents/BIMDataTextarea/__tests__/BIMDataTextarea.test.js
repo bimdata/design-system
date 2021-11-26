@@ -22,10 +22,10 @@ describe("BIMDataTextarea", () => {
     const onInput = jest.fn();
     const wrapper = shallowMount(BIMDataTextarea, {
       propsData: {
-        message: null,
+        modelValue: null,
       },
       listeners: {
-        input: onInput,
+        "update:modelValue": onInput,
       },
     });
     expect(wrapper.find("textarea").element.value).toBe("");
@@ -33,7 +33,7 @@ describe("BIMDataTextarea", () => {
     wrapper.find("textarea").setValue("x");
     expect(onInput).toHaveBeenCalledWith("x");
 
-    wrapper.setProps({ message: "message" });
+    wrapper.setProps({ modelValue: "message" });
     await wrapper.vm.$nextTick();
     expect(wrapper.classes("not-empty")).toBe(true);
     expect(wrapper.find("textarea").element.value).toBe("message");

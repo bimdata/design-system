@@ -58,12 +58,18 @@ export default {
   mounted() {
     this.$options.resizeObserver = new ResizeObserver(this.onResize);
   },
+  unmounted() { // for Vue3 compatibility (destroyed => unmounted)
+    this.onDestroy();
+  },
   destroyed() {
-    if (this.$options.resizeObserver) {
-      this.$options.resizeObserver.disconnect();
-    }
+    this.onDestroy();
   },
   methods: {
+    onDestroy() {
+      if (this.$options.resizeObserver) {
+        this.$options.resizeObserver.disconnect();
+      }
+    },
     onResize(entries) {
       entries.forEach(entry => {
         this.width = entry.target.clientWidth;

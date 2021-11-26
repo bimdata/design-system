@@ -23,8 +23,7 @@ export default new Vuex.Store({
           title: "Developpers",
           img: require("./web/assets/img/icon-developpers.svg"),
           path: "developpers",
-          text:
-            "How to use the BIMData design system in your projects.",
+          text: "How to use the BIMData design system in your projects.",
           btn: "Get dev kit",
         },
         // {
@@ -39,8 +38,7 @@ export default new Vuex.Store({
           title: "InternalDoc",
           img: require("./web/assets/img/icon-doc.svg"),
           path: "internal-doc",
-          text:
-            "Documentation, if you want to add your own components",
+          text: "Documentation, if you want to add your own components",
           btn: "Getting started",
         },
       ],
@@ -51,9 +49,16 @@ export default new Vuex.Store({
       path: "guidelines-utilities",
       children: [
         {
+          title: "Utilities",
+          path: "utilities",
+          img: require("./web/assets/img/icon-utilities2.svg"),
+          text: "Summary of all defined and usable classes and how use them.",
+          btn: "View utilities",
+        },
+        {
           title: "Variables",
-          img: require("./web/assets/img/icon-markup.svg"),
           path: "variables",
+          img: require("./web/assets/img/icon-variables.svg"),
           text: "See all defines and usable BIMData variables and how use it.",
           btn: "View variables",
         },
@@ -76,8 +81,7 @@ export default new Vuex.Store({
           title: "list",
           img: require("./web/assets/img/icon-list.svg"),
           path: "list",
-          text:
-            "Minimal layout container for displaying a group of items.",
+          text: "Minimal layout container for displaying a group of items.",
           btn: "View list",
         },
         {
@@ -136,12 +140,18 @@ export default new Vuex.Store({
           btn: "View checkbox",
         },
         {
-          title: "Dropdown",
+          title: "DropdownList",
           img: require("./web/assets/img/icon-dropdown.svg"),
-          path: "dropdown",
-          text:
-            "Checkboxes are used to enables users to pick multiple options from a group.",
-          btn: "View dropdown",
+          path: "dropdownlist",
+          text: "DropdownList component shows a menu with an paginated list.",
+          btn: "View dropdown list",
+        },
+        {
+          title: "DropdownMenu",
+          img: require("./web/assets/img/icon-dropdown.svg"),
+          path: "dropdownmenu",
+          text: "Dropdown component shows a simple menu.",
+          btn: "View dropdown menu",
         },
         {
           title: "Icons",
@@ -190,6 +200,13 @@ export default new Vuex.Store({
           btn: "View radio",
         },
         {
+          title: "ResponsiveGrid",
+          img: require("./web/assets/img/icon-grid.svg"),
+          path: "responsive-grid",
+          text: "Display a list of item with a responsive layout",
+          btn: "View responsive grid",
+        },
+        {
           title: "Search",
           img: require("./web/assets/img/icon-search.svg"),
           path: "search",
@@ -214,6 +231,21 @@ export default new Vuex.Store({
           btn: "View table",
         },
         {
+          title: "Tabs",
+          img: require("./web/assets/img/icon-tabs.svg"),
+          path: "tabs",
+          text:
+            "Tabs component provide a nice interface to switch between different views",
+          btn: "View tabs",
+        },
+        {
+          title: "Text",
+          img: require("./web/assets/img/icon-text.svg"),
+          path: "text",
+          text: "Text",
+          btn: "View text",
+        },
+        {
           title: "Textarea",
           img: require("./web/assets/img/icon-textarea.svg"),
           path: "textarea",
@@ -224,7 +256,8 @@ export default new Vuex.Store({
           title: "Toggles",
           img: require("./web/assets/img/icon-toggle.svg"),
           path: "toggle",
-          text: "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
+          text:
+            "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
           btn: "View toggle",
         },
         {

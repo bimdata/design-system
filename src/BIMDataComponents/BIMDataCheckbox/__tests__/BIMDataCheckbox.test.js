@@ -5,7 +5,7 @@ describe("BIMDataCheckbox", () => {
   it("should render component and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: false,
+        modelValue: false,
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
@@ -14,7 +14,7 @@ describe("BIMDataCheckbox", () => {
   it("should render component with text and match snapshot", () => {
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: false,
+        modelValue: false,
         text: "text checkbox",
       },
     });
@@ -24,7 +24,7 @@ describe("BIMDataCheckbox", () => {
   it("should contain 'bimdata-checkbox' class when state false", () => {
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: false,
+        modelValue: false,
       },
     });
 
@@ -34,7 +34,7 @@ describe("BIMDataCheckbox", () => {
   it("should contain 'bimdata-chekbox' and 'checked' class when state true", () => {
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: true,
+        modelValue: true,
       },
     });
 
@@ -44,7 +44,7 @@ describe("BIMDataCheckbox", () => {
   it("should contain 'bimdata-chekbox', 'checked' and 'indeterminate' class when state null", () => {
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: null,
+        modelValue: null,
       },
     });
 
@@ -55,10 +55,10 @@ describe("BIMDataCheckbox", () => {
     const onClick = jest.fn();
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: false,
+        modelValue: false,
       },
       listeners: {
-        change: onClick,
+        "update:modelValue": onClick,
       },
     });
     wrapper.trigger("click");
@@ -69,10 +69,10 @@ describe("BIMDataCheckbox", () => {
     const onClick = jest.fn();
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: true,
+        modelValue: true,
       },
       listeners: {
-        change: onClick,
+        "update:modelValue": onClick,
       },
     });
     wrapper.trigger("click");
@@ -83,10 +83,10 @@ describe("BIMDataCheckbox", () => {
     const onClick = jest.fn();
     const wrapper = shallowMount(BIMDataCheckbox, {
       propsData: {
-        state: null,
+        modelValue: null,
       },
       listeners: {
-        change: onClick,
+        "update:modelValue": onClick,
       },
     });
     wrapper.trigger("click");

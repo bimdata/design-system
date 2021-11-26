@@ -1,47 +1,85 @@
 <template>
   <main class="article variables">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <p>
-        To be able to use all these variables listed below, please import this
-        code into your project:
-      </p>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText margin="10px 0 15px"
+        >To be able to use all these variables listed below, please import this
+        code into your project:</BIMDataText
+      >
       <Code language="css">
         @import "@/assets/scss/_BIMDataVariables.scss";
       </Code>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Colors variables summary</h6>
-        <BIMDataTable :rows="variablesColorSummary"></BIMDataTable>
-        <p>
+        <BIMDataText component="h6" color="color-primary"
+          >Colors variables summary</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesColorSummary[0]"
+          :rows="variablesColorSummary.slice(1)"
+        />
+        <BIMDataText margin="10px 0 15px">
           To see all colors and how use it
-          <router-link to="/guidelines-utilities/colors" class="color-primary"
+          <router-link to="/guidelines-utilities/colors" class="bimdata-link"
             >click here</router-link
-          >.
-        </p>
+          >.</BIMDataText
+        >
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Font-size variables summary</h6>
-        <BIMDataTable :rows="variablesFontsizeSummary"></BIMDataTable>
+        <BIMDataText component="h6" color="color-primary"
+          >Font-size variables summary</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesFontsizeSummary[0]"
+          :rows="variablesFontsizeSummary.slice(1)"
+        />
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Spacing variables summary</h6>
-        <BIMDataTable :rows="variablesSpacingSummary"></BIMDataTable>
-        <p>
+        <BIMDataText component="h6" color="color-primary"
+          >Box-shadow variables summary</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesBoxShadowSummary[0]"
+          :rows="variablesBoxShadowSummary.slice(1)"
+        />
+      </div>
+      <div class="m-y-12">
+        <BIMDataText component="h6" color="color-primary"
+          >Spacing variables summary</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesSpacingSummary[0]"
+          :rows="variablesSpacingSummary.slice(1)"
+        />
+        <BIMDataText margin="10px 0 15px">
           To see all spacing class and how use it
-          <router-link to="/guidelines-utilities/spacing" class="color-primary"
+          <router-link to="/guidelines-utilities/spacing" class="bimdata-link"
             >click here</router-link
-          >.
-        </p>
+          >.</BIMDataText
+        >
       </div>
       <div class="m-y-12">
-        <h6 class="bimdata-h6">Fonts variables summary</h6>
-        <BIMDataTable :rows="variablesFontSummary"></BIMDataTable>
-        <p>
+        <BIMDataText component="h6" color="color-primary"
+          >Fonts variables summary</BIMDataText
+        >
+        <BIMDataTable
+          :rowHeight="36"
+          :columns="variablesFontSummary[0]"
+          :rows="variablesFontSummary.slice(1)"
+        />
+        <BIMDataText margin="10px 0 15px">
           To see all fonts uses in BIMData and how use it
-          <router-link to="/guidelines-utilities/typography" class="color-primary"
+          <router-link
+            to="/guidelines-utilities/typography"
+            class="bimdata-link"
             >click here</router-link
-          >.
-        </p>
+          >.</BIMDataText
+        >
       </div>
     </div>
   </main>
@@ -50,11 +88,13 @@
 <script>
 import Code from "../../Elements/Code/Code.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     Code,
     BIMDataTable,
+    BIMDataText,
   },
   data() {
     return {
@@ -90,6 +130,14 @@ export default {
         ["SCSS Variable Name", "CSS Variable Name", "Output value"],
         ["$font-size", "--font-size", "14px;"],
       ],
+      variablesBoxShadowSummary: [
+        ["SCSS Variable Name", "CSS Variable Name", "Output value"],
+        [
+          "$box-shadow",
+          "--box-shadow",
+          "0px 2px 10px rgba($color-black, 0.1);",
+        ],
+      ],
       variablesSpacingSummary: [
         ["SCSS Variable Name", "CSS Variable Name", "Output value"],
         ["$spacing-unit", "--spacing-unit", "12px;"],
@@ -110,6 +158,4 @@ export default {
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
 @import "../../../../assets/scss/utilities/_colors.scss";
-
-@import "./_Variables.scss";
 </style>

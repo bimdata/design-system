@@ -1,9 +1,15 @@
 <template>
   <main class="article article-radio">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
-      <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/MWyWQep" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue">
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <ComponentCode
+        :componentTitle="$route.name"
+        language="javascript"
+        codepenLink="https://codepen.io/bimdata/pen/MWyWQep"
+        githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue"
+      >
         <template #module>
           <BIMDataRadio
             text="click on me !"
@@ -21,11 +27,7 @@
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
-          <BIMDataButton
-            color="primary"
-            radius
-            fill
-            @click="resetRadio()"
+          <BIMDataButton color="primary" radius fill @click="resetRadio()"
             >Reset radio button</BIMDataButton
           >
         </template>
@@ -49,8 +51,10 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >Props:</BIMDataText
+        >
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -58,11 +62,12 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 export default {
   components: {
     ComponentCode,
@@ -70,6 +75,7 @@ export default {
     BIMDataButton,
     BIMDataCheckbox,
     BIMDataRadio,
+    BIMDataText,
   },
   data() {
     return {

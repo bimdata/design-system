@@ -1,9 +1,13 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <h3 class="bimdata-h3">Size usage for designers</h3>
-      <p class="bimdata-text">Use a 23px box for icons of 23px.</p>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText component="h3" color="color-primary" margin="10px 0"
+        >Size usage for designers</BIMDataText
+      >
+      <BIMDataText>Use a 23px box for icons of 23px.</BIMDataText>
       <div>
         <img src="../../../assets/img/design-system__icon-plus.jpg" alt="" />
         <img src="../../../assets/img/design-system__icon-warning.jpg" alt="" />
@@ -32,7 +36,7 @@
               <BIMDataIcon
                 :name="icon"
                 :size="selectedIconOptionssize"
-                :class="selectedIconOptionsclass"
+                :class="getOverviewIconClasses()"
                 :rotate="Number(rotationDeg)"
               />
               <p>{{ icon }}</p>
@@ -41,18 +45,22 @@
         </template>
 
         <template #parameters>
-          <h5 class="bimdata-h5">rotate</h5>
-            <BIMDataInput
-              v-model="rotationDeg"
-              placeholder="Degree of rotation"
-              type="number"
-              min="0"
-            ></BIMDataInput>
-          <div
-            v-for="[key, values] in Object.entries(iconOptions)"
-            :key="key"
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >rotate</BIMDataText
           >
-            <h5 class="bimdata-h5">{{ key }}</h5>
+          <BIMDataInput
+            v-model="rotationDeg"
+            placeholder="Degree of rotation"
+            type="number"
+            min="0"
+          ></BIMDataInput>
+          <div v-for="[key, values] in Object.entries(iconOptions)" :key="key">
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+              >{{ key }}</BIMDataText
+            >
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -74,19 +82,30 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{ getIconOptionsSize() }} class="{{ selectedIconOptionsclass }}" {{ getRotateDegree() }}/&gt;
+            &lt;BIMDataIcon name="{{ activeIcon }}" {{
+              getIconOptionsSize()
+            }} {{ selectedIconOptionstypes }} color="{{
+              selectedIconOptionsvalues
+            }}" {{ getRotateDegree() }}/&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Props:</h5>
-        <BIMDataTable :rows="propsData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <h5 class="bimdata-h5">Summary icons size:</h5>
-        <BIMDataTable :rows="iconsSizeData"></BIMDataTable>
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Summary icons size:</BIMDataText
+        >
+        <BIMDataTable
+          :columns="iconsSizeData[0]"
+          :rows="iconsSizeData.slice(1)"
+        />
       </div>
     </div>
   </main>
@@ -98,15 +117,17 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import icons from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons/index.js";
 
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import highlight from "../../../../BIMDataDirectives/highlight.js";
+import copy from "../../../../BIMDataDirectives/copy.js";
 
-import highlight from "../../../../directives/highlight.js";
-import copy from "../../../../directives/copy.js";
+import iconsColors from "../../../../assets/iconsColors.js";
 
 export default {
   components: {
@@ -116,6 +137,7 @@ export default {
     BIMDataInput,
     BIMDataIcon,
     BIMDataTable,
+    BIMDataText,
   },
   directives: { highlight, copy },
   data() {
@@ -124,39 +146,14 @@ export default {
       size: "m",
       icons,
       filter: "",
-      selectedIconOptionsclass: "fill-primary",
+      selectedIconOptionstypes: "fill",
+      selectedIconOptionsvalues: "default",
       selectedIconOptionssize: "s",
       checkboxIconRotate: false,
       activeIcon: "addFile",
       iconOptions: {
-        class: [
-          "fill-primary",
-          "fill-secondary",
-          "fill-tertiary",
-          "fill-tertiary-lightest",
-          "fill-tertiary-dark",
-          "fill-tertiary-darkest",
-          "fill-white",
-          "fill-black",
-          "fill-neutral",
-          "fill-success",
-          "fill-disabled",
-          "fill-warning",
-          "fill-high",
-          "stroke-primary",
-          "stroke-secondary",
-          "stroke-tertiary",
-          "stroke-tertiary-lightest",
-          "stroke-tertiary-dark",
-          "stroke-tertiary-darkest",
-          "stroke-white",
-          "stroke-black",
-          "stroke-neutral",
-          "stroke-success",
-          "stroke-disabled",
-          "stroke-warning",
-          "stroke-high",
-        ],
+        types: ["fill", "stroke"],
+        values: iconsColors,
         size: ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"],
       },
       propsData: [
@@ -169,28 +166,12 @@ export default {
           "Examples",
         ],
         [
-          "name",
-          "String",
-          "true",
-          "",
-          "Use this props to add an icon name to BIMDataIcon.",
-          "addFile",
-        ],
-        [
           "color",
           "String",
           "",
-          "currentColor",
+          "default that matches currentColor",
           "This props allows you to customize the color of the icon's fill.",
-          "red, blue, green...",
-        ],
-        [
-          "size",
-          "String",
-          "",
-          "s",
-          "Several custom size are available to handle the custom icons size.",
-          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl.",
+          "List of 'values' above",
         ],
         [
           "customSize",
@@ -201,13 +182,37 @@ export default {
           "25",
         ],
         [
+          "fillColor",
+          "String",
+          "",
+          "currentColor",
+          "Use this props if values colors is not enought for customize fill for icon.",
+          "red, blue, green...",
+        ],
+        [
+          "name",
+          "String",
+          "true",
+          "",
+          "Use this props to add an icon name to BIMDataIcon.",
+          "addFile",
+        ],
+        [
           "rotate",
           "Number",
           "",
           "0",
           "Use this props for rotate your icon.",
-          "90, 180"
-        ]
+          "90, 180",
+        ],
+        [
+          "size",
+          "String",
+          "",
+          "s",
+          "Several custom size are available to handle the custom icons size.",
+          "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl.",
+        ],
       ],
       iconsSizeData: [
         ["Size value", "Output"],
@@ -220,7 +225,7 @@ export default {
         ["xl", "36px"],
         ["xxl", "45px"],
         ["xxxl", "60px"],
-      ]
+      ],
     };
   },
   computed: {
@@ -246,15 +251,17 @@ export default {
       if (this.selectedIconOptionssize === "s") {
         return null;
       } else {
-      return `size="${this.selectedIconOptionssize}"`;
-
+        return `size="${this.selectedIconOptionssize}"`;
       }
     },
     getRotateDegree() {
-      if(this.rotationDeg > 0) {
-        return `:rotate="${this.rotationDeg}"`
+      if (this.rotationDeg > 0) {
+        return `:rotate="${this.rotationDeg}"`;
       }
-    }
+    },
+    getOverviewIconClasses() {
+      return `icon-${this.selectedIconOptionstypes} icon-${this.selectedIconOptionstypes}--${this.selectedIconOptionsvalues}`;
+    },
   },
 };
 </script>

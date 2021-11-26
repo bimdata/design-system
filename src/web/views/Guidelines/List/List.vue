@@ -1,11 +1,13 @@
 <template>
   <main class="article utilities-list">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-      <p class="bimdata-text">
-        List utility classes will help you to reset list found within BIMData
-        projects.
-      </p>
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
+      <BIMDataText margin="5px 0"
+        >List utility classes will help you to reset list found within BIMData
+        projects.</BIMDataText
+      >
       <Code language="html">
         &lt;ul class="bimdata-list"&gt;&lt;/ul&gt;
       </Code>
@@ -14,7 +16,9 @@
           @import "~@bimdata/design-system/dist/scss/utilities/_list.scss";
         </pre>
       </Code>
-      <h3 class="bimdata-h3">Examples</h3>
+      <BIMDataText component="h3" color="color-primary" margin="20px 0 10px"
+        >Examples</BIMDataText
+      >
       <div class="bimdata-ds__example">
         <ul class="bimdata-list">
           <li>item 01</li>
@@ -27,9 +31,12 @@
 
 <script>
 import Code from "../../Elements/Code/Code.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+
 export default {
   components: {
     Code,
+    BIMDataText,
   },
 };
 </script>

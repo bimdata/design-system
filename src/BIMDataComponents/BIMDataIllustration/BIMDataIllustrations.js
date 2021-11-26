@@ -1,3 +1,3 @@
-import BIMDataIllustration from './BIMDataIllustration.vue';
+import BIMDataIllustration from "./BIMDataIllustration.vue";
 
 export default BIMDataIllustration;

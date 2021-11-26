@@ -1,10 +1,16 @@
 <template>
   <main class="article article-buttons">
     <div class="article-wrapper">
-      <h2 class="bimdata-h2">{{ $route.name }}</h2>
-
+      <BIMDataText component="h1" color="color-primary">{{
+        $route.name
+      }}</BIMDataText>
       <div class="button-overview">
-        <ComponentCode :componentTitle="$route.name" language="javascript" codepenLink="https://codepen.io/bimdata/pen/XWdrKXw" githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue">
+        <ComponentCode
+          :componentTitle="$route.name"
+          language="javascript"
+          codepenLink="https://codepen.io/bimdata/pen/XWdrKXw"
+          githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue"
+        >
           <template #module>
             <BIMDataButton
               :width="widthButton"
@@ -18,6 +24,7 @@
                 name="chevron"
                 size="xxxs"
                 v-if="checkboxIconChecked"
+                :margin="getIconMargin()"
               />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
@@ -27,11 +34,13 @@
           </template>
 
           <template #parameters>
-            <div
-              v-for="[key, values] in Object.entries(btnOptions)"
-              :key="key"
-            >
-              <h5 class="bimdata-h5">{{ key }}</h5>
+            <div v-for="[key, values] in Object.entries(btnOptions)" :key="key">
+              <BIMDataText
+                component="h5"
+                color="color-primary"
+                margin="15px 0 10px"
+                >{{ key }}</BIMDataText
+              >
               <BIMDataRadio
                 v-for="value in values"
                 :key="value"
@@ -44,7 +53,12 @@
               </BIMDataRadio>
             </div>
             <div>
-              <h5 class="bimdata-h5">modifiers</h5>
+              <BIMDataText
+                component="h5"
+                color="color-primary"
+                margin="15px 0 10px"
+                >modifiers</BIMDataText
+              >
               <BIMDataCheckbox
                 text="icon"
                 v-model="checkboxIconChecked"
@@ -64,7 +78,9 @@
               </BIMDataCheckbox>
             </div>
 
-            <h5 class="bimdata-h5">size</h5>
+            <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+              >size</BIMDataText
+            >
             <BIMDataInput
               v-model="widthButton"
               placeholder="button's min-width in px or %"
@@ -87,12 +103,12 @@
           <template #code>
             <pre>
               &lt;BIMDataButton
-                width="{{widthButton}}"
-                height="{{heightButton}}"
-                color="{{ selectedBtnOptionsvalues }}"
-                {{ selectedBtnOptionstypes }}
-                {{ selectedBtnOptionskinds }}
-                {{ getButtonDisabled() }}&gt;
+                {{ getWidthBtn() }} {{ getHeightBtn() }} color="{{
+                selectedBtnOptionsvalues
+              }}" {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{
+                getIconClass()
+              }} {{ getButtonDisabled() }}
+                &gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -101,8 +117,10 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <h5 class="bimdata-h5">Props:</h5>
-          <BIMDataTable :rows="propsData"></BIMDataTable>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+            >Props:</BIMDataText
+          >
+          <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
         </div>
       </div>
     </div>
@@ -115,6 +133,7 @@ import colors from "../../../../assets/colors.js";
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -132,6 +151,7 @@ export default {
     BIMDataCheckbox,
     BIMDataIcon,
     BIMDataInput,
+    BIMDataText,
   },
   data() {
     return {
@@ -146,7 +166,7 @@ export default {
       selectedBtnOptionskinds: "radius",
       selectedBtnOptionsvalues: "primary",
       btnOptions: {
-        types: ["fill", "outline", "ghost"],
+        types: ["fill", "outline", "ghost", "ripple"],
         kinds: ["radius", "square", "rounded"],
         values: colors,
       },
@@ -176,6 +196,13 @@ export default {
           "Use this props to use outline button",
         ],
         ["ghost", "Boolean", "", "false", "Use this props to use ghost button"],
+        [
+          "ripple",
+          "Boolean",
+          "",
+          "false",
+          "Use this props to use button with ripple effect",
+        ],
         [
           "radius",
           "Boolean",
@@ -238,18 +265,48 @@ export default {
       return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
     },
     getIcon() {
+      if (this.checkboxIconChecked && this.checkboxTextChecked) {
+        return '<BIMDataIcon name="chevron" size="xxxs" margin="0 12px 0 0" />';
+      }
       if (this.checkboxIconChecked) {
-        return `<BIMDataIcon name="chevron" size="xxxs" />`;
+        return '<BIMDataIcon name="chevron" size="xxxs"/>';
       }
     },
     getText() {
+      if (this.checkboxTextChecked && this.checkboxIconChecked) {
+        return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}</span>`;
+      }
       if (this.checkboxTextChecked) {
         return `Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}`;
+      } else {
+        return "";
+      }
+    },
+    getIconMargin() {
+      if (this.checkboxTextChecked && this.checkboxIconChecked) {
+        return "0 12px 0 0";
+      } else {
+        return "0";
       }
     },
     getButtonDisabled() {
-      if(this.checkboxDisabledChecked){
-        return `disabled="true"`;
+      if (this.checkboxDisabledChecked) {
+        return 'disabled="true"';
+      }
+    },
+    getIconClass() {
+      if (this.checkboxIconChecked) {
+        return "icon";
+      }
+    },
+    getWidthBtn() {
+      if (this.widthButton != "32px") {
+        return `width="${this.widthButton}"`;
+      }
+    },
+    getHeightBtn() {
+      if (this.heightButton != "32px") {
+        return `height="${this.heightButton}"`;
       }
     },
   },

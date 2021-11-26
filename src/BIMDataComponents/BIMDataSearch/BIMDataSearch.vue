@@ -3,33 +3,34 @@
     class="bimdata-search-bar"
     v-clickaway="away"
     :style="{ width: width, height: height }"
-    :class="{ focus: focused }"
+    :class="{ focus: focused, ...classes }"
   >
     <span class="bimdata-search-icon">
       <BIMDataIcon name="search" size="xxs" />
     </span>
     <input
       ref="input"
-      :value="value"
+      :value="modelValue"
       v-focus="autofocus"
       @focus="focused = true"
       @blur="focused = false"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       @keyup.enter="$emit('enter', $event.target.value)"
     />
     <BIMDataButton
       width="25px"
       @click="clickClear()"
-      v-if="clear && value !== ''"
+      v-if="clear && modelValue !== ''"
     >
       <BIMDataIcon name="close" size="xxs" />
     </BIMDataButton>
   </div>
 </template>
 <script>
-import clickaway from "../../directives/click-away.js";
+import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
+import colors from "../../assets/colors.js";
 
 /* import BIMData ICONS */
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
@@ -49,10 +50,13 @@ export default {
     },
     clickaway,
   },
+  model: {
+    prop: "modelValue",
+    event: "update:modelValue",
+  },
   props: {
-    value: {
+    modelValue: {
       type: String,
-      required: true,
     },
     placeholder: {
       type: String,
@@ -74,12 +78,35 @@ export default {
       type: Boolean,
       default: false,
     },
+    radius: {
+      type: Boolean,
+      default: false,
+    },
+    square: {
+      type: Boolean,
+      default: false,
+    },
+    color: {
+      type: String,
+      default: "default",
+      validator: color => colors.includes(color),
+    },
   },
+  emits: ["update:modelValue", "enter", "clear"],
   data() {
     return {
       inputVisible: false,
       focused: false,
     };
+  },
+  computed: {
+    classes() {
+      return {
+        "bimdata-search-bar__radius": this.radius,
+        "bimdata-search-bar__square": this.square,
+        [`bimdata-search-bar__${this.color}`]: this.color,
+      };
+    },
   },
   methods: {
     away() {
@@ -92,7 +119,7 @@ export default {
       this.$refs.input && this.$refs.input.blur();
     },
     clickClear() {
-      this.$emit("input", "");
+      this.$emit("update:modelValue", "");
       this.$emit("clear");
     },
   },

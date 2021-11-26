@@ -1,32 +1,39 @@
 <template>
-  <a @click="skipToTarget" class="anchor-link">
-    <slot></slot>
-  </a>
+  <nav class="navigation inline-flex">
+    <a
+      @click="skipToTarget(elem)"
+      class="anchor-link"
+      v-for="elem of navElements"
+      :key="elem"
+      :target="elem"
+    >
+      {{ elem }}
+    </a>
+  </nav>
 </template>
 
 <script>
 export default {
   props: {
-    target: {
-      type: String,
+    navElements: {
+      type: Array,
       required: true,
     },
   },
-  computed: {
-    targetElement() {
-      return document.getElementById(this.target);
-    },
-  },
   methods: {
-    skipToTarget() {
-      this.targetElement.focus();
-      this.targetElement.scrollIntoView();
+    skipToTarget(elem) {
+      const targetElem = document.getElementById(elem);
+      targetElem.focus();
+      targetElem.scrollIntoView();
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+// import BIMDATA COMPONENT VARIABLES
+@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "./_AnchorLink.scss";
 .anchor-link {
   margin-right: 12px;
   cursor: pointer;

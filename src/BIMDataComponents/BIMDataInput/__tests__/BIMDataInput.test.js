@@ -57,7 +57,7 @@ describe("BIMDataInput", () => {
   it("should render component with 'not empty' class and match snapshot", () => {
     const wrapper = shallowMount(BIMDataInput, {
       propsData: {
-        text: "text message",
+        modelValue: "text message",
       },
     });
     expect(wrapper.classes("not-empty")).toBe(true);
@@ -68,7 +68,7 @@ describe("BIMDataInput", () => {
     const onInput = jest.fn();
     const wrapper = shallowMount(BIMDataInput, {
       listeners: {
-        input: onInput,
+        "update:modelValue": onInput,
       },
     });
     expect(wrapper.find("input").element.value).toBe("");
@@ -76,7 +76,7 @@ describe("BIMDataInput", () => {
     wrapper.find("input").setValue("x");
     expect(onInput).toHaveBeenCalledWith("x");
 
-    wrapper.setProps({ text: "message" });
+    wrapper.setProps({ modelValue: "message" });
     await wrapper.vm.$nextTick();
     expect(wrapper.find("input").element.value).toBe("message");
   });

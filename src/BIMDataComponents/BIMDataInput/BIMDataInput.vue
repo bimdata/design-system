@@ -1,21 +1,28 @@
 <template>
   <div
     class="bimdata-input"
-    :class="{ error, success, disabled, loading, 'not-empty': !!this.text }"
+    :class="{ error, success, disabled, loading, 'not-empty': !!modelValue }"
+    :style="style"
   >
     <input
       ref="input"
-      :id="`bimdata-input-${_uid}`"
-      @input="$emit('input', $event.currentTarget.value)"
+      :id="`bimdata-input-${uuid}`"
+      @input="$emit('update:modelValue', $event.currentTarget.value)"
       :disabled="disabled"
-      :value="text"
-      @focus="$event.target.select()"
+      :value="modelValue"
+      @focus="
+        $event.target.select();
+        $emit('focus', $event);
+      "
+      @blur="$emit('blur', $event)"
+      @keypress="$emit('keypress', $event)"
+      @change="$emit('change', $event)"
       v-bind="$attrs"
     />
     <div class="bimdata-input__icon">
       <slot name="inputIcon"></slot>
     </div>
-    <label :for="`bimdata-input-${_uid}`">{{ placeholder }}</label>
+    <label :for="`bimdata-input-${uuid}`">{{ placeholder }}</label>
     <span class="bar"></span>
     <span v-if="error" class="error">{{ errorMessage }}</span>
     <span v-if="success" class="success">{{ successMessage }}</span>
@@ -23,13 +30,15 @@
 </template>
 
 <script>
+let uuid = 0;
+
 export default {
   model: {
-    prop: "text",
-    event: "input",
+    prop: "modelValue",
+    event: "update:modelValue",
   },
   props: {
-    text: {
+    modelValue: {
       type: [String, Number, Boolean],
       default: "",
     },
@@ -61,13 +70,30 @@ export default {
       type: Boolean,
       default: false,
     },
+    margin: {
+      type: String,
+      default: "12px 0px",
+    },
+  },
+  emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
+  computed: {
+    style() {
+      return {
+        margin: `${this.margin}`,
+      };
+    },
+  },
+  beforeCreate() {
+    this.uuid = uuid.toString();
+    uuid += 1;
   },
   created() {
     this.$watch(
       () => this.success && this.error,
       successAndError => {
-        if (successAndError)
-          throw "Input state cannot be both success and error.";
+        if (successAndError) {
+          throw new Error("Input state cannot be both success and error.");
+        }
       }
     );
   },

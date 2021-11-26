@@ -4,6 +4,10 @@
   }
   ::v-deep .bimdata-ds__demo__parameters {
     grid-column: 2 / 4;
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
   }
   .ds-spacing {
     display: inline-flex;

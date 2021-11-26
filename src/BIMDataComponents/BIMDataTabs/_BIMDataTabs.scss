@@ -1,0 +1,42 @@
+.bimdata-tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .bimdata-btn {
+    padding: 0;
+    &:disabled {
+      svg {
+        fill: $color-tertiary;
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    &__tab {
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 $spacing-unit / 2;
+      text-align: center;
+      color: $color-tertiary-darkest;
+      cursor: pointer;
+
+      &.active {
+        z-index: 1;
+        border-bottom: 2px solid $color-primary;
+        background-color: $color-tertiary-lightest;
+        color: $color-primary;
+      }
+    }
+  }
+}

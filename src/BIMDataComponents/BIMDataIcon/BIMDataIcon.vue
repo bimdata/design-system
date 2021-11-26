@@ -1,11 +1,13 @@
 <template>
   <svg
-    :fill="color"
+    :fill="fillColor"
     width="100%"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     :style="style"
+    :color="color"
+    :class="classes"
   >
     <component :is="`bimdata-${name}`" />
   </svg>
@@ -13,6 +15,8 @@
 
 <script>
 import icons from "./BIMDataLibraryIcons/index.js";
+
+import iconsColors from "../../assets/iconsColors.js";
 
 const sizeToPixel = {
   xxxs: 10,
@@ -23,13 +27,13 @@ const sizeToPixel = {
   l: 28,
   xl: 36,
   xxl: 45,
-  xxxl: 60
+  xxxl: 60,
 };
 
 export default {
   name: "BIMDataIcon",
   components: {
-    ...formatIconComponentsNames(icons)
+    ...formatIconComponentsNames(icons),
   },
   props: {
     name: {
@@ -37,50 +41,77 @@ export default {
       required: true,
       validator(value) {
         return Object.keys(icons).includes(value);
-      }
+      },
     },
     color: {
       type: String,
-      default: "currentColor"
+      default: "default",
+      validator: color => iconsColors.includes(color),
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor",
+    },
+    fill: {
+      type: Boolean,
+      default: false,
+    },
+    stroke: {
+      type: Boolean,
+      default: false,
     },
     size: {
       type: String,
       default: "s",
       validator(value) {
         return Object.keys(sizeToPixel).includes(value);
-      }
+      },
     },
     customSize: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     rotate: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
+    margin: {
+      type: String,
+      default: "0px",
+    },
   },
   computed: {
     style() {
       const pixelSize = this.getPixelSize(this.size);
-      if(this.rotate > 0){
+      if (this.rotate > 0) {
         return {
           width: `${pixelSize}px`,
           height: `${pixelSize}px`,
-          transform: 'rotate('+this.rotate+'deg)'
-        }
+          transform: "rotate(" + this.rotate + "deg)",
+          margin: `${this.margin}`,
+        };
       } else {
         return {
           width: `${pixelSize}px`,
-          height: `${pixelSize}px`
+          height: `${pixelSize}px`,
+          margin: `${this.margin}`,
         };
       }
+    },
+    classes() {
+      return {
+        "icon-fill": this.fill,
+        "icon-stroke": this.stroke,
+        [`icon-fill--${this.color}`]: this.fill && this.color,
+        [`icon-stroke--${this.color}`]: this.stroke && this.color,
+      };
     },
   },
   methods: {
     getPixelSize() {
       return this.customSize ? this.customSize : sizeToPixel[this.size];
-    }
-  }
+    },
+  },
 };
 
 function formatIconComponentsNames(icons = {}) {
@@ -96,4 +127,5 @@ function formatIconComponentsNames(icons = {}) {
 <style lang="scss">
 // import BIMDATA VARIABLES
 @import "../../assets/scss/_BIMDataVariables.scss";
+@import "./_BIMDataIcon.scss";
 </style>
