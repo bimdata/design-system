@@ -32,8 +32,6 @@ import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButto
 import BIMDataSearch from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
-import * as components from "../imports.js";
-
 export default {
   components: {
     BIMDataCard,
