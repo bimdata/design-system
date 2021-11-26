@@ -1,4 +1,6 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
 @import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/utilities/_text.scss";
 .bimdata-card {
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);

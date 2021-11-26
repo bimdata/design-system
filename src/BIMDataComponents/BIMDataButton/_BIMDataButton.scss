@@ -1,3 +1,6 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/utilities/_text.scss";
+@import "../../assets/scss/mixins/_font-size.scss";
 .bimdata-btn {
   padding: 0 var(--spacing-unit);
   height: fit-content;
