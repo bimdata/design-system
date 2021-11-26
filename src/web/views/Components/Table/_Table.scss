@@ -21,6 +21,6 @@
 .advanced-example-result {
   .bimdata-table {
     margin: 6px 0;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
   }
 }

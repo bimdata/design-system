@@ -1,5 +1,5 @@
 .navigation {
-  height: calc(#{$spacing-unit} * 3);
+  height: calc(var(--spacing-unit) * 3);
   position: sticky;
   top: 0;
   z-index: 1;

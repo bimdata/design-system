@@ -4,7 +4,7 @@
     height: auto;
   }
   .bimdata-search-bar {
-    margin: 0 0 $spacing-unit;
+    margin: 0 0 var(--spacing-unit);
   }
   .bimdata-ds__demo {
     ::v-deep.bimdata-ds__demo__module {
@@ -20,8 +20,8 @@
       .icons-numbers {
         height: 32px;
         padding: 0 6px;
-        background-color: $color-primary;
-        color: $color-white;
+        background-color: var(--color-primary);
+        color: var(--color-white);
         font-size: 10px;
         letter-spacing: 1px;
         display: flex;
@@ -35,23 +35,23 @@
         flex-wrap: wrap;
         justify-content: center;
         & > div {
-          margin: calc(#{$spacing-unit} / 2);
-          padding: $spacing-unit;
+          margin: calc(var(--spacing-unit) / 2);
+          padding: var(--spacing-unit);
           width: 118px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           p {
-            margin: calc(#{$spacing-unit} / 2) 0 0 0;
+            margin: calc(var(--spacing-unit) / 2) 0 0 0;
             font-size: calculateEm(12px);
           }
           &:hover {
-            background-color: $color-tertiary-lightest;
+            background-color: var(--color-silver-light);
             cursor: pointer;
           }
           &.active {
-            background-color: $color-tertiary-lightest;
+            background-color: var(--color-silver-light);
           }
         }
       }

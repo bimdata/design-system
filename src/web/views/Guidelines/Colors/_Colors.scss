@@ -1,61 +1,6 @@
 .colors {
-  .color-swatches {
-    display: flex;
-    flex-wrap: wrap;
-    .color-swatche {
-      margin: 12px 24px 12px 0;
-      width: 254px;
-      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
-      overflow: hidden;
-      &__header,
-      &__body {
-        &__item {
-          .label {
-            font-size: calculateEm(9px);
-            line-height: 16px;
-            text-transform: uppercase;
-          }
-          .value {
-            font-size: calculateEm(11px);
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-          }
-        }
-      }
-      &__header {
-        height: 140px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: self-start;
-        background-color: $color-primary;
-        &__item {
-          padding: 6px 12px;
-          .label {
-            opacity: 0.5;
-          }
-        }
-      }
-      &__body {
-        padding: 6px 12px;
-        background-color: #fcfcfc;
-        &__item {
-          padding: calc(#{$spacing-unit} / 2) 0;
-          .label {
-            color: rgba($color-primary, 0.6);
-          }
-          .value {
-            position: relative;
-            color: $color-primary;
-            .bimdata-btn {
-              position: absolute;
-              right: 0;
-              bottom: 0;
-            }
-          }
-        }
-      }
-    }
+  #colors,
+  #implementing {
+    padding-top: 40px;
   }
 }

@@ -3,5 +3,5 @@ export default Object.freeze([
   "primary",
   "secondary",
   "high",
-  "tertiary-darkest",
+  "granite",
 ]);

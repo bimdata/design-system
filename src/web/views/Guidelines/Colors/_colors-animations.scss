@@ -4,17 +4,17 @@
   align-items: center;
   background-image: radial-gradient(
       closest-side,
-      rgba($color-white, 0.94),
-      rgba($color-white, 0.94),
-      rgba($color-white, 1)
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 255, 255, 1)
     ),
     url("../../../assets/img/grid.svg");
   background-repeat: no-repeat, repeat;
   background-size: auto, 75px 44px;
   position: fixed;
-  top: 25%;
-  left: 50%;
-  right: -90px;
+  top: 55%;
+  left: 65%;
+  right: 0;
   width: 994px;
   height: 720px;
   z-index: -1;
@@ -35,11 +35,9 @@
       top: 0;
       left: 0;
       animation: transform1 4s ease, color1 4s ease;
-      box-shadow: 1px 1px 0 lighten($color-primary, 2%),
-        2px 2px 0 lighten($color-primary, 2%),
-        3px 3px 0 lighten($color-primary, 2%),
-        4px 4px 0 lighten($color-primary, 2%),
-        5px 5px 0 lighten($color-primary, 2%);
+      box-shadow: 1px 1px 0 var(--color-primary-dark),
+        2px 2px 0 var(--color-primary-dark), 3px 3px 0 var(--color-primary-dark),
+        4px 4px 0 var(--color-primary-dark), 5px 5px 0 var(--color-primary-dark);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
@@ -49,11 +47,11 @@
       top: -10%;
       left: -10%;
       animation: transform2 4s ease, color2 4s ease;
-      box-shadow: 1px 1px 0 darken($color-secondary, 2%),
-        2px 2px 0 darken($color-secondary, 2%),
-        3px 3px 0 darken($color-secondary, 2%),
-        4px 4px 0 darken($color-secondary, 2%),
-        5px 5px 0 darken($color-secondary, 2%);
+      box-shadow: 1px 1px 0 var(--color-secondary-dark),
+        2px 2px 0 var(--color-secondary-dark),
+        3px 3px 0 var(--color-secondary-dark),
+        4px 4px 0 var(--color-secondary-dark),
+        5px 5px 0 var(--color-secondary-dark);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
@@ -63,11 +61,9 @@
       top: -20%;
       left: -20%;
       animation: transform3 4s ease, color3 4s ease;
-      box-shadow: 1px 1px 0 darken($color-tertiary, 2%),
-        2px 2px 0 darken($color-tertiary, 2%),
-        3px 3px 0 darken($color-tertiary, 2%),
-        4px 4px 0 darken($color-tertiary, 2%),
-        5px 5px 0 darken($color-tertiary, 2%);
+      box-shadow: 1px 1px 0 var(--color-silver-dark),
+        2px 2px 0 var(--color-silver-dark), 3px 3px 0 var(--color-silver-dark),
+        4px 4px 0 var(--color-silver-dark), 5px 5px 0 var(--color-silver-dark);
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }

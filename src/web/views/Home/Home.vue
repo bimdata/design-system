@@ -63,6 +63,11 @@ export default {
       return this.$store.state;
     },
   },
+  methods: {
+    getFilter() {
+      return components;
+    },
+  },
 };
 </script>
 

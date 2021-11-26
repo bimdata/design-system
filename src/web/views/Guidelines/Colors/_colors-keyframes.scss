@@ -24,25 +24,25 @@
 }
 @keyframes color1 {
   0% {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
   100% {
-    background-color: lighten($color-primary, 15%);
+    background-color: var(--color-primary-light);
   }
 }
 @keyframes color2 {
   0% {
-    background-color: $color-secondary;
+    background-color: var(--color-secondary);
   }
   100% {
-    background-color: lighten($color-secondary, 10%);
+    background-color: var(--color-secondary-light);
   }
 }
 @keyframes color3 {
   0% {
-    background-color: $color-tertiary;
+    background-color: var(--color-silver);
   }
   100% {
-    background-color: lighten($color-tertiary, 5%);
+    background-color: var(--color-silver-dark);
   }
 }

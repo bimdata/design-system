@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     &__item {
-      margin-right: $spacing-unit;
+      margin-right: var(--spacing-unit);
       flex: 1;
       pre {
         margin-bottom: 0;

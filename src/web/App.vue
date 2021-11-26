@@ -39,11 +39,10 @@ export default {
 </style>
 
 <style lang="scss">
-// import DESIGN SYSTEM STYLE
-@import "./_DesignSystem-global.scss";
-
 // import BIMDATA STYLE
 @import "../assets/scss/BIMData.scss";
+@import "../assets/scss/mixins/_colors-variation.scss";
 
-@import "../assets/css/_BIMDataVariables.css";
+// import DESIGN SYSTEM STYLE
+@import "./_DesignSystem-global.scss";
 </style>

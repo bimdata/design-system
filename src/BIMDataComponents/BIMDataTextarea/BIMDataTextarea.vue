@@ -3,8 +3,9 @@
     class="bimdata-textarea"
     :class="{
       'not-empty':
-        (modelValue !== null && modelValue !== '') ||
-        placeholder !== null, error, success
+        (modelValue !== null && modelValue !== '') || placeholder !== null,
+      error,
+      success,
     }"
     :style="{ 'min-width': width, 'min-height': height }"
   >
@@ -89,9 +90,7 @@ export default {
       default: "",
     },
   },
-  emits: [
-    "update:modelValue"
-  ],
+  emits: ["update:modelValue"],
   created() {
     this.$watch(
       () => this.success && this.error,
@@ -109,21 +108,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA UTILITIES
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-
-// import BIMDATA MIXINS
-@import "../../assets/scss/mixins/_pseudo.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataTextarea.scss";
-</style>
+<style lang="scss" src="./_BIMDataTextarea.scss"></style>

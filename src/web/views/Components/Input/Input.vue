@@ -18,7 +18,7 @@
             :margin="marginInput"
           >
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIcon name="show" class="fill-tertiary-dark" />
+              <BIMDataIcon name="show" class="fill-granite-light" />
             </template>
           </BIMDataInput>
         </template>
@@ -222,7 +222,7 @@ export default {
     },
     getInputIcon() {
       if (this.inputIcon) {
-        return '<BIMDataIcon name="show" class="fill-tertiary-dark"/>';
+        return '<BIMDataIcon name="show" class="fill-granite-light"/>';
       }
     },
     getMargin() {
