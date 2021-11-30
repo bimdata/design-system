@@ -1,6 +1,5 @@
 /* eslint-disable no-useless-escape */
-// const branch = process.env.GITHUB_REF.split("/").pop();
-const branch = "develop";
+const branch = process.env.GITHUB_REF.split("/").pop();
 
 const config = {
   plugins: [
