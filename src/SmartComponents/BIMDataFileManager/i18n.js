@@ -5,6 +5,7 @@ const en = {
   cancelButtonText: "Cancel",
   submitButtonText: "Submit",
   buttonText: "New folder",
+  addFileButtonText: "Upload a file",
 };
 
 const fr = {
@@ -14,6 +15,7 @@ const fr = {
   cancelButtonText: "Annuler",
   submitButtonText: "Valider",
   buttonText: "Nouveau dossier",
+  addFileButtonText: "Charger un fichier",
 };
 
 const es = {
@@ -23,6 +25,7 @@ const es = {
   cancelButtonText: "Cancelar",
   submitButtonText: "Validar",
   buttonText: "Carpeta nueva",
+  addFileButtonText: "Cargar un archivo",
 };
 
 const de = {
@@ -32,6 +35,7 @@ const de = {
   cancelButtonText: "Abbrechen",
   submitButtonText: "Bestätigen",
   buttonText: "Neuer Ordner",
+  addFileButtonText: "Datei laden",
 };
 
 const it = {
@@ -41,6 +45,7 @@ const it = {
   cancelButtonText: "Annulla",
   submitButtonText: "Invia",
   buttonText: "Nuova cartella",
+  addFileButtonText: "Carica un file",
 };
 
 const trads = {

@@ -8,6 +8,39 @@
   flex-direction: column;
   gap: $spacing-unit;
 
+  &__header {
+    display: flex;
+
+    &--big {
+      .bimdata-file-manager__header__upload {
+        margin: 0 $spacing-unit;
+      }
+    }
+
+    &--small {
+      flex-direction: column;
+
+      .bimdata-file-manager__header__upload {
+        margin: $spacing-unit 0;
+      }
+    }
+
+    &--medium {
+      flex-wrap: wrap;
+      * {
+        flex-shrink: 1;
+        flex-basis: calc(50% - calc($spacing-unit / 2));
+      }
+      .bimdata-file-manager__search {
+        flex-basis: 100%;
+        margin-top: $spacing-unit;
+      }
+      .bimdata-file-manager__header__upload {
+        margin-left: $spacing-unit;
+      }
+    }
+  }
+
   &__breadcrumb {
     height: 32px;
   }

@@ -1,20 +1,37 @@
 <template>
   <div class="bimdata-file-manager">
     <template v-if="fileStructure">
-      <NewFolderButton
-        :projectId="projectId"
-        :spaceId="spaceId"
-        :apiClient="apiClient"
-        :folder="currentFolder"
-        @success="onNewFolder"
-      />
-      <BIMDataSearch
-        class="bimdata-file-manager__search"
-        width="100%"
-        placeholder="Search"
-        v-model="searchText"
-        clear
-      />
+      <div
+        class="bimdata-file-manager__header"
+        :class="{
+          'bimdata-file-manager__header--small': small,
+          'bimdata-file-manager__header--medium': medium,
+          'bimdata-file-manager__header--big': big,
+        }"
+      >
+        <NewFolderButton
+          width="130px"
+          :projectId="projectId"
+          :spaceId="spaceId"
+          :apiClient="apiClient"
+          :folder="currentFolder"
+          @success="onNewFolder"
+        />
+        <UploadFileButton
+          class="bimdata-file-manager__header__upload"
+          width="130px"
+          :disabled="currentFolder.userPermission < 100"
+          multiple
+          @upload="uploadFiles"
+        />
+        <BIMDataSearch
+          class="bimdata-file-manager__search"
+          width="100%"
+          placeholder="Search"
+          v-model="searchText"
+          clear
+        />
+      </div>
       <BIMDataBreadcrumb
         :steps="steps"
         @click="onBreadcrumClick"
@@ -51,7 +68,11 @@ import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMData
 
 import FileCard from "./file-card/FileCard.vue";
 import NewFolderButton from "./newFolder/NewFolderButton.vue";
+import UploadFileButton from "./uploadFile/UploadFileButton.vue";
 import trads from "./i18n.js";
+
+const MIN = 350;
+const MAX = 550;
 
 export default {
   components: {
@@ -61,6 +82,7 @@ export default {
     BIMDataSpinner,
     FileCard,
     NewFolderButton,
+    UploadFileButton,
   },
   provide() {
     return {
@@ -104,9 +126,19 @@ export default {
       selectedFiles: [],
       apiClient: null,
       fileStructure: null,
+      width: 0,
     };
   },
   computed: {
+    small() {
+      return this.width < MIN;
+    },
+    medium() {
+      return this.width >= MIN && this.width <= MAX;
+    },
+    big() {
+      return this.width > MAX;
+    },
     multiSelect() {
       return this.select && this.multi;
     },
@@ -148,6 +180,15 @@ export default {
       this.$emit("selection-change", this.selectedFiles);
     },
   },
+  mounted() {
+    this.resizeObserver = new ResizeObserver(this.onResize);
+    this.resizeObserver.observe(this.$el);
+  },
+  beforeDestroy() {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  },
   async created() {
     this.apiClient = makeBIMDataApiClient({
       apiUrl: this.apiUrl,
@@ -164,7 +205,18 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
-    async onNewFolder() {
+    onResize(entries) {
+      entries.forEach(entry => {
+        this.width = entry.target.clientWidth;
+      });
+    },
+    uploadFiles() {
+      this.refresh();
+    },
+    onNewFolder() {
+      this.refresh();
+    },
+    async refresh() {
       const currentFolderId = this.currentFolder.id;
 
       this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(

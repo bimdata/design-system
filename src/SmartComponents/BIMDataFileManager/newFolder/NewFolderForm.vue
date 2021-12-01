@@ -21,7 +21,7 @@
       width="80px"
       ghost
       radius
-      @click="close"
+      @click.stop="close"
     >
       {{ $translate("cancelButtonText") }}
     </BIMDataButton>
@@ -31,7 +31,7 @@
       color="primary"
       fill
       radius
-      @click="submit"
+      @click.stop="submit"
     >
       {{ $translate("submitButtonText") }}
     </BIMDataButton>

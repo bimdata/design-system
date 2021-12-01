@@ -1,19 +1,16 @@
 <template>
-  <div class="folder-creation-button">
-    <BIMDataButton
-      class="folder-creation-button__btn"
-      :width="width"
-      :height="height"
-      color="primary"
-      fill
-      radius
-      :disabled="disabled"
-      @click="toggle"
-    >
-      <BIMDataIcon name="addFolder" size="xs" margin="0 6px 0 0" />
-      <span>{{ $translate("buttonText") }}</span>
-    </BIMDataButton>
-
+  <BIMDataButton
+    class="folder-creation-button"
+    :width="width"
+    :height="height"
+    color="primary"
+    fill
+    radius
+    :disabled="disabled"
+    @click="toggle"
+  >
+    <BIMDataIcon name="addFolder" size="xs" margin="0 6px 0 0" />
+    <span>{{ $translate("buttonText") }}</span>
     <transition name="fade">
       <NewFolderForm
         v-if="showCreationForm"
@@ -29,7 +26,7 @@
         "
       />
     </transition>
-  </div>
+  </BIMDataButton>
 </template>
 
 <script>
