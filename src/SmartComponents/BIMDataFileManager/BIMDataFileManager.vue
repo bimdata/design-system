@@ -32,12 +32,27 @@
           clear
         />
       </div>
-      <BIMDataBreadcrumb
-        :steps="steps"
-        @click="onBreadcrumClick"
-        label="name"
-        @back="onBreadcrumBack"
-      />
+      <div class="bimdata-file-manager__navigation">
+        <div
+          v-if="navigationShown"
+          class="bimdata-file-manager__navigation__content"
+        >
+          <BIMDataButton
+            color="default"
+            icon
+            radius
+            ghost
+            width="21px"
+            height="21px"
+            @click="back"
+          >
+            <BIMDataIcon name="arrow" />
+          </BIMDataButton>
+          <span>
+            {{ currentFolder.name }}
+          </span>
+        </div>
+      </div>
       <BIMDataResponsiveGrid
         class="bimdata-file-manager__container"
         itemWidth="140px"
@@ -64,7 +79,8 @@ import { makeBIMDataApiClient } from "@bimdata/typescript-fetch-api-client";
 import BIMDataResponsiveGrid from "../../BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
 import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
-import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMDataBreadcrumb.vue";
+import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 import FileCard from "./components/FileCard.vue";
 import NewFolderButton from "./components/NewFolderButton.vue";
@@ -78,11 +94,12 @@ export default {
   components: {
     BIMDataResponsiveGrid,
     BIMDataSearch,
-    BIMDataBreadcrumb,
     BIMDataSpinner,
     FileCard,
     NewFolderButton,
     UploadFileButton,
+    BIMDataIcon,
+    BIMDataButton,
   },
   provide() {
     return {
@@ -130,6 +147,9 @@ export default {
     };
   },
   computed: {
+    navigationShown() {
+      return this.currentFolder !== this.fileStructure;
+    },
     small() {
       return this.width < MIN;
     },
@@ -151,20 +171,6 @@ export default {
       } else {
         return (this.currentFolder && this.currentFolder.children) || [];
       }
-    },
-    steps() {
-      const steps = [];
-      if (this.currentFolder) {
-        steps.push(this.currentFolder);
-        let parent = this.getParent(this.fileStructure, this.currentFolder);
-        while (parent) {
-          steps.unshift(parent);
-
-          parent = this.getParent(this.fileStructure, parent);
-        }
-      }
-
-      return steps;
     },
   },
   watch: {

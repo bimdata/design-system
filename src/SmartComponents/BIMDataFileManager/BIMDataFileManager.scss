@@ -3,6 +3,7 @@
 .bimdata-file-manager {
   width: 100%;
   padding: $spacing-unit;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -41,8 +42,17 @@
     }
   }
 
-  &__breadcrumb {
-    height: 32px;
+  &__navigation {
+    height: 22px;
+    &__content {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: $spacing-unit;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
   }
 
   &__search {
