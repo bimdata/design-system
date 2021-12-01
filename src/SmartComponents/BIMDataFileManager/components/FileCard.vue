@@ -5,9 +5,15 @@
     width="140px"
   >
     <template #content>
-      <div @dblclick="onDoubleClick" class="file-card__content">
+      <div @click="onClick" class="file-card__content">
         <div class="file-card__btn-menu">
-          <BIMDataButton ghost rounded icon v-if="edit">
+          <BIMDataButton
+            ghost
+            rounded
+            icon
+            v-if="edit"
+            @click.stop="toggleMenu"
+          >
             <BIMDataIcon name="ellipsis" size="l" fill color="tertiary-dark" />
           </BIMDataButton>
           <div v-else-if="!isFolder" class="file-card__btn-menu--select">
@@ -32,6 +38,35 @@
           <BIMDataFileIcon :name="getFileExtension(file)" />
         </template>
       </div>
+      <div class="file-card__menu" v-if="menuDisplayed" v-clickaway="away">
+        <BIMDataButton
+          color="default"
+          ghost
+          radius
+          width="100%"
+          @click.stop="onRenameClick"
+        >
+          {{ $translate("rename") }}
+        </BIMDataButton>
+        <BIMDataButton
+          color="default"
+          ghost
+          radius
+          width="100%"
+          @click.stop="onDownloadClick"
+        >
+          {{ $translate("download") }}
+        </BIMDataButton>
+        <BIMDataButton
+          color="high"
+          ghost
+          radius
+          width="100%"
+          @click.stop="onDeleteClick"
+        >
+          {{ $translate("delete") }}
+        </BIMDataButton>
+      </div>
     </template>
     <template #footer>
       <div class="file-card__name">
@@ -51,6 +86,7 @@ import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue"
 import BIMDataRadio from "../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
+import clickaway from "../../../BIMDataDirectives/click-away.js";
 
 export default {
   components: {
@@ -61,6 +97,8 @@ export default {
     BIMDataCheckbox,
     BIMDataFileIcon,
   },
+  directives: { clickaway },
+  inject: ["$translate"],
   props: {
     file: {
       type: Object,
@@ -79,6 +117,12 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      menuDisplayed: false,
+      firstClick: false,
+    };
+  },
   computed: {
     multiSelect() {
       return this.select && this.multi;
@@ -91,6 +135,15 @@ export default {
     },
   },
   methods: {
+    onRenameClick() {
+      this.menuDisplayed = false;
+    },
+    onDownloadClick() {
+      this.menuDisplayed = false;
+    },
+    onDeleteClick() {
+      this.menuDisplayed = false;
+    },
     getFileExtension(file) {
       const extension = file.name.match(/\.([0-9a-z]+$)/)[1];
       if (extension && extension.toLowerCase() === "ifczip") {
@@ -99,10 +152,28 @@ export default {
         return extension;
       }
     },
-    onDoubleClick() {
+    onClick() {
       if (this.isFolder) {
-        this.$emit("open-folder");
+        if (this.firstClick === false) {
+          this.firstClick = true;
+          setTimeout(() => {
+            this.firstClick = false;
+          }, 500);
+        } else {
+          // dbl click
+          if (this.isFolder) {
+            this.$emit("open-folder");
+          }
+        }
       }
+    },
+    toggleMenu() {
+      this.menuDisplayed = !this.menuDisplayed;
+    },
+    away() {
+      setTimeout(() => {
+        this.menuDisplayed = false;
+      });
     },
   },
 };

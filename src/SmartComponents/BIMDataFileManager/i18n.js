@@ -6,6 +6,9 @@ const en = {
   submitButtonText: "Submit",
   buttonText: "New folder",
   addFileButtonText: "Upload a file",
+  rename: "Rename",
+  download: "Download",
+  delete: "Delete",
 };
 
 const fr = {
@@ -16,6 +19,9 @@ const fr = {
   submitButtonText: "Valider",
   buttonText: "Nouveau dossier",
   addFileButtonText: "Charger un fichier",
+  rename: "Renommer",
+  download: "Télécharger",
+  delete: "Supprimer",
 };
 
 const es = {
@@ -26,6 +32,9 @@ const es = {
   submitButtonText: "Validar",
   buttonText: "Carpeta nueva",
   addFileButtonText: "Cargar un archivo",
+  rename: "Renombrar",
+  download: "Descargar",
+  delete: "Borrar",
 };
 
 const de = {
@@ -36,6 +45,9 @@ const de = {
   submitButtonText: "Bestätigen",
   buttonText: "Neuer Ordner",
   addFileButtonText: "Datei laden",
+  rename: "Umbenennen",
+  download: "Herunterladen",
+  delete: "Löschen",
 };
 
 const it = {
@@ -46,6 +58,9 @@ const it = {
   submitButtonText: "Invia",
   buttonText: "Nuova cartella",
   addFileButtonText: "Carica un file",
+  rename: "Rinominare",
+  download: "Scaricare",
+  delete: "Cancellare",
 };
 
 const trads = {
