@@ -65,7 +65,6 @@ export default {
     },
     folder: {
       type: Object,
-      required: true,
     },
     disabled: {
       type: Boolean,
@@ -98,6 +97,7 @@ export default {
   &__form {
     position: absolute;
     top: calc(100% + $spacing-unit);
+    left: 0px;
     width: 260px;
     box-shadow: $box-shadow;
     z-index: 1;
