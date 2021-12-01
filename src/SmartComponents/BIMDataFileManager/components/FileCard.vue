@@ -144,6 +144,7 @@ export default {
     },
     onDeleteClick() {
       this.menuDisplayed = false;
+      this.$emit("delete");
     },
     getFileExtension(file) {
       const extension = file.name.match(/\.([0-9a-z]+$)/)[1];

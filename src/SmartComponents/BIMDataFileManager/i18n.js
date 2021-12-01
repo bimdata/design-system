@@ -10,6 +10,9 @@ const en = {
   rename: "Rename",
   download: "Download",
   delete: "Delete",
+  deleteTitle: "Deleting Files",
+  deleteDetail:
+    "You are about to permanently delete the following files / folders",
 };
 
 const fr = {
@@ -24,6 +27,9 @@ const fr = {
   rename: "Renommer",
   download: "Télécharger",
   delete: "Supprimer",
+  deleteTitle: "Supression de fichiers",
+  deleteDetail:
+    "Vous êtes sur le point de supprimer définitivement les fichiers/dossiers suivants",
 };
 
 const es = {
@@ -38,6 +44,9 @@ const es = {
   rename: "Renombrar",
   download: "Descargar",
   delete: "Borrar",
+  deleteTitle: "Eliminar archivos",
+  deleteDetail:
+    "Está a punto de eliminar permanentemente los siguientes archivos / carpetas",
 };
 
 const de = {
@@ -52,6 +61,9 @@ const de = {
   rename: "Umbenennen",
   download: "Herunterladen",
   delete: "Löschen",
+  deleteTitle: "Dateien löschen",
+  deleteDetail:
+    "Sie sind im Begriff, die folgenden Dateien / Ordner endgültig zu löschen",
 };
 
 const it = {
@@ -66,6 +78,8 @@ const it = {
   rename: "Rinominare",
   download: "Scaricare",
   delete: "Cancellare",
+  deleteTitle: "Eliminazione di file",
+  deleteDetail: "Stai per eliminare definitivamente i seguenti file/cartelle",
 };
 
 const trads = {

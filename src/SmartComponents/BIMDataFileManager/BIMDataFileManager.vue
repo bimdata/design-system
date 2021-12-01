@@ -69,6 +69,7 @@
           :selected="isFileSelected(file)"
           @toggle-select="onToggleFileSelect(file)"
           @rename="onRename(file)"
+          @delete="onDelete(file)"
         />
       </BIMDataResponsiveGrid>
       <BIMDataLoading v-else />
@@ -82,6 +83,15 @@
         v-if="entityRenown"
         @close="entityRenown = null"
         @success="onRenameSuccess"
+      />
+      <DeleteModal
+        :projectId="projectId"
+        :spaceId="spaceId"
+        :apiClient="apiClient"
+        :entity="entityDeletable"
+        v-else-if="entityDeletable"
+        @close="entityDeletable = null"
+        @success="onDeleteSuccess"
       />
     </div>
   </div>
@@ -100,6 +110,7 @@ import FileCard from "./components/FileCard.vue";
 import NewFolderButton from "./components/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
 import RenameModal from "./components/RenameModal.vue";
+import DeleteModal from "./components/DeleteModal.vue";
 import trads from "./i18n.js";
 
 const MIN = 350;
@@ -116,6 +127,7 @@ export default {
     BIMDataIcon,
     BIMDataButton,
     RenameModal,
+    DeleteModal,
   },
   provide() {
     return {
@@ -232,6 +244,13 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    onDelete(entity) {
+      this.entityDeletable = entity;
+    },
+    onDeleteSuccess() {
+      this.entityDeletable = null;
+      this.refresh();
+    },
     onRename(entity) {
       this.entityRenown = entity;
     },
