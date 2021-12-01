@@ -137,6 +137,7 @@ export default {
   methods: {
     onRenameClick() {
       this.menuDisplayed = false;
+      this.$emit("rename");
     },
     onDownloadClick() {
       this.menuDisplayed = false;

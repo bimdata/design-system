@@ -1,9 +1,10 @@
 const en = {
   creationFormTitle: "Create folder",
+  renameFormPlaceholder: "Folder/File name",
   nameInputPlaceholder: "Folder name",
-  nameInputErrorMessage: "Invalid folder name",
-  cancelButtonText: "Cancel",
-  submitButtonText: "Submit",
+  nameInputErrorMessage: "Invalid name",
+  cancel: "Cancel",
+  submit: "Submit",
   buttonText: "New folder",
   addFileButtonText: "Upload a file",
   rename: "Rename",
@@ -13,10 +14,11 @@ const en = {
 
 const fr = {
   creationFormTitle: "Créer un dossier",
+  renameFormPlaceholder: "Nom du fichier/dosier",
   nameInputPlaceholder: "Nom du dossier",
-  nameInputErrorMessage: "Nom de dossier invalide",
-  cancelButtonText: "Annuler",
-  submitButtonText: "Valider",
+  nameInputErrorMessage: "Nom invalide",
+  cancel: "Annuler",
+  submit: "Valider",
   buttonText: "Nouveau dossier",
   addFileButtonText: "Charger un fichier",
   rename: "Renommer",
@@ -26,10 +28,11 @@ const fr = {
 
 const es = {
   creationFormTitle: "Crear un archivo",
+  renameFormPlaceholder: "Nombre de archivo / carpeta",
   nameInputPlaceholder: "Nombre de la carpeta",
-  nameInputErrorMessage: "Nombre de carpeta inválida",
-  cancelButtonText: "Cancelar",
-  submitButtonText: "Validar",
+  nameInputErrorMessage: "Nombre inválida",
+  cancel: "Cancelar",
+  submit: "Validar",
   buttonText: "Carpeta nueva",
   addFileButtonText: "Cargar un archivo",
   rename: "Renombrar",
@@ -39,10 +42,11 @@ const es = {
 
 const de = {
   creationFormTitle: "Ordner erstellen",
+  renameFormPlaceholder: "Datei- / Ordnernam",
   nameInputPlaceholder: "Ordnername",
-  nameInputErrorMessage: "Ungültiger Ordnername",
-  cancelButtonText: "Abbrechen",
-  submitButtonText: "Bestätigen",
+  nameInputErrorMessage: "Ungültiger name",
+  cancel: "Abbrechen",
+  submit: "Bestätigen",
   buttonText: "Neuer Ordner",
   addFileButtonText: "Datei laden",
   rename: "Umbenennen",
@@ -52,10 +56,11 @@ const de = {
 
 const it = {
   creationFormTitle: "Crea una cartella",
+  renameFormPlaceholder: "Nome file/cartella",
   nameInputPlaceholder: "Nome della cartella",
-  nameInputErrorMessage: "Nome cartella non valido",
-  cancelButtonText: "Annulla",
-  submitButtonText: "Invia",
+  nameInputErrorMessage: "Nome non valido",
+  cancel: "Annulla",
+  submit: "Invia",
   buttonText: "Nuova cartella",
   addFileButtonText: "Carica un file",
   rename: "Rinominare",

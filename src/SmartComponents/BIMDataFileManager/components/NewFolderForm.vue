@@ -23,7 +23,7 @@
       radius
       @click.stop="close"
     >
-      {{ $translate("cancelButtonText") }}
+      {{ $translate("cancel") }}
     </BIMDataButton>
     <BIMDataButton
       class="folder-creation-form__btn-submit"
@@ -33,7 +33,7 @@
       radius
       @click.stop="submit"
     >
-      {{ $translate("submitButtonText") }}
+      {{ $translate("submit") }}
     </BIMDataButton>
   </div>
 </template>

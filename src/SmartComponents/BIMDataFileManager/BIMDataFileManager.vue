@@ -1,6 +1,6 @@
 <template>
   <div class="bimdata-file-manager">
-    <template v-if="fileStructure">
+    <template>
       <div
         class="bimdata-file-manager__header"
         :class="{
@@ -11,6 +11,7 @@
       >
         <NewFolderButton
           width="130px"
+          :disabled="!currentFolder || currentFolder.userPermission < 100"
           :projectId="projectId"
           :spaceId="spaceId"
           :apiClient="apiClient"
@@ -20,7 +21,7 @@
         <UploadFileButton
           class="bimdata-file-manager__header__upload"
           width="130px"
-          :disabled="currentFolder.userPermission < 100"
+          :disabled="!currentFolder || currentFolder.userPermission < 100"
           multiple
           @upload="uploadFiles"
         />
@@ -54,6 +55,7 @@
         </div>
       </div>
       <BIMDataResponsiveGrid
+        v-if="fileStructure"
         class="bimdata-file-manager__container"
         itemWidth="140px"
       >
@@ -66,10 +68,22 @@
           :multi="multi"
           :selected="isFileSelected(file)"
           @toggle-select="onToggleFileSelect(file)"
+          @rename="onRename(file)"
         />
       </BIMDataResponsiveGrid>
+      <BIMDataLoading v-else />
     </template>
-    <BIMDataSpinner v-else />
+    <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
+      <RenameModal
+        :projectId="projectId"
+        :spaceId="spaceId"
+        :apiClient="apiClient"
+        :entity="entityRenown"
+        v-if="entityRenown"
+        @close="entityRenown = null"
+        @success="onRenameSuccess"
+      />
+    </div>
   </div>
 </template>
 
@@ -78,13 +92,14 @@ import { makeBIMDataApiClient } from "@bimdata/typescript-fetch-api-client";
 
 import BIMDataResponsiveGrid from "../../BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
-import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
+import BIMDataLoading from "../../BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 import FileCard from "./components/FileCard.vue";
 import NewFolderButton from "./components/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
+import RenameModal from "./components/RenameModal.vue";
 import trads from "./i18n.js";
 
 const MIN = 350;
@@ -94,12 +109,13 @@ export default {
   components: {
     BIMDataResponsiveGrid,
     BIMDataSearch,
-    BIMDataSpinner,
+    BIMDataLoading,
     FileCard,
     NewFolderButton,
     UploadFileButton,
     BIMDataIcon,
     BIMDataButton,
+    RenameModal,
   },
   provide() {
     return {
@@ -144,9 +160,14 @@ export default {
       apiClient: null,
       fileStructure: null,
       width: 0,
+      entityRenown: false,
+      entityDeletable: false,
     };
   },
   computed: {
+    modalDisplayed() {
+      return this.entityRenown || this.entityDeletable;
+    },
     navigationShown() {
       return this.currentFolder !== this.fileStructure;
     },
@@ -211,6 +232,13 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    onRename(entity) {
+      this.entityRenown = entity;
+    },
+    onRenameSuccess() {
+      this.entityRenown = null;
+      this.refresh();
+    },
     onResize(entries) {
       entries.forEach(entry => {
         this.width = entry.target.clientWidth;

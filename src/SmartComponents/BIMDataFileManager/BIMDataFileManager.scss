@@ -61,4 +61,16 @@
       background-color: $color-white;
     }
   }
+
+  &__modal {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba($color-primary, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
