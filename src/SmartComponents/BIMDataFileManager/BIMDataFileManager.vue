@@ -66,9 +66,9 @@ import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.v
 import BIMDataSpinner from "../../BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
 import BIMDataBreadcrumb from "../../BIMDataComponents/BIMDataBreadcrumb/BIMDataBreadcrumb.vue";
 
-import FileCard from "./file-card/FileCard.vue";
-import NewFolderButton from "./newFolder/NewFolderButton.vue";
-import UploadFileButton from "./uploadFile/UploadFileButton.vue";
+import FileCard from "./components/FileCard.vue";
+import NewFolderButton from "./components/NewFolderButton.vue";
+import UploadFileButton from "./components/UploadFileButton.vue";
 import trads from "./i18n.js";
 
 const MIN = 350;
