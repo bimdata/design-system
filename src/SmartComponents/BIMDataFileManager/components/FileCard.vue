@@ -141,6 +141,7 @@ export default {
     },
     onDownloadClick() {
       this.menuDisplayed = false;
+      this.$emit("dowload");
     },
     onDeleteClick() {
       this.menuDisplayed = false;

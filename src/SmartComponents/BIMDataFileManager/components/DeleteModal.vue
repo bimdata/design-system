@@ -60,6 +60,8 @@ import BIMDataSpinner from "../../../BIMDataComponents/BIMDataSpinner/BIMDataSpi
 
 import clickaway from "../../../BIMDataDirectives/click-away.js";
 
+import getFlattenTree from "../utils/flattenTree.js";
+
 export default {
   components: {
     BIMDataIcon,
@@ -92,20 +94,10 @@ export default {
   },
   computed: {
     flattenTree() {
-      return [this.entity, ...this.getDescendants(this.entity)];
+      return getFlattenTree(this.entity);
     },
   },
   methods: {
-    getDescendants(entity) {
-      if (entity.children && entity.children.length > 0) {
-        return [
-          ...entity.children,
-          ...entity.children.flatMap(child => this.getDescendants(child)),
-        ];
-      } else {
-        return [];
-      }
-    },
     close() {
       if (this.loading) return;
       this.$emit("close");

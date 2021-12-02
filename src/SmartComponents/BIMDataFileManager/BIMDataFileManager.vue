@@ -70,6 +70,7 @@
           @toggle-select="onToggleFileSelect(file)"
           @rename="onRename(file)"
           @delete="onDelete(file)"
+          @dowload="onDowload(file)"
         />
       </BIMDataResponsiveGrid>
       <BIMDataLoading v-else />
@@ -111,6 +112,10 @@ import NewFolderButton from "./components/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
 import RenameModal from "./components/RenameModal.vue";
 import DeleteModal from "./components/DeleteModal.vue";
+
+import getFlattenTree from "./utils/flattenTree.js";
+import dowloadFiles from "./utils/dowloadFiles.js";
+
 import trads from "./i18n.js";
 
 const MIN = 350;
@@ -142,6 +147,10 @@ export default {
     apiUrl: {
       type: String,
       default: "https://api.bimdata.io",
+    },
+    archiveUrl: {
+      type: String,
+      default: "https://archive.bimdata.io",
     },
     spaceId: {
       type: Number,
@@ -244,6 +253,14 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    onDowload(entity) {
+      dowloadFiles(getFlattenTree(entity), {
+        projectId: this.projectId,
+        spaceId: this.spaceId,
+        accessToken: this.accessToken,
+        baseURL: this.archiveUrl,
+      });
+    },
     onDelete(entity) {
       this.entityDeletable = entity;
     },
