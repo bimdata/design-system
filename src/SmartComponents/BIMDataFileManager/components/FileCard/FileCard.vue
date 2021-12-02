@@ -80,13 +80,14 @@
 </template>
 
 <script>
-import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
-import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataRadio from "../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataCheckbox from "../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
-import clickaway from "../../../BIMDataDirectives/click-away.js";
+import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataCard from "../../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataRadio from "../../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataFileIcon from "../../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
+import clickaway from "../../../../BIMDataDirectives/click-away.js";
+import { getFileExtension } from "../../utils/files";
 
 export default {
   components: {
@@ -135,6 +136,9 @@ export default {
     },
   },
   methods: {
+    getFileExtension(...args) {
+      return getFileExtension(...args);
+    },
     onRenameClick() {
       this.menuDisplayed = false;
       this.$emit("rename");
@@ -146,14 +150,6 @@ export default {
     onDeleteClick() {
       this.menuDisplayed = false;
       this.$emit("delete");
-    },
-    getFileExtension(file) {
-      const extension = file.name.match(/\.([0-9a-z]+$)/)[1];
-      if (extension && extension.toLowerCase() === "ifczip") {
-        return "ifc";
-      } else {
-        return extension;
-      }
     },
     onClick() {
       if (this.isFolder) {

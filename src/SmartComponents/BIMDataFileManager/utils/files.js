@@ -70,4 +70,13 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export default downloadFiles;
+function getFileExtension(file) {
+  const extension = file.name.match(/\.([0-9a-z]+$)/)[1];
+  if (extension && extension.toLowerCase() === "ifczip") {
+    return "ifc";
+  } else {
+    return extension;
+  }
+}
+
+export { downloadFiles, getFileExtension };

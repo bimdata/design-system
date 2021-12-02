@@ -107,14 +107,14 @@ import BIMDataLoading from "../../BIMDataComponents/BIMDataLoading/BIMDataLoadin
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
-import FileCard from "./components/FileCard.vue";
+import FileCard from "./components/FileCard/FileCard.vue";
 import NewFolderButton from "./components/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
 import RenameModal from "./components/RenameModal.vue";
 import DeleteModal from "./components/DeleteModal.vue";
 
 import getFlattenTree from "./utils/flattenTree.js";
-import dowloadFiles from "./utils/dowloadFiles.js";
+import { downloadFiles } from "./utils/files.js";
 
 import trads from "./i18n.js";
 
@@ -176,6 +176,7 @@ export default {
   data() {
     return {
       currentFolder: null, //TODO spinner while waiting
+      loadingFiles: [],
       searchText: "",
       selectedFiles: [],
       apiClient: null,
@@ -205,14 +206,30 @@ export default {
       return this.select && this.multi;
     },
     files() {
+      let files = null;
       if (this.searchText) {
-        return (
+        files = (
           (this.currentFolder && this.currentFolder.children) ||
           []
         ).filter(file => file.name.toLowerCase().includes(this.searchText));
       } else {
-        return (this.currentFolder && this.currentFolder.children) || [];
+        files = (this.currentFolder && this.currentFolder.children) || [];
       }
+
+      files.push(
+        ...this.loadingFiles.filter(
+          file => (file.folderId = this.currentFolder.id)
+        )
+      );
+
+      files.sort((a, b) => (a.name || "").localeCompare(b.name));
+      files.sort((a, b) => {
+        const aType = a.type === "Folder" ? 1 : -1;
+        const bType = b.type === "Folder" ? 1 : -1;
+
+        return bType - aType;
+      });
+      return files;
     },
   },
   watch: {
@@ -254,7 +271,7 @@ export default {
   },
   methods: {
     onDowload(entity) {
-      dowloadFiles(getFlattenTree(entity), {
+      downloadFiles(getFlattenTree(entity), {
         projectId: this.projectId,
         spaceId: this.spaceId,
         accessToken: this.accessToken,
@@ -285,8 +302,11 @@ export default {
         this.width = entry.target.clientWidth;
       });
     },
-    uploadFiles() {
-      // this.refresh();
+    /**
+     * @param { File[] } files
+     */
+    uploadFiles(files = []) {
+      console.log(files);
     },
     onNewFolder(newFolder) {
       this.currentFolder.children.push(newFolder);
