@@ -22,7 +22,7 @@
         @close="close"
         @success="
           close();
-          $emit(`success`);
+          $emit(`success`, $event);
         "
       />
     </transition>

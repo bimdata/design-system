@@ -265,15 +265,20 @@ export default {
       this.entityDeletable = entity;
     },
     onDeleteSuccess() {
+      const parent = this.getParent(this.fileStructure, this.entityDeletable);
+      if (parent) {
+        parent.children = parent.children.filter(
+          child => child.id !== this.entityDeletable.id
+        );
+      }
+
       this.entityDeletable = null;
-      this.refresh();
     },
     onRename(entity) {
       this.entityRenown = entity;
     },
     onRenameSuccess() {
       this.entityRenown = null;
-      this.refresh();
     },
     onResize(entries) {
       entries.forEach(entry => {
@@ -281,10 +286,10 @@ export default {
       });
     },
     uploadFiles() {
-      this.refresh();
+      // this.refresh();
     },
-    onNewFolder() {
-      this.refresh();
+    onNewFolder(newFolder) {
+      this.currentFolder.children.push(newFolder);
     },
     async refresh() {
       const currentFolderId = this.currentFolder.id;

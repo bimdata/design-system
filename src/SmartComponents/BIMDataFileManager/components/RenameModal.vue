@@ -108,6 +108,7 @@ export default {
     async submit() {
       if (this.name) {
         await this.renameDocument();
+        this.entity.name = this.name;
         this.reset();
         this.$emit("success");
       } else {
