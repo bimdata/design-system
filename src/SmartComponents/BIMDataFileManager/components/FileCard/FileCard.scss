@@ -61,6 +61,13 @@
     &--select {
       margin: 4px;
     }
+
+    &__spinner {
+      right: 6px;
+      top: 3px;
+      position: absolute;
+      color: $color-primary;
+    }
   }
 
   &__name {

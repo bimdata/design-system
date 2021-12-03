@@ -63,6 +63,10 @@
           v-for="file of files"
           :key="file.id"
           :file="file"
+          :projectId="projectId"
+          :spaceId="spaceId"
+          :apiUrl="apiUrl"
+          :accessToken="accessToken"
           @open-folder="openFolder(file)"
           :select="select"
           :multi="multi"
@@ -71,6 +75,7 @@
           @rename="onRename(file)"
           @delete="onDelete(file)"
           @dowload="onDowload(file)"
+          @loaded="onFileLoaded(file, $event)"
         />
       </BIMDataResponsiveGrid>
       <BIMDataLoading v-else />
@@ -175,7 +180,7 @@ export default {
   },
   data() {
     return {
-      currentFolder: null, //TODO spinner while waiting
+      currentFolder: null,
       loadingFiles: [],
       searchText: "",
       selectedFiles: [],
@@ -255,6 +260,7 @@ export default {
     }
   },
   async created() {
+    this.loadingFileId = 0;
     this.apiClient = makeBIMDataApiClient({
       apiUrl: this.apiUrl,
       accessToken: this.accessToken,
@@ -270,6 +276,15 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    onFileLoaded(loadingFile, loadedFile) {
+      loadingFile.folder.children = (loadingFile.folder.children || []).filter(
+        child => child.id !== loadingFile.id
+      );
+      loadingFile.folder.children.push(loadedFile);
+      this.loadingFiles = this.loadingFiles.filter(
+        child => child.id !== loadingFile.id
+      );
+    },
     onDowload(entity) {
       downloadFiles(getFlattenTree(entity), {
         projectId: this.projectId,
@@ -306,7 +321,20 @@ export default {
      * @param { File[] } files
      */
     uploadFiles(files = []) {
-      console.log(files);
+      this.loadingFiles.push(...this.formatFiles(files));
+    },
+    /**
+     * @param { File[] } files
+     */
+    formatFiles(files) {
+      return files.map(file => ({
+        name: file.name,
+        updatedAt: new Date(file.lastModified),
+        type: "File",
+        id: `loadingfile-${this.loadingFileId++}`,
+        fileToLoad: file,
+        folder: this.currentFolder,
+      }));
     },
     onNewFolder(newFolder) {
       this.currentFolder.children.push(newFolder);

@@ -7,11 +7,16 @@
     <template #content>
       <div @click="onClick" class="file-card__content">
         <div class="file-card__btn-menu">
+          <PieProgressSpinner
+            v-if="loading"
+            :progress="percentCompleted"
+            class="file-card__btn-menu__spinner"
+          />
           <BIMDataButton
             ghost
             rounded
             icon
-            v-if="edit"
+            v-else-if="edit"
             @click.stop="toggleMenu"
           >
             <BIMDataIcon name="ellipsis" size="l" fill color="tertiary-dark" />
@@ -87,7 +92,10 @@ import BIMDataRadio from "../../../../BIMDataComponents/BIMDataRadio/BIMDataRadi
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataFileIcon from "../../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
 import clickaway from "../../../../BIMDataDirectives/click-away.js";
+
 import { getFileExtension } from "../../utils/files";
+
+import PieProgressSpinner from "../PieProgressSpinner.vue";
 
 export default {
   components: {
@@ -97,12 +105,29 @@ export default {
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataFileIcon,
+    PieProgressSpinner,
   },
   directives: { clickaway },
   inject: ["$translate"],
   props: {
     file: {
       type: Object,
+      required: true,
+    },
+    projectId: {
+      type: Number,
+      required: true,
+    },
+    spaceId: {
+      type: Number,
+      required: true,
+    },
+    apiUrl: {
+      type: String,
+      required: true,
+    },
+    accessToken: {
+      type: String,
       required: true,
     },
     select: {
@@ -122,6 +147,7 @@ export default {
     return {
       menuDisplayed: false,
       firstClick: false,
+      percentCompleted: 0,
     };
   },
   computed: {
@@ -129,11 +155,45 @@ export default {
       return this.select && this.multi;
     },
     edit() {
-      return !this.select;
+      return !this.loading && !this.select;
     },
     isFolder() {
       return this.file.type === "Folder";
     },
+    loading() {
+      return this.file.fileToLoad;
+    },
+  },
+  async created() {
+    if (this.file.fileToLoad) {
+      const formData = new FormData();
+      formData.append("file", this.file.fileToLoad);
+      formData.append("name", this.file.fileToLoad.name);
+      formData.append("parent_id", this.file.folder.id);
+
+      const request = new XMLHttpRequest();
+      request.open(
+        "POST",
+        `${this.apiUrl}/cloud/${this.spaceId}/project/${this.projectId}/document`
+      );
+      request.setRequestHeader("authorization", `Bearer ${this.accessToken}`);
+
+      request.upload.addEventListener("progress", e => {
+        this.percentCompleted = (e.loaded / e.total) * 100;
+      });
+
+      request.addEventListener("load", () => {
+        if (request.status === 201) {
+          const file = JSON.parse(request.response);
+          file.updatedAt = new Date(file.updated_at);
+          this.$emit("loaded", file);
+        } else {
+          this.$emit("load-error", request.statusText);
+        }
+      });
+
+      request.send(formData);
+    }
   },
   methods: {
     getFileExtension(...args) {
