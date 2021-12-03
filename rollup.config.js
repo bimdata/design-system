@@ -10,6 +10,7 @@ import image from "@rollup/plugin-image";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
+  ...getSingleSmartComponentConfigurations(),
   {
     input: ["src/BIMDataComponents/index.js"],
     output: {
@@ -56,6 +57,34 @@ module.exports = [
   },
 ];
 
+function getSingleSmartComponentConfigurations() {
+  const componentNames = ["BIMDataFileManager"];
+
+  // Build Vue 2.x compatible components
+  return [
+    ...componentNames.map(componentName => ({
+      input: [
+        `src/BIMDataSmartComponents/${componentName}/${componentName}.vue`,
+      ],
+      output: {
+        file: `dist/js/BIMDataSmartComponents/${componentName}.js`,
+        format: "esm",
+      },
+      plugins: [
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+        }),
+        vue2({
+          template: { isProduction: true },
+        }),
+        image(),
+        terser(),
+      ],
+    })),
+  ];
+}
+
 function getSingleComponentConfigurations() {
   const componentNames = [
     "BIMDataBigSpinner",
@@ -101,6 +130,7 @@ function getSingleComponentConfigurations() {
         vue2({
           template: { isProduction: true },
         }),
+        image(),
         terser(),
       ],
     })),
@@ -129,6 +159,7 @@ function getSingleComponentConfigurations() {
           preprocessStyles: true,
         }),
         postcss(),
+        image(),
         terser(),
       ],
     })),
