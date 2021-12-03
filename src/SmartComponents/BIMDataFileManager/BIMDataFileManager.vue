@@ -54,30 +54,39 @@
           </span>
         </div>
       </div>
-      <BIMDataResponsiveGrid
-        v-if="fileStructure"
-        class="bimdata-file-manager__container"
-        itemWidth="140px"
-      >
-        <FileCard
-          v-for="file of files"
-          :key="file.id"
-          :file="file"
-          :projectId="projectId"
-          :spaceId="spaceId"
-          :apiUrl="apiUrl"
-          :accessToken="accessToken"
-          @open-folder="openFolder(file)"
-          :select="select"
-          :multi="multi"
-          :selected="isFileSelected(file)"
-          @toggle-select="onToggleFileSelect(file)"
-          @rename="onRename(file)"
-          @delete="onDelete(file)"
-          @dowload="onDowload(file)"
-          @loaded="onFileLoaded(file, $event)"
-        />
-      </BIMDataResponsiveGrid>
+      <template v-if="fileStructure">
+        <BIMDataResponsiveGrid
+          v-if="files.length > 0"
+          class="bimdata-file-manager__container"
+          itemWidth="140px"
+        >
+          <FileCard
+            v-for="file of files"
+            :key="file.id"
+            :file="file"
+            :projectId="projectId"
+            :spaceId="spaceId"
+            :apiUrl="apiUrl"
+            :accessToken="accessToken"
+            @open-folder="openFolder(file)"
+            :select="select"
+            :multi="multi"
+            :selected="isFileSelected(file)"
+            :success="isFileSucess(file.id)"
+            @toggle-select="onToggleFileSelect(file)"
+            @rename="onRename(file)"
+            @delete="onDelete(file)"
+            @dowload="onDowload(file)"
+            @loaded="onFileLoaded(file, $event)"
+          />
+        </BIMDataResponsiveGrid>
+        <div v-else class="bimdata-file-manager__container--empty">
+          <div>
+            <BIMDataIcon name="folderOpen" size="xxxl" fill color="tertiary" />
+            <span>{{ translate("emptyFolder") }}</span>
+          </div>
+        </div>
+      </template>
       <BIMDataLoading v-else />
     </template>
     <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
@@ -126,6 +135,8 @@ import trads from "./i18n.js";
 const MIN = 350;
 const MAX = 550;
 
+const SUCCESS_TIME = 3000;
+
 export default {
   components: {
     BIMDataResponsiveGrid,
@@ -141,7 +152,7 @@ export default {
   },
   provide() {
     return {
-      $translate: key => (trads[this.locale] || trads["en"])[key],
+      $translate: this.translate,
     };
   },
   props: {
@@ -189,6 +200,7 @@ export default {
       width: 0,
       entityRenown: false,
       entityDeletable: false,
+      successFileIds: [],
     };
   },
   computed: {
@@ -258,6 +270,7 @@ export default {
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     }
+    clearTimeout(this.timeoutId);
   },
   async created() {
     this.loadingFileId = 0;
@@ -276,6 +289,12 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    translate(key) {
+      return (trads[this.locale] || trads["en"])[key];
+    },
+    isFileSucess(id) {
+      return this.successFileIds.includes(id);
+    },
     onFileLoaded(loadingFile, loadedFile) {
       loadingFile.folder.children = (loadingFile.folder.children || []).filter(
         child => child.id !== loadingFile.id
@@ -284,6 +303,15 @@ export default {
       this.loadingFiles = this.loadingFiles.filter(
         child => child.id !== loadingFile.id
       );
+
+      this.successFileIds.push(loadedFile.id);
+      this.timeoutId = setTimeout(() => {
+        if (this.successFileIds) {
+          this.successFileIds = this.successFileIds.filter(
+            fileId => fileId !== loadedFile.id
+          );
+        }
+      }, SUCCESS_TIME);
     },
     onDowload(entity) {
       downloadFiles(getFlattenTree(entity), {

@@ -7,6 +7,15 @@
     <template #content>
       <div @click="onClick" class="file-card__content">
         <div class="file-card__btn-menu">
+          <transition name="fade" v-if="success" :duration="1000">
+            <BIMDataIcon
+              name="success"
+              size="s"
+              fill
+              color="success"
+              class="file-card__btn-menu__success"
+            />
+          </transition>
           <PieProgressSpinner
             v-if="loading"
             :progress="percentCompleted"
@@ -18,6 +27,8 @@
             icon
             v-else-if="edit"
             @click.stop="toggleMenu"
+            class="file-card__btn-menu__edit"
+            :disabled="success"
           >
             <BIMDataIcon name="ellipsis" size="l" fill color="tertiary-dark" />
           </BIMDataButton>
@@ -139,6 +150,10 @@ export default {
       default: false,
     },
     multi: {
+      type: Boolean,
+      default: false,
+    },
+    success: {
       type: Boolean,
       default: false,
     },

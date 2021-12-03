@@ -3,6 +3,7 @@
 .file-card {
   width: 140px;
   height: 160px;
+  overflow: hidden;
 
   &--selected {
     border: solid $color-primary 3px;
@@ -55,18 +56,25 @@
 
   &__btn-menu {
     position: absolute;
-    top: $spacing-unit / 3;
-    right: 0;
+    top: $spacing-unit / 2;
+    right: $spacing-unit / 4;
 
-    &--select {
-      margin: 4px;
+    &__edit {
+      margin: -6px -8px;
     }
 
     &__spinner {
-      right: 6px;
+      right: 3px;
       top: 3px;
       position: absolute;
       color: $color-primary;
+    }
+
+    &__success {
+      background-color: white;
+      position: absolute;
+      top: 0px;
+      right: 0px;
     }
   }
 
