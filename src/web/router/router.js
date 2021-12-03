@@ -250,17 +250,13 @@ const routes = [
   },
   {
     path: "/smart-components",
+    redirect: "/smart-components/file-manager",
     component: Layout,
     children: [
       {
         path: "file-manager",
         name: "file-manager",
         component: FileManager,
-      },
-      {
-        path: "file-tree",
-        name: "file-tree",
-        component: FileTree,
       },
     ],
   },

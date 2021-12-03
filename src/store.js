@@ -281,13 +281,6 @@ export default new Vuex.Store({
           text: "Navigate into a project file tree.",
           btn: "View file manager",
         },
-        {
-          path: "file-tree",
-          img: require("./web/assets/img/icon-list.svg"),
-          title: "FileTree",
-          text: "Display a project file tree.",
-          btn: "View file tree",
-        },
       ],
     },
   },
