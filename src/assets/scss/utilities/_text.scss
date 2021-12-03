@@ -1,6 +1,5 @@
 @import "../BIMDataVariables";
 @import "../mixins/font-size";
-
 .text-left {
   text-align: left;
 }
@@ -11,8 +10,8 @@
   text-align: right;
 }
 .bimdata-link {
-  color: $color-primary;
-  border-bottom: 1px solid $color-primary;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
   font-weight: bold;
 }
 

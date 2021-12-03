@@ -1,3 +1,7 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/mixins/_pseudo.scss";
 .bimdata-tabs {
   position: relative;
   display: flex;
@@ -7,7 +11,7 @@
     padding: 0;
     &:disabled {
       svg {
-        fill: $color-tertiary;
+        fill: var(--color-silver);
       }
     }
   }
@@ -26,16 +30,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 $spacing-unit / 2;
+      padding: 0 calc(var(--spacing-unit) / 2);
       text-align: center;
-      color: $color-tertiary-darkest;
+      color: var(--color-granite);
       cursor: pointer;
 
       &.active {
         z-index: 1;
-        border-bottom: 2px solid $color-primary;
-        background-color: $color-tertiary-lightest;
-        color: $color-primary;
+        border-bottom: 2px solid var(--color-primary);
+        background-color: var(--color-silver-light);
+        color: var(--color-primary);
       }
     }
   }

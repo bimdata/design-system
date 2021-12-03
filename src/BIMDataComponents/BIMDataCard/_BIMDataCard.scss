@@ -1,7 +1,10 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/utilities/_text.scss";
 .bimdata-card {
-  background-color: $color-white;
-  box-shadow: $box-shadow;
-  font-family: $primary-font;
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  font-family: var(--primary-font);
   font-size: calculateEm(14px);
   overflow: auto;
   &__content,
@@ -9,56 +12,56 @@
     font-size: calculateEm(12px);
   }
   &__header {
-    padding: 10px $spacing-unit;
+    padding: 10px var(--spacing-unit);
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $color-tertiary-lightest;
-    color: $color-primary;
+    background-color: var(--color-silver-light);
+    color: var(--color-primary);
     font-size: calculateEm(13px);
   }
   &__submenu {
-    padding: calc(#{$spacing-unit} / 2) $spacing-unit;
+    padding: calc(#{var(--spacing-unit)} / 2) var(--spacing-unit);
     display: flex;
     align-items: center;
     position: relative;
-    background: $color-white;
-    box-shadow: 0px 2px 4px rgba($color-black, 0.1);
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
     font-size: calculateEm(12px);
   }
   &__content {
-    padding: $spacing-unit;
-    color: $color-tertiary-darkest;
+    padding: var(--spacing-unit);
+    color: var(--color-granite);
   }
   &__footer {
-    padding: 0 $spacing-unit $spacing-unit;
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
   }
 
   &__primary {
-    background-color: $color-primary;
-    color: $color-white;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     .bimdata-card__header,
     .bimdata-card__submenu {
-      background-color: $color-primary;
+      background-color: var(--color-primary);
     }
     .bimdata-card__header {
-      color: $color-white;
+      color: var(--color-white);
       filter: saturate(0.8);
     }
     .bimdata-card__content {
-      color: $color-white;
+      color: var(--color-white);
     }
   }
   &__secondary {
-    background-color: $color-secondary;
-    color: $color-primary;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
     .bimdata-card__header,
     .bimdata-card__submenu {
-      background-color: $color-secondary;
+      background-color: var(--color-secondary);
     }
     .bimdata-card__header {
-      color: $color-primary;
+      color: var(--color-primary);
       filter: saturate(0.8);
     }
   }

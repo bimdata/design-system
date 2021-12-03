@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:16
 
 WORKDIR /opt
 ADD package.json /opt

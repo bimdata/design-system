@@ -30,7 +30,8 @@
                 <BIMDataIcon
                   name="chevron"
                   size="xxxs"
-                  class="fill-primary m-r-6"
+                  class="fill-primary"
+                  margin="0 6px 0 0"
                 />
                 {{ element }}
               </div>
@@ -280,7 +281,7 @@ export default {
       if (this.checkboxElementChecked) {
         return `<template #element="{ element }">
                 <div class="flex items-center">
-                  <BIMDataIcon name="chevron" size="xxxs" class="fill-primary m-r-6" />
+                  <BIMDataIcon name="chevron" size="xxxs" class="fill-primary" margin="0 6px 0 0" />
                   {{ element }}
                 </div>
              </template>`;

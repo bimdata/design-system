@@ -1,22 +1,22 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
 .bimdata-table {
   width: 100%;
   font-size: 0.9rem;
-  background-color: $color-white;
+  background-color: var(--color-white);
 
   &__container {
     table {
-      width: 100%;
       border-collapse: collapse;
       border-spacing: 0;
 
       tbody tr:nth-child(odd) {
-        background-color: $color-tertiary-lightest;
+        background-color: var(--color-silver-light);
       }
 
       th,
       td {
-        min-height: $spacing-unit * 2;
-        padding: 0 $spacing-unit;
+        min-height: calc(var(--spacing-unit) * 2);
+        padding: 0 var(--spacing-unit);
 
         &.cell-checkbox:deep() {
           width: 42px;
@@ -25,11 +25,11 @@
 
       th {
         font-weight: bold;
-        color: $color-primary;
+        color: var(--color-primary);
       }
 
       td {
-        color: $color-tertiary-darkest;
+        color: var(--color-granite);
       }
     }
 
@@ -37,10 +37,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: $spacing-unit;
+      padding: var(--spacing-unit);
       font-size: 1rem;
       font-weight: bold;
-      background-color: $color-tertiary-lightest;
+      background-color: var(--color-silver-light);
     }
   }
 
@@ -48,10 +48,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: $spacing-unit;
+    padding: var(--spacing-unit);
 
     &__text {
-      margin: 0 $spacing-unit;
+      margin: 0 var(--spacing-unit);
     }
   }
 }

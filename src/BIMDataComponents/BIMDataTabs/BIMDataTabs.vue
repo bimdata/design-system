@@ -173,12 +173,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-// import BIMDATA UTILITIES
-@import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
-
-@import "./_BIMDataTabs.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataTabs.scss"></style>

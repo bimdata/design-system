@@ -50,7 +50,7 @@ export default {
 .utilities-list {
   .bimdata-ds__code {
     margin: 0;
-    border-bottom: 0.5px solid $color-tertiary-lightest;
+    border-bottom: 0.5px solid var(--color-silver-light);
   }
 }
 </style>

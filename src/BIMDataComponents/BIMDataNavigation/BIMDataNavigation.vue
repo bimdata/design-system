@@ -1,6 +1,6 @@
 <template>
   <ul class="bimdata-list bimdata-navigation">
-    <li class="bimdata-navigation__left">
+    <li class="bimdata-navigation__left m-r-6">
       <slot name="left"></slot>
     </li>
     <li class="bimdata-navigation__item" v-if="first">

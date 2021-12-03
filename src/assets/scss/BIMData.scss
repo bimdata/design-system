@@ -1,15 +1,9 @@
-// import MIXINS
-// @import "./mixins/pseudo.scss";
-// @import "./mixins/font-size.scss";
-
-// import UTILITIES
-@import "./utilities/list.scss";
-
 // import GLOBAL STYLE
-@import "./BIMDataGlobal.scss";
-@import "./BIMDataGrid.scss";
-@import "./BIMDataUtilities.scss";
 @import "./BIMDataVariables.scss";
+@import "./BIMDataGlobal.scss";
+@import "./BIMDataMixins.scss";
+@import "./BIMDataUtilities.scss";
 
 // import ELEMENTS
 @import "./elements/BIMDataScrollbar.scss";
+@import "./elements/BIMDataSubmenus.scss";

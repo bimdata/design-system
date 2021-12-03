@@ -6,7 +6,7 @@
         height: paginated ? `${(perPage + 1) * rowHeight}px` : undefined,
       }"
     >
-      <table>
+      <table :style="{ width: tableWidth }">
         <thead>
           <tr key="head-row-0" :style="{ height: `${rowHeight}px` }">
             <th class="cell-checkbox" v-if="selectable">
@@ -136,6 +136,10 @@ export default {
       type: String,
       default: "",
     },
+    tableWidth: {
+      type: [Number, String],
+      default: "100%",
+    },
   },
   emits: [
     "selection-changed",
@@ -260,10 +264,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-// Import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// Component styles
-@import "./_BIMDataTable.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataTable.scss"></style>

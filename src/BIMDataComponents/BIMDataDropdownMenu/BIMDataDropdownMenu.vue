@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="bimdata-dropdown"
-    v-clickaway="away"
-    :direction="directionClass"
-  >
+  <div class="bimdata-dropdown" v-clickaway="away" :direction="directionClass">
     <div
       class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
@@ -82,13 +78,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/_BIMDataTransitions.scss";
-
-@import "../../assets/scss/elements/_BIMDataSubmenus.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataDropdownMenu.scss";
-</style>
+<style lang="scss" src="./_BIMDataDropdownMenu.scss"></style>

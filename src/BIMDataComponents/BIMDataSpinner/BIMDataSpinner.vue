@@ -21,13 +21,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA COMPONENT KEYFRAMES
-@import "./_keyframes.scss";
-
-// import BIMDATA STYLE COMPONENT
-@import "./_BIMDataSpinner.scss";
-</style>
+<style lang="scss" src="./_BIMDataSpinner.scss"></style>

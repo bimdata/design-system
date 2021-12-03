@@ -1,11 +1,10 @@
 @import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_text.scss";
 @import "../../assets/scss/mixins/_font-size.scss";
 @import "../../assets/scss/mixins/_pseudo.scss";
 
 .bimdata-select {
   position: relative;
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-size: calculateEm(14px);
   user-select: none;
 
@@ -39,7 +38,7 @@
       left: 0;
       font-size: calculateEm(12px);
       transition: 0.2s ease all;
-      color: $color-tertiary-dark;
+      color: var(--color-granite-light);
       transition: 0.2s ease all;
     }
 
@@ -49,7 +48,7 @@
       position: absolute;
       bottom: 0;
       display: block;
-      background: $color-tertiary;
+      background: var(--color-silver);
     }
   }
 
@@ -59,7 +58,7 @@
       .bimdata-select__content__label {
         top: -18px;
         font-size: calculateEm(10px);
-        color: $color-primary;
+        color: var(--color-primary);
       }
     }
   }
@@ -70,38 +69,38 @@
     top: -3px;
     width: 100%;
     max-height: 220px;
-    padding: $spacing-unit/2 0;
+    padding: calc(var(--spacing-unit) / 2) 0;
     overflow: auto;
-    box-shadow: $box-shadow;
-    background-color: $color-white;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
 
     &__entry {
       height: 29px;
-      padding: 0 $spacing-unit;
+      padding: 0 var(--spacing-unit);
       display: flex;
       align-items: center;
       font-size: calculateEm(12px);
       cursor: pointer;
 
       &:hover {
-        background-color: $color-tertiary-lightest;
+        background-color: var(--color-silver-light);
         transition: all 0.2s ease;
       }
 
       &.selected {
-        background-color: $color-tertiary;
+        background-color: var(--color-silver-light);
         &:hover {
-          background-color: darken($color-tertiary, 5%);
+          background-color: var(--color-silver);
         }
       }
 
       &.disabled {
-        color: $color-disabled;
+        color: var(--color-silver-dark);
         cursor: default;
       }
 
       &.option-group {
-        color: $color-tertiary-darkest;
+        color: var(--color-granite);
         font-weight: bold;
         &:hover {
           background-color: transparent;
@@ -110,7 +109,7 @@
       }
 
       &.option-group ~ &:not(.option-group) {
-        padding-left: $spacing-unit * 2;
+        padding-left: calc(var(--spacing-unit) * 2);
       }
     }
   }

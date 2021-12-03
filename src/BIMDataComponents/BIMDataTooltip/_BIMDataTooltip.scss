@@ -1,6 +1,14 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
+// import BIMDATA UTILITIES
+@import "../../assets/scss/utilities/_text.scss";
+// import BIMDATA MIXINS
+@import "../../assets/scss/mixins/_font-size.scss";
+@import "../../assets/scss/mixins/_pseudo.scss";
+// import BIMDATA STYLE COMPONENT
+@import "./_keyframes.scss";
 .bimdata-tooltip {
   position: relative;
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-size: calculateEm(14px);
   &__text {
     padding: 0 6px;
@@ -12,7 +20,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    color: $color-white;
+    color: var(--color-white);
     line-height: 25px;
     opacity: 0;
     text-align: center;
@@ -70,18 +78,18 @@
     }
   }
   &--primary {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     &.bimdata-tooltip--arrow {
       &::before {
-        border-color: transparent transparent $color-primary;
+        border-color: transparent transparent var(--color-primary);
       }
     }
   }
   &--grey {
-    background-color: $color-tertiary-dark;
+    background-color: var(--color-granite-light);
     &.bimdata-tooltip--arrow {
       &::before {
-        border-color: transparent transparent $color-tertiary-dark;
+        border-color: transparent transparent var(--color-granite-light);
       }
     }
   }

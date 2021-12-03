@@ -1,91 +1,89 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
 .icon {
   &-fill {
     &--black {
-      fill: $color-black;
+      fill: var(--color-black);
     }
     &--default {
       fill: currentColor;
     }
     &--disabled {
-      fill: $color-disabled;
+      fill: var(--color-silver-dark);
     }
     &--high {
-      fill: $color-high;
-    }
-    &--neutral {
-      fill: $color-neutral;
+      fill: var(--color-high);
     }
     &--primary {
-      fill: $color-primary;
+      fill: var(--color-primary);
     }
     &--secondary {
-      fill: $color-secondary;
+      fill: var(--color-secondary);
     }
     &--success {
-      fill: $color-success;
+      fill: var(--color-success);
     }
-    &--tertiary {
-      fill: $color-tertiary;
+    &--silver {
+      fill: var(--color-silver);
     }
-    &--tertiary-dark {
-      fill: $color-tertiary-dark;
+    &--granite-light {
+      fill: var(--color-granite-light);
     }
-    &--tertiary-darkest {
-      fill: $color-tertiary-darkest;
+    &--granite {
+      fill: var(--color-granite);
     }
-    &--tertiary-lightest {
-      fill: $color-tertiary-lightest;
+    &--silver-light {
+      fill: var(--color-silver-light);
     }
     &--warning {
-      fill: $color-warning;
+      fill: var(--color-warning);
     }
     &--white {
-      fill: $color-white;
+      fill: var(--color-white);
     }
   }
   &-stroke {
     fill: transparent;
     &--black {
-      stroke: $color-black;
+      stroke: var(--color-black);
     }
     &--default {
       stroke: currentColor;
     }
     &--disabled {
-      stroke: $color-disabled;
+      stroke: var(--color-silver-dark);
     }
     &--high {
-      stroke: $color-high;
+      stroke: var(--color-high);
     }
     &--neutral {
-      stroke: $color-neutral;
+      stroke: var(--color-neutral);
     }
     &--primary {
-      stroke: $color-primary;
+      stroke: var(--color-primary);
     }
     &--secondary {
-      stroke: $color-secondary;
+      stroke: var(--color-secondary);
     }
     &--success {
-      stroke: $color-success;
+      stroke: var(--color-success);
     }
-    &--tertiary {
-      stroke: $color-tertiary;
+    &--silver {
+      stroke: var(--color-silver);
     }
-    &--tertiary-dark {
-      stroke: $color-tertiary-dark;
+    &--granite-light {
+      stroke: var(--color-granite-light);
     }
-    &--tertiary-darkest {
-      stroke: $color-tertiary-darkest;
+    &--granite {
+      stroke: var(--color-granite);
     }
-    &--tertiary-lightest {
-      stroke: $color-tertiary-lightest;
+    &--silver-light {
+      stroke: var(--color-silver-light);
     }
     &--warning {
-      stroke: $color-warning;
+      stroke: var(--color-warning);
     }
     &--white {
-      stroke: $color-white;
+      stroke: var(--color-white);
     }
   }
 }

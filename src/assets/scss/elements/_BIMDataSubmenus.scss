@@ -3,8 +3,8 @@
 .submenu {
   position: absolute;
   top: 0;
-  background-color: $color-white;
-  box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
   &--header {
     width: 100%;
     ul {
@@ -12,11 +12,11 @@
       position: absolute;
       bottom: 2px;
       right: 0;
-      background-color: $color-white;
+      background-color: var(--color-white);
       border-radius: 3px;
-      box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+      box-shadow: var(--box-shadow);
       li {
-        padding: calc(#{$spacing-unit} / 2);
+        padding: calc(var(--spacing-unit) / 2);
       }
     }
   }
@@ -24,16 +24,16 @@
   &--down,
   &--right,
   &--left {
-    padding: calc(#{$spacing-unit} / 2) 0;
+    padding: calc(var(--spacing-unit) / 2) 0;
     width: 100%;
     left: 0;
     border-radius: 3px;
     z-index: 2;
     li {
-      padding: calc(#{$spacing-unit} / 2);
+      padding: calc(var(--spacing-unit) / 2);
       cursor: pointer;
       &:hover {
-        background-color: $color-tertiary-lightest;
+        background-color: var(--color-silver-light);
       }
       &.disabled {
         cursor: inherit;
@@ -45,67 +45,67 @@
   }
   &--up {
     top: auto;
-    bottom: calc(100% + #{$spacing-unit} / 2);
+    bottom: calc(100% + calc(var(--spacing-unit)) / 2);
   }
   // custom SUBMENU MODEL
   &--down {
-    top: calc(100% + #{$spacing-unit} / 2);
+    top: calc(100% + calc(var(--spacing-unit)) / 2);
   }
   // custom SUBMENU TOOLS MENU
   &--right {
-    left: calc(100% + #{$spacing-unit} / 2);
+    left: calc(100% + calc(var(--spacing-unit)) / 2);
     right: auto;
     &__simple {
-      padding: $spacing-unit;
-      width: 187px;
+      padding: var(--spacing-unit);
+      width: 229px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      left: calc(100% + #{$spacing-unit});
+      left: calc(100% + var(--spacing-unit));
       top: 0;
     }
     &__panel {
       width: 400px;
       height: calc(var(--plugin-units-height) - (2 * 12px));
-      left: calc(100% + #{$spacing-unit});
+      left: calc(100% + var(--spacing-unit));
       z-index: 1;
     }
     &__free {
-      left: calc(100% + #{$spacing-unit});
+      left: calc(100% + var(--spacing-unit));
       z-index: 1;
     }
   }
   // custom SUBMENU PLUGIN MENU
   &--left {
-    right: calc(100% + #{$spacing-unit} / 2);
+    right: calc(100% + calc(var(--spacing-unit)) / 2);
     left: auto;
     &__panel {
       width: 400px;
       height: calc(var(--plugin-units-height) - (2 * 12px));
-      right: calc(100% + #{$spacing-unit});
+      right: calc(100% + var(--spacing-unit));
       z-index: 1;
     }
     &__free {
-      right: calc(100% + #{$spacing-unit});
+      right: calc(100% + var(--spacing-unit));
       z-index: 1;
     }
     &__simple {
-      padding: $spacing-unit;
+      padding: var(--spacing-unit);
       width: 187px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      right: calc(100% + #{$spacing-unit});
+      right: calc(100% + var(--spacing-unit));
       top: 0;
     }
   }
   &__header {
-    padding: 0 $spacing-unit;
+    padding: 0 var(--spacing-unit);
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 10px 0 rgba($color-black, 0.1);
+    box-shadow: var(--box-shadow);
     &--left {
       display: flex;
       align-items: center;
@@ -121,26 +121,26 @@
     &__submenu {
       width: 184px;
       position: absolute;
-      background-color: $color-white;
-      box-shadow: 0 2px 10px 0 rgba($color-black, 0.12);
+      background-color: var(--color-white);
+      box-shadow: 0 2px 10px 0 rgba(var(--color-black), 0.12);
       top: 22px;
       left: 0;
       border-radius: 3px;
       z-index: 1;
       ul {
-        padding: calc(#{$spacing-unit} / 2) 0;
+        padding: calc(var(--spacing-unit) / 2) 0;
         li {
-          padding: calc(#{$spacing-unit} / 2);
-          background-color: $color-white;
+          padding: calc(var(--spacing-unit) / 2);
+          background-color: var(--color-white);
           cursor: pointer;
           font-size: calculateEm(12px);
           display: flex;
           align-items: center;
           svg {
-            margin-right: $spacing-unit;
+            margin-right: var(--spacing-unit);
           }
           &:hover {
-            background-color: $color-tertiary-lightest;
+            background-color: var(--color-silver-light);
           }
         }
       }
