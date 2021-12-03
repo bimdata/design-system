@@ -235,7 +235,9 @@ export default {
 
       files.push(
         ...this.loadingFiles.filter(
-          file => (file.folderId = this.currentFolder.id)
+          loadingFile =>
+            loadingFile.folder.id === this.currentFolder.id &&
+            !files.find(file => file.id === loadingFile.id) // for multi file loading
         )
       );
 
@@ -296,7 +298,10 @@ export default {
       return this.successFileIds.includes(id);
     },
     onFileLoaded(loadingFile, loadedFile) {
-      loadingFile.folder.children = (loadingFile.folder.children || []).filter(
+      if (!loadingFile.folder.children) {
+        this.$set(loadingFile.folder, "children", []);
+      }
+      loadingFile.folder.children = loadingFile.folder.children.filter(
         child => child.id !== loadingFile.id
       );
       loadingFile.folder.children.push(loadedFile);
