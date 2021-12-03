@@ -20,11 +20,14 @@
         </template>
 
         <template #parameters>
-          <BIMDataTextarea
-            style="width: 100%; resize: vertical;"
-            placeholder="Text"
-            v-model="text"
-          />
+          <div class="m-t-24">
+            <BIMDataTextarea
+              style="width: 100%; resize: vertical;"
+              label="Text"
+              placeholder="Text"
+              v-model="text"
+            />
+          </div>
           <BIMDataInput
             margin="24px 0"
             type="number"
@@ -52,8 +55,8 @@
               :options="[
                 'primary',
                 'secondary',
-                'tertiary',
-                'tertiary-lightest',
+                'granite-light',
+                'silver-light',
               ]"
               v-model="tooltipColor"
             />
@@ -69,7 +72,6 @@
           <pre>
             &lt;BIMDataTextbox
               :text="text"
-              {{ `:cutSymbol="${cutSymbol}"` }}`
               {{ `:cutPosition="${cutPosition}"` }}
               {{ `:tooltipPosition="${tooltipPosition}"` }}`
               {{ `:tooltipColor="${tooltipColor}"` }}`
