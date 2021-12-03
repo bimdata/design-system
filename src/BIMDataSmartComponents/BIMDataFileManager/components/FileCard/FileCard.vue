@@ -30,7 +30,12 @@
             class="file-card__btn-menu__edit"
             :disabled="success"
           >
-            <BIMDataIcon name="ellipsis" size="l" fill color="tertiary-dark" />
+            <BIMDataIcon
+              name="ellipsis"
+              size="l"
+              fill
+              color="color-granite-light"
+            />
           </BIMDataButton>
           <div v-else-if="!isFolder" class="file-card__btn-menu--select">
             <BIMDataCheckbox

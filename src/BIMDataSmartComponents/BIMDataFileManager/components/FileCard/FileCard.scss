@@ -38,7 +38,7 @@
       overflow: hidden;
       height: calc(100% - 96px);
       padding: $spacing-unit;
-      border-top: 1px solid $color-tertiary-lightest;
+      border-top: 1px solid $color-silver-light;
 
       display: flex;
       flex-direction: column;
@@ -81,7 +81,7 @@
   &__name {
     font-size: 12px;
     font-weight: bold;
-    color: $color-tertiary-darkest;
+    color: $color-granite;
     word-break: break-word;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -91,6 +91,6 @@
 
   &__date {
     font-size: 10px;
-    color: $color-tertiary-dark;
+    color: $color-granite-light;
   }
 }

@@ -27,6 +27,7 @@
           @upload="uploadFiles"
         />
         <BIMDataSearch
+          color="secondary"
           class="bimdata-file-manager__search"
           width="100%"
           placeholder="Search"
@@ -84,7 +85,7 @@
         </BIMDataResponsiveGrid>
         <div v-else class="bimdata-file-manager__container--empty">
           <div>
-            <BIMDataIcon name="folderOpen" size="xxxl" fill color="tertiary" />
+            <BIMDataIcon name="folderOpen" size="xxxl" fill color="silver" />
             <span>{{ translate("emptyFolder") }}</span>
           </div>
         </div>

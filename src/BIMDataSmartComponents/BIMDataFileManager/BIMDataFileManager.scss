@@ -56,7 +56,7 @@
   }
 
   &__search {
-    background-color: $color-tertiary-lightest;
+    background-color: $color-silver-light;
     &.focus {
       background-color: $color-white;
     }
@@ -76,7 +76,7 @@
 
   &__container {
     &--empty {
-      background-color: $color-tertiary-lightest;
+      background-color: $color-silver-light;
       display: flex;
       justify-content: center;
       align-content: center;
@@ -88,7 +88,7 @@
         align-items: center;
         justify-content: center;
         font-size: small;
-        color: $color-tertiary-darkest;
+        color: $color-granite;
         span {
           margin-top: calc($spacing-unit * 2);
         }
