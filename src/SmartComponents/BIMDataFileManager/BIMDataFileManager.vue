@@ -317,7 +317,7 @@ export default {
       );
 
       this.$emit("success", {
-        type: "newFile",
+        type: "fileCreated",
         message: this.translate("newFileSuccess"),
         content: loadedFile,
       });
@@ -404,7 +404,7 @@ export default {
     onNewFolder(newFolder) {
       this.currentFolder.children.push(newFolder);
       this.$emit("success", {
-        type: "newFolder",
+        type: "folderCreated",
         message: this.translate("newFolderSuccess"),
         content: newFolder,
       });
