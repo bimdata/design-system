@@ -103,26 +103,26 @@ export default {
       this.$emit("close");
     },
     async submit() {
-      await this.deleteEntity();
-      this.$emit("success");
-    },
-    async deleteEntity() {
       this.loading = true;
       try {
-        const payload = {
-          cloudPk: this.spaceId,
-          projectPk: this.projectId,
-          id: this.entity.id,
-        };
-        if (this.entity.type === "Folder") {
-          return await this.apiClient.collaborationApi.deleteFolder(payload);
-        } else {
-          return await this.apiClient.collaborationApi.deleteDocument(payload);
-        }
+        await this.deleteEntity();
+        this.$emit("success");
       } catch (error) {
-        throw new Error(error);
+        this.$emit("error", error);
       } finally {
         this.loading = false;
+      }
+    },
+    deleteEntity() {
+      const payload = {
+        cloudPk: this.spaceId,
+        projectPk: this.projectId,
+        id: this.entity.id,
+      };
+      if (this.entity.type === "Folder") {
+        return this.apiClient.collaborationApi.deleteFolder(payload);
+      } else {
+        return this.apiClient.collaborationApi.deleteDocument(payload);
       }
     },
   },

@@ -107,36 +107,36 @@ export default {
     },
     async submit() {
       if (this.name) {
-        await this.renameDocument();
-        this.entity.name = this.name;
-        this.reset();
-        this.$emit("success");
+        this.loading = true;
+        try {
+          await this.renameDocument();
+          this.entity.name = this.name;
+          this.$emit("success");
+        } catch (error) {
+          this.$emit("error", error);
+        } finally {
+          this.reset();
+          this.loading = false;
+        }
       } else {
         this.$refs.nameInput.focus();
         this.hasError = true;
       }
     },
-    async renameDocument() {
-      this.loading = true;
-      try {
-        const payload = {
-          cloudPk: this.spaceId,
-          projectPk: this.projectId,
-          id: this.entity.id,
-          data: {
-            ...document,
-            name: this.name,
-          },
-        };
-        if (this.entity.type === "Folder") {
-          return await this.apiClient.collaborationApi.updateFolder(payload);
-        } else {
-          return await this.apiClient.collaborationApi.updateDocument(payload);
-        }
-      } catch (error) {
-        throw new Error(error);
-      } finally {
-        this.loading = false;
+    renameDocument() {
+      const payload = {
+        cloudPk: this.spaceId,
+        projectPk: this.projectId,
+        id: this.entity.id,
+        data: {
+          ...document,
+          name: this.name,
+        },
+      };
+      if (this.entity.type === "Folder") {
+        return this.apiClient.collaborationApi.updateFolder(payload);
+      } else {
+        return this.apiClient.collaborationApi.updateDocument(payload);
       }
     },
   },

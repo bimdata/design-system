@@ -89,29 +89,27 @@ export default {
     },
     async submit() {
       if (this.name) {
-        const folder = await this.createFolder({
-          parentId: this.folder.id,
-          name: this.name,
-        });
-        this.reset();
-        this.$emit("success", folder);
+        this.loading = true;
+        try {
+          const folderData = {
+            parentId: this.folder.id,
+            name: this.name,
+          };
+          const folder = await this.apiClient.collaborationApi.createFolder({
+            cloudPk: this.spaceId,
+            projectPk: this.projectId,
+            data: folderData,
+          });
+          this.$emit("success", folder);
+        } catch (error) {
+          this.$emit("error", error);
+        } finally {
+          this.reset();
+          this.loading = false;
+        }
       } else {
         this.$refs.nameInput.focus();
         this.hasError = true;
-      }
-    },
-    async createFolder(folder) {
-      this.loading = true;
-      try {
-        return await this.apiClient.collaborationApi.createFolder({
-          cloudPk: this.spaceId,
-          projectPk: this.projectId,
-          data: folder,
-        });
-      } catch (error) {
-        throw new Error(error);
-      } finally {
-        this.loading = false;
       }
     },
   },

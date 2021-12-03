@@ -17,6 +17,7 @@
           :apiClient="apiClient"
           :folder="currentFolder"
           @success="onNewFolder"
+          @error="$emit('error', $event)"
         />
         <UploadFileButton
           class="bimdata-file-manager__header__upload"
@@ -98,6 +99,7 @@
         v-if="entityRenown"
         @close="entityRenown = null"
         @success="onRenameSuccess"
+        @error="$emit('error', $event)"
       />
       <DeleteModal
         :projectId="projectId"
@@ -107,6 +109,7 @@
         v-else-if="entityDeletable"
         @close="entityDeletable = null"
         @success="onDeleteSuccess"
+        @error="$emit('error', $event)"
       />
     </div>
   </div>
@@ -276,17 +279,21 @@ export default {
   },
   async created() {
     this.loadingFileId = 0;
-    this.apiClient = makeBIMDataApiClient({
-      apiUrl: this.apiUrl,
-      accessToken: this.accessToken,
-    });
 
-    this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
-      {
-        cloudPk: this.spaceId,
-        id: this.projectId,
-      }
-    );
+    try {
+      this.apiClient = makeBIMDataApiClient({
+        apiUrl: this.apiUrl,
+        accessToken: this.accessToken,
+      });
+      this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
+        {
+          cloudPk: this.spaceId,
+          id: this.projectId,
+        }
+      );
+    } catch (error) {
+      this.$emit("error", error);
+    }
 
     this.currentFolder = this.fileStructure;
   },
@@ -308,6 +315,12 @@ export default {
       this.loadingFiles = this.loadingFiles.filter(
         child => child.id !== loadingFile.id
       );
+
+      this.$emit("success", {
+        type: "newFile",
+        message: this.translate("newFileSuccess"),
+        content: loadedFile,
+      });
 
       this.successFileIds.push(loadedFile.id);
       this.timeoutId = setTimeout(() => {
@@ -337,12 +350,31 @@ export default {
         );
       }
 
+      const isFolder = this.entityDeletable.type === "Folder";
+
+      this.$emit("success", {
+        type: isFolder ? "folderDeleted" : "fileDeleted",
+        message: isFolder
+          ? this.translate("deleteFolderSuccess")
+          : this.translate("deleteFileSuccess"),
+        content: this.entityDeletable,
+      });
+
       this.entityDeletable = null;
     },
     onRename(entity) {
       this.entityRenown = entity;
     },
     onRenameSuccess() {
+      const isFolder = this.entityRenown.type === "Folder";
+
+      this.$emit("success", {
+        type: isFolder ? "folderRenamed" : "fileRenamed",
+        message: isFolder
+          ? this.translate("renameFolderSuccess")
+          : this.translate("renameFileSuccess"),
+        content: this.entityRenown,
+      });
       this.entityRenown = null;
     },
     onResize(entries) {
@@ -371,21 +403,11 @@ export default {
     },
     onNewFolder(newFolder) {
       this.currentFolder.children.push(newFolder);
-    },
-    async refresh() {
-      const currentFolderId = this.currentFolder.id;
-
-      this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
-        {
-          cloudPk: this.spaceId,
-          id: this.projectId,
-        }
-      );
-
-      const currentFolder = this.getFolder(currentFolderId);
-      if (currentFolder) {
-        this.currentFolder = currentFolder;
-      }
+      this.$emit("success", {
+        type: "newFolder",
+        message: this.translate("newFolderSuccess"),
+        content: newFolder,
+      });
     },
     onToggleFileSelect(file) {
       if (this.isFileSelected(file)) {

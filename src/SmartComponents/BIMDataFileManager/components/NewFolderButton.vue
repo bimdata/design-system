@@ -24,6 +24,7 @@
           close();
           $emit(`success`, $event);
         "
+        @error="$emit('error', $event)"
       />
     </transition>
   </BIMDataButton>
