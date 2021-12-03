@@ -54,13 +54,13 @@
 </template>
 
 <script>
-import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataSpinner from "../../../BIMDataComponents/BIMDataSpinner/BIMDataSpinner.vue";
+import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataSpinner from "../../../../BIMDataComponents/BIMDataSpinner/BIMDataSpinner.vue";
 
-import clickaway from "../../../BIMDataDirectives/click-away.js";
+import clickaway from "../../../../BIMDataDirectives/click-away.js";
 
-import getFlattenTree from "../utils/flattenTree.js";
+import getFlattenTree from "../../utils/flattenTree.js";
 
 export default {
   components: {
@@ -131,7 +131,7 @@ export default {
 
 <style scoped lang="scss">
 // import BIMDATA VARIABLES
-@import "../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 .delete-modal {
   background-color: $color-white;

@@ -31,6 +31,7 @@
           width="100%"
           placeholder="Search"
           v-model="searchText"
+          ref="search"
           clear
         />
       </div>
@@ -125,10 +126,10 @@ import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 import FileCard from "./components/FileCard/FileCard.vue";
-import NewFolderButton from "./components/NewFolderButton.vue";
+import NewFolderButton from "./components/newFolder/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
-import RenameModal from "./components/RenameModal.vue";
-import DeleteModal from "./components/DeleteModal.vue";
+import RenameModal from "./components/modals/RenameModal.vue";
+import DeleteModal from "./components/modals/DeleteModal.vue";
 
 import getFlattenTree from "./utils/flattenTree.js";
 import { downloadFiles } from "./utils/files.js";
@@ -276,8 +277,12 @@ export default {
       this.resizeObserver.disconnect();
     }
     clearTimeout(this.timeoutId);
+
+    document.removeEventListener("keydown", this.onKeyDown);
   },
   async created() {
+    document.addEventListener("keydown", this.onKeyDown);
+
     this.loadingFileId = 0;
 
     try {
@@ -298,6 +303,19 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    onKeyDown(e) {
+      if (e.key === "Escape") {
+        this.entityRenown = null;
+        this.entityDeletable = null;
+        if (
+          this.$refs.search &&
+          this.$refs.search.$refs.input === document.activeElement
+        ) {
+          this.searchText = "";
+          this.$refs.search.blur();
+        }
+      }
+    },
     translate(key) {
       return (trads[this.locale] || trads["en"])[key];
     },

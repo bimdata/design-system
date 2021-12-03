@@ -1,5 +1,5 @@
 <template>
-  <div class="folder-creation-form">
+  <div class="folder-creation-form" v-clickaway="close">
     <div class="folder-creation-form__title">
       <BIMDataIcon name="addFolder" size="xs" />
       <span>{{ $translate("creationFormTitle") }}</span>
@@ -39,9 +39,11 @@
 </template>
 
 <script>
-import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataInput from "../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+
+import clickaway from "../../../../BIMDataDirectives/click-away.js";
 
 export default {
   components: {
@@ -49,6 +51,7 @@ export default {
     BIMDataInput,
     BIMDataButton,
   },
+  directives: { clickaway },
   inject: ["$translate"],
   props: {
     projectId: {
@@ -75,10 +78,22 @@ export default {
       loading: false,
     };
   },
+  created() {
+    document.addEventListener("keydown", this.onKeyDown);
+  },
   mounted() {
-    setTimeout(() => this.$refs.nameInput.focus(), 200);
+    this.timeoutId = setTimeout(() => this.$refs.nameInput.focus(), 200);
+  },
+  destroyed() {
+    document.removeEventListener("keydown", this.onKeyDown);
+    clearTimeout(this.timeoutId);
   },
   methods: {
+    onKeyDown(e) {
+      if (e.key === "Enter") {
+        this.submit();
+      }
+    },
     reset() {
       this.name = "";
       this.hasError = false;
@@ -118,7 +133,7 @@ export default {
 
 <style scoped lang="scss">
 // import BIMDATA VARIABLES
-@import "../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 .folder-creation-form {
   padding: $spacing-unit;

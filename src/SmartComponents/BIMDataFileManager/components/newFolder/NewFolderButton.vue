@@ -19,6 +19,7 @@
         :spaceId="spaceId"
         :apiClient="apiClient"
         :folder="folder"
+        @click.native.stop
         @close="close"
         @success="
           close();
@@ -31,8 +32,8 @@
 </template>
 
 <script>
-import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 import NewFolderForm from "./NewFolderForm.vue";
 
@@ -77,7 +78,18 @@ export default {
       showCreationForm: false,
     };
   },
+  created() {
+    document.addEventListener("keydown", this.onKeyDown);
+  },
+  destroyed() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  },
   methods: {
+    onKeyDown(e) {
+      if (e.key === "Escape") {
+        this.close();
+      }
+    },
     toggle() {
       this.showCreationForm = !this.showCreationForm;
     },
@@ -90,7 +102,7 @@ export default {
 
 <style scoped lang="scss">
 // import BIMDATA VARIABLES
-@import "../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/scss/_BIMDataVariables.scss";
 
 .folder-creation-button {
   position: relative;

@@ -180,6 +180,8 @@ export default {
     },
   },
   async created() {
+    document.addEventListener("keydown", this.onKeyDown);
+
     if (this.file.fileToLoad) {
       const formData = new FormData();
       formData.append("file", this.file.fileToLoad);
@@ -210,7 +212,15 @@ export default {
       request.send(formData);
     }
   },
+  destroyed() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  },
   methods: {
+    onKeyDown(e) {
+      if (e.key === "Escape") {
+        this.menuDisplayed = false;
+      }
+    },
     getFileExtension(...args) {
       return getFileExtension(...args);
     },
