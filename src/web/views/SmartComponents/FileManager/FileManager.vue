@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import BIMDataFileManager from "../../../../SmartComponents/BIMDataFileManager/BIMDataFileManager.vue";
+import BIMDataFileManager from "../../../../BIMDataSmartComponents/BIMDataFileManager/BIMDataFileManager.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 

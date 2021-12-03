@@ -7,6 +7,8 @@ import replace from "@rollup/plugin-replace";
 import postcss from "rollup-plugin-postcss";
 import alias from "@rollup/plugin-alias";
 import image from "@rollup/plugin-image";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
@@ -78,6 +80,8 @@ function getSingleSmartComponentConfigurations() {
         vue2({
           template: { isProduction: true },
         }),
+        resolve({ browser: true, preferBuiltins: false }),
+        commonjs(),
         image(),
         terser(),
       ],

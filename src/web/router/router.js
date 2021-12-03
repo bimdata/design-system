@@ -45,7 +45,6 @@ import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
 
 // Smart Components views
 import FileManager from "../views/SmartComponents/FileManager/FileManager.vue";
-import FileTree from "../views/SmartComponents/FileTree/FileTree.vue";
 
 Vue.use(VueRouter);
 
