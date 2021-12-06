@@ -13,7 +13,11 @@ import commonjs from "@rollup/plugin-commonjs";
 module.exports = [
   ...getSingleComponentConfigurations(),
   ...getSingleSmartComponentConfigurations(),
-  {
+  getAllComponentsBundleConfiguration(),
+];
+
+function getAllComponentsBundleConfiguration() {
+  return {
     input: ["src/BIMDataComponents/index.js"],
     output: {
       dir: "dist/js/BIMDataComponents",
@@ -56,8 +60,8 @@ module.exports = [
       image(),
       terser(),
     ],
-  },
-];
+  };
+}
 
 function getSingleSmartComponentConfigurations() {
   const componentNames = ["BIMDataFileManager"];
