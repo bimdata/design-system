@@ -438,6 +438,9 @@ export default {
       }));
     },
     onNewFolder(newFolder) {
+      if (!this.currentFolder.children) {
+        this.$set(this.currentFolder, "children", []);
+      }
       this.currentFolder.children.push(newFolder);
       this.$emit("success", {
         type: "folderCreated",
