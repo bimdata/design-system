@@ -15,6 +15,7 @@
             :select="selectChecked"
             :multi="multiChecked"
             @selection-change="onSelectionChange"
+            style="resize: auto; overflow: hidden;"
           />
         </template>
 

@@ -4,13 +4,14 @@
       <div
         class="bimdata-file-manager__header"
         :class="{
-          'bimdata-file-manager__header--small': small,
-          'bimdata-file-manager__header--medium': medium,
-          'bimdata-file-manager__header--big': big,
+          'bimdata-file-manager__header--xs': xsLayout,
+          'bimdata-file-manager__header--s': sLayout,
+          'bimdata-file-manager__header--m': mLayout,
+          'bimdata-file-manager__header--l': lLayout,
         }"
       >
         <NewFolderButton
-          width="130px"
+          width="25%"
           :disabled="!currentFolder || currentFolder.userPermission < 100"
           :projectId="projectId"
           :spaceId="spaceId"
@@ -21,7 +22,7 @@
         />
         <UploadFileButton
           class="bimdata-file-manager__header__upload"
-          width="130px"
+          width="25%"
           :disabled="!currentFolder || currentFolder.userPermission < 100"
           multiple
           @upload="uploadFiles"
@@ -61,9 +62,10 @@
         <BIMDataResponsiveGrid
           v-if="files.length > 0"
           class="bimdata-file-manager__container"
-          itemWidth="140px"
+          :itemWidth="itemWidth"
         >
           <FileCard
+            :width="itemWidth"
             v-for="file of files"
             :key="file.id"
             :file="file"
@@ -137,8 +139,9 @@ import { downloadFiles } from "./utils/files.js";
 
 import trads from "./i18n.js";
 
-const MIN = 350;
-const MAX = 550;
+const XS = 375;
+const S = 468;
+const M = 800;
 
 const SUCCESS_TIME = 3000;
 
@@ -219,14 +222,20 @@ export default {
     navigationShown() {
       return this.currentFolder !== this.fileStructure;
     },
-    small() {
-      return this.width < MIN;
+    itemWidth() {
+      return this.xsLayout ? "100%" : this.sLayout ? "170px" : "140px";
     },
-    medium() {
-      return this.width >= MIN && this.width <= MAX;
+    xsLayout() {
+      return this.width < XS;
     },
-    big() {
-      return this.width > MAX;
+    sLayout() {
+      return this.width >= XS && this.width < S;
+    },
+    mLayout() {
+      return this.width >= S && this.width < M;
+    },
+    lLayout() {
+      return this.width >= M;
     },
     multiSelect() {
       return this.select && this.multi;

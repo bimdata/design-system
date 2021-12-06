@@ -2,7 +2,7 @@
   <BIMDataCard
     class="file-card"
     :class="{ 'file-card--selected': selected }"
-    width="140px"
+    :width="width"
   >
     <template #content>
       <div @click="onClick" class="file-card__content">
@@ -17,7 +17,7 @@
             />
           </transition>
           <PieProgressSpinner
-            v-if="loading"
+            v-if="loading && !success"
             :progress="percentCompleted"
             class="file-card__btn-menu__spinner"
           />
@@ -25,19 +25,17 @@
             ghost
             rounded
             icon
-            v-else-if="edit"
+            v-else-if="edit && !success"
             @click.stop="toggleMenu"
             class="file-card__btn-menu__edit"
             :disabled="success"
           >
-            <BIMDataIcon
-              name="ellipsis"
-              size="l"
-              fill
-              color="color-granite-light"
-            />
+            <BIMDataIcon name="ellipsis" size="l" fill color="granite-light" />
           </BIMDataButton>
-          <div v-else-if="!isFolder" class="file-card__btn-menu--select">
+          <div
+            v-else-if="!isFolder && !success"
+            class="file-card__btn-menu--select"
+          >
             <BIMDataCheckbox
               v-if="multiSelect"
               @update:modelValue="$emit('toggle-select', file)"
@@ -126,6 +124,10 @@ export default {
   directives: { clickaway },
   inject: ["$translate"],
   props: {
+    width: {
+      type: String,
+      default: "140px",
+    },
     file: {
       type: Object,
       required: true,

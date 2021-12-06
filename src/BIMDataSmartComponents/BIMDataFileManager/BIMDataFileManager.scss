@@ -12,13 +12,7 @@
   &__header {
     display: flex;
 
-    &--big {
-      .bimdata-file-manager__header__upload {
-        margin: 0 $spacing-unit;
-      }
-    }
-
-    &--small {
+    &--xs {
       flex-direction: column;
 
       .bimdata-file-manager__header__upload {
@@ -26,7 +20,8 @@
       }
     }
 
-    &--medium {
+    &--s,
+    &--m {
       flex-wrap: wrap;
       * {
         flex-shrink: 1;
@@ -38,6 +33,12 @@
       }
       .bimdata-file-manager__header__upload {
         margin-left: $spacing-unit;
+      }
+    }
+
+    &--l {
+      .bimdata-file-manager__header__upload {
+        margin: 0 $spacing-unit;
       }
     }
   }
