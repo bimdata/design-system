@@ -71,7 +71,8 @@ async function downloadFiles(files, apiInfos = {}) {
 }
 
 function getFileExtension(file) {
-  const extension = file.name.match(/\.([0-9a-z]+$)/)[1];
+  const match = file.name.match(/\.([0-9a-z]+$)/);
+  const extension = match && match[1];
   if (extension && extension.toLowerCase() === "ifczip") {
     return "ifc";
   } else {
