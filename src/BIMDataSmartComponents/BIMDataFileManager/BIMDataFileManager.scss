@@ -55,13 +55,6 @@
     }
   }
 
-  &__search {
-    background-color: $color-silver-light;
-    &.focus {
-      background-color: $color-white;
-    }
-  }
-
   &__modal {
     position: absolute;
     top: 0px;

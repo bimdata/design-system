@@ -105,6 +105,12 @@ export default {
           "false",
           "Set the mode in multi select. Ignored if select is false.",
         ],
+        [
+          "searchColor",
+          "string",
+          "secondary",
+          "Set the background color of the search bar.",
+        ],
       ],
       eventsData: [
         ["Event name", "Payload"],

@@ -27,7 +27,7 @@
           @upload="uploadFiles"
         />
         <BIMDataSearch
-          color="secondary"
+          :color="searchColor"
           class="bimdata-file-manager__search"
           width="100%"
           placeholder="Search"
@@ -192,6 +192,10 @@ export default {
     multi: {
       type: Boolean,
       default: false,
+    },
+    searchColor: {
+      type: String,
+      default: "secondary",
     },
   },
   data() {
