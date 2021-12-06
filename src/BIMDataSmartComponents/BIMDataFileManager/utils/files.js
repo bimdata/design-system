@@ -2,11 +2,11 @@ const FOLDER_TYPE = "Folder";
 
 async function downloadFiles(files, apiInfos = {}) {
   try {
-    let downloadName, downloadUrl;
     if (files.length === 0) {
       return;
     }
-    downloadName = files[0].fileName;
+    let downloadUrl = null;
+    const downloadName = files[0].name;
     if (files.length === 1 && files[0].type !== FOLDER_TYPE) {
       downloadUrl = files[0].file;
     } else {
@@ -59,6 +59,7 @@ async function download({ name, url }) {
   link.style.display = "none";
   link.download = name;
   link.href = url;
+  link.target = "_blank";
   document.body.append(link);
   link.click();
   await delay(100);

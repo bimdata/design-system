@@ -364,12 +364,16 @@ export default {
       }, SUCCESS_TIME);
     },
     onDowload(entity) {
-      downloadFiles(getFlattenTree(entity), {
-        projectId: this.projectId,
-        spaceId: this.spaceId,
-        accessToken: this.accessToken,
-        baseURL: this.archiveUrl,
-      });
+      try {
+        downloadFiles(getFlattenTree(entity), {
+          projectId: this.projectId,
+          spaceId: this.spaceId,
+          accessToken: this.accessToken,
+          baseURL: this.archiveUrl,
+        });
+      } catch (error) {
+        this.$emit("error", error);
+      }
     },
     onDelete(entity) {
       this.entityDeletable = entity;
