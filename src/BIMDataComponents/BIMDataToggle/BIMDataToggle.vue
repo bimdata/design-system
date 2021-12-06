@@ -1,6 +1,6 @@
 <template>
   <label
-    :for="`bimdata-toggle-${id}`"
+    :for="`bimdata-toggle-${uniqueId}`"
     :class="{ active: modelValue, disabled }"
     class="toggle__button"
   >
@@ -8,7 +8,7 @@
     <input
       type="checkbox"
       :disabled="disabled"
-      :id="`bimdata-toggle-${id}`"
+      :id="`bimdata-toggle-${uniqueId}`"
       v-model="checkedValue"
     />
     <span class="toggle__switch"></span>
@@ -38,9 +38,9 @@ export default {
       id: null,
     };
   },
-  beforeCreate() {
+  created() {
     // Math.random is random enough to avoid conflict
-    this.id = Math.random().toString();
+    this.uniqueId = Math.random().toString();
   },
   computed: {
     checkedValue: {
