@@ -1,21 +1,35 @@
 const FOLDER_TYPE = "Folder";
 
-async function downloadFiles(files, apiInfos = {}) {
-  try {
-    if (files.length === 0) {
-      return;
-    }
-    let downloadUrl = null;
-    const downloadName = files[0].name;
-    if (files.length === 1 && files[0].type !== FOLDER_TYPE) {
-      downloadUrl = files[0].file;
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function download({ name, url }) {
+  const link = document.createElement("a");
+  link.style.display = "none";
+  link.download = name;
+  link.href = url;
+  document.body.append(link);
+  link.click();
+  await delay(100);
+  link.remove();
+  await delay(500);
+}
+
+function segregate(files) {
+  const folders = [];
+  const documents = [];
+  for (const file of files) {
+    if (file.type === FOLDER_TYPE) {
+      folders.push(file);
     } else {
-      downloadUrl = getArchiveUrl(files, apiInfos);
+      documents.push(file);
     }
-    return await download({ name: downloadName, url: downloadUrl });
-  } catch (error) {
-    throw new Error(error);
   }
+  return {
+    folders,
+    documents,
+  };
 }
 
 function getArchiveUrl(files, apiInfos) {
@@ -38,36 +52,22 @@ function getArchiveUrl(files, apiInfos) {
   return url;
 }
 
-function segregate(files) {
-  const folders = [];
-  const documents = [];
-  for (const file of files) {
-    if (file.type === FOLDER_TYPE) {
-      folders.push(file);
-    } else {
-      documents.push(file);
+async function downloadFiles(files, apiInfos = {}) {
+  try {
+    if (files.length === 0) {
+      return;
     }
+    let downloadUrl = null;
+    const downloadName = files[0].name;
+    if (files.length === 1 && files[0].type !== FOLDER_TYPE) {
+      downloadUrl = files[0].file;
+    } else {
+      downloadUrl = getArchiveUrl(files, apiInfos);
+    }
+    return await download({ name: downloadName, url: downloadUrl });
+  } catch (error) {
+    throw new Error(error);
   }
-  return {
-    folders,
-    documents,
-  };
-}
-
-async function download({ name, url }) {
-  const link = document.createElement("a");
-  link.style.display = "none";
-  link.download = name;
-  link.href = url;
-  document.body.append(link);
-  link.click();
-  await delay(100);
-  link.remove();
-  await delay(500);
-}
-
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function getFileExtension(file) {
