@@ -17,6 +17,7 @@
             value="radiotest"
             v-model="selectedMode"
             :disabled="checkboxDisabledChecked"
+            :big="checkboxBigChecked"
           ></BIMDataRadio>
         </template>
 
@@ -25,6 +26,12 @@
             class="m-b-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-b-12"
+            text="big"
+            v-model="checkboxBigChecked"
           >
           </BIMDataCheckbox>
           <BIMDataButton color="primary" radius fill @click="resetRadio()"
@@ -81,6 +88,7 @@ export default {
     return {
       selectedMode: null,
       checkboxDisabledChecked: false,
+      checkboxBigChecked: false,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["text", "String", "null", "Use this props to add a label text"],
@@ -88,6 +96,8 @@ export default {
         ["id", "String", "/", ""],
         ["value", "String", "/", ""],
         ["selectedValue", "String", "/", ""],
+        ["big", "boolean", "false", ""],
+        ["disabled", "boolean", "false", ""],
       ],
     };
   },

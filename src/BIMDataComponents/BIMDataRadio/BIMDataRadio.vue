@@ -1,5 +1,5 @@
 <template>
-  <label class="bimdata-radio" :class="{ disabled }">
+  <label class="bimdata-radio" :class="{ disabled, 'bimdata-radio--big': big }">
     <input
       type="radio"
       @input="onInput"
@@ -20,6 +20,10 @@ export default {
     event: "update:modelValue",
   },
   props: {
+    big: {
+      type: Boolean,
+      default: false,
+    },
     text: {
       type: String,
       default: null,

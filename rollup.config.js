@@ -6,10 +6,18 @@ import copy from "rollup-plugin-copy";
 import replace from "@rollup/plugin-replace";
 import postcss from "rollup-plugin-postcss";
 import alias from "@rollup/plugin-alias";
+import image from "@rollup/plugin-image";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 module.exports = [
   ...getSingleComponentConfigurations(),
-  {
+  ...getSingleSmartComponentConfigurations(),
+  getAllComponentsBundleConfiguration(),
+];
+
+function getAllComponentsBundleConfiguration() {
+  return {
     input: ["src/BIMDataComponents/index.js"],
     output: {
       dir: "dist/js/BIMDataComponents",
@@ -49,10 +57,41 @@ module.exports = [
         template: { isProduction: true },
         css: false,
       }),
+      image(),
       terser(),
     ],
-  },
-];
+  };
+}
+
+function getSingleSmartComponentConfigurations() {
+  const componentNames = ["BIMDataFileManager"];
+
+  // Build Vue 2.x compatible components
+  return [
+    ...componentNames.map(componentName => ({
+      input: [
+        `src/BIMDataSmartComponents/${componentName}/${componentName}.vue`,
+      ],
+      output: {
+        file: `dist/js/BIMDataSmartComponents/${componentName}.js`,
+        format: "esm",
+      },
+      plugins: [
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+        }),
+        vue2({
+          template: { isProduction: true },
+        }),
+        resolve({ browser: true, preferBuiltins: false }),
+        commonjs(),
+        image(),
+        terser(),
+      ],
+    })),
+  ];
+}
 
 function getSingleComponentConfigurations() {
   const componentNames = [
@@ -62,6 +101,7 @@ function getSingleComponentConfigurations() {
     "BIMDataCheckbox",
     "BIMDataDropdownList",
     "BIMDataDropdownMenu",
+    "BIMDataFileIcon",
     "BIMDataIcon",
     "BIMDataIllustration",
     "BIMDataInput",
@@ -98,6 +138,7 @@ function getSingleComponentConfigurations() {
         vue2({
           template: { isProduction: true },
         }),
+        image(),
         terser(),
       ],
     })),
@@ -126,6 +167,7 @@ function getSingleComponentConfigurations() {
           preprocessStyles: true,
         }),
         postcss(),
+        image(),
         terser(),
       ],
     })),

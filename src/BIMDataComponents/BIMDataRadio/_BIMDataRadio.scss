@@ -84,6 +84,27 @@
       transform: translate(5px, 5px) scale(0);
     }
   }
+
+  // BIG
+  &.bimdata-radio--big > span {
+    // custom CIRCLE
+    &::before {
+      width: 20px;
+      height: 20px;
+      top: 0px;
+      left: 0px;
+    }
+    // custom CHECK
+    &::after {
+      width: 14px;
+      height: 14px;
+      top: -2px;
+      left: -2px;
+      background-color: $color-primary;
+      transform: translate(5px, 5px) scale(0);
+    }
+  }
+
   &:hover {
     & > input {
       &:focus {

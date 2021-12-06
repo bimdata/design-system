@@ -44,20 +44,18 @@ export default {
       required: true,
     },
   },
-  emits: [
-    'switch-theme'
-  ],
-  methods: {
-    switchTheme() {
-      this.$emit("switch-theme");
-    },
-  },
+  emits: ["switch-theme"],
   computed: {
     items() {
       return Object.entries(this.$store.state).map(([title, page]) => ({
         title,
         ...page,
       }));
+    },
+  },
+  methods: {
+    switchTheme() {
+      this.$emit("switch-theme");
     },
   },
 };
