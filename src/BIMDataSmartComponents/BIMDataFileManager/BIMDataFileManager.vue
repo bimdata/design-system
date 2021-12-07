@@ -172,10 +172,6 @@ export default {
       type: String,
       default: "https://api.bimdata.io",
     },
-    archiveUrl: {
-      type: String,
-      default: "https://archive.bimdata.io",
-    },
     spaceId: {
       type: Number,
       required: true,
@@ -369,7 +365,7 @@ export default {
           projectId: this.projectId,
           spaceId: this.spaceId,
           accessToken: this.accessToken,
-          baseURL: this.archiveUrl,
+          apiUrl: this.apiUrl,
         });
       } catch (error) {
         this.$emit("error", error);

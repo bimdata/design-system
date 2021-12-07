@@ -10,7 +10,6 @@
             :spaceId="515"
             :projectId="756"
             apiUrl="https://api-staging.bimdata.io"
-            archiveUrl="https://archive-staging.bimdata.io"
             accessToken="fc83e49ca9444d3ea41d212599f39040"
             :select="selectChecked"
             :multi="multiChecked"

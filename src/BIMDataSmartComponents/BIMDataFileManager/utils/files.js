@@ -37,8 +37,10 @@ function getArchiveUrl(files, apiInfos) {
     projectId,
     spaceId,
     accessToken,
-    baseURL = "https://archive.bimdata.io",
+    apiUrl = "https://api.bimdata.io",
   } = apiInfos;
+
+  const baseURL = getUrlFromAPIUrl(apiUrl);
 
   const { folders, documents } = segregate(files);
   let url = "";
@@ -50,6 +52,20 @@ function getArchiveUrl(files, apiInfos) {
     url += documents.map(f => `documentId[]=${f.id}`).join("&");
   }
   return url;
+}
+
+function getUrlFromAPIUrl(apiUrl) {
+  const url = new URL(apiUrl);
+  const hostname = url.hostname;
+  let env = "";
+  const [apiEnv, ...domainPath] = hostname.split(".");
+  const domain = domainPath.join(".");
+  if (apiEnv.includes("-staging")) {
+    env = "-staging";
+  } else if (apiEnv.includes("-next")) {
+    env = "-next";
+  }
+  return url.protocol + "//archive" + env + "." + domain;
 }
 
 async function downloadFiles(files, apiInfos = {}) {
