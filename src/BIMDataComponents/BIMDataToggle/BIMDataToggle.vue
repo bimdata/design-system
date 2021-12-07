@@ -35,7 +35,7 @@ export default {
   emits: ["update:modelValue"],
   data() {
     return {
-      id: null,
+      uniqueId: null,
     };
   },
   created() {
