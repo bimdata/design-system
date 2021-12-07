@@ -253,6 +253,13 @@ export default new Vuex.Store({
           btn: "View textarea",
         },
         {
+          title: "Textbox",
+          img: require("./web/assets/img/icon-text.svg"),
+          path: "textbox",
+          text: "A text container to handle long text in small boxes.",
+          btn: "View textbox",
+        },
+        {
           title: "Toggles",
           img: require("./web/assets/img/icon-toggle.svg"),
           path: "toggle",
