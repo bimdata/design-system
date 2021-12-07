@@ -198,7 +198,7 @@ export default {
     },
     searchColor: {
       type: String,
-      default: "secondary",
+      default: "primary",
     },
   },
   data() {
