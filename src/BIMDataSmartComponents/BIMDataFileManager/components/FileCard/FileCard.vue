@@ -77,6 +77,7 @@
           {{ $translate("download") }}
         </BIMDataButton>
         <BIMDataButton
+          v-if="writeAccess"
           color="high"
           ghost
           radius
@@ -124,6 +125,10 @@ export default {
   directives: { clickaway },
   inject: ["$translate"],
   props: {
+    writeAccess: {
+      type: Boolean,
+      default: false,
+    },
     width: {
       type: String,
       default: "140px",

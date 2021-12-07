@@ -83,6 +83,7 @@
             @delete="onDelete(file)"
             @dowload="onDowload(file)"
             @loaded="onFileLoaded(file, $event)"
+            :writeAccess="currentFolder.userPermission >= 100"
           />
         </BIMDataResponsiveGrid>
         <div v-else class="bimdata-file-manager__container--empty">
