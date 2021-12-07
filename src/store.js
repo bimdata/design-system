@@ -44,7 +44,8 @@ export default new Vuex.Store({
       ],
     },
     "Guidelines & Utilities": {
-      text: "How BIMData looks : guidelines for colors, spacing,  typography",
+      text:
+        "How BIMData looks: guidelines for colors, spacing, typography, ...",
       img: require("./web/assets/img/icon-guidelines.svg"),
       path: "guidelines-utilities",
       children: [
@@ -112,7 +113,7 @@ export default new Vuex.Store({
     },
     Components: {
       text:
-        "We developed a VueJs UI library that contains a set  components and demos for building, interactive user interfaces.",
+        "We developed a VueJS UI library that contains a set of components and demos for building interactive user interfaces.",
       img: require("./web/assets/img/icon-components.svg"),
       path: "components",
       children: [
