@@ -68,35 +68,38 @@ export default {
     return {
       showTooltip: false,
       isOverflowing: false,
+      textHead: "",
+      textTail: "",
     };
   },
-  computed: {
-    textHead() {
-      const text = this.$props.text;
-      if (this.isOverflowing && this.$props.cutPosition === "middle") {
-        const tailSize = Math.floor(text.length / 2);
-        return text.slice(0, -tailSize);
-      }
-      return text;
-    },
-    textTail() {
-      const text = this.$props.text;
-      if (this.isOverflowing && this.$props.cutPosition === "middle") {
-        const tailSize = Math.floor(text.length / 2);
-        return text.slice(-tailSize);
-      }
-      return "";
-    },
+  watch: {
+    text: "computeText",
   },
   mounted() {
     const observer = new ResizeObserver(() => {
-      const textHead = this.$refs.textHead;
-      if (textHead) {
-        this.isOverflowing = textHead.clientWidth < textHead.scrollWidth;
-      }
+      this.computeText();
     });
 
     observer.observe(this.$refs.textBox);
+  },
+  methods: {
+    computeText() {
+      const text = this.$props.text;
+      const textHead = this.$refs.textHead;
+      if (textHead) {
+        // Check if text is overflowing
+        this.isOverflowing = textHead.clientWidth < textHead.scrollWidth;
+        // Set `textHead` and `textTail` according to cut position
+        if (this.isOverflowing && this.$props.cutPosition === "middle") {
+          const tailSize = Math.floor(text.length / 2);
+          this.textHead = text.slice(0, -tailSize);
+          this.textTail = text.slice(-tailSize);
+        } else {
+          this.textHead = text;
+          this.textTail = "";
+        }
+      }
+    },
   },
 };
 </script>
