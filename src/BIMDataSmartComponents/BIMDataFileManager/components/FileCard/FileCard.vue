@@ -1,11 +1,15 @@
 <template>
   <BIMDataCard
     class="file-card"
-    :class="{ 'file-card--selected': selected }"
+    :class="{
+      'file-card--selected': selected,
+      'file-card--hover': select || isFolder,
+    }"
     :width="width"
+    @click.native="onClick"
   >
     <template #content>
-      <div @click="onClick" class="file-card__content">
+      <div @click="onContentClick" class="file-card__content">
         <div class="file-card__btn-menu">
           <transition name="fade" v-if="success" :duration="1000">
             <BIMDataIcon
@@ -36,15 +40,10 @@
             v-else-if="!isFolder && !success"
             class="file-card__btn-menu--select"
           >
-            <BIMDataCheckbox
-              v-if="multiSelect"
-              @update:modelValue="$emit('toggle-select', file)"
-              :modelValue="selected"
-            />
+            <BIMDataCheckbox v-if="multiSelect" :modelValue="selected" />
             <BIMDataRadio
               v-else
-              :big="true"
-              @update:modelValue="$emit('toggle-select', file)"
+              big
               :modelValue="selected"
               name="BIMDataFileCardRadio"
             />
@@ -173,7 +172,6 @@ export default {
   data() {
     return {
       menuDisplayed: false,
-      firstClick: false,
       percentCompleted: 0,
     };
   },
@@ -249,18 +247,13 @@ export default {
       this.$emit("delete");
     },
     onClick() {
+      if (!this.isFolder && this.select) {
+        this.$emit("toggle-select", this.file);
+      }
+    },
+    onContentClick() {
       if (this.isFolder) {
-        if (this.firstClick === false) {
-          this.firstClick = true;
-          setTimeout(() => {
-            this.firstClick = false;
-          }, 500);
-        } else {
-          // dbl click
-          if (this.isFolder) {
-            this.$emit("open-folder");
-          }
-        }
+        this.$emit("open-folder");
       }
     },
     toggleMenu() {
