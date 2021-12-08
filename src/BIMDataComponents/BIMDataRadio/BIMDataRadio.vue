@@ -32,7 +32,9 @@ export default {
       type: String,
       default: null,
     },
-    value: {},
+    value: {
+      default: true,
+    },
     modelValue: {},
     disabled: {
       type: Boolean,
