@@ -13,8 +13,21 @@
         <template #module>
           <BIMDataRadio
             text="click on me !"
-            id="radiotest"
-            value="radiotest"
+            value="radiotest1"
+            v-model="selectedMode"
+            :disabled="checkboxDisabledChecked"
+            :big="checkboxBigChecked"
+          ></BIMDataRadio>
+          <BIMDataRadio
+            text="click on me !"
+            value="radiotest2"
+            v-model="selectedMode"
+            :disabled="checkboxDisabledChecked"
+            :big="checkboxBigChecked"
+          ></BIMDataRadio>
+          <BIMDataRadio
+            text="click on me !"
+            value="radiotest3"
             v-model="selectedMode"
             :disabled="checkboxDisabledChecked"
             :big="checkboxBigChecked"
@@ -35,7 +48,7 @@
           >
           </BIMDataCheckbox>
           <BIMDataButton color="primary" radius fill @click="resetRadio()"
-            >Reset radio button</BIMDataButton
+            >Reset</BIMDataButton
           >
         </template>
 
@@ -92,10 +105,8 @@ export default {
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["text", "String", "null", "Use this props to add a label text"],
-        ["name", "String", "'option'", ""],
-        ["id", "String", "/", ""],
-        ["value", "String", "/", ""],
-        ["selectedValue", "String", "/", ""],
+        ["value", "any", "/", ""],
+        ["modelValue", "any", "/", ""],
         ["big", "boolean", "false", ""],
         ["disabled", "boolean", "false", ""],
       ],
