@@ -12,21 +12,21 @@
       >
         <template #module>
           <BIMDataRadio
-            text="click on me !"
+            :text="text"
             value="radiotest1"
             v-model="selectedMode"
             :disabled="checkboxDisabledChecked"
             :big="checkboxBigChecked"
           ></BIMDataRadio>
           <BIMDataRadio
-            text="click on me !"
+            :text="text"
             value="radiotest2"
             v-model="selectedMode"
             :disabled="checkboxDisabledChecked"
             :big="checkboxBigChecked"
           ></BIMDataRadio>
           <BIMDataRadio
-            text="click on me !"
+            :text="text"
             value="radiotest3"
             v-model="selectedMode"
             :disabled="checkboxDisabledChecked"
@@ -47,6 +47,7 @@
             v-model="checkboxBigChecked"
           >
           </BIMDataCheckbox>
+          <BIMDataInput v-model="text" />
           <BIMDataButton color="primary" radius fill @click="resetRadio()"
             >Reset</BIMDataButton
           >
@@ -88,6 +89,8 @@ import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BI
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+
 export default {
   components: {
     ComponentCode,
@@ -96,9 +99,11 @@ export default {
     BIMDataCheckbox,
     BIMDataRadio,
     BIMDataText,
+    BIMDataInput,
   },
   data() {
     return {
+      text: "click me!",
       selectedMode: null,
       checkboxDisabledChecked: false,
       checkboxBigChecked: false,
