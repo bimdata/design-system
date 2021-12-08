@@ -40,6 +40,14 @@
       border-width: 8px 0 0 8px;
     }
 
+    &--white {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      &::before {
+        border-color: var(--color-white) transparent transparent;
+      }
+    }
+
     &--primary {
       background-color: var(--color-primary);
       color: var(--color-white);

@@ -39,6 +39,6 @@ export default [
     "String (Enum)",
     "primary",
     "Define tooltip color. " +
-      "Must be one of: 'primary', 'secondary', 'granite-light' or 'silver-light'.",
+      "Must be one of: 'white', 'primary', 'secondary', 'granite-light' or 'silver-light'.",
   ],
 ];

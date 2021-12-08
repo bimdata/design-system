@@ -53,6 +53,7 @@
               margin="24px 0"
               label="Tooltip color"
               :options="[
+                'white',
                 'primary',
                 'secondary',
                 'granite-light',

@@ -59,9 +59,13 @@ export default {
       type: String,
       default: "primary",
       validator: value =>
-        ["primary", "secondary", "granite-light", "silver-light"].includes(
-          value
-        ),
+        [
+          "white",
+          "primary",
+          "secondary",
+          "granite-light",
+          "silver-light",
+        ].includes(value),
     },
   },
   data() {
