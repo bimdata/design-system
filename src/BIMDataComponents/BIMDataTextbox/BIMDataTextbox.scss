@@ -6,14 +6,13 @@
 
   &__text {
     &--head {
-      flex-grow: 1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     &--tail {
-      width: 48%;
+      width: 50%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: "";

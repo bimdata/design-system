@@ -2,19 +2,26 @@
   <div
     ref="textBox"
     class="bimdata-textbox"
-    :style="{ width }"
+    :style="{
+      width,
+      minWidth,
+      maxWidth,
+    }"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
   >
     <span
       ref="textHead"
       class="bimdata-textbox__text--head"
-      :style="{ direction: cutPosition === 'start' ? 'rtl' : 'ltr' }"
+      :style="{
+        width: textTail ? '50%' : '100%',
+        direction: cutPosition === 'start' ? 'rtl' : 'ltr',
+      }"
     >
-      {{ textHead }}
+      <bdi>{{ textHead }}</bdi>
     </span>
     <span class="bimdata-textbox__text--tail" v-show="textTail">
-      {{ textTail }}
+      <bdi>{{ textTail }}</bdi>
     </span>
     <div
       v-if="tooltip && isOverflowing"
@@ -36,6 +43,12 @@ export default {
     width: {
       type: String,
       default: "100%",
+    },
+    minWidth: {
+      type: String,
+    },
+    maxWidth: {
+      type: String,
     },
     text: {
       type: String,
@@ -77,30 +90,38 @@ export default {
     };
   },
   watch: {
+    width: "computeText",
     text: "computeText",
+    cutPosition: "computeText",
   },
   mounted() {
-    const observer = new ResizeObserver(() => {
-      this.computeText();
-    });
-
-    observer.observe(this.$refs.textBox);
+    this.observer = new ResizeObserver(() => this.computeText());
+    this.observer.observe(this.$refs.textBox);
+    this.computeText();
+  },
+  beforeUnmount() {
+    this.observer.disconnect();
+  },
+  beforeDestroy() {
+    this.observer.disconnect();
   },
   methods: {
-    computeText() {
+    async computeText() {
       const text = this.$props.text;
       const textHead = this.$refs.textHead;
+
       if (textHead) {
+        // Reset `textHead` and `textTail`
+        this.textHead = text;
+        this.textTail = "";
+
+        // Wait for DOM update
+        await this.$nextTick();
         // Check if text is overflowing
         this.isOverflowing = textHead.clientWidth < textHead.scrollWidth;
-        // Set `textHead` and `textTail` according to cut position
+        // Set `textTail` accordingly
         if (this.isOverflowing && this.$props.cutPosition === "middle") {
-          const tailSize = Math.floor(text.length / 2);
-          this.textHead = text.slice(0, -tailSize);
-          this.textTail = text.slice(-tailSize);
-        } else {
-          this.textHead = text;
-          this.textTail = "";
+          this.textTail = text;
         }
       }
     },

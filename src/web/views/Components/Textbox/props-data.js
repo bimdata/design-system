@@ -8,10 +8,22 @@ export default [
     "Width of the box, can be any valid CSS width value.",
   ],
   [
+    "minWidth",
+    "String",
+    "0",
+    "Minimum width of the box, can be any valid CSS width value.",
+  ],
+  [
+    "maxWidth",
+    "String",
+    "100%",
+    "Maximum width of the box, can be any valid CSS width value.",
+  ],
+  [
     "text",
     "String",
     "",
-    "The text to display in the text box.",
+    "The text to display in the box.",
   ],
   [
     "cutPosition",
