@@ -22,7 +22,7 @@ export default [
   [
     "text",
     "String",
-    "",
+    "\"\"",
     "The text to display in the box.",
   ],
   [
