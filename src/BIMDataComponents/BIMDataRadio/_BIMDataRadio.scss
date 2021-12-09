@@ -10,12 +10,10 @@
   line-height: 1.5;
   font-family: var(--primary-font);
   font-size: calculateEm(14px);
-
   background-color: transparent;
   border: none;
   margin: 0px;
   padding: 0px;
-
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -79,8 +77,8 @@
     outline: none;
     opacity: 0;
     transform: scale(1);
-    transition: opacity 0.3s, transform 0.2s;
     background-color: var(--color-granite);
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
   }
 
   &--checked {
@@ -98,10 +96,11 @@
 
   &:hover:not(.disabled) {
     .bimdata-radio__background {
-      opacity: 0.2;
+      opacity: 0.15;
+      transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
     }
     &:focus .bimdata-radio__background {
-      opacity: 0.4;
+      opacity: 0.15;
     }
     &:active .bimdata-radio__background {
       transition: transform 0s, opacity 0s;
