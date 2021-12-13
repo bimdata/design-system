@@ -83,6 +83,7 @@
             @delete="onDelete(file)"
             @dowload="onDowload(file)"
             @loaded="onFileLoaded(file, $event)"
+            :writeAccess="currentFolder.userPermission >= 100"
           />
         </BIMDataResponsiveGrid>
         <div v-else class="bimdata-file-manager__container--empty">
@@ -172,10 +173,6 @@ export default {
       type: String,
       default: "https://api.bimdata.io",
     },
-    archiveUrl: {
-      type: String,
-      default: "https://archive.bimdata.io",
-    },
     spaceId: {
       type: Number,
       required: true,
@@ -198,7 +195,7 @@ export default {
     },
     searchColor: {
       type: String,
-      default: "secondary",
+      default: "primary",
     },
   },
   data() {
@@ -369,7 +366,7 @@ export default {
           projectId: this.projectId,
           spaceId: this.spaceId,
           accessToken: this.accessToken,
-          baseURL: this.archiveUrl,
+          apiUrl: this.apiUrl,
         });
       } catch (error) {
         this.$emit("error", error);

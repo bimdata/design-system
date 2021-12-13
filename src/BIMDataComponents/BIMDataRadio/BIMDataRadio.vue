@@ -1,16 +1,20 @@
 <template>
-  <label class="bimdata-radio" :class="{ disabled, 'bimdata-radio--big': big }">
-    <input
-      type="radio"
-      @input="onInput"
-      :checked="modelValue === value"
-      :name="name"
-      :id="id"
-      :value="value"
-      :disabled="disabled"
-    />
+  <button
+    type="button"
+    class="bimdata-radio"
+    :class="{
+      disabled,
+      'bimdata-radio--checked': checked,
+      'bimdata-radio--big': big,
+    }"
+    :disabled="disabled"
+    @click="onClick"
+  >
+    <div class="bimdata-radio__background" />
+    <div class="bimdata-radio__circle"></div>
+    <div class="bimdata-radio__dot"></div>
     <span class="bimdata-radio__text">{{ text }}</span>
-  </label>
+  </button>
 </template>
 
 <script>
@@ -28,14 +32,9 @@ export default {
       type: String,
       default: null,
     },
-    name: {
-      type: String,
-      default: "option",
+    value: {
+      default: true,
     },
-    id: {
-      type: [String, Number],
-    },
-    value: {},
     modelValue: {},
     disabled: {
       type: Boolean,
@@ -43,8 +42,13 @@ export default {
     },
   },
   emits: ["update:modelValue"],
+  computed: {
+    checked() {
+      return this.modelValue === this.value;
+    },
+  },
   methods: {
-    onInput() {
+    onClick() {
       this.$emit("update:modelValue", this.value);
     },
   },

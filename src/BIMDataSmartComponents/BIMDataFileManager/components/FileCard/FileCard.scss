@@ -9,6 +9,13 @@
     border: solid $color-primary 3px;
   }
 
+  &--hover {
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+
   &:not(.file-card--selected) {
     margin: 3px;
   }
