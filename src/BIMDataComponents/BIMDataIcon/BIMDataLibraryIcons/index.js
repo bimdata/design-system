@@ -100,6 +100,7 @@ import up from "./Up.vue";
 import user from "./User.vue";
 import validate from "./Validate.vue";
 import video from "./Video.vue";
+import visa from "./Visa.vue";
 import warning from "./Warning.vue";
 import windowBottom from "./WindowBottom.vue";
 import windowed from "./Windowed.vue";
@@ -211,6 +212,7 @@ export default {
   user,
   validate,
   video,
+  visa,
   warning,
   windowBottom,
   windowed,
