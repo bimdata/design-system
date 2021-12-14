@@ -15,18 +15,20 @@
             :multi="multiChecked"
             @selection-change="onSelectionChange"
             style="resize: auto; overflow: hidden;"
+            :headerButtons="headerButtons"
+            :headerSearch="headerSearch"
           />
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="select" v-model="selectChecked">
-          </BIMDataCheckbox>
+          <BIMDataCheckbox text="select" v-model="selectChecked" />
           <BIMDataCheckbox
             text="multi"
             v-model="multiChecked"
             :disabled="!selectChecked"
-          >
-          </BIMDataCheckbox>
+          />
+          <BIMDataCheckbox text="header buttons" v-model="headerButtons" />
+          <BIMDataCheckbox text="header search" v-model="headerSearch" />
         </template>
 
         <template #import>
@@ -86,6 +88,8 @@ export default {
     return {
       selectChecked: false,
       multiChecked: false,
+      headerButtons: true,
+      headerSearch: true,
       selectedFiles: [],
       propsData: [
         ["Props", "Type", "Default value", "Description"],
@@ -110,6 +114,18 @@ export default {
           "string",
           "secondary",
           "Set the background color of the search bar.",
+        ],
+        [
+          "headerButtons",
+          "boolean",
+          "true",
+          "If false, the header buttons are not visible.",
+        ],
+        [
+          "headerSearch",
+          "boolean",
+          "true",
+          "If false, the header search is not visible.",
         ],
       ],
       eventsData: [

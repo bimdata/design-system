@@ -10,24 +10,27 @@
           'bimdata-file-manager__header--l': lLayout,
         }"
       >
-        <NewFolderButton
-          width="25%"
-          :disabled="!currentFolder || currentFolder.userPermission < 100"
-          :projectId="projectId"
-          :spaceId="spaceId"
-          :apiClient="apiClient"
-          :folder="currentFolder"
-          @success="onNewFolder"
-          @error="$emit('error', $event)"
-        />
-        <UploadFileButton
-          class="bimdata-file-manager__header__upload"
-          width="25%"
-          :disabled="!currentFolder || currentFolder.userPermission < 100"
-          multiple
-          @upload="uploadFiles"
-        />
+        <template v-if="headerButtons">
+          <NewFolderButton
+            width="25%"
+            :disabled="!currentFolder || currentFolder.userPermission < 100"
+            :projectId="projectId"
+            :spaceId="spaceId"
+            :apiClient="apiClient"
+            :folder="currentFolder"
+            @success="onNewFolder"
+            @error="$emit('error', $event)"
+          />
+          <UploadFileButton
+            class="bimdata-file-manager__header__upload"
+            width="25%"
+            :disabled="!currentFolder || currentFolder.userPermission < 100"
+            multiple
+            @upload="uploadFiles"
+          />
+        </template>
         <BIMDataSearch
+          v-if="headerSearch"
           :color="searchColor"
           class="bimdata-file-manager__search"
           width="100%"
@@ -196,6 +199,14 @@ export default {
     searchColor: {
       type: String,
       default: "primary",
+    },
+    headerButtons: {
+      type: Boolean,
+      default: true,
+    },
+    headerSearch: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
