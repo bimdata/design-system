@@ -8,12 +8,6 @@ env:
 jobs:
   publish:
     runs-on: self-hosted
-    if: contains('
-          refs/heads/develop
-          refs/heads/release
-          refs/heads/master
-          refs/heads/main'
-        , github.ref)
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -28,15 +22,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPOS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
         run: npm run semantic-release
-      - name: Checkout whit new commit
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
   build-and-push:
     runs-on: self-hosted
     if: contains('
           refs/heads/develop
-          refs/heads/release
           refs/heads/master
           refs/heads/main'
         , github.ref)

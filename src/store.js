@@ -44,7 +44,8 @@ export default new Vuex.Store({
       ],
     },
     "Guidelines & Utilities": {
-      text: "How BIMData looks : guidelines for colors, spacing,  typography",
+      text:
+        "How BIMData looks: guidelines for colors, spacing, typography, ...",
       img: require("./web/assets/img/icon-guidelines.svg"),
       path: "guidelines-utilities",
       children: [
@@ -112,7 +113,7 @@ export default new Vuex.Store({
     },
     Components: {
       text:
-        "We developed a VueJs UI library that contains a set  components and demos for building, interactive user interfaces.",
+        "We developed a VueJS UI library that contains a set of components and demos for building interactive user interfaces.",
       img: require("./web/assets/img/icon-components.svg"),
       path: "components",
       children: [
@@ -253,6 +254,13 @@ export default new Vuex.Store({
           btn: "View textarea",
         },
         {
+          title: "Textbox",
+          img: require("./web/assets/img/icon-text.svg"),
+          path: "textbox",
+          text: "A text container to handle long text in small boxes.",
+          btn: "View textbox",
+        },
+        {
           title: "Toggles",
           img: require("./web/assets/img/icon-toggle.svg"),
           path: "toggle",
@@ -266,6 +274,20 @@ export default new Vuex.Store({
           path: "tooltips",
           text: "Tooltips are used to show contextual information on hover.",
           btn: "View tooltips",
+        },
+      ],
+    },
+    "Smart Components": {
+      text: "Smart components are components that are smart.",
+      img: require("./web/assets/img/icon-components.svg"),
+      path: "smart-components",
+      children: [
+        {
+          path: "file-manager",
+          img: require("./web/assets/img/icon-list.svg"),
+          title: "FileManager",
+          text: "Navigate into a project file tree.",
+          btn: "View file manager",
         },
       ],
     },

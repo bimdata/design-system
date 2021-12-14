@@ -40,8 +40,12 @@ import Table from "../views/Components/Table/Table.vue";
 import Tabs from "../views/Components/Tabs/Tabs.vue";
 import Text from "../views/Components/Text/Text.vue";
 import Textarea from "../views/Components/Textarea/Textarea.vue";
+import Textbox from "../views/Components/Textbox/Textbox.vue";
 import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
+
+// Smart Components views
+import FileManager from "../views/SmartComponents/FileManager/FileManager.vue";
 
 Vue.use(VueRouter);
 
@@ -233,6 +237,11 @@ const routes = [
         component: Textarea,
       },
       {
+        path: "textbox",
+        name: "textbox",
+        component: Textbox,
+      },
+      {
         path: "toggle",
         name: "toggle",
         component: Toggle,
@@ -241,6 +250,18 @@ const routes = [
         path: "tooltips",
         name: "tooltips",
         component: Tooltip,
+      },
+    ],
+  },
+  {
+    path: "/smart-components",
+    redirect: "/smart-components/file-manager",
+    component: Layout,
+    children: [
+      {
+        path: "file-manager",
+        name: "file-manager",
+        component: FileManager,
       },
     ],
   },

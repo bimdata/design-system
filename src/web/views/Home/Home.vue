@@ -7,14 +7,14 @@
       width="776px"
       height="56px"
     />
-    <div class="home-content">
+    <div class="home__content">
       <BIMDataCard v-for="(page, title) in getItems" :key="title">
         <template #content>
           <router-link :to="{ path: `/${page.path}` }">
             <img :src="page.img" />
-            <BIMDataText component="h1" color="color-primary">{{
-              title
-            }}</BIMDataText>
+            <BIMDataText component="h2" color="color-primary">
+              {{ title }}
+            </BIMDataText>
             <BIMDataText margin="5px 0">{{ page.text }}</BIMDataText>
             <BIMDataButton width="150" radius fill color="primary">
               Explore
@@ -61,11 +61,6 @@ export default {
   computed: {
     getItems() {
       return this.$store.state;
-    },
-  },
-  methods: {
-    getFilter() {
-      return components;
     },
   },
 };

@@ -1,0 +1,92 @@
+@import "../../assets/scss/BIMDataVariables.scss";
+
+.bimdata-file-manager {
+  width: 100%;
+  padding: $spacing-unit;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit;
+
+  &__header {
+    display: flex;
+
+    &--xs {
+      flex-direction: column;
+
+      .bimdata-file-manager__header__upload {
+        margin: $spacing-unit 0;
+      }
+    }
+
+    &--s,
+    &--m {
+      flex-wrap: wrap;
+      * {
+        flex-shrink: 1;
+        flex-basis: calc(50% - calc($spacing-unit / 2));
+      }
+      .bimdata-file-manager__search {
+        flex-basis: 100%;
+        margin-top: $spacing-unit;
+      }
+      .bimdata-file-manager__header__upload {
+        margin-left: $spacing-unit;
+      }
+    }
+
+    &--l {
+      .bimdata-file-manager__header__upload {
+        margin: 0 $spacing-unit;
+      }
+    }
+  }
+
+  &__navigation {
+    height: 22px;
+    &__content {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: $spacing-unit;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &__modal {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba($color-primary, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    &--empty {
+      background-color: $color-silver-light;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      height: 100%;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: small;
+        color: $color-granite;
+        span {
+          margin-top: calc($spacing-unit * 2);
+        }
+      }
+    }
+  }
+}

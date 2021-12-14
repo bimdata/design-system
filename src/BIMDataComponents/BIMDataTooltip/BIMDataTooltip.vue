@@ -8,6 +8,7 @@
       <slot name="content"></slot>
     </div>
     <span
+      v-if="isDisplayed"
       ref="tooltipText"
       class="bimdata-tooltip__text"
       :class="className"
