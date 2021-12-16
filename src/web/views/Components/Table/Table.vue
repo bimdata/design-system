@@ -1,9 +1,9 @@
 <template>
   <main class="article article-table">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary"
-        >{{ $route.name }} (Simple use case)</BIMDataText
-      >
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }} (Simple use case)
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataTable
@@ -16,7 +16,9 @@
             @selection-changed="simpleExample.selection = $event"
           />
           <div class="selection-box">
-            <div class="selection-box__label">Selection :</div>
+            <div class="selection-box__label">
+              Selection :
+            </div>
             <div
               class="selection-box__item"
               v-for="(s, i) of simpleExample.selection"
@@ -36,8 +38,9 @@
               component="h5"
               color="color-primary"
               margin="15px 0 10px"
-              >Style</BIMDataText
             >
+              Style
+            </BIMDataText>
             <BIMDataInput
               type="number"
               placeholder="Rows height in px"
@@ -49,8 +52,9 @@
               component="h5"
               color="color-primary"
               margin="15px 0 10px"
-              >Sélection</BIMDataText
             >
+              Sélection
+            </BIMDataText>
             <BIMDataCheckbox
               text="selectable"
               v-model="simpleExample.selectable"
@@ -61,14 +65,15 @@
               component="h5"
               color="color-primary"
               margin="15px 0 10px"
-              >Pagination</BIMDataText
             >
+              Pagination
+            </BIMDataText>
             <BIMDataCheckbox
-              class="m-b-24"
               text="paginated"
               v-model="simpleExample.paginated"
             />
             <BIMDataInput
+              margin="24px 0 0 0"
               type="number"
               :disabled="!simpleExample.paginated"
               placeholder="Number of rows per page"
@@ -123,9 +128,9 @@
     </div>
 
     <div class="article-wrapper">
-      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px"
-        >Advanced use case</BIMDataText
-      >
+      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px">
+        Advanced use case
+      </BIMDataText>
       <div class="m-b-12">
         In the example above we show a table using simple data, columns and rows
         are simply arrays of strings. However, it often happens that rows are
@@ -236,13 +241,13 @@
         </ul>
       </div>
 
-      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px"
-        >Reference</BIMDataText
-      >
+      <BIMDataText component="h2" color="color-primary" margin="15px 0 10px">
+        Reference
+      </BIMDataText>
       <div class="m-b-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Columns:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Columns:
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="columnsData[0]"
@@ -254,6 +259,10 @@
 </template>
 
 <script>
+import columnsData from "./columns-data.js";
+import eventsData from "./events-data.js";
+import propsData from "./props-data.js";
+// Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -324,138 +333,31 @@ export default {
         ],
       },
 
-      // Props docmentation
-      propsData: [
-        [
-          "Props",
-          "Type",
-          "Required",
-          "Default value",
-          "Description",
-          "Example",
-        ],
-        [
-          "columns",
-          "Array",
-          "true",
-          "",
-          "Use this props to define table columns.",
-          "['First name', 'Last name', 'Age']",
-        ],
-        [
-          "rows",
-          "Array",
-          "true",
-          "",
-          "Use this props to define table rows.",
-          "[ ['John', 'Doe', 23], ['Jane', 'Doe', 24] ]",
-        ],
-        [
-          "rowHeight",
-          "Number",
-          "",
-          "50",
-          "Use this prop to set rows height (in px)",
-          "",
-        ],
-        [
-          "tableWidth",
-          "[Number, String]",
-          "",
-          "100%",
-          "Use this prop to set table widt (in px)",
-          "",
-        ],
-        [
-          "selectable",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to make rows selectable.",
-          "",
-        ],
-        [
-          "paginated",
-          "Boolean",
-          "",
-          "false",
-          "Use this prop to have a paginated table",
-          "",
-        ],
-        [
-          "perPage",
-          "Number",
-          "",
-          "10",
-          "Use this prop to control the number of rows per page (when paginated)",
-          "",
-        ],
-        [
-          "placeholder",
-          "String",
-          "",
-          "",
-          "A text to display when the table is empty",
-          "'Empty Table'",
-        ],
-      ],
-
-      // Events documentation
-      eventsData: [
-        ["Event", "Data Type", "Data", "Description"],
-        [
-          "selection-changed",
-          "Array",
-          "The list of selected rows",
-          "Fired each time the selection change",
-        ],
-        [
-          "row-selected",
-          "Object",
-          "The selected row",
-          "Fired each time a row is selected",
-        ],
-        [
-          "row-unselected",
-          "Object",
-          "The unselected row",
-          "Fired each time a row is unselected",
-        ],
-        [
-          "all-selected",
-          "-",
-          "none",
-          "Fired when all rows are selected at once",
-        ],
-        [
-          "all-unselected",
-          "-",
-          "none",
-          "Fired when all rows are unselected at once",
-        ],
-      ],
-
-      // Columns definition documentation
-      columnsData: [
-        ["Property", "Type/Values", "Description"],
-        [
-          "id",
-          "String",
-          "Column identifier that is used to determine which row field or which custom content will be displayed in that column.",
-        ],
-        ["label", "String", "Column header text"],
-        ["width", "String", "Set column width (defaults to 'auto')"],
-        [
-          "align",
-          "'left' ; 'center' ; 'right'",
-          "Set how text is aligned in the column.",
-        ],
-      ],
+      propsData,
+      eventsData,
+      columnsData,
     };
   },
 };
 </script>
 
 <style scoped lang="scss">
-@import "./_Table.scss";
+.selection-box {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  padding-left: 72px;
+
+  &__label {
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+}
+
+.advanced-example-result {
+  .bimdata-table {
+    margin: 12px 0;
+    box-shadow: var(--box-shadow);
+  }
+}
 </style>

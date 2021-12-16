@@ -2,8 +2,8 @@
   <div class="bimdata-tabs" :style="{ width }">
     <BIMDataButton
       v-show="scrollValues.length > 1"
-      :disabled="!btnLeftActive"
-      @click="onLeftClick"
+      :disabled="displayIndex === 0"
+      @click="prev"
     >
       <BIMDataIcon
         name="chevron"
@@ -35,8 +35,8 @@
     </ul>
     <BIMDataButton
       v-show="scrollValues.length > 1"
-      :disabled="!btnRightActive"
-      @click="onRightClick"
+      :disabled="displayIndex === scrollValues.length - 1"
+      @click="next"
     >
       <BIMDataIcon name="chevron" class="fill-primary" size="xxs" />
     </BIMDataButton>
@@ -91,12 +91,6 @@ export default {
     tabWidth() {
       return Number.isNaN(+this.tabSize) ? this.tabSize : `${this.tabSize}px`;
     },
-    btnLeftActive() {
-      return this.displayIndex > 0;
-    },
-    btnRightActive() {
-      return this.displayIndex < this.scrollValues.length - 1;
-    },
   },
   watch: {
     tabs() {
@@ -110,25 +104,25 @@ export default {
     },
   },
   mounted() {
-    this._setSelected(this.selected);
-    this._setScrollValues();
     this.resizeObserver = new ResizeObserver(() => this._setScrollValues());
     this.resizeObserver.observe(this.$refs.container);
-  },
-  // Vue 2.x
-  beforeDestroy() {
-    this.resizeObserver.disconnect();
+    this._setScrollValues();
+    this._setSelected(this.selected);
   },
   // Vue 3.x (for compatibility purpose)
   beforeUnmount() {
     this.resizeObserver.disconnect();
   },
+  // Vue 2.x
+  beforeDestroy() {
+    this.resizeObserver.disconnect();
+  },
   methods: {
-    onLeftClick() {
+    prev() {
       this.displayIndex--;
       this.$refs.container.scrollTo(this.scrollValues[this.displayIndex], 0);
     },
-    onRightClick() {
+    next() {
       this.displayIndex++;
       this.$refs.container.scrollTo(this.scrollValues[this.displayIndex], 0);
     },
