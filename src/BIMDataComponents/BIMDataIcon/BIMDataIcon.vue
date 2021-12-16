@@ -1,21 +1,20 @@
 <template>
   <svg
-    :fill="fillColor"
-    width="100%"
-    preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
-    :style="style"
+    width="100%"
+    :fill="fillColor"
     :color="color"
     :class="classes"
+    :style="style"
   >
-    <component :is="`bimdata-${name}`" />
+    <component :is="`bimdata-icon-${name}`" />
   </svg>
 </template>
 
 <script>
 import icons from "./BIMDataLibraryIcons/index.js";
-
 import iconsColors from "../../assets/iconsColors.js";
 
 const sizeToPixel = {
@@ -29,6 +28,13 @@ const sizeToPixel = {
   xxl: 45,
   xxxl: 60,
 };
+
+function formatIconComponentsNames(icons = {}) {
+  return Object.entries(icons).reduce(
+    (obj, [key, value]) => ({ ...obj, [`bimdata-icon-${key}`]: value }),
+    {}
+  );
+}
 
 export default {
   name: "BIMDataIcon",
@@ -81,29 +87,23 @@ export default {
     },
   },
   computed: {
-    style() {
-      const pixelSize = this.getPixelSize(this.size);
-      if (this.rotate > 0) {
-        return {
-          width: `${pixelSize}px`,
-          height: `${pixelSize}px`,
-          transform: "rotate(" + this.rotate + "deg)",
-          margin: `${this.margin}`,
-        };
-      } else {
-        return {
-          width: `${pixelSize}px`,
-          height: `${pixelSize}px`,
-          margin: `${this.margin}`,
-        };
-      }
-    },
     classes() {
       return {
         "icon-fill": this.fill,
         "icon-stroke": this.stroke,
         [`icon-fill--${this.color}`]: this.fill && this.color,
         [`icon-stroke--${this.color}`]: this.stroke && this.color,
+      };
+    },
+    style() {
+      const pixelSize = this.getPixelSize(this.size);
+      return {
+        width: `${pixelSize}px`,
+        minWidth: `${pixelSize}px`,
+        height: `${pixelSize}px`,
+        minHeight: `${pixelSize}px`,
+        margin: `${this.margin}`,
+        transform: `rotate(${this.rotate}deg)`,
       };
     },
   },
@@ -113,15 +113,6 @@ export default {
     },
   },
 };
-
-function formatIconComponentsNames(icons = {}) {
-  const iconsCopy = Object.assign({}, icons);
-  Object.entries(icons).forEach(([key, value]) => {
-    iconsCopy[`bimdata-${key}`] = value;
-    delete iconsCopy[key];
-  });
-  return iconsCopy;
-}
 </script>
 
 <style lang="scss" src="./_BIMDataIcon.scss"></style>
