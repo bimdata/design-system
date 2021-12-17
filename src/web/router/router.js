@@ -27,6 +27,7 @@ import Card from "../views/Components/Card/Card.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
 import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
 import DropdownList from "../views/Components/DropdownList/DropdownList.vue";
+import FileIcon from "../views/Components/FileIcon/FileIcon.vue";
 import Icons from "../views/Components/Icons/Icons.vue";
 import Illustrations from "../views/Components/Illustrations/Illustrations.vue";
 import Input from "../views/Components/Input/Input.vue";
@@ -170,6 +171,11 @@ const routes = [
         path: "dropdownmenu",
         name: "dropdownmenu",
         component: DropdownMenu,
+      },
+      {
+        path: "fileicon",
+        name: "fileicon",
+        component: FileIcon,
       },
       {
         path: "icons",
