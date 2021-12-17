@@ -12,18 +12,32 @@ import icons from "./file-icons/index.js";
 
 export default {
   props: {
-    name: {
+    fileName: {
       type: String,
-      default: "unknown",
+      default: "",
     },
     size: {
-      type: [String, Number],
-      default: "35",
+      type: Number,
+      default: 35,
     },
   },
   computed: {
+    name() {
+      return this.getFileExtension(this.fileName) || "unknown";
+    },
     imageUrl() {
       return icons[`icon_${this.name}`] || icons.icon_unknown;
+    },
+  },
+  methods: {
+    getFileExtension(fileName = "") {
+      const match = fileName.match(/\.([0-9a-z]+$)/);
+      const extension = match && match[1];
+      if (extension && extension.toLowerCase() === "ifczip") {
+        return "ifc";
+      } else {
+        return extension;
+      }
     },
   },
 };

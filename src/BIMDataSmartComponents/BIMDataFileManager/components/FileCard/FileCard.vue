@@ -53,7 +53,7 @@
           <BIMDataIcon name="folder" size="xxl" fill color="primary" />
         </template>
         <template v-else>
-          <BIMDataFileIcon :name="getFileExtension(file)" />
+          <BIMDataFileIcon :fileName="file.name" />
         </template>
       </div>
       <div class="file-card__menu" v-if="menuDisplayed" v-clickaway="away">
@@ -106,8 +106,6 @@ import BIMDataRadio from "../../../../BIMDataComponents/BIMDataRadio/BIMDataRadi
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataFileIcon from "../../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
 import clickaway from "../../../../BIMDataDirectives/click-away.js";
-
-import { getFileExtension } from "../../utils/files";
 
 import PieProgressSpinner from "../PieProgressSpinner.vue";
 
@@ -230,9 +228,6 @@ export default {
       if (e.key === "Escape") {
         this.menuDisplayed = false;
       }
-    },
-    getFileExtension(...args) {
-      return getFileExtension(...args);
     },
     onRenameClick() {
       this.menuDisplayed = false;

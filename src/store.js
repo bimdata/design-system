@@ -155,6 +155,13 @@ export default new Vuex.Store({
           btn: "View dropdown menu",
         },
         {
+          title: "FileIcon",
+          img: require("./web/assets/img/icon-icons.svg"),
+          path: "fileicon",
+          text: "FileIcon is used to provide file visual context.",
+          btn: "View FileIcon",
+        },
+        {
           title: "Icons",
           img: require("./web/assets/img/icon-icons.svg"),
           path: "icons",
