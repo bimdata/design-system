@@ -32,9 +32,9 @@ html {
   /* --------------------------------
   color SUCCESS & VARIANTS -------------------------------- */
   --color-success-lighter: rgba(226, 255, 239, 1);
-  --color-success-light: rgba(0, 226, 102, 1);
+  --color-success-light: rgba(0, 200, 92, 1);
   --color-success: rgba(0, 175, 80, 1);
-  --color-success-dark: rgba(0, 124, 56, 1);
+  --color-success-dark: rgba(0, 149, 68, 1);
 
   /* --------------------------------
   color WARNING & VARIANTS -------------------------------- */

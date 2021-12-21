@@ -76,6 +76,14 @@
         background-color: var(--color-high-light);
       }
     }
+    /* style BIMDATA BTN GREEN FILL ------------- */
+    &--success {
+      background-color: var(--color-success);
+      color: var(--color-white);
+      &:hover {
+        background-color: var(--color-success-light);
+      }
+    }
     /* style BIMDATA BTN FILL BTN ICON --------- */
     &--btn-icon {
       svg {
@@ -161,6 +169,20 @@
         transition: background 0s;
       }
     }
+    &--success {
+      background-color: var(--color-success);
+      color: var(--color-white);
+      &:hover {
+        background: var(--color-success)
+          radial-gradient(circle, transparent 1%, var(--color-success) 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: var(--color-success-light);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
   }
   &__outline {
     justify-content: center;
@@ -198,6 +220,13 @@
       color: var(--color-high);
       &:hover {
         background-color: var(--color-high-lighter);
+      }
+    }
+    &--success {
+      border-color: var(--color-success);
+      color: var(--color-success);
+      &:hover {
+        background-color: var(--color-success-lighter);
       }
     }
     &:disabled {
@@ -240,6 +269,12 @@
       color: var(--color-high);
       &:hover {
         background-color: var(--color-high-lighter);
+      }
+    }
+    &--success {
+      color: var(--color-success);
+      &:hover {
+        background-color: var(--color-success-lighter);
       }
     }
     &:disabled {
