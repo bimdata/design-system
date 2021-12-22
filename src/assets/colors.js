@@ -3,5 +3,6 @@ export default Object.freeze([
   "primary",
   "secondary",
   "high",
+  "success",
   "granite",
 ]);
