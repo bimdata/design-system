@@ -18,6 +18,7 @@
             :autofocus="getAutofocus()"
             :placeholder="getPlaceholder()"
             :disabled="getDisabled()"
+            :readonly="getReadonly()"
           />
         </template>
 
@@ -25,6 +26,7 @@
           <BIMDataCheckbox text="autofocus" v-model="autofocus" />
           <BIMDataCheckbox text="placeholder" v-model="placeholder" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
+          <BIMDataCheckbox text="readonly" v-model="readonly" />
         </template>
 
         <template #import>
@@ -41,6 +43,8 @@
               {{ autofocus ? ':autofocus="true"' : "" }}
               {{ placeholder ? ':placeholder="true"' : "" }}
               {{ disabled ? ':disabled="true"' : "" }}
+              {{ readonly ? ':readonly="true"' : "" }}
+
             /&gt;
           </pre>
         </template>
@@ -78,6 +82,7 @@ export default {
       autofocus: false,
       placeholder: false,
       disabled: false,
+      readonly: false,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -122,6 +127,12 @@ export default {
           "false",
           "Use this boolean to disabled your textarea.",
         ],
+        [
+          "readonly",
+          "Boolean",
+          "false",
+          "Use this boolean to make your textarea readonly.",
+        ],
       ],
     };
   },
@@ -141,6 +152,13 @@ export default {
     },
     getDisabled() {
       if (this.disabled) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getReadonly() {
+      if (this.readonly) {
         return true;
       } else {
         return false;
