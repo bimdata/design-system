@@ -16,6 +16,7 @@
       :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
+      :readonly="readonly"
       @input="$emit('update:modelValue', $event.currentTarget.value)"
     />
     <label :for="name">{{ label }}</label>
@@ -60,6 +61,10 @@ export default {
     label: {
       type: String,
       default: "",
+    },
+    readonly: {
+      type: Boolean,
+      default: false,
     },
     width: {
       type: [Number, String],
