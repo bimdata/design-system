@@ -1,25 +1,33 @@
 <template>
   <div class="multi-line-text-box" style="style">
-    <div class="multi-line-text-box__content">
-      <template v-if="needEllipsis">
-        <div class="multi-line-text-box__content__head">
-          <span>
-            {{ text }}
-          </span>
-        </div>
-        <div
-          class="multi-line-text-box__content__tail"
-          :style="`height:${lineHeight * (lines - 1)}px`"
-        >
-          <div class="multi-line-text-box__content__tail__text">
-            <span>{{ text }} </span>
+    <BIMDataTooltip
+      :message="text"
+      className="bimdata-tooltip--bottom bimdata-tooltip--primary bimdata-tooltip--arrow"
+      v-if="needEllipsis"
+    >
+      <template #content>
+        <div class="multi-line-text-box__content">
+          <div class="multi-line-text-box__content__head">
+            <span>
+              {{ text }}
+            </span>
           </div>
-          <div class="multi-line-text-box__content__tail__ellipsis">
-            ...
+          <div
+            class="multi-line-text-box__content__tail"
+            :style="`height:${lineHeight * (lines - 1)}px`"
+          >
+            <div class="multi-line-text-box__content__tail__text">
+              <span>{{ text }} </span>
+            </div>
+            <div class="multi-line-text-box__content__tail__ellipsis">
+              ...
+            </div>
           </div>
         </div>
       </template>
-      <span v-else class="multi-line-text-box__content__full">
+    </BIMDataTooltip>
+    <div v-else class="multi-line-text-box__content">
+      <span class="multi-line-text-box__content__full">
         {{ text }}
       </span>
     </div>
@@ -30,7 +38,12 @@
 </template>
 
 <script>
+import BIMDataTooltip from "../../../BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
+
 export default {
+  components: {
+    BIMDataTooltip,
+  },
   props: {
     text: {
       type: String,
@@ -82,7 +95,6 @@ export default {
 
 <style lang="scss">
 .multi-line-text-box {
-  overflow: hidden;
   position: relative;
   &__ghost {
     left: 0;
@@ -93,6 +105,8 @@ export default {
 
   &__content {
     position: relative;
+    overflow: hidden;
+
     height: calc(var(--textbox-height, 14px) * var(--textbox-lines, 3));
 
     &__tail {
