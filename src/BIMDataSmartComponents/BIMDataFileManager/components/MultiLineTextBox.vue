@@ -60,13 +60,10 @@ export default {
   },
   data() {
     return {
-      lineCount: 0,
+      needEllipsis: false,
     };
   },
   computed: {
-    needEllipsis() {
-      return this.lineCount > this.lines;
-    },
     style() {
       return {
         "--textbox-line-height": `${this.lineHeight}px`,
@@ -83,12 +80,10 @@ export default {
   },
   methods: {
     onResize() {
-      const width = this.$el.getBoundingClientRect().width;
-      const {
-        width: requestedWidth,
-      } = this.$refs.ghost.getBoundingClientRect();
+      const height = this.lines * this.lineHeight;
+      const { height: neededHeight } = this.$refs.ghost.getBoundingClientRect();
 
-      this.lineCount = Math.ceil((requestedWidth * 1.1) / width); // 10% needed to handle edge cases
+      this.needEllipsis = neededHeight > height;
     },
   },
 };
@@ -100,10 +95,9 @@ export default {
   line-height: var(--textbox-line-height, 14px);
 
   &__ghost {
-    left: 0;
+    top: 0;
     position: absolute;
     visibility: hidden;
-    white-space: nowrap;
   }
 
   &__content {
