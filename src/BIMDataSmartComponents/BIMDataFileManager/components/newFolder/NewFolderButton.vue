@@ -1,16 +1,17 @@
 <template>
-  <BIMDataButton
-    class="folder-creation-button"
-    :width="width"
-    :height="height"
-    color="primary"
-    fill
-    radius
-    :disabled="disabled"
-    @click="toggle"
-  >
-    <BIMDataIcon name="addFolder" size="xs" margin="0 6px 0 0" />
-    <span>{{ $translate("buttonText") }}</span>
+  <div class="folder-creation-button" v-clickaway="close">
+    <BIMDataButton
+      width="100%"
+      :height="height"
+      color="primary"
+      fill
+      radius
+      :disabled="disabled"
+      @click="toggle"
+    >
+      <BIMDataIcon name="addFolder" size="xs" margin="0 6px 0 0" />
+      <span>{{ $translate("buttonText") }}</span>
+    </BIMDataButton>
     <transition name="fade">
       <NewFolderForm
         v-if="showCreationForm"
@@ -28,7 +29,7 @@
         @error="$emit('error', $event)"
       />
     </transition>
-  </BIMDataButton>
+  </div>
 </template>
 
 <script>
@@ -37,12 +38,15 @@ import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataBu
 
 import NewFolderForm from "./NewFolderForm.vue";
 
+import clickaway from "../../../../BIMDataDirectives/click-away.js";
+
 export default {
   components: {
     BIMDataIcon,
     BIMDataButton,
     NewFolderForm,
   },
+  directives: { clickaway },
   inject: ["$translate"],
   props: {
     projectId: {
@@ -56,10 +60,6 @@ export default {
     apiClient: {
       type: Object,
       required: true,
-    },
-    width: {
-      type: String,
-      default: "32px",
     },
     height: {
       type: String,
@@ -106,6 +106,7 @@ export default {
 
 .folder-creation-button {
   position: relative;
+  min-width: 25%;
 
   &__form {
     position: absolute;

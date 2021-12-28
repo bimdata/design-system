@@ -13,7 +13,6 @@
       >
         <template v-if="headerButtons">
           <NewFolderButton
-            width="25%"
             :disabled="!currentFolder || currentFolder.userPermission < 100"
             :projectId="projectId"
             :spaceId="spaceId"
