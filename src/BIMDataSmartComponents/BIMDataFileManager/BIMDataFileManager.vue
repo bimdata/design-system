@@ -9,6 +9,7 @@
           'bimdata-file-manager__header--m': mLayout,
           'bimdata-file-manager__header--l': lLayout,
         }"
+        v-if="headerButtons || headerSearch"
       >
         <template v-if="headerButtons">
           <NewFolderButton
@@ -56,9 +57,13 @@
           >
             <BIMDataIcon name="arrow" />
           </BIMDataButton>
-          <span>
-            {{ currentFolder.name }}
-          </span>
+          <BIMDataTextbox
+            :text="currentFolder.name"
+            cutPosition="middle"
+            tooltipPosition="bottom"
+            tooltipColor="primary"
+            width="calc(100% - 21px)"
+          />
         </div>
       </div>
       <template v-if="fileStructure">
@@ -66,6 +71,8 @@
           v-if="files.length > 0"
           class="bimdata-file-manager__container"
           :itemWidth="itemWidth"
+          rowGap="6px"
+          columnGap="6px"
         >
           <FileCard
             :width="itemWidth"
@@ -131,6 +138,7 @@ import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.v
 import BIMDataLoading from "../../BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 import FileCard from "./components/FileCard/FileCard.vue";
 import NewFolderButton from "./components/newFolder/NewFolderButton.vue";
@@ -159,6 +167,7 @@ export default {
     UploadFileButton,
     BIMDataIcon,
     BIMDataButton,
+    BIMDataTextbox,
     RenameModal,
     DeleteModal,
   },
@@ -231,7 +240,7 @@ export default {
       return this.currentFolder !== this.fileStructure;
     },
     itemWidth() {
-      return this.xsLayout ? "100%" : this.sLayout ? "170px" : "140px";
+      return this.xsLayout ? "100%" : this.sLayout ? "184px" : "164px";
     },
     xsLayout() {
       return this.width < XS;
