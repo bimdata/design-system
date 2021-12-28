@@ -1,5 +1,5 @@
 <template>
-  <div class="multi-line-text-box" style="style">
+  <div class="multi-line-text-box" :style="style">
     <BIMDataTooltip
       :message="text"
       className="bimdata-tooltip--bottom bimdata-tooltip--primary bimdata-tooltip--arrow"
@@ -53,11 +53,14 @@ export default {
       type: Number,
       default: 3,
     },
+    lineHeight: {
+      type: Number,
+      default: 14,
+    },
   },
   data() {
     return {
       lineCount: 0,
-      lineHeight: 0,
     };
   },
   computed: {
@@ -66,7 +69,7 @@ export default {
     },
     style() {
       return {
-        "--textbox-height": `${this.lineHeight}px`,
+        "--textbox-line-height": `${this.lineHeight}px`,
         "--textbox-lines": this.lines,
       };
     },
@@ -83,11 +86,9 @@ export default {
       const width = this.$el.getBoundingClientRect().width;
       const {
         width: requestedWidth,
-        height: lineHeight,
       } = this.$refs.ghost.getBoundingClientRect();
 
       this.lineCount = Math.ceil((requestedWidth * 1.1) / width); // 10% needed to handle edge cases
-      this.lineHeight = lineHeight;
     },
   },
 };
@@ -96,6 +97,8 @@ export default {
 <style lang="scss">
 .multi-line-text-box {
   position: relative;
+  line-height: var(--textbox-line-height, 14px);
+
   &__ghost {
     left: 0;
     position: absolute;
@@ -107,7 +110,7 @@ export default {
     position: relative;
     overflow: hidden;
 
-    height: calc(var(--textbox-height, 14px) * var(--textbox-lines, 3));
+    height: calc(var(--textbox-line-height, 14px) * var(--textbox-lines, 3));
 
     &__tail {
       word-break: break-all;
