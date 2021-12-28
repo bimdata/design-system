@@ -286,6 +286,17 @@ export default {
     width: calc(100% - 24px);
     background-color: $color-white;
     box-shadow: $box-shadow;
+    position: relative;
+
+    &__menu {
+      position: absolute;
+      background-color: $color-white;
+      z-index: 1;
+      left: calc($spacing-unit / 3);
+      right: calc($spacing-unit / 3);
+      bottom: $spacing-unit;
+      box-shadow: $box-shadow;
+    }
 
     &--selected {
       border: solid $color-primary 3px;
