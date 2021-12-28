@@ -119,7 +119,7 @@ export default {
         cursor: pointer;
       }
       &:hover:not(.bimdata-breadcrumb__step--last) {
-        font-weight: bold;
+        font-weight: 700;
         text-decoration: underline;
       }
       &::before {
@@ -128,7 +128,7 @@ export default {
         height: 0;
         overflow: hidden;
         visibility: hidden;
-        font-weight: bold;
+        font-weight: 700;
         text-decoration: underline;
       }
     }

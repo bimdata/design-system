@@ -170,7 +170,7 @@ export default {
         ["primary-font", "font-family: 'roboto', sans-serif;"],
         [
           "bimdata-link",
-          "color: #2f374a; border-bottom: 1px solid #2f374a; font-weight: bold;",
+          "color: #2f374a; border-bottom: 1px solid #2f374a; font-weight: 700;",
         ],
       ],
     };
