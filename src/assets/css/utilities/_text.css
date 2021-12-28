@@ -17,9 +17,3 @@
 .primary-font {
   font-family: var(--primary-font);
 }
-.primary-font-medium {
-  font-family: var(--primary-font-medium);
-}
-.primary-font-bold {
-  font-family: var(--primary-font-bold);
-}

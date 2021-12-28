@@ -20,7 +20,7 @@ export default {
     },
     fontWeight: {
       type: String,
-      default: "primary-font",
+      default: "regular",
     },
     lineHeight: {
       type: String,
@@ -55,14 +55,12 @@ export default {
   },
   computed: {
     classes() {
-      return {
-        [`${this.color}`]: this.color,
-        [`${this.fontWeight}`]: this.fontWeight,
-      };
+      return `${this.color};`;
     },
     style() {
       return {
-        "font-size": `${this.calcFontSize}`,
+        fontSize: `${this.calcFontSize}`,
+        fontWeight: `${this.fontWeight}`,
         "line-height": `${this.calcLineHeight}`,
         display: `${this.display}`,
         margin: `${this.margin}`,

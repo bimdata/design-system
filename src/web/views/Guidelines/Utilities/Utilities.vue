@@ -167,9 +167,7 @@ export default {
         ["text-left", "text-align: left;"],
         ["text-center", "text-align: center;"],
         ["text-right", "text-align: right;"],
-        ["primary-font", "font-family: 'robotoregular', sans-serif;"],
-        ["primary-font-medium", "font-family: 'robotomedium', sans-serif;"],
-        ["primary-font-bold", "font-family: 'robotobold', sans-serif;"],
+        ["primary-font", "font-family: 'roboto', sans-serif;"],
         [
           "bimdata-link",
           "color: #2f374a; border-bottom: 1px solid #2f374a; font-weight: bold;",

@@ -28,7 +28,7 @@
             <BIMDataText
               component="span"
               color="color-primary"
-              fontWeight="primary-font-bold"
+              fontWeight="bold"
               >reprehenderit</BIMDataText
             >
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -180,7 +180,7 @@
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
-              &lt;BIMDataText component="span" color="color-primary" fontWeight="primary-font-bold"&gt;reprehenderit&lt;/BIMDataText&gt;
+              &lt;BIMDataText component="span" color="color-primary" fontWeight="bold"&gt;reprehenderit&lt;/BIMDataText&gt;
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
             officia deserunt mollit anim id est laborum."
@@ -222,18 +222,14 @@ export default {
       placeholder: false,
       disabled: false,
       selectedTextOptionscolor: "color-granite-light",
-      selectedTextFontWeight: "primary-font",
+      selectedTextFontWeight: "regular",
       selectedTextComponent: "p",
       displayText: "inline-block",
       fontSizeText: "",
       lineHeightText: "",
       marginText: "",
       paddingText: "",
-      fontWeightText: [
-        "primary-font",
-        "primary-font-medium",
-        "primary-font-bold",
-      ],
+      fontWeightText: ["regular", "medium", "bold"],
       componentsText: ["h1", "h2", "h3", "h4", "h5", "p"],
       textOptions: {
         color: [
@@ -268,7 +264,7 @@ export default {
         [
           "fontWeight",
           "String",
-          "primary-font",
+          "regular",
           "Use this prop to customize the font-weight of the text block",
         ],
         [
@@ -331,7 +327,7 @@ export default {
       }
     },
     getFontWeight() {
-      if (this.selectedTextFontWeight != "primary-font") {
+      if (this.selectedTextFontWeight != "regular") {
         return `fontWeight="${this.selectedTextFontWeight}"`;
       }
     },
