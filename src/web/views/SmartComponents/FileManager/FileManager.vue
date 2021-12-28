@@ -45,6 +45,8 @@
                 accessToken="fc83e49ca9444d3ea41d212599f39040"
                 :select="{{ String(selectChecked) }}"
                 :multi="{{ String(multiChecked) }}"
+                :headerButtons="{{ headerButtons }}"
+                :headerSearch="{{ headerSearch }}"
                 /&gt;
             </pre
           >
