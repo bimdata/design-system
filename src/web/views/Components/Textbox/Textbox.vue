@@ -73,9 +73,9 @@
           <pre>
             &lt;BIMDataTextbox
               :text="text"
-              {{ `:cutPosition="${cutPosition}"` }}
-              {{ `:tooltipPosition="${tooltipPosition}"` }}`
-              {{ `:tooltipColor="${tooltipColor}"` }}`
+              {{ `cutPosition="${cutPosition}"` }}
+              {{ `tooltipPosition="${tooltipPosition}"` }}
+              {{ `tooltipColor="${tooltipColor}"` }}
             /&gt;
           </pre>
         </template>
