@@ -139,7 +139,7 @@ import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
-import FileCard from "./components/FileCard/FileCard.vue";
+import FileCard from "./components/FileCard.vue";
 import NewFolderButton from "./components/newFolder/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
 import RenameModal from "./components/modals/RenameModal.vue";
@@ -215,6 +215,10 @@ export default {
     headerSearch: {
       type: Boolean,
       default: true,
+    },
+    alreadySelectedFiles: {
+      type: Array,
+      defaut: () => [],
     },
   },
   data() {
@@ -350,7 +354,12 @@ export default {
       return (trads[this.locale] || trads["en"])[key];
     },
     isFileSucess(id) {
-      return this.successFileIds.includes(id);
+      return (
+        this.successFileIds.includes(id) ||
+        (this.select &&
+          this.alreadySelectedFiles &&
+          this.alreadySelectedFiles.includes(id))
+      );
     },
     onFileLoaded(loadingFile, loadedFile) {
       if (!loadingFile.folder.children) {

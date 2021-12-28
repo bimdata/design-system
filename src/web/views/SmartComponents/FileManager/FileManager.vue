@@ -17,6 +17,7 @@
             style="resize: auto; overflow: hidden;"
             :headerButtons="headerButtons"
             :headerSearch="headerSearch"
+            :alreadySelectedFiles="[2694]"
           />
         </template>
 
@@ -128,6 +129,12 @@ export default {
           "boolean",
           "true",
           "If false, the header search is not visible.",
+        ],
+        [
+          "alreadySelectedFiles",
+          "number[]",
+          "[]",
+          "An array of already selected ids. In select mode, already selected ids are not selectable and displayed as in success.",
         ],
       ],
       eventsData: [

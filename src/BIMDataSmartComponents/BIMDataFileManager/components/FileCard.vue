@@ -4,7 +4,7 @@
       class="file-card__content"
       :class="{
         'file-card__content--selected': selected,
-        'file-card__content--hover': select || isFolder,
+        'file-card__content--hover': (select && !success) || isFolder,
       }"
       @click="onClick"
     >
@@ -107,15 +107,15 @@
 </template>
 
 <script>
-import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataRadio from "../../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataFileIcon from "../../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
-import clickaway from "../../../../BIMDataDirectives/click-away.js";
+import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataRadio from "../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataCheckbox from "../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
+import clickaway from "../../../BIMDataDirectives/click-away.js";
 
-import PieProgressSpinner from "../PieProgressSpinner.vue";
-import MultiLineTextBox from "../MultiLineTextBox.vue";
+import PieProgressSpinner from "./PieProgressSpinner.vue";
+import MultiLineTextBox from "./MultiLineTextBox.vue";
 
 export default {
   components: {
@@ -250,7 +250,7 @@ export default {
       this.$emit("delete");
     },
     onClick() {
-      if (!this.isFolder && this.select) {
+      if (!this.isFolder && !this.success && this.select) {
         this.$emit("toggle-select", this.file);
       }
     },
@@ -272,7 +272,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../../../assets/scss/BIMDataVariables";
+@import "../../../assets/scss/BIMDataVariables";
 
 .file-card {
   height: 174px;
