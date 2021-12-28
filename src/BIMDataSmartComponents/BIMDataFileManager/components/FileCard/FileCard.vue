@@ -296,7 +296,9 @@ export default {
     }
 
     &--hover {
-      cursor: pointer;
+      .file-card__content__header {
+        cursor: pointer;
+      }
       &:hover {
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
       }
