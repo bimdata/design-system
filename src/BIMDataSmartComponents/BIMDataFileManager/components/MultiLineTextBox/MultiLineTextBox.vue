@@ -27,10 +27,10 @@
       <span class="multi-line-text-box__content__full" v-else>
         {{ text }}
       </span>
+      <span class="multi-line-text-box__ghost" ref="ghost">
+        {{ text }}
+      </span>
     </div>
-    <span class="multi-line-text-box__ghost" ref="ghost">
-      {{ text }}
-    </span>
     <Tooltip
       v-if="tooltipDisplayed"
       :text="text"
