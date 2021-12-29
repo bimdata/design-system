@@ -22,12 +22,12 @@
         }
         &:nth-child(2) {
           p {
-            font-family: var(--primary-font-medium);
+            font-weight: 500;
           }
         }
         &:nth-child(3) {
           p {
-            font-family: var(--primary-font-bold);
+            font-weight: 700;
           }
         }
       }

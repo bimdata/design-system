@@ -25,10 +25,7 @@
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
-            <BIMDataText
-              component="span"
-              color="color-primary"
-              fontWeight="primary-font-bold"
+            <BIMDataText component="span" color="color-primary" fontWeight="700"
               >reprehenderit</BIMDataText
             >
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -180,7 +177,7 @@
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
-              &lt;BIMDataText component="span" color="color-primary" fontWeight="primary-font-bold"&gt;reprehenderit&lt;/BIMDataText&gt;
+              &lt;BIMDataText component="span" color="color-primary" fontWeight="700"&gt;reprehenderit&lt;/BIMDataText&gt;
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
             officia deserunt mollit anim id est laborum."
@@ -222,18 +219,14 @@ export default {
       placeholder: false,
       disabled: false,
       selectedTextOptionscolor: "color-granite-light",
-      selectedTextFontWeight: "primary-font",
+      selectedTextFontWeight: "400",
       selectedTextComponent: "p",
       displayText: "inline-block",
       fontSizeText: "",
       lineHeightText: "",
       marginText: "",
       paddingText: "",
-      fontWeightText: [
-        "primary-font",
-        "primary-font-medium",
-        "primary-font-bold",
-      ],
+      fontWeightText: ["400", "500", "700"],
       componentsText: ["h1", "h2", "h3", "h4", "h5", "p"],
       textOptions: {
         color: [
@@ -252,54 +245,62 @@ export default {
         ],
       },
       propsData: [
-        ["Props", "Type", "Default value", "Description"],
+        ["Props", "Type", "Default value", "Description", "Example"],
         [
           "component",
           "String",
           "p",
-          "Use this prop to use a particular title / text block. For example: h1, h2, p, span...",
+          "Use this prop to use a particular title / text block.",
+          "h1, h2, p, span...",
         ],
         [
           "display",
           "String",
           "inline-block",
           "Use this prop to customize the display of the text block",
+          "",
         ],
         [
           "fontWeight",
           "String",
-          "primary-font",
-          "Use this prop to customize the font-weight of the text block",
+          "400",
+          "Use this prop to customize the font-weight of the text block.",
+          "400 for regular ; 500 for medium and 700 for bold.",
         ],
         [
           "fontSize",
           "String",
           "14px",
           "Use this prop to customize the font-size of the text block. By default, a font-size is assigned for each h1, h2, h3, h4, h5 and p. But if you use this prop you can override it",
+          "",
         ],
         [
           "lineHeight",
           "String",
           "18px",
           "Use this prop to customize the line-height of the text block. By default, a line-height is assigned for each h1, h2, h3, h4, h5 and p. But if you use this prop you can override it",
+          "",
         ],
         [
           "margin",
           "String",
           "0px",
           "Use this prop to customize the margin of the text block.",
+          "",
         ],
         [
           "padding",
           "String",
           "0px",
           "Use this prop to customize the padding of the text block.",
+          "",
         ],
         [
           "color",
           "String",
           "color-granite-light",
           "Use this prop to customize the color of the text block. To know the authorized values, refer to the 'COLOR UTILITY CLASS' line of the Guidelines & Utilities ; Colors page.",
+          "",
         ],
       ],
     };
@@ -331,7 +332,7 @@ export default {
       }
     },
     getFontWeight() {
-      if (this.selectedTextFontWeight != "primary-font") {
+      if (this.selectedTextFontWeight != "400") {
         return `fontWeight="${this.selectedTextFontWeight}"`;
       }
     },

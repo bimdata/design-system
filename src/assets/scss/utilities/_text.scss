@@ -12,16 +12,10 @@
 .bimdata-link {
   color: var(--color-primary);
   border-bottom: 1px solid var(--color-primary);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* BIMDATA FONT WEIGHT */
 .primary-font {
-  font-family: "robotoregular", sans-serif;
-}
-.primary-font-medium {
-  font-family: "robotomedium", sans-serif;
-}
-.primary-font-bold {
-  font-family: "robotobold", sans-serif;
+  font-family: "roboto", sans-serif;
 }
