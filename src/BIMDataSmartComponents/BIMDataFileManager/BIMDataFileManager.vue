@@ -66,35 +66,35 @@
         </div>
       </div>
       <template v-if="fileStructure">
-        <BIMDataResponsiveGrid
-          v-if="files.length > 0"
-          class="bimdata-file-manager__container"
-          :itemWidth="itemWidth"
-          rowGap="6px"
-          columnGap="6px"
-        >
-          <FileCard
-            :width="itemWidth"
-            v-for="file of files"
-            :key="file.id"
-            :file="file"
-            :projectId="projectId"
-            :spaceId="spaceId"
-            :apiUrl="apiUrl"
-            :accessToken="accessToken"
-            @open-folder="openFolder(file)"
-            :select="select"
-            :multi="multi"
-            :selected="isFileSelected(file)"
-            :success="isFileSucess(file.id)"
-            @toggle-select="onToggleFileSelect(file)"
-            @rename="onRename(file)"
-            @delete="onDelete(file)"
-            @dowload="onDowload(file)"
-            @loaded="onFileLoaded(file, $event)"
-            :writeAccess="currentFolder.userPermission >= 100"
-          />
-        </BIMDataResponsiveGrid>
+        <div class="bimdata-file-manager__container" v-if="files.length > 0">
+          <BIMDataResponsiveGrid
+            :itemWidth="itemWidth"
+            rowGap="6px"
+            columnGap="6px"
+          >
+            <FileCard
+              :width="itemWidth"
+              v-for="file of files"
+              :key="file.id"
+              :file="file"
+              :projectId="projectId"
+              :spaceId="spaceId"
+              :apiUrl="apiUrl"
+              :accessToken="accessToken"
+              @open-folder="openFolder(file)"
+              :select="select"
+              :multi="multi"
+              :selected="isFileSelected(file)"
+              :success="isFileSucess(file.id)"
+              @toggle-select="onToggleFileSelect(file)"
+              @rename="onRename(file)"
+              @delete="onDelete(file)"
+              @dowload="onDowload(file)"
+              @loaded="onFileLoaded(file, $event)"
+              :writeAccess="currentFolder.userPermission >= 100"
+            />
+          </BIMDataResponsiveGrid>
+        </div>
         <div v-else class="bimdata-file-manager__container--empty">
           <div>
             <BIMDataIcon name="folderOpen" size="xxxl" fill color="silver" />
