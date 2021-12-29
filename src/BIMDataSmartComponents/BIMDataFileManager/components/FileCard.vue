@@ -302,7 +302,7 @@ export default {
       border: solid $color-primary 3px;
     }
 
-    &:not(.file-card--selected) {
+    &:not(.file-card__content--selected) {
       padding: 3px;
     }
 

@@ -69,6 +69,7 @@
 
   &__container {
     overflow-y: auto;
+    height: 100%;
     &--empty {
       background-color: $color-silver-light;
       display: flex;

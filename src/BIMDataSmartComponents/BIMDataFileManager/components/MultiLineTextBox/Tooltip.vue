@@ -20,7 +20,6 @@ export default {
 @import "../../../../assets/scss/mixins/_pseudo.scss";
 
 .multi-line-textbox-tooltip {
-  position: relative;
   width: 100%;
   &__content {
     color: var(--color-white);
