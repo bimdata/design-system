@@ -25,10 +25,11 @@ export default {
   &__content {
     color: var(--color-white);
     background-color: var(--color-primary);
-    padding: calc(var(--spacing-unit) / 4);
+    padding: calc(var(--spacing-unit) / 2);
     border-radius: 6px;
 
     text-align: center;
+    word-break: break-all;
 
     position: absolute;
     left: 0px;

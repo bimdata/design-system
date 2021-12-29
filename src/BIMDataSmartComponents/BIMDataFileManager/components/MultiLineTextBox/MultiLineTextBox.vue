@@ -108,6 +108,7 @@ export default {
   }
 
   &__ghost {
+    word-break: break-all;
     top: 0;
     position: absolute;
     visibility: hidden;
