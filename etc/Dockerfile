@@ -13,4 +13,4 @@ RUN npm run build-web
 FROM nginx:stable
 RUN rm /etc/nginx/conf.d/default.conf
 COPY etc/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=0 /opt/dist /usr/share/nginx/html
+COPY --from=0 /opt/dist-web /usr/share/nginx/html

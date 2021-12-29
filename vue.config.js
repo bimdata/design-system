@@ -1,5 +1,6 @@
 module.exports = {
   productionSourceMap: false,
+  outputDir: "dist-web",
   chainWebpack: config => {
     config.module
       .rule("css")
