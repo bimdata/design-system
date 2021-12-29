@@ -14,7 +14,12 @@
         >
           <template #content>
             <router-link to="../getting-started">
-              <BIMDataText component="h5" color="color-white" margin="10px">
+              <BIMDataText
+                component="h5"
+                color="color-white"
+                margin="10px"
+                :fontWeight="700"
+              >
                 Getting started
               </BIMDataText>
               <BIMDataText color="color-white" display="block" padding="12px 0">
@@ -49,6 +54,7 @@
                 component="h5"
                 color="color-primary"
                 margin="12px 0 0"
+                :fontWeight="700"
               >
                 {{ child.title }}
               </BIMDataText>
