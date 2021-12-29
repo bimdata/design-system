@@ -61,7 +61,5 @@ html {
   --size-btn-options: 45px;
 
   /* base FONTS -------------------------------------- */
-  --primary-font: "robotoregular", sans-serif;
-  --primary-font-medium: "robotomedium", sans-serif;
-  --primary-font-bold: "robotobold", sans-serif;
+  --primary-font: "roboto", sans-serif;
 }

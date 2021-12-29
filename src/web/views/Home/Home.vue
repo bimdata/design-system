@@ -12,10 +12,10 @@
         <template #content>
           <router-link :to="{ path: `/${page.path}` }">
             <img :src="page.img" />
-            <BIMDataText component="h2" color="color-primary">
+            <BIMDataText component="h2" color="color-primary" fontWeight="700">
               {{ title }}
             </BIMDataText>
-            <BIMDataText margin="5px 0">{{ page.text }}</BIMDataText>
+            <BIMDataText>{{ page.text }}</BIMDataText>
             <BIMDataButton width="150" radius fill color="primary">
               Explore
             </BIMDataButton>

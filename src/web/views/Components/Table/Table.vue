@@ -350,7 +350,7 @@ export default {
 
   &__label {
     margin-bottom: 12px;
-    font-weight: bold;
+    font-weight: 700;
   }
 }
 
