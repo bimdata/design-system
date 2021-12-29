@@ -18,7 +18,7 @@
                 component="h5"
                 color="color-white"
                 margin="10px"
-                :fontWeight="700"
+                fontWeight="700"
               >
                 Getting started
               </BIMDataText>
@@ -54,11 +54,11 @@
                 component="h5"
                 color="color-primary"
                 margin="12px 0 0"
-                :fontWeight="700"
+                fontWeight="700"
               >
                 {{ child.title }}
               </BIMDataText>
-              <BIMDataText margin="18px 0" color="color-granite">
+              <BIMDataText color="color-granite">
                 {{ child.text }}
               </BIMDataText>
               <BIMDataButton width="150" radius fill color="primary">

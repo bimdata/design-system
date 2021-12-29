@@ -12,7 +12,7 @@
         <template #content>
           <router-link :to="{ path: `/${page.path}` }">
             <img :src="page.img" />
-            <BIMDataText component="h2" color="color-primary" :fontWeight="700">
+            <BIMDataText component="h2" color="color-primary" fontWeight="700">
               {{ title }}
             </BIMDataText>
             <BIMDataText>{{ page.text }}</BIMDataText>
