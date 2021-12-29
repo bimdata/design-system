@@ -32,6 +32,7 @@
       </span>
     </div>
     <Tooltip
+      @click.native.stop
       v-if="tooltipDisplayed"
       :text="text"
       class="multi-line-text-box__tooltip"

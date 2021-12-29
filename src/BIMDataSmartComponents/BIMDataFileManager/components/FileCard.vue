@@ -1,14 +1,13 @@
 <template>
-  <div class="file-card">
+  <div class="file-card" @click="onClick">
     <div
       class="file-card__content"
       :class="{
         'file-card__content--selected': selected,
         'file-card__content--hover': (select && !success) || isFolder,
       }"
-      @click="onClick"
     >
-      <div @click="onContentClick" class="file-card__content__header">
+      <div class="file-card__content__header">
         <div class="file-card__content__header__btn-menu">
           <transition name="fade" v-if="success" :duration="1000">
             <BIMDataIcon
@@ -250,13 +249,10 @@ export default {
       this.$emit("delete");
     },
     onClick() {
-      if (!this.isFolder && !this.success && this.select) {
-        this.$emit("toggle-select", this.file);
-      }
-    },
-    onContentClick() {
       if (this.isFolder) {
         this.$emit("open-folder");
+      } else if (!this.success && this.select) {
+        this.$emit("toggle-select", this.file);
       }
     },
     toggleMenu() {
@@ -307,9 +303,7 @@ export default {
     }
 
     &--hover {
-      .file-card__content__header {
-        cursor: pointer;
-      }
+      cursor: pointer;
       &:hover {
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
       }
