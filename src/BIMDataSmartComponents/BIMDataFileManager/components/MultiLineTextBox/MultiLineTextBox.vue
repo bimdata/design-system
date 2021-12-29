@@ -111,6 +111,8 @@ export default {
   &__ghost {
     word-break: break-all;
     top: 0;
+    right: 0;
+    left: 0;
     position: absolute;
     visibility: hidden;
   }
