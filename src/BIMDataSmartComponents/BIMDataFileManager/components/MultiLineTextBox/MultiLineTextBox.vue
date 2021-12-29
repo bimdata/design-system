@@ -1,48 +1,50 @@
 <template>
-  <div class="multi-line-text-box" :style="style">
-    <BIMDataTooltip
-      :message="text"
-      className="bimdata-tooltip--bottom bimdata-tooltip--primary bimdata-tooltip--arrow"
-      v-if="needEllipsis"
-    >
-      <template #content>
-        <div class="multi-line-text-box__content">
-          <div class="multi-line-text-box__content__head">
-            <span>
-              {{ text }}
-            </span>
+  <div
+    class="multi-line-text-box"
+    :style="style"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
+  >
+    <div class="multi-line-text-box__content">
+      <template v-if="needEllipsis">
+        <div class="multi-line-text-box__content__head">
+          <span>
+            {{ text }}
+          </span>
+        </div>
+        <div
+          class="multi-line-text-box__content__tail"
+          :style="`height:${lineHeight * (lines - 1)}px`"
+        >
+          <div class="multi-line-text-box__content__tail__text">
+            <span>{{ text }} </span>
           </div>
-          <div
-            class="multi-line-text-box__content__tail"
-            :style="`height:${lineHeight * (lines - 1)}px`"
-          >
-            <div class="multi-line-text-box__content__tail__text">
-              <span>{{ text }} </span>
-            </div>
-            <div class="multi-line-text-box__content__tail__ellipsis">
-              ...
-            </div>
+          <div class="multi-line-text-box__content__tail__ellipsis">
+            ...
           </div>
         </div>
       </template>
-    </BIMDataTooltip>
-    <div v-else class="multi-line-text-box__content">
-      <span class="multi-line-text-box__content__full">
+      <span class="multi-line-text-box__content__full" v-else>
         {{ text }}
       </span>
     </div>
     <span class="multi-line-text-box__ghost" ref="ghost">
       {{ text }}
     </span>
+    <Tooltip
+      v-if="tooltipDisplayed"
+      :text="text"
+      class="multi-line-text-box__tooltip"
+    />
   </div>
 </template>
 
 <script>
-import BIMDataTooltip from "../../../BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
+import Tooltip from "./Tooltip.vue";
 
 export default {
   components: {
-    BIMDataTooltip,
+    Tooltip,
   },
   props: {
     text: {
@@ -61,6 +63,7 @@ export default {
   data() {
     return {
       needEllipsis: false,
+      hover: false,
     };
   },
   computed: {
@@ -69,6 +72,9 @@ export default {
         "--textbox-line-height": `${this.lineHeight}px`,
         "--textbox-lines": this.lines,
       };
+    },
+    tooltipDisplayed() {
+      return this.needEllipsis && this.hover;
     },
   },
   mounted() {
@@ -93,6 +99,13 @@ export default {
 .multi-line-text-box {
   position: relative;
   line-height: var(--textbox-line-height, 14px);
+
+  &__tooltip {
+    position: absolute;
+    top: calc(
+      calc(var(--textbox-line-height, 14px) * var(--textbox-lines, 3)) + 10px
+    );
+  }
 
   &__ghost {
     top: 0;

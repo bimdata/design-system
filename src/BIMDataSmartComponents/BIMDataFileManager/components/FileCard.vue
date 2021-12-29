@@ -115,7 +115,7 @@ import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataF
 import clickaway from "../../../BIMDataDirectives/click-away.js";
 
 import PieProgressSpinner from "./PieProgressSpinner.vue";
-import MultiLineTextBox from "./MultiLineTextBox.vue";
+import MultiLineTextBox from "./MultiLineTextBox/MultiLineTextBox.vue";
 
 export default {
   components: {
