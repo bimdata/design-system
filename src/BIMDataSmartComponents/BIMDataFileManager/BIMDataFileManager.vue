@@ -243,7 +243,7 @@ export default {
       return this.currentFolder !== this.fileStructure;
     },
     itemWidth() {
-      return this.xsLayout ? "100%" : this.sLayout ? "184px" : "164px";
+      return this.xsLayout ? "100%" : this.sLayout ? "180px" : "164px";
     },
     xsLayout() {
       return this.width < XS;
