@@ -20,7 +20,6 @@ export default {
     },
     fontWeight: {
       type: String,
-      default: "400",
     },
     lineHeight: {
       type: String,
@@ -62,7 +61,7 @@ export default {
         fontSize: `${this.calcFontSize}`,
         lineHeight: `${this.calcLineHeight}`,
         display: `${this.display}`,
-        fontWeight: `${this.fontWeight}`,
+        fontWeight: `${this.calcFontWeight}`,
         margin: `${this.margin}`,
         padding: `${this.padding}`,
       };
@@ -83,6 +82,25 @@ export default {
           return "16px";
         } else {
           return "14px";
+        }
+      }
+    },
+    calcFontWeight() {
+      if (this.fontWeight) {
+        return this.fontWeight;
+      } else {
+        if (this.component === "h1") {
+          return "700";
+        } else if (this.component === "h2") {
+          return "700";
+        } else if (this.component === "h3") {
+          return "500";
+        } else if (this.component === "h4") {
+          return "500";
+        } else if (this.component === "h5") {
+          return "500";
+        } else {
+          return "400";
         }
       }
     },

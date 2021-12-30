@@ -51,7 +51,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/scss/_BIMDataVariables.scss";
 @import "../../../assets/scss/mixins/_colors-variation.scss";
 
 @import "./_DesignSystem-aside.scss";

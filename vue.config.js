@@ -1,6 +1,13 @@
 module.exports = {
   productionSourceMap: false,
   outputDir: "dist-web",
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: '@import "~@/assets/scss/BIMData.scss";',
+      },
+    },
+  },
   chainWebpack: config => {
     config.module
       .rule("css")
