@@ -216,7 +216,7 @@ export default {
       type: Boolean,
       default: true,
     },
-    alreadySelectedFiles: {
+    alreadySelectedIds: {
       type: Array,
       defaut: () => [],
     },
@@ -357,8 +357,8 @@ export default {
       return (
         this.successFileIds.includes(id) ||
         (this.select &&
-          this.alreadySelectedFiles &&
-          this.alreadySelectedFiles.includes(id))
+          this.alreadySelectedIds &&
+          this.alreadySelectedIds.includes(id))
       );
     },
     onFileLoaded(loadingFile, loadedFile) {
