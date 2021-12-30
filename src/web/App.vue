@@ -41,6 +41,7 @@ export default {
 <style lang="scss">
 // import BIMDATA STYLE
 @import "../assets/scss/BIMData.scss";
+@import "../assets/scss/_BIMDataFonts.scss";
 @import "../assets/scss/mixins/_colors-variation.scss";
 
 // import DESIGN SYSTEM STYLE
