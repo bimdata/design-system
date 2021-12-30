@@ -1,5 +1,5 @@
 <template>
-  <div class="folder-creation-form" v-clickaway="close">
+  <div class="folder-creation-form">
     <div class="folder-creation-form__title">
       <BIMDataIcon name="addFolder" size="xs" />
       <span>{{ $translate("creationFormTitle") }}</span>
@@ -43,15 +43,12 @@ import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.v
 import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
-import clickaway from "../../../../BIMDataDirectives/click-away.js";
-
 export default {
   components: {
     BIMDataIcon,
     BIMDataInput,
     BIMDataButton,
   },
-  directives: { clickaway },
   inject: ["$translate"],
   props: {
     projectId: {

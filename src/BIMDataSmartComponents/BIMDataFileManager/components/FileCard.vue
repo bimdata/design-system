@@ -1,29 +1,27 @@
 <template>
-  <BIMDataCard
-    class="file-card"
-    :class="{
-      'file-card--selected': selected,
-      'file-card--hover': select || isFolder,
-    }"
-    :width="width"
-    @click.native="onClick"
-  >
-    <template #content>
-      <div @click="onContentClick" class="file-card__content">
-        <div class="file-card__btn-menu">
+  <div class="file-card" @click="onClick">
+    <div
+      class="file-card__content"
+      :class="{
+        'file-card__content--selected': selected,
+        'file-card__content--hover': (select && !success) || isFolder,
+      }"
+    >
+      <div class="file-card__content__header">
+        <div class="file-card__content__header__btn-menu">
           <transition name="fade" v-if="success" :duration="1000">
             <BIMDataIcon
               name="success"
               size="s"
               fill
               color="success"
-              class="file-card__btn-menu__success"
+              class="file-card__content__header__btn-menu__success"
             />
           </transition>
           <PieProgressSpinner
             v-if="loading && !success"
             :progress="percentCompleted"
-            class="file-card__btn-menu__spinner"
+            class="file-card__content__header__btn-menu__spinner"
           />
           <BIMDataButton
             ghost
@@ -31,16 +29,20 @@
             icon
             v-else-if="edit && !success"
             @click.stop="toggleMenu"
-            class="file-card__btn-menu__edit"
+            class="file-card__content__header__btn-menu__edit"
             :disabled="success"
           >
             <BIMDataIcon name="ellipsis" size="l" fill color="granite-light" />
           </BIMDataButton>
           <div
             v-else-if="!isFolder && !success"
-            class="file-card__btn-menu--select"
+            class="file-card__content__header__btn-menu--select"
           >
-            <BIMDataCheckbox v-if="multiSelect" :modelValue="selected" />
+            <BIMDataCheckbox
+              v-if="multiSelect"
+              :modelValue="selected"
+              class="file-card__content__header__btn-menu__checkbox"
+            />
             <BIMDataRadio
               v-else
               big
@@ -50,13 +52,17 @@
           </div>
         </div>
         <template v-if="file.type === 'Folder'">
-          <BIMDataIcon name="folder" size="xxl" fill color="primary" />
+          <BIMDataIcon name="folder" size="xl" fill color="primary" />
         </template>
         <template v-else>
-          <BIMDataFileIcon :fileName="file.name" />
+          <BIMDataFileIcon :fileName="file.name" :size="25" />
         </template>
       </div>
-      <div class="file-card__menu" v-if="menuDisplayed" v-clickaway="away">
+      <div
+        class="file-card__content__menu"
+        v-if="menuDisplayed"
+        v-clickaway="away"
+      >
         <BIMDataButton
           color="default"
           ghost
@@ -86,38 +92,39 @@
           {{ $translate("delete") }}
         </BIMDataButton>
       </div>
-    </template>
-    <template #footer>
-      <div class="file-card__name">
-        {{ file.name }}
+      <div class="file-card__content__footer">
+        <MultiLineTextBox
+          class="file-card__content__footer__name"
+          :text="file.name"
+        />
+        <div class="file-card__content__footer__date">
+          {{ file.updatedAt.toLocaleDateString() }}
+        </div>
       </div>
-      <div class="file-card__date">
-        {{ file.updatedAt.toLocaleDateString() }}
-      </div>
-    </template>
-  </BIMDataCard>
+    </div>
+  </div>
 </template>
 
 <script>
-import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCard from "../../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataRadio from "../../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataFileIcon from "../../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
-import clickaway from "../../../../BIMDataDirectives/click-away.js";
+import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataRadio from "../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
+import BIMDataCheckbox from "../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
+import clickaway from "../../../BIMDataDirectives/click-away.js";
 
-import PieProgressSpinner from "../PieProgressSpinner.vue";
+import PieProgressSpinner from "./PieProgressSpinner.vue";
+import MultiLineTextBox from "./MultiLineTextBox/MultiLineTextBox.vue";
 
 export default {
   components: {
     BIMDataButton,
-    BIMDataCard,
     BIMDataIcon,
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataFileIcon,
     PieProgressSpinner,
+    MultiLineTextBox,
   },
   directives: { clickaway },
   inject: ["$translate"],
@@ -242,13 +249,10 @@ export default {
       this.$emit("delete");
     },
     onClick() {
-      if (!this.isFolder && this.select) {
-        this.$emit("toggle-select", this.file);
-      }
-    },
-    onContentClick() {
       if (this.isFolder) {
         this.$emit("open-folder");
+      } else if (!this.success && this.select) {
+        this.$emit("toggle-select", this.file);
       }
     },
     toggleMenu() {
@@ -263,4 +267,86 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./FileCard.scss"></style>
+<style scoped lang="scss">
+@import "../../../assets/scss/BIMDataVariables";
+
+.file-card {
+  height: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  &__content {
+    height: calc(100% - 24px);
+    width: calc(100% - 24px);
+    background-color: $color-white;
+    box-shadow: $box-shadow;
+    position: relative;
+
+    &__menu {
+      position: absolute;
+      background-color: $color-white;
+      z-index: 1;
+      left: calc($spacing-unit / 3);
+      right: calc($spacing-unit / 3);
+      bottom: $spacing-unit;
+      box-shadow: $box-shadow;
+    }
+
+    &--selected {
+      border: solid $color-primary 3px;
+    }
+
+    &:not(.file-card__content--selected) {
+      padding: 3px;
+    }
+
+    &--hover {
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &__header {
+      height: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: solid 1px $color-silver-light;
+
+      &__btn-menu {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+        &__checkbox {
+          top: 6px;
+        }
+      }
+    }
+
+    &__footer {
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      font-size: 12px;
+
+      padding: $spacing-unit;
+
+      &__name {
+        font-weight: bold;
+        color: $color-granite;
+      }
+
+      &__date {
+        color: $color-granite-light;
+      }
+    }
+  }
+}
+</style>

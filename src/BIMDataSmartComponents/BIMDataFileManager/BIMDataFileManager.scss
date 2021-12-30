@@ -2,8 +2,6 @@
 
 .bimdata-file-manager {
   width: 100%;
-  padding: $spacing-unit;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -45,9 +43,11 @@
 
   &__navigation {
     height: 22px;
+    flex-shrink: 0;
     &__content {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       span {
         margin-left: $spacing-unit;
         text-overflow: ellipsis;
@@ -69,6 +69,8 @@
   }
 
   &__container {
+    overflow-y: auto;
+    height: 100%;
     &--empty {
       background-color: $color-silver-light;
       display: flex;

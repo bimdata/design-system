@@ -9,10 +9,10 @@
           'bimdata-file-manager__header--m': mLayout,
           'bimdata-file-manager__header--l': lLayout,
         }"
+        v-if="headerButtons || headerSearch"
       >
         <template v-if="headerButtons">
           <NewFolderButton
-            width="25%"
             :disabled="!currentFolder || currentFolder.userPermission < 100"
             :projectId="projectId"
             :spaceId="spaceId"
@@ -56,39 +56,45 @@
           >
             <BIMDataIcon name="arrow" />
           </BIMDataButton>
-          <span>
-            {{ currentFolder.name }}
-          </span>
+          <BIMDataTextbox
+            :text="currentFolder.name"
+            cutPosition="middle"
+            tooltipPosition="bottom"
+            tooltipColor="primary"
+            width="calc(100% - 33px)"
+          />
         </div>
       </div>
       <template v-if="fileStructure">
-        <BIMDataResponsiveGrid
-          v-if="files.length > 0"
-          class="bimdata-file-manager__container"
-          :itemWidth="itemWidth"
-        >
-          <FileCard
-            :width="itemWidth"
-            v-for="file of files"
-            :key="file.id"
-            :file="file"
-            :projectId="projectId"
-            :spaceId="spaceId"
-            :apiUrl="apiUrl"
-            :accessToken="accessToken"
-            @open-folder="openFolder(file)"
-            :select="select"
-            :multi="multi"
-            :selected="isFileSelected(file)"
-            :success="isFileSucess(file.id)"
-            @toggle-select="onToggleFileSelect(file)"
-            @rename="onRename(file)"
-            @delete="onDelete(file)"
-            @dowload="onDowload(file)"
-            @loaded="onFileLoaded(file, $event)"
-            :writeAccess="currentFolder.userPermission >= 100"
-          />
-        </BIMDataResponsiveGrid>
+        <div class="bimdata-file-manager__container" v-if="files.length > 0">
+          <BIMDataResponsiveGrid
+            :itemWidth="itemWidth"
+            rowGap="6px"
+            columnGap="6px"
+          >
+            <FileCard
+              :width="itemWidth"
+              v-for="file of files"
+              :key="file.id"
+              :file="file"
+              :projectId="projectId"
+              :spaceId="spaceId"
+              :apiUrl="apiUrl"
+              :accessToken="accessToken"
+              @open-folder="openFolder(file)"
+              :select="select"
+              :multi="multi"
+              :selected="isFileSelected(file)"
+              :success="isFileSucess(file.id)"
+              @toggle-select="onToggleFileSelect(file)"
+              @rename="onRename(file)"
+              @delete="onDelete(file)"
+              @dowload="onDowload(file)"
+              @loaded="onFileLoaded(file, $event)"
+              :writeAccess="currentFolder.userPermission >= 100"
+            />
+          </BIMDataResponsiveGrid>
+        </div>
         <div v-else class="bimdata-file-manager__container--empty">
           <div>
             <BIMDataIcon name="folderOpen" size="xxxl" fill color="silver" />
@@ -131,8 +137,9 @@ import BIMDataSearch from "../../BIMDataComponents/BIMDataSearch/BIMDataSearch.v
 import BIMDataLoading from "../../BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
-import FileCard from "./components/FileCard/FileCard.vue";
+import FileCard from "./components/FileCard.vue";
 import NewFolderButton from "./components/newFolder/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
 import RenameModal from "./components/modals/RenameModal.vue";
@@ -159,6 +166,7 @@ export default {
     UploadFileButton,
     BIMDataIcon,
     BIMDataButton,
+    BIMDataTextbox,
     RenameModal,
     DeleteModal,
   },
@@ -208,6 +216,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    alreadySelectedIds: {
+      type: Array,
+      defaut: () => [],
+    },
   },
   data() {
     return {
@@ -231,7 +243,7 @@ export default {
       return this.currentFolder !== this.fileStructure;
     },
     itemWidth() {
-      return this.xsLayout ? "100%" : this.sLayout ? "170px" : "140px";
+      return this.xsLayout ? "100%" : this.sLayout ? "180px" : "164px";
     },
     xsLayout() {
       return this.width < XS;
@@ -342,7 +354,12 @@ export default {
       return (trads[this.locale] || trads["en"])[key];
     },
     isFileSucess(id) {
-      return this.successFileIds.includes(id);
+      return (
+        this.successFileIds.includes(id) ||
+        (this.select &&
+          this.alreadySelectedIds &&
+          this.alreadySelectedIds.includes(id))
+      );
     },
     onFileLoaded(loadingFile, loadedFile) {
       if (!loadingFile.folder.children) {
