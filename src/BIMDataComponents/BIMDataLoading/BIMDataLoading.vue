@@ -16,4 +16,10 @@ export default {
 };
 </script>
 
+<style
+  lang="scss"
+  scoped
+  src="../../assets/scss/_BIMDataVariables.scss"
+></style>
+
 <style lang="scss" src="./_BIMDataLoading.scss"></style>

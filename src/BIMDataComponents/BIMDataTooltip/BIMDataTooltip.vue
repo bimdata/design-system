@@ -104,4 +104,9 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/utilities/_text.scss";
+</style>
+
 <style lang="scss" src="./_BIMDataTooltip.scss"></style>

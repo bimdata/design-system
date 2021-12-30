@@ -264,4 +264,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataTable.scss"></style>
+<style scoped lang="scss">
+@import "../../assets/scss/_BIMDataVariables.scss";
+@import "./_BIMDataTable.scss";
+</style>
