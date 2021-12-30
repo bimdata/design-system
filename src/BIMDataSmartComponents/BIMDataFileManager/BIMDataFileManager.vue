@@ -61,7 +61,7 @@
             cutPosition="middle"
             tooltipPosition="bottom"
             tooltipColor="primary"
-            width="calc(100% - 21px)"
+            width="calc(100% - 33px)"
           />
         </div>
       </div>
