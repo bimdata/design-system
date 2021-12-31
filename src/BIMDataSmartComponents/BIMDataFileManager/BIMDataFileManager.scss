@@ -9,6 +9,7 @@
 
   &__header {
     display: flex;
+    padding: 0 12px;
 
     &--xs {
       flex-direction: column;
@@ -42,8 +43,10 @@
   }
 
   &__navigation {
+    padding: 0 12px;
     height: 22px;
     flex-shrink: 0;
+    font-weight: bold;
     &__content {
       display: flex;
       align-items: center;

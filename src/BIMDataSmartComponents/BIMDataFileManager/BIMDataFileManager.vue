@@ -64,6 +64,9 @@
             width="calc(100% - 33px)"
           />
         </div>
+        <div v-else>
+          {{ translate("dmsRoot") }}
+        </div>
       </div>
       <template v-if="fileStructure">
         <div class="bimdata-file-manager__container" v-if="files.length > 0">

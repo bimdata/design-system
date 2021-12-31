@@ -278,6 +278,7 @@ export default {
   box-sizing: border-box;
 
   &__content {
+    box-sizing: border-box;
     height: calc(100% - 24px);
     width: calc(100% - 24px);
     background-color: $color-white;
