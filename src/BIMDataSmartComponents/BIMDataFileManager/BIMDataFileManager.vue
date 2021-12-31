@@ -69,7 +69,7 @@
         <div class="bimdata-file-manager__container" v-if="files.length > 0">
           <BIMDataResponsiveGrid
             :itemWidth="itemWidth"
-            rowGap="6px"
+            rowGap="4px"
             columnGap="6px"
           >
             <FileCard
