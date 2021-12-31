@@ -38,6 +38,7 @@
           v-model="searchText"
           ref="search"
           clear
+          radius
         />
       </div>
       <div class="bimdata-file-manager__navigation">
@@ -50,8 +51,8 @@
             icon
             radius
             ghost
-            width="21px"
-            height="21px"
+            width="33px"
+            height="31px"
             @click="back"
           >
             <BIMDataIcon name="arrow" />
@@ -61,15 +62,18 @@
             cutPosition="middle"
             tooltipPosition="bottom"
             tooltipColor="primary"
-            width="calc(100% - 33px)"
+            width="calc(100% - 45px)"
           />
+        </div>
+        <div v-else class="bimdata-file-manager__navigation__content--empty">
+          {{ translate("dmsRoot") }}
         </div>
       </div>
       <template v-if="fileStructure">
         <div class="bimdata-file-manager__container" v-if="files.length > 0">
           <BIMDataResponsiveGrid
             :itemWidth="itemWidth"
-            rowGap="6px"
+            rowGap="4px"
             columnGap="6px"
           >
             <FileCard

@@ -9,6 +9,7 @@
 
   &__header {
     display: flex;
+    padding: 0 $spacing-unit;
 
     &--xs {
       flex-direction: column;
@@ -42,16 +43,19 @@
   }
 
   &__navigation {
-    height: 22px;
+    padding: 0 $spacing-unit;
+    height: 31px;
     flex-shrink: 0;
+    font-weight: bold;
+    margin-top: 12px;
     &__content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      span {
-        margin-left: $spacing-unit;
-        text-overflow: ellipsis;
-        overflow: hidden;
+      &--empty {
+        display: flex;
+        align-items: center;
+        height: 100%;
       }
     }
   }
@@ -71,7 +75,9 @@
   &__container {
     overflow-y: auto;
     height: 100%;
+
     &--empty {
+      margin: $spacing-unit;
       background-color: $color-silver-light;
       display: flex;
       justify-content: center;

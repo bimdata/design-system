@@ -278,6 +278,7 @@ export default {
   box-sizing: border-box;
 
   &__content {
+    box-sizing: border-box;
     height: calc(100% - 24px);
     width: calc(100% - 24px);
     background-color: $color-white;
@@ -310,7 +311,8 @@ export default {
     }
 
     &__header {
-      height: 40%;
+      box-sizing: border-box;
+      height: 65px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -329,7 +331,7 @@ export default {
     }
 
     &__footer {
-      height: 60%;
+      height: 85px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
