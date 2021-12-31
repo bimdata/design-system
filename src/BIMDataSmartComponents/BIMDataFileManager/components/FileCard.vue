@@ -311,7 +311,8 @@ export default {
     }
 
     &__header {
-      height: 40%;
+      box-sizing: border-box;
+      height: 65px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -330,7 +331,7 @@ export default {
     }
 
     &__footer {
-      height: 60%;
+      height: 85px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
