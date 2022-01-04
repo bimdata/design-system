@@ -54,6 +54,7 @@ import information from "./Information.vue";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
 import left from "./Left.vue";
+import linkedDocument from "./LinkedDocument.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
 import logout from "./Logout.vue";
@@ -166,6 +167,7 @@ export default {
   isolate,
   key,
   left,
+  linkedDocument,
   listManage,
   location,
   logout,
