@@ -97,14 +97,17 @@ export default {
     },
     style() {
       const pixelSize = this.getPixelSize(this.size);
-      return {
+      const style = {
         width: `${pixelSize}px`,
         minWidth: `${pixelSize}px`,
         height: `${pixelSize}px`,
         minHeight: `${pixelSize}px`,
         margin: `${this.margin}`,
-        transform: `rotate(${this.rotate}deg)`,
       };
+      if (this.rotation > 0) {
+        style.transform = `rotate(${this.rotate}deg)`;
+      }
+      return style;
     },
   },
   methods: {
