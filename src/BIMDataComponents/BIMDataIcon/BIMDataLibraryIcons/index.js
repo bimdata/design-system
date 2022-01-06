@@ -57,6 +57,7 @@ import left from "./Left.vue";
 import linkedDocument from "./LinkedDocument.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
+import lock from "./Lock.vue";
 import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
@@ -170,6 +171,7 @@ export default {
   linkedDocument,
   listManage,
   location,
+  lock,
   logout,
   measure,
   minus,
