@@ -103,10 +103,8 @@ export default {
         height: `${pixelSize}px`,
         minHeight: `${pixelSize}px`,
         margin: `${this.margin}`,
+        transform: `rotate(${this.rotate}deg)`,
       };
-      if (this.rotation > 0) {
-        style.transform = `rotate(${this.rotate}deg)`;
-      }
       return style;
     },
   },

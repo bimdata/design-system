@@ -21,7 +21,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="chevron" size="xxxs" />
+        <BIMDataIcon name="chevron" size="xxxs" :rotate="iconRotation" />
       </BIMDataButton>
       <slot name="contentAfterBtn"></slot>
     </div>
@@ -113,6 +113,9 @@ export default {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
       };
+    },
+    iconRotation() {
+      return this.displayed ? (this.directionClass === "up" ? -90 : 90) : 0;
     },
   },
   methods: {
