@@ -19,7 +19,7 @@
             :placeholder="getPlaceholder()"
             :disabled="getDisabled()"
             :readonly="getReadonly()"
-            :fitContent="getFitContent()"
+            :fitContent="fitContent"
           />
         </template>
 
@@ -170,13 +170,6 @@ export default {
     },
     getReadonly() {
       if (this.readonly) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    getFitContent() {
-      if (this.fitContent) {
         return true;
       } else {
         return false;
