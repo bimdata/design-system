@@ -19,6 +19,7 @@
             :placeholder="getPlaceholder()"
             :disabled="getDisabled()"
             :readonly="getReadonly()"
+            :fitContent="getFitContent()"
           />
         </template>
 
@@ -27,6 +28,7 @@
           <BIMDataCheckbox text="placeholder" v-model="placeholder" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
           <BIMDataCheckbox text="readonly" v-model="readonly" />
+          <BIMDataCheckbox text="fitContent" v-model="fitContent" />
         </template>
 
         <template #import>
@@ -44,6 +46,8 @@
               {{ placeholder ? ':placeholder="true"' : "" }}
               {{ disabled ? ':disabled="true"' : "" }}
               {{ readonly ? ':readonly="true"' : "" }}
+              {{ fitContent ? "fitContent" : "" }}
+
 
             /&gt;
           </pre>
@@ -83,6 +87,7 @@ export default {
       placeholder: false,
       disabled: false,
       readonly: false,
+      fitContent: false,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -133,6 +138,12 @@ export default {
           "false",
           "Use this boolean to make your textarea readonly.",
         ],
+        [
+          "fitContent",
+          "Boolean",
+          "false",
+          "Use this boolean to make textarea fit the content",
+        ],
       ],
     };
   },
@@ -159,6 +170,13 @@ export default {
     },
     getReadonly() {
       if (this.readonly) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getFitContent() {
+      if (this.fitContent) {
         return true;
       } else {
         return false;

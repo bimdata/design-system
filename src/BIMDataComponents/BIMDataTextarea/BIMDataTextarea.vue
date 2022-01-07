@@ -9,16 +9,19 @@
     }"
     :style="{ 'min-width': width, 'min-height': height }"
   >
-    <textarea
-      v-focus="autofocus"
-      :name="name"
-      :id="name"
-      :value="modelValue"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :readonly="readonly"
-      @input="$emit('update:modelValue', $event.currentTarget.value)"
-    />
+    <component ref="fitContent" :is="fitContent ? 'ResizableTextarea' : 'div'">
+      <textarea
+        v-focus="autofocus"
+        :name="name"
+        :id="name"
+        :value="modelValue"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :readonly="readonly"
+        @input="$emit('update:modelValue', $event.currentTarget.value)"
+      />
+    </component>
+
     <label :for="name">{{ label }}</label>
     <span class="bar"></span>
     <span v-if="error" class="error">{{ errorMessage }}</span>
@@ -27,6 +30,8 @@
 </template>
 
 <script>
+import ResizableTextarea from "./ResizableTextarea";
+
 export default {
   directives: {
     focus: {
@@ -36,6 +41,9 @@ export default {
         }
       },
     },
+  },
+  components: {
+    ResizableTextarea,
   },
   model: {
     prop: "modelValue",
@@ -94,6 +102,10 @@ export default {
       type: String,
       default: "",
     },
+    fitContent: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   created() {
@@ -108,6 +120,11 @@ export default {
   methods: {
     focus() {
       this.$refs.input && this.$refs.input.focus();
+    },
+    triggerInput() {
+      this.$nextTick(() => {
+        this.$refs.fitContent.$el.dispatchEvent(new Event("input"));
+      });
     },
   },
 };
