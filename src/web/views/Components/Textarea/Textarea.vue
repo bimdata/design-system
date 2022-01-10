@@ -15,10 +15,12 @@
             label="textarea label"
             name="example"
             v-model="textarea"
-            :autofocus="getAutofocus()"
+            :autofocus="autofocus"
             :placeholder="getPlaceholder()"
-            :disabled="getDisabled()"
-            :readonly="getReadonly()"
+            :disabled="disabled"
+            :readonly="readonly"
+            :fitContent="fitContent"
+            :resizable="resizable"
           />
         </template>
 
@@ -27,6 +29,8 @@
           <BIMDataCheckbox text="placeholder" v-model="placeholder" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
           <BIMDataCheckbox text="readonly" v-model="readonly" />
+          <BIMDataCheckbox text="fitContent" v-model="fitContent" />
+          <BIMDataCheckbox text="resizable" v-model="resizable" />
         </template>
 
         <template #import>
@@ -44,6 +48,10 @@
               {{ placeholder ? ':placeholder="true"' : "" }}
               {{ disabled ? ':disabled="true"' : "" }}
               {{ readonly ? ':readonly="true"' : "" }}
+              {{ fitContent ? "fitContent" : "" }}
+              {{ resizable ? "resizable" : "" }}
+
+
 
             /&gt;
           </pre>
@@ -83,6 +91,8 @@ export default {
       placeholder: false,
       disabled: false,
       readonly: false,
+      fitContent: false,
+      resizable: true,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -133,35 +143,26 @@ export default {
           "false",
           "Use this boolean to make your textarea readonly.",
         ],
+        [
+          "fitContent",
+          "Boolean",
+          "false",
+          "Use this boolean to make textarea fit the content",
+        ],
+        [
+          "resizable",
+          "Boolean",
+          "true",
+          "Use this boolean to make textarea resizable",
+        ],
       ],
     };
   },
   methods: {
-    getAutofocus() {
-      if (this.autofocus) {
-        return true;
-      } else {
-        return false;
-      }
-    },
     getPlaceholder() {
       if (this.placeholder) {
         this.placeholder = true;
         return "placeholder here";
-      }
-    },
-    getDisabled() {
-      if (this.disabled) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    getReadonly() {
-      if (this.readonly) {
-        return true;
-      } else {
-        return false;
       }
     },
   },

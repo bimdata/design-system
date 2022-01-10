@@ -10,6 +10,7 @@
     :style="{ 'min-width': width, 'min-height': height }"
   >
     <textarea
+      ref="textarea"
       v-focus="autofocus"
       :name="name"
       :id="name"
@@ -17,8 +18,11 @@
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
-      @input="$emit('update:modelValue', $event.currentTarget.value)"
+      :style="`${resizable ? '' : 'resize: none;'}`"
+      @input="onInput"
+      v-bind="$attrs"
     />
+
     <label :for="name">{{ label }}</label>
     <span class="bar"></span>
     <span v-if="error" class="error">{{ errorMessage }}</span>
@@ -45,6 +49,10 @@ export default {
     name: {
       type: [String, Number],
       default: "",
+    },
+    resizable: {
+      type: Boolean,
+      default: true,
     },
     modelValue: {
       type: [String, Number],
@@ -94,6 +102,10 @@ export default {
       type: String,
       default: "",
     },
+    fitContent: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   created() {
@@ -101,13 +113,29 @@ export default {
       () => this.success && this.error,
       successAndError => {
         if (successAndError)
-          throw "Textarea state cannot be both success and error.";
+          throw new Error("Textarea state cannot be both success and error.");
       }
     );
+  },
+  mounted() {
+    if (this.fitContent) {
+      this.handleFitContent();
+    }
   },
   methods: {
     focus() {
       this.$refs.input && this.$refs.input.focus();
+    },
+    handleFitContent() {
+      this.$refs.textarea.style.height = "auto";
+      this.$refs.textarea.style.height =
+        this.$refs.textarea.scrollHeight + "px";
+    },
+    onInput(event) {
+      this.$emit("update:modelValue", event.currentTarget.value);
+      if (this.fitContent) {
+        this.handleFitContent();
+      }
     },
   },
 };
