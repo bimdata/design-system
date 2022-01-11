@@ -52,7 +52,7 @@ import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
 import information from "./Information.vue";
-import inProgressFile from "./InProgressFile";
+import inProgressFile from "./InProgressFile.vue";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
 import left from "./Left.vue";
