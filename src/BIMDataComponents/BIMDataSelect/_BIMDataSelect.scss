@@ -1,4 +1,3 @@
-@import "../../assets/scss/_BIMDataVariables.scss";
 @import "../../assets/scss/mixins/_font-size.scss";
 @import "../../assets/scss/mixins/_pseudo.scss";
 
@@ -101,7 +100,7 @@
 
       &.option-group {
         color: var(--color-granite);
-        font-weight: bold;
+        font-weight: 700;
         &:hover {
           background-color: transparent;
           cursor: default;

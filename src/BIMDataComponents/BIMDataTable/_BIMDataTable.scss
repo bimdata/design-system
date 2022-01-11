@@ -1,4 +1,3 @@
-@import "../../assets/scss/_BIMDataVariables.scss";
 .bimdata-table {
   width: 100%;
   font-size: 0.9rem;
@@ -24,7 +23,7 @@
       }
 
       th {
-        font-weight: bold;
+        font-weight: 700;
         color: var(--color-primary);
       }
 
@@ -39,7 +38,7 @@
       align-items: center;
       padding: var(--spacing-unit);
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: 700;
       background-color: var(--color-silver-light);
     }
   }

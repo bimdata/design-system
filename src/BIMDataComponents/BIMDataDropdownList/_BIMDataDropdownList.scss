@@ -1,4 +1,3 @@
-@import "../../assets/scss/_BIMDataVariables.scss";
 @import "../../assets/scss/_BIMDataTransitions.scss";
 @import "../../assets/scss/elements/_BIMDataSubmenus.scss";
 
@@ -29,11 +28,6 @@
       background-color: var(--color-white);
       border: 1px solid transparent;
       box-shadow: var(--box-shadow);
-      .bimdata-btn {
-        svg {
-          transform: rotate(90deg);
-        }
-      }
     }
 
     &.disabled {
@@ -42,31 +36,6 @@
       .bimdata-btn {
         cursor: default;
         color: var(--color-silver-dark);
-      }
-    }
-  }
-
-  &[direction*="up"] {
-    .bimdata-dropdown-list__content {
-      &.active {
-        .bimdata-btn {
-          svg {
-            transform: rotate(-90deg);
-          }
-        }
-      }
-    }
-  }
-
-  &[direction*="right"],
-  &[direction*="left"] {
-    .bimdata-dropdown-list__content {
-      &.active {
-        .bimdata-btn {
-          svg {
-            transform: none;
-          }
-        }
       }
     }
   }

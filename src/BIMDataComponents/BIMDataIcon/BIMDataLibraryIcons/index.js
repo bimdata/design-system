@@ -56,8 +56,10 @@ import inProgressFile from "./InProgressFile.vue";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
 import left from "./Left.vue";
+import linkedDocument from "./LinkedDocument.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
+import lock from "./Lock.vue";
 import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
@@ -171,8 +173,10 @@ export default {
   isolate,
   key,
   left,
+  linkedDocument,
   listManage,
   location,
+  lock,
   logout,
   measure,
   minus,

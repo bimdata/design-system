@@ -158,7 +158,7 @@ export default {
     max-width: 350px;
 
     &__title {
-      font-weight: bold;
+      font-weight: 700;
       font-size: 120%;
     }
 

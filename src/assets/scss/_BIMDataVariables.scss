@@ -31,9 +31,7 @@ $spacing-unit: 12px;
 $size-btn-options: 45px;
 
 /* base FONTS -------------------------------------- */
-$primary-font: "robotoregular", sans-serif;
-$primary-font-medium: "robotomedium", sans-serif;
-$primary-font-bold: "robotobold", sans-serif;
+$primary-font: "roboto", sans-serif;
 
 html {
   /* base COLORS ------------------------------------------- */
@@ -97,12 +95,13 @@ html {
   /* base BOX-SHADOW ----------------------------------------- */
   --box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 
+  /* base BORDER RADIUS ----------------------------------------- */
+  --border-radius-tiny: 3px;
+
   /* base SPACING UNIT -------------------------------------- */
   --spacing-unit: 12px;
   --size-btn-options: 45px;
 
   /* base FONTS -------------------------------------- */
-  --primary-font: "robotoregular", sans-serif;
-  --primary-font-medium: "robotomedium", sans-serif;
-  --primary-font-bold: "robotobold", sans-serif;
+  --primary-font: "roboto", sans-serif;
 }

@@ -74,7 +74,8 @@ function formatIconComponentsNames(illustrations = {}) {
 }
 </script>
 
-<style lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/scss/_BIMDataVariables.scss";
-</style>
+<style
+  lang="scss"
+  scoped
+  src="../../assets/scss/_BIMDataVariables.scss"
+></style>

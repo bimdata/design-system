@@ -20,6 +20,7 @@ const en = {
   deleteTitle: "Deleting Files",
   deleteDetail:
     "You are about to permanently delete the following files / folders",
+  dmsRoot: "Root of the project's DMS",
 };
 
 const fr = {
@@ -44,6 +45,7 @@ const fr = {
   deleteTitle: "Supression de fichiers",
   deleteDetail:
     "Vous êtes sur le point de supprimer définitivement les fichiers/dossiers suivants",
+  dmsRoot: "Racine de la GED du projet",
 };
 
 const es = {

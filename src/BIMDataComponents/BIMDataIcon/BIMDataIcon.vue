@@ -97,7 +97,7 @@ export default {
     },
     style() {
       const pixelSize = this.getPixelSize(this.size);
-      return {
+      const style = {
         width: `${pixelSize}px`,
         minWidth: `${pixelSize}px`,
         height: `${pixelSize}px`,
@@ -105,6 +105,7 @@ export default {
         margin: `${this.margin}`,
         transform: `rotate(${this.rotate}deg)`,
       };
+      return style;
     },
   },
   methods: {
@@ -114,5 +115,11 @@ export default {
   },
 };
 </script>
+
+<style
+  lang="scss"
+  scoped
+  src="../../assets/scss/_BIMDataVariables.scss"
+></style>
 
 <style lang="scss" src="./_BIMDataIcon.scss"></style>

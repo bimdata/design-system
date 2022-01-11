@@ -17,6 +17,7 @@
             style="resize: auto; overflow: hidden;"
             :headerButtons="headerButtons"
             :headerSearch="headerSearch"
+            :alreadySelectedIds="[2694]"
           />
         </template>
 
@@ -45,6 +46,8 @@
                 accessToken="fc83e49ca9444d3ea41d212599f39040"
                 :select="{{ String(selectChecked) }}"
                 :multi="{{ String(multiChecked) }}"
+                :headerButtons="{{ headerButtons }}"
+                :headerSearch="{{ headerSearch }}"
                 /&gt;
             </pre
           >
@@ -126,6 +129,12 @@ export default {
           "boolean",
           "true",
           "If false, the header search is not visible.",
+        ],
+        [
+          "alreadySelectedIds",
+          "number[]",
+          "[]",
+          "An array of already selected ids. In select mode, already selected ids are not selectable and displayed as in success.",
         ],
       ],
       eventsData: [

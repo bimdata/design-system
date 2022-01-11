@@ -1,4 +1,3 @@
-@import "../../assets/scss/_BIMDataVariables.scss";
 // custom BASE PAGINATION
 .bimdata-pagination {
   &__item {
@@ -9,7 +8,7 @@
 
     &.active {
       .bimdata-btn {
-        font-weight: bold;
+        font-weight: 700;
       }
     }
   }

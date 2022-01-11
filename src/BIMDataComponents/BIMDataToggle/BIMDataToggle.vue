@@ -38,10 +38,6 @@ export default {
       uniqueId: null,
     };
   },
-  created() {
-    // Math.random is random enough to avoid conflict
-    this.uniqueId = Math.random().toString();
-  },
   computed: {
     checkedValue: {
       get() {
@@ -52,7 +48,17 @@ export default {
       },
     },
   },
+  created() {
+    // Math.random is random enough to avoid conflict
+    this.uniqueId = Math.random().toString();
+  },
 };
 </script>
+
+<style
+  lang="scss"
+  scoped
+  src="../../assets/scss/_BIMDataVariables.scss"
+></style>
 
 <style lang="scss" src="./_BIMDataToggle.scss"></style>

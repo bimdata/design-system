@@ -32,28 +32,12 @@
           <BIMDataText>Use this css classes in html class :</BIMDataText>
           <BIMDataTable
             :rowHeight="36"
-            :columns="weightClass[0]"
-            :rows="weightClass.slice(1)"
+            :columns="fontFamilyClass[0]"
+            :rows="fontFamilyClass.slice(1)"
           />
           <Code language="scss">
             <pre>
               @import "node_modules/@bimdata/design-system/dist/scss/utilities/text.scss"
-            </pre>
-          </Code>
-        </div>
-        <div class="m-t-24">
-          <BIMDataText
-            >Use this scss variables like a 'font-family' property
-            :</BIMDataText
-          >
-          <BIMDataTable
-            :rowHeight="36"
-            :columns="weightUtilities[0]"
-            :rows="weightUtilities.slice(1)"
-          />
-          <Code language="scss">
-            <pre>
-              @import "node_modules/@bimdata/design-system/dist/scss/BIMDataVariables.scss"
             </pre>
           </Code>
         </div>
@@ -110,17 +94,9 @@ export default {
         ["h5", "16px / 1.1em", "20px / 1.4em"],
         ["p", "14px / 1em", "18px / 1.3em"],
       ],
-      weightClass: [
+      fontFamilyClass: [
         ["Class Name", "Output value"],
-        ["primary-font", "font-family: 'robotoregular', sans-serif;"],
-        ["primary-font-medium", "font-family: 'robotomedium', sans-serif;"],
-        ["primary-font-bold", "font-family: 'robotobold', sans-serif;"],
-      ],
-      weightUtilities: [
-        ["Font weight utility class", "Output value"],
-        ["$primary-font", "'robotoregular', sans-serif"],
-        ["$primary-font-medium", "'robotomedium', sans-serif"],
-        ["$primary-font-bold", "'robotobold', sans-serif"],
+        ["primary-font", "font-family: 'roboto', sans-serif;"],
       ],
     };
   },

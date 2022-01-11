@@ -21,7 +21,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="chevron" size="xxxs" />
+        <BIMDataIcon name="chevron" size="xxxs" :rotate="iconRotation" />
       </BIMDataButton>
       <slot name="contentAfterBtn"></slot>
     </div>
@@ -114,6 +114,9 @@ export default {
         "min-height": `${this.height}`,
       };
     },
+    iconRotation() {
+      return this.displayed ? (this.directionClass === "up" ? -90 : 90) : 0;
+    },
   },
   methods: {
     onHeaderClick() {
@@ -133,5 +136,11 @@ export default {
   },
 };
 </script>
+
+<style
+  lang="scss"
+  scoped
+  src="../../assets/scss/_BIMDataVariables.scss"
+></style>
 
 <style lang="scss" src="./_BIMDataDropdownList.scss"></style>

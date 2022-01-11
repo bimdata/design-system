@@ -144,9 +144,7 @@ export default {
       ],
       variablesFontSummary: [
         ["SCSS Variable Name", "CSS Variable Name", "Output value"],
-        ["$primary-font", "--primary-font", "'robotoregular';"],
-        ["$primary-font-medium", "--primary-font-medium", "'robotomedium';"],
-        ["$primary-font-bold", "--primary-font-bold", "'robotobold';"],
+        ["$primary-font", "--primary-font", "'roboto';"],
       ],
     };
   },
