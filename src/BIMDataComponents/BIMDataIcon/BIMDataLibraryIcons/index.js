@@ -25,6 +25,7 @@ import color from "./Color.vue";
 import cursor from "./Cursor.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
+import deniedFile from "./DeniedFile.vue";
 import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
 import distance from "./Distance.vue";
@@ -51,6 +52,7 @@ import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
 import information from "./Information.vue";
+import inProgressFile from "./InProgressFile";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
 import left from "./Left.vue";
@@ -101,6 +103,7 @@ import union from "./Union.vue";
 import up from "./Up.vue";
 import user from "./User.vue";
 import validate from "./Validate.vue";
+import validatedFile from "./ValidatedFile.vue";
 import video from "./Video.vue";
 import visa from "./Visa.vue";
 import warning from "./Warning.vue";
@@ -139,6 +142,7 @@ export default {
   cursor,
   default: Default,
   delete: Delete,
+  deniedFile,
   deploy,
   detach,
   distance,
@@ -165,6 +169,7 @@ export default {
   ifcFile,
   import: Import,
   information,
+  inProgressFile,
   isolate,
   key,
   left,
@@ -215,6 +220,7 @@ export default {
   up,
   user,
   validate,
+  validatedFile,
   video,
   visa,
   warning,
