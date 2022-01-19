@@ -22,6 +22,7 @@ import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
 import color from "./Color.vue";
+import comment from "./Comment.vue";
 import cursor from "./Cursor.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
@@ -139,6 +140,7 @@ export default {
   close,
   cloud,
   color,
+  comment,
   cursor,
   default: Default,
   delete: Delete,
