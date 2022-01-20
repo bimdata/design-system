@@ -91,6 +91,18 @@
           >Props:</BIMDataText
         >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >nota bene:
+        </BIMDataText>
+        <BIMDataText component="span" color="color-primary" margin="15px 5px">
+          This component use the $attrs attribute provided by Vue. Therefore all
+          native attribute of this tag are workable.
+          <a
+            href="https://vuejs.org/v2/guide/components-props.html#Disabling-Attribute-Inheritance"
+            target="_blank"
+            >More info about $attrs</a
+          ></BIMDataText
+        >
       </div>
       <div class="m-t-12">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
