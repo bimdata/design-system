@@ -11,13 +11,10 @@
   >
     <textarea
       ref="textarea"
-      v-focus="autofocus"
       :name="name"
       :id="name"
       :value="modelValue"
       :placeholder="placeholder"
-      :disabled="disabled"
-      :readonly="readonly"
       :style="`${resizable ? '' : 'resize: none;'}`"
       @input="onInput"
       v-bind="$attrs"
@@ -32,15 +29,6 @@
 
 <script>
 export default {
-  directives: {
-    focus: {
-      inserted: function (el, { value }) {
-        if (value) {
-          el.focus();
-        }
-      },
-    },
-  },
   model: {
     prop: "modelValue",
     event: "update:modelValue",
@@ -58,10 +46,6 @@ export default {
       type: [String, Number],
       default: null,
     },
-    autofocus: {
-      type: Boolean,
-      default: false,
-    },
     placeholder: {
       type: String,
       default: null,
@@ -70,10 +54,6 @@ export default {
       type: String,
       default: "",
     },
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
     width: {
       type: [Number, String],
       default: "150px",
@@ -81,10 +61,6 @@ export default {
     height: {
       type: [Number, String],
       default: "32px",
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
     },
     error: {
       type: Boolean,
@@ -124,7 +100,10 @@ export default {
   },
   methods: {
     focus() {
-      this.$refs.input && this.$refs.input.focus();
+      this.$refs.textarea && this.$refs.textarea.focus();
+    },
+    blur() {
+      this.$refs.textarea && this.$refs.textarea.blur();
     },
     handleFitContent() {
       this.$refs.textarea.style.height = "auto";

@@ -63,6 +63,18 @@
           >Props:</BIMDataText
         >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >nota bene:
+        </BIMDataText>
+        <BIMDataText component="span" color="color-primary" margin="15px 5px">
+          This component use the $attrs attribute provided by Vue. Therefore all
+          native attribute of this tag are workable.
+          <a
+            href="https://vuejs.org/v2/guide/components-props.html#Disabling-Attribute-Inheritance"
+            target="_blank"
+            >More info about $attrs</a
+          ></BIMDataText
+        >
       </div>
     </div>
   </main>
@@ -102,12 +114,6 @@ export default {
           "Use this props to give a name to your textarea. Be careful, this props also serves for the id of the textarea, as well as for the 'for' of the label.",
         ],
         [
-          "autofocus",
-          "Boolean",
-          "false",
-          "Use this boolean to add an autofocus on your textarea.",
-        ],
-        [
           "placeholder",
           "String",
           "null",
@@ -130,18 +136,6 @@ export default {
           "[Number, String]",
           "32px",
           "Use this props to change the height of the textarea component.",
-        ],
-        [
-          "disabled",
-          "Boolean",
-          "false",
-          "Use this boolean to disabled your textarea.",
-        ],
-        [
-          "readonly",
-          "Boolean",
-          "false",
-          "Use this boolean to make your textarea readonly.",
         ],
         [
           "fitContent",
