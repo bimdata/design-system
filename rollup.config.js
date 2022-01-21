@@ -11,10 +11,34 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 
 module.exports = [
+  ...getDirectivesConfiguration(),
   ...getSingleComponentConfigurations(),
   ...getSingleSmartComponentConfigurations(),
   getAllComponentsBundleConfiguration(),
 ];
+
+function getDirectivesConfiguration() {
+  return [
+    {
+      // vue2
+      input: ["src/BIMDataDirectives/index.js"],
+      plugins: [terser()],
+      output: {
+        dir: "dist/js/BIMDataDirectives",
+        format: "es",
+      },
+    },
+    {
+      // vue3
+      input: ["src/BIMDataDirectives/vue3/index.js"],
+      plugins: [terser()],
+      output: {
+        dir: "dist/js/BIMDataDirectives/vue3",
+        format: "es",
+      },
+    },
+  ];
+}
 
 function getAllComponentsBundleConfiguration() {
   return {
