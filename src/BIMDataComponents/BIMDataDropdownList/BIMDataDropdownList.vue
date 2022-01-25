@@ -21,7 +21,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="chevron" size="xxxs" :rotate="iconRotation" />
+        <BIMDataIconChevron size="xxxs" :rotate="iconRotation" />
       </BIMDataButton>
       <slot name="contentAfterBtn"></slot>
     </div>
@@ -46,13 +46,13 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
-    BIMDataIcon,
+    BIMDataIconChevron,
     BIMDataPaginatedList,
     BIMDataButton,
   },

@@ -5,12 +5,7 @@
       :disabled="displayIndex === 0"
       @click="prev"
     >
-      <BIMDataIcon
-        name="chevron"
-        class="fill-primary"
-        size="xxs"
-        :rotate="180"
-      />
+      <BIMDataIconChevron class="fill-primary" size="xxs" :rotate="180" />
     </BIMDataButton>
     <ul
       ref="container"
@@ -38,19 +33,19 @@
       :disabled="displayIndex === scrollValues.length - 1"
       @click="next"
     >
-      <BIMDataIcon name="chevron" class="fill-primary" size="xxs" />
+      <BIMDataIconChevron class="fill-primary" size="xxs" />
     </BIMDataButton>
   </div>
 </template>
 
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 
 export default {
   components: {
     BIMDataButton,
-    BIMDataIcon,
+    BIMDataIconChevron,
   },
   props: {
     width: {

@@ -12,7 +12,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="doubleChevron" size="xxxs" :rotate="180" />
+        <BIMDataIconDoubleChevron size="xxxs" :rotate="180" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="previous">
@@ -24,7 +24,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="chevron" size="xxxs" :rotate="180" />
+        <BIMDataIconChevron size="xxxs" :rotate="180" />
       </BIMDataButton>
     </li>
     <li>
@@ -39,7 +39,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="chevron" size="xxxs" />
+        <BIMDataIconChevron size="xxxs" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__item" v-if="last">
@@ -51,7 +51,7 @@
         width="21px"
         height="21px"
       >
-        <BIMDataIcon name="doubleChevron" size="xxxs" />
+        <BIMDataIconDoubleChevron size="xxxs" />
       </BIMDataButton>
     </li>
     <li class="bimdata-navigation__right">
@@ -61,12 +61,17 @@
 </template>
 
 <script>
-import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import {
+  BIMDataIconChevron,
+  BIMDataIconDoubleChevron,
+} from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
-    BIMDataIcon,
+    BIMDataIconChevron,
+    BIMDataIconDoubleChevron,
     BIMDataButton,
   },
   props: {
