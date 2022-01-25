@@ -6,6 +6,7 @@
   "files": [
     "dist/*",
     "components.js",
+    "plugin.js",
     "screenshots/*"
   ],
   "scripts": {
