@@ -10,7 +10,7 @@
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="isOpen = !isOpen">
         <span>{{ displayedValue }}</span>
-        <BIMDataIcon name="chevron" size="xxs" :rotate="isOpen ? 90 : 0" />
+        <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
       </div>
       <label class="bimdata-select__content__label">
         {{ label }}
@@ -55,12 +55,12 @@
 import clickaway from "../../BIMDataDirectives/click-away";
 // Components
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 
 export default {
   components: {
     BIMDataCheckbox,
-    BIMDataIcon,
+    BIMDataIconChevron,
   },
   directives: {
     clickaway,

@@ -78,7 +78,7 @@
         :disabled="pageStartIndex === 1"
         @click="pageIndex--"
       >
-        <BIMDataIcon name="chevron" size="s" :rotate="180" />
+        <BIMDataIconChevron size="s" :rotate="180" />
       </BIMDataButton>
       <span class="bimdata-table__page-nav__text">
         {{ `${pageStartIndex} - ${pageEndIndex} of ${rows.length}` }}
@@ -90,7 +90,7 @@
         :disabled="pageEndIndex === rows.length"
         @click="pageIndex++"
       >
-        <BIMDataIcon name="chevron" size="s" />
+        <BIMDataIconChevron size="s" />
       </BIMDataButton>
     </div>
   </div>
@@ -99,13 +99,13 @@
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataCheckbox,
-    BIMDataIcon,
+    BIMDataIconChevron,
   },
   props: {
     columns: {

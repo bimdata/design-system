@@ -6,7 +6,7 @@
     :class="{ focus: focused, ...classes }"
   >
     <span class="bimdata-search-icon">
-      <BIMDataIcon name="search" size="xxs" />
+      <BIMDataIconSearch size="xxs" />
     </span>
     <input
       ref="input"
@@ -23,7 +23,7 @@
       @click="clickClear()"
       v-if="clear && modelValue !== ''"
     >
-      <BIMDataIcon name="close" size="xxs" />
+      <BIMDataIconClose size="xxs" />
     </BIMDataButton>
   </div>
 </template>
@@ -32,12 +32,15 @@ import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import colors from "../../assets/colors.js";
 
-/* import BIMData ICONS */
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import {
+  BIMDataIconClose,
+  BIMDataIconSearch,
+} from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 
 export default {
   components: {
-    BIMDataIcon,
+    BIMDataIconClose,
+    BIMDataIconSearch,
     BIMDataButton,
   },
   directives: {
