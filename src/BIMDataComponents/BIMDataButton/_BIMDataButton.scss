@@ -92,6 +92,9 @@
       background-color: var(--color-silver-dark);
       color: var(--color-white);
       cursor: auto;
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
   &__ripple {
@@ -231,6 +234,9 @@
       border-color: var(--color-silver-dark);
       color: var(--color-silver-dark);
       cursor: auto;
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
   &__ghost {
@@ -278,6 +284,9 @@
     &:disabled {
       color: var(--color-silver-dark);
       cursor: auto;
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }
