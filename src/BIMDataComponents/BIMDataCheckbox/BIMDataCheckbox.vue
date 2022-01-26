@@ -6,7 +6,7 @@
     :style="style"
   >
     <span class="bimdata-checkbox__mark"></span>
-    <span class="bimdata-checkbox__text">
+    <span class="bimdata-checkbox__text" v-if="text">
       <slot>{{ text }}</slot>
     </span>
   </div>
