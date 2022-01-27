@@ -96,6 +96,7 @@ import storey from "./Storey.vue";
 import success from "./Success.vue";
 import surface from "./Surface.vue";
 import swap from "./Swap.vue";
+import synchro2d from "./Synchro2D.vue";
 import system from "./System.vue";
 import tree from "./Tree.vue";
 import unarchive from "./Unarchive.vue";
@@ -214,6 +215,7 @@ export default {
   success,
   surface,
   swap,
+  synchro2d,
   system,
   tree,
   unarchive,
