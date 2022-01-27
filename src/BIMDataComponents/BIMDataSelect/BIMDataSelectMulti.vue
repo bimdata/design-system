@@ -42,9 +42,8 @@
             v-else
             :modelValue="isSelected(option)"
             :disabled="isDisabled(option)"
-          >
-            {{ optionLabel(option) }}
-          </BIMDataCheckbox>
+            :text="optionLabel(option)"
+          ></BIMDataCheckbox>
         </li>
       </ul>
     </transition>
