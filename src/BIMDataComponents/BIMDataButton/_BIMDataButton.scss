@@ -284,9 +284,6 @@
     &:disabled {
       color: var(--color-silver-dark);
       cursor: auto;
-      &:hover {
-        background-color: transparent;
-      }
     }
   }
 }
