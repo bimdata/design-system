@@ -54,4 +54,10 @@ export default [
     "This props has no effect in multi-selection mode. "
     + "Add a 'none' value in single-selection mode.",
   ],
+  [
+    "disabled",
+    "Boolean",
+    "false",
+    "When true the selector will be disabled."
+  ]
 ];

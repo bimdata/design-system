@@ -1,3 +1,4 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
 @import "../../assets/scss/mixins/_font-size.scss";
 @import "../../assets/scss/mixins/_pseudo.scss";
 
@@ -49,6 +50,10 @@
       display: block;
       background: var(--color-silver);
     }
+  }
+
+  &.disabled {
+    opacity: 0.6;
   }
 
   &.active,

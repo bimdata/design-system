@@ -35,7 +35,7 @@ If you want to dev on the design system, follow these instruction:
 npm install
 
 ### Compiles and hot-reloads for development
-npm run serve
+npm run dev
 
 ### Compiles and minifies for production
 npm run build

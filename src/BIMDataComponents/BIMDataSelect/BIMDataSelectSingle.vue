@@ -2,13 +2,14 @@
   <div
     class="bimdata-select"
     :class="{
+      disabled,
       active: isOpen,
       'not-empty': modelValue !== undefined && modelValue !== null,
     }"
     :style="{ width }"
   >
     <div class="bimdata-select__content">
-      <div class="bimdata-select__content__value" @click="isOpen = !isOpen">
+      <div class="bimdata-select__content__value" @click="toggle">
         <span>{{ displayedValue }}</span>
         <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
       </div>
@@ -20,7 +21,7 @@
 
     <transition name="slide-fade-down">
       <ul
-        v-show="isOpen"
+        v-show="!disabled && isOpen"
         v-clickaway="() => (isOpen = false)"
         class="bimdata-select__option-list"
       >
@@ -50,7 +51,7 @@
 </template>
 
 <script>
-import clickaway from "../../BIMDataDirectives/click-away";
+import clickaway from "../../BIMDataDirectives/click-away.js";
 // Components
 import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 
@@ -90,6 +91,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   data() {
@@ -103,6 +108,11 @@ export default {
     },
   },
   methods: {
+    toggle() {
+      if (!this.disabled) {
+        this.isOpen = !this.isOpen;
+      }
+    },
     optionValue(option) {
       if (this.optionKey && option) {
         return option[this.optionKey];
@@ -144,7 +154,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "./_BIMDataSelect.scss";
-</style>
+<style scoped lang="scss" src="./BIMDataSelect.scss"></style>
