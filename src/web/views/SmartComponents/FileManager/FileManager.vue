@@ -10,7 +10,7 @@
             :spaceId="515"
             :projectId="756"
             apiUrl="https://api-staging.bimdata.io"
-            accessToken="fc83e49ca9444d3ea41d212599f39040"
+            accessToken="eGNpr626gNtn8QrB5gk0imfrukoHDQiW"
             :select="selectChecked"
             :multi="multiChecked"
             @selection-change="onSelectionChange"
@@ -18,6 +18,7 @@
             :headerButtons="headerButtons"
             :headerSearch="headerSearch"
             :alreadySelectedIds="[2694]"
+            :selectableFileTypes="['pdf', 'dwg']"
           />
         </template>
 
@@ -135,6 +136,12 @@ export default {
           "number[]",
           "[]",
           "An array of already selected ids. In select mode, already selected ids are not selectable and displayed as in success.",
+        ],
+        [
+          "selectableFileTypes",
+          "string[]",
+          "[]",
+          "An array of file type. In select mode, if some selectable file types are given, only those are selectable.",
         ],
       ],
       eventsData: [

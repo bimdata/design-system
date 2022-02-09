@@ -87,6 +87,7 @@
               :accessToken="accessToken"
               @open-folder="openFolder(file)"
               :select="select"
+              :disabled="isDisabled(file)"
               :multi="multi"
               :selected="isFileSelected(file)"
               :success="isFileSucess(file.id)"
@@ -224,6 +225,10 @@ export default {
       type: Array,
       defaut: () => [],
     },
+    selectableFileTypes: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -341,6 +346,16 @@ export default {
     this.currentFolder = this.fileStructure;
   },
   methods: {
+    isDisabled(file) {
+      const extensionMatch = file.name.match(/\.(\w+$)/);
+      const fileExtension = extensionMatch && extensionMatch[1];
+
+      return (
+        this.select &&
+        this.selectableFileTypes.length > 0 &&
+        !(fileExtension && this.selectableFileTypes.includes(fileExtension))
+      );
+    },
     onKeyDown(e) {
       if (e.key === "Escape") {
         this.entityRenown = null;

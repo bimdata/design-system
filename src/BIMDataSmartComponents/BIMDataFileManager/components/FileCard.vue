@@ -4,7 +4,9 @@
       class="file-card__content"
       :class="{
         'file-card__content--selected': selected,
-        'file-card__content--hover': (select && !success) || isFolder,
+        'file-card__content--disabled': disabled,
+        'file-card__content--hover':
+          (select && !success && !disabled) || isFolder,
       }"
     >
       <div class="file-card__content__header">
@@ -27,23 +29,22 @@
             ghost
             rounded
             icon
-            v-else-if="edit && !success"
+            v-else-if="edit"
             @click.stop="toggleMenu"
             class="file-card__content__header__btn-menu__edit"
             :disabled="success"
           >
             <BIMDataIcon name="ellipsis" size="l" fill color="granite-light" />
           </BIMDataButton>
-          <div
-            v-else-if="!isFolder && !success"
-            class="file-card__content__header__btn-menu--select"
-          >
+          <div v-else-if="!isFolder">
             <BIMDataCheckbox
+              :disabled="disabled"
               v-if="multiSelect"
               :modelValue="selected"
               class="file-card__content__header__btn-menu__checkbox"
             />
             <BIMDataRadio
+              :disabled="disabled"
               v-else
               big
               :modelValue="selected"
@@ -129,6 +130,10 @@ export default {
   directives: { clickaway },
   inject: ["$translate"],
   props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     writeAccess: {
       type: Boolean,
       default: false,
@@ -251,7 +256,7 @@ export default {
     onClick() {
       if (this.isFolder) {
         this.$emit("open-folder");
-      } else if (!this.success && this.select) {
+      } else if (!this.success && !this.disabled && this.select) {
         this.$emit("toggle-select", this.file);
       }
     },
@@ -297,6 +302,10 @@ export default {
 
     &--selected {
       border: solid $color-primary 3px;
+    }
+
+    &--disabled {
+      filter: grayscale(100%);
     }
 
     &:not(.file-card__content--selected) {
