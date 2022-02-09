@@ -8,6 +8,7 @@
         <template #module>
           <div class="m-t-24">
             <BIMDataSelect
+              :disabled="isDisabled"
               :multi="isMulti"
               width="200px"
               label="Selector label"
@@ -36,6 +37,9 @@
         </template>
 
         <template #parameters>
+          <div class="m-t-12">
+            <BIMDataCheckbox text="Disabled" v-model="isDisabled" />
+          </div>
           <div class="m-t-12">
             <BIMDataCheckbox
               text="Multi selection"
@@ -69,6 +73,7 @@
         <template #code>
           <pre>
             &lt;BIMDataSelect
+              {{ isDisabled ? "disabled" : "" }}
               {{ isMulti ? ':multi="true"' : "" }}
               width="200px"
               label="Selector label"
@@ -124,7 +129,7 @@
 
       <div class="m-t-12">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
-          How to add 'disabled' class to an element list to BIMDataSelect:
+          How to mark an option as 'disabled':
         </BIMDataText>
         <p>
           To disabled an option, add
@@ -163,6 +168,7 @@ export default {
   },
   data() {
     return {
+      isDisabled: false,
       isMulti: false,
       hasNullValue: false,
       optionSet: "string",
