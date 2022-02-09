@@ -326,6 +326,7 @@ export default {
 
         &__checkbox {
           top: 6px;
+          right: 6px;
         }
       }
     }
