@@ -23,6 +23,7 @@ const pluginFactory = cfg => {
         if (
           !cfg ||
           !cfg.includedComponents ||
+          cfg.includedComponents.length === 0 ||
           cfg.includedComponents.includes(componentName)
         ) {
           Vue.component(componentName, component);
@@ -30,7 +31,7 @@ const pluginFactory = cfg => {
       });
 
       // DIRECTIVES
-      if (!cfg || cfg.directives === false) {
+      if (!cfg || cfg.directives === true) {
         Object.entries(Directives).forEach(([directiveName, directive]) =>
           Vue.directive(directiveName.split("BIMData")[1], directive)
         );
