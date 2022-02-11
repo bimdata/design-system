@@ -23,7 +23,6 @@ const pluginFactory = cfg => {
         if (
           !cfg ||
           !cfg.includedComponents ||
-          cfg.includedComponents.length === 0 ||
           cfg.includedComponents.includes(componentName)
         ) {
           app.component(componentName, component);
@@ -31,7 +30,7 @@ const pluginFactory = cfg => {
       });
 
       // DIRECTIVES
-      if (!cfg || cfg.directives === true) {
+      if (!cfg || cfg.directives !== false) {
         Object.entries(Directives).forEach(([directiveName, directive]) =>
           app.directive(directiveName.split("BIMData")[1], directive)
         );
