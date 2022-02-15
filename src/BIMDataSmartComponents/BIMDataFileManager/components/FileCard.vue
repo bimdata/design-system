@@ -11,17 +11,16 @@
     >
       <div class="file-card__content__header">
         <div class="file-card__content__header__btn-menu">
-          <transition name="fade" v-if="success" :duration="1000">
-            <BIMDataIcon
-              name="success"
-              size="s"
-              fill
-              color="success"
-              class="file-card__content__header__btn-menu__success"
-            />
-          </transition>
+          <BIMDataIcon
+            v-if="success"
+            name="success"
+            size="s"
+            fill
+            color="success"
+            class="file-card__content__header__btn-menu__success"
+          />
           <PieProgressSpinner
-            v-if="loading && !success"
+            v-else-if="loading && !success"
             :progress="percentCompleted"
             class="file-card__content__header__btn-menu__spinner"
           />
@@ -215,7 +214,7 @@ export default {
       );
       request.setRequestHeader("authorization", `Bearer ${this.accessToken}`);
 
-      request.upload.addEventListener("progress", e => {
+      request.addEventListener("progress", e => {
         this.percentCompleted = (e.loaded / e.total) * 100;
       });
 
@@ -305,7 +304,9 @@ export default {
     }
 
     &--disabled {
-      filter: grayscale(100%);
+      .file-card__content__header {
+        filter: grayscale(100%);
+      }
     }
 
     &:not(.file-card__content--selected) {
