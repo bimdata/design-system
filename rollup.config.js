@@ -14,7 +14,7 @@ module.exports = [
   ...getDirectivesConfiguration(),
   ...getSingleComponentConfigurations(),
   ...getSingleSmartComponentConfigurations(),
-  getAllComponentsBundleConfiguration(),
+  ...getAllComponentsBundleConfiguration(),
 ];
 
 function getDirectivesConfiguration() {
@@ -41,50 +41,82 @@ function getDirectivesConfiguration() {
 }
 
 function getAllComponentsBundleConfiguration() {
-  return {
-    input: ["src/BIMDataComponents/index.js"],
-    output: {
-      dir: "dist/js/BIMDataComponents",
-      format: "es",
+  return [
+    {
+      // Vue 2
+      input: ["src/BIMDataComponents/index.js"],
+      output: {
+        dir: "dist/js/BIMDataComponents",
+        format: "es",
+      },
+      plugins: [
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+        }),
+        css({
+          output: "dist/css/design-system.css",
+        }),
+        copy({
+          targets: [
+            { src: "src/assets/fonts", dest: "dist" },
+            { src: "src/assets/scss", dest: "dist" },
+            {
+              src: "src/assets/css/_BIMDataFonts.css",
+              dest: "dist/css",
+              rename: "fonts.css",
+            },
+            {
+              src: "src/assets/scss/_BIMDataFonts.scss",
+              dest: "dist/scss",
+              transform: contents =>
+                contents
+                  .toString()
+                  .replace(
+                    /~@\/assets/g,
+                    "node_modules/@bimdata/design-system/dist"
+                  ),
+            },
+          ],
+        }),
+        vue2({
+          template: { isProduction: true },
+          css: false,
+        }),
+        image(),
+        terser(),
+      ],
     },
-    plugins: [
-      replace({
-        "~@/assets": "node_modules/@bimdata/design-system/dist",
-        delimiters: ["", ""],
-      }),
-      css({
-        output: "dist/css/design-system.css",
-      }),
-      copy({
-        targets: [
-          { src: "src/assets/fonts", dest: "dist" },
-          { src: "src/assets/scss", dest: "dist" },
-          {
-            src: "src/assets/css/_BIMDataFonts.css",
-            dest: "dist/css",
-            rename: "fonts.css",
-          },
-          {
-            src: "src/assets/scss/_BIMDataFonts.scss",
-            dest: "dist/scss",
-            transform: contents =>
-              contents
-                .toString()
-                .replace(
-                  /~@\/assets/g,
-                  "node_modules/@bimdata/design-system/dist"
-                ),
-          },
-        ],
-      }),
-      vue2({
-        template: { isProduction: true },
-        css: false,
-      }),
-      image(),
-      terser(),
-    ],
-  };
+    {
+      // Vue 3
+      input: ["src/BIMDataComponents/index.js"],
+      output: {
+        dir: "dist/js/BIMDataComponents/vue3",
+        format: "es",
+      },
+      plugins: [
+        alias({
+          entries: [
+            {
+              find: /BIMDataDirectives\//,
+              replacement: "BIMDataDirectives/vue3/",
+            },
+          ],
+        }),
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+        }),
+        vue3({
+          template: { isProduction: true },
+          preprocessStyles: true,
+        }),
+        postcss(),
+        image(),
+        terser(),
+      ],
+    },
+  ];
 }
 
 function getSingleSmartComponentConfigurations() {
