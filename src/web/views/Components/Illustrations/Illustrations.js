@@ -30,6 +30,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "emptyViewer",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "logo",
     x: "90",
     y: "90",
