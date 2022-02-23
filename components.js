@@ -24,3 +24,4 @@ export { default as BIMDataTextarea } from "./dist/js/BIMDataComponents/BIMDataT
 export { default as BIMDataTextbox } from "./dist/js/BIMDataComponents/BIMDataTextbox.js";
 export { default as BIMDataToggle } from "./dist/js/BIMDataComponents/BIMDataToggle.js";
 export { default as BIMDataTooltip } from "./dist/js/BIMDataComponents/BIMDataTooltip.js";
+export { default as BIMDataGuidedTour } from "./dist/js/BIMDataComponents/BIMDataGuidedTour.js";

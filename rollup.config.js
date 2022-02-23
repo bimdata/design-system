@@ -177,6 +177,7 @@ function getSingleComponentConfigurations() {
     "BIMDataTextbox",
     "BIMDataToggle",
     "BIMDataTooltip",
+    "BIMDataGuidedTour",
   ];
 
   return [
