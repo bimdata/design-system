@@ -1,11 +1,9 @@
 <template>
   <div
     class="guided-tour-portal"
-    :class="{ untargeted: currentStep && !currentStep.target }"
+    :class="{ centeredTooltip }"
     v-show="showGuidedTour"
   >
-    {{ console.log("currentStep", currentStep) }}
-
     <div ref="spotlight" class="spotlight">
       <!-- Spotlight div -->
     </div>
@@ -13,19 +11,22 @@
       v-if="currentStep"
       ref="tooltip"
       class="tooltip"
-      :class="{ untargeted: currentStep && !currentStep.target }"
       :style="{ opacity: showTooltip ? 1 : 0 }"
     >
       <div class="tooltip__header">
-        <BIMDataButton
-          class="tooltip__header__btn-close"
-          ghost
-          rounded
-          icon
-          @click="close"
-        >
-          <BIMDataIcon name="close" size="xxs" />
-        </BIMDataButton>
+        <template v-if="!isStepIntro && !isStepOutro">
+          <BIMDataButton
+            class="tooltip__header__btn-close"
+            width="0px"
+            height="0px"
+            ghost
+            rounded
+            icon
+            @click="close"
+          >
+            <BIMDataIcon name="close" size="xxs" />
+          </BIMDataButton>
+        </template>
       </div>
       <div class="tooltip__content">
         <template v-if="currentStep.layout">
@@ -43,21 +44,52 @@
         </template>
       </div>
       <div class="tooltip__footer">
+        <template v-if="isStepIntro">
+          <div class="tooltip__footer__btn-skip">
+            <BIMDataButton
+              width="0px"
+              height="0px"
+              color="granite"
+              @click="close"
+            >
+              Skip
+            </BIMDataButton>
+          </div>
+        </template>
+        <template v-else>
+          <div class="tooltip__footer__ghost-element"></div>
+        </template>
         <div class="tooltip__footer__step-counter">
-          <span>{{ stepIndex }}</span
-          ><span>/{{ steps.length }}</span>
+          <span>{{ stepIndex + 1 }}</span>
+          <span>/{{ steps.length }}</span>
         </div>
-        <BIMDataButton
-          class="tooltip__footer__btn-next"
-          color="primary"
-          style="padding: 10px;"
-          fill
-          radius
-          :disabled="stepIndex === steps.length - 1 || currentStep.clickable"
-          @click="next"
-        >
-          <BIMDataIcon name="chevron" size="xxs" fill color="white" />
-        </BIMDataButton>
+        <template v-if="isStepOutro">
+          <div class="tooltip__footer__btn-start">
+            <BIMDataButton
+              width="0px"
+              height="0px"
+              color="granite"
+              @click="close"
+            >
+              Commencer
+            </BIMDataButton>
+          </div>
+        </template>
+        <template v-else>
+          <div class="tooltip__footer__btn-next">
+            <BIMDataButton
+              width="0px"
+              height="0px"
+              color="primary"
+              fill
+              radius
+              :disabled="currentStep.clickable"
+              @click="next"
+            >
+              <BIMDataIcon name="chevron" size="xxs" fill color="white" />
+            </BIMDataButton>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -103,6 +135,18 @@ export default {
     currentStep() {
       return this.steps[this.stepIndex];
     },
+    nextStep() {
+      return this.steps[this.stepIndex + 1];
+    },
+    centeredTooltip() {
+      return this.currentStep && !this.currentStep.target;
+    },
+    isStepIntro() {
+      return this.stepIndex === 0;
+    },
+    isStepOutro() {
+      return this.stepIndex === this.steps.length - 1;
+    },
   },
   watch: {
     steps() {
@@ -110,18 +154,11 @@ export default {
     },
     async currentStep(step) {
       if (!step) return;
-      this.showTooltip = false;
 
-      // WIP
-      // if (!step.target) {
-      //   this.showTooltip = true;
-      //   const specificComponent = document.querySelector(".specific-component");
-      //   console.log("specificComponent", specificComponent);
-
-      //   const { height } = specificComponent.getBoundingClientRect();
-      //   console.log("height", height);
-      //   return;
-      // }
+      if (!step.target) {
+        this.showTooltip = true;
+        return;
+      }
 
       const target = document.querySelector(step.target);
 
@@ -131,10 +168,15 @@ export default {
           "click",
           () => {
             target.style.zIndex = "unset";
-            this.mutationObserver.observe(this.elementToObserve, {
-              childList: true,
-              subtree: true,
-            });
+
+            if (this.nextStep.target) {
+              this.mutationObserver.observe(this.elementToObserve, {
+                childList: true,
+                subtree: true,
+              });
+            } else {
+              this.next();
+            }
           },
           { once: true }
         );
@@ -165,11 +207,11 @@ export default {
       this.showGuidedTour = false;
       this.steps = [];
     },
-    prev() {
-      this.stepIndex--;
-    },
     next() {
       this.stepIndex++;
+      this.$refs.spotlight.style = {};
+      this.$refs.tooltip.style = {};
+      this.showTooltip = false;
     },
     close() {
       this.showTooltip = false;
@@ -177,9 +219,7 @@ export default {
       this.$emit("show-guided-tour", false);
     },
     handleClickedStep() {
-      const nextTarget = document.querySelector(
-        this.steps[this.stepIndex + 1].target
-      );
+      const nextTarget = document.querySelector(this.nextStep.target);
 
       if (nextTarget) {
         this.next();
