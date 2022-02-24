@@ -1,5 +1,11 @@
 <template>
-  <div class="guided-tour-portal" v-show="showGuidedTour">
+  <div
+    class="guided-tour-portal"
+    :class="{ untargeted: currentStep && !currentStep.target }"
+    v-show="showGuidedTour"
+  >
+    {{ console.log("currentStep", currentStep) }}
+
     <div ref="spotlight" class="spotlight">
       <!-- Spotlight div -->
     </div>
@@ -7,6 +13,7 @@
       v-if="currentStep"
       ref="tooltip"
       class="tooltip"
+      :class="{ untargeted: currentStep && !currentStep.target }"
       :style="{ opacity: showTooltip ? 1 : 0 }"
     >
       <div class="tooltip__header">
@@ -21,8 +28,8 @@
         </BIMDataButton>
       </div>
       <div class="tooltip__content">
-        <template v-if="currentStep.component">
-          <component :is="currentStep.component" />
+        <template v-if="currentStep.layout">
+          <component :is="currentStep.layout" :props="currentStep.props" />
         </template>
         <template v-else>
           <div class="tooltip__content__image">
@@ -31,27 +38,11 @@
             />
           </div>
           <div class="tooltip__content__text">
-            {{ currentStep.content }}
+            {{ currentStep.props.content }}
           </div>
         </template>
       </div>
       <div class="tooltip__footer">
-        <BIMDataButton
-          class="tooltip__footer__btn-prev"
-          color="primary"
-          fill
-          radius
-          :disabled="stepIndex === 0 || currentStep.clickable"
-          @click="prev"
-        >
-          <BIMDataIcon
-            name="chevron"
-            size="xxs"
-            :rotate="180"
-            fill
-            color="white"
-          />
-        </BIMDataButton>
         <div class="tooltip__footer__step-counter">
           <span>{{ stepIndex }}</span
           ><span>/{{ steps.length }}</span>
@@ -90,7 +81,7 @@ export default {
     BIMDataIcon,
   },
   props: {
-    inputSteps: {
+    tours: {
       type: Array,
       default: () => [],
     },
@@ -105,6 +96,7 @@ export default {
       showTooltip: false,
       stepIndex: 0,
       mutationObserver: new MutationObserver(this.handleClickedStep),
+      console,
     };
   },
   computed: {
@@ -118,8 +110,18 @@ export default {
     },
     async currentStep(step) {
       if (!step) return;
-
       this.showTooltip = false;
+
+      // WIP
+      // if (!step.target) {
+      //   this.showTooltip = true;
+      //   const specificComponent = document.querySelector(".specific-component");
+      //   console.log("specificComponent", specificComponent);
+
+      //   const { height } = specificComponent.getBoundingClientRect();
+      //   console.log("height", height);
+      //   return;
+      // }
 
       const target = document.querySelector(step.target);
 
@@ -146,13 +148,17 @@ export default {
     },
   },
   mounted() {
-    this.openGuidedTour(this.inputSteps);
+    this.openGuidedTour(this.tours[0].steps);
   },
   methods: {
     openGuidedTour(arg) {
-      this.steps = arg.map(step =>
-        step.component ? { ...step, component: markRaw(step.component) } : step
-      );
+      this.steps = arg.map(step => {
+        return {
+          ...step,
+          target: step.target ? `[data-guide=${step.target}]` : null,
+          layout: step.layout ? markRaw(step.layout) : null,
+        };
+      });
       this.showGuidedTour = true;
     },
     closeGuidedTour() {
@@ -167,12 +173,6 @@ export default {
     },
     close() {
       this.showTooltip = false;
-
-      // Execute step close callback
-      if (this.currentStep.hooks && this.currentStep.hooks.onClose) {
-        this.currentStep.hooks.onClose();
-      }
-
       this.closeGuidedTour();
       this.$emit("show-guided-tour", false);
     },
