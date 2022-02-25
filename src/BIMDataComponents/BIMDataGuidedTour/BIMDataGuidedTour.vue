@@ -30,7 +30,7 @@
       </div>
       <div class="tooltip__content">
         <template v-if="currentStep.layout">
-          <component :is="currentStep.layout" :props="currentStep.props" />
+          <component :is="currentStep.layout" v-bind="currentStep.props" />
         </template>
         <template v-else>
           <div class="tooltip__content__image">
@@ -96,8 +96,6 @@
 </template>
 
 <script>
-import { markRaw } from "vue";
-
 import {
   scrollToTarget,
   setSpotlightPosition,
@@ -119,6 +117,7 @@ export default {
     },
     elementToObserve: {
       type: Object,
+      required: true,
     },
   },
   data() {
@@ -127,7 +126,6 @@ export default {
       showGuidedTour: false,
       showTooltip: false,
       stepIndex: 0,
-      mutationObserver: new MutationObserver(this.handleClickedStep),
       console,
     };
   },
@@ -163,12 +161,13 @@ export default {
       const target = document.querySelector(step.target);
 
       if (step.clickable) {
+        const oldZIndex = target.style.zIndex;
+
         target.style.zIndex = "11000";
         target.addEventListener(
           "click",
           () => {
-            target.style.zIndex = "unset";
-
+            target.style.zIndex = oldZIndex;
             if (this.nextStep.target) {
               this.mutationObserver.observe(this.elementToObserve, {
                 childList: true,
@@ -189,8 +188,17 @@ export default {
       this.showTooltip = true;
     },
   },
+  created() {
+    this.mutationObserver = new MutationObserver(this.handleClickedStep);
+  },
   mounted() {
     this.openGuidedTour(this.tours[0].steps);
+  },
+  unmounted() {
+    this.mutationObserver.disconnect();
+  },
+  destroyed() {
+    this.mutationObserver.disconnect();
   },
   methods: {
     openGuidedTour(arg) {
@@ -198,7 +206,7 @@ export default {
         return {
           ...step,
           target: step.target ? `[data-guide=${step.target}]` : null,
-          layout: step.layout ? markRaw(step.layout) : null,
+          layout: step.layout ? Object.freeze(step.layout) : null,
         };
       });
       this.showGuidedTour = true;
@@ -219,7 +227,9 @@ export default {
       this.$emit("show-guided-tour", false);
     },
     handleClickedStep() {
-      const nextTarget = document.querySelector(this.nextStep.target);
+      const nextTarget = this.elementToObserve.querySelector(
+        this.nextStep.target
+      );
 
       if (nextTarget) {
         this.next();
