@@ -100,6 +100,11 @@
         <div class="file-card__content__footer__date">
           {{ file.updatedAt.toLocaleDateString() }}
         </div>
+        <template v-if="initials">
+          <div class="file-card__content__footer__initials">
+            {{ initials }}
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -196,6 +201,15 @@ export default {
     },
     loading() {
       return this.file.fileToLoad;
+    },
+    initials() {
+      return (
+        this.file.createdBy &&
+        (
+          `${this.file.createdBy.firstname[0] || ""}` +
+          `${this.file.createdBy.lastname[0] || ""}`
+        ).toUpperCase()
+      );
     },
   },
   async created() {
@@ -346,6 +360,7 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
       box-sizing: border-box;
       font-size: 12px;
 
@@ -358,6 +373,21 @@ export default {
 
       &__date {
         color: $color-granite-light;
+      }
+
+      &__initials {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-primary;
+        color: $color-silver-light;
+        line-height: 1px;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        bottom: 10px;
+        right: 18px;
       }
     }
   }
