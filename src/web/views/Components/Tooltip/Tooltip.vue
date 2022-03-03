@@ -1,52 +1,88 @@
 <template>
   <main class="article article-tooltip">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataTooltip
-            message="tooltip here"
-            :className="getOverviewTooltipClasses()"
+            :text="tooltipText"
+            :maxWidth="tooltipMaxWidth"
+            :position="tooltipPosition"
+            :color="tooltipColor"
+            :disabled="tooltipDisabled"
           >
-            <template #content>
-              <span>Hover me</span>
-            </template>
+            <span>Hover me !</span>
           </BIMDataTooltip>
         </template>
 
         <template #parameters>
-          <div
-            v-for="[key, values] in Object.entries(tooltipOptions)"
-            :key="key"
+          <BIMDataText
+            component="h5"
+            margin="15px 0 10px"
+            color="color-primary"
           >
-            <BIMDataText
-              component="h5"
-              color="color-primary"
-              margin="15px 0 10px"
-              >{{ key }}</BIMDataText
-            >
-            <BIMDataRadio
-              v-for="value in values"
-              :key="value"
-              :text="value"
-              :id="value"
-              :value="value"
-              :name="key"
-              v-model="$data[`selectedTooltipOptions${key}`]"
-            >
-            </BIMDataRadio>
+            Text
+          </BIMDataText>
+          <BIMDataTextarea
+            v-model="tooltipText"
+            width="100%"
+            height="64px"
+            :resizable="false"
+          />
+          <div class="m-t-24">
+            <BIMDataInput
+              placeholder="Maximum width"
+              v-model="tooltipMaxWidth"
+            />
           </div>
-          <div>
-            <BIMDataText
-              component="h5"
-              color="color-primary"
-              margin="15px 0 10px"
-              >modifiers</BIMDataText
-            >
-            <BIMDataCheckbox text="arrow" v-model="checkboxArrowChecked">
-            </BIMDataCheckbox>
+
+          <!-- Position Selector -->
+          <BIMDataText
+            component="h5"
+            margin="15px 0 10px"
+            color="color-primary"
+          >
+            Position
+          </BIMDataText>
+          <BIMDataRadio
+            v-for="value in postionOptions"
+            :key="value"
+            name="position"
+            :text="value"
+            :value="value"
+            v-model="tooltipPosition"
+          >
+          </BIMDataRadio>
+
+          <!-- Color Selector -->
+          <BIMDataText
+            component="h5"
+            margin="15px 0 10px"
+            color="color-primary"
+          >
+            Color
+          </BIMDataText>
+          <BIMDataRadio
+            v-for="value in colorOptions"
+            :key="value"
+            name="color"
+            :text="value"
+            :value="value"
+            v-model="tooltipColor"
+          >
+          </BIMDataRadio>
+
+          <BIMDataText
+            component="h5"
+            margin="15px 0 10px"
+            color="color-primary"
+          >
+            Control
+          </BIMDataText>
+          <div class="p-l-6">
+            <BIMDataCheckbox v-model="tooltipDisabled" text="disabled" />
           </div>
         </template>
 
@@ -57,98 +93,71 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataTooltip message="tooltip here" className="{{
-              getOverviewTooltipClasses()
-            }}"&gt;
-              &lt;template #content&gt;&lt;span&gt;Hover me&lt;/span&gt;&lt;/template&gt;
+            &lt;BIMDataTooltip
+              :text="{{ tooltipText }}"
+              :maxWidth="{{ tooltipMaxWidth }}"
+              :position="{{ tooltipPosition }}"
+              :color="{{ tooltipColor }}"
+              :disabled="{{ tooltipDisabled }}"
+            &gt;
+              &lt;span&gt;Hover me&lt;/span&gt;
             &lt;/BIMDataTooltip&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
-      </div>
-
-      <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Slots:</BIMDataText
-        >
-        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import propsData from "./props-data.js";
+// Components
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
 import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
 
 export default {
   components: {
     ComponentCode,
     BIMDataCheckbox,
+    BIMDataInput,
     BIMDataRadio,
     BIMDataTable,
     BIMDataText,
+    BIMDataTextarea,
     BIMDataTooltip,
   },
   data() {
     return {
-      selectedTooltipOptionsposition: "bottom",
-      selectedTooltipOptionscolor: "primary",
-      checkboxArrowChecked: true,
-      tooltipOptions: {
-        position: ["left", "right", "bottom", "up"],
-        color: ["primary", "grey"],
-      },
-      propsData: [
-        ["Props", "Type", "Default value", "Required", "Description"],
-        [
-          "message",
-          "String",
-          "null",
-          "true",
-          "Use this props to add a tooltip text.",
-        ],
-        [
-          "className",
-          "String",
-          " ",
-          "true",
-          "Use this props to add class and custom your your tooltip.",
-        ],
-      ],
-      slotsData: [
-        ["Slot name", "Description"],
-        [
-          "content",
-          "Allows you to wrap any element to add a tooltip to the hover.",
-        ],
-      ],
-    };
-  },
+      tooltipText: "Hello World !",
+      tooltipMaxWidth: "240px",
+      tooltipPosition: "bottom",
+      tooltipColor: "primary",
+      tooltipDisabled: false,
 
-  methods: {
-    getOverviewTooltipClasses() {
-      if (this.checkboxArrowChecked) {
-        return `bimdata-tooltip--${this.selectedTooltipOptionsposition} bimdata-tooltip--${this.selectedTooltipOptionscolor} bimdata-tooltip--arrow`;
-      } else {
-        return `bimdata-tooltip--${this.selectedTooltipOptionsposition} bimdata-tooltip--${this.selectedTooltipOptionscolor}`;
-      }
-    },
+      postionOptions: ["top", "right", "bottom", "left"],
+      colorOptions: [
+        "white",
+        "primary",
+        "secondary",
+        "granite-light",
+        "silver-light",
+      ],
+
+      propsData,
+    };
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Tooltip.scss";
-</style>

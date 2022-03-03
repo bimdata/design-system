@@ -1,99 +1,112 @@
+@import "../../assets/scss/_BIMDataVariables.scss";
+@import "../../assets/scss/utilities/_text.scss";
 @import "../../assets/scss/mixins/_font-size.scss";
 @import "../../assets/scss/mixins/_pseudo.scss";
 
-@import "./_keyframes.scss";
 .bimdata-tooltip {
   position: relative;
-  font-family: var(--primary-font);
-  font-size: calculateEm(14px);
-  &__text {
-    padding: 0 6px;
-    width: max-content;
-    height: 21px;
-    min-width: 56px;
+
+  &__tooltip {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    color: var(--color-white);
-    line-height: 25px;
-    opacity: 0;
-    text-align: center;
-    word-wrap: break-word;
-    font-size: calculateEm(11px);
     z-index: 2;
-    &::first-letter {
-      text-transform: capitalize;
-    }
-  }
-  &--arrow {
-    height: 28px;
-    line-height: 28px;
-    font-size: calculateEm(12px);
+    min-width: 60px;
+    width: max-content;
+    padding: calc(var(--spacing-unit) / 3) calc(var(--spacing-unit) / 2);
+    border-radius: 3px;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+
     &::before {
-      @include pseudo;
-      top: calc((28px - 8px) / 2);
+      content: "";
+      position: absolute;
       border-style: solid;
-      border-width: 0 0 8px 8px;
+      border-width: 8px 0 0 8px;
     }
-  }
-  &--left {
-    &::before {
-      left: -4px;
-      right: auto;
-      transform: rotate(135deg);
-    }
-  }
-  &--right {
-    &::before {
-      right: -4px;
-      left: auto;
-      transform: rotate(-45deg);
-    }
-  }
-  &--up,
-  &--bottom {
-    left: 50%;
-    transform: translate(-50%);
-    line-height: 1.5;
-  }
-  &--up {
-    &::before {
-      bottom: -6px;
+
+    // --- Position styles ---
+    &--top {
+      top: -8px;
       left: 50%;
-      transform: rotate(44deg);
-      transform-origin: center;
-    }
-  }
-  &--bottom {
-    &::before {
-      top: -4px;
-      left: 47%;
-      transform: rotate(-135deg);
-    }
-  }
-  &--primary {
-    background-color: var(--color-primary);
-    &.bimdata-tooltip--arrow {
+      transform: translateX(-50%) translateY(-100%);
       &::before {
-        border-color: transparent transparent var(--color-primary);
+        top: calc(100% - 4px);
+        left: calc(50% - 4px);
+        transform: rotate(135deg);
       }
     }
-  }
-  &--grey {
-    background-color: var(--color-granite-light);
-    &.bimdata-tooltip--arrow {
+
+    &--right {
+      top: 50%;
+      left: calc(100% + 8px);
+      transform: translateY(-50%);
       &::before {
-        border-color: transparent transparent var(--color-granite-light);
+        top: calc(50% - 4px);
+        left: -4px;
+        transform: rotate(-135deg);
       }
     }
-  }
-  &__content {
-    &:hover {
-      cursor: pointer;
-      & ~ .bimdata-tooltip__text {
-        opacity: 1;
+
+    &--bottom {
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      &::before {
+        top: -4px;
+        left: calc(50% - 4px);
+        transform: rotate(-45deg);
+      }
+    }
+
+    &--left {
+      top: 50%;
+      left: -8px;
+      transform: translateX(-100%) translateY(-50%);
+      &::before {
+        top: calc(50% - 4px);
+        left: calc(100% - 4px);
+        transform: rotate(45deg);
+      }
+    }
+
+    // --- Color styles ---
+    &--white {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      &::before {
+        border-color: var(--color-white) transparent transparent;
+      }
+    }
+
+    &--primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      &::before {
+        border-color: var(--color-primary) transparent transparent;
+      }
+    }
+
+    &--secondary {
+      background-color: $color-secondary;
+      color: $color-primary;
+      &::before {
+        border-color: var(--color-secondary) transparent transparent;
+      }
+    }
+
+    &--granite-light {
+      background-color: var(--color-granite-light);
+      color: var(--color-white);
+      &::before {
+        border-color: var(--color-granite-light) transparent transparent;
+      }
+    }
+
+    &--silver-light {
+      background-color: var(--color-silver-light);
+      color: var(--color-primary);
+      &::before {
+        border-color: var(--color-silver-light) transparent transparent;
       }
     }
   }
