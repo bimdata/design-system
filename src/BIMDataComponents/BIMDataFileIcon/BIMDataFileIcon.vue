@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     name() {
-      return this.getFileExtension(this.fileName) || "unknown";
+      return (this.getFileExtension(this.fileName) || "unknown").toLowerCase();
     },
     imageUrl() {
       return icons[`icon_${this.name}`] || icons.icon_unknown;
