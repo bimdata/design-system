@@ -33,7 +33,7 @@
           />
           <div class="m-t-24">
             <BIMDataInput
-              placeholder="Maximum width"
+              placeholder="Maximum tooltip width"
               v-model="tooltipMaxWidth"
             />
           </div>
@@ -154,6 +154,9 @@ export default {
         "secondary",
         "granite-light",
         "silver-light",
+        "success",
+        "warning",
+        "high",
       ],
 
       propsData,

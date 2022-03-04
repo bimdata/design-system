@@ -50,6 +50,9 @@ export default {
           "secondary",
           "granite-light",
           "silver-light",
+          "success",
+          "warning",
+          "high",
         ].includes(value),
     },
     disabled: {
