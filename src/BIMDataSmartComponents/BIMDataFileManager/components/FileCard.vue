@@ -55,7 +55,7 @@
           <BIMDataIcon name="folder" size="xl" fill color="primary" />
         </template>
         <template v-else>
-          <BIMDataFileIcon :fileName="file.name" :size="25" />
+          <BIMDataFileIcon :fileName="file.fileName" :size="25" />
         </template>
       </div>
       <div
