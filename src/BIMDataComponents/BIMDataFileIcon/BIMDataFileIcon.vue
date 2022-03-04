@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     getFileExtension(fileName = "") {
-      const match = fileName.match(/\.([0-9a-z]+$)/);
+      const match = fileName.match(/\.([0-9a-zA-Z]+$)/);
       const extension = match && match[1];
       if (extension && extension.toLowerCase() === "ifczip") {
         return "ifc";
