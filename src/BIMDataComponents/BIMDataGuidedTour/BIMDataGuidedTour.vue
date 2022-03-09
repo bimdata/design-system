@@ -2,6 +2,7 @@
   <div
     class="guided-tour-portal"
     :class="{ centeredTooltip }"
+    :style="`z-index: ${zIndex}`"
     v-show="showGuidedTour"
   >
     <div ref="spotlight" class="spotlight">
@@ -33,6 +34,9 @@
           <component :is="currentStep.layout" v-bind="currentStep.props" />
         </template>
         <template v-else>
+          <div class="tooltip__content__title">
+            {{ currentStep.props.title }}
+          </div>
           <div class="tooltip__content__image">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/800px-Gull_portrait_ca_usa.jpg?20101128165003"
@@ -117,7 +121,11 @@ export default {
     },
     elementToObserve: {
       type: Object,
-      required: true,
+      default: () => {},
+    },
+    zIndex: {
+      type: Number,
+      default: () => 10000,
     },
   },
   data() {
@@ -126,7 +134,6 @@ export default {
       showGuidedTour: false,
       showTooltip: false,
       stepIndex: 0,
-      console,
     };
   },
   computed: {
@@ -153,21 +160,31 @@ export default {
     async currentStep(step) {
       if (!step) return;
 
-      if (!step.target) {
+      let target;
+
+      if (step.target) {
+        target = this.getDomElements(step.target);
+      } else {
         this.showTooltip = true;
         return;
       }
 
-      const target = document.querySelector(step.target);
-
       if (step.clickable) {
         const oldZIndex = target.style.zIndex;
+        const oldPosition = target.style.position;
 
-        target.style.zIndex = "11000";
+        target.style.zIndex = this.zIndex + 1000;
+
+        if (!oldPosition) {
+          target.style.position = "relative";
+        }
+
         target.addEventListener(
           "click",
           () => {
             target.style.zIndex = oldZIndex;
+            target.style.position = oldPosition;
+
             if (this.nextStep.target) {
               this.mutationObserver.observe(this.elementToObserve, {
                 childList: true,
@@ -180,8 +197,7 @@ export default {
           { once: true }
         );
       }
-
-      await scrollToTarget(target);
+      await scrollToTarget(target, this.elementToObserve);
 
       setSpotlightPosition(target, this.$refs.spotlight);
       setTooltipPosition(target, this.$refs.tooltip);
@@ -205,11 +221,17 @@ export default {
       this.steps = arg.map(step => {
         return {
           ...step,
-          target: step.target ? `[data-guide=${step.target}]` : null,
           layout: step.layout ? Object.freeze(step.layout) : null,
         };
       });
       this.showGuidedTour = true;
+    },
+    getDomElements(target) {
+      if (Array.isArray(target)) {
+        return target.map(t => document.querySelector(`[data-guide=${t}]`));
+      } else if (typeof target === "string") {
+        return document.querySelector(`[data-guide=${target}]`);
+      }
     },
     closeGuidedTour() {
       this.showGuidedTour = false;
@@ -217,9 +239,9 @@ export default {
     },
     next() {
       this.stepIndex++;
+      this.showTooltip = false;
       this.$refs.spotlight.style = {};
       this.$refs.tooltip.style = {};
-      this.showTooltip = false;
     },
     close() {
       this.showTooltip = false;
@@ -228,7 +250,7 @@ export default {
     },
     handleClickedStep() {
       const nextTarget = this.elementToObserve.querySelector(
-        this.nextStep.target
+        `[data-guide=${this.nextStep.target}]`
       );
 
       if (nextTarget) {
