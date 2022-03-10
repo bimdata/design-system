@@ -25,6 +25,7 @@
     }
 
     // --- Position styles ---
+    &.bimdata-tooltip--up, // retro-compatibility
     &--top {
       top: -8px;
       left: 50%;
@@ -36,6 +37,7 @@
       }
     }
 
+    &.bimdata-tooltip--left, // retro-compatibility
     &--right {
       top: 50%;
       left: calc(100% + 8px);
@@ -47,6 +49,7 @@
       }
     }
 
+    &.bimdata-tooltip--bottom, // retro-compatibility
     &--bottom {
       top: calc(100% + 8px);
       left: 50%;
@@ -58,6 +61,7 @@
       }
     }
 
+    &.bimdata-tooltip--right, // retro-compatibility
     &--left {
       top: 50%;
       left: -8px;
@@ -78,6 +82,7 @@
       }
     }
 
+    &.bimdata-tooltip--primary, // retro-compatibility
     &--primary {
       background-color: var(--color-primary);
       color: var(--color-white);
@@ -94,6 +99,7 @@
       }
     }
 
+    &.bimdata-tooltip--grey, // retro-compatibility
     &--granite-light {
       background-color: var(--color-granite-light);
       color: var(--color-white);

@@ -5,6 +5,8 @@
       @mouseover="hover = true"
       @mouseleave="hover = false"
     >
+      <!-- slot "content" for retro-compatibility -->
+      <slot name="content"></slot>
       <slot></slot>
     </div>
     <Transition name="fade">
@@ -15,10 +17,11 @@
         :class="[
           `bimdata-tooltip__tooltip--${position}`,
           `bimdata-tooltip__tooltip--${color}`,
+          ..._className,
         ]"
         :style="{ maxWidth }"
       >
-        {{ text }}
+        {{ _text }}
       </div>
     </Transition>
   </div>
@@ -59,6 +62,14 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    // props for retro-compatibility
+    message: {
+      type: String,
+    },
+    className: {
+      type: [String, Array],
+    },
   },
   data() {
     return {
@@ -70,7 +81,16 @@ export default {
   },
   computed: {
     isDisplayed() {
-      return !this.disabled && this.text && this.hover;
+      return !this.disabled && this._text && this.hover;
+    },
+
+    // computed for retro-compatibility
+    _text() {
+      return this.text || this.message;
+    },
+    _className() {
+      // convert it to an array if it's a string
+      return [this.className].flat();
     },
   },
 };
