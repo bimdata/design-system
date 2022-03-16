@@ -289,7 +289,7 @@ export default {
 @import "../../../assets/scss/BIMDataVariables";
 
 .file-card {
-  height: 174px;
+  height: 179px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -356,7 +356,7 @@ export default {
     }
 
     &__footer {
-      height: 85px;
+      height: 90px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -381,12 +381,13 @@ export default {
         justify-content: center;
         align-items: center;
         background-color: $color-primary;
+        font-size: calc(var(--spacing-unit) / 1.1);
         color: $color-silver-light;
-        line-height: 1px;
+        line-height: 2px;
         border-radius: 50%;
-        height: 25px;
-        width: 25px;
-        bottom: 10px;
+        height: 20px;
+        width: 20px;
+        bottom: 9px;
         right: 18px;
       }
     }
