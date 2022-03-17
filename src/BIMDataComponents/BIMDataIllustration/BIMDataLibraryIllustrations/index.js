@@ -1,6 +1,7 @@
 import click from "./Click.vue";
 import emptyBcf from "./EmptyBcf.vue";
 import emptyBucket from "./EmptyBucket.vue";
+import emptyMeasure from "./EmptyMeasure.vue";
 import emptyProperties from "./EmptyProperties.vue";
 import emptySectionPlanes from "./EmptySectionPlanes.vue";
 import emptyTree from "./EmptyTree.vue";
@@ -15,6 +16,7 @@ export default {
   click,
   emptyBcf,
   emptyBucket,
+  emptyMeasure,
   emptyProperties,
   emptySectionPlanes,
   emptyTree,
