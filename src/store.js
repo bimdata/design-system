@@ -125,6 +125,14 @@ export default new Vuex.Store({
           btn: "View checkbox",
         },
         {
+          title: "ColorSelector",
+          img: require("./web/assets/img/icon-color_selector.svg"),
+          path: "colorselector",
+          text:
+            "Color Selector component allows the user to pick from a set of predefined swatches colors.",
+          btn: "View color selector",
+        },
+        {
           title: "DropdownList",
           img: require("./web/assets/img/icon-dropdown.svg"),
           path: "dropdownlist",

@@ -1,0 +1,15 @@
+.color-selector {
+  &__line {
+    display: flex;
+    &__element {
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      margin: 4px;
+      border-radius: 3px;
+      &.selected {
+        border: solid 2px var(--color-primary);
+      }
+    }
+  }
+}
