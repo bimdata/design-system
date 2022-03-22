@@ -299,22 +299,22 @@ export default {
     box-sizing: border-box;
     height: calc(100% - 24px);
     width: calc(100% - 24px);
-    background-color: $color-white;
-    box-shadow: $box-shadow;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
     position: relative;
 
     &__menu {
       position: absolute;
-      background-color: $color-white;
+      background-color: var(--color-white);
       z-index: 1;
-      left: calc($spacing-unit / 3);
-      right: calc($spacing-unit / 3);
-      bottom: $spacing-unit;
-      box-shadow: $box-shadow;
+      left: calc(var(--spacing-unit) / 3);
+      right: calc(var(--spacing-unit) / 3);
+      bottom: var(--spacing-unit);
+      box-shadow: var(--box-shadow);
     }
 
     &--selected {
-      border: solid $color-primary 3px;
+      border: solid var(--color-primary) 3px;
     }
 
     &--disabled {
@@ -341,7 +341,7 @@ export default {
       align-items: center;
       justify-content: center;
       position: relative;
-      border-bottom: solid 1px $color-silver-light;
+      border-bottom: solid 1px var(--color-silver-light);
 
       &__btn-menu {
         position: absolute;
@@ -364,15 +364,15 @@ export default {
       box-sizing: border-box;
       font-size: 12px;
 
-      padding: $spacing-unit;
+      padding: var(--spacing-unit);
 
       &__name {
         font-weight: bold;
-        color: $color-granite;
+        color: var(--color-granite);
       }
 
       &__date {
-        color: $color-granite-light;
+        color: var(--color-granite-light);
       }
 
       &__initials {
@@ -380,9 +380,9 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $color-primary;
+        background-color: var(--color-primary);
         font-size: calc(var(--spacing-unit) / 1.1);
-        color: $color-silver-light;
+        color: var(--color-silver-light);
         line-height: 2px;
         border-radius: 50%;
         height: 20px;

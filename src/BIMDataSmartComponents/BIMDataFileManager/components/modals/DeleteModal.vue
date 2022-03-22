@@ -134,7 +134,7 @@ export default {
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
 .delete-modal {
-  background-color: $color-white;
+  background-color: var(--color-white);
 
   display: flex;
   position: relative;
@@ -143,8 +143,8 @@ export default {
 
   &__close {
     position: absolute;
-    right: $spacing-unit;
-    top: $spacing-unit;
+    right: var(--spacing-unit);
+    top: var(--spacing-unit);
   }
 
   &__content {
@@ -164,12 +164,12 @@ export default {
 
     &__detail {
       font-size: small;
-      margin-top: calc($spacing-unit * 2);
+      margin-top: calc(var(--spacing-unit) * 2);
     }
 
     ul {
       width: 100%;
-      margin: calc($spacing-unit * 2) 0;
+      margin: calc(var(--spacing-unit) * 2) 0;
     }
 
     li {
@@ -183,7 +183,7 @@ export default {
       width: 100%;
       justify-content: space-between;
       &-submit {
-        margin-left: $spacing-unit;
+        margin-left: var(--spacing-unit);
       }
     }
   }
