@@ -1,11 +1,12 @@
 <template>
   <div
+    ref="guidedTourPortal"
     class="guided-tour-portal"
     :class="{ centeredTooltip }"
     :style="`z-index: ${zIndex}`"
     v-show="showGuidedTour"
   >
-    <div ref="spotlight" class="spotlight">
+    <div v-show="showSpotlight" ref="spotlight" class="spotlight">
       <!-- Spotlight div -->
     </div>
     <div
@@ -88,7 +89,12 @@
               fill
               radius
               :disabled="currentStep.clickable"
-              @click="next"
+              @click="
+                () => {
+                  resetStyle();
+                  next();
+                }
+              "
             >
               <BIMDataIcon name="chevron" size="xxs" fill color="white" />
             </BIMDataButton>
@@ -103,6 +109,7 @@
 import {
   scrollToTarget,
   setSpotlightPosition,
+  setSpotlightPositionClickable,
   setTooltipPosition,
 } from "./guided-tour-utils.js";
 
@@ -132,6 +139,7 @@ export default {
     return {
       steps: [],
       showGuidedTour: false,
+      showSpotlight: true,
       showTooltip: false,
       stepIndex: 0,
     };
@@ -165,41 +173,20 @@ export default {
       if (step.target) {
         target = this.getDomElements(step.target);
       } else {
-        this.showTooltip = true;
+        this.displayCenteredTooltip();
         return;
       }
 
-      if (step.clickable) {
-        const oldZIndex = target.style.zIndex;
-        const oldPosition = target.style.position;
-
-        target.style.zIndex = this.zIndex + 1000;
-
-        if (!oldPosition) {
-          target.style.position = "relative";
-        }
-
-        target.addEventListener(
-          "click",
-          () => {
-            target.style.zIndex = oldZIndex;
-            target.style.position = oldPosition;
-
-            if (this.nextStep.target) {
-              this.mutationObserver.observe(this.elementToObserve, {
-                childList: true,
-                subtree: true,
-              });
-            } else {
-              this.next();
-            }
-          },
-          { once: true }
-        );
-      }
       await scrollToTarget(target, this.elementToObserve);
 
-      setSpotlightPosition(target, this.$refs.spotlight);
+      if (step.clickable) {
+        setSpotlightPositionClickable(target, this.$refs.guidedTourPortal);
+        this.clickListener(target);
+      } else {
+        setSpotlightPosition(target, this.$refs.spotlight);
+        this.showSpotlight = true;
+      }
+
       setTooltipPosition(target, this.$refs.tooltip);
       this.showTooltip = true;
     },
@@ -239,14 +226,46 @@ export default {
     },
     next() {
       this.stepIndex++;
-      this.showTooltip = false;
-      this.$refs.spotlight.style = {};
-      this.$refs.tooltip.style = {};
     },
     close() {
       this.showTooltip = false;
       this.closeGuidedTour();
       this.$emit("show-guided-tour", false);
+    },
+    resetStyle() {
+      this.showTooltip = false;
+      this.showSpotlight = false;
+
+      // when step is clickable
+      this.$refs.guidedTourPortal.style.removeProperty("background-color");
+      this.$refs.guidedTourPortal.style.removeProperty("clip-path");
+
+      // when step isn't clickable
+      this.$refs.tooltip.style.boxShadow = "0 2px 10px 0 rgba(0, 0, 0, 0.5)";
+      this.$refs.tooltip.style.removeProperty("left");
+      this.$refs.tooltip.style.removeProperty("top");
+    },
+    displayCenteredTooltip() {
+      this.showTooltip = true;
+      this.$refs.tooltip.style.boxShadow =
+        "0 0 0, 0 0 0 10000vmax rgba(0,0,0,0.5)";
+    },
+    clickListener(target) {
+      target.addEventListener(
+        "click",
+        () => {
+          this.resetStyle();
+          if (this.nextStep.target) {
+            this.mutationObserver.observe(this.elementToObserve, {
+              childList: true,
+              subtree: true,
+            });
+          } else {
+            this.next();
+          }
+        },
+        { once: true }
+      );
     },
     handleClickedStep() {
       const nextTarget = this.elementToObserve.querySelector(

@@ -5,7 +5,7 @@
 // Spotlight padding (in px)
 const spotPadding = 16;
 // offset spotlight border
-const spotBorder = 2;
+// const spotBorder = 2;
 // Tooltip gap (in px)
 const tooltipGap = 13;
 
@@ -81,24 +81,20 @@ function getWindowScroll() {
  */
 
 async function scrollToTarget(target, element) {
-  const { x, y, w, h } = getElementCoord(target);
-  const { wWindow, hWindow } = getWindowSize();
+  const { y, h } = getElementCoord(target);
+  const { hWindow } = getWindowSize();
 
-  let scroll = false;
-  let left, top;
+  const offsetYElement = element.offsetTop;
+  const scrolledTop = element.scrollTop;
 
-  if (x < 0 || x + w > wWindow) {
-    scroll = true;
-    left = x;
+  if (y < offsetYElement) {
+    element.scroll({ top: offsetYElement });
   }
 
-  if (y < 0 || y + h > hWindow) {
-    scroll = true;
-    top = y;
-  }
-
-  if (scroll) {
-    element.scroll({ top, left });
+  if (y + h > hWindow) {
+    element.scroll({
+      top: y + h - hWindow + scrolledTop + spotPadding + tooltipGap,
+    });
   }
 }
 
@@ -114,10 +110,37 @@ function setSpotlightPosition(target, spotlight) {
   });
 }
 
+function setSpotlightPositionClickable(target, spotlight) {
+  const { x, y, w, h } = getElementCoord(target);
+  const { offsetXWindow, offsetYWindow } = getWindowScroll();
+
+  Object.assign(spotlight.style, {
+    clipPath: `polygon(
+        ${offsetXWindow + x - spotPadding}px /* X top left */
+        ${offsetYWindow + y - spotPadding}px /* Y top left */,
+        ${offsetXWindow + x - spotPadding}px /* X bottom left */ 
+        ${offsetYWindow + y + h + spotPadding}px /* Y bottom  */, 
+        0 100%, 
+        0 0, 
+        100% 0, 
+        100% 100%, 
+        0 100%,
+        0% 
+        ${offsetYWindow + y + h + spotPadding}px /* Y bottom  */, 
+        ${offsetXWindow + x + w + spotPadding}px /* X bottom right */ 
+        ${offsetYWindow + y + h + spotPadding}px /* Y bottom  */,
+        ${offsetXWindow + x + w + spotPadding}px /* X top right */ 
+        ${offsetYWindow + y - spotPadding}px /* Y top right */
+      )`,
+    backgroundColor: "rgba(0,0,0,0.5)",
+  });
+}
+
 function setTooltipPosition(target, tooltip) {
   const { x: xTarget, y: yTarget, w: wTarget, h: hTarget } = getElementCoord(
     target
   );
+
   const { w: wToolTip, h: hTooltip } = getElementCoord(tooltip);
   const { wWindow, hWindow } = getWindowSize();
   const { offsetXWindow, offsetYWindow } = getWindowScroll();
@@ -128,46 +151,76 @@ function setTooltipPosition(target, tooltip) {
   const wideTooltip = wToolTip + tooltipGap;
 
   const topTarget = offsetYWindow + yTarget;
-  const highTarget = hTarget + spotPadding + spotBorder;
+  const highTarget = hTarget + spotPadding;
   const highTooltip = hTooltip + tooltipGap;
 
-  const tooltipFitRight = leftTarget + wTarget + wideTooltip < wWindow;
-  const tooltipFitLeft = wTarget + wideTooltip < wWindow;
+  const tooltipFitRight = wWindow - (leftTarget + wTarget) > wideTooltip;
+  const tooltipFitLeft = leftTarget > wideTooltip;
 
   if (tooltipFitRight) {
     left = leftTarget + wTarget + spotPadding + tooltipGap;
-  } else if (tooltipFitLeft) {
-    left = leftTarget - wideTooltip - spotPadding;
-  } else {
-    left = xTarget - spotPadding - spotBorder;
 
-    if (topTarget > highTooltip) {
-      top = topTarget - highTooltip - spotBorder - tooltipGap;
-    } else if (topTarget < highTooltip) {
-      top = topTarget + highTarget + tooltipGap;
+    // align bottom
+    if (hWindow - topTarget - highTarget < highTooltip - highTarget) {
+      top = topTarget + highTarget - highTooltip + spotPadding;
+      // align top
+    } else {
+      top = topTarget - spotPadding;
     }
 
     Object.assign(tooltip.style, {
       left: `${left}px`,
       top: `${top}px`,
     });
-
     return;
   }
 
-  const tooltipFitByTop = topTarget + highTooltip < hWindow;
-  const tooltipFitByBottom = topTarget + highTooltip >= hWindow;
+  if (tooltipFitLeft) {
+    left = leftTarget - wideTooltip - spotPadding;
 
-  if (tooltipFitByTop) {
-    top = topTarget - spotPadding - spotBorder;
-  } else if (tooltipFitByBottom) {
-    top = topTarget + highTarget - highTooltip + spotPadding;
+    // align bottom
+    if (hWindow - topTarget - highTarget < highTooltip - highTarget) {
+      top = topTarget + highTarget - highTooltip + spotPadding;
+      // align top
+    } else {
+      top = topTarget - spotPadding;
+    }
+    Object.assign(tooltip.style, {
+      left: `${left}px`,
+      top: `${top}px`,
+    });
+    return;
   }
 
+  const tooltipFitTop = highTooltip < topTarget - tooltipGap;
+  const tooltipFitBottom = hWindow - (topTarget + highTarget) > highTooltip;
+
+  if (tooltipFitTop) {
+    Object.assign(tooltip.style, {
+      left: `${leftTarget - spotPadding}px`,
+      top: `${topTarget - spotPadding - highTooltip}px`,
+    });
+    return;
+  }
+
+  if (tooltipFitBottom) {
+    Object.assign(tooltip.style, {
+      left: `${leftTarget - spotPadding}px`,
+      top: `${topTarget + highTarget + spotPadding}px`,
+    });
+    return;
+  }
+
+  // tooltip in element
   Object.assign(tooltip.style, {
-    left: `${left}px`,
-    top: `${top}px`,
+    left: `${leftTarget + wTarget - wToolTip}px`,
+    top: `${topTarget + highTarget - highTooltip}px`,
   });
 }
 
-export { scrollToTarget, setSpotlightPosition, setTooltipPosition };
+export {
+  scrollToTarget,
+  setSpotlightPosition,
+  setSpotlightPositionClickable,
+  setTooltipPosition,
+};
