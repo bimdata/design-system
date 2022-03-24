@@ -17,6 +17,7 @@
       @blur="$emit('blur', $event)"
       @keypress="$emit('keypress', $event)"
       @change="$emit('change', $event)"
+      :autocomplete="autocomplete ? 'on' : 'off'"
       v-bind="$attrs"
     />
     <div class="bimdata-input__icon">
@@ -73,6 +74,10 @@ export default {
     margin: {
       type: String,
       default: "12px 0px",
+    },
+    autocomplete: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
