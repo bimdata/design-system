@@ -14,7 +14,7 @@
   .tooltip {
     position: absolute;
     width: 280px;
-    height: 350px;
+    height: 362px;
     padding: 12px;
     border-radius: 2px;
     background-color: white;
@@ -59,6 +59,7 @@
 
     &__footer {
       display: flex;
+      margin-top: var(--spacing-unit);
 
       &__ghost-element {
         flex: 1

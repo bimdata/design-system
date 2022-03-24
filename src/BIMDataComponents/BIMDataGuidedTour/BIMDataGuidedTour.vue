@@ -171,23 +171,31 @@ export default {
       let target;
 
       if (step.target) {
-        target = this.getDomElements(step.target);
+        target = this.getDomElements(step);
       } else {
         this.displayCenteredTooltip();
         return;
       }
 
-      await scrollToTarget(target, this.elementToObserve);
+      await scrollToTarget(target, this.elementToObserve, step.spotlightOffset);
 
       if (step.clickable) {
-        setSpotlightPositionClickable(target, this.$refs.guidedTourPortal);
+        setSpotlightPositionClickable(
+          target,
+          this.$refs.guidedTourPortal,
+          step.spotlightOffset
+        );
         this.clickListener(target);
       } else {
-        setSpotlightPosition(target, this.$refs.spotlight);
+        setSpotlightPosition(
+          target,
+          this.$refs.spotlight,
+          step.spotlightOffset
+        );
         this.showSpotlight = true;
       }
 
-      setTooltipPosition(target, this.$refs.tooltip);
+      setTooltipPosition(target, this.$refs.tooltip, step.spotlightOffset);
       this.showTooltip = true;
     },
   },
@@ -209,15 +217,21 @@ export default {
         return {
           ...step,
           layout: step.layout ? Object.freeze(step.layout) : null,
+          spotlightOffset: step.spotlightOffset ?? true,
         };
       });
       this.showGuidedTour = true;
     },
-    getDomElements(target) {
+    getDomElements(step, elementToWatch = document) {
+      const { target, targetDetail } = step;
       if (Array.isArray(target)) {
-        return target.map(t => document.querySelector(`[data-guide=${t}]`));
+        return target.map(t =>
+          elementToWatch.querySelector(`[data-guide=${t}]`)
+        );
       } else if (typeof target === "string") {
-        return document.querySelector(`[data-guide=${target}]`);
+        return elementToWatch.querySelector(
+          `[data-guide=${target}] ${targetDetail ? targetDetail : ""}`
+        );
       }
     },
     closeGuidedTour() {
@@ -268,8 +282,9 @@ export default {
       );
     },
     handleClickedStep() {
-      const nextTarget = this.elementToObserve.querySelector(
-        `[data-guide=${this.nextStep.target}]`
+      const nextTarget = this.getDomElements(
+        this.nextStep,
+        this.elementToObserve
       );
 
       if (nextTarget) {

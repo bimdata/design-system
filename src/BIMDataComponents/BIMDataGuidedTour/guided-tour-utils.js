@@ -3,7 +3,8 @@
  */
 
 // Spotlight padding (in px)
-const spotPadding = 16;
+const spotPaddingInitalValue = 16;
+let spotPadding;
 // offset spotlight border
 // const spotBorder = 2;
 // Tooltip gap (in px)
@@ -80,15 +81,36 @@ function getWindowScroll() {
  * Exported utility functions
  */
 
-async function scrollToTarget(target, element) {
+function isNegative(num) {
+  return Math.sign(num) === -1;
+}
+
+async function scrollToTarget(target, element, spotlightOffset) {
   const { y, h } = getElementCoord(target);
   const { hWindow } = getWindowSize();
 
   const offsetYElement = element.offsetTop;
   const scrolledTop = element.scrollTop;
 
+  spotPadding = spotlightOffset ? spotPaddingInitalValue : 0;
+
+  console.log("y", y);
+  console.log("h", h);
+  console.log("hWindow", hWindow);
+  console.log("offsethElement", offsetYElement);
+  console.log("scrolledTop", scrolledTop);
+
+  if (isNegative(y)) {
+    console.log("isNegative", scrolledTop + y - spotPadding - tooltipGap);
+    element.scroll({
+      top: scrolledTop + y - spotPadding - tooltipGap,
+    });
+  }
+
   if (y < offsetYElement) {
-    element.scroll({ top: offsetYElement });
+    element.scroll({
+      top: scrolledTop + y - offsetYElement - spotPadding - tooltipGap,
+    });
   }
 
   if (y + h > hWindow) {
@@ -98,9 +120,11 @@ async function scrollToTarget(target, element) {
   }
 }
 
-function setSpotlightPosition(target, spotlight) {
+function setSpotlightPosition(target, spotlight, spotlightOffset) {
   const { x, y, w, h } = getElementCoord(target);
   const { offsetXWindow, offsetYWindow } = getWindowScroll();
+
+  spotPadding = spotlightOffset ? spotPaddingInitalValue : 0;
 
   Object.assign(spotlight.style, {
     left: `${offsetXWindow + x - spotPadding}px`,
@@ -110,9 +134,10 @@ function setSpotlightPosition(target, spotlight) {
   });
 }
 
-function setSpotlightPositionClickable(target, spotlight) {
+function setSpotlightPositionClickable(target, spotlight, spotlightOffset) {
   const { x, y, w, h } = getElementCoord(target);
   const { offsetXWindow, offsetYWindow } = getWindowScroll();
+  spotPadding = spotlightOffset ? spotPaddingInitalValue : 0;
 
   Object.assign(spotlight.style, {
     clipPath: `polygon(
@@ -136,7 +161,7 @@ function setSpotlightPositionClickable(target, spotlight) {
   });
 }
 
-function setTooltipPosition(target, tooltip) {
+function setTooltipPosition(target, tooltip, spotlightOffset) {
   const { x: xTarget, y: yTarget, w: wTarget, h: hTarget } = getElementCoord(
     target
   );
@@ -144,6 +169,8 @@ function setTooltipPosition(target, tooltip) {
   const { w: wToolTip, h: hTooltip } = getElementCoord(tooltip);
   const { wWindow, hWindow } = getWindowSize();
   const { offsetXWindow, offsetYWindow } = getWindowScroll();
+
+  spotPadding = spotlightOffset ? spotPaddingInitalValue : 0;
 
   let left, top;
 
