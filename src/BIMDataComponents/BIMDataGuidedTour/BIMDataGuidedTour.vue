@@ -88,13 +88,7 @@
               color="primary"
               fill
               radius
-              :disabled="currentStep.clickable"
-              @click="
-                () => {
-                  resetStyle();
-                  next();
-                }
-              "
+              @click="clickNext"
             >
               <BIMDataIcon name="chevron" size="xxs" fill color="white" />
             </BIMDataButton>
@@ -109,7 +103,6 @@
 import {
   scrollToTarget,
   setSpotlightPosition,
-  setSpotlightPositionClickable,
   setTooltipPosition,
 } from "./guided-tour-utils.js";
 
@@ -141,7 +134,12 @@ export default {
       showGuidedTour: false,
       showSpotlight: true,
       showTooltip: false,
+      clickNext: () => {
+        this.resetSettings();
+        this.next();
+      },
       stepIndex: 0,
+      console,
     };
   },
   computed: {
@@ -177,25 +175,18 @@ export default {
         return;
       }
 
-      await scrollToTarget(target, this.elementToObserve, step.spotlightOffset);
-
       if (step.clickable) {
-        setSpotlightPositionClickable(
-          target,
-          this.$refs.guidedTourPortal,
-          step.spotlightOffset
-        );
         this.clickListener(target);
-      } else {
-        setSpotlightPosition(
-          target,
-          this.$refs.spotlight,
-          step.spotlightOffset
-        );
-        this.showSpotlight = true;
+        this.clickNext = () => {
+          target.click();
+        };
       }
 
-      setTooltipPosition(target, this.$refs.tooltip, step.spotlightOffset);
+      scrollToTarget(target, this.elementToObserve);
+      setSpotlightPosition(target, this.$refs.spotlight);
+      setTooltipPosition(target, this.$refs.tooltip);
+
+      this.showSpotlight = true;
       this.showTooltip = true;
     },
   },
@@ -217,7 +208,6 @@ export default {
         return {
           ...step,
           layout: step.layout ? Object.freeze(step.layout) : null,
-          spotlightOffset: step.spotlightOffset ?? true,
         };
       });
       this.showGuidedTour = true;
@@ -246,29 +236,31 @@ export default {
       this.closeGuidedTour();
       this.$emit("show-guided-tour", false);
     },
-    resetStyle() {
-      this.showTooltip = false;
+    resetSettings() {
       this.showSpotlight = false;
+      this.showTooltip = false;
 
-      // when step is clickable
-      this.$refs.guidedTourPortal.style.removeProperty("background-color");
-      this.$refs.guidedTourPortal.style.removeProperty("clip-path");
-
-      // when step isn't clickable
       this.$refs.tooltip.style.boxShadow = "0 2px 10px 0 rgba(0, 0, 0, 0.5)";
       this.$refs.tooltip.style.removeProperty("left");
       this.$refs.tooltip.style.removeProperty("top");
+
+      this.clickNext = () => {
+        this.resetSettings();
+        this.next();
+      };
     },
     displayCenteredTooltip() {
       this.showTooltip = true;
-      this.$refs.tooltip.style.boxShadow =
-        "0 0 0, 0 0 0 10000vmax rgba(0,0,0,0.5)";
+      if (this.$refs.tooltip) {
+        this.$refs.tooltip.style.boxShadow =
+          "0 0 0, 0 0 0 10000vmax rgba(0,0,0,0.5)";
+      }
     },
     clickListener(target) {
       target.addEventListener(
         "click",
         () => {
-          this.resetStyle();
+          this.resetSettings();
           if (this.nextStep.target) {
             this.mutationObserver.observe(this.elementToObserve, {
               childList: true,
@@ -287,7 +279,12 @@ export default {
         this.elementToObserve
       );
 
-      if (nextTarget) {
+      const isAnHTMLElement = nextTarget instanceof HTMLElement;
+      const isAnArrayOfHTMLElement =
+        Array.isArray(nextTarget) &&
+        nextTarget.every(elem => elem instanceof HTMLElement);
+
+      if (isAnHTMLElement || isAnArrayOfHTMLElement) {
         this.next();
         this.mutationObserver.disconnect();
       }
