@@ -110,10 +110,10 @@ export default {
 
   &__form {
     position: absolute;
-    top: calc(100% + $spacing-unit);
+    top: calc(100% + var(--spacing-unit));
     left: 0px;
     width: 260px;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
     z-index: 1;
   }
 }

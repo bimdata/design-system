@@ -133,8 +133,8 @@ export default {
 @import "../../../../assets/scss/_BIMDataVariables.scss";
 
 .folder-creation-form {
-  padding: $spacing-unit;
-  background-color: $color-white;
+  padding: var(--spacing-unit);
+  background-color: var(--color-white);
 
   display: flex;
   flex-wrap: wrap;
@@ -143,12 +143,12 @@ export default {
     width: 100%;
     display: flex;
     align-items: flex-end;
-    gap: calc($spacing-unit) / 2;
-    color: $color-primary;
+    gap: calc(var(--spacing-unit)) / 2;
+    color: var(--color-primary);
 
     span {
       font-size: small;
-      margin-left: $spacing-unit / 2;
+      margin-left: var(--spacing-unit) / 2;
     }
   }
 
@@ -162,7 +162,7 @@ export default {
   }
 
   &__btn-submit {
-    margin-left: $spacing-unit;
+    margin-left: var(--spacing-unit);
   }
 }
 </style>
