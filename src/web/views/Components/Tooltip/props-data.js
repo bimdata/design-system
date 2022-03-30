@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default [
-  ["Props", "Type", "Default value", "Required", "Description"],
+  ["Props", "Type", "Required", "Default value", "Description"],
   [
     "text",
     "String",
@@ -11,29 +11,29 @@ export default [
   [
     "maxWidth",
     "String",
-    "240px",
     "",
+    "240px",
     "Set the maximum with of the tooltip."
   ],
   [
     "position",
     "String (Enum)",
-    "bottom",
     "true",
+    "bottom",
     "Set tooltip postion. Must be one of: 'top', 'right', 'bottom', 'left'",
   ],
   [
     "color",
     "String (Enum)",
-    "primary",
     "true",
+    "primary",
     "Set tooltip color. Must be one of: 'white', 'primary', 'secondary', 'granite-light', 'silver-light'",
   ],
   [
     "disabled",
     "Boolean",
-    "false",
     "",
+    "false",
     "If true, the tooltip will never be shown."
   ]
 ];

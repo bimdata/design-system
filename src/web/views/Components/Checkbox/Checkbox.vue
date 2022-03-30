@@ -1,9 +1,9 @@
 <template>
   <main class="article article-checkbox">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
         language="javascript"
@@ -15,14 +15,12 @@
             :text="getCheckboxText()"
             v-model="checked"
             :disabled="getCheckboxDisabled()"
-          ></BIMDataCheckbox>
+          />
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="text" v-model="checkboxTextChecked">
-          </BIMDataCheckbox>
-          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked">
-          </BIMDataCheckbox>
+          <BIMDataCheckbox text="text" v-model="checkboxTextChecked" />
+          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" />
         </template>
 
         <template #import>
@@ -32,20 +30,19 @@
 
         <template #code>
           <pre>
-              &lt;BIMDataCheckbox
+            &lt;BIMDataCheckbox
               :disabled="{{ getCheckboxDisabled() }}"
-              text="Your label here"
-              v-model="checked"&gt;
-              &lt;/BIMDataCheckbox&gt;
-            </pre
-          >
+              ext="Your label here"
+              v-model="checked"
+            /&gt;
+          </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>
@@ -53,11 +50,12 @@
 </template>
 
 <script>
-import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+import propsData from "./props-data.js";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
@@ -71,27 +69,8 @@ export default {
       checked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
-      propsData: [
-        ["Props", "Type", "Default value", "Description"],
-        [
-          "text",
-          "String",
-          "null",
-          "Use this props to add text next to the checkbox",
-        ],
-        [
-          "state",
-          "Boolean",
-          "false",
-          "Use this boolean to know if the checkbox is checked or not. If the state === 'null' then the state is 'indeterminate'",
-        ],
-        [
-          "disabled",
-          "Boolean",
-          "false",
-          "Use this props to disabled the checkbox",
-        ],
-      ],
+      // Data
+      propsData,
     };
   },
   methods: {

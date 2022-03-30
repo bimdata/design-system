@@ -1,9 +1,9 @@
 <template>
   <main class="article article-buttons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <div class="button-overview">
         <ComponentCode
           :componentTitle="$route.name"
@@ -37,10 +37,11 @@
             <div v-for="[key, values] in Object.entries(btnOptions)" :key="key">
               <BIMDataText
                 component="h5"
-                color="color-primary"
                 margin="15px 0 10px"
-                >{{ key }}</BIMDataText
+                color="color-primary"
               >
+                {{ key }}
+              </BIMDataText>
               <BIMDataRadio
                 v-for="value in values"
                 :key="value"
@@ -55,40 +56,38 @@
             <div>
               <BIMDataText
                 component="h5"
-                color="color-primary"
                 margin="15px 0 10px"
-                >modifiers</BIMDataText
+                color="color-primary"
               >
+                modifiers
+              </BIMDataText>
               <BIMDataCheckbox
                 text="icon"
                 v-model="checkboxIconChecked"
                 :disabled="checkboxIconDisabled"
-              >
-              </BIMDataCheckbox>
+              />
               <BIMDataCheckbox
                 text="text"
                 v-model="checkboxTextChecked"
                 :disabled="checkboxTextDisabled"
-              >
-              </BIMDataCheckbox>
+              />
               <BIMDataCheckbox
                 text="disabled"
                 v-model="checkboxDisabledChecked"
-              >
-              </BIMDataCheckbox>
+              />
             </div>
 
-            <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-              >size</BIMDataText
-            >
+            <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+              size
+            </BIMDataText>
             <BIMDataInput
               v-model="widthButton"
               placeholder="button's min-width in px or %"
-            ></BIMDataInput>
+            />
             <BIMDataInput
               v-model="heightButton"
               placeholder="button's min-height in px or %"
-            ></BIMDataInput>
+            />
           </template>
 
           <template #import>
@@ -117,9 +116,9 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-            >Props:</BIMDataText
-          >
+          <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+            Props:
+          </BIMDataText>
           <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
         </div>
       </div>
@@ -129,17 +128,16 @@
 
 <script>
 import colors from "../../../../assets/colors.js";
+import propsData from "./props-data.js";
 
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
-import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   name: "Buttons",
@@ -170,61 +168,7 @@ export default {
         kinds: ["radius", "square", "rounded"],
         values: colors,
       },
-      propsData: [
-        ["Props", "Type", "Required", "Default value", "Description"],
-        ["color", "String", "true", "", "Use this props to use ghost button"],
-        [
-          "width",
-          "[Number, String]",
-          "",
-          "32",
-          "Use this props to change the min-width of the button",
-        ],
-        [
-          "height",
-          "[Number, String]",
-          "",
-          "32",
-          "Use this props to change the height of the button",
-        ],
-        ["fill", "Boolean", "", "false", "Use this props to use fill button"],
-        [
-          "outline",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use outline button",
-        ],
-        ["ghost", "Boolean", "", "false", "Use this props to use ghost button"],
-        [
-          "ripple",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use button with ripple effect",
-        ],
-        [
-          "radius",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use radius button",
-        ],
-        [
-          "square",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use square button",
-        ],
-        [
-          "rounded",
-          "Boolean",
-          "",
-          "false",
-          "Use this props to use rounded button",
-        ],
-      ],
+      propsData,
     };
   },
   computed: {
@@ -312,13 +256,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Buttons.scss";
-</style>
-
-<style lang="css">
-@import "../../../../assets/scss/_BIMDataVariables.scss";
-@import "./buttons.css";
-</style>
