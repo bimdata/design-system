@@ -17,6 +17,7 @@
       @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       @keyup.enter="$emit('enter', $event.target.value)"
+      :autocomplete="autocomplete ? 'on' : 'off'"
     />
     <BIMDataButton
       width="25px"
@@ -93,6 +94,10 @@ export default {
       type: String,
       default: "default",
       validator: color => colors.includes(color),
+    },
+    autocomplete: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["update:modelValue", "enter", "clear"],

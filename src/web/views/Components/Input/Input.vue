@@ -1,9 +1,9 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataInput
@@ -53,12 +53,10 @@
               component="h5"
               color="color-primary"
               margin="15px 0 10px"
-              >Margin</BIMDataText
             >
-            <BIMDataInput
-              v-model="marginInput"
-              placeholder="Change margin"
-            ></BIMDataInput>
+              Margin
+            </BIMDataText>
+            <BIMDataInput v-model="marginInput" placeholder="Change margin" />
           </div>
         </template>
 
@@ -75,7 +73,8 @@
               :error="!textInput"
               errorMessage="your error message here"
               :loading="{{ getLoading() }}"
-              {{ getMargin() }}&gt;
+              {{ getMargin() }}
+            &gt;
 
               &lt;template #inputIcon v-if="inputIcon"&gt;
                 {{ getInputIcon() }}
@@ -87,12 +86,12 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >nota bene:
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          nota bene:
         </BIMDataText>
         <BIMDataText component="span" color="color-primary" margin="15px 5px">
           This component use the $attrs attribute provided by Vue. Therefore all
@@ -100,29 +99,33 @@
           <a
             href="https://vuejs.org/v2/guide/components-props.html#Disabling-Attribute-Inheritance"
             target="_blank"
-            >More info about $attrs</a
-          ></BIMDataText
-        >
+          >
+            More info about $attrs
+          </a>
+        </BIMDataText>
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Slots:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Events:
+        </BIMDataText>
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Slots:
+        </BIMDataText>
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
-      </div>
-      <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Events:</BIMDataText
-        >
-        <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import eventsData from "./events-data.js";
+import propsData from "./props-data.js";
+import slotsData from "./slots-data.js";
+// Components
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
@@ -149,62 +152,9 @@ export default {
       disabled: false,
       inputIcon: false,
       marginInput: "12px 0px",
-      // Props documentation
-      propsData: [
-        ["Props", "Type", "Default value", "Description"],
-        [
-          "placeholder",
-          "String",
-          "' '",
-          "Use this props to add a placeholder to your input.",
-        ],
-        [
-          "error",
-          "Boolean",
-          "false",
-          "Use this boolean to check if your input is bad.",
-        ],
-        [
-          "success",
-          "Boolean",
-          "false",
-          "Use this boolean to check if your input is good.",
-        ],
-        [
-          "errorMessage",
-          "String",
-          "' '",
-          "Use this props to add an error message to your input.",
-        ],
-        [
-          "successMessage",
-          "String",
-          "' '",
-          "Use this props to add a success message to your input.",
-        ],
-        ["loading", "Boolean", "false", ""],
-        [
-          "disabled",
-          "Boolean",
-          "false",
-          "Use this boolean to disabled your input.",
-        ],
-      ],
-
-      // Slots documentation
-      slotsData: [
-        ["Slot name", "Description"],
-        ["inputIcon", "Use this slot to add an icon as input suffix."],
-      ],
-
-      // Events documentation
-      eventData: [
-        ["Event name", "Payload"],
-        ["update:modelValue", "The value of the input."],
-        ["blur", "The native blur event."],
-        ["keypress", "The native keypress event."],
-        ["focus", "The native focus event."],
-      ],
+      propsData,
+      eventsData,
+      slotsData,
     };
   },
   methods: {
