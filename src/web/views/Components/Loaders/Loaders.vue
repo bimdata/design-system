@@ -27,6 +27,15 @@
           form validation)
         </p>
       </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
+          >BIMDataLoading props:</BIMDataText
+        >
+        <BIMDataTable
+          :columns="propsBIMDataLoading[0]"
+          :rows="propsBIMDataLoading.slice(1)"
+        ></BIMDataTable>
+      </div>
 
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
@@ -142,6 +151,11 @@ export default {
   },
   data() {
     return {
+      propsBIMDataLoading: [
+        ["Props", "Type", "Default value", "Description"],
+        ["message", "String", "loading...", "custom waiting message"],
+        ["subMessage", "String", "", "custom waiting sub-message"],
+      ],
       propsBIMDataPieSpinner: [
         ["Props", "Type", "Default value", "Description"],
         ["width", "Number", "22", "Spinner width"],
