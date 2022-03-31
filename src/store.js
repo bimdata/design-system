@@ -26,14 +26,6 @@ export default new Vuex.Store({
           text: "How to use the BIMData design system in your projects.",
           btn: "Get dev kit",
         },
-        // {
-        //   title: "Releases",
-        //   img: require("./web/assets/img/icon-release.svg"),
-        //   path: "releases",
-        //   text:
-        //     "Discover the new features of the BIMData Design system.",
-        //   btn: "View releases",
-        // },
         {
           title: "InternalDoc",
           img: require("./web/assets/img/icon-doc.svg"),
@@ -70,14 +62,6 @@ export default new Vuex.Store({
           text: "BIMData uses a color palette to achieve clean interfaces.",
           btn: "View colors",
         },
-        // {
-        //   title: "Grid",
-        //   img: require("./web/assets/img/icon-grid.svg"),
-        //   path: "grid",
-        //   text:
-        //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae numquam laboriosam",
-        //   btn: "View grid",
-        // },
         {
           title: "list",
           img: require("./web/assets/img/icon-list.svg"),
