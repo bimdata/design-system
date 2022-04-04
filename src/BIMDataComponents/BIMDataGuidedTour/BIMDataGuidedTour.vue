@@ -9,91 +9,108 @@
     <div v-show="showSpotlight" ref="spotlight" class="spotlight">
       <!-- Spotlight div -->
     </div>
+    {{ console.log("showTooltip", showTooltip) }}
     <div
       v-if="currentStep"
       ref="tooltip"
       class="tooltip"
       :style="{ opacity: showTooltip ? 1 : 0 }"
     >
-      <div class="tooltip__header">
-        <template v-if="!isStepIntro && !isStepOutro">
-          <BIMDataButton
-            class="tooltip__header__btn-close"
-            width="0px"
-            height="0px"
-            ghost
-            rounded
-            icon
-            @click="close"
-          >
-            <BIMDataIcon name="close" size="xxs" />
-          </BIMDataButton>
-        </template>
+      <div class="tooltip__progress-bar">
+        <div
+          class="tooltip__progress-bar__step"
+          v-for="(step, index) of steps"
+          :key="index"
+          :style="{
+            width: `calc(100% / ${steps.length})`,
+            backgroundColor:
+              steps.indexOf(currentStep) >= index
+                ? 'var(--color-secondary)'
+                : '',
+          }"
+        ></div>
       </div>
-      <div class="tooltip__content">
-        <template v-if="currentStep.layout">
-          <component :is="currentStep.layout" v-bind="currentStep.props" />
-        </template>
-        <template v-else>
-          <div class="tooltip__content__title">
-            {{ currentStep.props.title }}
-          </div>
-          <div class="tooltip__content__image">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/800px-Gull_portrait_ca_usa.jpg?20101128165003"
-            />
-          </div>
-          <div class="tooltip__content__text">
-            {{ currentStep.props.content }}
-          </div>
-        </template>
-      </div>
-      <div class="tooltip__footer">
-        <template v-if="isStepIntro">
-          <div class="tooltip__footer__btn-skip">
+      <div class="tooltip__box">
+        <div class="tooltip__box__header">
+          <template v-if="!isStepIntro && !isStepOutro">
             <BIMDataButton
+              class="tooltip__box__header__btn-close"
               width="0px"
               height="0px"
-              color="granite"
+              ghost
+              rounded
+              icon
               @click="close"
             >
-              Skip
+              <BIMDataIcon name="close" size="xxs" />
             </BIMDataButton>
-          </div>
-        </template>
-        <template v-else>
-          <div class="tooltip__footer__ghost-element"></div>
-        </template>
-        <div class="tooltip__footer__step-counter">
-          <span>{{ stepIndex + 1 }}</span>
-          <span>/{{ steps.length }}</span>
+          </template>
         </div>
-        <template v-if="isStepOutro">
-          <div class="tooltip__footer__btn-start">
-            <BIMDataButton
-              width="0px"
-              height="0px"
-              color="granite"
-              @click="close"
-            >
-              Commencer
-            </BIMDataButton>
+        <div class="tooltip__box__content">
+          <template v-if="currentStep.layout">
+            <component :is="currentStep.layout" v-bind="currentStep.props" />
+          </template>
+          <template v-else>
+            <div class="tooltip__box__content__title">
+              {{ currentStep.props.title }}
+            </div>
+            <div class="tooltip__box__content__image">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/800px-Gull_portrait_ca_usa.jpg?20101128165003"
+              />
+            </div>
+            <div class="tooltip__box__content__text">
+              {{ currentStep.props.content }}
+            </div>
+          </template>
+        </div>
+        <div class="tooltip__box__footer">
+          <template v-if="isStepIntro">
+            <div class="tooltip__box__footer__btn-skip">
+              <BIMDataButton
+                width="0px"
+                height="0px"
+                color="granite"
+                @click="close"
+              >
+                Skip
+              </BIMDataButton>
+            </div>
+          </template>
+          <template v-else>
+            <div class="tooltip__box__footer__ghost-element"></div>
+          </template>
+          <div class="tooltip__box__footer__step-counter">
+            <span>{{ stepIndex + 1 }}</span>
+            <span>/{{ steps.length }}</span>
           </div>
-        </template>
-        <template v-else>
-          <div class="tooltip__footer__btn-next">
-            <BIMDataButton
-              width="0px"
-              height="0px"
-              color="primary"
-              fill
-              radius
-              @click="clickNext"
-            >
-              <BIMDataIcon name="chevron" size="xxs" fill color="white" />
-            </BIMDataButton>
-          </div>
-        </template>
+          <template v-if="isStepOutro">
+            <div class="tooltip__box__footer__btn-start">
+              <BIMDataButton
+                width="0px"
+                height="0px"
+                color="granite"
+                @click="close"
+              >
+                Commencer
+              </BIMDataButton>
+            </div>
+          </template>
+          <template v-else>
+            <div class="tooltip__box__footer__btn-next">
+              <BIMDataButton
+                width="0px"
+                height="0px"
+                color="primary"
+                fill
+                radius
+                @click="clickNext"
+              >
+                <BIMDataIcon name="chevron" size="xxs" fill color="white" />
+              </BIMDataButton>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -178,6 +195,7 @@ export default {
       if (step.clickable) {
         this.clickListener(target);
         this.clickNext = () => {
+          this.resetSettings();
           target.click();
         };
       }
@@ -260,7 +278,6 @@ export default {
       target.addEventListener(
         "click",
         () => {
-          this.resetSettings();
           if (this.nextStep.target) {
             this.mutationObserver.observe(this.elementToObserve, {
               childList: true,
