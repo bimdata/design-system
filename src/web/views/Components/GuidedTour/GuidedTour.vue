@@ -72,13 +72,13 @@ export default {
   data() {
     return {
       tours: tours,
+
       showGuidedTour: false,
       selectChecked: false,
       multiChecked: false,
       headerButtons: true,
       headerSearch: true,
       selectedFiles: [],
-      console,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["tours", "array", "[]", "The scenario"],

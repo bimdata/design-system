@@ -57,6 +57,7 @@ function getElementCoord(elem) {
     w = currentW;
     h = currentH;
   }
+
   return { x, y, w, h };
 }
 
