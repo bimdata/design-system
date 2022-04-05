@@ -1,5 +1,5 @@
 <template>
-  <main class="article article-checkbox">
+  <main ref="articleGuidedTour" class="article article-guidedtour">
     <div class="article-wrapper">
       <BIMDataText component="h1" color="color-primary">{{
         $route.name
@@ -15,62 +15,36 @@
             >
               Open Guide Tour
             </BIMDataButton>
-            <div data-guide="step-1"><h3>Hello World</h3></div>
-            <div data-guide="step-2"><span>hey you</span></div>
+            <div data-guide="step-1"><h3>Hello</h3></div>
+            <div data-guide="step-2"><span>World</span></div>
           </div>
-
           <template v-if="showGuidedTour">
             <BIMDataGuidedTour
-              @show-guided-tour="() => (showGuidedTour = false)"
-              :inputSteps="inputSteps"
+              :tours="tours"
+              :elementToObserve="guidedTourArea()"
             />
           </template>
         </template>
-
-        <template #parameters>
-          <BIMDataCheckbox text="select" v-model="selectChecked" />
-          <BIMDataCheckbox
-            text="multi"
-            v-model="multiChecked"
-            :disabled="!selectChecked"
-          />
-          <BIMDataCheckbox text="header buttons" v-model="headerButtons" />
-          <BIMDataCheckbox text="header search" v-model="headerSearch" />
-        </template>
-
         <template #import>
-          import BIMDataCheckbox from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCheckbox.js"
+          import BIMDataGuidedTour from
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataGuidedTour.js"
         </template>
 
         <template #code>
           <pre>
-              &lt;BIMDataSmartFileManager
-                :spaceId="515"
-                :projectId="756"
-                apiUrl="https://api-staging.bimdata.io"
-                accessToken="fc83e49ca9444d3ea41d212599f39040"
-                :select="{{ String(selectChecked) }}"
-                :multi="{{ String(multiChecked) }}"
-                :headerButtons="{{ headerButtons }}"
-                :headerSearch="{{ headerSearch }}"
-                /&gt;
+              &lt;BIMDataGuidedTour
+                :tours="tours"
+                :elementToObserve="guidedTourArea()"
+              /&gt;
             </pre
           >
         </template>
       </ComponentCode>
-
       <div class="m-t-12">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
           >Props:</BIMDataText
         >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
-      </div>
-      <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Events:</BIMDataText
-        >
-        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -84,9 +58,8 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
-import steps from "./steps.js";
+import tours from "./tours.js";
 
 export default {
   components: {
@@ -95,80 +68,36 @@ export default {
     BIMDataTable,
     BIMDataButton,
     BIMDataText,
-    BIMDataCheckbox,
   },
   data() {
     return {
-      inputSteps: steps,
+      tours: tours,
       showGuidedTour: false,
       selectChecked: false,
       multiChecked: false,
       headerButtons: true,
       headerSearch: true,
       selectedFiles: [],
+      console,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
+        ["tours", "array", "[]", "The scenario"],
         [
-          "apiUrl",
-          "string",
-          "https://api.bimdata.io",
-          "The API url to target.",
+          "elementToObserve",
+          "object",
+          "{}",
+          "DOM where the guided tour takes place",
         ],
-        ["spaceId", "number", "null", "The space ID"],
-        ["projectId", "number", "null", "The project ID"],
-        ["accessToken", "string", "null", "The access token"],
-        ["select", "boolean", "false", "Set the mode in select"],
-        [
-          "multi",
-          "boolean",
-          "false",
-          "Set the mode in multi select. Ignored if select is false.",
-        ],
-        [
-          "searchColor",
-          "string",
-          "secondary",
-          "Set the background color of the search bar.",
-        ],
-        [
-          "headerButtons",
-          "boolean",
-          "true",
-          "If false, the header buttons are not visible.",
-        ],
-        [
-          "headerSearch",
-          "boolean",
-          "true",
-          "If false, the header search is not visible.",
-        ],
-        [
-          "alreadySelectedIds",
-          "number[]",
-          "[]",
-          "An array of already selected ids. In select mode, already selected ids are not selectable and displayed as in success.",
-        ],
-        [
-          "selectableFileTypes",
-          "string[]",
-          "[]",
-          "An array of file type. In select mode, if some selectable file types are given, only those are selectable.",
-        ],
-      ],
-      eventsData: [
-        ["Event name", "Payload"],
-        ["selection-change", "An array of selected files"],
-        ["error", "The catched error."],
-        [
-          "success",
-          "{ type: ['folderDeleted', 'fileDeleted', 'folderRenamed', 'fileRenamed', 'folderCreated', 'fileCreated'], message: String, content: Object }",
-        ],
+        ["zIndex", "number", "10000", "Guided tour position setting"],
       ],
     };
   },
   methods: {
     onSelectionChange(selectedFiles) {
       this.selectedFiles = selectedFiles;
+    },
+    guidedTourArea() {
+      return this.$refs.articleGuidedTour;
     },
   },
 };

@@ -43,28 +43,25 @@
       padding: var(--spacing-unit);
 
       &__header {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        position: absolute;
+        z-index: 2;
+        right: var(--spacing-unit);
       }
   
       &__content {
-        // position: relative;
         flex: 1;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-between; 
         align-items: center;
   
         &__title {
-          // position: absolute;
-          // top: -7px;
           font-size: calc(var(--spacing-unit) * 2);
           font-weight: bold;
         }
-  
-        img {
+
+        &__image {
           border-radius: 50%;
           height: 180px;
           width: 180px;

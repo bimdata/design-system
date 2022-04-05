@@ -9,7 +9,6 @@
     <div v-show="showSpotlight" ref="spotlight" class="spotlight">
       <!-- Spotlight div -->
     </div>
-    {{ console.log("showTooltip", showTooltip) }}
     <div
       v-if="currentStep"
       ref="tooltip"
@@ -54,11 +53,12 @@
             <div class="tooltip__box__content__title">
               {{ currentStep.props.title }}
             </div>
-            <div class="tooltip__box__content__image">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/800px-Gull_portrait_ca_usa.jpg?20101128165003"
-              />
-            </div>
+            <div
+              class="tooltip__box__content__image"
+              :style="{
+                background: `var(--color-silver-light) url(${currentStep.props.img}) no-repeat ${currentStep.props.imgPosition} / ${currentStep.props.imgSize}`,
+              }"
+            />
             <div class="tooltip__box__content__text">
               {{ currentStep.props.content }}
             </div>
@@ -137,7 +137,7 @@ export default {
       default: () => [],
     },
     elementToObserve: {
-      type: Object,
+      type: [Object, HTMLElement],
       default: () => {},
     },
     zIndex: {

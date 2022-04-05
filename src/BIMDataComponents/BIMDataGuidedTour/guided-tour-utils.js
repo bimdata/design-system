@@ -4,8 +4,6 @@
 
 // Spotlight padding (in px)
 const spotPadding = 16;
-// offset spotlight border
-// const spotBorder = 2;
 // Tooltip gap (in px)
 const tooltipGap = 13;
 
@@ -148,7 +146,7 @@ function setTooltipPosition(target, tooltip) {
 
     // align bottom
     if (hWindow - topTarget - highTarget < highTooltip - highTarget) {
-      top = topTarget + highTarget - highTooltip + spotPadding;
+      top = topTarget + highTarget - hTooltip;
       // align top
     } else {
       top = topTarget - spotPadding;
@@ -166,7 +164,7 @@ function setTooltipPosition(target, tooltip) {
 
     // align bottom
     if (hWindow - topTarget - highTarget < highTooltip - highTarget) {
-      top = topTarget + highTarget - highTooltip + spotPadding;
+      top = topTarget + highTarget - hTooltip;
       // align top
     } else {
       top = topTarget - spotPadding;
@@ -200,7 +198,7 @@ function setTooltipPosition(target, tooltip) {
   // tooltip in element
   Object.assign(tooltip.style, {
     left: `${leftTarget + wTarget - wToolTip}px`,
-    top: `${topTarget + highTarget - highTooltip}px`,
+    top: `${topTarget + highTarget - hTooltip - spotPadding}px`,
   });
 }
 
