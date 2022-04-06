@@ -149,12 +149,9 @@ export default {
     return {
       steps: [],
       showGuidedTour: false,
+      currentTarget: null,
       showSpotlight: true,
       showTooltip: false,
-      clickNext: () => {
-        this.resetSettings();
-        this.next();
-      },
       stepIndex: 0,
       console,
     };
@@ -183,26 +180,20 @@ export default {
     async currentStep(step) {
       if (!step) return;
 
-      let target;
-
       if (step.target) {
-        target = this.getDomElements(step);
+        this.currentTarget = this.getDomElements(step);
       } else {
         this.displayCenteredTooltip();
         return;
       }
 
       if (step.clickable) {
-        this.clickListener(target);
-        this.clickNext = () => {
-          this.resetSettings();
-          target.click();
-        };
+        this.clickListener();
       }
 
-      scrollToTarget(target, this.elementToObserve);
-      setSpotlightPosition(target, this.$refs.spotlight);
-      setTooltipPosition(target, this.$refs.tooltip);
+      scrollToTarget(this.currentTarget, this.elementToObserve);
+      setSpotlightPosition(this.currentTarget, this.$refs.spotlight);
+      setTooltipPosition(this.currentTarget, this.$refs.tooltip);
 
       this.showSpotlight = true;
       this.showTooltip = true;
@@ -221,6 +212,14 @@ export default {
     this.mutationObserver.disconnect();
   },
   methods: {
+    clickNext() {
+      this.resetSettings();
+      if (this.currentStep.clickable) {
+        this.currentTarget.click();
+      } else {
+        this.next();
+      }
+    },
     openGuidedTour(arg) {
       this.steps = arg.map(step => {
         return {
@@ -261,11 +260,6 @@ export default {
       this.$refs.tooltip.style.boxShadow = "0 2px 10px 0 rgba(0, 0, 0, 0.5)";
       this.$refs.tooltip.style.removeProperty("left");
       this.$refs.tooltip.style.removeProperty("top");
-
-      this.clickNext = () => {
-        this.resetSettings();
-        this.next();
-      };
     },
     displayCenteredTooltip() {
       this.showTooltip = true;
@@ -274,8 +268,8 @@ export default {
           "0 0 0, 0 0 0 10000vmax rgba(0,0,0,0.5)";
       }
     },
-    clickListener(target) {
-      target.addEventListener(
+    clickListener() {
+      this.currentTarget.addEventListener(
         "click",
         () => {
           if (this.nextStep.target) {
