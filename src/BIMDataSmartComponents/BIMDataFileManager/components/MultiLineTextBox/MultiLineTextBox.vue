@@ -135,8 +135,7 @@ export default {
         position: absolute;
         top: 0px;
         left: 0px;
-
-        background-color: white;
+        background-color: var(--color-white);
       }
       &__text {
         position: absolute;

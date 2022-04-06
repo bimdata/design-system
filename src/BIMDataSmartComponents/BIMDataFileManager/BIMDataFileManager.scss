@@ -5,17 +5,17 @@
 
   display: flex;
   flex-direction: column;
-  gap: $spacing-unit;
+  gap: var(--spacing-unit);
 
   &__header {
     display: flex;
-    padding: 0 $spacing-unit;
+    padding: 0 var(--spacing-unit);
 
     &--xs {
       flex-direction: column;
 
       .bimdata-file-manager__header__upload {
-        margin: $spacing-unit 0;
+        margin: var(--spacing-unit) 0;
       }
     }
 
@@ -24,26 +24,26 @@
       flex-wrap: wrap;
       * {
         flex-shrink: 1;
-        flex-basis: calc(50% - calc($spacing-unit / 2));
+        flex-basis: calc(50% - (var(--spacing-unit) / 2));
       }
       .bimdata-file-manager__search {
         flex-basis: 100%;
-        margin-top: $spacing-unit;
+        margin-top: var(--spacing-unit);
       }
       .bimdata-file-manager__header__upload {
-        margin-left: $spacing-unit;
+        margin-left: var(--spacing-unit);
       }
     }
 
     &--l {
       .bimdata-file-manager__header__upload {
-        margin: 0 $spacing-unit;
+        margin: 0 var(--spacing-unit);
       }
     }
   }
 
   &__navigation {
-    padding: 0 $spacing-unit;
+    padding: 0 var(--spacing-unit);
     height: 31px;
     flex-shrink: 0;
     font-weight: bold;
@@ -66,10 +66,19 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgba($color-primary, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
+    &::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-color: var(--color-primary);
+      opacity: 0.9;
+    }
   }
 
   &__container {
@@ -77,8 +86,8 @@
     height: 100%;
 
     &--empty {
-      margin: $spacing-unit;
-      background-color: $color-silver-light;
+      margin: var(--spacing-unit);
+      background-color: var(--color-silver-light);
       display: flex;
       justify-content: center;
       align-content: center;

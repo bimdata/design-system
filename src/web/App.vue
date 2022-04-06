@@ -6,11 +6,10 @@
 </template>
 
 <script>
-import Navigation from "./views/Navigation/Navigation.vue";
-import Prism from "prismjs";
-
+import "prismjs";
 import "prismjs/components/prism-scss";
 import "prismjs/components/prism-bash";
+import Navigation from "./views/Navigation/Navigation.vue";
 
 export default {
   components: {

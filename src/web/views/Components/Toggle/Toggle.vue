@@ -142,7 +142,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "./_Toggle.scss";
-</style>

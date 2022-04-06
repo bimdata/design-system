@@ -92,9 +92,6 @@
       background-color: var(--color-silver-dark);
       color: var(--color-white);
       cursor: auto;
-      &:hover {
-        background-color: transparent;
-      }
     }
   }
   &__ripple {
@@ -108,7 +105,7 @@
           radial-gradient(circle, transparent 1%, var(--color-silver-light) 1%)
           center/15000%;
       }
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--color-silver-light);
         background-size: 100%;
         transition: background 0s;
@@ -122,7 +119,7 @@
           radial-gradient(circle, transparent 1%, var(--color-primary) 1%)
           center/15000%;
       }
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--color-primary-light);
         background-size: 100%;
         transition: background 0s;
@@ -136,7 +133,7 @@
           radial-gradient(circle, transparent 1%, var(--color-secondary) 1%)
           center/15000%;
       }
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--color-secondary-light);
         background-size: 100%;
         transition: background 0s;
@@ -150,7 +147,7 @@
           radial-gradient(circle, transparent 1%, var(--color-granite) 1%)
           center/15000%;
       }
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--color-granite-light);
         background-size: 100%;
         transition: background 0s;
@@ -164,7 +161,7 @@
           radial-gradient(circle, transparent 1%, var(--color-high) 1%)
           center/15000%;
       }
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--color-high-light);
         background-size: 100%;
         transition: background 0s;
@@ -178,11 +175,16 @@
           radial-gradient(circle, transparent 1%, var(--color-success) 1%)
           center/15000%;
       }
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--color-success-light);
         background-size: 100%;
         transition: background 0s;
       }
+    }
+    &:disabled {
+      background-color: var(--color-silver-dark);
+      color: var(--color-white);
+      cursor: auto;
     }
   }
   &__outline {

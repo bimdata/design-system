@@ -12,7 +12,7 @@
       @click="onHeaderClick"
       :style="style"
     >
-      <slot name="header"></slot>
+      <slot name="header" :isOpen="displayed"></slot>
       <BIMDataButton
         color="default"
         icon
@@ -23,7 +23,7 @@
       >
         <BIMDataIconChevron size="xxxs" :rotate="iconRotation" />
       </BIMDataButton>
-      <slot name="contentAfterBtn"></slot>
+      <slot name="contentAfterBtn" :isOpen="displayed"></slot>
     </div>
     <transition :name="`slide-fade-${transitionName}`">
       <BIMDataPaginatedList
@@ -36,7 +36,12 @@
         :loading="loading"
       >
         <template #element="{element}">
-          <slot name="element" :element="element" :close="away"></slot>
+          <slot
+            name="element"
+            :element="element"
+            :close="away"
+            :isOpen="displayed"
+          ></slot>
         </template>
       </BIMDataPaginatedList>
     </transition>

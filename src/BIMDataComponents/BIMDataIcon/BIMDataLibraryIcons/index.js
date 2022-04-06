@@ -12,6 +12,7 @@ import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
 import calendar from "./Calendar.vue";
+import caliper from "./Caliper.vue";
 import camera from "./Camera.vue";
 import cancelCamera from "./CancelCamera.vue";
 import check from "./Check.vue";
@@ -131,6 +132,7 @@ export default {
   building,
   burgerMenu,
   calendar,
+  caliper,
   camera,
   cancelCamera,
   check,
