@@ -266,6 +266,13 @@ export default new Vuex.Store({
           text: "Tooltips are used to show contextual information on hover.",
           btn: "View tooltips",
         },
+        // {
+        //   path: "guided-tour",
+        //   img: require("./web/assets/img/icon-list.svg"),
+        //   title: "GuidedTour",
+        //   text: "On-boarding.",
+        //   btn: "View on-boarding",
+        // },
       ],
     },
     "Smart Components": {

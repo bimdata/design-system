@@ -33,3 +33,4 @@ export { default as BIMDataTextbox } from "./BIMDataTextbox/BIMDataTextbox.vue";
 export { default as BIMDataToggle } from "./BIMDataToggle/BIMDataToggle.vue";
 export { default as BIMDataTooltip } from "./BIMDataTooltip/BIMDataTooltip.vue";
 export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index.js";
+export { default as BIMDataGuidedTour } from "./BIMDataGuidedTour/BIMDataGuidedTour.vue";
