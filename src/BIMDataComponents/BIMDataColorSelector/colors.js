@@ -41,10 +41,10 @@ const tooBrightColors = [
   "whitesmoke",
 ];
 
+const validColors = Object.entries(colors).filter(
+  ([name]) => !tooBrightColors.includes(name)
+);
 function getRandomHexColor() {
-  const validColors = Object.entries(colors).filter(
-    ([name]) => !tooBrightColors.includes(name)
-  );
   const index = Math.floor(Math.random() * validColors.length);
 
   return validColors[index][1];
