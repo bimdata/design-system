@@ -178,25 +178,29 @@ export default {
       this.stepIndex = 0;
     },
     async currentStep(step) {
-      if (!step) return;
+      try {
+        if (!step) return;
 
-      if (step.target) {
-        this.currentTarget = this.getDomElements(step);
-      } else {
-        this.displayCenteredTooltip();
-        return;
+        if (step.target) {
+          this.currentTarget = this.getDomElements(step);
+        } else {
+          this.displayCenteredTooltip();
+          return;
+        }
+
+        if (step.clickable) {
+          this.clickListener();
+        }
+
+        scrollToTarget(this.currentTarget.element, this.elementToObserve);
+        setSpotlightPosition(this.currentTarget.element, this.$refs.spotlight);
+        setTooltipPosition(this.currentTarget.element, this.$refs.tooltip);
+
+        this.showSpotlight = true;
+        this.showTooltip = true;
+      } catch {
+        this.closeGuidedTour();
       }
-
-      if (step.clickable) {
-        this.clickListener();
-      }
-
-      scrollToTarget(this.currentTarget, this.elementToObserve);
-      setSpotlightPosition(this.currentTarget, this.$refs.spotlight);
-      setTooltipPosition(this.currentTarget, this.$refs.tooltip);
-
-      this.showSpotlight = true;
-      this.showTooltip = true;
     },
   },
   created() {
@@ -213,12 +217,14 @@ export default {
   },
   methods: {
     clickNext() {
-      this.resetSettings();
       if (this.currentStep.clickable) {
-        this.currentTarget.click();
+        (
+          this.currentTarget.elementToClick || this.currentTarget.element
+        ).click();
       } else {
         this.next();
       }
+      this.resetSettings();
     },
     openGuidedTour(arg) {
       this.steps = arg.map(step => {
@@ -230,16 +236,32 @@ export default {
       this.showGuidedTour = true;
     },
     getDomElements(step, elementToWatch = document) {
-      const { target, targetDetail } = step;
+      const { target, targetDetail, targetToClick, targetToClickDetail } = step;
+
+      let element, elementToClick;
+
       if (Array.isArray(target)) {
-        return target.map(t =>
+        element = target.map(t =>
           elementToWatch.querySelector(`[data-guide=${t}]`)
         );
       } else if (typeof target === "string") {
-        return elementToWatch.querySelector(
+        element = elementToWatch.querySelector(
           `[data-guide=${target}] ${targetDetail ? targetDetail : ""}`
         );
       }
+
+      if (targetToClick) {
+        elementToClick = elementToWatch.querySelector(
+          `[data-guide-click=${targetToClick}] ${
+            targetToClickDetail ? targetToClickDetail : ""
+          }`
+        );
+      }
+
+      return {
+        element,
+        elementToClick,
+      };
     },
     closeGuidedTour() {
       this.showGuidedTour = false;
@@ -254,6 +276,8 @@ export default {
       this.$emit("show-guided-tour", false);
     },
     resetSettings() {
+      this.currentTarget = null;
+
       this.showSpotlight = false;
       this.showTooltip = false;
 
@@ -269,7 +293,9 @@ export default {
       }
     },
     clickListener() {
-      this.currentTarget.addEventListener(
+      (
+        this.currentTarget.elementToClick || this.currentTarget.element
+      ).addEventListener(
         "click",
         () => {
           if (this.nextStep.target) {
@@ -285,15 +311,15 @@ export default {
       );
     },
     handleClickedStep() {
-      const nextTarget = this.getDomElements(
+      const { element } = this.getDomElements(
         this.nextStep,
         this.elementToObserve
       );
 
-      const isAnHTMLElement = nextTarget instanceof HTMLElement;
+      const isAnHTMLElement = element instanceof HTMLElement;
       const isAnArrayOfHTMLElement =
-        Array.isArray(nextTarget) &&
-        nextTarget.every(elem => elem instanceof HTMLElement);
+        Array.isArray(element) &&
+        element.every(elem => elem instanceof HTMLElement);
 
       if (isAnHTMLElement || isAnArrayOfHTMLElement) {
         this.next();
