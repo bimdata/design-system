@@ -63,12 +63,23 @@
         </BIMDataText>
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
+
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Functions:
+        </BIMDataText>
+        <BIMDataTable
+          :columns="functionsData[0]"
+          :rows="functionsData.slice(1)"
+        />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import eventsData from "./events-data.js";
+import functionsData from "./functions-data.js";
 import propsData from "./props-data.js";
 
 import clickaway from "../../../../BIMDataDirectives/click-away.js";
@@ -78,6 +89,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "@/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataColorSelector from "@/BIMDataComponents/BIMDataColorSelector/BIMDataColorSelector.vue";
+
 export default {
   components: {
     BIMDataTable,
@@ -92,6 +104,7 @@ export default {
       color: "c0c0c0",
       propsData,
       eventsData,
+      functionsData,
     };
   },
   methods: {
