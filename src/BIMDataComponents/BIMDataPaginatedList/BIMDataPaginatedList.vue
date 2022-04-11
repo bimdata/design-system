@@ -24,6 +24,10 @@
         @pagechanged="onPageChange"
         :totalPages="totalPages"
         :perPage="perPage"
+        :first="first"
+        :last="last"
+        :numberDataElements="numberDataElements"
+        :backgroundColor="backgroundColor"
       />
     </div>
   </div>
@@ -56,6 +60,21 @@ export default {
     loading: {
       type: Boolean,
       default: false,
+    },
+    first: {
+      type: Boolean,
+      default: true,
+    },
+    last: {
+      type: Boolean,
+      default: true,
+    },
+    numberDataElements: {
+      type: Boolean,
+      default: true,
+    },
+    backgroundColor: {
+      type: String,
     },
   },
   emits: ["element-click"],
