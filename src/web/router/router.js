@@ -23,6 +23,7 @@ import Variables from "../views/Guidelines/Variables/Variables.vue";
 import Buttons from "../views/Components/Buttons/Buttons.vue";
 import Card from "../views/Components/Card/Card.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
+import ColorSelector from "../views/Components/ColorSelector/ColorSelector.vue";
 import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
 import DropdownList from "../views/Components/DropdownList/DropdownList.vue";
 import FileIcon from "../views/Components/FileIcon/FileIcon.vue";
@@ -150,6 +151,11 @@ const routes = [
         path: "checkbox",
         name: "checkbox",
         component: Checkbox,
+      },
+      {
+        path: "colorselector",
+        name: "colorselector",
+        component: ColorSelector,
       },
       {
         path: "dropdownlist",
