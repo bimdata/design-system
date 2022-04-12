@@ -50,6 +50,7 @@ export default {
     },
     backgroundColor: {
       type: String,
+      default: "var(--color-white)",
     },
     perPage: {
       type: Number,

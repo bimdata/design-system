@@ -75,6 +75,7 @@ export default {
     },
     backgroundColor: {
       type: String,
+      default: "var(--color-white)",
     },
   },
   emits: ["element-click"],
