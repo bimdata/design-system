@@ -14,7 +14,11 @@
           >
             Click here to see the safe zone modal
           </BIMDataButton>
-          <BIMDataSafeZoneModal v-if="deleteTopicModal">
+          <BIMDataSafeZoneModal
+            v-if="deleteTopicModal"
+            :width="modalWidth"
+            :iconName="iconName"
+          >
             <template #text> Your text here </template>
             <template #actions>
               <BIMDataButton color="high" fill radius class="m-r-12">
@@ -32,7 +36,25 @@
           </BIMDataSafeZoneModal>
         </template>
 
-        <template #parameters> </template>
+        <template #parameters>
+          <BIMDataInput v-model="modalWidth" placeholder="modal width" />
+
+          <p>Change icon inside the modal</p>
+          <BIMDataDropdownList
+            width="100%"
+            :list="iconsName"
+            :perPage="8"
+            elementKey="dropdown"
+            :disabled="false"
+            :closeOnElementClick="false"
+            @element-click="iconName = $event"
+          >
+            <template #header> {{ iconName }} </template>
+            <template #element="{ element }">
+              {{ element }}
+            </template>
+          </BIMDataDropdownList>
+        </template>
 
         <template #import>
           import BIMDataSafeZoneModal from
@@ -49,7 +71,9 @@
             &gt;
               Click here to see the safe zone modal
             &lt;/BIMDataButton&gt;
-            &lt;BIMDataSafeZoneModal v-if="deleteTopicModal"&gt;
+            &lt;BIMDataSafeZoneModal v-if="deleteTopicModal" {{
+              getModalWidth()
+            }} {{ getIconName() }}&gt;
               &lt;template #text&gt; Your text here &lt;/template&gt;
               &lt;template #actions&gt;
                 &lt;BIMDataButton
@@ -87,9 +111,12 @@
 
 <script>
 import propsData from "./props-data.js";
+import iconsName from "./icons-name.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataDropdownList from "@/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
 import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "@/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataSafeZoneModal from "@/BIMDataComponents/BIMDataSafeZoneModal/BIMDataSafeZoneModal.vue";
@@ -97,6 +124,8 @@ export default {
   components: {
     ComponentCode,
     BIMDataButton,
+    BIMDataInput,
+    BIMDataDropdownList,
     BIMDataTable,
     BIMDataText,
     BIMDataSafeZoneModal,
@@ -105,7 +134,22 @@ export default {
     return {
       deleteTopicModal: false,
       propsData,
+      modalWidth: "350px",
+      iconName: "warning",
+      iconsName,
     };
+  },
+  methods: {
+    getModalWidth() {
+      if (this.modalWidth != "350px") {
+        return `width="${this.modalWidth}"`;
+      }
+    },
+    getIconName() {
+      if (this.iconName != "warning") {
+        return `iconName="${this.iconName}"`;
+      }
+    },
   },
 };
 </script>
