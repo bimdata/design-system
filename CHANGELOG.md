@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/bimdata/design-system/compare/v1.2.0...v1.3.0) (2022-04-13)
+
+
+### MINOR
+
+* GuidedTour - elementToClick feature implemented + error handler (#190) ([f426275](https://github.com/bimdata/design-system/commit/f4262751cd7e4c39c7161925e44d1cc1bf0099c5)), closes [#190](https://github.com/bimdata/design-system/issues/190)
+* GuidedTour component (#173) ([4b367e3](https://github.com/bimdata/design-system/commit/4b367e3dca5e10f47bca0410b5847d2a1c38678c)), closes [#173](https://github.com/bimdata/design-system/issues/173)
+
+### PATCH
+
+* add possibility to custom paginatedList : (#191) ([2e64152](https://github.com/bimdata/design-system/commit/2e641520dcb1bc89e7dcc218111c1749eb86d071)), closes [#191](https://github.com/bimdata/design-system/issues/191)
+* GuidedTour - got rid of tooltip transition (#189) ([f1d7066](https://github.com/bimdata/design-system/commit/f1d706699ef1931323751a9bd32a0b0ee2c7effa)), closes [#189](https://github.com/bimdata/design-system/issues/189)
+* refacto of nextClick (GuidedTour) (#188) ([ed92b31](https://github.com/bimdata/design-system/commit/ed92b314f63666a47eaf34cc11fd36fdd2a2b7c3)), closes [#188](https://github.com/bimdata/design-system/issues/188)
+
 # [1.2.0](https://github.com/bimdata/design-system/compare/v1.1.0...v1.2.0) (2022-03-31)
 
 
