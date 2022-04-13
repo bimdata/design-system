@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import BIMDataSimplePieChart from "../../../../BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataSimplePieChart from "@/BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
+import BIMDataText from "@/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
