@@ -11,6 +11,7 @@ export { default as BIMDataBigSpinner } from "./BIMDataBigSpinner/BIMDataBigSpin
 export { default as BIMDataButton } from "./BIMDataButton/BIMDataButton.vue";
 export { default as BIMDataCard } from "./BIMDataCard/BIMDataCard.vue";
 export { default as BIMDataCheckbox } from "./BIMDataCheckbox/BIMDataCheckbox.vue";
+export { default as BIMDataColorSelector } from "./BIMDataColorSelector/BIMDataColorSelector.vue";
 export { default as BIMDataDropdownList } from "./BIMDataDropdownList/BIMDataDropdownList.vue";
 export { default as BIMDataDropdownMenu } from "./BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export { default as BIMDataFileIcon } from "./BIMDataFileIcon/BIMDataFileIcon.vue";

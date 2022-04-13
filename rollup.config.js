@@ -155,6 +155,7 @@ function getSingleComponentConfigurations() {
     "BIMDataButton",
     "BIMDataCard",
     "BIMDataCheckbox",
+    "BIMDataColorSelector",
     "BIMDataDropdownList",
     "BIMDataDropdownMenu",
     "BIMDataFileIcon",
