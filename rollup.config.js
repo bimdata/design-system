@@ -172,6 +172,7 @@ function getSingleComponentConfigurations() {
     "BIMDataSafeZoneModal",
     "BIMDataSearch",
     "BIMDataSelect",
+    "BIMDataSimplePieChart",
     "BIMDataSpinner",
     "BIMDataTable",
     "BIMDataTabs",

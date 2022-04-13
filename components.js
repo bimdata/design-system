@@ -20,6 +20,7 @@ export { default as BIMDataResponsiveGrid } from "./dist/js/BIMDataComponents/BI
 export { default as BIMDataSafeZoneModal } from "./dist/js/BIMDataComponents/BIMDataSafeZoneModal.js";
 export { default as BIMDataSearch } from "./dist/js/BIMDataComponents/BIMDataSearch.js";
 export { default as BIMDataSelect } from "./dist/js/BIMDataComponents/BIMDataSelect.js";
+export { default as BIMDataSimplePieChart } from "./dist/js/BIMDataComponents/BIMDataSimplePieChart.js";
 export { default as BIMDataSpinner } from "./dist/js/BIMDataComponents/BIMDataSpinner.js";
 export { default as BIMDataTable } from "./dist/js/BIMDataComponents/BIMDataTable.js";
 export { default as BIMDataTabs } from "./dist/js/BIMDataComponents/BIMDataTabs.js";
