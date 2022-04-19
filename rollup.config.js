@@ -168,6 +168,7 @@ function getSingleComponentConfigurations() {
     "BIMDataPieSpinner",
     "BIMDataRadio",
     "BIMDataResponsiveGrid",
+    "BIMDataSafeZoneModal",
     "BIMDataSearch",
     "BIMDataSelect",
     "BIMDataSpinner",
