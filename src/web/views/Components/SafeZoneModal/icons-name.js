@@ -23,7 +23,6 @@ export default Object.freeze([
   "click",
   "close",
   "cloud",
-
   "color",
   "comment",
   "cursor",

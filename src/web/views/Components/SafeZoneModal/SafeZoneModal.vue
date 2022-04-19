@@ -10,27 +10,27 @@
             color="high"
             outline
             radius
-            @click="deleteTopicModal = true"
+            @click="isModalOpen = true"
           >
             Click here to see the safe zone modal
           </BIMDataButton>
           <BIMDataSafeZoneModal
-            v-if="deleteTopicModal"
+            v-if="isModalOpen"
             :width="modalWidth"
             :iconName="iconName"
           >
             <template #text> Your text here </template>
             <template #actions>
               <BIMDataButton color="high" fill radius class="m-r-12">
-                Valider la confirmation
+                Confirm
               </BIMDataButton>
               <BIMDataButton
                 color="primary"
                 outline
                 radius
-                @click="deleteTopicModal = false"
+                @click="isModalOpen = false"
               >
-                Fermer la modal
+                Close
               </BIMDataButton>
             </template>
           </BIMDataSafeZoneModal>
@@ -67,13 +67,15 @@
               color="high"
               outline
               radius
-              @click="deleteTopicModal = true"
+              @click="isModalOpen = true"
             &gt;
               Click here to see the safe zone modal
             &lt;/BIMDataButton&gt;
-            &lt;BIMDataSafeZoneModal v-if="deleteTopicModal" {{
-              getModalWidth()
-            }} {{ getIconName() }}&gt;
+            &lt;BIMDataSafeZoneModal
+              v-if="isModalOpen"
+              {{ getModalWidth() }}
+              {{ getIconName() }}
+            &gt;
               &lt;template #text&gt; Your text here &lt;/template&gt;
               &lt;template #actions&gt;
                 &lt;BIMDataButton
@@ -83,15 +85,15 @@
                   class="m-r-12"
                   @click="yourActionHere"
                 &gt;
-                  Valider la confirmation
+                  Confirm
                 &lt;/BIMDataButton&gt;
                 &lt;BIMDataButton
                   color="primary"
                   outline
                   radius
-                  @click="deleteTopicModal = false"
+                  @click="isModalOpen = false"
                 &gt;
-                  Fermer la modal
+                  Close
                 &lt;/BIMDataButton&gt;
               &lt;/template&gt;
             &lt;/BIMDataSafeZoneModal&gt;
@@ -114,12 +116,13 @@ import propsData from "./props-data.js";
 import iconsName from "./icons-name.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataButton from "@/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataInput from "@/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataDropdownList from "@/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
-import BIMDataTable from "@/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "@/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataSafeZoneModal from "@/BIMDataComponents/BIMDataSafeZoneModal/BIMDataSafeZoneModal.vue";
+import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataDropdownList from "../../../../BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataSafeZoneModal from "../../../../BIMDataComponents/BIMDataSafeZoneModal/BIMDataSafeZoneModal.vue";
+
 export default {
   components: {
     ComponentCode,
@@ -132,7 +135,7 @@ export default {
   },
   data() {
     return {
-      deleteTopicModal: false,
+      isModalOpen: false,
       propsData,
       modalWidth: "350px",
       iconName: "warning",

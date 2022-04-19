@@ -4,6 +4,7 @@
   top: 0;
   height: 100%;
   width: 100%;
+
   &::before {
     content: "";
     position: absolute;
@@ -14,8 +15,10 @@
     background-color: var(--color-primary);
     opacity: 0.9;
   }
+
   .safe-zone {
     z-index: 1;
+
     &__content {
       background-color: var(--color-white);
       font-size: 1.2rem;
@@ -25,6 +28,7 @@
         margin-bottom: 0;
       }
     }
+
     &__actions {
       height: 75px;
       justify-content: space-evenly;

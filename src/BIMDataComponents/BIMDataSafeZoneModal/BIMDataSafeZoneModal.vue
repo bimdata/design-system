@@ -16,6 +16,7 @@
 
 <script>
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+
 export default {
   components: {
     BIMDataIcon,
@@ -30,7 +31,6 @@ export default {
       default: "350px",
     },
   },
-  emits: ["clickBtnLeft", "clickBtnLeft"],
 };
 </script>
 
