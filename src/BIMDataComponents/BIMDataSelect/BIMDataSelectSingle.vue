@@ -7,6 +7,7 @@
       'not-empty': modelValue !== undefined && modelValue !== null,
     }"
     :style="{ width }"
+    v-clickaway="() => (isOpen = false)"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
@@ -20,11 +21,7 @@
     </div>
 
     <transition name="slide-fade-down">
-      <ul
-        v-show="!disabled && isOpen"
-        v-clickaway="() => (isOpen = false)"
-        class="bimdata-select__option-list"
-      >
+      <ul v-show="!disabled && isOpen" class="bimdata-select__option-list">
         <li
           v-if="nullValue"
           class="bimdata-select__option-list__entry"
