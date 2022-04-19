@@ -1,16 +1,13 @@
 <template>
-  <div class="bimdata-graph" ref="container">
-    <svg
-      :viewBox="viewBox"
-      :style="'--graph-draw-time:' + graphDrawTime + 's;'"
-    >
+  <div class="bimdata-simple-pie-chart" ref="container">
+    <svg :viewBox="viewBox" :style="`--graph-draw-time: ${graphDrawTime}s;`">
       <circle
         v-if="placeholder"
         :cx="center"
         :cy="center"
         :r="barDistanceFromCenter"
-        :stroke="placeholderBarStroke"
-        :stroke-width="placeholderBarStrokeWidth"
+        :stroke-width="placeholderStrokeWidth"
+        :stroke="placeholderColor"
         fill="none"
       />
       <g v-for="(barData, i) of displayedBarsData" :key="i">
@@ -18,8 +15,8 @@
           v-if="barData.percentage > 0"
           class="path"
           :d="getPath(barData)"
-          :stroke="barData.color"
           :stroke-width="barStrokeWidth"
+          :stroke="barData.color"
           fill="none"
         />
       </g>
@@ -30,9 +27,16 @@
 <script>
 export default {
   props: {
-    graphDrawTime: {
-      type: Number,
-      default: 4,
+    barsData: {
+      type: Array,
+      default: () => [],
+      // validator(barsData) {
+      //   return (
+      //     barsData?.every(barData => typeof barData?.color === "string") &&
+      //     barsData?.reduce((sum, barData) => sum + barData.percentage, "0") <=
+      //       "100"
+      //   );
+      // },
     },
     barDistanceFromCenter: {
       type: Number,
@@ -46,24 +50,17 @@ export default {
       type: Boolean,
       default: false,
     },
-    placeholderBarStrokeWidth: {
+    placeholderStrokeWidth: {
       type: Number,
       default: 4,
     },
-    placeholderBarStroke: {
+    placeholderColor: {
       type: String,
       default: "#EBEBEB",
     },
-    barsData: {
-      type: Array,
-      default: () => [],
-      // validator(barsData) {
-      //   return (
-      //     barsData?.every(barData => typeof barData?.color === "string") &&
-      //     barsData?.reduce((sum, barData) => sum + barData.percentage, "0") <=
-      //       "100"
-      //   );
-      // },
+    graphDrawTime: {
+      type: Number,
+      default: 4,
     },
   },
   computed: {

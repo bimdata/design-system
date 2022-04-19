@@ -10,9 +10,12 @@
       <ComponentCode language="javascript">
         <template #module>
           <BIMDataSimplePieChart
-            :barsData="values"
             style="heiht: 250px; width: 250px"
-          ></BIMDataSimplePieChart>
+            :barDistanceFromCenter="30"
+            :barStrokeWidth="12"
+            :graphDrawTime="2"
+            :barsData="values"
+          />
         </template>
 
         <template #import>
@@ -22,27 +25,49 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataSimplePieChart&gt;&lt;/BIMDataSimplePieChart&gt;
+            &lt;BIMDataSimplePieChart
+              :barDistanceFromCenter="30"
+              :barStrokeWidth="12"
+              :graphDrawTime="2"
+              :barData="[
+                { percentage: 10, color: 'yellowgreen' },
+                { percentage: 55, color: 'orange' },
+                { percentage: 3, color: 'steelblue' },
+                { percentage: 19, color: 'cadetblue' }
+              ]"
+            /&gt;
           </pre>
         </template>
       </ComponentCode>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+          Props:
+        </BIMDataText>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
-import BIMDataSimplePieChart from "@/BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
-import BIMDataText from "@/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import propsData from "./props-data.js";
+
+import BIMDataSimplePieChart from "../../../../BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
     BIMDataSimplePieChart,
+    BIMDataTable,
     BIMDataText,
     ComponentCode,
   },
   data() {
     return {
+      propsData,
       values: [
         {
           color: "yellowgreen",
@@ -54,11 +79,7 @@ export default {
         },
         {
           color: "steelblue",
-          percentage: 1,
-        },
-        {
-          color: "steelblue",
-          percentage: 15,
+          percentage: 3,
         },
         {
           color: "cadetblue",

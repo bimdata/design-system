@@ -1,15 +1,11 @@
 <template>
   <div
-    class="bimdata-graph"
+    class="bimdata-multiple-pie-chart"
     ref="container"
     :style="
-      'width: ' +
-      size +
-      'px; height: ' +
-      size +
-      'px; padding: 0; --graph-draw-time:' +
-      graphDrawTime +
-      's;'
+      `--graph-draw-time: ${graphDrawTime}s;` +
+      `width: ${size}px;` +
+      `height: ${size}px;`
     "
   >
     <svg width="100%" height="100%" :viewBox="viewBox">
