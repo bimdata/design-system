@@ -6,8 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     "Getting started": {
-      text:
-        "Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.",
+      text: "Learn how to quickly get started with our component library to build expressive, consistent UI at BIMData.",
       path: "getting-started",
       img: require("./web/assets/img/icon-getting_stated.svg"),
       children: [
@@ -15,8 +14,7 @@ export default new Vuex.Store({
           title: "Designers",
           img: require("./web/assets/img/icon-designers.svg"),
           path: "designers",
-          text:
-            "Collection of tools and resources you need to start designing with the BIMData design system.",
+          text: "Collection of tools and resources you need to start designing with the BIMData design system.",
           btn: "Get design kit",
         },
         {
@@ -36,8 +34,7 @@ export default new Vuex.Store({
       ],
     },
     "Guidelines & Utilities": {
-      text:
-        "How BIMData looks: guidelines for colors, spacing, typography, ...",
+      text: "How BIMData looks: guidelines for colors, spacing, typography, ...",
       img: require("./web/assets/img/icon-guidelines.svg"),
       path: "guidelines-utilities",
       children: [
@@ -73,31 +70,27 @@ export default new Vuex.Store({
           title: "Markup & Style",
           img: require("./web/assets/img/icon-markup.svg"),
           path: "markup",
-          text:
-            "How to name your classes to respect the structure already in place.",
+          text: "How to name your classes to respect the structure already in place.",
           btn: "View markup",
         },
         {
           title: "Spacing",
           img: require("./web/assets/img/icon-spacing.svg"),
           path: "spacing",
-          text:
-            "Adjust whitespace by applying spacing, margin, padding helpers.",
+          text: "Adjust whitespace by applying spacing, margin, padding helpers.",
           btn: "View spacing",
         },
         {
           title: "Typography",
           img: require("./web/assets/img/icon-typo.svg"),
           path: "typography",
-          text:
-            "Indispensable for defining visual identity and organizing content.",
+          text: "Indispensable for defining visual identity and organizing content.",
           btn: "View typography",
         },
       ],
     },
     Components: {
-      text:
-        "We developed a VueJS UI library that contains a set of components and demos for building interactive user interfaces.",
+      text: "We developed a VueJS UI library that contains a set of components and demos for building interactive user interfaces.",
       img: require("./web/assets/img/icon-components.svg"),
       path: "components",
       children: [
@@ -105,8 +98,7 @@ export default new Vuex.Store({
           title: "Buttons",
           img: require("./web/assets/img/icon-buttons.svg"),
           path: "buttons",
-          text:
-            "Buttons are used to trigger actions based on a user's interaction.",
+          text: "Buttons are used to trigger actions based on a user's interaction.",
           btn: "View buttons",
         },
         {
@@ -120,16 +112,14 @@ export default new Vuex.Store({
           title: "Checkbox",
           img: require("./web/assets/img/icon-checkbox.svg"),
           path: "checkbox",
-          text:
-            "Checkboxes are used to enables users to pick multiple options from a group.",
+          text: "Checkboxes are used to enables users to pick multiple options from a group.",
           btn: "View checkbox",
         },
         {
           title: "ColorSelector",
           img: require("./web/assets/img/icon-color_selector.svg"),
           path: "colorselector",
-          text:
-            "Color Selector component allows the user to pick from a set of predefined swatches colors.",
+          text: "Color Selector component allows the user to pick from a set of predefined swatches colors.",
           btn: "View color selector",
         },
         {
@@ -171,32 +161,28 @@ export default new Vuex.Store({
           title: "Input",
           img: require("./web/assets/img/icon-input.svg"),
           path: "input",
-          text:
-            "Inputs are used for enabled a user to interact and input data.",
+          text: "Inputs are used for enabled a user to interact and input data.",
           btn: "View input",
         },
         {
           title: "Loaders",
           img: require("./web/assets/img/icon-loader.svg"),
           path: "loaders",
-          text:
-            "Loaders are used to notify a user that data or page is being retrieved.",
+          text: "Loaders are used to notify a user that data or page is being retrieved.",
           btn: "View loaders",
         },
         {
           title: "Pagination",
           img: require("./web/assets/img/icon-pagination.svg"),
           path: "pagination",
-          text:
-            "Pagination is used to lets users navigate through large collections of items.",
+          text: "Pagination is used to lets users navigate through large collections of items.",
           btn: "View pagination",
         },
         {
           title: "Radio",
           img: require("./web/assets/img/icon-radio.svg"),
           path: "radio",
-          text:
-            "Radio buttons enables a user to make a single selection from a group of options.",
+          text: "Radio buttons enables a user to make a single selection from a group of options.",
           btn: "View radio",
         },
         {
@@ -207,35 +193,38 @@ export default new Vuex.Store({
           btn: "View responsive grid",
         },
         {
+          title: "SafeZoneModal",
+          img: require("./web/assets/img/icon-safe_zone_modal.svg"),
+          path: "safe-zone-modal",
+          text: "",
+          btn: "View safe zone modal",
+        },
+        {
           title: "Search",
           img: require("./web/assets/img/icon-search.svg"),
           path: "search",
-          text:
-            "Search enables users to specify a word or a phrase to find relevant content.",
+          text: "Search enables users to specify a word or a phrase to find relevant content.",
           btn: "View search",
         },
         {
           title: "Select",
           img: require("./web/assets/img/icon-select.svg"),
           path: "select",
-          text:
-            "Select (dropdown) is used to enabled a user to select a single item from a list of options.",
+          text: "Select (dropdown) is used to enabled a user to select a single item from a list of options.",
           btn: "View select",
         },
         {
           title: "Table",
           img: require("./web/assets/img/icon-table.svg"),
           path: "table",
-          text:
-            "Table is a component used for displaying your formatted content.",
+          text: "Table is a component used for displaying your formatted content.",
           btn: "View table",
         },
         {
           title: "Tabs",
           img: require("./web/assets/img/icon-tabs.svg"),
           path: "tabs",
-          text:
-            "Tabs component provide a nice interface to switch between different views",
+          text: "Tabs component provide a nice interface to switch between different views",
           btn: "View tabs",
         },
         {
@@ -263,8 +252,7 @@ export default new Vuex.Store({
           title: "Toggles",
           img: require("./web/assets/img/icon-toggle.svg"),
           path: "toggle",
-          text:
-            "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
+          text: "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options.",
           btn: "View toggle",
         },
         {
