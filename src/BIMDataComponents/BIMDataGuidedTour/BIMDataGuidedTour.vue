@@ -136,6 +136,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    tourToDisplay: {
+      type: String,
+      default: () => "",
+    },
     elementToObserve: {
       type: [Object, HTMLElement],
       default: () => {},
@@ -145,6 +149,7 @@ export default {
       default: () => 10000,
     },
   },
+  emits: ["completed-tour"],
   data() {
     return {
       steps: [],
@@ -212,7 +217,9 @@ export default {
     this.mutationObserver = new MutationObserver(this.handleClickedStep);
   },
   mounted() {
-    this.openGuidedTour(this.tours[0].steps);
+    this.openGuidedTour(
+      this.tours.find(tour => tour.name === this.tourToDisplay).steps
+    );
   },
   unmounted() {
     this.mutationObserver.disconnect();
@@ -252,7 +259,7 @@ export default {
     close() {
       this.showTooltip = false;
       this.closeGuidedTour();
-      this.$emit("show-guided-tour", false);
+      this.$emit("completed-tour", this.tourToDisplay);
     },
     resetSettings() {
       this.showSpotlight = false;
