@@ -1,6 +1,6 @@
 # BIMData Design System
 
-> BIMData's Design System is an open-source DS. The documentation is available at this url: [design.bimdata.io](https://design.bimdata.io/)
+> BIMData's Design System is an open-source DS. The documentation is available here: [design.bimdata.io](https://design.bimdata.io/)
 
 <p align="center">
   <img src="./screenshots/design-system_illustration.png" alt="Design system illustration" />
@@ -10,7 +10,7 @@
 
 - [BIMData Viewer](https://www.npmjs.com/package/@bimdata/viewer)
 - [BIMData Viewer SDK](https://github.com/bimdata/bimdata-viewer-sdk)
-- BIMData Marketplace (coming soon..)
+- [BIMData Marketplace](https://marketplace.bimdata.io/)
 - [BIMData Platform](https://platform.bimdata.io)
 
 ## :runner: Getting started
