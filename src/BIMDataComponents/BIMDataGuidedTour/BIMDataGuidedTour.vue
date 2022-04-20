@@ -136,6 +136,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    tourToDisplay: {
+      type: String,
+      default: () => "",
+    },
     elementToObserve: {
       type: [Object, HTMLElement],
       default: () => {},
@@ -145,6 +149,7 @@ export default {
       default: () => 10000,
     },
   },
+  emits: ["set-completed-tour"],
   data() {
     return {
       steps: [],
@@ -207,7 +212,12 @@ export default {
     this.mutationObserver = new MutationObserver(this.handleClickedStep);
   },
   mounted() {
-    this.openGuidedTour(this.tours[0].steps);
+    const tour = this.tours.find(t => t.name === this.tourToDisplay);
+    if (tour) {
+      this.openGuidedTour(tour.steps);
+    } else {
+      console.warn(`GuideTour: unknown tour ${this.tourToDisplay}`);
+    }
   },
   unmounted() {
     this.mutationObserver.disconnect();
@@ -273,7 +283,7 @@ export default {
     close() {
       this.showTooltip = false;
       this.closeGuidedTour();
-      this.$emit("show-guided-tour", false);
+      this.$emit("set-completed-tour", this.tourToDisplay);
     },
     resetSettings() {
       this.currentTarget = null;
