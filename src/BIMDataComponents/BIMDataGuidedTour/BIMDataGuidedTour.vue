@@ -212,9 +212,12 @@ export default {
     this.mutationObserver = new MutationObserver(this.handleClickedStep);
   },
   mounted() {
-    this.openGuidedTour(
-      this.tours.find(tour => tour.name === this.tourToDisplay).steps
-    );
+    const tour = this.tours.find(t => t.name === this.tourToDisplay);
+    if (tour) {
+      this.openGuidedTour(tour.steps);
+    } else {
+      console.warn(`GuideTour: unknown tour ${this.tourToDisplay}`);
+    }
   },
   unmounted() {
     this.mutationObserver.disconnect();
