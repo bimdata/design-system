@@ -149,7 +149,7 @@ export default {
       default: () => 10000,
     },
   },
-  emits: ["completed-tour"],
+  emits: ["set-completed-tour"],
   data() {
     return {
       steps: [],
@@ -283,7 +283,7 @@ export default {
     close() {
       this.showTooltip = false;
       this.closeGuidedTour();
-      this.$emit("completed-tour", this.tourToDisplay);
+      this.$emit("set-completed-tour", this.tourToDisplay);
     },
     resetSettings() {
       this.currentTarget = null;
