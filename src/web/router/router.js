@@ -23,6 +23,7 @@ import Variables from "../views/Guidelines/Variables/Variables.vue";
 import Buttons from "../views/Components/Buttons/Buttons.vue";
 import Card from "../views/Components/Card/Card.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
+import ColorSelector from "../views/Components/ColorSelector/ColorSelector.vue";
 import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
 import DropdownList from "../views/Components/DropdownList/DropdownList.vue";
 import FileIcon from "../views/Components/FileIcon/FileIcon.vue";
@@ -33,6 +34,7 @@ import Loaders from "../views/Components/Loaders/Loaders.vue";
 import Pagination from "../views/Components/Pagination/Pagination.vue";
 import Radio from "../views/Components/Radio/Radio.vue";
 import ResponsiveGrid from "../views/Components/ResponsiveGrid/ResponsiveGrid.vue";
+import SafeZoneModal from "../views/Components/SafeZoneModal/SafeZoneModal.vue";
 import Search from "../views/Components/Search/Search.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
@@ -152,6 +154,11 @@ const routes = [
         component: Checkbox,
       },
       {
+        path: "colorselector",
+        name: "colorselector",
+        component: ColorSelector,
+      },
+      {
         path: "dropdownlist",
         name: "dropdownlist",
         component: DropdownList,
@@ -200,6 +207,11 @@ const routes = [
         path: "responsive-grid",
         name: "responsive-grid",
         component: ResponsiveGrid,
+      },
+      {
+        path: "safe-zone-modal",
+        name: "safe-zone-modal",
+        component: SafeZoneModal,
       },
       {
         path: "search",

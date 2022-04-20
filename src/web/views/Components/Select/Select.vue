@@ -23,7 +23,7 @@
             Selection:
             <template v-if="isMulti">
               [
-              <ul style="list-style: none;">
+              <ul style="list-style: none">
                 <li v-for="(s, index) of selection" :key="index">
                   {{ JSON.stringify(s) }}
                 </li>

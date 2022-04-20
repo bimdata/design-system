@@ -1,5 +1,8 @@
 <template>
-  <ul class="bimdata-list bimdata-navigation">
+  <ul
+    class="bimdata-list bimdata-navigation"
+    :style="{ 'background-color': backgroundColor }"
+  >
     <li class="bimdata-navigation__left m-r-6">
       <slot name="left"></slot>
     </li>
@@ -106,6 +109,10 @@ export default {
     nextDisabled: {
       type: Boolean,
       default: false,
+    },
+    backgroundColor: {
+      type: String,
+      default: "var(--color-white)",
     },
   },
   emits: ["first", "previous", "next", "last"],

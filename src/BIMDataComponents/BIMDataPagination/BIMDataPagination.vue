@@ -9,8 +9,9 @@
     :nextDisabled="isLastPage"
     :lastDisabled="isLastPage"
     class="bimdata-pagination"
+    :backgroundColor="backgroundColor"
   >
-    <template #left>
+    <template #left v-if="numberDataElements">
       {{ firstIndex }} - {{ lastIndex }} of {{ length }}
     </template>
     <span class="bimdata-pagination__item">
@@ -42,6 +43,14 @@ export default {
     totalPages: {
       type: Number,
       required: true,
+    },
+    numberDataElements: {
+      type: Boolean,
+      default: true,
+    },
+    backgroundColor: {
+      type: String,
+      default: "var(--color-white)",
     },
     perPage: {
       type: Number,
