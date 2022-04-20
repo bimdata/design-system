@@ -22,6 +22,7 @@ import Variables from "../views/Guidelines/Variables/Variables.vue";
 // import COMPONENTS
 import Buttons from "../views/Components/Buttons/Buttons.vue";
 import Card from "../views/Components/Card/Card.vue";
+import Carousel from "../views/Components/Carousel/Carousel.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
 import ColorSelector from "../views/Components/ColorSelector/ColorSelector.vue";
 import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
@@ -147,6 +148,11 @@ const routes = [
         path: "cards",
         name: "cards",
         component: Card,
+      },
+      {
+        path: "carousel",
+        name: "carousel",
+        component: Carousel,
       },
       {
         path: "checkbox",

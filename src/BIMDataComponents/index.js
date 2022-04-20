@@ -10,6 +10,7 @@ import "../assets/css/utilities/_text.css";
 export { default as BIMDataBigSpinner } from "./BIMDataBigSpinner/BIMDataBigSpinner.vue";
 export { default as BIMDataButton } from "./BIMDataButton/BIMDataButton.vue";
 export { default as BIMDataCard } from "./BIMDataCard/BIMDataCard.vue";
+export { default as BIMDataCarousel } from "./BIMDataCarousel/BIMDataCarousel.vue";
 export { default as BIMDataCheckbox } from "./BIMDataCheckbox/BIMDataCheckbox.vue";
 export { default as BIMDataColorSelector } from "./BIMDataColorSelector/BIMDataColorSelector.vue";
 export { default as BIMDataDropdownList } from "./BIMDataDropdownList/BIMDataDropdownList.vue";
