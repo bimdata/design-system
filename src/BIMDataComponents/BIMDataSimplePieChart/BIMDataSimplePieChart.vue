@@ -30,13 +30,6 @@ export default {
     barsData: {
       type: Array,
       default: () => [],
-      // validator(barsData) {
-      //   return (
-      //     barsData?.every(barData => typeof barData?.color === "string") &&
-      //     barsData?.reduce((sum, barData) => sum + barData.percentage, "0") <=
-      //       "100"
-      //   );
-      // },
     },
     barDistanceFromCenter: {
       type: Number,

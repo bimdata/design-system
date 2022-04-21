@@ -80,14 +80,6 @@ export default {
     barsData: {
       type: Array,
       default: () => [],
-      // validator(value) {
-      //   return value?.every(
-      //     barData =>
-      //       typeof barData?.color === "string" &&
-      //       barData?.percentage <= 100 &&
-      //       barData?.percentage >= 0
-      //   );
-      // },
     },
   },
   computed: {
