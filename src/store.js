@@ -109,6 +109,13 @@ export default new Vuex.Store({
           btn: "View cards",
         },
         {
+          title: "Carousel",
+          img: require("./web/assets/img/icon-pagination.svg"),
+          path: "carousel",
+          text: "A generic carousel component.",
+          btn: "View carousel",
+        },
+        {
           title: "Checkbox",
           img: require("./web/assets/img/icon-checkbox.svg"),
           path: "checkbox",

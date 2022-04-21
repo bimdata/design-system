@@ -154,6 +154,7 @@ function getSingleComponentConfigurations() {
     "BIMDataBigSpinner",
     "BIMDataButton",
     "BIMDataCard",
+    "BIMDataCarousel",
     "BIMDataCheckbox",
     "BIMDataColorSelector",
     "BIMDataDropdownList",
