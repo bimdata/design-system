@@ -22,6 +22,7 @@ export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index
 export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
 export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
 export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";
+export { default as BIMDataMultiplePieChart } from "./BIMDataMultiplePieChart/BIMDataMultiplePieChart.vue";
 export { default as BIMDataPaginatedList } from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
 export { default as BIMDataPieSpinner } from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";
 export { default as BIMDataRadio } from "./BIMDataRadio/BIMDataRadio.vue";
@@ -29,6 +30,7 @@ export { default as BIMDataResponsiveGrid } from "./BIMDataResponsiveGrid/BIMDat
 export { default as BIMDataSafeZoneModal } from "./BIMDataSafeZoneModal/BIMDataSafeZoneModal.vue";
 export { default as BIMDataSearch } from "./BIMDataSearch/BIMDataSearch.vue";
 export { default as BIMDataSelect } from "./BIMDataSelect/BIMDataSelect.vue";
+export { default as BIMDataSimplePieChart } from "./BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
 export { default as BIMDataSpinner } from "./BIMDataSpinner/BIMDataSpinner.vue";
 export { default as BIMDataTable } from "./BIMDataTable/BIMDataTable.vue";
 export { default as BIMDataTabs } from "./BIMDataTabs/BIMDataTabs.vue";

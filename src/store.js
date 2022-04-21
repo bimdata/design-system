@@ -116,6 +116,13 @@ export default new Vuex.Store({
           btn: "View carousel",
         },
         {
+          title: "Charts",
+          img: require("./web/assets/img/icon-charts.svg"),
+          path: "charts",
+          text: "",
+          btn: "View charts",
+        },
+        {
           title: "Checkbox",
           img: require("./web/assets/img/icon-checkbox.svg"),
           path: "checkbox",
