@@ -189,7 +189,8 @@ export default {
         if (step.target) {
           this.currentTarget = this.getDomElements(step);
         } else {
-          this.displayCenteredTooltip();
+          // display a centered tooltip
+          this.showTooltip = true;
           return;
         }
 
@@ -291,16 +292,8 @@ export default {
       this.showSpotlight = false;
       this.showTooltip = false;
 
-      this.$refs.tooltip.style.boxShadow = "0 2px 10px 0 rgba(0, 0, 0, 0.5)";
       this.$refs.tooltip.style.removeProperty("left");
       this.$refs.tooltip.style.removeProperty("top");
-    },
-    displayCenteredTooltip() {
-      this.showTooltip = true;
-      if (this.$refs.tooltip) {
-        this.$refs.tooltip.style.boxShadow =
-          "0 0 0, 0 0 0 10000vmax rgba(0,0,0,0.5)";
-      }
     },
     clickListener() {
       (
