@@ -15,6 +15,7 @@
       class="tooltip"
       :style="{
         opacity: showTooltip ? 1 : 0,
+        transition: `opacity ${transitionDuration}s ease-in-out`,
       }"
     >
       <div class="tooltip__progress-bar">
@@ -150,6 +151,10 @@ export default {
       type: Number,
       default: () => 10000,
     },
+    transitionDuration: {
+      type: Number,
+      default: () => 0.3,
+    },
   },
   emits: ["set-completed-tour"],
   data() {
@@ -186,6 +191,7 @@ export default {
     async currentStep(step) {
       try {
         if (!step) return;
+        this.currentTarget = null;
 
         if (step.target) {
           this.currentTarget = this.getDomElements(step);
@@ -229,14 +235,16 @@ export default {
   },
   methods: {
     clickNext() {
-      if (this.currentStep.clickable) {
-        (
-          this.currentTarget.elementToClick || this.currentTarget.element
-        ).click();
-      } else {
-        this.next();
-      }
       this.resetSettings();
+      setTimeout(() => {
+        if (this.currentStep.clickable) {
+          (
+            this.currentTarget.elementToClick || this.currentTarget.element
+          ).click();
+        } else {
+          this.next();
+        }
+      }, this.transitionDuration * 1000);
     },
     openGuidedTour(arg) {
       this.steps = arg.map(step => {
@@ -288,13 +296,8 @@ export default {
       this.$emit("set-completed-tour", this.tourToDisplay);
     },
     resetSettings() {
-      this.currentTarget = null;
-
-      this.showSpotlight = false;
+      this.showSpotlight = this.currentStep.clickable ? false : true;
       this.showTooltip = false;
-
-      this.$refs.tooltip.style.removeProperty("left");
-      this.$refs.tooltip.style.removeProperty("top");
     },
     clickListener() {
       (
