@@ -122,9 +122,12 @@ function setSpotlightPosition(target, spotlight) {
 }
 
 function setTooltipPosition(target, tooltip) {
-  const { x: xTarget, y: yTarget, w: wTarget, h: hTarget } = getElementCoord(
-    target
-  );
+  const {
+    x: xTarget,
+    y: yTarget,
+    w: wTarget,
+    h: hTarget,
+  } = getElementCoord(target);
 
   const { w: wToolTip, h: hTooltip } = getElementCoord(tooltip);
   const { wWindow, hWindow } = getWindowSize();

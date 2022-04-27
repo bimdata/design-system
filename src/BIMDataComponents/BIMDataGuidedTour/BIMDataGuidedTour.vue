@@ -13,7 +13,9 @@
       v-if="currentStep"
       ref="tooltip"
       class="tooltip"
-      :style="{ opacity: showTooltip ? 1 : 0 }"
+      :style="{
+        opacity: showTooltip ? 1 : 0,
+      }"
     >
       <div class="tooltip__progress-bar">
         <div
@@ -158,7 +160,6 @@ export default {
       showSpotlight: true,
       showTooltip: false,
       stepIndex: 0,
-      console,
     };
   },
   computed: {
