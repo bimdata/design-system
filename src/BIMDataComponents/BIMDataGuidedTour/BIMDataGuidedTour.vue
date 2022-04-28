@@ -76,7 +76,7 @@
                 color="granite"
                 @click="close"
               >
-                {{ this.translate("skip") }}
+                {{ translate("skip") }}
               </BIMDataButton>
             </div>
           </template>
@@ -95,7 +95,7 @@
                 color="granite"
                 @click="close"
               >
-                {{ this.translate("continue") }}
+                {{ translate("continue") }}
               </BIMDataButton>
             </div>
           </template>
