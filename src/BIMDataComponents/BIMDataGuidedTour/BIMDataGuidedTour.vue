@@ -76,7 +76,7 @@
                 color="granite"
                 @click="close"
               >
-                Skip
+                {{ translate("skip") }}
               </BIMDataButton>
             </div>
           </template>
@@ -95,7 +95,7 @@
                 color="granite"
                 @click="close"
               >
-                Commencer
+                {{ translate("continue") }}
               </BIMDataButton>
             </div>
           </template>
@@ -125,6 +125,7 @@ import {
   setSpotlightPosition,
   setTooltipPosition,
 } from "./guided-tour-utils.js";
+import trads from "./i18n.js";
 
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
@@ -135,6 +136,10 @@ export default {
     BIMDataIcon,
   },
   props: {
+    locale: {
+      type: String,
+      default: "en",
+    },
     tours: {
       type: Array,
       default: () => [],
@@ -332,6 +337,9 @@ export default {
         this.next();
         this.mutationObserver.disconnect();
       }
+    },
+    translate(key) {
+      return (trads[this.locale] || trads["en"])[key];
     },
   },
 };
