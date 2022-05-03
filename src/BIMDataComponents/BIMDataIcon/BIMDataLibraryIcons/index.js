@@ -8,6 +8,7 @@ import api from "./Api.vue";
 import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
+import backInTime from "./BackInTime";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
@@ -107,6 +108,7 @@ import up from "./Up.vue";
 import user from "./User.vue";
 import validate from "./Validate.vue";
 import validatedFile from "./ValidatedFile.vue";
+import versioning from "./Versioning.vue";
 import video from "./Video.vue";
 import visa from "./Visa.vue";
 import warning from "./Warning.vue";
@@ -128,6 +130,7 @@ export default {
   archive,
   arrow,
   attach,
+  backInTime,
   bcf,
   building,
   burgerMenu,
@@ -227,6 +230,7 @@ export default {
   user,
   validate,
   validatedFile,
+  versioning,
   video,
   visa,
   warning,
