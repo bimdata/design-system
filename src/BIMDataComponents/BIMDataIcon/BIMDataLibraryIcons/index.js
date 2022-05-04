@@ -1,6 +1,8 @@
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
 import addUser from "./AddUser.vue";
+import alphabeticalAscending from "./AlphabeticalAscending.vue";
+import alphabeticalDescending from "./AlphabeticalDescending.vue";
 import alphabeticalSort from "./AlphabeticalSort.vue";
 import alt from "./Alt.vue";
 import angle from "./Angle.vue";
@@ -26,6 +28,8 @@ import cloud from "./Cloud.vue";
 import color from "./Color.vue";
 import comment from "./Comment.vue";
 import cursor from "./Cursor.vue";
+import dateAscending from "./DateAscending.vue";
+import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
@@ -49,17 +53,21 @@ import folder from "./Folder.vue";
 import folderMove from "./FolderMove.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
+import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
+import indexAscending from "./IndexAscending.vue";
+import indexDescending from "./IndexDescending.vue";
 import information from "./Information.vue";
 import inProgressFile from "./InProgressFile.vue";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
 import left from "./Left.vue";
 import linkedDocument from "./LinkedDocument.vue";
+import list from "./List.vue";
 import listManage from "./ListManage.vue";
 import location from "./Location.vue";
 import lock from "./Lock.vue";
@@ -70,6 +78,7 @@ import model3d from "./Model3d.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import path from "./Path.vue";
+import pieGraph from "./PieGraph.vue";
 import plus from "./Plus.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
@@ -124,6 +133,8 @@ export default {
   addFile,
   addFolder,
   addUser,
+  alphabeticalAscending,
+  alphabeticalDescending,
   alphabeticalSort,
   alt,
   angle,
@@ -149,6 +160,8 @@ export default {
   color,
   comment,
   cursor,
+  dateAscending,
+  dateDescending,
   default: Default,
   delete: Delete,
   deniedFile,
@@ -172,17 +185,21 @@ export default {
   folderMove,
   folderOpen,
   fullscreen,
+  grid,
   group,
   hide,
   ifc,
   ifcFile,
   import: Import,
+  indexAscending,
+  indexDescending,
   information,
   inProgressFile,
   isolate,
   key,
   left,
   linkedDocument,
+  list,
   listManage,
   location,
   lock,
@@ -193,6 +210,7 @@ export default {
   organization,
   parameters,
   path,
+  pieGraph,
   plus,
   project,
   quickSelect,
