@@ -8,7 +8,7 @@ import api from "./Api.vue";
 import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
-import backInTime from "./BackInTime";
+import backInTime from "./BackInTime.vue";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
@@ -100,6 +100,7 @@ import surface from "./Surface.vue";
 import swap from "./Swap.vue";
 import synchro2d from "./Synchro2D.vue";
 import system from "./System.vue";
+import tag from "./Tag.vue";
 import tree from "./Tree.vue";
 import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
@@ -222,6 +223,7 @@ export default {
   swap,
   synchro2d,
   system,
+  tag,
   tree,
   unarchive,
   undo,
