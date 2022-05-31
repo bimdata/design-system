@@ -87,6 +87,9 @@ export default {
     modelValue: {
       type: Array,
     },
+    nullLabel: {
+      type: String,
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -116,6 +119,9 @@ export default {
       return option;
     },
     optionLabel(option) {
+      if (this.nullLabel && option == null) {
+        return this.nullLabel;
+      }
       if (this.optionLabelKey && option) {
         return option[this.optionLabelKey];
       }

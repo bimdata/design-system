@@ -27,7 +27,7 @@
           class="bimdata-select__option-list__entry"
           @click="onNullValueClick()"
         >
-          None
+          {{ nullLabel || "None" }}
         </li>
         <li
           class="bimdata-select__option-list__entry"
@@ -88,6 +88,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    nullLabel: {
+      type: String,
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -117,6 +120,9 @@ export default {
       return option;
     },
     optionLabel(option) {
+      if (this.nullLabel && option == null) {
+        return this.nullLabel;
+      }
       if (this.optionLabelKey && option) {
         return option[this.optionLabelKey];
       }

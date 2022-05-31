@@ -55,6 +55,12 @@ export default [
     + "Add a 'none' value in single-selection mode.",
   ],
   [
+    "nullLabel",
+    "String",
+    "",
+    "Define a custom label for `null` or `undefined` options."
+  ],
+  [
     "disabled",
     "Boolean",
     "false",
