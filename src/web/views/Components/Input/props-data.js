@@ -2,6 +2,12 @@
 export default [
   [ "Props", "Type", "Default value", "Description" ],
   [
+    "modelValue",
+    "String",
+    "",
+    "Use this prop to bind the input value to a variable.",
+  ],
+  [
     "margin",
     "String",
     "12px 0",
