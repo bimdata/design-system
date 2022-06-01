@@ -11,10 +11,14 @@ export default {
         binding.value();
       }
     };
-    window.addEventListener("click", el.clickAwayHandler, true);
+    window.addEventListener(binding.arg || "click", el.clickAwayHandler, true);
   },
-  unmounted(el) {
-    window.removeEventListener("click", el.clickAwayHandler, true);
+  unmounted(el, binding) {
+    window.removeEventListener(
+      binding.arg || "click",
+      el.clickAwayHandler,
+      true
+    );
     delete el.clickAwayHandler;
   },
 };

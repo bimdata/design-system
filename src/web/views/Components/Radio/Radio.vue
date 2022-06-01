@@ -1,9 +1,9 @@
 <template>
   <main class="article article-radio">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
         language="javascript"
@@ -13,44 +13,41 @@
         <template #module>
           <BIMDataRadio
             :text="text"
-            value="radiotest1"
-            v-model="selectedMode"
+            value="v0"
+            v-model="selectedValue"
             :disabled="checkboxDisabledChecked"
             :big="checkboxBigChecked"
-          ></BIMDataRadio>
+          />
           <BIMDataRadio
-            :text="text"
-            value="radiotest2"
-            v-model="selectedMode"
+            text="Mode 1"
+            value="v1"
+            v-model="selectedValue"
             :disabled="checkboxDisabledChecked"
             :big="checkboxBigChecked"
-          ></BIMDataRadio>
+          />
           <BIMDataRadio
-            :text="text"
-            value="radiotest3"
-            v-model="selectedMode"
+            text="Mode 2"
+            value="v2"
+            v-model="selectedValue"
             :disabled="checkboxDisabledChecked"
             :big="checkboxBigChecked"
-          ></BIMDataRadio>
+          />
+          <div style="width: 100%; padding: 36px; text-align: center">
+            {{ `Selected Value: ${selectedValue}` }}
+          </div>
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox
-            class="m-b-12"
-            text="disabled"
-            v-model="checkboxDisabledChecked"
-          >
-          </BIMDataCheckbox>
-          <BIMDataCheckbox
-            class="m-b-12"
-            text="big"
-            v-model="checkboxBigChecked"
-          >
-          </BIMDataCheckbox>
-          <BIMDataInput v-model="text" />
-          <BIMDataButton color="primary" radius fill @click="resetRadio()"
-            >Reset</BIMDataButton
-          >
+          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" />
+          <BIMDataCheckbox text="big" v-model="checkboxBigChecked" />
+          <BIMDataInput
+            style="margin-top: 32px"
+            v-model="text"
+            placeholder="Text for mode 0"
+          />
+          <BIMDataButton color="primary" radius fill @click="resetRadio()">
+            Reset
+          </BIMDataButton>
         </template>
 
         <template #import>
@@ -61,20 +58,34 @@
         <template #code>
           <pre>
             &lt;BIMDataRadio
-            text="click on me !"
-            id="radiotest"
-            value="radiotest"
-            v-model="selectedMode"
-            :disabled="checkboxDisabledChecked"&gt;
-          &lt;/BIMDataRadio&gt;
+              text="{{ text }}"
+              value="v0"
+              v-model="selectedValue"
+              :disabled="{{ checkboxDisabledChecked }}"
+              :big="{{ checkboxBigChecked }}"
+            /&gt;
+            &lt;BIMDataRadio
+              text="Mode 1"
+              value="v1"
+              v-model="selectedValue"
+              :disabled="{{ checkboxDisabledChecked }}"
+              :big="{{ checkboxBigChecked }}"
+            /&gt;
+            &lt;BIMDataRadio
+              text="Mode 2"
+              value="v2"
+              v-model="selectedValue"
+              :disabled="{{ checkboxDisabledChecked }}"
+              :big="{{ checkboxBigChecked }}"
+            /&gt;
           </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
     </div>
@@ -82,6 +93,7 @@
 </template>
 
 <script>
+import propsData from "./props-data.js";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
@@ -103,23 +115,16 @@ export default {
   },
   data() {
     return {
-      text: "click me!",
-      selectedMode: null,
+      text: "Mode 0",
+      selectedValue: null,
       checkboxDisabledChecked: false,
       checkboxBigChecked: false,
-      propsData: [
-        ["Props", "Type", "Default value", "Description"],
-        ["text", "String", "null", "Use this props to add a label text"],
-        ["value", "any", "/", ""],
-        ["modelValue", "any", "/", ""],
-        ["big", "boolean", "false", ""],
-        ["disabled", "boolean", "false", ""],
-      ],
+      propsData,
     };
   },
   methods: {
     resetRadio() {
-      return (this.selectedMode = null);
+      return (this.selectedValue = null);
     },
   },
 };

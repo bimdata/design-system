@@ -15,7 +15,7 @@
         <BIMDataText
           component="h4"
           color="color-primary"
-          margin="10px 0"
+          margin="12px 0 24px"
           display="block"
           >{{ componentTitle }} options</BIMDataText
         >

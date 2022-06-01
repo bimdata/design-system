@@ -13,7 +13,10 @@
       v-if="currentStep"
       ref="tooltip"
       class="tooltip"
-      :style="{ opacity: showTooltip ? 1 : 0 }"
+      :style="{
+        opacity: showTooltip ? 1 : 0,
+        transition: `opacity ${transitionDuration}s ease-in-out`,
+      }"
     >
       <div class="tooltip__progress-bar">
         <div
@@ -73,7 +76,7 @@
                 color="granite"
                 @click="close"
               >
-                Skip
+                {{ translate("skip") }}
               </BIMDataButton>
             </div>
           </template>
@@ -92,7 +95,7 @@
                 color="granite"
                 @click="close"
               >
-                Commencer
+                {{ translate("continue") }}
               </BIMDataButton>
             </div>
           </template>
@@ -122,6 +125,7 @@ import {
   setSpotlightPosition,
   setTooltipPosition,
 } from "./guided-tour-utils.js";
+import trads from "./i18n.js";
 
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
@@ -132,9 +136,17 @@ export default {
     BIMDataIcon,
   },
   props: {
+    locale: {
+      type: String,
+      default: "en",
+    },
     tours: {
       type: Array,
       default: () => [],
+    },
+    tourToDisplay: {
+      type: String,
+      default: () => "",
     },
     elementToObserve: {
       type: [Object, HTMLElement],
@@ -144,7 +156,12 @@ export default {
       type: Number,
       default: () => 10000,
     },
+    transitionDuration: {
+      type: Number,
+      default: () => 0.3,
+    },
   },
+  emits: ["set-completed-tour"],
   data() {
     return {
       steps: [],
@@ -153,7 +170,6 @@ export default {
       showSpotlight: true,
       showTooltip: false,
       stepIndex: 0,
-      console,
     };
   },
   computed: {
@@ -180,11 +196,13 @@ export default {
     async currentStep(step) {
       try {
         if (!step) return;
+        this.currentTarget = null;
 
         if (step.target) {
           this.currentTarget = this.getDomElements(step);
         } else {
-          this.displayCenteredTooltip();
+          // display a centered tooltip
+          this.showTooltip = true;
           return;
         }
 
@@ -207,7 +225,12 @@ export default {
     this.mutationObserver = new MutationObserver(this.handleClickedStep);
   },
   mounted() {
-    this.openGuidedTour(this.tours[0].steps);
+    const tour = this.tours.find(t => t.name === this.tourToDisplay);
+    if (tour) {
+      this.openGuidedTour(tour.steps);
+    } else {
+      console.warn(`GuideTour: unknown tour ${this.tourToDisplay}`);
+    }
   },
   unmounted() {
     this.mutationObserver.disconnect();
@@ -217,14 +240,16 @@ export default {
   },
   methods: {
     clickNext() {
-      if (this.currentStep.clickable) {
-        (
-          this.currentTarget.elementToClick || this.currentTarget.element
-        ).click();
-      } else {
-        this.next();
-      }
       this.resetSettings();
+      setTimeout(() => {
+        if (this.currentStep.clickable) {
+          (
+            this.currentTarget.elementToClick || this.currentTarget.element
+          ).click();
+        } else {
+          this.next();
+        }
+      }, this.transitionDuration * 1000);
     },
     openGuidedTour(arg) {
       this.steps = arg.map(step => {
@@ -273,24 +298,11 @@ export default {
     close() {
       this.showTooltip = false;
       this.closeGuidedTour();
-      this.$emit("show-guided-tour", false);
+      this.$emit("set-completed-tour", this.tourToDisplay);
     },
     resetSettings() {
-      this.currentTarget = null;
-
-      this.showSpotlight = false;
+      this.showSpotlight = this.currentStep.clickable ? false : true;
       this.showTooltip = false;
-
-      this.$refs.tooltip.style.boxShadow = "0 2px 10px 0 rgba(0, 0, 0, 0.5)";
-      this.$refs.tooltip.style.removeProperty("left");
-      this.$refs.tooltip.style.removeProperty("top");
-    },
-    displayCenteredTooltip() {
-      this.showTooltip = true;
-      if (this.$refs.tooltip) {
-        this.$refs.tooltip.style.boxShadow =
-          "0 0 0, 0 0 0 10000vmax rgba(0,0,0,0.5)";
-      }
     },
     clickListener() {
       (
@@ -325,6 +337,9 @@ export default {
         this.next();
         this.mutationObserver.disconnect();
       }
+    },
+    translate(key) {
+      return (trads[this.locale] || trads["en"])[key];
     },
   },
 };
