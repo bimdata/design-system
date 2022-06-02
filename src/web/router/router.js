@@ -46,7 +46,6 @@ import Textarea from "../views/Components/Textarea/Textarea.vue";
 import Textbox from "../views/Components/Textbox/Textbox.vue";
 import Toggle from "../views/Components/Toggle/Toggle.vue";
 import Tooltip from "../views/Components/Tooltip/Tooltip.vue";
-import GuidedTour from "../views/Components/GuidedTour/GuidedTour.vue";
 
 // Smart Components views
 import FileManager from "../views/SmartComponents/FileManager/FileManager.vue";
@@ -269,11 +268,6 @@ const routes = [
         path: "tooltips",
         name: "tooltips",
         component: Tooltip,
-      },
-      {
-        path: "guided-tour",
-        name: "guided-tour",
-        component: GuidedTour,
       },
     ],
   },
