@@ -7,7 +7,6 @@ export { default as BIMDataColorSelector } from "./dist/js/BIMDataComponents/BIM
 export { default as BIMDataDropdownList } from "./dist/js/BIMDataComponents/BIMDataDropdownList.js";
 export { default as BIMDataDropdownMenu } from "./dist/js/BIMDataComponents/BIMDataDropdownMenu.js";
 export { default as BIMDataFileIcon } from "./dist/js/BIMDataComponents/BIMDataFileIcon.js";
-export { default as BIMDataGuidedTour } from "./dist/js/BIMDataComponents/BIMDataGuidedTour.js";
 export { default as BIMDataIcon } from "./dist/js/BIMDataComponents/BIMDataIcon.js";
 export { default as BIMDataIllustration } from "./dist/js/BIMDataComponents/BIMDataIllustration.js";
 export { default as BIMDataInput } from "./dist/js/BIMDataComponents/BIMDataInput.js";
