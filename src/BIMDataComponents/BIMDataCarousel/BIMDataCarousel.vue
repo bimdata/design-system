@@ -67,12 +67,16 @@ export default {
     this.distributeItems();
     this.resizeObserver = new ResizeObserver(() => this.distributeItems());
     this.resizeObserver.observe(this.$refs.slider);
+    this.mutationObserver = new MutationObserver(() => this.distributeItems());
+    this.mutationObserver.observe(this.$refs.slider, { childList: true });
   },
   unmounted() {
     this.resizeObserver.disconnect();
+    this.mutationObserver.disconnect();
   },
   destroyed() {
     this.resizeObserver.disconnect();
+    this.mutationObserver.disconnect();
   },
   methods: {
     distributeItems() {
