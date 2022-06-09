@@ -16,7 +16,6 @@ export { default as BIMDataColorSelector } from "./BIMDataColorSelector/BIMDataC
 export { default as BIMDataDropdownList } from "./BIMDataDropdownList/BIMDataDropdownList.vue";
 export { default as BIMDataDropdownMenu } from "./BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export { default as BIMDataFileIcon } from "./BIMDataFileIcon/BIMDataFileIcon.vue";
-export { default as BIMDataGuidedTour } from "./BIMDataGuidedTour/BIMDataGuidedTour.vue";
 export { default as BIMDataIcon } from "./BIMDataIcon/BIMDataIcon.vue";
 export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index.js";
 export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
