@@ -63,6 +63,11 @@ export default {
       translations: [],
     };
   },
+  watch: {
+    minGap() {
+      this.distributeItems();
+    },
+  },
   mounted() {
     this.distributeItems();
     this.resizeObserver = new ResizeObserver(() => this.distributeItems());
