@@ -152,7 +152,7 @@ export default new Vuex.Store({
         },
         {
           title: "FileIcon",
-          img: require("./web/assets/img/icon-icons.svg"),
+          img: require("./web/assets/img/icon-fileicon.svg"),
           path: "fileicon",
           text: "FileIcon is used to provide file visual context.",
           btn: "View FileIcon",
@@ -166,7 +166,7 @@ export default new Vuex.Store({
         },
         {
           title: "Illustrations",
-          img: require("./web/assets/img/icon-icons.svg"),
+          img: require("./web/assets/img/icon-illustration.svg"),
           path: "illustrations",
           text: "Illustrations are used to provide additional visual context.",
           btn: "View illustrations",
@@ -280,7 +280,7 @@ export default new Vuex.Store({
     },
     "Smart Components": {
       text: "Smart components are components that are smart.",
-      img: require("./web/assets/img/icon-components.svg"),
+      img: require("./web/assets/img/icon-smart-components.svg"),
       path: "smart-components",
       children: [
         {
