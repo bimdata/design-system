@@ -53,6 +53,7 @@ function getAllComponentsBundleConfiguration() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         css({
           output: "dist/css/design-system.css",
@@ -116,6 +117,7 @@ function getAllComponentsBundleConfiguration() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue3({
           template: { isProduction: true },
@@ -146,6 +148,7 @@ function getSingleSmartComponentConfigurations() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue2({
           template: { isProduction: true },
@@ -206,6 +209,7 @@ function getSingleComponentConfigurations() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue2({
           template: { isProduction: true },
@@ -233,6 +237,7 @@ function getSingleComponentConfigurations() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue3({
           template: { isProduction: true },
