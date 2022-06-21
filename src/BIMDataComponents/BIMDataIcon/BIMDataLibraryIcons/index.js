@@ -63,6 +63,7 @@ import indexAscending from "./IndexAscending.vue";
 import indexDescending from "./IndexDescending.vue";
 import information from "./Information.vue";
 import inProgressFile from "./InProgressFile.vue";
+import invitation from "./Invitation.vue";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
 import left from "./Left.vue";
@@ -195,6 +196,7 @@ export default {
   indexDescending,
   information,
   inProgressFile,
+  invitation,
   isolate,
   key,
   left,
