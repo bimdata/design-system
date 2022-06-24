@@ -124,19 +124,16 @@ export default {
       }
     },
     renameDocument() {
-      const payload = {
-        cloudPk: this.spaceId,
-        projectPk: this.projectId,
-        id: this.entity.id,
-        data: {
-          ...document,
-          name: this.name,
-        },
-      };
-      if (this.entity.type === "Folder") {
-        return this.apiClient.collaborationApi.updateFolder(payload);
+      const params = [
+        this.spaceId,
+        this.entity.id,
+        this.projectId,
+        { name: this.name },
+      ];
+      if (this.entity.nature === "Folder") {
+        return this.apiClient.collaborationApi.updateFolder(...params);
       } else {
-        return this.apiClient.collaborationApi.updateDocument(payload);
+        return this.apiClient.collaborationApi.updateDocument(...params);
       }
     },
   },

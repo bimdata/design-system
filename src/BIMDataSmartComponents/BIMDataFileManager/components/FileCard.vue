@@ -51,11 +51,11 @@
             />
           </div>
         </div>
-        <template v-if="file.type === 'Folder'">
+        <template v-if="file.nature === 'Folder'">
           <BIMDataIcon name="folder" size="xl" fill color="primary" />
         </template>
         <template v-else>
-          <BIMDataFileIcon :fileName="file.fileName" :size="25" />
+          <BIMDataFileIcon :fileName="file.file_name" :size="25" />
         </template>
       </div>
       <div
@@ -98,7 +98,7 @@
           :text="file.name"
         />
         <div class="file-card__content__footer__date">
-          {{ file.updatedAt.toLocaleDateString() }}
+          {{ file.updated_at.toLocaleDateString() }}
         </div>
         <template v-if="initials">
           <div class="file-card__content__footer__initials">
@@ -197,17 +197,17 @@ export default {
       return !this.loading && !this.select;
     },
     isFolder() {
-      return this.file.type === "Folder";
+      return this.file.nature === "Folder";
     },
     loading() {
       return this.file.fileToLoad;
     },
     initials() {
       return (
-        this.file.createdBy &&
+        this.file.created_by &&
         (
-          `${this.file.createdBy.firstname[0] || ""}` +
-          `${this.file.createdBy.lastname[0] || ""}`
+          `${this.file.created_by.firstname[0] || ""}` +
+          `${this.file.created_by.lastname[0] || ""}`
         ).toUpperCase()
       );
     },
@@ -235,7 +235,7 @@ export default {
       request.addEventListener("load", () => {
         if (request.status === 201) {
           const file = JSON.parse(request.response);
-          file.updatedAt = new Date(file.updated_at);
+          file.updated_at = new Date(file.updated_at);
           this.$emit("loaded", file);
         } else {
           this.$emit("load-error", request.statusText);

@@ -13,7 +13,7 @@
       >
         <template v-if="headerButtons">
           <NewFolderButton
-            :disabled="!currentFolder || currentFolder.userPermission < 100"
+            :disabled="!currentFolder || currentFolder.user_permission < 100"
             :projectId="projectId"
             :spaceId="spaceId"
             :apiClient="apiClient"
@@ -24,7 +24,7 @@
           <UploadFileButton
             class="bimdata-file-manager__header__upload"
             width="25%"
-            :disabled="!currentFolder || currentFolder.userPermission < 100"
+            :disabled="!currentFolder || currentFolder.user_permission < 100"
             multiple
             @upload="uploadFiles"
           />
@@ -96,7 +96,7 @@
               @delete="onDelete(file)"
               @dowload="onDowload(file)"
               @loaded="onFileLoaded(file, $event)"
-              :writeAccess="currentFolder.userPermission >= 100"
+              :writeAccess="currentFolder.user_permission >= 100"
             />
           </BIMDataResponsiveGrid>
         </div>
@@ -290,8 +290,8 @@ export default {
 
       files.sort((a, b) => (a.name || "").localeCompare(b.name));
       files.sort((a, b) => {
-        const aType = a.type === "Folder" ? 1 : -1;
-        const bType = b.type === "Folder" ? 1 : -1;
+        const aType = a.nature === "Folder" ? 1 : -1;
+        const bType = b.nature === "Folder" ? 1 : -1;
 
         return bType - aType;
       });
@@ -333,12 +333,11 @@ export default {
         apiUrl: this.apiUrl,
         accessToken: this.accessToken,
       });
-      this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
-        {
-          cloudPk: this.spaceId,
-          id: this.projectId,
-        }
-      );
+      this.fileStructure =
+        await this.apiClient.collaborationApi.getProjectDMSTree(
+          this.spaceId,
+          this.projectId
+        );
     } catch (error) {
       this.$emit("error", error);
     }
@@ -430,7 +429,7 @@ export default {
         );
       }
 
-      const isFolder = this.entityDeletable.type === "Folder";
+      const isFolder = this.entityDeletable.nature === "Folder";
 
       this.$emit("success", {
         type: isFolder ? "folderDeleted" : "fileDeleted",
@@ -446,7 +445,7 @@ export default {
       this.entityRenown = entity;
     },
     onRenameSuccess() {
-      const isFolder = this.entityRenown.type === "Folder";
+      const isFolder = this.entityRenown.nature === "Folder";
 
       this.$emit("success", {
         type: isFolder ? "folderRenamed" : "fileRenamed",
@@ -474,8 +473,8 @@ export default {
     formatFiles(files) {
       return files.map(file => ({
         name: file.name,
-        updatedAt: new Date(file.lastModified),
-        type: "File",
+        updated_at: new Date(file.lastModified),
+        nature: "Document",
         id: `loadingfile-${this.loadingFileId++}`,
         fileToLoad: file,
         folder: this.currentFolder,
