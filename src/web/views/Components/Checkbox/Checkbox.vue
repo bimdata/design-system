@@ -12,15 +12,22 @@
       >
         <template #module>
           <BIMDataCheckbox
-            :text="getCheckboxText()"
+            :disabled="isDisabled"
+            :text="text"
             v-model="checked"
-            :disabled="getCheckboxDisabled()"
           />
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="text" v-model="checkboxTextChecked" />
-          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" />
+          <BIMDataCheckbox text="text" v-model="hasText" />
+          <BIMDataCheckbox text="disabled" v-model="isDisabled" />
+          <BIMDataCheckbox
+            text="indeterminate"
+            :modelValue="checked === null"
+            @update:modelValue="
+              checked === null ? (checked = false) : (checked = null)
+            "
+          />
         </template>
 
         <template #import>
@@ -31,8 +38,8 @@
         <template #code>
           <pre>
             &lt;BIMDataCheckbox
-              :disabled="{{ getCheckboxDisabled() }}"
-              ext="Your label here"
+              :disabled="{{ isDisabled }}"
+              {{ hasText ? `:text="${text}"` : "" }} 
               v-model="checked"
             /&gt;
           </pre>
@@ -51,10 +58,10 @@
 
 <script>
 import propsData from "./props-data.js";
-
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+// Components
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
@@ -67,20 +74,15 @@ export default {
   data() {
     return {
       checked: false,
-      checkboxTextChecked: true,
-      checkboxDisabledChecked: false,
+      isDisabled: false,
+      hasText: true,
       // Data
       propsData,
     };
   },
-  methods: {
-    getCheckboxDisabled() {
-      return this.checkboxDisabledChecked;
-    },
-    getCheckboxText() {
-      if (this.checkboxTextChecked) {
-        return "Your label here";
-      }
+  computed: {
+    text() {
+      return this.hasText ? "Your label here" : undefined;
     },
   },
 };

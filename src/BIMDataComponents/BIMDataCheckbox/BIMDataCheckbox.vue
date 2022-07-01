@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-checkbox"
-    :class="{ indeterminate, disabled, checked }"
+    :class="{ disabled, checked, indeterminate }"
     @click="onClick"
     :style="style"
   >
@@ -15,21 +15,19 @@
 <script>
 export default {
   name: "BIMDataCheckbox",
-  inheritAttrs: false,
   model: {
     prop: "modelValue",
     event: "update:modelValue",
   },
   props: {
-    text: {
-      type: String,
-      default: null,
-    },
     modelValue: {
       type: Boolean,
       validator(value) {
         return value === null || typeof value === "boolean";
       },
+    },
+    text: {
+      type: String,
     },
     disabled: {
       type: Boolean,
@@ -64,9 +62,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss" src="./_BIMDataCheckbox.scss"></style>
+<style scoped lang="scss" src="./_BIMDataCheckbox.scss"></style>

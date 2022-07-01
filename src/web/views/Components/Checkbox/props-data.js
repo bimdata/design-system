@@ -2,16 +2,16 @@
 export default [
   [ "Props", "Type", "Default value", "Description" ],
   [
-    "text",
-    "String",
-    "null",
-    "Use this props to add text next to the checkbox",
+    "modelValue",
+    "Boolean | null",
+    "",
+    "",
   ],
   [
-    "state",
-    "Boolean",
-    "false",
-    "Use this boolean to know if the checkbox is checked or not. If the state === 'null' then the state is 'indeterminate'",
+    "text",
+    "String",
+    "",
+    "Use this props to add text next to the checkbox",
   ],
   [
     "disabled",
