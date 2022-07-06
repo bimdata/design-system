@@ -13,11 +13,20 @@
             :minGap="+minGap"
           >
             <div
-              style="height: 100px; background-color: #ddd"
+              style="
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                background-color: #ddd;
+              "
               :style="{ width: `${itemWidth}px` }"
-              v-for="i of [1, 2, 3, 4, 5, 6]"
+              v-for="i of items"
               :key="i"
-            ></div>
+            >
+              {{ i }}
+            </div>
           </BIMDataCarousel>
         </template>
 
@@ -27,12 +36,6 @@
             type="text"
             placeholder="Carousel width"
             v-model="carouselWidth"
-          />
-          <!-- <BIMDataInput
-            margin="24px 0"
-            type="number"
-            placeholder="Item width (in px)"
-            v-model="itemWidth"
           />
           <BIMDataInput
             margin="24px 0"
@@ -45,7 +48,19 @@
             type="number"
             placeholder="Minimum gap (in px)"
             v-model="minGap"
-          /> -->
+          />
+          <BIMDataInput
+            margin="24px 0"
+            type="number"
+            placeholder="Number of items"
+            v-model="nbItems"
+          />
+          <BIMDataInput
+            margin="24px 0"
+            type="number"
+            placeholder="Item width (in px)"
+            v-model="itemWidth"
+          />
         </template>
 
         <template #import>
@@ -55,13 +70,18 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataCarousel :style="{ width: {{ carouselWidth }} }"&gt;
+            &lt;BIMDataCarousel
+              :style="{ width: {{ carouselWidth }} }"
+              :sliderPadding="{{ sliderPadding }}"
+              :minGap="{{ minGap }}"
+            &gt;
               &lt;div
-                style="height: 100px; background-color: #ddd"
                 :style="{ width: {{ `${itemWidth}px` }} }"
-                v-for="i of [1, 2, 3, 4, 5, 6]"
+                v-for="i of items"
                 :key="i"
-              &gt;&lt;/div&gt;
+              &gt;
+                {{ "{" + "{ i }" + "}" }}
+              &lt;/div&gt;
             &lt;/BIMDataCarousel&gt;
           </pre>
         </template>
@@ -97,13 +117,19 @@ export default {
   data() {
     return {
       carouselWidth: "60%",
-      itemWidth: 150,
       sliderPadding: 12,
       minGap: 24,
+      nbItems: 6,
+      itemWidth: 150,
 
       // Data
       propsData,
     };
+  },
+  computed: {
+    items() {
+      return Array.from({ length: this.nbItems }, (_, i) => i + 1);
+    },
   },
 };
 </script>

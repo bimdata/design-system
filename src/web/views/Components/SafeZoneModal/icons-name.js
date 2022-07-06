@@ -56,6 +56,7 @@ export default Object.freeze([
   "import",
   "information",
   "inProgressFile",
+  "invitation",
   "isolate",
   "key",
   "left",

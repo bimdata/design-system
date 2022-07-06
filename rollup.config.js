@@ -53,14 +53,25 @@ function getAllComponentsBundleConfiguration() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         css({
           output: "dist/css/design-system.css",
         }),
         copy({
           targets: [
-            { src: "src/assets/fonts", dest: "dist" },
-            { src: "src/assets/scss", dest: "dist" },
+            {
+              src: "src/assets/fonts",
+              dest: "dist",
+            },
+            {
+              src: "src/assets/scss",
+              dest: "dist",
+            },
+            {
+              src: "src/BIMDataComponents/BIMDataColorSelector/colors.js",
+              dest: "dist",
+            },
             {
               src: "src/assets/css/_BIMDataFonts.css",
               dest: "dist/css",
@@ -106,6 +117,7 @@ function getAllComponentsBundleConfiguration() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue3({
           template: { isProduction: true },
@@ -136,6 +148,7 @@ function getSingleSmartComponentConfigurations() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue2({
           template: { isProduction: true },
@@ -196,6 +209,7 @@ function getSingleComponentConfigurations() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue2({
           template: { isProduction: true },
@@ -223,6 +237,7 @@ function getSingleComponentConfigurations() {
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
           delimiters: ["", ""],
+          preventAssignment: true,
         }),
         vue3({
           template: { isProduction: true },
