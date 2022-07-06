@@ -20,7 +20,7 @@ function segregate(files) {
   const folders = [];
   const documents = [];
   for (const file of files) {
-    if (file.type === FOLDER_TYPE) {
+    if (file.nature === FOLDER_TYPE) {
       folders.push(file);
     } else {
       documents.push(file);
@@ -75,7 +75,7 @@ async function downloadFiles(files, apiInfos = {}) {
     }
     let downloadUrl = null;
     const downloadName = files[0].name;
-    if (files.length === 1 && files[0].type !== FOLDER_TYPE) {
+    if (files.length === 1 && files[0].nature !== FOLDER_TYPE) {
       downloadUrl = files[0].file;
     } else {
       downloadUrl = getArchiveUrl(files, apiInfos);

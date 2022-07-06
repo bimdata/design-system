@@ -104,14 +104,14 @@ export default {
         this.loading = true;
         try {
           const folderData = {
-            parentId: this.folder.id,
+            parent_id: this.folder.id,
             name: this.name,
           };
-          const folder = await this.apiClient.collaborationApi.createFolder({
-            cloudPk: this.spaceId,
-            projectPk: this.projectId,
-            data: folderData,
-          });
+          const folder = await this.apiClient.collaborationApi.createFolder(
+            this.spaceId,
+            this.projectId,
+            folderData
+          );
           this.$emit("success", folder);
         } catch (error) {
           this.$emit("error", error);
