@@ -1,7 +1,7 @@
 <template>
   <div class="bimdata-search-autocomplete" v-clickaway="away">
     <div class="bimdata-search-autocomplete__input flex items-center">
-      <span class="bimdata-search-icon">
+      <span class="bimdata-search-icon flex">
         <BIMDataIcon name="search" fill color="default" size="xxs" />
       </span>
       <input
