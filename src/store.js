@@ -221,6 +221,13 @@ export default new Vuex.Store({
           btn: "View search",
         },
         {
+          title: "Search Autocomplete",
+          img: require("./web/assets/img/icon-search_autocomplete.svg"),
+          path: "searchautocomplete",
+          text: "Search autocomplete  ...",
+          btn: "View search autocomplete",
+        },
+        {
           title: "Select",
           img: require("./web/assets/img/icon-select.svg"),
           path: "select",
