@@ -8,6 +8,7 @@
         class="form-control p-l-36 p-r-12"
         type="text"
         v-model="search"
+        :placeholder="placeholder"
         @keydown.enter="onEnter"
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
@@ -100,6 +101,10 @@ export default {
         type: Boolean,
         default: false,
       },
+    },
+    placeholder: {
+      type: String,
+      default: "",
     },
   },
   data() {
