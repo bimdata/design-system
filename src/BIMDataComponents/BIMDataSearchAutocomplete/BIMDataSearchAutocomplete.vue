@@ -61,7 +61,7 @@
       <div
         v-if="isAllResultatsBtnActive"
         class="bimdata-search-autocomplete__dropdown__button flex items-center justify-center"
-        @click="onAllResultatsBtnClick($event)"
+        @click="onAllResultatsBtnClick"
       >
         See all results for "{{ search }}"
       </div>
@@ -153,13 +153,17 @@ export default {
       this.search = "";
       this.isOpen = false;
     },
-    onAllResultatsBtnClick($event) {
-      this.$emit("all-results-click", $event);
+    onAllResultatsBtnClick() {
+      this.$emit("all-results-click", {
+        results: this.results,
+        search: this.search,
+      });
+      this.search = "";
       this.isOpen = false;
     },
     onEnter() {
       this.$emit("enter", this.results[this.current].id);
-      this.search = this.results[this.current].title;
+      this.search = "";
       this.isOpen = false;
       this.current = -1;
     },
