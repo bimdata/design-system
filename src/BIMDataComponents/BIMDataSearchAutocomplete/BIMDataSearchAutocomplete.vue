@@ -21,7 +21,11 @@
       :class="{ open: openResults }"
     >
       <ul class="bimdata-list p-y-6">
-        <li class="loading" v-if="loading">Loading results...</li>
+        <li class="loading" v-if="loading">
+          <slot name="loading"
+            ><p class="text-center">loading results...</p></slot
+          >
+        </li>
         <li
           v-else
           v-for="(result, i) in results"
@@ -97,10 +101,10 @@ export default {
       validator: value => {
         return value > 0;
       },
-      loading: {
-        type: Boolean,
-        default: false,
-      },
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
     placeholder: {
       type: String,
