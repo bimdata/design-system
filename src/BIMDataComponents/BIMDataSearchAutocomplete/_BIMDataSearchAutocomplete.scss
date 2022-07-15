@@ -32,6 +32,7 @@
     &.open {
       display: block;
       position: absolute;
+      z-index: 1;
     }
     .active {
       background-color: var(--color-silver-light);
