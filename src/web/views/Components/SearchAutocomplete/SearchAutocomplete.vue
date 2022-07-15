@@ -5,42 +5,104 @@
         {{ $route.name }}
       </BIMDataText>
 
-      <BIMDataSearchAutocomplete
-        :items="apps"
-        @item-click="test"
-        @all-results-click="test2"
-        class="m-t-24"
-      />
+      <ComponentCode :componentTitle="$route.name" language="javascript">
+        <template #module>
+          <BIMDataSearchAutocomplete
+            placeholder="Search"
+            :items="apps"
+            @item-click="onItemClick"
+            @all-results-click="onAllResultsClick"
+            :loading="isLoading"
+            class="m-t-24"
+          >
+            <template #left>
+              <BIMDataIcon name="default" fill color="default" />
+            </template>
+          </BIMDataSearchAutocomplete>
+        </template>
+
+        <template #parameters>
+          <div class="m-t-12">
+            <BIMDataCheckbox text="Loading" v-model="isLoading" />
+          </div>
+        </template>
+
+        <template #import>
+          import BIMDataSearchAutocomplete from
+          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearchAutocomplete.js";
+        </template>
+
+        <template #code>
+          <pre>
+            &lt;BIMDataSearchAutocomplete
+              placeholder="Search"
+              {{ isLoadingChecked() }}
+              :items="apps"
+              @item-click="onItemClick"
+              @all-results-click="onAllResultsClick"
+            /&gt;
+          </pre>
+        </template>
+      </ComponentCode>
+
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+      </div>
+
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Slots:
+        </BIMDataText>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+import propsData from "./props-data.js";
+import slotsData from "./slots-data.js";
+
+import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+
+import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataSearchAutocomplete from "../../../../BIMDataComponents/BIMDataSearchAutocomplete/BIMDataSearchAutocomplete.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 export default {
   components: {
+    ComponentCode,
+    BIMDataCheckbox,
     BIMDataText,
+    BIMDataIcon,
     BIMDataSearchAutocomplete,
+    BIMDataTable,
   },
   data: function () {
     return {
+      propsData,
+      slotsData,
+      isLoading: false,
       apps: [
         {
           title: "App 01",
           text: "Ceci est une première longue description pour faire un test",
-          icon: "test",
+          logo: "https://picsum.photos/200/300",
         },
         {
           title: "App 02",
           text: "Description here",
-          icon: "test",
+          logo: "https://picsum.photos/id/237/200/300",
         },
         {
           title: "App 03",
           text: "Description here",
-          icon: "test",
+          logo: "https://picsum.photos/seed/picsum/200/300",
         },
         {
           title: "App 04",
@@ -50,12 +112,16 @@ export default {
     };
   },
   methods: {
-    test($event) {
+    onItemClick($event) {
       console.log($event);
     },
-    test2($event) {
+    onAllResultsClick($event) {
       console.log($event);
-      this.$router.push("/");
+    },
+    isLoadingChecked() {
+      if (this.isLoading) {
+        return ":loading='true'";
+      }
     },
   },
 };
