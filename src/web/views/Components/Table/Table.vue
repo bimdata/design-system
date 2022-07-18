@@ -16,9 +16,7 @@
             @selection-changed="simpleExample.selection = $event"
           />
           <div class="selection-box">
-            <div class="selection-box__label">
-              Selection :
-            </div>
+            <div class="selection-box__label">Selection :</div>
             <div
               class="selection-box__item"
               v-for="(s, i) of simpleExample.selection"
@@ -26,9 +24,7 @@
             >
               {{ `[${i}] - ${s.join(", ")}` }}
             </div>
-            <div v-show="simpleExample.selection.length === 0">
-              ( None )
-            </div>
+            <div v-show="simpleExample.selection.length === 0">( None )</div>
           </div>
         </template>
 
@@ -165,7 +161,7 @@
           <pre>
             let columns = [
               { id: "fullName", label: "Name" },
-              { id: "age", label: "Age", width: "40px" },
+              { id: "age", label: "Age", width: "64px" },
               { id: "country", label: "Country", width: "200px", align: "center" }
             ];
           </pre>
@@ -305,7 +301,7 @@ export default {
       advancedExample: {
         columns: [
           { id: "fullName", label: "Name" },
-          { id: "age", label: "Age", width: "40px" },
+          { id: "age", label: "Age", width: "64px" },
           { id: "country", label: "Country", width: "200px", align: "center" },
         ],
         rows: [

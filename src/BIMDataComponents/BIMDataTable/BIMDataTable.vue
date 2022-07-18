@@ -6,7 +6,7 @@
         height: paginated ? `${(perPage + 1) * rowHeight}px` : undefined,
       }"
     >
-      <table :style="{ width: tableWidth }">
+      <table :style="{ width: tableWidth, tableLayout }">
         <thead>
           <tr key="head-row-0" :style="{ height: `${rowHeight}px` }">
             <th class="cell-checkbox" v-if="selectable">
@@ -137,8 +137,12 @@ export default {
       default: "",
     },
     tableWidth: {
-      type: [Number, String],
+      type: String,
       default: "100%",
+    },
+    tableLayout: {
+      type: String,
+      default: "auto",
     },
   },
   emits: [
