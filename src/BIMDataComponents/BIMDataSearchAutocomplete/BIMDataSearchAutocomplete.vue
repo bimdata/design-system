@@ -34,15 +34,18 @@
           class="p-y-6 p-x-12 flex items-center"
           @click="onElementClick(result)"
         >
-          <div
-            class="bimdata-search-autocomplete__dropdown__left m-r-12"
-            v-if="(result && result.logo) || $slots.left"
-          >
-            <img class="logo" v-if="result && result.logo" :src="result.logo" />
-            <div class="content-left" v-else>
-              <slot name="left"></slot>
+          <slot name="left" :result="result">
+            <div class="bimdata-search-autocomplete__dropdown__left m-r-12">
+              <template v-if="result && result.logo">
+                <img class="logo" :src="result.logo" />
+              </template>
+              <template v-else>
+                <slot name="logoPlaceholder">
+                  <BIMDataIcon name="default" fill color="default" />
+                </slot>
+              </template>
             </div>
-          </div>
+          </slot>
           <div
             class="bimdata-search-autocomplete__dropdown__right flex flex-col"
           >
@@ -54,8 +57,6 @@
                 :text="result.text"
                 width="260px"
                 cutPosition="end"
-                tooltipPosition="bottom"
-                tooltipColor="primary"
                 :tooltip="false"
               />
             </span>
@@ -120,7 +121,7 @@ export default {
   },
   computed: {
     results() {
-      const columnToFilter = ["title", "text", "logo"];
+      const fieldToFilter = ["title", "text", "logo"];
       let agnosticFilter;
       if (typeof this.search === "object") {
         agnosticFilter =
@@ -130,17 +131,17 @@ export default {
       }
       return this.items
         .filter(str => {
-          return columnToFilter.some(column =>
-            typeof str[column] === "string"
-              ? str[column].toLowerCase().includes(agnosticFilter)
-              : ""
+          return fieldToFilter.some(field =>
+            typeof str[field] === "string"
+              ? str[field].toLowerCase().includes(agnosticFilter)
+              : false
           );
         })
         .slice(0, this.perPage);
     },
     openResults() {
       return (
-        this.search !== "" && this.results.length != 0 && this.isOpen === true
+        this.search !== "" && this.results.length !== 0 && this.isOpen === true
       );
     },
   },

@@ -15,8 +15,8 @@
             :loading="isLoading"
             class="m-t-24"
           >
-            <template #left>
-              <BIMDataIcon name="default" fill color="default" />
+            <template #logoPlaceholder>
+              <span>I lost my LOGO :'(</span>
             </template>
           </BIMDataSearchAutocomplete>
         </template>
@@ -69,7 +69,6 @@ import slotsData from "./slots-data.js";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataSearchAutocomplete from "../../../../BIMDataComponents/BIMDataSearchAutocomplete/BIMDataSearchAutocomplete.vue";
 import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
@@ -79,7 +78,6 @@ export default {
     ComponentCode,
     BIMDataCheckbox,
     BIMDataText,
-    BIMDataIcon,
     BIMDataSearchAutocomplete,
     BIMDataTable,
   },
