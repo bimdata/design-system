@@ -38,6 +38,7 @@ import Radio from "../views/Components/Radio/Radio.vue";
 import ResponsiveGrid from "../views/Components/ResponsiveGrid/ResponsiveGrid.vue";
 import SafeZoneModal from "../views/Components/SafeZoneModal/SafeZoneModal.vue";
 import Search from "../views/Components/Search/Search.vue";
+import SearchAutocomplete from "../views/Components/SearchAutocomplete/SearchAutocomplete.vue";
 import Select from "../views/Components/Select/Select.vue";
 import Table from "../views/Components/Table/Table.vue";
 import Tabs from "../views/Components/Tabs/Tabs.vue";
@@ -138,6 +139,11 @@ const routes = [
         path: "",
         name: "Components",
         component: Content,
+      },
+      {
+        path: "searchautocomplete",
+        name: "searchautocomplete",
+        component: SearchAutocomplete,
       },
       {
         path: "buttons",

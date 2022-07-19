@@ -185,6 +185,7 @@ function getSingleComponentConfigurations() {
     "BIMDataResponsiveGrid",
     "BIMDataSafeZoneModal",
     "BIMDataSearch",
+    "BIMDataSearchAutocomplete",
     "BIMDataSelect",
     "BIMDataSimplePieChart",
     "BIMDataSpinner",
