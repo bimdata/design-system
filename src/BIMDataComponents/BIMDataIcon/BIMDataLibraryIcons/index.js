@@ -132,16 +132,16 @@ import zone from "./Zone.vue";
 
 // Polychrome icons
 import bcfPolychrome from "./polychrome/BcfPolychrome.vue";
-import createWindow from "./polychrome/CreateWindow.vue";
-import docInfo from "./polychrome/DocInfo.vue";
-import fileDwg from "./polychrome/FileDwg.vue";
-import fileIfc from "./polychrome/FileIfc.vue";
-import filePdf from "./polychrome/FilePdf.vue";
-import filePlan from "./polychrome/FilePlan.vue";
+import createWindowPolychrome from "./polychrome/CreateWindowPolychrome.vue";
+import docInfoPolychrome from "./polychrome/DocInfoPolychrome.vue";
+import fileDwgPolychrome from "./polychrome/FileDwgPolychrome.vue";
+import fileIfcPolychrome from "./polychrome/FileIfcPolychrome.vue";
+import filePdfPolychrome from "./polychrome/FilePdfPolychrome.vue";
+import filePlanPolychrome from "./polychrome/FilePlanPolychrome.vue";
 import folderPolychrome from "./polychrome/FolderPolychrome.vue";
-import structure from "./polychrome/Structure.vue";
-import viewer2d from "./polychrome/Viewer2D.vue";
-import viewer3d from "./polychrome/Viewer3D.vue";
+import structurePolychrome from "./polychrome/StructurePolychrome.vue";
+import viewer2dPolychrome from "./polychrome/Viewer2DPolychrome.vue";
+import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 
 export default {
   addFile,
@@ -277,14 +277,14 @@ export default {
   zone,
   // Polychrome icons
   bcfPolychrome,
-  createWindow,
-  docInfo,
-  fileDwg,
-  fileIfc,
-  filePdf,
-  filePlan,
+  createWindowPolychrome,
+  docInfoPolychrome,
+  fileDwgPolychrome,
+  fileIfcPolychrome,
+  filePdfPolychrome,
+  filePlanPolychrome,
   folderPolychrome,
-  structure,
-  viewer2d,
-  viewer3d,
+  structurePolychrome,
+  viewer2dPolychrome,
+  viewer3dPolychrome,
 };
