@@ -130,6 +130,19 @@ import windowRight from "./WindowRight.vue";
 import windowTop from "./WindowTop.vue";
 import zone from "./Zone.vue";
 
+// Polychrome icons
+import bcf2 from "./polychorme/Bcf2.vue";
+import createWindow from "./polychorme/CreateWindow.vue";
+import docInfo from "./polychorme/DocInfo.vue";
+import fileDwg from "./polychorme/FileDwg.vue";
+import fileIfc from "./polychorme/FileIfc.vue";
+import filePdf from "./polychorme/FilePdf.vue";
+import filePlan from "./polychorme/FilePlan.vue";
+import folder2 from "./polychorme/Folder2.vue";
+import structure from "./polychorme/Structure.vue";
+import viewer2d from "./polychorme/Viewer2D.vue";
+import viewer3d from "./polychorme/Viewer3D.vue";
+
 export default {
   addFile,
   addFolder,
@@ -262,4 +275,16 @@ export default {
   windowRight,
   windowTop,
   zone,
+  // Polychrome icons
+  bcf2,
+  createWindow,
+  docInfo,
+  fileDwg,
+  fileIfc,
+  filePdf,
+  filePlan,
+  folder2,
+  structure,
+  viewer2d,
+  viewer3d,
 };
