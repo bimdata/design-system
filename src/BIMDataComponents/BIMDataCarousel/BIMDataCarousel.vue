@@ -70,8 +70,10 @@ export default {
   },
   mounted() {
     this.distributeItems();
+    // Redistribute items on slider resize
     this.resizeObserver = new ResizeObserver(() => this.distributeItems());
     this.resizeObserver.observe(this.$refs.slider);
+    // Redistribute items when items are added/removed
     this.mutationObserver = new MutationObserver(() => this.distributeItems());
     this.mutationObserver.observe(this.$refs.slider, { childList: true });
   },
@@ -129,7 +131,8 @@ export default {
           });
         }
 
-        this.maxIndex = children.length - nbDisplayed;
+        this.maxIndex = Math.max(children.length - nbDisplayed, 0);
+        this.index = Math.min(this.index, this.maxIndex);
         this.translations = offsets;
       }
     },

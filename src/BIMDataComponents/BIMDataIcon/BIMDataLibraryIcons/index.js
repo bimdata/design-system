@@ -130,6 +130,19 @@ import windowRight from "./WindowRight.vue";
 import windowTop from "./WindowTop.vue";
 import zone from "./Zone.vue";
 
+// Polychrome icons
+import bcfPolychrome from "./polychrome/BcfPolychrome.vue";
+import createWindowPolychrome from "./polychrome/CreateWindowPolychrome.vue";
+import docInfoPolychrome from "./polychrome/DocInfoPolychrome.vue";
+import fileDwgPolychrome from "./polychrome/FileDwgPolychrome.vue";
+import fileIfcPolychrome from "./polychrome/FileIfcPolychrome.vue";
+import filePdfPolychrome from "./polychrome/FilePdfPolychrome.vue";
+import filePlanPolychrome from "./polychrome/FilePlanPolychrome.vue";
+import folderPolychrome from "./polychrome/FolderPolychrome.vue";
+import structurePolychrome from "./polychrome/StructurePolychrome.vue";
+import viewer2dPolychrome from "./polychrome/Viewer2DPolychrome.vue";
+import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
+
 export default {
   addFile,
   addFolder,
@@ -262,4 +275,16 @@ export default {
   windowRight,
   windowTop,
   zone,
+  // Polychrome icons
+  bcfPolychrome,
+  createWindowPolychrome,
+  docInfoPolychrome,
+  fileDwgPolychrome,
+  fileIfcPolychrome,
+  filePdfPolychrome,
+  filePlanPolychrome,
+  folderPolychrome,
+  structurePolychrome,
+  viewer2dPolychrome,
+  viewer3dPolychrome,
 };

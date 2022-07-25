@@ -114,15 +114,11 @@ export default {
       }
     },
     deleteEntity() {
-      const payload = {
-        cloudPk: this.spaceId,
-        projectPk: this.projectId,
-        id: this.entity.id,
-      };
-      if (this.entity.type === "Folder") {
-        return this.apiClient.collaborationApi.deleteFolder(payload);
+      const params = [this.spaceId, this.entity.id, this.projectId];
+      if (this.entity.nature === "Folder") {
+        return this.apiClient.collaborationApi.deleteFolder(...params);
       } else {
-        return this.apiClient.collaborationApi.deleteDocument(payload);
+        return this.apiClient.collaborationApi.deleteDocument(...params);
       }
     },
   },

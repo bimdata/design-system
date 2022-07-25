@@ -29,15 +29,7 @@ export default [
     "Number",
     "",
     "50",
-    "Use this prop to set rows height (in px)",
-    "",
-  ],
-  [
-    "tableWidth",
-    "[Number, String]",
-    "",
-    "100%",
-    "Use this prop to set table widt (in px)",
+    "Use this prop to set rows height (in px).",
     "",
   ],
   [
@@ -71,5 +63,21 @@ export default [
     "",
     "A text to display when the table is empty",
     "'Empty Table'",
+  ],
+  [
+    "tableWidth",
+    "String",
+    "",
+    "100%",
+    "Use this prop to set table width.",
+    "",
+  ],
+  [
+    "tableLayout",
+    "String",
+    "",
+    "auto",
+    "Use this prop to set table-layout css property (e.g. 'auto' or 'fixed').",
+    "",
   ],
 ];
