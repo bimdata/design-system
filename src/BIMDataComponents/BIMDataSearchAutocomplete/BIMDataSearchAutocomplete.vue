@@ -155,7 +155,6 @@ export default {
     },
     onElementClick(result) {
       this.$emit("item-click", result);
-      this.search = "";
       this.isOpen = false;
     },
     onAllResultatsBtnClick() {
@@ -163,12 +162,10 @@ export default {
         results: this.results,
         search: this.search,
       });
-      this.search = "";
       this.isOpen = false;
     },
     onEnter() {
       this.$emit("enter", this.results[this.current].id);
-      this.search = "";
       this.isOpen = false;
       this.current = -1;
     },
