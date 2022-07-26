@@ -7,23 +7,40 @@
 
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataSearchAutocomplete
-            placeholder="Search"
-            :items="apps"
-            @item-click="onItemClick"
-            @all-results-click="onAllResultsClick"
-            :loading="isLoading"
-            class="m-t-24"
-          >
-            <template #logoPlaceholder>
-              <span>I lost my LOGO :'(</span>
-            </template>
-          </BIMDataSearchAutocomplete>
+          <div>
+            <BIMDataSearchAutocomplete
+              class="m-t-24"
+              placeholder="Search"
+              :items="apps"
+              :loading="isLoading"
+              :autoclear="isAutoclear"
+              @item-click="selectedApp = $event"
+              @all-results-click="onAllResultsClick"
+            >
+              <template #logoPlaceholder>
+                <span>I lost my LOGO :'(</span>
+              </template>
+            </BIMDataSearchAutocomplete>
+            <BIMDataButton
+              style="display: inline-flex; margin-left: 12px"
+              fill
+              radius
+              @click="selectedApp = null"
+            >
+              Reset
+            </BIMDataButton>
+          </div>
+          <div class="m-t-24">
+            {{ selectedApp ? JSON.stringify(selectedApp) : "" }}
+          </div>
         </template>
 
         <template #parameters>
           <div class="m-t-12">
             <BIMDataCheckbox text="Loading" v-model="isLoading" />
+          </div>
+          <div class="m-t-12">
+            <BIMDataCheckbox text="Autoclear" v-model="isAutoclear" />
           </div>
         </template>
 
@@ -36,8 +53,9 @@
           <pre>
             &lt;BIMDataSearchAutocomplete
               placeholder="Search"
-              {{ isLoadingChecked() }}
               :items="apps"
+              {{ isLoading ? ':loading="true"' : "" }}
+              {{ isAutoclear ? ':autoclear="true"' : "" }}
               @item-click="onItemClick"
               @all-results-click="onAllResultsClick"
             /&gt;
@@ -68,6 +86,7 @@ import slotsData from "./slots-data.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
+import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataSearchAutocomplete from "../../../../BIMDataComponents/BIMDataSearchAutocomplete/BIMDataSearchAutocomplete.vue";
 import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
@@ -76,9 +95,10 @@ import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTabl
 export default {
   components: {
     ComponentCode,
+    BIMDataButton,
     BIMDataCheckbox,
-    BIMDataText,
     BIMDataSearchAutocomplete,
+    BIMDataText,
     BIMDataTable,
   },
   data: function () {
@@ -86,6 +106,8 @@ export default {
       propsData,
       slotsData,
       isLoading: false,
+      isAutoclear: false,
+      selectedApp: null,
       apps: [
         {
           title: "App 01",
@@ -110,21 +132,9 @@ export default {
     };
   },
   methods: {
-    onItemClick($event) {
-      console.log($event);
-    },
     onAllResultsClick($event) {
       console.log($event);
-    },
-    isLoadingChecked() {
-      if (this.isLoading) {
-        return ":loading='true'";
-      }
     },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// @import "./_YourFileStyle.scss";
-</style>
