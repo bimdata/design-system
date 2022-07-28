@@ -1,6 +1,8 @@
 .bimdata-search-autocomplete {
-  width: 350px;
   position: relative;
+  display: inline-block;
+  width: 350px;
+
   &__input {
     position: relative;
     .bimdata-search-icon {
