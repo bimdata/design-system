@@ -34,7 +34,7 @@ export default [
   [
     "autoclear",
     "Boolean",
-    "false",
-    "If true, automatically clear search text when an item is selected",
+    "true",
+    "If true (default), automatically clear search text when an item is selected",
   ],
 ];

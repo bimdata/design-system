@@ -106,7 +106,7 @@ export default {
       propsData,
       slotsData,
       isLoading: false,
-      isAutoclear: false,
+      isAutoclear: true,
       selectedApp: null,
       apps: [
         {

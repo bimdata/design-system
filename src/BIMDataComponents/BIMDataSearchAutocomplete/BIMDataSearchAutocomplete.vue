@@ -113,7 +113,7 @@ export default {
     },
     autoclear: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data() {
