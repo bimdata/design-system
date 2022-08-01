@@ -11,6 +11,7 @@
             :disabled="checkboxDisabledChecked"
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
+            :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
@@ -37,6 +38,16 @@
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >two level list</BIMDataText
+          >
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="content"
+            v-model="checkboxTwoLevelChecked"
+          >
+          </BIMDataCheckbox>
+
           <div
             v-for="[key, values] in Object.entries(dropdownOptions)"
             :key="key"
@@ -126,6 +137,7 @@ export default {
   data() {
     return {
       checkboxDisabledChecked: false,
+      checkboxTwoLevelChecked: false,
       checkboxHeaderChecked: true,
       checkboxAfterHeaderChecked: false,
       checkboxElementSlotChecked: false,
@@ -137,6 +149,27 @@ export default {
       selectedDropdownOptionstransition: "up",
       selectedDropdownOptionsdirection: "down",
       list: ["item 01", "item 02", "item 03", "item 04", "item 05", "item 06"],
+      multiLevelList: [
+        {
+          name: "project1",
+          children: [
+            { name: "project1.1" },
+            { name: "project1.2" },
+            { name: "project1.3" },
+          ],
+        },
+        { name: "project2" },
+        {
+          name: "project3",
+          children: [
+            {
+              name: "project3.1",
+              action: () => console.log("im clicked"),
+            },
+            { name: "project3.2" },
+          ],
+        },
+      ],
       propsData: [
         ["Props", "Type", "Default value", "Validator", "Description"],
         ["disabled", "Boolean", "false", "", ""],
@@ -167,6 +200,13 @@ export default {
           "36px",
           "",
           "Use this props to custom height of BIMDataDropdownList component.",
+        ],
+        [
+          "menuItems",
+          "Array",
+          "[]",
+          "",
+          "Use this props to add content with two level of nesting",
         ],
       ],
       slotData: [

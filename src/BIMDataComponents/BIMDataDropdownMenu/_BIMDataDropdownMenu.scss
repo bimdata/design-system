@@ -36,6 +36,26 @@
   }
   &__elements {
     font-size: 11px;
+
+    &__menu-items {
+      padding: unset;
+      
+      &__item {
+        position: relative;
+
+        &__children {
+          background-color: var(--color-white);
+          border: 1px solid transparent;
+          box-shadow: var(--box-shadow);
+          position: absolute;
+          padding: unset;
+          width: 100%;
+          left: 100%;
+          top: -6%;
+        }
+      }
+    }
+
     &:first-child {
       padding: calc(#{var(--spacing-unit)} / 2) 0;
       overflow: auto;
