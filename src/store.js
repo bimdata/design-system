@@ -186,6 +186,13 @@ export default new Vuex.Store({
           btn: "View loaders",
         },
         {
+          title: "ModelPreview",
+          img: require("./web/assets/img/icon-doc.svg"),
+          path: "model-preview",
+          text: "Model preview component",
+          btn: "View model preview",
+        },
+        {
           title: "Pagination",
           img: require("./web/assets/img/icon-pagination.svg"),
           path: "pagination",

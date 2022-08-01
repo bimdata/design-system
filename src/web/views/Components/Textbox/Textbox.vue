@@ -6,9 +6,7 @@
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <div>
-            Hover over the text box to show full text.
-          </div>
+          <div>Hover over the text box to show full text.</div>
           <div class="m-24" :style="{ width: `${boxWidth}px` }">
             <BIMDataTextbox
               :text="text"
@@ -22,7 +20,7 @@
         <template #parameters>
           <div class="m-t-24">
             <BIMDataTextarea
-              style="width: 100%; resize: vertical;"
+              style="width: 100%; resize: vertical"
               label="Text"
               placeholder="Text"
               v-model="text"
@@ -92,7 +90,7 @@
 </template>
 
 <script>
-import propsData from "./props-data";
+import propsData from "./props-data.js";
 // Components
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
@@ -104,13 +102,13 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    ComponentCode,
     BIMDataInput,
     BIMDataSelect,
     BIMDataTable,
     BIMDataText,
     BIMDataTextarea,
     BIMDataTextbox,
+    ComponentCode,
   },
   data() {
     return {

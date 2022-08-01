@@ -177,6 +177,7 @@ function getSingleComponentConfigurations() {
     "BIMDataIllustration",
     "BIMDataInput",
     "BIMDataLoading",
+    "BIMDataModelPreview",
     "BIMDataMultiplePieChart",
     "BIMDataNavigation",
     "BIMDataPaginatedList",
