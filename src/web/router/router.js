@@ -33,6 +33,7 @@ import Icons from "../views/Components/Icons/Icons.vue";
 import Illustrations from "../views/Components/Illustrations/Illustrations.vue";
 import Input from "../views/Components/Input/Input.vue";
 import Loaders from "../views/Components/Loaders/Loaders.vue";
+import ModelPreview from "../views/Components/ModelPreview/ModelPreview.vue";
 import Pagination from "../views/Components/Pagination/Pagination.vue";
 import Radio from "../views/Components/Radio/Radio.vue";
 import ResponsiveGrid from "../views/Components/ResponsiveGrid/ResponsiveGrid.vue";
@@ -209,6 +210,11 @@ const routes = [
         path: "loaders",
         name: "loaders",
         component: Loaders,
+      },
+      {
+        path: "model-preview",
+        name: "model-preview",
+        component: ModelPreview,
       },
       {
         path: "pagination",
