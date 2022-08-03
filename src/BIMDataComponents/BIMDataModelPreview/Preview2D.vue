@@ -82,7 +82,6 @@ export default {
 .preview-2d {
   position: relative;
   height: 100%;
-  background-color: var(--color-silver-light);
   user-select: none;
   overflow: hidden;
 

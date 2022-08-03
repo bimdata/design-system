@@ -30,5 +30,11 @@ export default [
     "String",
     "",
     "Image that will be displayed if no preview url is provided"
+  ],
+  [
+    "backgroundColor",
+    "String",
+    "",
+    "Preview 'background-color' CSS property"
   ]
 ];

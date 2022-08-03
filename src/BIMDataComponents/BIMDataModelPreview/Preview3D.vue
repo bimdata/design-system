@@ -55,7 +55,6 @@ export default {
 
 <style scoped lang="scss">
 .preview-3d {
-  background-color: var(--color-silver-light);
   user-select: none;
 
   .viewport {

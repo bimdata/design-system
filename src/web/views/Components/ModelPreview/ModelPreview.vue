@@ -7,9 +7,10 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataModelPreview
+            :type="type"
             :width="width"
             :height="height"
-            :type="type"
+            :backgroundColor="bgColor"
             :previewUrl="imgUrl"
           />
         </template>
@@ -34,6 +35,12 @@
             placeholder="Preview height (in px)"
             v-model="height"
           />
+          <BIMDataInput
+            margin="24px 0"
+            type="text"
+            placeholder="Background color"
+            v-model="bgColor"
+          />
         </template>
 
         <template #import>
@@ -47,6 +54,7 @@
               :type="{{ type }}"
               :width="{{ width }}"
               :height="{{ height }}"
+              :backgroundColor="{{ bgColor }}"
               :previewUrl="{{ imgUrl }}"
             /&gt;
           </pre>
@@ -90,9 +98,10 @@ export default {
   data() {
     return {
       // Parameters
+      type: "3d",
       width: 300,
       height: 300,
-      type: "3d",
+      bgColor: "var(--color-silver-light)",
       // Data
       propsData,
     };

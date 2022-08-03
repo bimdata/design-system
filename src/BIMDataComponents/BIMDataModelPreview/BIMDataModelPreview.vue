@@ -2,7 +2,11 @@
   <component
     :is="previewComponent"
     class="bimdata-model-preview"
-    :style="{ width: `${width}px`, height: `${height}px` }"
+    :style="{
+      width: `${width}px`,
+      height: `${height}px`,
+      backgroundColor,
+    }"
     v-bind="$props"
   />
 </template>
@@ -35,6 +39,10 @@ export default {
     },
     defaultUrl: {
       type: String,
+    },
+    backgroundColor: {
+      type: String,
+      default: "var(--color-silver-light)",
     },
   },
   computed: {
