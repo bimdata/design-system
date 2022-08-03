@@ -1,7 +1,6 @@
 <template>
   <div
     class="preview-2d"
-    :style="{ width: size, height: size }"
     @mouseenter="hover = true"
     @mouseleave="hover = false"
     @mousemove="onMouseMove"
@@ -18,8 +17,8 @@
       <div
         class="zoomImage"
         :style="{
-          width: size,
-          height: size,
+          width: `${width}px`,
+          height: `${height}px`,
           transform: zoomImageTransform,
         }"
       >
@@ -34,8 +33,11 @@ const ZOOM_FACTOR = 3;
 
 export default {
   props: {
-    size: {
-      type: String,
+    width: {
+      type: Number,
+    },
+    height: {
+      type: Number,
     },
     previewUrl: {
       type: String,
@@ -76,4 +78,39 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./Preview2D.scss"></style>
+<style scoped lang="scss">
+.preview-2d {
+  position: relative;
+  height: 100%;
+  background-color: var(--color-silver-light);
+  user-select: none;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .zoom {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
+    overflow: hidden;
+
+    pointer-events: none;
+  }
+
+  .zoomImage {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transform-origin: top left;
+  }
+}
+</style>

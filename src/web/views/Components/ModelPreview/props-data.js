@@ -8,10 +8,16 @@ export default [
     "The type of preview: '2d' or '3d'"
   ],
   [
-    "size",
-    "String",
-    "205px",
-    "The size (width, height) of the preview"
+    "width",
+    "Number",
+    "240",
+    "Width of the preview in pixels"
+  ],
+  [
+    "height",
+    "Number",
+    "240",
+    "Height of the preview in pixels"
   ],
   [
     "previewUrl",

@@ -6,7 +6,12 @@
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <BIMDataModelPreview :size="size" :type="type" :previewUrl="imgUrl" />
+          <BIMDataModelPreview
+            :width="width"
+            :height="height"
+            :type="type"
+            :previewUrl="imgUrl"
+          />
         </template>
 
         <template #parameters>
@@ -19,9 +24,15 @@
           </div>
           <BIMDataInput
             margin="24px 0"
-            type="text"
-            placeholder="Preview Size"
-            v-model="size"
+            type="number"
+            placeholder="Preview width (in px)"
+            v-model="width"
+          />
+          <BIMDataInput
+            margin="24px 0"
+            type="number"
+            placeholder="Preview height (in px)"
+            v-model="height"
           />
         </template>
 
@@ -34,6 +45,8 @@
           <pre>
             &lt;BIMDataModelPreview
               :type="{{ type }}"
+              :width="{{ width }}"
+              :height="{{ height }}"
               :previewUrl="{{ imgUrl }}"
             /&gt;
           </pre>
@@ -77,7 +90,8 @@ export default {
   data() {
     return {
       // Parameters
-      size: "300px",
+      width: 300,
+      height: 300,
       type: "3d",
       // Data
       propsData,

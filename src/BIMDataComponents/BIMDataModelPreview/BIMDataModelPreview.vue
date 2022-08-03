@@ -1,7 +1,8 @@
 <template>
   <component
-    class="bimdata-model-preview"
     :is="previewComponent"
+    class="bimdata-model-preview"
+    :style="{ width: `${width}px`, height: `${height}px` }"
     v-bind="$props"
   />
 </template>
@@ -21,9 +22,13 @@ export default {
       default: "3d",
       validator: v => ["2d", "3d"].includes(v),
     },
-    size: {
-      type: String,
-      default: "205px",
+    width: {
+      type: Number,
+      default: 240,
+    },
+    height: {
+      type: Number,
+      default: 240,
     },
     previewUrl: {
       type: String,

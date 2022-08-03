@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="preview-3d"
-    ref="container"
-    :style="{ width: size, height: size }"
-    @mousemove="onMouseMove"
-  >
-    <div class="viewport" ref="viewport">
+  <div class="preview-3d" @mousemove="onMouseMove">
+    <div
+      class="viewport"
+      :style="{ width: `${viewportWidth}px`, height: `${height}px` }"
+    >
       <img
         loading="lazy"
         :src="previewUrl || defaultUrl"
@@ -20,8 +18,11 @@ const NB_SLICES = 15;
 
 export default {
   props: {
-    size: {
-      type: String,
+    width: {
+      type: Number,
+    },
+    height: {
+      type: Number,
     },
     previewUrl: {
       type: String,
@@ -35,24 +36,37 @@ export default {
       translation: 0,
     };
   },
+  computed: {
+    viewportWidth() {
+      return Math.min(this.width, this.height);
+    },
+  },
   methods: {
     onMouseMove({ offsetX }) {
-      const container = this.$refs.container;
-      const viewport = this.$refs.viewport;
+      let offset = Math.ceil(NB_SLICES * (1 - offsetX / this.width));
+      offset = Math.abs(offset);
+      offset = Math.min(offset, NB_SLICES);
 
-      if (container && viewport) {
-        const { width: containerWidth } = container.getBoundingClientRect();
-        const { width: viewportWidth } = viewport.getBoundingClientRect();
-
-        let offset = Math.ceil(NB_SLICES * (1 - offsetX / containerWidth));
-        offset = Math.abs(offset);
-        offset = Math.min(offset, NB_SLICES);
-
-        this.translation = (offset - 1) * viewportWidth;
-      }
+      this.translation = (offset - 1) * this.viewportWidth;
     },
   },
 };
 </script>
 
-<style scoped lang="scss" src="./Preview3D.scss"></style>
+<style scoped lang="scss">
+.preview-3d {
+  background-color: var(--color-silver-light);
+  user-select: none;
+
+  .viewport {
+    margin: auto;
+    overflow: hidden;
+    pointer-events: none;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+</style>
