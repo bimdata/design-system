@@ -4,6 +4,7 @@ export { default as BIMDataCard } from "./dist/js/BIMDataComponents/BIMDataCard.
 export { default as BIMDataCarousel } from "./dist/js/BIMDataComponents/BIMDataCarousel.js";
 export { default as BIMDataCheckbox } from "./dist/js/BIMDataComponents/BIMDataCheckbox.js";
 export { default as BIMDataColorSelector } from "./dist/js/BIMDataComponents/BIMDataColorSelector.js";
+export { default as BIMDataDatePicker } from "./dist/js/BIMDataComponents/BIMDataDatePicker.js";
 export { default as BIMDataDropdownList } from "./dist/js/BIMDataComponents/BIMDataDropdownList.js";
 export { default as BIMDataDropdownMenu } from "./dist/js/BIMDataComponents/BIMDataDropdownMenu.js";
 export { default as BIMDataFileIcon } from "./dist/js/BIMDataComponents/BIMDataFileIcon.js";

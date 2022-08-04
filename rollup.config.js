@@ -40,6 +40,7 @@ function getDirectivesConfiguration() {
   ];
 }
 
+// build ALL COMPONENTS
 function getAllComponentsBundleConfiguration() {
   return [
     {
@@ -94,6 +95,11 @@ function getAllComponentsBundleConfiguration() {
           template: { isProduction: true },
           css: false,
         }),
+        resolve({
+          browser: true,
+          preferBuiltins: false,
+          resolveOnly: ["@sum.cumo/vue-datepicker"],
+        }),
         image(),
         terser(),
       ],
@@ -123,6 +129,11 @@ function getAllComponentsBundleConfiguration() {
           template: { isProduction: true },
           preprocessStyles: true,
         }),
+        resolve({
+          browser: true,
+          preferBuiltins: false,
+          resolveOnly: ["@sum.cumo/vue-datepicker"],
+        }),
         postcss(),
         image(),
         terser(),
@@ -131,6 +142,7 @@ function getAllComponentsBundleConfiguration() {
   ];
 }
 
+// build SMART COMPONENTS
 function getSingleSmartComponentConfigurations() {
   const componentNames = ["BIMDataFileManager"];
 
@@ -170,6 +182,7 @@ function getSingleComponentConfigurations() {
     "BIMDataCarousel",
     "BIMDataCheckbox",
     "BIMDataColorSelector",
+    "BIMDataDatePicker",
     "BIMDataDropdownList",
     "BIMDataDropdownMenu",
     "BIMDataFileIcon",
@@ -216,6 +229,11 @@ function getSingleComponentConfigurations() {
         vue2({
           template: { isProduction: true },
         }),
+        resolve({
+          browser: true,
+          preferBuiltins: false,
+          resolveOnly: ["@sum.cumo/vue-datepicker"],
+        }),
         image(),
         terser(),
       ],
@@ -244,6 +262,11 @@ function getSingleComponentConfigurations() {
         vue3({
           template: { isProduction: true },
           preprocessStyles: true,
+        }),
+        resolve({
+          browser: true,
+          preferBuiltins: false,
+          resolveOnly: ["@sum.cumo/vue-datepicker"],
         }),
         postcss(),
         image(),
