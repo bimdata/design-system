@@ -1,0 +1,148 @@
+@import "../../../node_modules/@sum.cumo/vue-datepicker/src/styles/style.scss";
+.bimdata-datepicker {
+  & > div {
+    display: flex;
+  }
+  input {
+    width: 100%;
+    height: 31.5px;
+    border: none;
+    border-bottom: 1px solid var(--color-silver);
+    color: var(--color-primary);
+    &:focus-visible {
+      outline: none;
+    }
+    :required {
+      border: 1px dashed red;
+    }
+  }
+  .vdp-datepicker__calendar {
+    width: 280px;
+    border: none;
+    box-shadow: var(--box-shadow);
+    & > div {
+      width: 100%;
+    }
+    button {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    header {
+      border-bottom: 1px solid var(--color-silver);
+      button {
+        color: var(--color-primary);
+        cursor: pointer;
+        &:hover {
+          background-color: var(--color-primary-lighter);
+        }
+      }
+      .prev,
+      .next {
+        padding: 0;
+        flex-grow: inherit;
+        .default {
+          box-sizing: border-box;
+          width: 40px;
+          height: 40px;
+          position: relative;
+          flex: none;
+          &::after {
+            display: block;
+            box-sizing: border-box;
+            width: 8px;
+            height: 8px;
+            border: none;
+            top: 15px;
+          }
+        }
+      }
+      .prev {
+        .default {
+          &::after {
+            border-bottom: 1px solid;
+            border-left: 1px solid;
+            transform: rotate(45deg);
+            left: 20px;
+          }
+        }
+      }
+      .next {
+        .default {
+          &::after {
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+            transform: rotate(-45deg);
+            right: 20px;
+            left: auto;
+          }
+        }
+      }
+    }
+    .day-header {
+      padding: 0 12px;
+      display: flex;
+      gap: 0 13px;
+      color: var(--color-primary);
+      span {
+        width: 25.4px;
+        padding: 0;
+      }
+    }
+    .today {
+      background-color: var(--color-primary-lighter);
+      color: var(--color-primary);
+    }
+    .cells-wrapper {
+      padding: 6px 12px 14px;
+      .picker-cells {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 13px;
+        .cell {
+          &.day {
+            padding: 0;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 24px;
+            color: var(--color-granite-light);
+            &.muted {
+              color: var(--color-silver);
+            }
+            &.today {
+              background-color: var(--color-primary-lighter);
+              color: var(--color-primary);
+            }
+          }
+          &.selected {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 2px;
+          }
+          &:not(.blank):not(.disabled).day,
+          &:not(.blank):not(.disabled).month,
+          &:not(.blank):not(.disabled).year {
+            &:hover {
+              border: 1px solid var(--color-primary);
+              border-radius: 2px;
+            }
+          }
+        }
+        button {
+          color: var(--color-primary);
+        }
+      }
+    }
+    .month,
+    .year {
+      width: 29.9%;
+    }
+  }
+  .vdp-datepicker__clear-button {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+  }
+}
