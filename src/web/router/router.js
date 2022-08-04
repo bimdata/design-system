@@ -26,6 +26,7 @@ import Carousel from "../views/Components/Carousel/Carousel.vue";
 import Charts from "../views/Components/Charts/Charts.vue";
 import Checkbox from "../views/Components/Checkbox/Checkbox.vue";
 import ColorSelector from "../views/Components/ColorSelector/ColorSelector.vue";
+import DatePicker from "../views/Components/DatePicker/DatePicker.vue";
 import DropdownMenu from "../views/Components/DropdownMenu/DropdownMenu.vue";
 import DropdownList from "../views/Components/DropdownList/DropdownList.vue";
 import FileIcon from "../views/Components/FileIcon/FileIcon.vue";
@@ -175,6 +176,11 @@ const routes = [
         path: "colorselector",
         name: "colorselector",
         component: ColorSelector,
+      },
+      {
+        path: "datepicker",
+        name: "datepicker",
+        component: DatePicker,
       },
       {
         path: "dropdownlist",
