@@ -25,7 +25,7 @@
               @mouseover="handleCurrentItem(item.name)"
               @mouseleave="handleCurrentItem()"
             >
-              {{ item.name }}
+              <BIMDataTextbox :text="item.name" />
               <template v-if="item.children">
                 <BIMDataIcon name="chevron" size="xxs" />
                 <ul
@@ -37,7 +37,7 @@
                     :key="child.name"
                     @click="child.action && child.action()"
                   >
-                    {{ child.name }}
+                    <BIMDataTextbox :text="child.name" />
                   </li>
                 </ul>
               </template>
@@ -55,10 +55,11 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   directives: { clickaway },
-  components: { BIMDataIcon },
+  components: { BIMDataIcon, BIMDataTextbox },
   props: {
     disabled: {
       type: Boolean,
