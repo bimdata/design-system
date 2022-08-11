@@ -31,6 +31,7 @@
                 <ul
                   v-show="isItemHover && currentItemName === item.name"
                   class="bimdata-dropdown__elements__menu-items__item__children"
+                  :style="{ maxHeight: subListMaxHeight }"
                 >
                   <li
                     v-for="child in item.children"
@@ -87,6 +88,10 @@ export default {
     menuItems: {
       type: Array,
       default: () => [],
+    },
+    subListMaxHeight: {
+      type: String,
+      default: "auto",
     },
   },
   data() {
