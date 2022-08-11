@@ -38,17 +38,22 @@
     font-size: 11px;
 
     &__menu-items {
-      padding: unset;
-      
+      padding-left: 0px;
+      margin: 0;
+
       &__item {
         position: relative;
+        div {
+          padding-left: var(--spacing-unit);
+        }
 
         &__children {
+          overflow: auto;
+          padding: calc(var(--spacing-unit) / 2) 0;
           background-color: var(--color-white);
           border: 1px solid transparent;
           box-shadow: var(--box-shadow);
           position: absolute;
-          padding: unset;
           width: 100%;
           left: 100%;
           top: -6%;

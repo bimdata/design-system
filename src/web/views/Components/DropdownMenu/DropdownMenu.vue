@@ -208,6 +208,13 @@ export default {
           "",
           "Use this props to add content with two level of nesting",
         ],
+        [
+          "subListMaxHeight",
+          "String",
+          "auto",
+          "",
+          "Use this props to define the sub-list maximum length",
+        ],
       ],
       slotData: [
         ["Slot name", "Description"],
