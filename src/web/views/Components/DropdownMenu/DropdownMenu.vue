@@ -213,7 +213,7 @@ export default {
           "String",
           "auto",
           "",
-          "Use this props to define the sub-list maximum length",
+          "Use this props to define the sub-list maximum height",
         ],
       ],
       slotData: [
