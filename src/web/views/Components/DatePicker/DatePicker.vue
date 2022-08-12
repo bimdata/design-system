@@ -19,7 +19,7 @@
               :format="formatSelection"
               :yearPickerRange="Number(yearPickerRange)"
               :fullMonthName="true"
-              placeholder="test"
+              placeholder="Label here"
             >
             </BIMDataDatePicker>
             <span class="m-t-18">{{ selectedDate }}</span>
