@@ -130,7 +130,7 @@ function getAllComponentsBundleConfiguration() {
         }),
         postcss(),
         image(),
-        // terser(),
+        terser(),
       ],
     },
   ];
