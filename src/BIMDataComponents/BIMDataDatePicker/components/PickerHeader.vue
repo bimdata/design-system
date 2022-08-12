@@ -1,6 +1,28 @@
 <template>
   <header>
     <button
+      v-if="$attrs.view === 'day'"
+      ref="doublePrev"
+      class="doublePrev"
+      :disabled="isPreviousDisabled"
+      type="button"
+      @click.stop="$emit('page-change', doublePreviousPage)"
+      @keydown.down.prevent="focusTabbableCell"
+      @keydown.up.prevent="$emit('focus-input')"
+      @keydown.left.prevent="arrowLeftPrev"
+      @keydown.right.prevent="arrowRightPrev"
+    >
+      <slot name="prevIntervalBtn">
+        <BIMDataIcon
+          name="doubleChevron"
+          size="xxxs"
+          fill
+          color="default"
+          :rotate="180"
+        />
+      </slot>
+    </button>
+    <button
       ref="prev"
       class="prev"
       :disabled="isPreviousDisabled"
@@ -37,6 +59,22 @@
         <BIMDataIcon name="chevron" size="xxxs" fill color="default" />
       </slot>
     </button>
+    <button
+      v-if="$attrs.view === 'day'"
+      ref="doubleNext"
+      class="doubleNext"
+      :disabled="isPreviousDisabled"
+      type="button"
+      @click.stop="$emit('page-change', doubleNextPage)"
+      @keydown.down.prevent="focusTabbableCell"
+      @keydown.up.prevent="$emit('focus-input')"
+      @keydown.left.prevent="arrowLeftPrev"
+      @keydown.right.prevent="arrowRightPrev"
+    >
+      <slot name="prevIntervalBtn">
+        <BIMDataIcon name="doubleChevron" size="xxxs" fill color="default" />
+      </slot>
+    </button>
   </header>
 </template>
 
@@ -59,6 +97,8 @@ export default {
     return {
       previousPage: { incrementBy: -1, focusRefs: ["prev"] },
       nextPage: { incrementBy: 1, focusRefs: ["next"] },
+      doublePreviousPage: { incrementBy: -12, focusRefs: ["doublePrev"] },
+      doubleNextPage: { incrementBy: 12, focusRefs: ["doubleNext"] },
     };
   },
   methods: {

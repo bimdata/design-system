@@ -9,6 +9,7 @@
       ref="pickerHeader"
       :isNextDisabled="isNextDisabled"
       :isPreviousDisabled="isPreviousDisabled"
+      view="day"
       @focus-input="focusInput"
       @page-change="changePage($event)"
       @set-focus="$emit('set-focus', $event)"
