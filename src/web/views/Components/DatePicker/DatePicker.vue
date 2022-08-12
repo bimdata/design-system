@@ -18,12 +18,9 @@
               :showEdgeDates="isShowEdgeDates"
               :format="formatSelection"
               :yearPickerRange="Number(yearPickerRange)"
-              :typeable="isTypeable"
               :fullMonthName="true"
+              placeholder="test"
             >
-              <template #beforeDateInput>
-                <BIMDataIcon name="close" fill color="default" />
-              </template>
             </BIMDataDatePicker>
             <span class="m-t-18">{{ selectedDate }}</span>
           </template>
@@ -68,7 +65,6 @@
             </div>
             <BIMDataCheckbox text="Clear button" v-model="isClearButton" />
             <BIMDataCheckbox text="Show Edge Dates" v-model="isShowEdgeDates" />
-            <BIMDataCheckbox text="Typeable" v-model="isTypeable" />
           </template>
           <template #code>
             <pre>
@@ -82,7 +78,6 @@
                 :showEdgeDates="{{ isShowEdgeDates }}"
                 :format="{{ formatSelection }}"
                 :yearPickerRange="{{ yearPickerRange }}"
-                :typeable="{{ isTypeable }}"
               &gt;
                 &lt;template #beforeDateInput&gt;
                   &lt;BIMDataIcon name="close" fill color="default" /&gt;
@@ -146,7 +141,6 @@ import BIMDataDatePicker from "../../../../../src/BIMDataComponents/BIMDataDateP
 import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
@@ -158,7 +152,6 @@ export default {
     BIMDataSelect,
     BIMDataCheckbox,
     BIMDataInput,
-    BIMDataIcon,
     BIMDataTable,
     ComponentCode,
   },
@@ -168,7 +161,6 @@ export default {
       selectedDate: new Date(),
       isClearButton: true,
       isShowEdgeDates: true,
-      isTypeable: false,
       languageOptions: languageOptions,
       languageSelection: "en",
       dayOptions: dayOptions,

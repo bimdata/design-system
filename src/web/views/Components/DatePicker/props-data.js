@@ -119,7 +119,7 @@ export default [
     "tabIndex",
     "String|Number",
     "",
-    "Tabindex for the input field"
+    "TabIndex for the input field"
   ],
   [
     "typeable",

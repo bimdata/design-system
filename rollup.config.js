@@ -27,6 +27,7 @@ function getDirectivesConfiguration() {
         dir: "dist/js/BIMDataDirectives",
         format: "es",
       },
+      external: ["vue"],
     },
     {
       // vue3
@@ -36,6 +37,7 @@ function getDirectivesConfiguration() {
         dir: "dist/js/BIMDataDirectives/vue3",
         format: "es",
       },
+      external: ["vue"],
     },
   ];
 }
@@ -50,6 +52,7 @@ function getAllComponentsBundleConfiguration() {
         dir: "dist/js/BIMDataComponents",
         format: "es",
       },
+      external: ["vue"],
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
@@ -95,11 +98,6 @@ function getAllComponentsBundleConfiguration() {
           template: { isProduction: true },
           css: false,
         }),
-        resolve({
-          browser: true,
-          preferBuiltins: false,
-          resolveOnly: ["@sum.cumo/vue-datepicker"],
-        }),
         image(),
         terser(),
       ],
@@ -111,11 +109,12 @@ function getAllComponentsBundleConfiguration() {
         dir: "dist/js/BIMDataComponents/vue3",
         format: "es",
       },
+      external: ["vue"],
       plugins: [
         alias({
           entries: [
             {
-              find: /BIMDataDirectives\//,
+              find: /BIMDataDirectives\/(?!vue3\/)/,
               replacement: "BIMDataDirectives/vue3/",
             },
           ],
@@ -129,14 +128,9 @@ function getAllComponentsBundleConfiguration() {
           template: { isProduction: true },
           preprocessStyles: true,
         }),
-        resolve({
-          browser: true,
-          preferBuiltins: false,
-          resolveOnly: ["@sum.cumo/vue-datepicker"],
-        }),
         postcss(),
         image(),
-        terser(),
+        // terser(),
       ],
     },
   ];
@@ -156,6 +150,7 @@ function getSingleSmartComponentConfigurations() {
         file: `dist/js/BIMDataSmartComponents/${componentName}.js`,
         format: "esm",
       },
+      external: ["vue"],
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
@@ -220,6 +215,7 @@ function getSingleComponentConfigurations() {
         file: `dist/js/BIMDataComponents/${componentName}.js`,
         format: "esm",
       },
+      external: ["vue"],
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
@@ -228,11 +224,6 @@ function getSingleComponentConfigurations() {
         }),
         vue2({
           template: { isProduction: true },
-        }),
-        resolve({
-          browser: true,
-          preferBuiltins: false,
-          resolveOnly: ["@sum.cumo/vue-datepicker"],
         }),
         image(),
         terser(),
@@ -245,11 +236,12 @@ function getSingleComponentConfigurations() {
         file: `dist/js/BIMDataComponents/vue3/${componentName}.js`,
         format: "esm",
       },
+      external: ["vue"],
       plugins: [
         alias({
           entries: [
             {
-              find: /BIMDataDirectives\//,
+              find: /BIMDataDirectives\/(?!vue3\/)/,
               replacement: "BIMDataDirectives/vue3/",
             },
           ],
@@ -262,11 +254,6 @@ function getSingleComponentConfigurations() {
         vue3({
           template: { isProduction: true },
           preprocessStyles: true,
-        }),
-        resolve({
-          browser: true,
-          preferBuiltins: false,
-          resolveOnly: ["@sum.cumo/vue-datepicker"],
         }),
         postcss(),
         image(),
