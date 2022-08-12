@@ -138,7 +138,7 @@ export default new Vuex.Store({
         },
         {
           title: "DatePicker",
-          img: require("./web/assets/img/icon-dropdown.svg"),
+          img: require("./web/assets/img/icon-datepicker.svg"),
           path: "datepicker",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           btn: "View DatePicker",
