@@ -22,6 +22,7 @@
               v-for="item in menuItems"
               :key="item.name"
               class="bimdata-dropdown__elements__menu-items__item"
+              @click="item.action && item.action()"
               @mouseover="handleCurrentItem(item.name)"
               @mouseleave="handleCurrentItem()"
             >

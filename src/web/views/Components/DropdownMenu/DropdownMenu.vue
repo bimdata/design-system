@@ -158,13 +158,13 @@ export default {
             { name: "project1.3" },
           ],
         },
-        { name: "project2" },
+        { name: "project2", action: () => console.log("I'm clicked") },
         {
           name: "project3",
           children: [
             {
               name: "project3.1",
-              action: () => console.log("im clicked"),
+              action: () => console.log("I'm clicked"),
             },
             { name: "project3.2" },
           ],
