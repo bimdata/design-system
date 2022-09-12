@@ -16,7 +16,39 @@
         :class="`submenu--${directionClass}`"
         @click="away()"
       >
-        <slot name="element"></slot>
+        <template v-if="menuItems && menuItems.length > 0">
+          <ul class="bimdata-dropdown__elements__menu-items">
+            <li
+              v-for="item in menuItems"
+              :key="item.name"
+              class="bimdata-dropdown__elements__menu-items__item"
+              @click="item.action && item.action()"
+              @mouseover="handleCurrentItem(item.name)"
+              @mouseleave="handleCurrentItem()"
+            >
+              <BIMDataTextbox :text="item.name" />
+              <template v-if="item.children">
+                <BIMDataIcon name="chevron" size="xxs" />
+                <ul
+                  v-show="isItemHover && currentItemName === item.name"
+                  class="bimdata-dropdown__elements__menu-items__item__children"
+                  :style="{ maxHeight: subListMaxHeight }"
+                >
+                  <li
+                    v-for="child in item.children"
+                    :key="child.name"
+                    @click="child.action && child.action()"
+                  >
+                    <BIMDataTextbox :text="child.name" />
+                  </li>
+                </ul>
+              </template>
+            </li>
+          </ul>
+        </template>
+        <template v-else>
+          <slot name="element"></slot>
+        </template>
       </div>
     </transition>
   </div>
@@ -24,9 +56,12 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
+import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   directives: { clickaway },
+  components: { BIMDataIcon, BIMDataTextbox },
   props: {
     disabled: {
       type: Boolean,
@@ -51,10 +86,20 @@ export default {
       type: String,
       default: "36px",
     },
+    menuItems: {
+      type: Array,
+      default: () => [],
+    },
+    subListMaxHeight: {
+      type: String,
+      default: "auto",
+    },
   },
   data() {
     return {
       displayed: false,
+      isItemHover: false,
+      currentItemName: null,
     };
   },
   computed: {
@@ -73,6 +118,15 @@ export default {
     },
     away() {
       this.displayed = false;
+    },
+    handleCurrentItem(itemName) {
+      if (itemName) {
+        this.isItemHover = true;
+        this.currentItemName = itemName;
+      } else {
+        this.isItemHover = false;
+        this.currentItemName = null;
+      }
     },
   },
 };

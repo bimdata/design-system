@@ -21,6 +21,7 @@ export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index
 export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
 export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
 export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";
+export { default as BIMDataModelPreview } from "./BIMDataModelPreview/BIMDataModelPreview.vue";
 export { default as BIMDataMultiplePieChart } from "./BIMDataMultiplePieChart/BIMDataMultiplePieChart.vue";
 export { default as BIMDataPaginatedList } from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
 export { default as BIMDataPieSpinner } from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";

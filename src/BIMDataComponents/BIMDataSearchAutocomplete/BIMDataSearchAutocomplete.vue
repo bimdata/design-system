@@ -111,6 +111,10 @@ export default {
       type: String,
       default: "",
     },
+    autoclear: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -155,22 +159,28 @@ export default {
     },
     onElementClick(result) {
       this.$emit("item-click", result);
-      this.search = "";
       this.isOpen = false;
+      if (this.autoclear) {
+        this.search = "";
+      }
     },
     onAllResultatsBtnClick() {
       this.$emit("all-results-click", {
         results: this.results,
         search: this.search,
       });
-      this.search = "";
       this.isOpen = false;
+      if (this.autoclear) {
+        this.search = "";
+      }
     },
     onEnter() {
       this.$emit("enter", this.results[this.current].id);
-      this.search = "";
       this.isOpen = false;
       this.current = -1;
+      if (this.autoclear) {
+        this.search = "";
+      }
     },
     onArrowUp() {
       if (this.current >= 1) {
