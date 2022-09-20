@@ -1,7 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import BIMDataNavigation from "../BIMDataNavigation.vue";
 import BIMDataButton from "../../BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "../../BIMDataIcon/BIMDataIcon.vue";
 
 describe("BIMDataNavigation", () => {
   it("should render component and match snapshot", () => {
@@ -42,11 +41,6 @@ describe("BIMDataNavigation", () => {
       },
     });
     expect(wrapper.findComponent(BIMDataButton).exists()).toBe(false);
-  });
-
-  it("should render BIMDataIcon", () => {
-    const wrapper = shallowMount(BIMDataNavigation);
-    expect(wrapper.findComponent(BIMDataIcon).exists()).toBe(true);
   });
 
   it("should render BIMDataButton disabled", () => {

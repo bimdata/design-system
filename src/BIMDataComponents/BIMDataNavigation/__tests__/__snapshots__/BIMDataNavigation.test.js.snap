@@ -2,112 +2,112 @@
 
 exports[`BIMDataNavigation should render BIMDataButton disabled 1`] = `
 "<ul class=\\"bimdata-list bimdata-navigation\\">
-  <!---->
+  <li class=\\"bimdata-navigation__left m-r-6\\"></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" disabled=\\"true\\" class=\\"disabled\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-double-chevron-left\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" disabled=\\"true\\" class=\\"disabled\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-chevron-left\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" disabled=\\"true\\" class=\\"disabled\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" disabled=\\"true\\" class=\\"disabled\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
-  <!---->
+  <li class=\\"bimdata-navigation__right\\"></li>
 </ul>"
 `;
 
 exports[`BIMDataNavigation should render a navigation with a left slot and match snapshot 1`] = `
 "<ul class=\\"bimdata-list bimdata-navigation\\">
-  <li><span>left slot</span></li>
+  <li class=\\"bimdata-navigation__left m-r-6\\"><span>left slot</span></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-double-chevron-left\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-chevron-left\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
-  <!---->
+  <li class=\\"bimdata-navigation__right\\"></li>
 </ul>"
 `;
 
 exports[`BIMDataNavigation should render a navigation with a right slot and match snapshot 1`] = `
 "<ul class=\\"bimdata-list bimdata-navigation\\">
-  <!---->
+  <li class=\\"bimdata-navigation__left m-r-6\\"></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-double-chevron-left\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-chevron-left\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
-  <li><span>right slot</span></li>
+  <li class=\\"bimdata-navigation__right\\"><span>right slot</span></li>
 </ul>"
 `;
 
 exports[`BIMDataNavigation should render component and match snapshot 1`] = `
 "<ul class=\\"bimdata-list bimdata-navigation\\">
-  <!---->
+  <li class=\\"bimdata-navigation__left m-r-6\\"></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-double-chevron-left\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\" class=\\"icon-chevron-left\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"180\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li></li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"chevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataiconchevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataiconchevron-stub>
     </bimdatabutton-stub>
   </li>
   <li class=\\"bimdata-navigation__item\\">
     <bimdatabutton-stub width=\\"21px\\" height=\\"21px\\" ghost=\\"true\\" color=\\"default\\" class=\\"\\">
-      <bimdataicon-stub name=\\"doubleChevron\\" color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicon-stub>
+      <bimdataicondoublechevron-stub color=\\"default\\" fillcolor=\\"currentColor\\" size=\\"xxxs\\" rotate=\\"0\\" margin=\\"0px\\"></bimdataicondoublechevron-stub>
     </bimdatabutton-stub>
   </li>
-  <!---->
+  <li class=\\"bimdata-navigation__right\\"></li>
 </ul>"
 `;

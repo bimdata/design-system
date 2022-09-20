@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BIMDataTextarea should render a disabled component and match snapshot 1`] = `
-"<div class=\\"bimdata-textarea\\" style=\\"min-width: 150px; min-height: 32px;\\"><textarea name=\\"\\" id=\\"\\" disabled=\\"disabled\\"></textarea> <label for=\\"\\"></label> <span class=\\"bar\\"></span>
+"<div class=\\"bimdata-textarea\\" style=\\"min-width: 150px; min-height: 32px;\\" disabled=\\"disabled\\"><textarea name=\\"\\" id=\\"\\" disabled=\\"disabled\\"></textarea> <label for=\\"\\"></label> <span class=\\"bar\\"></span>
   <!---->
   <!---->
 </div>"
