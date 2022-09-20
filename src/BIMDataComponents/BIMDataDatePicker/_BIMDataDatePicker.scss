@@ -30,6 +30,8 @@
     border: none;
     border-bottom: 1px solid var(--color-silver);
     color: var(--color-primary);
+    background-color: transparent;
+    z-index: 2;
     &:focus-visible {
       outline: none;
     }
