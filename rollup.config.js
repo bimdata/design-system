@@ -27,6 +27,7 @@ function getDirectivesConfiguration() {
         dir: "dist/js/BIMDataDirectives",
         format: "es",
       },
+      external: ["vue"],
     },
     {
       // vue3
@@ -36,10 +37,12 @@ function getDirectivesConfiguration() {
         dir: "dist/js/BIMDataDirectives/vue3",
         format: "es",
       },
+      external: ["vue"],
     },
   ];
 }
 
+// build ALL COMPONENTS
 function getAllComponentsBundleConfiguration() {
   return [
     {
@@ -49,6 +52,7 @@ function getAllComponentsBundleConfiguration() {
         dir: "dist/js/BIMDataComponents",
         format: "es",
       },
+      external: ["vue"],
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
@@ -105,11 +109,12 @@ function getAllComponentsBundleConfiguration() {
         dir: "dist/js/BIMDataComponents/vue3",
         format: "es",
       },
+      external: ["vue"],
       plugins: [
         alias({
           entries: [
             {
-              find: /BIMDataDirectives\//,
+              find: /BIMDataDirectives\/(?!vue3\/)/,
               replacement: "BIMDataDirectives/vue3/",
             },
           ],
@@ -131,6 +136,7 @@ function getAllComponentsBundleConfiguration() {
   ];
 }
 
+// build SMART COMPONENTS
 function getSingleSmartComponentConfigurations() {
   const componentNames = ["BIMDataFileManager"];
 
@@ -144,6 +150,7 @@ function getSingleSmartComponentConfigurations() {
         file: `dist/js/BIMDataSmartComponents/${componentName}.js`,
         format: "esm",
       },
+      external: ["vue"],
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
@@ -170,6 +177,7 @@ function getSingleComponentConfigurations() {
     "BIMDataCarousel",
     "BIMDataCheckbox",
     "BIMDataColorSelector",
+    "BIMDataDatePicker",
     "BIMDataDropdownList",
     "BIMDataDropdownMenu",
     "BIMDataFileIcon",
@@ -207,6 +215,7 @@ function getSingleComponentConfigurations() {
         file: `dist/js/BIMDataComponents/${componentName}.js`,
         format: "esm",
       },
+      external: ["vue"],
       plugins: [
         replace({
           "~@/assets": "node_modules/@bimdata/design-system/dist",
@@ -227,11 +236,12 @@ function getSingleComponentConfigurations() {
         file: `dist/js/BIMDataComponents/vue3/${componentName}.js`,
         format: "esm",
       },
+      external: ["vue"],
       plugins: [
         alias({
           entries: [
             {
-              find: /BIMDataDirectives\//,
+              find: /BIMDataDirectives\/(?!vue3\/)/,
               replacement: "BIMDataDirectives/vue3/",
             },
           ],

@@ -137,6 +137,13 @@ export default new Vuex.Store({
           btn: "View color selector",
         },
         {
+          title: "DatePicker",
+          img: require("./web/assets/img/icon-datepicker.svg"),
+          path: "datepicker",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View DatePicker",
+        },
+        {
           title: "DropdownList",
           img: require("./web/assets/img/icon-dropdown.svg"),
           path: "dropdownlist",

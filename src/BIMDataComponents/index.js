@@ -13,6 +13,7 @@ export { default as BIMDataCard } from "./BIMDataCard/BIMDataCard.vue";
 export { default as BIMDataCarousel } from "./BIMDataCarousel/BIMDataCarousel.vue";
 export { default as BIMDataCheckbox } from "./BIMDataCheckbox/BIMDataCheckbox.vue";
 export { default as BIMDataColorSelector } from "./BIMDataColorSelector/BIMDataColorSelector.vue";
+export { default as BIMDataDatePicker } from "./BIMDataDatePicker/BIMDataDatePicker.vue";
 export { default as BIMDataDropdownList } from "./BIMDataDropdownList/BIMDataDropdownList.vue";
 export { default as BIMDataDropdownMenu } from "./BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export { default as BIMDataFileIcon } from "./BIMDataFileIcon/BIMDataFileIcon.vue";
