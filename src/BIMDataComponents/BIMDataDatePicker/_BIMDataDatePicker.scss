@@ -59,6 +59,20 @@
     &__calendar--inline {
       position: static;
     }
+    &.bottom-right {
+      right: 0;
+    }
+    &.bottom-left {
+      left: 0;
+    }
+    &.top,
+    &.top-left,
+    &.top-right {
+      bottom: 32px;
+    }
+    &.top-right {
+      right: 0;
+    }
     button {
       background: inherit;
       text-align: center;
