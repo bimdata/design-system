@@ -67,7 +67,7 @@
         <div
           v-show="isOpen"
           class="bimdata-datepicker__calendar"
-          :class="pickerClasses"
+          :class="[pickerClasses, fixedPosition]"
           @mousedown.prevent
           @focusin.stop="handleFocusIn($event)"
           @focusout.stop="handleFocusOut($event)"
@@ -158,7 +158,14 @@ export default {
     PickerYear,
   },
   mixins: [inputProps, navMixin],
+  model: {
+    prop: "modelValue",
+    event: "update:modelValue",
+  },
   props: {
+    modelValue: {
+      type: [Date, String],
+    },
     appendToBody: {
       type: Boolean,
       default: false,
@@ -256,6 +263,17 @@ export default {
       default: "280px",
     },
   },
+  emits: [
+    "update:modelValue",
+    "blur",
+    "focus",
+    "opened",
+    "changed",
+    "input",
+    "selected",
+    "closed",
+    "cleared",
+  ],
   data() {
     const utils = makeDateUtils(this.useUtc);
     const startDate = utils.getNewDateObject(this.openDate || null);
@@ -737,7 +755,7 @@ export default {
       }
 
       this.setValue(date);
-      this.$emit("input", date);
+      this.$emit("update:modelValue", date);
       this.$emit("selected", date);
     },
     /**
