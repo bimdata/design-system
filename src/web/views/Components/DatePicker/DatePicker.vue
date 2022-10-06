@@ -10,6 +10,7 @@
           <template #module>
             <BIMDataDatePicker
               v-model="selectedDate"
+              @to-date-change="toDate = $event"
               :toDate="toDate"
               :language="languageSelection"
               :firstDayOfWeek="daySelection"
@@ -25,6 +26,7 @@
             >
             </BIMDataDatePicker>
             <span class="m-t-18">{{ selectedDate }}</span>
+            <span class="m-t-18" v-if="isMultipleRange">{{ toDate }}</span>
           </template>
 
           <template #parameters>

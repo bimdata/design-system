@@ -36,7 +36,7 @@
       :tabIndex="tabIndex"
       :translation="lang"
       :useUtc="useUtc"
-      @clear="clearDate"
+      @clear="clear"
       @close="close"
       @open="open"
       @set-focus="setFocus($event)"
@@ -88,7 +88,7 @@
       :translation="lang"
       :typeable="typeable"
       :useUtc="useUtc"
-      @clear-date="clearDate"
+      @clear-date="clear"
       @close="close"
       @open="open"
       @set-focus="setFocus($event)"
@@ -142,7 +142,7 @@
                 :openDate="openDate"
                 :pageDate="pageDate"
                 :selectedDate="selectedDate"
-                :selectedToDate="toDate"
+                :selectedToDate="selectedToDate"
                 :isDateRange="isDateRange"
                 :showEdgeDates="showEdgeDates"
                 :fullMonthName="fullMonthName"
@@ -481,6 +481,19 @@ export default {
       },
       immediate: true,
     },
+    toDate: {
+      handler(newValue, oldValue) {
+        if (!this.utils.compareDates(newValue, oldValue)) {
+          const isDateDisabled = newValue && this.isDateDisabled(newValue);
+
+          this.selectedToDate = isDateDisabled ? null : newValue;
+        }
+      },
+      immediate: true,
+    },
+    selectedToDate(value) {
+      this.$emit("to-date-change", value);
+    },
     view(newView, oldView) {
       this.handleViewChange(newView, oldView);
     },
@@ -506,11 +519,9 @@ export default {
 
       return viewIndex >= minimumViewIndex && viewIndex <= maximumViewIndex;
     },
-    /**
-     * Clear the selected date
-     */
-    clearDate() {
-      // TODO handle selectedToDate
+    clear() {
+      this.selectedToDate = null;
+
       if (!this.selectedDate) {
         return;
       }
@@ -621,7 +632,19 @@ export default {
         return;
       }
 
-      this.selectDate(new Date(cell.timestamp));
+      const date = new Date(cell.timestamp);
+
+      if (
+        this.isDateRange &&
+        this.selectedDate &&
+        // TODO handle time correctly
+        cell.timestamp >= this.selectedDate.valueOf()
+      ) {
+        this.selectedToDate = date;
+      } else {
+        this.selectDate(date);
+      }
+
       this.focus.delay = cell.isNextMonth ? this.slideDuration : 0;
       this.focus.refs = this.isInline ? ["tabbableCell"] : ["input"];
 
@@ -731,7 +754,6 @@ export default {
      */
     selectDate(date) {
       if (this.dateChanged(date)) {
-        this.$emit("changed", date);
         this.$emit("update:modelValue", date);
       }
 
