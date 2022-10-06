@@ -140,8 +140,8 @@ function getAllComponentsBundleConfiguration() {
 function getSingleSmartComponentConfigurations() {
   const componentNames = ["BIMDataFileManager"];
 
-  // Build Vue 2.x compatible components
   return [
+    // Build Vue 2.x compatible components
     ...componentNames.map(componentName => ({
       input: [
         `src/BIMDataSmartComponents/${componentName}/${componentName}.vue`,
@@ -162,6 +162,38 @@ function getSingleSmartComponentConfigurations() {
         }),
         resolve({ browser: true, preferBuiltins: false }),
         commonjs(),
+        image(),
+        terser(),
+      ],
+    })),
+    // Build Vue 3.x compatible components
+    ...componentNames.map(componentName => ({
+      input: [
+        `src/BIMDataSmartComponents/${componentName}/${componentName}.vue`,
+      ],
+      output: {
+        file: `dist/js/BIMDataSmartComponents/vue3/${componentName}.js`,
+        format: "esm",
+      },
+      plugins: [
+        alias({
+          entries: [
+            {
+              find: /BIMDataDirectives\//,
+              replacement: "BIMDataDirectives/vue3/",
+            },
+          ],
+        }),
+        replace({
+          "~@/assets": "node_modules/@bimdata/design-system/dist",
+          delimiters: ["", ""],
+          preventAssignment: true,
+        }),
+        vue3({
+          template: { isProduction: true },
+          preprocessStyles: true,
+        }),
+        postcss(),
         image(),
         terser(),
       ],

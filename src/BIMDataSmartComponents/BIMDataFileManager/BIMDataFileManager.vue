@@ -1,114 +1,112 @@
 <template>
   <div class="bimdata-file-manager">
-    <template>
+    <div
+      class="bimdata-file-manager__header"
+      :class="{
+        'bimdata-file-manager__header--xs': xsLayout,
+        'bimdata-file-manager__header--s': sLayout,
+        'bimdata-file-manager__header--m': mLayout,
+        'bimdata-file-manager__header--l': lLayout,
+      }"
+      v-if="headerButtons || headerSearch"
+    >
+      <template v-if="headerButtons">
+        <NewFolderButton
+          :disabled="!currentFolder || currentFolder.user_permission < 100"
+          :projectId="projectId"
+          :spaceId="spaceId"
+          :apiClient="apiClient"
+          :folder="currentFolder"
+          @success="onNewFolder"
+          @error="$emit('error', $event)"
+        />
+        <UploadFileButton
+          class="bimdata-file-manager__header__upload"
+          width="25%"
+          :disabled="!currentFolder || currentFolder.user_permission < 100"
+          multiple
+          @upload="uploadFiles"
+        />
+      </template>
+      <BIMDataSearch
+        v-if="headerSearch"
+        :color="searchColor"
+        class="bimdata-file-manager__search"
+        width="100%"
+        placeholder="Search"
+        v-model="searchText"
+        ref="search"
+        clear
+        radius
+      />
+    </div>
+    <div class="bimdata-file-manager__navigation">
       <div
-        class="bimdata-file-manager__header"
-        :class="{
-          'bimdata-file-manager__header--xs': xsLayout,
-          'bimdata-file-manager__header--s': sLayout,
-          'bimdata-file-manager__header--m': mLayout,
-          'bimdata-file-manager__header--l': lLayout,
-        }"
-        v-if="headerButtons || headerSearch"
+        v-if="navigationShown"
+        class="bimdata-file-manager__navigation__content"
       >
-        <template v-if="headerButtons">
-          <NewFolderButton
-            :disabled="!currentFolder || currentFolder.user_permission < 100"
-            :projectId="projectId"
-            :spaceId="spaceId"
-            :apiClient="apiClient"
-            :folder="currentFolder"
-            @success="onNewFolder"
-            @error="$emit('error', $event)"
-          />
-          <UploadFileButton
-            class="bimdata-file-manager__header__upload"
-            width="25%"
-            :disabled="!currentFolder || currentFolder.user_permission < 100"
-            multiple
-            @upload="uploadFiles"
-          />
-        </template>
-        <BIMDataSearch
-          v-if="headerSearch"
-          :color="searchColor"
-          class="bimdata-file-manager__search"
-          width="100%"
-          placeholder="Search"
-          v-model="searchText"
-          ref="search"
-          clear
+        <BIMDataButton
+          color="default"
+          icon
           radius
+          ghost
+          width="33px"
+          height="31px"
+          @click="back"
+        >
+          <BIMDataIcon name="arrow" />
+        </BIMDataButton>
+        <BIMDataTextbox
+          :text="currentFolder.name"
+          cutPosition="middle"
+          tooltipPosition="bottom"
+          tooltipColor="primary"
+          width="calc(100% - 45px)"
         />
       </div>
-      <div class="bimdata-file-manager__navigation">
-        <div
-          v-if="navigationShown"
-          class="bimdata-file-manager__navigation__content"
+      <div v-else class="bimdata-file-manager__navigation__content--empty">
+        {{ translate("dmsRoot") }}
+      </div>
+    </div>
+    <template v-if="fileStructure">
+      <div class="bimdata-file-manager__container" v-if="files.length > 0">
+        <BIMDataResponsiveGrid
+          :itemWidth="itemWidth"
+          rowGap="4px"
+          columnGap="6px"
         >
-          <BIMDataButton
-            color="default"
-            icon
-            radius
-            ghost
-            width="33px"
-            height="31px"
-            @click="back"
-          >
-            <BIMDataIcon name="arrow" />
-          </BIMDataButton>
-          <BIMDataTextbox
-            :text="currentFolder.name"
-            cutPosition="middle"
-            tooltipPosition="bottom"
-            tooltipColor="primary"
-            width="calc(100% - 45px)"
+          <FileCard
+            :width="itemWidth"
+            v-for="file of files"
+            :key="file.id"
+            :file="file"
+            :projectId="projectId"
+            :spaceId="spaceId"
+            :apiUrl="apiUrl"
+            :accessToken="accessToken"
+            @open-folder="openFolder(file)"
+            :select="select"
+            :disabled="isDisabled(file)"
+            :multi="multi"
+            :selected="isFileSelected(file)"
+            :success="isFileSucess(file.id)"
+            @toggle-select="onToggleFileSelect(file)"
+            @rename="onRename(file)"
+            @delete="onDelete(file)"
+            @dowload="onDowload(file)"
+            @loaded="onFileLoaded(file, $event)"
+            :writeAccess="currentFolder.user_permission >= 100"
           />
-        </div>
-        <div v-else class="bimdata-file-manager__navigation__content--empty">
-          {{ translate("dmsRoot") }}
+        </BIMDataResponsiveGrid>
+      </div>
+      <div v-else class="bimdata-file-manager__container--empty">
+        <div>
+          <BIMDataIcon name="folderOpen" size="xxxl" fill color="silver" />
+          <span>{{ translate("emptyFolder") }}</span>
         </div>
       </div>
-      <template v-if="fileStructure">
-        <div class="bimdata-file-manager__container" v-if="files.length > 0">
-          <BIMDataResponsiveGrid
-            :itemWidth="itemWidth"
-            rowGap="4px"
-            columnGap="6px"
-          >
-            <FileCard
-              :width="itemWidth"
-              v-for="file of files"
-              :key="file.id"
-              :file="file"
-              :projectId="projectId"
-              :spaceId="spaceId"
-              :apiUrl="apiUrl"
-              :accessToken="accessToken"
-              @open-folder="openFolder(file)"
-              :select="select"
-              :disabled="isDisabled(file)"
-              :multi="multi"
-              :selected="isFileSelected(file)"
-              :success="isFileSucess(file.id)"
-              @toggle-select="onToggleFileSelect(file)"
-              @rename="onRename(file)"
-              @delete="onDelete(file)"
-              @dowload="onDowload(file)"
-              @loaded="onFileLoaded(file, $event)"
-              :writeAccess="currentFolder.user_permission >= 100"
-            />
-          </BIMDataResponsiveGrid>
-        </div>
-        <div v-else class="bimdata-file-manager__container--empty">
-          <div>
-            <BIMDataIcon name="folderOpen" size="xxxl" fill color="silver" />
-            <span>{{ translate("emptyFolder") }}</span>
-          </div>
-        </div>
-      </template>
-      <BIMDataLoading v-else />
     </template>
+    <BIMDataLoading v-else />
     <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
       <RenameModal
         :projectId="projectId"
