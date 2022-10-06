@@ -87,6 +87,8 @@ export default {
   },
   methods: {
     onResize() {
+      if (!this.$refs.ghost) return;
+
       const height = this.lines * this.lineHeight;
       const { height: neededHeight } = this.$refs.ghost.getBoundingClientRect();
 
