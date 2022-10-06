@@ -8,7 +8,59 @@
     @focusout="handleFocusOut($event)"
     @keydown.esc="resetOrClose"
   >
+    <DateInputRange
+      v-if="isDateRange"
+      :id="id"
+      ref="dateInput"
+      :autofocus="autofocus"
+      :calendarButton="calendarButton"
+      :calendarButtonIcon="calendarButtonIcon"
+      :calendarButtonIconContent="calendarButtonIconContent"
+      :clearButton="clearButton"
+      :clearButtonIcon="clearButtonIcon"
+      :disabled="disabled"
+      :format="format"
+      :inline="inline"
+      :inputClass="inputClass"
+      :isOpen="isOpen"
+      :maxlength="maxlength"
+      :name="name"
+      :parser="parser"
+      :pattern="pattern"
+      :placeholder="placeholder"
+      :refName="refName"
+      :required="required"
+      :selectedDates="[selectedDate, selectedToDate]"
+      :showCalendarOnButtonClick="showCalendarOnButtonClick"
+      :showCalendarOnFocus="showCalendarOnFocus"
+      :tabIndex="tabIndex"
+      :translation="lang"
+      :useUtc="useUtc"
+      @clear="clearDate"
+      @close="close"
+      @open="open"
+      @set-focus="setFocus($event)"
+      @tab="tabThroughNavigation"
+      :style="style"
+    >
+      <template #beforeDateInput>
+        <slot name="beforeDateInput" />
+      </template>
+
+      <template #afterDateInput>
+        <slot name="afterDateInput" />
+      </template>
+
+      <template #clearBtn>
+        <slot name="clearBtn" />
+      </template>
+
+      <template #calendarBtn>
+        <slot name="calendarBtn" />
+      </template>
+    </DateInputRange>
     <DateInput
+      v-else
       :id="id"
       ref="dateInput"
       :autofocus="autofocus"
@@ -39,10 +91,8 @@
       @clear-date="clearDate"
       @close="close"
       @open="open"
-      @select-typed-date="selectTypedDate"
       @set-focus="setFocus($event)"
       @tab="tabThroughNavigation"
-      @typed-date="handleTypedDate"
       :style="style"
     >
       <template #beforeDateInput>
@@ -86,13 +136,14 @@
                 :day-cell-content="dayCellContent"
                 :disabledDates="disabledDates"
                 :firstDayOfWeek="firstDayOfWeek"
-                :highlighted="highlighted"
                 :typeable="typeable"
                 :isUpDisabled="isUpDisabled"
                 :isMinimumView="isMinimumView"
                 :openDate="openDate"
                 :pageDate="pageDate"
                 :selectedDate="selectedDate"
+                :selectedToDate="toDate"
+                :isDateRange="isDateRange"
                 :showEdgeDates="showEdgeDates"
                 :fullMonthName="fullMonthName"
                 :showHeader="showHeader"
@@ -131,6 +182,7 @@
 <script>
 import lang from "./i18n/index.js";
 import DateInput from "./components/DateInput.vue";
+import DateInputRange from "./components/DateInputRange.vue";
 import DisabledDate from "./utils/DisabledDate.js";
 import inputProps from "./mixins/inputProps.vue";
 import makeDateUtils from "./utils/DateUtils.js";
@@ -153,6 +205,7 @@ const calendarSlots = [
 export default {
   components: {
     DateInput,
+    DateInputRange,
     PickerDay,
     PickerMonth,
     PickerYear,
@@ -164,7 +217,10 @@ export default {
   },
   props: {
     modelValue: {
-      type: [Date, String],
+      type: Date,
+    },
+    toDate: {
+      type: Date,
     },
     appendToBody: {
       type: Boolean,
@@ -207,12 +263,6 @@ export default {
     fullMonthName: {
       type: Boolean,
       default: false,
-    },
-    highlighted: {
-      type: Object,
-      default() {
-        return {};
-      },
     },
     initialView: {
       type: String,
@@ -262,6 +312,10 @@ export default {
       type: String,
       default: "280px",
     },
+    isDateRange: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: [
     "update:modelValue",
@@ -285,11 +339,6 @@ export default {
       isClickOutside: false,
       globalDatepickerId: "",
       /*
-       * The latest valid `typedDate` (used for typeable datepicker)
-       * {Date}
-       */
-      latestValidTypedDate: null,
-      /*
        * Vue cannot observe changes to a Date Object so date must be stored as a timestamp
        * This represents the first day of the current viewing month
        * {Number}
@@ -300,6 +349,7 @@ export default {
        * {Date}
        */
       selectedDate: null,
+      selectedToDate: null,
       slideDuration: 250,
       utils,
       view: "",
@@ -386,9 +436,8 @@ export default {
   },
   watch: {
     disabledDates: {
-      // eslint-disable-next-line complexity
       handler() {
-        const selectedDate = this.selectedDate || this.parseValue(this.value);
+        const selectedDate = this.selectedDate || this.modelValue;
         if (!selectedDate) {
           return;
         }
@@ -419,25 +468,15 @@ export default {
         this.datepickerIsInactive();
       }
     },
-    latestValidTypedDate(date) {
-      this.setPageDate(date);
-    },
     openDate() {
       this.setPageDate();
     },
-    value: {
+    modelValue: {
       handler(newValue, oldValue) {
-        let parsedValue = this.parseValue(newValue);
-        const oldParsedValue = this.parseValue(oldValue);
+        if (!this.utils.compareDates(newValue, oldValue)) {
+          const isDateDisabled = newValue && this.isDateDisabled(newValue);
 
-        if (!this.utils.compareDates(parsedValue, oldParsedValue)) {
-          const isDateDisabled =
-            parsedValue && this.isDateDisabled(parsedValue);
-
-          if (isDateDisabled) {
-            parsedValue = null;
-          }
-          this.setValue(parsedValue);
+          this.setValue(isDateDisabled ? null : newValue);
         }
       },
       immediate: true,
@@ -471,6 +510,7 @@ export default {
      * Clear the selected date
      */
     clearDate() {
+      // TODO handle selectedToDate
       if (!this.selectedDate) {
         return;
       }
@@ -534,15 +574,6 @@ export default {
     },
     datepickerIsInactive() {
       this.$emit("blur");
-
-      if (this.typeable) {
-        this.skipReviewFocus = true;
-        this.selectTypedDateOnLosingFocus();
-
-        this.$nextTick(() => {
-          this.skipReviewFocus = false;
-        });
-      }
     },
     /**
      * Closes the calendar when no element within it has focus
@@ -590,42 +621,19 @@ export default {
         return;
       }
 
-      this.$refs.dateInput.typedDate = "";
       this.selectDate(new Date(cell.timestamp));
       this.focus.delay = cell.isNextMonth ? this.slideDuration : 0;
       this.focus.refs = this.isInline ? ["tabbableCell"] : ["input"];
-      this.close();
+
+      if (!this.isDateRange) {
+        this.close();
+      }
 
       if (this.showCalendarOnFocus && !this.inline) {
         this.$refs.dateInput.shouldToggleOnClick = true;
       } else {
         this.reviewFocus();
       }
-    },
-    /**
-     * Updates the page (if necessary) after a 'typed-date' event and sets `tabbableCell` & `latestValidTypedDate`
-     * @param {Date=} date
-     */
-    handleTypedDate(date) {
-      const originalTypedDate = new Date(this.latestValidTypedDate);
-      const originalPageDate = new Date(this.pageDate);
-
-      this.latestValidTypedDate = date || this.computedOpenDate;
-      this.setTransitionAndFocusDelay(
-        originalTypedDate,
-        this.latestValidTypedDate
-      );
-      this.setPageDate(date);
-
-      if (this.isPageChange(originalPageDate)) {
-        this.handlePageChange({
-          focusRefs: [],
-          pageDate: this.pageDate,
-        });
-        return;
-      }
-
-      this.setTabbableCell();
     },
     /**
      * Focus the relevant element when the view changes
@@ -657,25 +665,9 @@ export default {
       return element && element.className.split(" ").includes(className);
     },
     /**
-     * Used for typeable datepicker: returns true if a typed date causes the page to change
-     * @param   {Date}    originalPageDate
-     * @returns {Boolean}
-     */
-    isPageChange(originalPageDate) {
-      if (!this.isOpen) {
-        return false;
-      }
-
-      return originalPageDate.valueOf() !== this.pageDate.valueOf();
-    },
-    /**
      * Initiate the component
      */
     init() {
-      if (this.typeable) {
-        this.latestValidTypedDate = this.selectedDate || this.computedOpenDate;
-      }
-
       if (this.isInline) {
         this.setInitialView();
       }
@@ -720,18 +712,6 @@ export default {
       this.$emit("opened");
     },
     /**
-     * Parse a datepicker value from string/number to date
-     * @param   {Date|String|Number|undefined} date
-     * @returns {Date|null}
-     */
-    parseValue(date) {
-      if (typeof date === "string" || typeof date === "number") {
-        const parsed = new Date(date);
-        return this.utils.isValidDate(parsed) ? parsed : null;
-      }
-      return this.utils.isValidDate(date) ? date : null;
-    },
-    /**
      * Focus the open date, or close the calendar if already focused
      */
     resetOrClose() {
@@ -752,34 +732,11 @@ export default {
     selectDate(date) {
       if (this.dateChanged(date)) {
         this.$emit("changed", date);
+        this.$emit("update:modelValue", date);
       }
 
       this.setValue(date);
-      this.$emit("update:modelValue", date);
       this.$emit("selected", date);
-    },
-    /**
-     * Select the date from a 'select-typed-date' event
-     * @param {Date|null} date
-     */
-    selectTypedDate(date) {
-      this.selectDate(date);
-      this.reviewFocus();
-
-      if (this.isOpen) {
-        this.close();
-      }
-    },
-    /**
-     * Selects the typed date when the datepicker loses focus, provided it's valid and differs from the current selected date
-     */
-    selectTypedDateOnLosingFocus() {
-      const parsedDate = this.$refs.dateInput.parseInput();
-      const date = this.utils.isValidDate(parsedDate) ? parsedDate : null;
-
-      if (this.dateChanged(date)) {
-        this.selectDate(date);
-      }
     },
     /**
      * Sets the initial picker page view: day, month or year
@@ -831,16 +788,12 @@ export default {
       this.slideDuration = parseFloat(durationInSecs) * 1000;
     },
     /**
-     * Set the datepicker value (and, if typeable, update `latestValidTypedDate`)
+     * Set the datepicker value
      * @param {Date|String|Number|null} date
      */
     setValue(date) {
       this.selectedDate = date || null;
       this.setPageDate(date);
-
-      if (this.typeable) {
-        this.latestValidTypedDate = date || this.computedOpenDate;
-      }
     },
     /**
      * Set the picker view

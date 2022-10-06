@@ -10,6 +10,7 @@
           <template #module>
             <BIMDataDatePicker
               v-model="selectedDate"
+              :toDate="toDate"
               :language="languageSelection"
               :firstDayOfWeek="daySelection"
               :clearButton="isClearButton"
@@ -20,6 +21,7 @@
               :yearPickerRange="Number(yearPickerRange)"
               :fullMonthName="true"
               placeholder="Label here"
+              :isDateRange="isMultipleRange"
             >
             </BIMDataDatePicker>
             <span class="m-t-18">{{ selectedDate }}</span>
@@ -65,6 +67,10 @@
             </div>
             <BIMDataCheckbox text="Clear button" v-model="isClearButton" />
             <BIMDataCheckbox text="Show Edge Dates" v-model="isShowEdgeDates" />
+            <BIMDataCheckbox
+              text="Selected range dates"
+              v-model="isMultipleRange"
+            />
           </template>
           <template #code>
             <pre>
@@ -156,11 +162,16 @@ export default {
     ComponentCode,
   },
   data() {
+    const toDate = new Date();
+    toDate.setDate(toDate.getDate() + 2);
+
     return {
       date: new Date(),
       selectedDate: new Date(),
+      toDate: toDate,
       isClearButton: true,
       isShowEdgeDates: true,
+      isMultipleRange: true,
       languageOptions: languageOptions,
       languageSelection: "en",
       dayOptions: dayOptions,

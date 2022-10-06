@@ -153,16 +153,9 @@ const utils = {
    */
   // eslint-disable-next-line complexity
   compareDates(date1, date2) {
-    if (date1 === null && date2 === null) {
-      return true;
-    }
+    if (date1 == null && date2 == null) return true;
 
-    if (
-      (date1 !== null && date2 === null) ||
-      (date2 !== null && date1 === null)
-    ) {
-      return false;
-    }
+    if (date1 == null || date2 == null) return false;
 
     const d1 = new Date(date1.valueOf());
     const d2 = new Date(date2.valueOf());
