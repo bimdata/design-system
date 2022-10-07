@@ -22,9 +22,18 @@
               v-for="item in menuItems"
               :key="item.name"
               class="bimdata-dropdown__elements__menu-items__item"
-              @click="item.action && item.action()"
-              @mouseover="handleCurrentItem(item.name)"
-              @mouseleave="handleCurrentItem()"
+              :style="{
+                color: isChildEmpty(item.children)
+                  ? 'var(--color-silver-dark)'
+                  : 'var(--color-primary)',
+              }"
+              @click.stop="
+                !isChildEmpty(item.children) && item.action && item.action()
+              "
+              @mouseover="
+                !isChildEmpty(item.children) && handleCurrentItem(item.name)
+              "
+              @mouseleave="!isChildEmpty(item.children) && handleCurrentItem()"
             >
               <BIMDataTextbox :text="item.name" />
               <template v-if="item.children">
@@ -127,6 +136,9 @@ export default {
         this.isItemHover = false;
         this.currentItemName = null;
       }
+    },
+    isChildEmpty(childList) {
+      return childList && childList.length === 0;
     },
   },
 };
