@@ -43,6 +43,14 @@
 
       &__item {
         position: relative;
+
+        &--no-children {
+          color: var(--color-silver-dark);
+        }
+        &--has-children {
+          color: var(--color-primary);
+        }
+
         div {
           padding-left: var(--spacing-unit);
         }

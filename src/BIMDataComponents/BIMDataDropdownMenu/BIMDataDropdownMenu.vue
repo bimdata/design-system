@@ -22,9 +22,12 @@
               v-for="item in menuItems"
               :key="item.name"
               class="bimdata-dropdown__elements__menu-items__item"
-              @click="item.action && item.action()"
-              @mouseover="handleCurrentItem(item.name)"
-              @mouseleave="handleCurrentItem()"
+              :class="`bimdata-dropdown__elements__menu-items__item--${
+                hasNoChildren(item) ? 'no-children' : 'has-children'
+              }`"
+              @click.stop="onClick(item)"
+              @mouseover="onMouseOver(item)"
+              @mouseleave="onMouseLeave(item)"
             >
               <BIMDataTextbox :text="item.name" />
               <template v-if="item.children">
@@ -127,6 +130,22 @@ export default {
         this.isItemHover = false;
         this.currentItemName = null;
       }
+    },
+    onClick(item) {
+      if (this.hasNoChildren(item) || !item.action) return;
+      item.action();
+    },
+    onMouseOver(item) {
+      if (this.hasNoChildren(item)) return;
+      this.handleCurrentItem(item.name);
+    },
+    onMouseLeave(item) {
+      if (this.hasNoChildren(item)) return;
+      this.handleCurrentItem();
+    },
+    hasNoChildren(item) {
+      const { children } = item;
+      return children && children.length === 0;
     },
   },
 };
