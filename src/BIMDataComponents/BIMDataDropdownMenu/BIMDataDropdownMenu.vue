@@ -23,17 +23,17 @@
               :key="item.name"
               class="bimdata-dropdown__elements__menu-items__item"
               :style="{
-                color: isChildEmpty(item.children)
+                color: hasNoChildren(item.children)
                   ? 'var(--color-silver-dark)'
                   : 'var(--color-primary)',
               }"
               @click.stop="
-                !isChildEmpty(item.children) && item.action && item.action()
+                !hasNoChildren(item.children) && item.action && item.action()
               "
               @mouseover="
-                !isChildEmpty(item.children) && handleCurrentItem(item.name)
+                !hasNoChildren(item.children) && handleCurrentItem(item.name)
               "
-              @mouseleave="!isChildEmpty(item.children) && handleCurrentItem()"
+              @mouseleave="!hasNoChildren(item.children) && handleCurrentItem()"
             >
               <BIMDataTextbox :text="item.name" />
               <template v-if="item.children">
@@ -137,7 +137,7 @@ export default {
         this.currentItemName = null;
       }
     },
-    isChildEmpty(childList) {
+    hasNoChildren(childList) {
       return childList && childList.length === 0;
     },
   },
