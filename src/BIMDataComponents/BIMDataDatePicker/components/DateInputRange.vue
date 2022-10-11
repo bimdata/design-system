@@ -145,7 +145,6 @@ export default {
   },
   methods: {
     clear() {
-      this.input.value = "";
       this.$emit("clear");
     },
     /**
@@ -157,22 +156,22 @@ export default {
       const fromDate = dates[0];
       const toDate = dates[1];
 
-      return `Début: ${
-        fromDate
-          ? this.utils.formatDate(
-              new Date(fromDate),
-              this.format,
-              this.translation
-            )
-          : "-"
-      }, Fin: ${
+      if (!fromDate && !toDate) {
+        return null;
+      }
+
+      return `${this.utils.formatDate(
+        new Date(fromDate),
+        this.format,
+        this.translation
+      )} - ${
         toDate
           ? this.utils.formatDate(
               new Date(toDate),
               this.format,
               this.translation
             )
-          : "-"
+          : ""
       }`;
     },
     /**

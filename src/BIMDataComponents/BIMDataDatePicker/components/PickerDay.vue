@@ -50,6 +50,7 @@
             view="day"
             @arrow="handleArrow($event)"
             @select="select($event)"
+            @hover="hover($event)"
           >
             <slot name="dayCellContent" :cell="cell">
               {{ dayCellContent(cell) }}
@@ -93,12 +94,6 @@ export default {
       type: String,
       default: "sun",
     },
-    highlighted: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
     showFullMonthName: {
       type: Boolean,
       default: false,
@@ -107,6 +102,11 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      highlightedToDate: null,
+    };
   },
   computed: {
     /**
@@ -191,6 +191,12 @@ export default {
       return new Date(this.utils.setMonth(d, this.utils.getMonth(d) + 1));
     },
     highlightedRange() {
+      if (this.selectedDate && !this.selectedToDate) {
+        return new HighlightedDate(this.utils, this.disabledDates, {
+          from: this.selectedDate,
+          to: this.highlightedToDate,
+        });
+      }
       return new HighlightedDate(this.utils, this.disabledDates, {
         from: this.selectedDate,
         to: this.selectedToDate,
@@ -324,6 +330,9 @@ export default {
         this.utils.compareDates(this.selectedDate, dObj) ||
         (this.isDateRange && this.utils.compareDates(this.selectedToDate, dObj))
       );
+    },
+    hover(cell) {
+      this.highlightedToDate = new Date(cell.timestamp);
     },
     /**
      * Defines the objects within the days array

@@ -521,15 +521,15 @@ export default {
     },
     clear() {
       this.selectedToDate = null;
-
-      if (!this.selectedDate) {
-        return;
-      }
-
       this.selectDate(null);
       this.focus.refs = ["input"];
-      this.close();
       this.$emit("cleared");
+
+      if (this.isDateRange) {
+        return;
+      } else {
+        this.close();
+      }
     },
     /**
      * Close the calendar
@@ -634,14 +634,17 @@ export default {
 
       const date = new Date(cell.timestamp);
 
-      if (
-        this.isDateRange &&
-        this.selectedDate &&
-        // TODO handle time correctly
-        cell.timestamp >= this.selectedDate.valueOf()
-      ) {
-        this.selectedToDate = date;
+      if (this.isDateRange && this.selectedDate && !this.selectedToDate) {
+        const isBeforeSelectedDate =
+          cell.timestamp < this.selectedDate.valueOf();
+
+        if (isBeforeSelectedDate) {
+          this.selectDate(date);
+        } else {
+          this.selectedToDate = date;
+        }
       } else {
+        this.selectedToDate = null;
         this.selectDate(date);
       }
 
