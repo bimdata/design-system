@@ -92,7 +92,7 @@
         flex: 1;
         color: var(--color-primary);
         &:hover:not(:disabled) {
-          background: var(--color-silver-light);
+          background-color: #e6eeff;
         }
         &__up {
           color: var(--color-primary);
@@ -134,7 +134,7 @@
       &.month:not(.disabled),
       &.year:not(.disabled) {
         &:hover {
-          background-color: var(--color-silver-light);
+          background-color: #e6eeff;
           border-radius: 2px;
         }
         &:focus {
@@ -165,7 +165,7 @@
       }
       &.day.highlighted {
         &.highlight-end {
-          background-color: #e6eeff;
+          background-color: #e1ebff;
         }
       }
       &.day,
@@ -176,7 +176,7 @@
           color: var(--color-white);
           border-radius: 2px;
           &:hover {
-            background-color: var(--color-primary-light);
+            background-color: #e6eeff;
             color: var(--color-white);
           }
           &.highlighted {
