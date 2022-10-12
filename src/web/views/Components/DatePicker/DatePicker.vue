@@ -10,6 +10,8 @@
           <template #module>
             <BIMDataDatePicker
               v-model="selectedDate"
+              @to-date-change="toDate = $event"
+              :toDate="toDate"
               :language="languageSelection"
               :firstDayOfWeek="daySelection"
               :clearButton="isClearButton"
@@ -20,9 +22,12 @@
               :yearPickerRange="Number(yearPickerRange)"
               :fullMonthName="true"
               placeholder="Label here"
+              :isDateRange="isMultipleRange"
+              :autoCloseRange="isAutoCloseRange"
             >
             </BIMDataDatePicker>
             <span class="m-t-18">{{ selectedDate }}</span>
+            <span class="m-t-18" v-if="isMultipleRange">{{ toDate }}</span>
           </template>
 
           <template #parameters>
@@ -65,6 +70,15 @@
             </div>
             <BIMDataCheckbox text="Clear button" v-model="isClearButton" />
             <BIMDataCheckbox text="Show Edge Dates" v-model="isShowEdgeDates" />
+            <BIMDataCheckbox
+              text="Selected range dates"
+              v-model="isMultipleRange"
+            />
+            <BIMDataCheckbox
+              text="Auto close picker date"
+              :disabled="!isMultipleRange"
+              v-model="isAutoCloseRange"
+            />
           </template>
           <template #code>
             <pre>
@@ -78,6 +92,8 @@
                 :showEdgeDates="{{ isShowEdgeDates }}"
                 :format="{{ formatSelection }}"
                 :yearPickerRange="{{ yearPickerRange }}"
+                :isDateRange="{{ isMultipleRange }}"
+                :autoCloseRange="{{ isAutoCloseRange }}"
               &gt;
                 &lt;template #beforeDateInput&gt;
                   &lt;BIMDataIcon name="close" fill color="default" /&gt;
@@ -156,11 +172,17 @@ export default {
     ComponentCode,
   },
   data() {
+    const toDate = new Date();
+    toDate.setDate(toDate.getDate() + 2);
+
     return {
       date: new Date(),
       selectedDate: new Date(),
+      toDate: toDate,
       isClearButton: true,
       isShowEdgeDates: true,
+      isMultipleRange: false,
+      isAutoCloseRange: false,
       languageOptions: languageOptions,
       languageSelection: "en",
       dayOptions: dayOptions,

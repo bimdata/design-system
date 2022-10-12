@@ -16,6 +16,7 @@
       @keydown.down.prevent="handleArrow(id, columns)"
       @keydown.left.prevent="handleArrow(id)"
       @keydown.right.prevent="handleArrow(id)"
+      @mouseover="$emit('hover', cell)"
     >
       <slot :cell="cell" />
     </button>

@@ -62,6 +62,18 @@ export default [
     "CSS class(es) applied to the input element"
   ],
   [
+    "isAutoCloseRange",
+    "Boolean",
+    "false",
+    "Props valid only in 'range' mode. Allows you to automatically close the date picker after selecting a 'to date'. In single date selection, the datepicker closes automatically."
+  ],
+  [
+    "isMultipleRange",
+    "Boolean",
+    "false",
+    "Allows you to switch the datepicker to 'range date' and select a start and end date."
+  ],
+  [
     "language",
     "Object",
     "en",

@@ -50,6 +50,7 @@
             view="day"
             @arrow="handleArrow($event)"
             @select="select($event)"
+            @hover="hover($event)"
           >
             <slot name="dayCellContent" :cell="cell">
               {{ dayCellContent(cell) }}
@@ -77,6 +78,14 @@ export default {
   components: { PickerCells, UpButton },
   mixins: [pickerMixin],
   props: {
+    selectedToDate: {
+      type: Date,
+      default: null,
+    },
+    isDateRange: {
+      type: Boolean,
+      default: false,
+    },
     dayCellContent: {
       type: Function,
       default: day => day.date,
@@ -84,12 +93,6 @@ export default {
     firstDayOfWeek: {
       type: String,
       default: "sun",
-    },
-    highlighted: {
-      type: Object,
-      default() {
-        return {};
-      },
     },
     showFullMonthName: {
       type: Boolean,
@@ -99,6 +102,11 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      highlightedToDate: null,
+    };
   },
   computed: {
     /**
@@ -182,16 +190,17 @@ export default {
       const d = new Date(this.pageDate);
       return new Date(this.utils.setMonth(d, this.utils.getMonth(d) + 1));
     },
-    /**
-     * A look-up object created from 'highlighted' prop
-     * @return {Object}
-     */
-    highlightedConfig() {
-      return new HighlightedDate(
-        this.utils,
-        this.disabledDates,
-        this.highlighted
-      ).config;
+    highlightedRange() {
+      if (this.selectedDate && !this.selectedToDate) {
+        return new HighlightedDate(this.utils, this.disabledDates, {
+          from: this.selectedDate,
+          to: this.highlightedToDate,
+        });
+      }
+      return new HighlightedDate(this.utils, this.disabledDates, {
+        from: this.selectedDate,
+        to: this.selectedToDate,
+      });
     },
     /**
      * Is the next month disabled?
@@ -277,11 +286,7 @@ export default {
     isHighlightedDate(date) {
       const dateWithoutTime = this.utils.resetDateTime(date);
 
-      return new HighlightedDate(
-        this.utils,
-        this.disabledDates,
-        this.highlighted
-      ).isDateHighlighted(dateWithoutTime);
+      return this.highlightedRange.isDateHighlighted(dateWithoutTime);
     },
     /**
      * Whether a day is highlighted and it is the last date
@@ -290,7 +295,7 @@ export default {
      * @return {Boolean}
      */
     isHighlightEnd(date) {
-      const config = this.highlightedConfig;
+      const config = this.highlightedRange.config;
 
       return (
         this.isHighlightedDate(date) &&
@@ -306,7 +311,7 @@ export default {
      * @return {Boolean}
      */
     isHighlightStart(date) {
-      const config = this.highlightedConfig;
+      const config = this.highlightedRange.config;
 
       return (
         this.isHighlightedDate(date) &&
@@ -321,7 +326,13 @@ export default {
      * @return {Boolean}
      */
     isSelectedDate(dObj) {
-      return this.utils.compareDates(this.selectedDate, dObj);
+      return (
+        this.utils.compareDates(this.selectedDate, dObj) ||
+        (this.isDateRange && this.utils.compareDates(this.selectedToDate, dObj))
+      );
+    },
+    hover(cell) {
+      this.highlightedToDate = new Date(cell.timestamp);
     },
     /**
      * Defines the objects within the days array
@@ -342,9 +353,11 @@ export default {
         timestamp: dObj.valueOf(),
         isSelected: this.isSelectedDate(dObj),
         isDisabled: showDate ? this.isDisabledDate(dObj) : true,
-        isHighlighted: this.isHighlightedDate(dObj),
-        isHighlightStart: this.isHighlightStart(dObj),
-        isHighlightEnd: this.isHighlightEnd(dObj),
+        isHighlighted: this.isDateRange ? this.isHighlightedDate(dObj) : false,
+        isHighlightStart: this.isDateRange
+          ? this.isHighlightStart(dObj)
+          : false,
+        isHighlightEnd: this.isDateRange ? this.isHighlightEnd(dObj) : false,
         isOpenDate: this.utils.compareDates(dObj, this.openDate),
         isToday: this.utils.compareDates(dObj, new Date()),
         isWeekend: isSaturday || isSunday,

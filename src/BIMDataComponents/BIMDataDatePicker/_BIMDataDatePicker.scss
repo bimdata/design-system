@@ -49,10 +49,6 @@
       width: 100%;
       background: #fff;
     }
-    .today {
-      background-color: var(--color-primary-lighter);
-      color: var(--color-primary);
-    }
     * {
       box-sizing: border-box;
     }
@@ -96,7 +92,7 @@
         flex: 1;
         color: var(--color-primary);
         &:hover:not(:disabled) {
-          background: var(--color-silver-light);
+          background-color: #e6eeff;
         }
         &__up {
           color: var(--color-primary);
@@ -138,7 +134,7 @@
       &.month:not(.disabled),
       &.year:not(.disabled) {
         &:hover {
-          background-color: var(--color-silver-light);
+          background-color: #e6eeff;
           border-radius: 2px;
         }
         &:focus {
@@ -147,12 +143,29 @@
       }
       &.day {
         padding: 0;
-        height: 22px;
-        flex: 24px;
+        height: 33px;
+        width: 22px;
+        flex: 33px;
         color: var(--color-granite-light);
         &.today {
-          background-color: var(--color-primary-lighter);
           color: var(--color-primary);
+          font-weight: bold;
+          position: relative;
+          &::after {
+            width: 12px;
+            background-color: currentcolor;
+            bottom: 6px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+          }
+        }
+      }
+      &.day.highlighted {
+        &.highlight-end {
+          background-color: #e1ebff;
         }
       }
       &.day,
@@ -172,8 +185,7 @@
         }
       }
       &.highlighted {
-        background-color: var(--color-secondary);
-        color: var(--color-primary);
+        background-color: #f0f5ff;
         &.disabled {
           color: #accad2;
         }
@@ -186,16 +198,19 @@
             color: #e2ebfa;
           }
         }
+        &.disabled.highlighted {
+          background-color: transparent;
+        }
       }
     }
     .day-header {
       padding: 0 12px;
       display: flex;
-      gap: 0 13px;
+      gap: 0;
       color: var(--color-primary);
       span {
         height: 40px;
-        width: 25.4px;
+        width: 36.5px;
         display: inline-block;
         font-size: 75%;
         line-height: 40px;
@@ -216,7 +231,6 @@
       .picker-cells {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px 13px;
         transition: all 250ms ease-in-out;
       }
     }
