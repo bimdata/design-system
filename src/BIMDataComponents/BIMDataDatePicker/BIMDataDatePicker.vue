@@ -216,6 +216,10 @@ export default {
     event: "update:modelValue",
   },
   props: {
+    autoCloseRange: {
+      type: Boolean,
+      default: false,
+    },
     modelValue: {
       type: Date,
     },
@@ -651,7 +655,7 @@ export default {
       this.focus.delay = cell.isNextMonth ? this.slideDuration : 0;
       this.focus.refs = this.isInline ? ["tabbableCell"] : ["input"];
 
-      if (!this.isDateRange) {
+      if (!this.isDateRange || (this.selectedToDate && this.autoCloseRange)) {
         this.close();
       }
 
