@@ -86,6 +86,7 @@
                 :showEdgeDates="{{ isShowEdgeDates }}"
                 :format="{{ formatSelection }}"
                 :yearPickerRange="{{ yearPickerRange }}"
+                :isDateRange="{{ isMultipleRange }}"
               &gt;
                 &lt;template #beforeDateInput&gt;
                   &lt;BIMDataIcon name="close" fill color="default" /&gt;
