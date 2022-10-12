@@ -23,6 +23,7 @@
               :fullMonthName="true"
               placeholder="Label here"
               :isDateRange="isMultipleRange"
+              :autoCloseRange="isAutoCloseRange"
             >
             </BIMDataDatePicker>
             <span class="m-t-18">{{ selectedDate }}</span>
@@ -73,6 +74,11 @@
               text="Selected range dates"
               v-model="isMultipleRange"
             />
+            <BIMDataCheckbox
+              text="Auto close picker date"
+              :disabled="!isMultipleRange"
+              v-model="isAutoCloseRange"
+            />
           </template>
           <template #code>
             <pre>
@@ -87,6 +93,7 @@
                 :format="{{ formatSelection }}"
                 :yearPickerRange="{{ yearPickerRange }}"
                 :isDateRange="{{ isMultipleRange }}"
+                :autoCloseRange="{{ isAutoCloseRange }}"
               &gt;
                 &lt;template #beforeDateInput&gt;
                   &lt;BIMDataIcon name="close" fill color="default" /&gt;
@@ -174,7 +181,8 @@ export default {
       toDate: toDate,
       isClearButton: true,
       isShowEdgeDates: true,
-      isMultipleRange: true,
+      isMultipleRange: false,
+      isAutoCloseRange: false,
       languageOptions: languageOptions,
       languageSelection: "en",
       dayOptions: dayOptions,
