@@ -176,7 +176,7 @@
           color: var(--color-white);
           border-radius: 2px;
           &:hover {
-            background-color: #e6eeff;
+            background-color: var(--color-primary-light);
             color: var(--color-white);
           }
           &.highlighted {
