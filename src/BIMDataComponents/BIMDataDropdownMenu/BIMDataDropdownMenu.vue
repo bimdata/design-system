@@ -1,24 +1,28 @@
 <template>
-  <div class="bimdata-dropdown" v-clickaway="away" :direction="directionClass">
-    <div
-      class="bimdata-dropdown__content"
-      :class="{ active: displayed, disabled }"
-      @click="onHeaderClick"
-      :style="style"
-    >
-      <slot name="header"></slot>
-      <slot name="contentAfterHeader"></slot>
-    </div>
+  <div class="bimdata-dropdown" v-clickaway="away">
+    <template v-if="header">
+      <div
+        ref="header"
+        class="bimdata-dropdown__content"
+        :class="{ active: displayed, disabled }"
+        @click="onHeaderClick"
+        :style="style"
+      >
+        <slot name="header"></slot>
+        <slot name="contentAfterHeader"></slot>
+      </div>
+    </template>
     <transition :name="`slide-fade-${transitionName}`">
       <div
         v-show="displayed"
         class="submenu bimdata-dropdown__elements"
-        :class="`submenu--${directionClass}`"
+        :class="`submenu--${header ? directionClass : 'no-direction'}`"
         @click="away()"
       >
         <template v-if="menuItems && menuItems.length > 0">
           <ul class="bimdata-dropdown__elements__menu-items">
             <li
+              :ref="`item-${item.name}`"
               v-for="item in menuItems"
               :key="item.name"
               class="bimdata-dropdown__elements__menu-items__item"
@@ -33,9 +37,16 @@
               <template v-if="item.children">
                 <BIMDataIcon name="chevron" size="xxs" />
                 <ul
-                  v-show="isItemHover && currentItemName === item.name"
+                  :ref="`children-${item.name}`"
                   class="bimdata-dropdown__elements__menu-items__item__children"
-                  :style="{ maxHeight: subListMaxHeight }"
+                  :style="{
+                    visibility:
+                      isItemHover && currentItemName === item.name
+                        ? 'visible'
+                        : 'hidden',
+                    maxHeight: subListMaxHeight,
+                    top: `${definePos(item.name)}px`,
+                  }"
                 >
                   <li
                     v-for="child in item.children"
@@ -79,7 +90,7 @@ export default {
       type: String,
       default: "down",
       validator: directionClass =>
-        ["down", "up", "right", "left"].includes(directionClass),
+        ["down", "up", "right", "left", "none"].includes(directionClass),
     },
     width: {
       type: String,
@@ -100,6 +111,7 @@ export default {
   },
   data() {
     return {
+      header: true,
       displayed: false,
       isItemHover: false,
       currentItemName: null,
@@ -113,7 +125,22 @@ export default {
       };
     },
   },
+  mounted() {
+    const hasHeader = this.$refs.header.innerHTML !== "";
+    this.header = hasHeader;
+    this.displayed = !hasHeader;
+  },
   methods: {
+    definePos(name) {
+      if (!this.$refs["item-" + name] || !this.$refs["children-" + name]) {
+        return;
+      }
+      const itemPos = this.$refs["item-" + name][0].getBoundingClientRect();
+      const childPos =
+        this.$refs["children-" + name][0].getBoundingClientRect();
+
+      return (childPos.height - itemPos.height) * -1;
+    },
     onHeaderClick() {
       if (!this.disabled) {
         this.displayed = !this.displayed;
