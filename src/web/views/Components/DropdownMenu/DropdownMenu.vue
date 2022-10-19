@@ -184,7 +184,7 @@ export default {
           "directionClass",
           "String",
           "'down'",
-          "'up', 'down', 'right', 'left' or 'none' values",
+          "'up', 'down', 'right' or 'left' values",
           "Use this props to choose the opening of the submenu.",
         ],
         [

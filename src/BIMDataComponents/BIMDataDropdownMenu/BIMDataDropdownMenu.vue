@@ -90,7 +90,7 @@ export default {
       type: String,
       default: "down",
       validator: directionClass =>
-        ["down", "up", "right", "left", "none"].includes(directionClass),
+        ["down", "up", "right", "left"].includes(directionClass),
     },
     width: {
       type: String,
