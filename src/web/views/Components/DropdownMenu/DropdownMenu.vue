@@ -92,6 +92,7 @@
           <pre>
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
+              {{ getMenuItems() }}
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
@@ -152,22 +153,23 @@ export default {
       multiLevelList: [
         {
           name: "project1",
-          children: [
-            { name: "project1.1" },
-            { name: "project1.2" },
-            { name: "project1.3" },
-          ],
+          children: {
+            position: "up",
+            list: [{ name: "project1.1" }],
+          },
         },
-        { name: "project2", action: () => console.log("I'm clicked") },
+        { name: "project2", action: () => console.log("clicked") },
         {
           name: "project3",
-          children: [
-            {
-              name: "project3.1",
-              action: () => console.log("I'm clicked"),
-            },
-            { name: "project3.2" },
-          ],
+          children: {
+            list: [
+              {
+                name: "project3.1",
+                action: () => console.log("clicked"),
+              },
+              { name: "project3.2" },
+            ],
+          },
         },
       ],
       propsData: [
@@ -255,6 +257,11 @@ export default {
               </ul>
             </template>
             `;
+      }
+    },
+    getMenuItems() {
+      if (this.checkboxTwoLevelChecked) {
+        return `:menuItems=${JSON.stringify(this.multiLevelList)}`;
       }
     },
   },

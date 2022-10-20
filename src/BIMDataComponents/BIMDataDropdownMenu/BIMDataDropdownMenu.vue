@@ -1,22 +1,27 @@
 <template>
-  <div class="bimdata-dropdown" v-clickaway="away">
-    <template v-if="header">
-      <div
-        ref="header"
-        class="bimdata-dropdown__content"
-        :class="{ active: displayed, disabled }"
-        @click="onHeaderClick"
-        :style="style"
-      >
-        <slot name="header"></slot>
-        <slot name="contentAfterHeader"></slot>
-      </div>
-    </template>
+  <div ref="dropdown" class="bimdata-dropdown" v-clickaway="away">
+    <div
+      ref="header"
+      class="bimdata-dropdown__content"
+      :class="{ active: displayed, disabled }"
+      @click="onHeaderClick"
+      :style="style"
+    >
+      <slot name="header"></slot>
+      <slot name="contentAfterHeader"></slot>
+    </div>
+
     <transition :name="`slide-fade-${transitionName}`">
       <div
         v-show="displayed"
         class="submenu bimdata-dropdown__elements"
-        :class="`submenu--${header ? directionClass : 'no-direction'}`"
+        :class="[
+          { 'no-header': !header },
+          `submenu--${header ? directionClass : 'no-direction'}`,
+        ]"
+        :style="{
+          width: !header && width,
+        }"
         @click="away()"
       >
         <template v-if="menuItems && menuItems.length > 0">
@@ -45,11 +50,11 @@
                         ? 'visible'
                         : 'hidden',
                     maxHeight: subListMaxHeight,
-                    top: `${definePos(item.name)}px`,
+                    top: `${definePos(item)}px`,
                   }"
                 >
                   <li
-                    v-for="child in item.children"
+                    v-for="child in item.children.list"
                     :key="child.name"
                     @click="child.action && child.action()"
                   >
@@ -61,7 +66,7 @@
           </ul>
         </template>
         <template v-else>
-          <slot name="element"></slot>
+          <slot class="bimdata-dropdown__elements__slot" name="element"></slot>
         </template>
       </div>
     </transition>
@@ -122,22 +127,42 @@ export default {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
+        visibility: this.header ? "visible" : "hidden",
       };
     },
   },
   mounted() {
-    const hasHeader = this.$refs.header.innerHTML !== "";
-    this.header = hasHeader;
-    this.displayed = !hasHeader;
+    this.mutationObserver = new MutationObserver(this.isHeaderDisplayed);
+    this.mutationObserver.observe(this.$refs.dropdown, {
+      childList: true,
+      subtree: true,
+    });
   },
   methods: {
-    definePos(name) {
-      if (!this.$refs["item-" + name] || !this.$refs["children-" + name]) {
+    isHeaderDisplayed() {
+      this.header = this.$refs.header.innerHTML !== "";
+
+      if (!this.header) {
+        this.displayed = true;
+      }
+    },
+    definePos(item) {
+      if (!item.children.position || !item.children.position === "up") return 0;
+
+      const currentItem = this.$refs["item-" + item.name];
+      const currentChild = this.$refs["children-" + item.name];
+
+      if (
+        currentItem == undefined ||
+        currentItem.length < 1 ||
+        currentChild == undefined ||
+        currentChild.length < 1
+      ) {
         return;
       }
-      const itemPos = this.$refs["item-" + name][0].getBoundingClientRect();
-      const childPos =
-        this.$refs["children-" + name][0].getBoundingClientRect();
+
+      const itemPos = currentItem[0].getBoundingClientRect();
+      const childPos = currentChild[0].getBoundingClientRect();
 
       return (childPos.height - itemPos.height) * -1;
     },

@@ -37,8 +37,17 @@
   &__elements {
     font-size: 11px;
 
+    &.no-header {
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
     &__menu-items {
       padding-left: 0px;
+      overflow: visible;
       margin: 0;
 
       &__item {
@@ -69,7 +78,7 @@
       }
     }
 
-    &:first-child {
+    &:first-child :not(&__menu-items) {
       padding: calc(#{var(--spacing-unit)} / 2) 0;
       overflow: auto;
       z-index: 1;
