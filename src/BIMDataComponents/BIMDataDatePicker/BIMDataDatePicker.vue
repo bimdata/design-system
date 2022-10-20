@@ -331,6 +331,7 @@ export default {
     "selected",
     "closed",
     "cleared",
+    "to-date-change",
   ],
   data() {
     const utils = makeDateUtils(this.useUtc);
