@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-dropdown" v-clickaway="away" :direction="directionClass">
+  <div class="bimdata-dropdown" v-clickaway="away">
     <div
       class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
@@ -9,16 +9,24 @@
       <slot name="header"></slot>
       <slot name="contentAfterHeader"></slot>
     </div>
+
     <transition :name="`slide-fade-${transitionName}`">
       <div
         v-show="displayed"
         class="submenu bimdata-dropdown__elements"
-        :class="`submenu--${directionClass}`"
+        :class="[
+          { 'no-header': !menuHeader },
+          `submenu--${menuHeader ? directionClass : 'no-direction'}`,
+        ]"
+        :style="{
+          width: !menuHeader && width,
+        }"
         @click="away()"
       >
         <template v-if="menuItems && menuItems.length > 0">
           <ul class="bimdata-dropdown__elements__menu-items">
             <li
+              :ref="`item-${item.name}`"
               v-for="item in menuItems"
               :key="item.name"
               class="bimdata-dropdown__elements__menu-items__item"
@@ -33,12 +41,19 @@
               <template v-if="item.children">
                 <BIMDataIcon name="chevron" size="xxs" />
                 <ul
-                  v-show="isItemHover && currentItemName === item.name"
+                  :ref="`children-${item.name}`"
                   class="bimdata-dropdown__elements__menu-items__item__children"
-                  :style="{ maxHeight: subListMaxHeight }"
+                  :style="{
+                    visibility:
+                      isItemHover && currentItemName === item.name
+                        ? 'visible'
+                        : 'hidden',
+                    maxHeight: subListMaxHeight,
+                    top: `${definePos(item)}px`,
+                  }"
                 >
                   <li
-                    v-for="child in item.children"
+                    v-for="child in item.children.list"
                     :key="child.name"
                     @click="child.action && child.action()"
                   >
@@ -50,7 +65,7 @@
           </ul>
         </template>
         <template v-else>
-          <slot name="element"></slot>
+          <slot class="bimdata-dropdown__elements__slot" name="element"></slot>
         </template>
       </div>
     </transition>
@@ -93,6 +108,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    header: {
+      type: Boolean,
+      default: true,
+    },
     subListMaxHeight: {
       type: String,
       default: "auto",
@@ -100,6 +119,7 @@ export default {
   },
   data() {
     return {
+      menuHeader: true,
       displayed: false,
       isItemHover: false,
       currentItemName: null,
@@ -110,10 +130,40 @@ export default {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
+        visibility: this.menuHeader ? "visible" : "hidden",
       };
     },
   },
+  watch: {
+    header: {
+      immediate: true,
+      handler(header) {
+        this.menuHeader = header;
+        if (!header) this.displayed = true;
+      },
+    },
+  },
   methods: {
+    definePos(item) {
+      if (!item.children.position || !item.children.position === "up") return 0;
+
+      const currentItem = this.$refs["item-" + item.name];
+      const currentChild = this.$refs["children-" + item.name];
+
+      if (
+        currentItem == undefined ||
+        currentItem.length < 1 ||
+        currentChild == undefined ||
+        currentChild.length < 1
+      ) {
+        return;
+      }
+
+      const itemPos = currentItem[0].getBoundingClientRect();
+      const childPos = currentChild[0].getBoundingClientRect();
+
+      return (childPos.height - itemPos.height) * -1;
+    },
     onHeaderClick() {
       if (!this.disabled) {
         this.displayed = !this.displayed;

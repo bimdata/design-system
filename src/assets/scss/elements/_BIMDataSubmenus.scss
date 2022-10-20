@@ -23,7 +23,8 @@
   &--up,
   &--down,
   &--right,
-  &--left {
+  &--left,
+  &--no-direction {
     padding: calc(var(--spacing-unit) / 2) 0;
     width: 100%;
     left: 0;

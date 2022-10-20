@@ -12,6 +12,7 @@
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
+            :header="checkboxDisabledHeader"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
@@ -36,6 +37,12 @@
             class="m-y-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="header"
+            v-model="checkboxDisabledHeader"
           >
           </BIMDataCheckbox>
           <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
@@ -92,6 +99,8 @@
           <pre>
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
+              :header="{{ getHeaderProp() }}"
+              {{ getMenuItems() }}
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
@@ -138,7 +147,8 @@ export default {
     return {
       checkboxDisabledChecked: false,
       checkboxTwoLevelChecked: false,
-      checkboxHeaderChecked: true,
+      checkboxHeaderChecked: false,
+      checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
       checkboxElementSlotChecked: false,
       customListCheckbox: false,
@@ -152,22 +162,23 @@ export default {
       multiLevelList: [
         {
           name: "project1",
-          children: [
-            { name: "project1.1" },
-            { name: "project1.2" },
-            { name: "project1.3" },
-          ],
+          children: {
+            position: "up",
+            list: [{ name: "project1.1" }],
+          },
         },
-        { name: "project2", action: () => console.log("I'm clicked") },
+        { name: "project2", action: () => console.log("clicked") },
         {
           name: "project3",
-          children: [
-            {
-              name: "project3.1",
-              action: () => console.log("I'm clicked"),
-            },
-            { name: "project3.2" },
-          ],
+          children: {
+            list: [
+              {
+                name: "project3.1",
+                action: () => console.log("clicked"),
+              },
+              { name: "project3.2" },
+            ],
+          },
         },
       ],
       propsData: [
@@ -200,6 +211,13 @@ export default {
           "36px",
           "",
           "Use this props to custom height of BIMDataDropdownList component.",
+        ],
+        [
+          "header",
+          "Boolean",
+          "true",
+          "",
+          "Use this props to not display the header.",
         ],
         [
           "menuItems",
@@ -255,6 +273,18 @@ export default {
               </ul>
             </template>
             `;
+      }
+    },
+    getMenuItems() {
+      if (this.checkboxTwoLevelChecked) {
+        return `:menuItems=${JSON.stringify(this.multiLevelList)}`;
+      }
+    },
+    getHeaderProp() {
+      if (this.checkboxDisabledHeader) {
+        return true;
+      } else {
+        return false;
       }
     },
   },
