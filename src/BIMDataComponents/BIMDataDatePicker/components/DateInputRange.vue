@@ -54,7 +54,7 @@
     <!-- Clear Button -->
     <BIMDataButton
       :disabled="disabled"
-      v-if="clearButton && isNoDatesSelecteed"
+      v-if="clearButton && noDateSelected"
       class="bimdata-datepicker__clear-button"
       color="primary"
       fill
@@ -117,7 +117,7 @@ export default {
     formattedValue() {
       return this.formatDates(this.selectedDates);
     },
-    isNoDatesSelecteed() {
+    noDateSelected() {
       return this.selectedDates.every(selectedDate => selectedDate === null);
     },
   },
