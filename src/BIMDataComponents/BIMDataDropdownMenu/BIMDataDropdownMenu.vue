@@ -16,11 +16,11 @@
         v-show="displayed"
         class="submenu bimdata-dropdown__elements"
         :class="[
-          { 'no-header': !header },
-          `submenu--${header ? directionClass : 'no-direction'}`,
+          { 'no-header': !menuHeader },
+          `submenu--${menuHeader ? directionClass : 'no-direction'}`,
         ]"
         :style="{
-          width: !header && width,
+          width: !menuHeader && width,
         }"
         @click="away()"
       >
@@ -109,6 +109,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    header: {
+      type: Boolean,
+      default: true,
+    },
     subListMaxHeight: {
       type: String,
       default: "auto",
@@ -116,7 +120,7 @@ export default {
   },
   data() {
     return {
-      header: true,
+      menuHeader: true,
       displayed: false,
       isItemHover: false,
       currentItemName: null,
@@ -127,25 +131,20 @@ export default {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
-        visibility: this.header ? "visible" : "hidden",
+        visibility: this.menuHeader ? "visible" : "hidden",
       };
     },
   },
-  mounted() {
-    this.mutationObserver = new MutationObserver(this.isHeaderDisplayed);
-    this.mutationObserver.observe(this.$refs.dropdown, {
-      childList: true,
-      subtree: true,
-    });
+  watch: {
+    header: {
+      immediate: true,
+      handler(header) {
+        this.menuHeader = header;
+        if (!header) this.displayed = true;
+      },
+    },
   },
   methods: {
-    isHeaderDisplayed() {
-      this.header = this.$refs.header.innerHTML !== "";
-
-      if (!this.header) {
-        this.displayed = true;
-      }
-    },
     definePos(item) {
       if (!item.children.position || !item.children.position === "up") return 0;
 

@@ -12,6 +12,7 @@
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
+            :header="checkboxDisabledHeader"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
@@ -36,6 +37,12 @@
             class="m-y-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
+          >
+          </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="header"
+            v-model="checkboxDisabledHeader"
           >
           </BIMDataCheckbox>
           <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
@@ -92,6 +99,7 @@
           <pre>
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
+              :header="{{ getHeaderProp() }}"
               {{ getMenuItems() }}
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
@@ -139,7 +147,8 @@ export default {
     return {
       checkboxDisabledChecked: false,
       checkboxTwoLevelChecked: false,
-      checkboxHeaderChecked: true,
+      checkboxHeaderChecked: false,
+      checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
       checkboxElementSlotChecked: false,
       customListCheckbox: false,
@@ -204,6 +213,13 @@ export default {
           "Use this props to custom height of BIMDataDropdownList component.",
         ],
         [
+          "header",
+          "Boolean",
+          "true",
+          "",
+          "Use this props to not display the header.",
+        ],
+        [
           "menuItems",
           "Array",
           "[]",
@@ -262,6 +278,13 @@ export default {
     getMenuItems() {
       if (this.checkboxTwoLevelChecked) {
         return `:menuItems=${JSON.stringify(this.multiLevelList)}`;
+      }
+    },
+    getHeaderProp() {
+      if (this.checkboxDisabledHeader) {
+        return true;
+      } else {
+        return false;
       }
     },
   },
