@@ -1,7 +1,6 @@
 <template>
-  <div ref="dropdown" class="bimdata-dropdown" v-clickaway="away">
+  <div class="bimdata-dropdown" v-clickaway="away">
     <div
-      ref="header"
       class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
       @click="onHeaderClick"
