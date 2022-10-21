@@ -21,7 +21,7 @@
         :style="{
           width: !menuHeader && width,
         }"
-        @click="away()"
+        @click="menuHeader && away()"
       >
         <template v-if="menuItems && menuItems.length > 0">
           <ul class="bimdata-dropdown__elements__menu-items">
