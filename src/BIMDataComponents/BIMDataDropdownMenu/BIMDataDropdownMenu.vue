@@ -195,7 +195,7 @@ export default {
     },
     hasNoChildren(item) {
       const { children } = item;
-      return children && children.length === 0;
+      return children && children.list.length === 0;
     },
   },
 };
