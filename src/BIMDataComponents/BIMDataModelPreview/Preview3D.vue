@@ -14,6 +14,10 @@
 </template>
 
 <script>
+/**
+ * Note:
+ * 3D model preview images should be composed of *15 SQUARE SLICES* to be displayed properly.
+ */
 const NB_SLICES = 15;
 
 export default {
