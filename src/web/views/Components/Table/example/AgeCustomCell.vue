@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataInput from "../../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 export default {
   components: {

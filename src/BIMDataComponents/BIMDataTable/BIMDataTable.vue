@@ -28,10 +28,7 @@
             </th>
           </tr>
           <tr key="head-row-1">
-            <th
-              class="cell-sub-header"
-              :colspan="columns.length + (selectable ? 1 : 0)"
-            >
+            <th class="cell-sub-header" :colspan="columns.length + selectable">
               <slot name="sub-header"></slot>
             </th>
           </tr>
@@ -58,7 +55,7 @@
               }"
             >
               <slot :name="`cell-${column.id}`" :row="row">
-                {{ row[column.id] || row[j] || "" }}
+                {{ row[column.id || j] }}
               </slot>
             </td>
           </tr>
@@ -221,7 +218,7 @@ export default {
       });
     };
 
-    // `fullSelectionRef` controls whether all rows are (un)selected at once.
+    // `fullSelectionRef` controls whether all rows are (de)selected at once.
     const fullSelectionRef = ref(false);
     watch(fullSelectionRef, checked => {
       if (props.selectable) {
