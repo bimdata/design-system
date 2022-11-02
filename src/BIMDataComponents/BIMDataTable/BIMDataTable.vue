@@ -27,23 +27,31 @@
               {{ column.id ? column.label || column.id : column }}
             </th>
           </tr>
+          <tr key="head-row-1">
+            <th
+              class="cell-sub-header"
+              :colspan="columns.length + (selectable ? 1 : 0)"
+            >
+              <slot name="sub-header"></slot>
+            </th>
+          </tr>
         </thead>
         <tbody>
           <tr
             v-for="(row, i) of rows"
-            :key="`body-row-${i}`"
+            :key="`body-row-${rowKey ? row[rowKey] : i}`"
             v-show="displayedRows.includes(i)"
             :style="{ height: `${rowHeight}px` }"
           >
             <td class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
                 :modelValue="selection.has(i)"
-                @update:modelValue="toggleSelection(i)"
+                @update:modelValue="toggleRowSelection(i)"
               />
             </td>
             <td
               v-for="(column, j) of columns"
-              :key="`body-row-${i}-col-${j}`"
+              :key="`body-row-${rowKey ? row[rowKey] : i}-col-${j}`"
               :style="{
                 width: column.width || 'auto',
                 textAlign: column.align || 'left',
@@ -58,12 +66,14 @@
       </table>
       <div
         class="bimdata-table__container__placeholder"
-        v-if="rows.length === 0 && placeholder"
+        v-if="rows.length === 0"
         :style="{
-          height: `calc(100% - ${rowHeight}px)`,
+          height: `calc(100% - ${placeholder ? rowHeight : 0}px)`,
         }"
       >
-        {{ placeholder }}
+        <slot name="placeholder">
+          {{ placeholder }}
+        </slot>
       </div>
     </div>
     <div
@@ -75,19 +85,19 @@
         ghost
         rounded
         icon
-        :disabled="pageStartIndex === 1"
+        :disabled="pageIndexStart === 1"
         @click="pageIndex--"
       >
         <BIMDataIconChevron size="s" :rotate="180" />
       </BIMDataButton>
       <span class="bimdata-table__page-nav__text">
-        {{ `${pageStartIndex} - ${pageEndIndex} of ${rows.length}` }}
+        {{ `${pageIndexStart} - ${pageIndexEnd} / ${rows.length}` }}
       </span>
       <BIMDataButton
         ghost
         rounded
         icon
-        :disabled="pageEndIndex === rows.length"
+        :disabled="pageIndexEnd === rows.length"
         @click="pageIndex++"
       >
         <BIMDataIconChevron size="s" />
@@ -97,6 +107,8 @@
 </template>
 
 <script>
+import { ref, watch } from "vue";
+// Components
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
@@ -115,6 +127,9 @@ export default {
     rows: {
       type: Array,
       required: true,
+    },
+    rowKey: {
+      type: String,
     },
     rowHeight: {
       type: Number,
@@ -148,122 +163,144 @@ export default {
   emits: [
     "selection-changed",
     "row-selected",
-    "row-unselected",
+    "row-deselected",
     "all-selected",
-    "all-unselected",
+    "all-deselected",
   ],
-  data() {
-    return {
-      displayedRows: [],
-      pageIndex: 0,
-      pageStartIndex: 1,
-      pageEndIndex: 1,
-      selection: new Map(),
-      selectionRefs: [],
-      oldSelectionRefs: [],
-      fullSelectionRef: false,
-    };
-  },
-  watch: {
-    rows: {
-      immediate: true,
-      handler(value) {
-        this.selection = new Map();
-        this.buildSelectionRefs(value, false);
-        this.setPagination();
-      },
-    },
-    paginated: {
-      immediate: true,
-      handler() {
-        this.setPagination();
-      },
-    },
-    perPage: {
-      immediate: true,
-      handler() {
-        this.pageIndex = 0;
-        this.setPagination();
-      },
-    },
-    pageIndex: {
-      immediate: true,
-      handler() {
-        this.setPagination();
-      },
-    },
-    selection: {
-      handler(map) {
-        this.$emit("selection-changed", Array.from(map.values()));
-      },
-    },
-    selectionRefs: {
-      handler(newValue) {
-        if (this.$props.selectable) {
-          const index = newValue.findIndex(
-            (s, i) => s !== this.oldSelectionRefs[i]
-          );
-          if (index !== -1) {
-            const checked = newValue[index];
-            const row = this.$props.rows[index];
-            if (checked) {
-              this.selection.set(index, row);
-              this.selection = new Map([...this.selection.entries()]);
-              this.$emit("row-selected", row);
-            } else {
-              this.selection.delete(index);
-              this.selection = new Map([...this.selection.entries()]);
-              this.$emit("row-unselected", row);
-            }
-          }
-        }
-      },
-    },
-    fullSelectionRef: {
-      handler(checked) {
-        if (this.$props.selectable) {
-          if (checked) {
-            this.selection = new Map([
-              ...this.$props.rows.map((row, i) => [i, row]),
-            ]);
-            this.buildSelectionRefs(this.$props.rows, true);
-            this.$emit("all-selected");
-          } else {
-            this.selection = new Map();
-            this.buildSelectionRefs(this.$props.rows, false);
-            this.$emit("all-unselected");
-          }
-        }
-      },
-    },
-  },
-  created() {
-    this.pageEndIndex = this.$props.perPage;
-  },
-  methods: {
-    buildSelectionRefs(rows, value) {
-      this.selectionRefs = Array.from(rows, () => value);
-    },
-    toggleFullSelection() {
-      this.fullSelectionRef = !this.fullSelectionRef;
-    },
-    toggleSelection(i) {
-      this.oldSelectionRefs = this.selectionRefs.slice();
-      this.selectionRefs.splice(i, 1, !this.selectionRefs[i]);
-    },
-    setPagination() {
-      const rowIndexes = this.$props.rows.map((_, i) => i);
-      if (this.$props.paginated) {
-        const start = this.$props.perPage * this.pageIndex;
-        const end = start + this.$props.perPage;
+  setup(props, { emit }) {
+    // `selection` ref is a map of currently selected rows where
+    // keys are rows' indexes and values the row objects.
+    const selection = ref(new Map());
+    watch(selection, map => {
+      // Emit a 'selection-changed' event with the array of selected
+      // row objects each time selection ref is updated.
+      emit("selection-changed", Array.from(map.values()));
+    });
 
-        this.displayedRows = rowIndexes.slice(start, end);
-        this.pageStartIndex = start + 1;
-        this.pageEndIndex = Math.min(end, this.$props.rows.length);
-      } else {
-        this.displayedRows = rowIndexes;
+    // `rowSelectionRefs` holds an array of ref that represent each
+    // row selection state together with its 'unwatch' function.
+    let rowSelectionRefs = [];
+
+    /**
+     * Stop every row selection watcher and reset the `rowSelectionRefs` array.
+     */
+    const resetRowSelectionRefs = () => {
+      rowSelectionRefs.forEach(selectionRef => selectionRef.unwatch());
+      rowSelectionRefs = [];
+    };
+
+    /**
+     * Reset the current `rowSelectionRefs` and create a new one from
+     * the given rows array with the given initial value.
+     * A watcher is attached to each selection ref in order to handle
+     * selection updates effects (e.g. event emission).
+     *
+     * @param {Array} rows an array of row objects
+     * @param {Boolean} value selection refs initial value
+     */
+    const buildRowSelectionRefs = (rows, value) => {
+      resetRowSelectionRefs();
+      rowSelectionRefs = rows.map((row, i) => {
+        const rr = ref(value);
+        return {
+          ref: rr,
+          unwatch: watch(rr, checked => {
+            if (props.selectable) {
+              if (checked) {
+                selection.value.set(i, row);
+                selection.value = new Map([...selection.value.entries()]);
+                emit("row-selected", row);
+              } else {
+                selection.value.delete(i);
+                selection.value = new Map([...selection.value.entries()]);
+                emit("row-deselected", row);
+              }
+            }
+          }),
+        };
+      });
+    };
+
+    // `fullSelectionRef` controls whether all rows are (un)selected at once.
+    const fullSelectionRef = ref(false);
+    watch(fullSelectionRef, checked => {
+      if (props.selectable) {
+        // When `fullSelectionRef` change, rebuild the rows' selection refs
+        // with corresponding initial value and emit the appropriate events.
+        if (checked) {
+          selection.value = new Map([...props.rows.map((row, i) => [i, row])]);
+          buildRowSelectionRefs(props.rows, true);
+          emit("all-selected");
+        } else {
+          selection.value = new Map();
+          buildRowSelectionRefs(props.rows, false);
+          emit("all-deselected");
+        }
       }
-    },
+    });
+
+    const toggleRowSelection = i => {
+      rowSelectionRefs[i].ref.value = !rowSelectionRefs[i].ref.value;
+    };
+    const toggleFullSelection = () => {
+      fullSelectionRef.value = !fullSelectionRef.value;
+    };
+
+    const displayedRows = ref([]);
+    const pageIndex = ref(0);
+    const pageIndexStart = ref(1);
+    const pageIndexEnd = ref(props.perPage);
+
+    // Reset selection when rows array change.
+    watch(
+      () => props.rows,
+      () => {
+        selection.value = new Map();
+        // `setTimeout` is needed here to avoid row selection issues
+        // when adding new rows. This is probably due to some Vue internal
+        // mechanism, no other workaround could be found for now.
+        setTimeout(() => buildRowSelectionRefs(props.rows, false));
+      },
+      { immediate: true }
+    );
+    // Reset `pageIndex` when rows array or the number of rows per page change.
+    watch(
+      [() => props.rows, () => props.perPage],
+      () => {
+        pageIndex.value = 0;
+      },
+      { immediate: true }
+    );
+    // Compute `displayedRows` according to rows array and pagination settings.
+    watch(
+      [() => props.rows, () => props.paginated, () => props.perPage, pageIndex],
+      () => {
+        const rowIndexes = props.rows.map((_, i) => i);
+        if (props.paginated) {
+          const start = props.perPage * pageIndex.value;
+          const end = start + props.perPage;
+
+          displayedRows.value = rowIndexes.slice(start, end);
+          pageIndexStart.value = start + 1;
+          pageIndexEnd.value = Math.min(end, props.rows.length);
+        } else {
+          displayedRows.value = rowIndexes;
+        }
+      },
+      { immediate: true }
+    );
+
+    return {
+      // References
+      displayedRows,
+      pageIndex,
+      pageIndexEnd,
+      pageIndexStart,
+      selection,
+      // Methods
+      toggleFullSelection,
+      toggleRowSelection,
+    };
   },
 };
 </script>

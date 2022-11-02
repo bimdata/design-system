@@ -179,7 +179,7 @@
           <pre>
             &lt;BIMDataTable :columns="columns" :rows="rows"&gt;
               &lt;template #cell-fullName="{ row }"&gt;
-                {{ "{{ `${row.firstName} ${row.lastName}` }" + "}" }}
+                {{ "{" + "{ `${row.firstName} ${row.lastName}` }" + "}" }}
               &lt;/template&gt;
               &lt;template #cell-age="{ row }"&gt;
                 &lt;AgeCustomCell :age="row.age" /&gt;
