@@ -60,6 +60,21 @@ export default Object.freeze([
     y: "200",
   },
   {
+    name: "shortcutOpen2D",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutRotate2D",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutZoom2D",
+    x: "200",
+    y: "200",
+  },
+  {
     name: "successSplit",
     x: "200",
     y: "200",
