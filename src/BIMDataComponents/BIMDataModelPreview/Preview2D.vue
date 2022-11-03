@@ -29,8 +29,6 @@
 </template>
 
 <script>
-const ZOOM_FACTOR = 3;
-
 export default {
   props: {
     width: {
@@ -44,6 +42,9 @@ export default {
     },
     defaultUrl: {
       type: String,
+    },
+    zoomFactor: {
+      type: Number,
     },
   },
   data() {
@@ -59,14 +60,14 @@ export default {
     },
     zoomTransform() {
       return `
-        translate(${this.zoomX}px, ${this.zoomY}px
-      )`;
+        translate(${this.zoomX}px, ${this.zoomY}px)
+      `;
     },
     zoomImageTransform() {
       return `
-        scale(${ZOOM_FACTOR})
-        translate(-${this.zoomX}px, -${this.zoomY}px
-      )`;
+        scale(${this.zoomFactor})
+        translate(-${this.zoomX}px, -${this.zoomY}px)
+      `;
     },
   },
   methods: {

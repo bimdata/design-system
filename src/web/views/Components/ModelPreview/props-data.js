@@ -36,5 +36,11 @@ export default [
     "String",
     "",
     "Preview 'background-color' CSS property"
+  ],
+  [
+    "zoomFactor",
+    "Number",
+    "3",
+    "*Preview 2D only*: set the scale factor of the preview 2D zoom"
   ]
 ];

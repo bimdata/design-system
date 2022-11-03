@@ -8,10 +8,11 @@
         <template #module>
           <BIMDataModelPreview
             :type="type"
+            :previewUrl="imgUrl"
             :width="width"
             :height="height"
             :backgroundColor="bgColor"
-            :previewUrl="imgUrl"
+            :zoomFactor="zoomFactor"
           />
         </template>
 
@@ -41,6 +42,13 @@
             placeholder="Background color"
             v-model="bgColor"
           />
+          <BIMDataInput
+            v-show="type === '2d'"
+            margin="24px 0"
+            type="number"
+            placeholder="Zoom factor"
+            v-model="zoomFactor"
+          />
         </template>
 
         <template #import>
@@ -51,11 +59,12 @@
         <template #code>
           <pre>
             &lt;BIMDataModelPreview
-              :type="{{ type }}"
+              type="{{ type }}"
+              previewUrl="{{ imgUrl }}"
               :width="{{ width }}"
               :height="{{ height }}"
-              :backgroundColor="{{ bgColor }}"
-              :previewUrl="{{ imgUrl }}"
+              backgroundColor="{{ bgColor }}"
+              :zoomFactor="{{ zoomFactor }}"
             /&gt;
           </pre>
         </template>
@@ -102,6 +111,7 @@ export default {
       width: 300,
       height: 300,
       bgColor: "var(--color-silver-light)",
+      zoomFactor: 3,
       // Data
       propsData,
     };

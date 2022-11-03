@@ -44,6 +44,10 @@ export default {
       type: String,
       default: "var(--color-silver-light)",
     },
+    zoomFactor: {
+      type: Number,
+      default: 3,
+    },
   },
   computed: {
     previewComponent() {
