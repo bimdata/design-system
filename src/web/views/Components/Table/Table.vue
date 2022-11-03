@@ -102,9 +102,9 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Props:
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="propsData[0]"
@@ -112,9 +112,9 @@
         />
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Events:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Events:
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="eventsData[0]"
@@ -179,7 +179,7 @@
           <pre>
             &lt;BIMDataTable :columns="columns" :rows="rows"&gt;
               &lt;template #cell-fullName="{ row }"&gt;
-                {{ "{{ `${row.firstName} ${row.lastName}` }" + "}" }}
+                {{ "{" + "{ `${row.firstName} ${row.lastName}` }" + "}" }}
               &lt;/template&gt;
               &lt;template #cell-age="{ row }"&gt;
                 &lt;AgeCustomCell :age="row.age" /&gt;
@@ -220,19 +220,23 @@
         the following resources:
         <ul>
           <li>
-            <a href="https://v3.vuejs.org/guide/component-slots.html">Slots</a>
+            <a href="https://v3.vuejs.org/guide/component-slots.html">
+              Slots
+            </a>
           </li>
           <li>
             <a
               href="https://v3.vuejs.org/guide/component-slots.html#dynamic-slot-names"
-              >Dynamic slot names</a
             >
+              Dynamic slot names
+            </a>
           </li>
           <li>
             <a
               href="https://v3.vuejs.org/guide/component-slots.html#scoped-slots"
-              >Scoped slots</a
             >
+              Scoped slots
+            </a>
           </li>
         </ul>
       </div>
@@ -265,8 +269,8 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import AgeCustomCell from "./AgeCustomCell.vue";
-import CountryCustomCell from "./CountryCustomCell.vue";
+import AgeCustomCell from "./example/AgeCustomCell.vue";
+import CountryCustomCell from "./example/CountryCustomCell.vue";
 
 export default {
   components: {
