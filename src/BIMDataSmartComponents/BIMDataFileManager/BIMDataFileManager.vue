@@ -153,7 +153,7 @@ import { downloadFiles } from "./utils/files.js";
 
 import trads from "./i18n.js";
 
-const XS = 375;
+const XS = 398;
 const S = 468;
 const M = 800;
 
