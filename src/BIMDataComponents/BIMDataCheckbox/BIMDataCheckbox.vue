@@ -4,6 +4,7 @@
     :class="{ indeterminate, disabled, checked }"
     @click="onClick"
     :style="style"
+    v-bind="$attrs"
   >
     <span class="bimdata-checkbox__mark"></span>
     <span class="bimdata-checkbox__text" v-if="text">
