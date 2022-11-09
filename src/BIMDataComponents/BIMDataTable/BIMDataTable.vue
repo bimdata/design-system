@@ -221,26 +221,28 @@ export default {
     // `fullSelectionRef` controls whether all rows are (de)selected at once.
     const fullSelectionRef = ref(false);
     watch(fullSelectionRef, checked => {
-      if (props.selectable) {
-        // When `fullSelectionRef` change, rebuild the rows' selection refs
-        // with corresponding initial value and emit the appropriate events.
-        if (checked) {
-          selection.value = new Map([...props.rows.map((row, i) => [i, row])]);
-          buildRowSelectionRefs(props.rows, true);
-          emit("all-selected");
-        } else {
-          selection.value = new Map();
-          buildRowSelectionRefs(props.rows, false);
-          emit("all-deselected");
-        }
+      // When `fullSelectionRef` change, rebuild the rows' selection refs
+      // with corresponding initial value and emit the appropriate events.
+      if (checked) {
+        selection.value = new Map([...props.rows.map((row, i) => [i, row])]);
+        buildRowSelectionRefs(props.rows, true);
+        emit("all-selected");
+      } else {
+        selection.value = new Map();
+        buildRowSelectionRefs(props.rows, false);
+        emit("all-deselected");
       }
     });
 
     const toggleRowSelection = i => {
-      rowSelectionRefs[i].ref.value = !rowSelectionRefs[i].ref.value;
+      if (props.selectable) {
+        rowSelectionRefs[i].ref.value = !rowSelectionRefs[i].ref.value;
+      }
     };
     const toggleFullSelection = () => {
-      fullSelectionRef.value = !fullSelectionRef.value;
+      if (props.selectable) {
+        fullSelectionRef.value = !fullSelectionRef.value;
+      }
     };
 
     const displayedRows = ref([]);
