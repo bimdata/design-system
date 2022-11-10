@@ -1,0 +1,2 @@
+- [ ] I have tested my component
+- [ ] I have updated the documentation or there is no documentation needed
