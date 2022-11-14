@@ -94,3 +94,7 @@ The branches on which it is possible to publish are the following:
 
 For Merging this branches together, and to avoid any unexpected behavior, use `--no-ff` git merge option.
 After deploying a new latest tag with master branch, merge master into develop to update `package.json` and `CHANGELOG.md`.
+
+## License
+
+BIMData Design System is published under the term of MIT License (see [LICENSE](./LICENSE)).
