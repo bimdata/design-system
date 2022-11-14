@@ -15,7 +15,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "ignorePatterns": ["/dist", "/dist-web"],
+  "ignorePatterns": ["/dist", "/dist-web", "*.d.ts"],
   "rules": {
     "prettier/prettier": "error",
     "indent": "off",

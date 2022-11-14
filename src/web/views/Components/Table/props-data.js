@@ -25,6 +25,14 @@ export default [
     "[ ['John', 'Doe', 23], ['Jane', 'Doe', 24] ]",
   ],
   [
+    "rowKey",
+    "String",
+    "",
+    "",
+    "Define the field to be used as a key for each row.",
+    "",
+  ],
+  [
     "rowHeight",
     "Number",
     "",

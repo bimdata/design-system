@@ -4,6 +4,8 @@
   background-color: var(--color-white);
 
   &__container {
+    height: 100%;
+
     table {
       border-collapse: collapse;
       border-spacing: 0;
