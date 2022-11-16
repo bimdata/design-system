@@ -304,13 +304,35 @@ export default {
 
       advancedExample: {
         columns: [
-          { id: "fullName", label: "Name" },
-          { id: "age", label: "Age", width: "64px" },
-          { id: "country", label: "Country", width: "200px", align: "center" },
+          {
+            id: "fullName",
+            label: "Name",
+          },
+          {
+            id: "age",
+            label: "Age",
+            width: "64px",
+          },
+          {
+            id: "country",
+            label: "Country",
+            width: "200px",
+            align: "center",
+          },
         ],
         rows: [
-          { firstName: "John", lastName: "Doe", age: 26, country: "Germany" },
-          { firstName: "Jane", lastName: "Doe", age: 21, country: "Austria" },
+          {
+            firstName: "John",
+            lastName: "Doe",
+            age: 26,
+            country: "Germany",
+          },
+          {
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 21,
+            country: "Austria",
+          },
           {
             firstName: "Martine",
             lastName: "Durand",
@@ -323,7 +345,12 @@ export default {
             age: 64,
             country: "Italy",
           },
-          { firstName: "Enrico", lastName: "Fermi", age: 41, country: "Italy" },
+          {
+            firstName: "Enrico",
+            lastName: "Fermi",
+            age: 41,
+            country: "Italy",
+          },
           {
             firstName: "Lev Davidovitch",
             lastName: "Landau",

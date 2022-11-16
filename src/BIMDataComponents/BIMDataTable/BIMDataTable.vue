@@ -12,8 +12,10 @@
             <th class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
                 :disabled="rows.length === 0"
-                :modelValue="rows.length > 0 && selection.size === rows.length"
-                @update:modelValue="toggleFullSelection"
+                :modelValue="
+                  rows.length > 0 && rowSelection.size === rows.length
+                "
+                @update:modelValue="toggleAll"
               />
             </th>
             <th
@@ -35,27 +37,27 @@
         </thead>
         <tbody>
           <tr
-            v-for="(row, i) of rows"
-            :key="`body-row-${rowKey ? row[rowKey] : i}`"
-            v-show="displayedRows.includes(i)"
+            v-for="{ key, data } of computedRows"
+            :key="`body-row-${key}`"
+            v-show="displayedRows.includes(key)"
             :style="{ height: `${rowHeight}px` }"
           >
             <td class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
-                :modelValue="selection.has(i)"
-                @update:modelValue="toggleRowSelection(i)"
+                :modelValue="rowSelection.has(key)"
+                @update:modelValue="toggleRow({ key, data })"
               />
             </td>
             <td
               v-for="(column, j) of columns"
-              :key="`body-row-${rowKey ? row[rowKey] : i}-col-${j}`"
+              :key="`body-row-${key}-col-${j}`"
               :style="{
                 width: column.width || 'auto',
                 textAlign: column.align || 'left',
               }"
             >
-              <slot :name="`cell-${column.id}`" :row="row">
-                {{ row[column.id || j] }}
+              <slot :name="`cell-${column.id}`" :row="data">
+                {{ data[column.id || j] }}
               </slot>
             </td>
           </tr>
@@ -104,7 +106,8 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
+import { useRowSelection } from "./table-row-selection.js";
 // Components
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -136,6 +139,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    selection: {
+      type: Map,
+      default: () => new Map(),
+    },
     paginated: {
       type: Boolean,
       default: false,
@@ -158,6 +165,7 @@ export default {
     },
   },
   emits: [
+    "update:selection",
     "selection-changed",
     "row-selected",
     "row-deselected",
@@ -165,83 +173,45 @@ export default {
     "all-deselected",
   ],
   setup(props, { emit }) {
-    // `selection` ref is a map of currently selected rows where
-    // keys are rows' indexes and values the row objects.
-    const selection = ref(new Map());
-    watch(selection, map => {
-      // Emit a 'selection-changed' event with the array of selected
-      // row objects each time selection ref is updated.
-      emit("selection-changed", Array.from(map.values()));
-    });
+    // Compute rows keys based on props values.
+    const computedRows = computed(() =>
+      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row }))
+    );
 
-    // `rowSelectionRefs` holds an array of ref that represent each
-    // row selection state together with its 'unwatch' function.
-    let rowSelectionRefs = [];
-
-    /**
-     * Stop every row selection watcher and reset the `rowSelectionRefs` array.
-     */
-    const resetRowSelectionRefs = () => {
-      rowSelectionRefs.forEach(selectionRef => selectionRef.unwatch());
-      rowSelectionRefs = [];
-    };
-
-    /**
-     * Reset the current `rowSelectionRefs` and create a new one from
-     * the given rows array with the given initial value.
-     * A watcher is attached to each selection ref in order to handle
-     * selection updates effects (e.g. event emission).
-     *
-     * @param {Array} rows an array of row objects
-     * @param {Boolean} value selection refs initial value
-     */
-    const buildRowSelectionRefs = (rows, value) => {
-      resetRowSelectionRefs();
-      rowSelectionRefs = rows.map((row, i) => {
-        const rr = ref(value);
-        return {
-          ref: rr,
-          unwatch: watch(rr, checked => {
-            if (props.selectable) {
-              if (checked) {
-                selection.value.set(i, row);
-                selection.value = new Map([...selection.value.entries()]);
-                emit("row-selected", row);
-              } else {
-                selection.value.delete(i);
-                selection.value = new Map([...selection.value.entries()]);
-                emit("row-deselected", row);
-              }
+    const { rowSelection, toggleRowSelection, toggleFullSelection } =
+      useRowSelection(
+        computedRows,
+        computed(() => props.selection),
+        {
+          rowSelectionUpdateEffect: map => {
+            emit("update:selection", map);
+            emit("selection-changed", Array.from(map.values()));
+          },
+          rowSelectionToggleEffect: (selected, { data }) => {
+            if (selected) {
+              emit("row-selected", data);
+            } else {
+              emit("row-deselected", data);
             }
-          }),
-        };
-      });
-    };
+          },
+          fullSelectionToggleEffect: selected => {
+            if (selected) {
+              emit("all-selected");
+            } else {
+              emit("all-deselected");
+            }
+          },
+        }
+      );
 
-    // `fullSelectionRef` controls whether all rows are (de)selected at once.
-    const fullSelectionRef = ref(false);
-    watch(fullSelectionRef, checked => {
-      // When `fullSelectionRef` change, rebuild the rows' selection refs
-      // with corresponding initial value and emit the appropriate events.
-      if (checked) {
-        selection.value = new Map([...props.rows.map((row, i) => [i, row])]);
-        buildRowSelectionRefs(props.rows, true);
-        emit("all-selected");
-      } else {
-        selection.value = new Map();
-        buildRowSelectionRefs(props.rows, false);
-        emit("all-deselected");
-      }
-    });
-
-    const toggleRowSelection = i => {
+    const toggleRow = row => {
       if (props.selectable) {
-        rowSelectionRefs[i].ref.value = !rowSelectionRefs[i].ref.value;
+        toggleRowSelection(row);
       }
     };
-    const toggleFullSelection = () => {
+    const toggleAll = () => {
       if (props.selectable) {
-        fullSelectionRef.value = !fullSelectionRef.value;
+        toggleFullSelection();
       }
     };
 
@@ -250,21 +220,9 @@ export default {
     const pageIndexStart = ref(1);
     const pageIndexEnd = ref(props.perPage);
 
-    // Reset selection when rows array change.
-    watch(
-      () => props.rows,
-      () => {
-        selection.value = new Map();
-        // `setTimeout` is needed here to avoid row selection issues
-        // when adding new rows. This is probably due to some Vue internal
-        // mechanism, no other workaround could be found for now.
-        setTimeout(() => buildRowSelectionRefs(props.rows, false));
-      },
-      { immediate: true }
-    );
     // Reset `pageIndex` when rows array or the number of rows per page change.
     watch(
-      [() => props.rows, () => props.perPage],
+      [computedRows, () => props.perPage],
       () => {
         pageIndex.value = 0;
       },
@@ -272,18 +230,18 @@ export default {
     );
     // Compute `displayedRows` according to rows array and pagination settings.
     watch(
-      [() => props.rows, () => props.paginated, () => props.perPage, pageIndex],
-      () => {
-        const rowIndexes = props.rows.map((_, i) => i);
-        if (props.paginated) {
-          const start = props.perPage * pageIndex.value;
-          const end = start + props.perPage;
+      [computedRows, () => props.paginated, () => props.perPage, pageIndex],
+      ([rows, paginated, perPage, index]) => {
+        const rowKeys = rows.map(r => r.key);
+        if (paginated) {
+          const start = perPage * index;
+          const end = start + perPage;
 
-          displayedRows.value = rowIndexes.slice(start, end);
+          displayedRows.value = rowKeys.slice(start, end);
           pageIndexStart.value = start + 1;
-          pageIndexEnd.value = Math.min(end, props.rows.length);
+          pageIndexEnd.value = Math.min(end, rows.length);
         } else {
-          displayedRows.value = rowIndexes;
+          displayedRows.value = rowKeys;
         }
       },
       { immediate: true }
@@ -291,20 +249,18 @@ export default {
 
     return {
       // References
+      computedRows,
       displayedRows,
       pageIndex,
       pageIndexEnd,
       pageIndexStart,
-      selection,
+      rowSelection,
       // Methods
-      toggleFullSelection,
-      toggleRowSelection,
+      toggleAll,
+      toggleRow,
     };
   },
 };
 </script>
 
-<style scoped lang="scss">
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "./_BIMDataTable.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataTable.scss"></style>
