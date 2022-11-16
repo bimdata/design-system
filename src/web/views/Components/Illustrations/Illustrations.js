@@ -45,6 +45,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "pdf",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "shortcutOpen",
     x: "200",
     y: "200",
