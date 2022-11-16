@@ -135,8 +135,11 @@ import bcfPolychrome from "./polychrome/BcfPolychrome.vue";
 import createWindowPolychrome from "./polychrome/CreateWindowPolychrome.vue";
 import docInfoPolychrome from "./polychrome/DocInfoPolychrome.vue";
 import fileDwgPolychrome from "./polychrome/FileDwgPolychrome.vue";
+import fileDxfPolychrome from "./polychrome/FileDxfPolychrome.vue";
 import fileIfcPolychrome from "./polychrome/FileIfcPolychrome.vue";
+import fileJpegPolychrome from "./polychrome/FileJpegPolychrome.vue";
 import filePdfPolychrome from "./polychrome/FilePdfPolychrome.vue";
+import filePngPolychrome from "./polychrome/FilePngPolychrome.vue";
 import filePlanPolychrome from "./polychrome/FilePlanPolychrome.vue";
 import folderPolychrome from "./polychrome/FolderPolychrome.vue";
 import structurePolychrome from "./polychrome/StructurePolychrome.vue";
@@ -280,8 +283,11 @@ export default {
   createWindowPolychrome,
   docInfoPolychrome,
   fileDwgPolychrome,
+  fileDxfPolychrome,
   fileIfcPolychrome,
+  fileJpegPolychrome,
   filePdfPolychrome,
+  filePngPolychrome,
   filePlanPolychrome,
   folderPolychrome,
   structurePolychrome,
