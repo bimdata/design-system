@@ -7,7 +7,7 @@ import emptySectionPlanes from "./EmptySectionPlanes.vue";
 import emptyTree from "./EmptyTree.vue";
 import emptyViewer from "./EmptyViewer.vue";
 import logo from "./Logo.vue";
-import pdf from "./Pdf.vue";
+import emptyPdf from "./EmptyPdf.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
 import shortcutRotate from "./ShortcutRotate.vue";
 import shortcutZoom from "./ShortcutZoom.vue";
@@ -26,7 +26,7 @@ export default {
   emptyTree,
   emptyViewer,
   logo,
-  pdf,
+  emptyPdf,
   shortcutOpen,
   shortcutRotate,
   shortcutZoom,

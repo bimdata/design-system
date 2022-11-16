@@ -20,6 +20,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "emptyPdf",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "emptyProperties",
     x: "90",
     y: "90",
@@ -41,11 +46,6 @@ export default Object.freeze([
   },
   {
     name: "logo",
-    x: "90",
-    y: "90",
-  },
-  {
-    name: "pdf",
     x: "90",
     y: "90",
   },
