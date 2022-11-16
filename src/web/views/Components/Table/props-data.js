@@ -49,6 +49,14 @@ export default [
     "",
   ],
   [
+    "selection",
+    "Map",
+    "",
+    "new Map()",
+    "A map of selected rows.",
+    "",
+  ],
+  [
     "paginated",
     "Boolean",
     "",

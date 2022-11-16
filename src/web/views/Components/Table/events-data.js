@@ -7,6 +7,12 @@ export default [
     "Description"
   ],
   [
+    "update:selection",
+    "Map",
+    "The row selection map",
+    "Fired each time the selection change",
+  ],
+  [
     "selection-changed",
     "Array",
     "The list of selected rows",
