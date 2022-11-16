@@ -20,6 +20,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "emptyPdf",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "emptyProperties",
     x: "90",
     y: "90",
