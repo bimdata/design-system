@@ -7,6 +7,7 @@ import alphabeticalSort from "./AlphabeticalSort.vue";
 import alt from "./Alt.vue";
 import angle from "./Angle.vue";
 import api from "./Api.vue";
+import app from "./App.vue";
 import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
@@ -156,6 +157,7 @@ export default {
   alt,
   angle,
   api,
+  app,
   archive,
   arrow,
   attach,
