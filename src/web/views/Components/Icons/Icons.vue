@@ -169,12 +169,12 @@ export default {
       },
       propsData: [
         [
-          { id: "props", label: "Props", width: "70px" },
-          { id: "type", label: "Type", width: "70px" },
-          { id: "required", label: "Required", width: "30px" },
-          { id: "defaultValue", label: "Default value", width: "150px" },
-          { id: "description", label: "Description", width: "300px" },
-          { id: "examples", label: "Examples", width: "150px" },
+          "Props",
+          "Type",
+          "Required",
+          "Default value",
+          "Description",
+          "Example",
         ],
         [
           "color",
