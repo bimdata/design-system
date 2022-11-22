@@ -65,6 +65,11 @@ export default Object.freeze([
     y: "200",
   },
   {
+    name: "shortcutMove2D",
+    x: "200",
+    y: "200",
+  },
+  {
     name: "shortcutOpen2D",
     x: "200",
     y: "200",

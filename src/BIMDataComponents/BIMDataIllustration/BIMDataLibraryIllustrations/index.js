@@ -11,6 +11,7 @@ import emptyPdf from "./EmptyPdf.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
 import shortcutRotate from "./ShortcutRotate.vue";
 import shortcutZoom from "./ShortcutZoom.vue";
+import shortcutMove2D from "./ShortcutMove2D.vue";
 import shortcutOpen2D from "./ShortcutOpen2D.vue";
 import shortcutRotate2D from "./ShortcutRotate2D.vue";
 import shortcutZoom2D from "./ShortcutZoom2D.vue";
@@ -30,6 +31,7 @@ export default {
   shortcutOpen,
   shortcutRotate,
   shortcutZoom,
+  shortcutMove2D,
   shortcutOpen2D,
   shortcutRotate2D,
   shortcutZoom2D,
