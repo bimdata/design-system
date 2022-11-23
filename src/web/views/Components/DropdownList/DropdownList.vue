@@ -136,6 +136,13 @@
         >
         <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
       </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
@@ -219,6 +226,13 @@ export default {
           "Use this props to choose the opening of the submenu.",
         ],
         [
+          "loading",
+          "Boolean",
+          "false",
+          "",
+          "Use this props when it's loading.",
+        ],
+        [
           "closeOnElementClick",
           "Boolean",
           "false",
@@ -248,6 +262,10 @@ export default {
           "Use this slot for add content after the icon button",
         ],
         ["element", "Use this slot to custum the elements list"],
+      ],
+      eventData: [
+        ["Slot name", "Description"],
+        ["element-click", "Use this event to get the clicked element data"],
       ],
     };
   },

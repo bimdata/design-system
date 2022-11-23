@@ -5,4 +5,6 @@ export default [
   [ "blur", "The native blur event." ],
   [ "keypress", "The native keypress event." ],
   [ "focus", "The native focus event." ],
+  ["change", "To catch the Event object"],
+
 ];

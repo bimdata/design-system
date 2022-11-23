@@ -88,12 +88,21 @@
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import propsData from "./props-data.js";
+import eventsData from "./events-data.js";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
@@ -120,6 +129,7 @@ export default {
       checkboxDisabledChecked: false,
       checkboxBigChecked: false,
       propsData,
+      eventsData,
     };
   },
   methods: {

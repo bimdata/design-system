@@ -9,8 +9,8 @@
           <BIMDataModelPreview
             :type="type"
             :previewUrl="imgUrl"
-            :width="width"
-            :height="height"
+            :width="Number(width)"
+            :height="Number(height)"
             :backgroundColor="bgColor"
             :zoomFactor="zoomFactor"
           />

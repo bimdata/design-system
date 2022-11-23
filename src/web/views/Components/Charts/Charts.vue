@@ -74,6 +74,7 @@
             :firstBarDistanceFromCenter="
               Number(barDistanceFromCenterMultiplePie)
             "
+            :size="Number(multiplePieSize)"
             :barStrokeWidth="Number(barStrokeWidthMultiplePie)"
             :interBarDistance="Number(interBarDistance)"
             :placeholderBarStrokeWidth="Number(placeholderBarStrokeWidth)"
@@ -84,6 +85,12 @@
         </template>
 
         <template #parameters>
+          <BIMDataInput
+            margin="24px 0"
+            type="number"
+            placeholder="Size"
+            v-model="multiplePieSize"
+          />
           <BIMDataInput
             margin="24px 0"
             type="number"
@@ -127,6 +134,7 @@
               :firstBarDistanceFromCenter="{{
               barDistanceFromCenterMultiplePie
             }}"
+              :size="{{ multiplePieSize }}"
               :barStrokeWidth="{{ barStrokeWidthMultiplePie }}"
               :interBarDistance="{{ interBarDistance }}"
               :placeholderBarStrokeWidth="{{ placeholderBarStrokeWidth }}"
@@ -187,6 +195,7 @@ export default {
       placeholderBarStroke: "#D8D8D8",
       simplePiePropsData,
       multiplePiePropsData,
+      multiplePieSize: 200,
       values: [
         {
           color: "yellowgreen",

@@ -19,4 +19,10 @@ export default [
     "215px",
     "Use this props to change the width of the card.",
   ],
+  [
+    "borderRadius",
+    "String",
+    "0px",
+    "Use this props to change the border radius of the card.",
+  ],
 ];
