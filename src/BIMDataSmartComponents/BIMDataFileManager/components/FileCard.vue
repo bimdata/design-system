@@ -197,6 +197,16 @@ export default {
       default: false,
     },
   },
+  emits: [
+    "rename",
+    "download",
+    "edit",
+    "view",
+    "open-folder",
+    "toggle-select",
+    "loaded",
+    "load-error",
+  ],
   data() {
     return {
       menuDisplayed: false,

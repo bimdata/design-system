@@ -40,6 +40,7 @@ export default {
       type: [Object, File],
     },
   },
+  emits: ["close-pdf"],
   data() {
     return {
       loading: false,
