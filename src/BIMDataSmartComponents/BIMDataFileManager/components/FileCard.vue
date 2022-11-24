@@ -64,6 +64,16 @@
         v-clickaway="away"
       >
         <BIMDataButton
+          v-if="viewPdf && file.model_type === 'PDF'"
+          color="default"
+          ghost
+          radius
+          width="100%"
+          @click.stop="onViewClick"
+        >
+          {{ $translate("view") }}
+        </BIMDataButton>
+        <BIMDataButton
           color="default"
           ghost
           radius
@@ -182,7 +192,21 @@ export default {
       type: Boolean,
       default: false,
     },
+    viewPdf: {
+      type: Boolean,
+      default: false,
+    },
   },
+  emits: [
+    "rename",
+    "download",
+    "edit",
+    "view",
+    "open-folder",
+    "toggle-select",
+    "loaded",
+    "load-error",
+  ],
   data() {
     return {
       menuDisplayed: false,
@@ -266,6 +290,10 @@ export default {
       this.menuDisplayed = false;
       this.$emit("delete");
     },
+    onViewClick() {
+      this.menuDisplayed = false;
+      this.$emit("view");
+    },
     onClick() {
       if (this.isFolder) {
         this.$emit("open-folder");
@@ -289,7 +317,7 @@ export default {
 @import "../../../assets/scss/BIMDataVariables";
 
 .file-card {
-  height: 179px;
+  height: 192px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,7 +337,7 @@ export default {
       z-index: 1;
       left: calc(var(--spacing-unit) / 3);
       right: calc(var(--spacing-unit) / 3);
-      bottom: var(--spacing-unit);
+      top: calc(var(--spacing-unit) * 3);
       box-shadow: var(--box-shadow);
     }
 
@@ -356,7 +384,7 @@ export default {
     }
 
     &__footer {
-      height: 90px;
+      height: calc(100% - 65px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
