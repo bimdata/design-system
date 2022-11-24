@@ -48,7 +48,6 @@ export default {
   },
   async created() {
     this.isLoading = true;
-
     if (this.pdf.file) {
       try {
         const res = await fetch(this.pdf.file);
