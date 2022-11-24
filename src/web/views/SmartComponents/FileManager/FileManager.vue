@@ -14,11 +14,12 @@
             :select="selectChecked"
             :multi="multiChecked"
             @selection-change="onSelectionChange"
-            style="resize: auto; overflow: hidden;"
+            style="resize: auto; overflow: hidden"
             :headerButtons="headerButtons"
             :headerSearch="headerSearch"
             :alreadySelectedIds="[2694]"
             :selectableFileTypes="['pdf', 'dwg']"
+            viewPdf
           />
         </template>
 

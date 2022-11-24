@@ -1,5 +1,10 @@
 <template>
   <div class="bimdata-file-manager">
+    <BIMDataPDFViewer
+      v-if="pdfToView"
+      :pdf="pdfToView"
+      @close-pdf="pdfToView = null"
+    />
     <div
       class="bimdata-file-manager__header"
       :class="{
@@ -93,9 +98,11 @@
             @toggle-select="onToggleFileSelect(file)"
             @rename="onRename(file)"
             @delete="onDelete(file)"
+            @view="onView(file)"
             @dowload="onDowload(file)"
             @loaded="onFileLoaded(file, $event)"
             :writeAccess="currentFolder.user_permission >= 100"
+            :viewPdf="viewPdf"
           />
         </BIMDataResponsiveGrid>
       </div>
@@ -141,6 +148,7 @@ import BIMDataLoading from "../../BIMDataComponents/BIMDataLoading/BIMDataLoadin
 import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
+import BIMDataPDFViewer from "../../BIMDataComponents/BIMDataPDFViewer/BIMDataPDFViewer.vue";
 
 import FileCard from "./components/FileCard.vue";
 import NewFolderButton from "./components/newFolder/NewFolderButton.vue";
@@ -172,6 +180,7 @@ export default {
     BIMDataTextbox,
     RenameModal,
     DeleteModal,
+    BIMDataPDFViewer,
   },
   provide() {
     return {
@@ -227,6 +236,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    viewPdf: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -240,6 +253,7 @@ export default {
       entityRenown: false,
       entityDeletable: false,
       successFileIds: [],
+      pdfToView: null,
     };
   },
   computed: {
@@ -453,6 +467,9 @@ export default {
         content: this.entityRenown,
       });
       this.entityRenown = null;
+    },
+    onView(file) {
+      this.pdfToView = file;
     },
     onResize(entries) {
       entries.forEach(entry => {
