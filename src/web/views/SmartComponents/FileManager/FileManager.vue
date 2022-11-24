@@ -51,6 +51,7 @@
                 :multi="{{ String(multiChecked) }}"
                 :headerButtons="{{ headerButtons }}"
                 :headerSearch="{{ headerSearch }}"
+                :viewPdf="{{ isViewPdf }}"
                 /&gt;
             </pre
           >
