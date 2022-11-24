@@ -57,7 +57,7 @@
               }"
             >
               <slot :name="`cell-${column.id}`" :row="data">
-                {{ data[column.id || j] }}
+                {{ data[column.id] || data[j] }}
               </slot>
             </td>
           </tr>

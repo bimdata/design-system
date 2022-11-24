@@ -47,19 +47,26 @@ export default {
       successColors,
       propsData: [
         [
-          { id: "colors", label: "Colors", width: "80px" },
-          { id: "cssVariableName", label: "CSS Variable name", width: "150px" },
           {
-            id: "scssVariableName",
-            label: "SCSS Variable name",
+            id: "Colors",
+            width: "80px",
+          },
+          {
+            id: "CSS Variable name",
             width: "150px",
           },
           {
-            id: "outputValue",
-            label: "Output Value",
+            id: "SCSS Variable name",
+            width: "150px",
+          },
+          {
+            id: "Output Value",
             width: "100px",
           },
-          { id: "description", label: "Description", width: "500px" },
+          {
+            id: "Description",
+            width: "500px",
+          },
         ],
         [
           "Primary",
