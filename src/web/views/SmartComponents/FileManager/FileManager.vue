@@ -19,7 +19,7 @@
             :headerSearch="headerSearch"
             :alreadySelectedIds="[2694]"
             :selectableFileTypes="['pdf', 'dwg']"
-            viewPdf
+            :viewPdf="isViewPdf"
           />
         </template>
 
@@ -32,6 +32,7 @@
           />
           <BIMDataCheckbox text="header buttons" v-model="headerButtons" />
           <BIMDataCheckbox text="header search" v-model="headerSearch" />
+          <BIMDataCheckbox text="viewPdf" v-model="isViewPdf" />
         </template>
 
         <template #import>
@@ -95,6 +96,7 @@ export default {
       multiChecked: false,
       headerButtons: true,
       headerSearch: true,
+      isViewPdf: false,
       selectedFiles: [],
       propsData: [
         ["Props", "Type", "Default value", "Description"],
@@ -143,6 +145,12 @@ export default {
           "string[]",
           "[]",
           "An array of file type. In select mode, if some selectable file types are given, only those are selectable.",
+        ],
+        [
+          "viewPdf",
+          "Boolean",
+          "false",
+          "Allow PDF to be seen within a viewer.",
         ],
       ],
       eventsData: [
