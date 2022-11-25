@@ -11,10 +11,11 @@
             :itemWidth="itemWidth"
             :rowGap="rowGap"
             :columnGap="columnGap"
+            :isRepeatFit="checkboxFitItemsChecked"
           >
             <div
               class="demo-grid-item"
-              :style="{ width: itemWidth, height: itemWidth }"
+              :style="{ width: '100%', height: itemWidth }"
               v-for="(n, i) of Array.from({ length: +nbItem })"
               :key="i"
             >
@@ -34,6 +35,10 @@
             <BIMDataInput v-model="itemWidth" placeholder="Item width" />
             <BIMDataInput v-model="rowGap" placeholder="Row gap" />
             <BIMDataInput v-model="columnGap" placeholder="Column gap" />
+            <BIMDataCheckbox
+              text="Fit items to grid"
+              v-model="checkboxFitItemsChecked"
+            />
           </div>
         </template>
 
@@ -50,7 +55,7 @@
               {{ `columnGap="${columnGap}"` }}
             &gt;
               &lt;div
-                {{ `style="width: ${itemWidth}; height: ${itemWidth}"` }}
+                {{ `style="width: 100%; height: ${itemWidth}"` }}
                 v-for="i of items"
                 :key="i"
               &gt;
@@ -74,6 +79,7 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
+import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataResponsiveGrid from "../../../../../src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
@@ -82,6 +88,7 @@ import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDat
 export default {
   components: {
     ComponentCode,
+    BIMDataCheckbox,
     BIMDataInput,
     BIMDataResponsiveGrid,
     BIMDataTable,
@@ -93,11 +100,23 @@ export default {
       itemWidth: "150px",
       rowGap: "6px",
       columnGap: "18px",
+      checkboxFitItemsChecked: false,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["itemWidth", "String", "100px", "Define available width for items"],
         ["rowGap", "String", "12px", "Define the space between two rows"],
-        ["columnGap", "String", "12px", "Define the space between two columns"],
+        [
+          "columnGap",
+          "String",
+          "12px",
+          "Define the space between two columns.",
+        ],
+        [
+          "isRepeatFit",
+          "Boolean",
+          "false",
+          "Set this props to 'true' If you want fits the currently available columns into the space by expanding them so that they take up any available space. By default, the component fills the row with as many columns as it can fit.",
+        ],
       ],
     };
   },
