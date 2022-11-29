@@ -4,7 +4,7 @@
       <BIMDataText component="h1" color="color-primary">{{
         $route.name
       }}</BIMDataText>
-      <BIMDataText margin="5px 0 10px"
+      <BIMDataText margin="5px 0 10px" lineHeight="24px"
         >All the design system resources are in the directory:
         <code class="code-highlight">src/web/views</code>. The following
         explanations concern the addition of a new component. If you want to add
@@ -15,7 +15,7 @@
       <BIMDataText component="h3" color="color-primary" margin="20px 0 10px"
         >How to add a new component to the design system</BIMDataText
       >
-      <ol>
+      <ol class="color-granite">
         <li>
           In the <code class="code-highlight">Components</code> directory create
           a new directory with the name of your component. Inside it, create
@@ -85,11 +85,11 @@
       <BIMDataText component="h3" color="color-primary" margin="20px 0 10px">
         How to add a new component to the build of design system
       </BIMDataText>
-      <p>
+      <p class="color-granite">
         For a correct build, don't forget to add your new component in the
         following 3 files:
       </p>
-      <ul>
+      <ul class="color-granite">
         <li>./rollup.config.js</li>
         <li>./components.js</li>
         <li>./src/BIMDataComponents/index.js</li>

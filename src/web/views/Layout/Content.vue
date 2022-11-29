@@ -9,7 +9,7 @@
       </BIMDataText>
       <div class="content-box">
         <BIMDataCard
-          class="bimdata-card__secondary"
+          class="bimdata-card__secondary getting-started__card"
           v-if="$route.name === 'Components'"
         >
           <template #content>
@@ -26,47 +26,53 @@
                 Learn how to quickly get started with our component library to
                 build expressive, consistent UI at BIMData.
               </BIMDataText>
-              <BIMDataButton width="150" color="primary" radius fill>
+              <BIMDataButton width="150px" color="primary" radius fill>
                 Get started now
               </BIMDataButton>
             </router-link>
           </template>
         </BIMDataCard>
 
-        <BIMDataCard
-          v-for="child in $store.state[$route.name].children"
-          :key="child.id"
-          :class="{
-            'bimdata-card__secondary':
-              child.title === 'Variables' || child.title === 'Utilities',
-          }"
+        <BIMDataResponsiveGrid
+          itemWidth="215px"
+          rowGap="18px"
+          columnGap="18px"
+          class="m-t-30"
         >
-          {{ child.title }}
-          <template #content>
-            <router-link :to="child.path" append>
-              <img
-                v-if="
-                  child.title !== 'Variables' || child.title !== 'Utilities'
-                "
-                :src="child.img"
-              />
-              <BIMDataText
-                component="h5"
-                color="color-primary"
-                margin="12px 0 0"
-                fontWeight="700"
-              >
-                {{ child.title }}
-              </BIMDataText>
-              <BIMDataText color="color-granite">
-                {{ child.text }}
-              </BIMDataText>
-              <BIMDataButton width="150" radius fill color="primary">
-                {{ child.btn }}
-              </BIMDataButton>
-            </router-link>
-          </template>
-        </BIMDataCard>
+          <BIMDataCard
+            v-for="child in $store.state[$route.name].children"
+            :key="child.id"
+            :class="{
+              'bimdata-card__secondary':
+                child.title === 'Variables' || child.title === 'Utilities',
+            }"
+          >
+            {{ child.title }}
+            <template #content>
+              <router-link :to="child.path" append>
+                <img
+                  v-if="
+                    child.title !== 'Variables' || child.title !== 'Utilities'
+                  "
+                  :src="child.img"
+                />
+                <BIMDataText
+                  component="h5"
+                  color="color-primary"
+                  fontWeight="700"
+                >
+                  {{ child.title }}
+                </BIMDataText>
+                <BIMDataText color="color-granite">
+                  {{ child.text }}
+                </BIMDataText>
+                <BIMDataButton width="120px" radius fill color="primary">
+                  {{ child.btn }}
+                </BIMDataButton>
+              </router-link>
+            </template>
+          </BIMDataCard>
+        </BIMDataResponsiveGrid>
       </div>
     </div>
   </main>
@@ -75,12 +81,14 @@
 <script>
 import BIMDataButton from "../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+import BIMDataResponsiveGrid from "../../../../src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
 import BIMDataText from "../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataCard,
+    BIMDataResponsiveGrid,
     BIMDataText,
   },
   methods: {},

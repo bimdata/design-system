@@ -59,12 +59,11 @@ pre[class*="language-"] {
   overflow-y: auto;
   overflow-x: hidden;
   .article-wrapper {
+    margin: 30px 90px;
     width: 100%;
     width: calc(100% - 180px);
     display: flex;
     flex-direction: column;
-    margin: 30px 90px;
-    max-width: 1420px;
     position: relative;
     display: flex;
     flex-direction: column;
