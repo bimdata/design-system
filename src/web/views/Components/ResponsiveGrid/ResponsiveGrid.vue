@@ -53,6 +53,7 @@
               {{ `itemWidth="${itemWidth}"` }}
               {{ `rowGap="${rowGap}"` }}
               {{ `columnGap="${columnGap}"` }}
+              {{ `:isRepeatFit="${checkboxFitItemsChecked}"` }}
             &gt;
               &lt;div
                 {{ `style="width: 100%; height: ${itemWidth}"` }}

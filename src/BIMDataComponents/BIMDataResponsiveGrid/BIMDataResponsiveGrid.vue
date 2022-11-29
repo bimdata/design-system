@@ -4,7 +4,7 @@
     :style="{
       gridTemplateColumns: isRepeatFit
         ? `repeat(auto-fit, minmax(${itemWidth}, 1fr))`
-        : `repeat(auto-fill, ${itemWidth})`,
+        : `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
       rowGap,
       columnGap,
     }"
