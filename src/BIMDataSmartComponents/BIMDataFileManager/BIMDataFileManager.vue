@@ -79,7 +79,6 @@
           :itemWidth="itemWidth"
           rowGap="4px"
           columnGap="6px"
-          :isRepeatFit="true"
         >
           <FileCard
             :width="itemWidth"
