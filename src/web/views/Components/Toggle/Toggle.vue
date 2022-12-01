@@ -67,6 +67,13 @@
 
       <div class="m-t-24">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
           >Slots:</BIMDataText
         >
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
@@ -100,6 +107,10 @@ export default {
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["disabled", "String", "false", "Use this props to disabled toggle"],
+      ],
+      eventsData: [
+        ["Event name", "Payload"],
+        ["update:modelValue", "The input state."],
       ],
       slotsData: [
         ["Slot name", "Description"],

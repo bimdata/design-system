@@ -94,6 +94,13 @@
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
+
       <div class="m-t-12">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
           Note about 'v-model' and 'optionKey' prop:
@@ -148,6 +155,7 @@
 
 <script>
 import { stringOptions, objectOptions, groupOptions } from "./option-sets";
+import eventsData from "./events-data.js";
 import propsData from "./props-data";
 // Components
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
@@ -177,6 +185,7 @@ export default {
       optionLabelKey: null,
       selection: null,
       propsData,
+      eventsData,
     };
   },
   methods: {
