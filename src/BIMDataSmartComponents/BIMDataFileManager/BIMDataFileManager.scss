@@ -8,6 +8,13 @@
   gap: var(--spacing-unit);
   position: relative;
 
+  &__pdf-viewer {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+  }
+
   &__header {
     display: flex;
     padding: 0 var(--spacing-unit);
