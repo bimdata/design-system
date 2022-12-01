@@ -1,73 +1,82 @@
 <template>
   <div class="pdf-viewer">
-    <BIMDataLoading v-if="isLoading" />
-    <div v-else class="pdf-viewer__header">
-      <BIMDataButton
-        width="32px"
-        height="32px"
-        color="primary"
-        ghost
-        radius
-        icon
-        @click="onCloseClick"
-      >
-        <BIMDataIcon name="arrow" size="xxs" />
-      </BIMDataButton>
-      <div class="pdf-viewer__header--text text-center">
-        <BIMDataTextbox :text="pdf.name" width="70%" />
+    <template v-if="loading">
+      <BIMDataLoading />
+    </template>
+
+    <template v-else>
+      <div v-if="header" class="pdf-viewer__header">
+        <div class="pdf-viewer__header--left">
+          <slot name="header-left"></slot>
+        </div>
+        <div class="pdf-viewer__header--title">
+          <BIMDataTextbox :text="pdf.name" />
+        </div>
+        <div class="pdf-viewer__header--right">
+          <slot name="header-right"></slot>
+        </div>
       </div>
-    </div>
-    <object
-      v-if="pdfUrl"
-      type="application/pdf"
-      :data="pdfUrl"
-      width="100%"
-      height="100%"
-    ></object>
+
+      <object
+        v-if="pdfUrl"
+        width="100%"
+        height="100%"
+        type="application/pdf"
+        :data="pdfUrl"
+      ></object>
+    </template>
   </div>
 </template>
 
 <script>
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
-import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import BIMDataTextbox from "../BIMDataTextbox/BIMDataTextbox.vue";
+import { ref, watch } from "vue";
 import BIMDataLoading from "../BIMDataLoading/BIMDataLoading.vue";
+import BIMDataTextbox from "../BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
-  components: { BIMDataIcon, BIMDataButton, BIMDataTextbox, BIMDataLoading },
+  components: {
+    BIMDataLoading,
+    BIMDataTextbox,
+  },
   props: {
+    header: {
+      type: Boolean,
+      default: false,
+    },
     pdf: {
       type: [Object, File],
     },
   },
-  emits: ["close-pdf"],
-  data() {
-    return {
-      loading: false,
-      pdfUrl: null,
-    };
-  },
-  async created() {
-    this.isLoading = true;
-    if (this.pdf.file) {
-      try {
-        const res = await fetch(this.pdf.file);
-        const blob = await res.blob();
-        this.pdfUrl = window.URL.createObjectURL(blob);
-      } catch (err) {
-        console.err("Error fetching the pdf file", err);
-      }
-    } else {
-      this.pdfUrl = window.URL.createObjectURL(this.pdf);
-    }
-    this.isLoading = false;
-  },
+  setup(props) {
+    const loading = ref(false);
+    const pdfUrl = ref(null);
 
-  methods: {
-    onCloseClick() {
-      this.$emit("close-pdf");
-      this.pdfUrl = null;
-    },
+    watch(
+      () => props.pdf,
+      async pdf => {
+        loading.value = true;
+        if (pdf.file) {
+          try {
+            const blob = await fetch(pdf.file).then(res => res.blob());
+            pdfUrl.value = URL.createObjectURL(blob);
+          } catch (error) {
+            console.err(
+              "[BIMDataPDFViewer] Error fetching the pdf file.",
+              error
+            );
+          }
+        } else {
+          pdfUrl.value = URL.createObjectURL(pdf);
+        }
+        loading.value = false;
+      },
+      { immediate: true }
+    );
+
+    return {
+      loading,
+      pdfUrl,
+    };
   },
 };
 </script>
@@ -79,23 +88,30 @@ export default {
 .pdf-viewer {
   width: 100%;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
   background-color: var(--color-white);
   overflow: hidden;
-  z-index: 2;
+
   &__header {
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 42px;
     font-size: 12px;
-    &--text {
-      width: calc(100% - 32px);
+
+    &--title {
+      width: 0;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      padding: 0 var(--spacing-unit);
     }
   }
+
   object {
+    height: 100%;
+  }
+
+  &__header ~ object {
     height: calc(100% - 42px);
   }
 }
