@@ -81,11 +81,6 @@ export default {
     },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
-  data() {
-    return {
-      console,
-    };
-  },
   computed: {
     style() {
       return {

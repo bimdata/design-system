@@ -230,7 +230,7 @@ export default {
           "Boolean",
           "false",
           "",
-          "Use this props when it's loading.",
+          "Use this props to display a loader.",
         ],
         [
           "closeOnElementClick",

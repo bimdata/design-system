@@ -237,7 +237,7 @@ export default {
           "Boolean",
           "",
           "false",
-          "Make inside of the icon transparent, keep border drawn.",
+          "Make icon body transparent, keep border drawn.",
         ],
         ["fill", "Boolean", "", "true", "Fill the icon with color."],
       ],

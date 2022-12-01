@@ -3,6 +3,6 @@ export default [
   ["Event", "Payload"],
   [
     "update:modelValue",
-    "The state of the clicked checkbox.",
+    "The clicked checkbox state.",
   ],
 ];

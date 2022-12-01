@@ -87,7 +87,6 @@
           <BIMDataPieSpinner :delay="50" @lap="lap = $event">
             <BIMDataIcon name="close" size="xxxs" class="fill-primary" />
           </BIMDataPieSpinner>
-          {{ console.log("lap", lap) }}
         </template>
 
         <template #import>
@@ -152,7 +151,6 @@ export default {
   },
   data() {
     return {
-      console,
       lap: 0,
       propsBIMDataLoading: [
         ["Props", "Type", "Default value", "Description"],

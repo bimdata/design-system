@@ -120,7 +120,7 @@ export default {
           "",
           "If ever the elements in the list are objects, allows to indicate the key which will be used as key for the v-for for vuejs.",
         ],
-        ["loading", "Boolean", "false", "Use this props when it's loading."],
+        ["loading", "Boolean", "false", "Use this props to display a loader."],
         [
           "numberDataElement",
           "Boolean",
