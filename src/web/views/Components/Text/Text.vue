@@ -139,7 +139,7 @@
             >
             <BIMDataInput
               v-model="marginText"
-              placeholder="Change margin"
+              placeholder="Change margin (in px or em)"
             ></BIMDataInput>
           </div>
           <div>
@@ -151,7 +151,7 @@
             >
             <BIMDataInput
               v-model="paddingText"
-              placeholder="Change padding"
+              placeholder="Change padding (in px or em)"
             ></BIMDataInput>
           </div>
         </template>

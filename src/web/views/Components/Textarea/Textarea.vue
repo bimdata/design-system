@@ -21,6 +21,10 @@
             :readonly="readonly"
             :fitContent="fitContent"
             :resizable="resizable"
+            :success="success"
+            :successMessage="successMessage"
+            :error="error"
+            :errorMessage="errorMessage"
           />
         </template>
 
@@ -31,6 +35,10 @@
           <BIMDataCheckbox text="readonly" v-model="readonly" />
           <BIMDataCheckbox text="fitContent" v-model="fitContent" />
           <BIMDataCheckbox text="resizable" v-model="resizable" />
+          <BIMDataCheckbox text="success" v-model="success" />
+          <BIMDataInput v-model="successMessage" placeholder="successMessage" />
+          <BIMDataCheckbox text="error" v-model="error" />
+          <BIMDataInput v-model="errorMessage" placeholder="errorMessage" />
         </template>
 
         <template #import>
@@ -50,9 +58,10 @@
               {{ readonly ? ':readonly="true"' : "" }}
               {{ fitContent ? "fitContent" : "" }}
               {{ resizable ? "resizable" : "" }}
-
-
-
+              {{ success ? "success" : "" }}
+              {{ successMessage ? "successMessage" : "" }}
+              {{ error ? "error" : "" }}
+              {{ errorMessage ? "errorMessage" : "" }}
             /&gt;
           </pre>
         </template>
@@ -63,6 +72,12 @@
           >Props:</BIMDataText
         >
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+        <div class="m-t-24">
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >Events:</BIMDataText
+          >
+          <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+        </div>
         <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
           >nota bene:
         </BIMDataText>
@@ -86,6 +101,7 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
 
 export default {
@@ -95,6 +111,7 @@ export default {
     BIMDataTable,
     BIMDataText,
     BIMDataTextarea,
+    BIMDataInput,
   },
   data() {
     return {
@@ -105,6 +122,10 @@ export default {
       readonly: false,
       fitContent: false,
       resizable: true,
+      success: false,
+      successMessage: "",
+      error: false,
+      errorMessage: "",
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -149,6 +170,34 @@ export default {
           "true",
           "Use this boolean to make textarea resizable",
         ],
+        [
+          "success",
+          "Boolean",
+          "false",
+          "Use this boolean to make textarea color green (success)",
+        ],
+        [
+          "successMessage",
+          "String",
+          "",
+          "Use this props to add a green text (success)",
+        ],
+        [
+          "error",
+          "Boolean",
+          "false",
+          "Use this boolean to make textarea color red (error)",
+        ],
+        [
+          "errorMessage",
+          "String",
+          "",
+          "Use this props to add a red text (error)",
+        ],
+      ],
+      eventsData: [
+        ["Event name", "Payload"],
+        ["update:modelValue", "The input value."],
       ],
     };
   },

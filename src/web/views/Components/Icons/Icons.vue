@@ -232,6 +232,14 @@ export default {
           "Several custom size are available to handle the custom icons size.",
           "xxxs, xxs, xs, s, m, l, xl, xxl, xxxl.",
         ],
+        [
+          "stroke",
+          "Boolean",
+          "",
+          "false",
+          "Make icon body transparent, keep border drawn.",
+        ],
+        ["fill", "Boolean", "", "true", "Fill the icon with color."],
       ],
       iconsSizeData: [
         ["Size value", "Output"],

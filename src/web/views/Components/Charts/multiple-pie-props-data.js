@@ -2,6 +2,12 @@
 export default [
   [ "Name", "Type", "Default Value", "Description" ],
   [
+    "size",
+    "Number",
+    "200",
+    "size of the graph"
+  ],
+  [
     "barsData",
     "Array",
     "[]",

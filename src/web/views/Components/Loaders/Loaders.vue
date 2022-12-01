@@ -84,7 +84,7 @@
 
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
-          <BIMDataPieSpinner :delay="50">
+          <BIMDataPieSpinner :delay="50" @lap="lap = $event">
             <BIMDataIcon name="close" size="xxxs" class="fill-primary" />
           </BIMDataPieSpinner>
         </template>
@@ -151,6 +151,7 @@ export default {
   },
   data() {
     return {
+      lap: 0,
       propsBIMDataLoading: [
         ["Props", "Type", "Default value", "Description"],
         ["message", "String", "loading...", "custom waiting message"],

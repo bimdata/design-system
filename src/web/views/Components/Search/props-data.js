@@ -54,5 +54,11 @@ export default [
     "String",
     "default",
     "Use this prop to select search bar color: 'default', 'primary', 'secondary'",
+  ],  
+  [
+    "clear",
+    "Boolean",
+    "false",
+    "Use this prop to add a button that delete text in search bar",
   ],
 ];
