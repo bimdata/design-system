@@ -17,14 +17,8 @@ export default [
     "disabled",
     "Boolean",
     "false",
-    "Use this props to disabled the checkbox",
+    "Use this props to disable the checkbox",
   ],
-  [
-    "disabled",
-    "Boolean",
-    "false",
-    "Use this props to disabled the checkbox",
-  ],  
   [
     "margin",
     "String",
