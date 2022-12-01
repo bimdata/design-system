@@ -1,10 +1,26 @@
 <template>
   <div class="bimdata-file-manager">
     <BIMDataPDFViewer
+      class="bimdata-file-manager__pdf-viewer"
       v-if="pdfToView"
       :pdf="pdfToView"
-      @close-pdf="pdfToView = null"
-    />
+      header
+    >
+      <template #header-left>
+        <BIMDataButton
+          class="m-l-12"
+          width="32px"
+          height="32px"
+          color="primary"
+          ghost
+          radius
+          icon
+          @click="pdfToView = null"
+        >
+          <BIMDataIcon name="arrow" size="xxs" />
+        </BIMDataButton>
+      </template>
+    </BIMDataPDFViewer>
     <div
       class="bimdata-file-manager__header"
       :class="{
