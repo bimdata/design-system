@@ -264,7 +264,7 @@ export default {
         ["element", "Use this slot to custum the elements list"],
       ],
       eventData: [
-        ["Slot name", "Description"],
+        ["Event name", "Description"],
         ["element-click", "Use this event to get the clicked element data"],
       ],
     };

@@ -147,10 +147,10 @@ export default {
     return {
       checkboxDisabledChecked: false,
       checkboxTwoLevelChecked: false,
-      checkboxHeaderChecked: false,
+      checkboxHeaderChecked: true,
       checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
-      checkboxElementSlotChecked: false,
+      checkboxElementSlotChecked: true,
       customListCheckbox: false,
       dropdownOptions: {
         transition: ["up", "down"],
