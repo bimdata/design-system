@@ -4,7 +4,7 @@
       <BIMDataText component="h1" color="color-primary">{{
         $route.name
       }}</BIMDataText>
-      <BIMDataText margin="5px 0"
+      <BIMDataText margin="5px 0" lineHeight="24px"
         >How to get started with BIMData's vuejs component library</BIMDataText
       >
       <BIMDataText component="h4" color="color-primary" margin="20px 0 10px"
@@ -15,9 +15,7 @@
         <code class="code-highlight">design-system</code>, and it’s available on
         the npm registry.</BIMDataText
       >
-      <Code language="bash">
-        npm i @bimdata/design-system
-      </Code>
+      <Code language="bash"> npm i @bimdata/design-system </Code>
 
       <BIMDataText component="h4" color="color-primary" margin="20px 0 10px"
         >2. Import component</BIMDataText
