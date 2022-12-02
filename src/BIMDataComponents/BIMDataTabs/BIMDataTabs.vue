@@ -23,7 +23,7 @@
         :style="{ minWidth: tabWidth }"
         @click="onTabClick(tab)"
       >
-        <slot name="tab" :tab="tab">
+        <slot name="tab" :tab="tab" :active="tab.id === activeTab.id">
           {{ tab.label }}
         </slot>
       </li>
