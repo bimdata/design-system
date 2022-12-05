@@ -34,6 +34,7 @@ import Icons from "../views/Components/Icons/Icons.vue";
 import Illustrations from "../views/Components/Illustrations/Illustrations.vue";
 import Input from "../views/Components/Input/Input.vue";
 import Loaders from "../views/Components/Loaders/Loaders.vue";
+import Menus from "../views/Components/Menu/Menus.vue";
 import ModelPreview from "../views/Components/ModelPreview/ModelPreview.vue";
 import Pagination from "../views/Components/Pagination/Pagination.vue";
 import Radio from "../views/Components/Radio/Radio.vue";
@@ -216,6 +217,11 @@ const routes = [
         path: "loaders",
         name: "loaders",
         component: Loaders,
+      },
+      {
+        path: "menus",
+        name: "menus",
+        component: Menus,
       },
       {
         path: "model-preview",
