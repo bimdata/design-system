@@ -86,7 +86,28 @@
         <a href="https://v3.vuejs.org/guide/component-slots.html#scoped-slots">
           scoped slots </a
         >.<br />
-        Below is an example of how to do this.
+        Below is 2 examples of how to do this.
+      </div>
+
+      <div class="m-b-12">Result:</div>
+      <div class="m-b-12">
+        <BIMDataTabs
+          :tabs="[
+            { id: 0, text: 'IFC', icon: 'ifc' },
+            { id: 1, text: 'BCF', icon: 'bcf' },
+            { id: 2, text: 'My Account', icon: 'user' },
+            { id: 3, text: 'Settings', icon: 'settings' },
+          ]"
+          width="100%"
+          height="40px"
+          tabSize="220px"
+          :selected="0"
+        >
+          <template #tab="{ tab }">
+            <BIMDataIcon :name="tab.icon" size="xs" margin="0 6px 0 0" />
+            <span>{{ tab.text }}</span>
+          </template>
+        </BIMDataTabs>
       </div>
       <div class="m-b-12">
         <Code language="xml">
@@ -111,28 +132,8 @@
           </pre>
         </Code>
       </div>
-      <div class="m-b-12">
-        Result:
-      </div>
-      <div class="m-b-12">
-        <BIMDataTabs
-          :tabs="[
-            { id: 0, text: 'IFC', icon: 'ifc' },
-            { id: 1, text: 'BCF', icon: 'bcf' },
-            { id: 2, text: 'My Account', icon: 'user' },
-            { id: 3, text: 'Settings', icon: 'settings' },
-          ]"
-          width="100%"
-          height="40px"
-          tabSize="220px"
-          :selected="0"
-        >
-          <template #tab="{ tab }">
-            <BIMDataIcon :name="tab.icon" size="xs" margin="0 6px 0 0" />
-            <span>{{ tab.text }}</span>
-          </template>
-        </BIMDataTabs>
-      </div>
+
+      <CustomTabColors />
     </div>
   </main>
 </template>
@@ -149,6 +150,8 @@ import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDat
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
+import CustomTabColors from "./CustomTabColors.vue";
+
 export default {
   components: {
     BIMDataIcon,
@@ -158,6 +161,7 @@ export default {
     BIMDataText,
     Code,
     ComponentCode,
+    CustomTabColors,
   },
   data() {
     return {
