@@ -1,7 +1,14 @@
 <template>
   <div class="bimdata-menu-inline">
-    <BIMDataButton color="primary" ghost rounded icon @click="active = !active">
-      <slot name="button">
+    <BIMDataButton
+      color="primary"
+      ghost
+      rounded
+      icon
+      @click="active = !active"
+      :width="width"
+    >
+      <slot name="button" :active="active">
         <BIMDataIcon
           v-if="!active"
           name="ellipsis"
@@ -26,6 +33,7 @@
           : 'bimdata-menu-inline__submenu__left',
         isSubmenuRight ? 'm-l-6' : 'm-r-6',
       ]"
+      :style="submenuPosition"
     >
       <slot name="submenu"> </slot>
     </div>
@@ -45,31 +53,25 @@ export default {
       type: Boolean,
       default: true,
     },
+    width: {
+      type: String,
+      default: "32px",
+    },
   },
   data() {
     return {
       active: false,
     };
   },
+  computed: {
+    submenuPosition() {
+      if (this.isSubmenuRight) {
+        return `left: ${this.width}`;
+      }
+      return `right: ${this.width}`;
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-.bimdata-menu-inline {
-  position: relative;
-  &__submenu {
-    padding: 0 calc(var(--spacing-unit) / 2);
-    position: absolute;
-    top: 0;
-    background-color: var(--color-white);
-    border-radius: 5px;
-    gap: calc(var(--spacing-unit) / 2);
-    &__right {
-      left: 32px;
-    }
-    &__left {
-      right: 32px;
-    }
-  }
-}
-</style>
+<style lang="scss" src="./_BIMDataMenuInline.scss"></style>
