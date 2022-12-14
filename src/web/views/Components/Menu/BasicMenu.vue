@@ -9,7 +9,7 @@
       class="bimdata-ds__demo__silver-light"
     >
       <template #module>
-        <BIMDataMenu :menuItems="getMenuItems()" @item-click="itemClick">
+        <BIMDataMenu :menuItems="options" @item-click="itemClick">
           <template #item="{ item }">
             <BIMDataIcon
               v-if="isIcons"
@@ -25,15 +25,16 @@
         <BIMDataCheckbox text="Add divider" v-model="isDivider" />
         <BIMDataCheckbox text="Add group title" v-model="isGroupTitle" />
         <BIMDataCheckbox text="Add icons" v-model="isIcons" />
+        <BIMDataCheckbox text="Add children" v-model="isChildren" />
       </template>
       <template #code>
         <pre>
             &lt;BIMDataMenu
-            :menuItems="[<template v-for="item of getMenuItems()">
-                {{ JSON.stringify(item).replace(/"/g, "'") }},</template>
-            ]"
-            @item-click="itemClick"
-          &gt;
+              :menuItems="[<template v-for="item of options">
+                  {{ formatMenuItem(item) }},</template>
+              ]"
+              @item-click="itemClick"
+            &gt;
             &lt;template #item="{ item }"&gt;
               {{ getIcons() }}
               &lt;span&gt;{{ "{{ item.text }" + "}" }}&lt;/span&gt;
@@ -46,15 +47,7 @@
 </template>
 
 <script>
-import {
-  basicOptions,
-  allOptions,
-  dividerOptions,
-  iconsOptions,
-  groupTitleOptions,
-  dividerIconsOptions,
-  dividerGroupsOptions,
-} from "./option-sets";
+import { basicOptions } from "./option-sets";
 
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataMenu from "../../../../BIMDataComponents/BIMDataMenu/BIMDataMenu.vue";
@@ -75,7 +68,46 @@ export default {
       isDivider: false,
       isGroupTitle: false,
       isIcons: false,
+      isChildren: false,
     };
+  },
+  computed: {
+    options() {
+      let opts = basicOptions.slice();
+
+      if (this.isIcons) {
+        const icons = ["tag", "visa", "edit", "download", "versioning", "key"];
+        opts = opts.map((opt, i) => ({ ...opt, icon: icons[i] }));
+      }
+
+      if (this.isDivider) {
+        opts[1] = { ...opts[1], divider: true };
+        opts[2] = { ...opts[2], divider: true };
+        opts.splice(4, 0, { divider: true });
+      }
+
+      if (this.isGroupTitle) {
+        opts = [{ groupTitle: "Groupe 01" }, ...opts];
+        opts[3] = { ...opts[3], groupTitle: "Groupe 02" };
+        opts[5] = { ...opts[5], groupTitle: "Groupe 03" };
+      }
+
+      if (this.isChildren) {
+        opts[1] = {
+          ...opts[1],
+          children: {
+            list: [
+              {
+                text: "Child item 1",
+                action: () => console.log("child clicked"),
+              },
+              { text: "Child item 2" },
+            ],
+          },
+        };
+      }
+      return opts;
+    },
   },
   methods: {
     getIcons() {
@@ -91,27 +123,23 @@ export default {
     itemClick($event) {
       console.log($event);
     },
+    formatMenuItem(item) {
+      const regex = /["']\w+["']/g;
 
-    getMenuItems() {
-      if (this.isDivider && this.isIcons && this.isGroupTitle) {
-        return allOptions;
-      }
-      if (this.isDivider && this.isIcons) {
-        return dividerIconsOptions;
-      }
-      if (this.isDivider && this.isGroupTitle) {
-        return dividerGroupsOptions;
-      }
-      if (this.isDivider) {
-        return dividerOptions;
-      }
-      if (this.isIcons) {
-        return iconsOptions;
-      }
-      if (this.isGroupTitle) {
-        return groupTitleOptions;
-      }
-      return basicOptions;
+      const itemValue = JSON.stringify(item, (_, value) =>
+        typeof value === "function" ? `[fn]${value.toString()}[fn]` : value
+      )
+        .replace(/"/g, "'")
+        .replace(/(\[fn\]'|'\[fn\]|\\)/g, "");
+
+      const result = itemValue => {
+        const removeSimpleQuote = itemValue.replace(regex, match =>
+          match.replace(/'/g, "")
+        );
+        return removeSimpleQuote;
+      };
+
+      return result(itemValue);
     },
   },
 };
