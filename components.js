@@ -12,6 +12,8 @@ export { default as BIMDataIcon } from "./dist/js/BIMDataComponents/BIMDataIcon.
 export { default as BIMDataIllustration } from "./dist/js/BIMDataComponents/BIMDataIllustration.js";
 export { default as BIMDataInput } from "./dist/js/BIMDataComponents/BIMDataInput.js";
 export { default as BIMDataLoading } from "./dist/js/BIMDataComponents/BIMDataLoading.js";
+export { default as BIMDataMenu } from "./dist/js/BIMDataComponents/BIMDataMenu.js";
+export { default as BIMDataMenuInline } from "./dist/js/BIMDataComponents/BIMDataMenuInline.js";
 export { default as BIMDataMultiplePieChart } from "./dist/js/BIMDataComponents/BIMDataMultiplePieChart.js";
 export { default as BIMDataNavigation } from "./dist/js/BIMDataComponents/BIMDataNavigation.js";
 export { default as BIMDataPaginatedList } from "./dist/js/BIMDataComponents/BIMDataPaginatedList.js";
