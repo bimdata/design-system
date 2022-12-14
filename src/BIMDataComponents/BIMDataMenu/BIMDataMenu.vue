@@ -1,5 +1,9 @@
 <template>
-  <ul class="bimdata-menu bimdata-list">
+  <ul
+    class="bimdata-menu bimdata-list"
+    :style="{ width }"
+    v-clickaway="isClickAway ? away : null"
+  >
     <div
       :ref="`item-${item.text}`"
       v-for="item in menuItems"
@@ -17,9 +21,9 @@
       }"
     >
       <div v-if="item.groupTitle" class="bimdata-menu__item--title">
-        <template>
+        <slot name="groupTitle">
           <span>{{ item.groupTitle }}</span>
-        </template>
+        </slot>
       </div>
       <li
         v-if="item.text"
@@ -32,27 +36,30 @@
           <BIMDataTextbox :text="item.text" />
         </slot>
         <template v-if="item.children">
-          <BIMDataIcon name="chevron" size="xxs" />
-          <ul
-            :ref="`children-${item.text}`"
-            class="bimdata-menu__item__children"
-            :style="{
-              visibility:
-                isItemHover && currentItemText === item.text
-                  ? 'visible'
-                  : 'hidden',
-              maxHeight: subListMaxHeight,
-              top: `${definePos(item)}px`,
-            }"
-          >
-            <li
-              v-for="child in item.children.list"
-              :key="child.text"
-              @click="child.action && child.action()"
+          <slot name="children">
+            <BIMDataIcon name="chevron" size="xxs" />
+            <ul
+              :ref="`children-${item.text}`"
+              class="bimdata-menu__item__children"
+              :style="{
+                visibility:
+                  isItemHover && currentItemText === item.text
+                    ? 'visible'
+                    : 'hidden',
+                maxHeight: subListMaxHeight,
+                width: subListWidth,
+                top: `${definePos(item)}px`,
+              }"
             >
-              <BIMDataTextbox :text="child.text" />
-            </li>
-          </ul>
+              <li
+                v-for="child in item.children.list"
+                :key="child.text"
+                @click.stop="child.action && child.action()"
+              >
+                <BIMDataTextbox :text="child.text" />
+              </li>
+            </ul>
+          </slot>
         </template>
       </li>
       <template v-if="item.divider">
@@ -82,12 +89,25 @@ export default {
       type: String,
       default: "auto",
     },
+    subListWidth: {
+      type: String,
+      default: "100%",
+    },
+    width: {
+      type: String,
+      default: "200px",
+    },
+    isClickAway: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ["item-click"],
   data() {
     return {
       isItemHover: false,
       currentItemText: null,
+      displayed: false,
     };
   },
   methods: {
@@ -135,6 +155,9 @@ export default {
     hasNoChildren(item) {
       const { children } = item;
       return children && children.list.length === 0;
+    },
+    away() {
+      this.displayed = false;
     },
   },
 };
