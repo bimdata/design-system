@@ -6,6 +6,16 @@
       </BIMDataText>
 
       <MenuInline />
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
+        <BIMDataTable
+          :columns="propsMenuInline[0]"
+          :rows="propsMenuInline.slice(1)"
+        />
+      </div>
+
       <BasicMenu />
       <div class="m-t-12">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
@@ -36,6 +46,7 @@ import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.v
 import MenuInline from "./MenuInline.vue";
 import BasicMenu from "./BasicMenu.vue";
 
+import propsMenuInline from "./props-menu-inline";
 import propsBasicMenu from "./props-basic-menu";
 import slotsBasicMenu from "./slots-basic-menu";
 
@@ -48,6 +59,7 @@ export default {
   },
   data() {
     return {
+      propsMenuInline,
       propsBasicMenu,
       slotsBasicMenu,
     };
