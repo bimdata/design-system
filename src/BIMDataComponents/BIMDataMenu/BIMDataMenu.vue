@@ -1,9 +1,5 @@
 <template>
-  <ul
-    class="bimdata-menu bimdata-list"
-    :style="{ width }"
-    v-clickaway="isClickAway ? away : null"
-  >
+  <ul class="bimdata-menu bimdata-list" :style="{ width }" v-clickaway="away">
     <div
       :ref="`item-${item.text}`"
       v-for="item in menuItems"
@@ -157,7 +153,9 @@ export default {
       return children && children.list.length === 0;
     },
     away() {
-      this.displayed = false;
+      if (this.isClickAway) {
+        this.displayed = false;
+      }
     },
   },
 };

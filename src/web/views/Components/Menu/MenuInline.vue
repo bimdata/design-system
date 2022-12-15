@@ -13,6 +13,7 @@
         <BIMDataMenuInline
           :isSubmenuRight="isSubmenuRight"
           :width="isCustomButton ? '55px' : undefined"
+          :isClickAway="isClickAway"
         >
           <template #button="{ active }" v-if="isCustomButton">
             <span v-if="active">active</span>
@@ -25,7 +26,7 @@
                 ghost
                 rounded
                 icon
-                @click="active = !active"
+                @click="deleteClick($event)"
                 class="m-r-6"
               >
                 <BIMDataIcon name="delete" fill color="primary" size="xxs" />
@@ -35,7 +36,7 @@
                 ghost
                 rounded
                 icon
-                @click="active = !active"
+                @click="editClick($event)"
               >
                 <BIMDataIcon name="edit" fill color="primary" size="xxs" />
               </BIMDataButton>
@@ -46,12 +47,13 @@
       <template #parameters>
         <BIMDataCheckbox text="Submenu right" v-model="isSubmenuRight" />
         <BIMDataCheckbox text="Custom button" v-model="isCustomButton" />
+        <BIMDataCheckbox text="Click away" v-model="isClickAway" />
       </template>
       <template #code>
         <pre>
             &lt;BIMDataMenuInline :isSubmenuRight="{{ isSubmenuRight }}" {{
             getWidth()
-          }} &gt;
+          }} :isClickAway="{{ isClickAway }}" &gt;
               {{ getButtonSlot() }}
               &lt;template #submenu&gt;
                 &lt;div class="flex items-center justify-center"&gt;
@@ -107,6 +109,7 @@ export default {
       isSubmenuRight: true,
       isCustomButton: false,
       isIcons: false,
+      isClickAway: false,
     };
   },
   methods: {
@@ -122,6 +125,12 @@ export default {
               <span v-else>non active</span>
             </template>`;
       }
+    },
+    deleteClick(event) {
+      console.log("delete click", event);
+    },
+    editClick(event) {
+      console.log("edit click", event);
     },
   },
 };

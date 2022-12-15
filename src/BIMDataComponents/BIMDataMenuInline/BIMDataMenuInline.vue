@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-menu-inline">
+  <div class="bimdata-menu-inline" v-clickaway="away">
     <BIMDataButton
       color="primary"
       ghost
@@ -41,9 +41,12 @@
 </template>
 
 <script>
+import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 export default {
+  directives: { clickaway },
+
   components: {
     BIMDataButton,
     BIMDataIcon,
@@ -57,6 +60,10 @@ export default {
       type: String,
       default: "32px",
     },
+    isClickAway: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -69,6 +76,13 @@ export default {
         return `left: ${this.width}`;
       }
       return `right: ${this.width}`;
+    },
+  },
+  methods: {
+    away() {
+      if (this.isClickAway) {
+        this.active = false;
+      }
     },
   },
 };
