@@ -23,7 +23,7 @@ export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIll
 export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
 export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";
 export { default as BIMDataMenu } from "./BIMDataMenu/BIMDataMenu.vue";
-export { default as BIMDataMenuInline } from "./BIMDataMenu/BIMDataMenuInline.vue";
+export { default as BIMDataMenuInline } from "./BIMDataMenuInline/BIMDataMenuInline.vue";
 export { default as BIMDataModelPreview } from "./BIMDataModelPreview/BIMDataModelPreview.vue";
 export { default as BIMDataMultiplePieChart } from "./BIMDataMultiplePieChart/BIMDataMultiplePieChart.vue";
 export { default as BIMDataPaginatedList } from "./BIMDataPaginatedList/BIMDataPaginatedList.vue";
