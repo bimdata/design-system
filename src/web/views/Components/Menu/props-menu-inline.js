@@ -7,7 +7,7 @@ export default [
     "isSubmenuRight",
     "Boolean",
     "true",
-    "Set this props to 'false' if you want to open the submenu on the left",
+    "Set this props to 'false' to open the submenu on the left",
   ],
   [
     "width",
@@ -19,6 +19,6 @@ export default [
     "isClickAway",
     "Boolean",
     "true",
-    "Set this props to false if you don't want the menu component to close when you click outside.",
+    "If false, the menu component does not close when you click outside.",
   ],
 ];

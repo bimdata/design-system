@@ -31,6 +31,6 @@ export default [
     "isClickAway",
     "Boolean",
     "true",
-    "Set this props to false if you don't want the menu component to close when you click outside.",
+    "If false, the menu component does not close when you click outside.",
   ],
 ];
