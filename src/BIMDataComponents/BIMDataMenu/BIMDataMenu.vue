@@ -108,7 +108,7 @@ export default {
   },
   methods: {
     definePos(item) {
-      if (!item.children.position || !item.children.position === "up") return 0;
+      if (!item.children.position || item.children.position !== "up") return 0;
 
       const currentItem = this.$refs["item-" + item.text];
       const currentChild = this.$refs["children-" + item.text];
