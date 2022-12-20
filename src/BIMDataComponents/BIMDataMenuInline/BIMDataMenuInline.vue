@@ -46,7 +46,6 @@ import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 export default {
   directives: { clickaway },
-
   components: {
     BIMDataButton,
     BIMDataIcon,
