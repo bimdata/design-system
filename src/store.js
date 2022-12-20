@@ -193,6 +193,13 @@ export default new Vuex.Store({
           btn: "View loaders",
         },
         {
+          title: "Menus",
+          img: require("./web/assets/img/icon-menu.svg"),
+          path: "menus",
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          btn: "View menus",
+        },
+        {
           title: "ModelPreview",
           img: require("./web/assets/img/icon-doc.svg"),
           path: "model-preview",
