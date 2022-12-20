@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { basicOptions } from "./option-sets";
+import { basicOptions } from "./option-sets.js";
 
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataMenu from "../../../../BIMDataComponents/BIMDataMenu/BIMDataMenu.vue";

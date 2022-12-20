@@ -55,10 +55,10 @@ import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.v
 import MenuInline from "./MenuInline.vue";
 import BasicMenu from "./BasicMenu.vue";
 
-import propsMenuInline from "./props-menu-inline";
-import slotsMenuInline from "./slots-menu-inline";
-import propsBasicMenu from "./props-basic-menu";
-import slotsBasicMenu from "./slots-basic-menu";
+import propsMenuInline from "./props-menu-inline.js";
+import slotsMenuInline from "./slots-menu-inline.js";
+import propsBasicMenu from "./props-basic-menu.js";
+import slotsBasicMenu from "./slots-basic-menu.js";
 
 export default {
   components: {
