@@ -228,6 +228,13 @@ export default new Vuex.Store({
           btn: "View responsive grid",
         },
         {
+          title: "SafeZoneInline",
+          img: require("./web/assets/img/icon-safe_zone_modal.svg"),
+          path: "safe-zone-inline",
+          text: "",
+          btn: "View safe zone inline",
+        },
+        {
           title: "SafeZoneModal",
           img: require("./web/assets/img/icon-safe_zone_modal.svg"),
           path: "safe-zone-modal",

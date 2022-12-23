@@ -40,6 +40,7 @@ import Pagination from "../views/Components/Pagination/Pagination.vue";
 import Radio from "../views/Components/Radio/Radio.vue";
 import ResponsiveGrid from "../views/Components/ResponsiveGrid/ResponsiveGrid.vue";
 import SafeZoneModal from "../views/Components/SafeZoneModal/SafeZoneModal.vue";
+import SafeZoneInline from "../views/Components/SafeZoneInline/SafeZoneInline.vue";
 import Search from "../views/Components/Search/Search.vue";
 import SearchAutocomplete from "../views/Components/SearchAutocomplete/SearchAutocomplete.vue";
 import Select from "../views/Components/Select/Select.vue";
@@ -242,6 +243,11 @@ const routes = [
         path: "responsive-grid",
         name: "responsive-grid",
         component: ResponsiveGrid,
+      },
+      {
+        path: "safe-zone-inline",
+        name: "safe-zone-inline",
+        component: SafeZoneInline,
       },
       {
         path: "safe-zone-modal",

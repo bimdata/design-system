@@ -1,0 +1,15 @@
+.safe-zone-inline {
+  display: flex;
+  gap: 9px;
+  padding: 6px 9px;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+
+  &__btn-delete {
+    width: 90px;
+  }
+
+  &__btn-close {
+    padding: 0 8px;
+  }
+}

@@ -153,6 +153,7 @@ export default {
           "false",
           "Allow PDF to be seen within a viewer.",
         ],
+        ["locale", "String", "en", "Use this props to select a language."],
       ],
       eventsData: [
         ["Event name", "Payload"],
