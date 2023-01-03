@@ -8,6 +8,7 @@
       :class="[
         item.divider ? 'bimdata-menu__item--divider' : '',
         { hover: isItemHover && currentItemText === item.text },
+        hasNoChildren(item) ? 'bimdata-menu__item--no-children' : '',
       ]"
       @click.stop="onClick(item)"
       @mouseover="onMouseOver(item)"
@@ -26,14 +27,32 @@
         :style="{
           'background-color':
             isItemHover && currentItemText === item.text ? item.background : '',
+          display: 'flex',
         }"
       >
         <slot name="item" :item="item">
-          <BIMDataTextbox :text="item.text" />
+          <BIMDataTextbox
+            :text="item.text"
+            :style="{
+              order: childrenLeft ? 2 : 1,
+              marginLeft: childrenLeft
+                ? item.children
+                  ? '11px'
+                  : '24px'
+                : 'auto',
+            }"
+          />
         </slot>
         <template v-if="item.children">
           <slot name="children">
-            <BIMDataIcon name="chevron" size="xxs" />
+            <BIMDataIcon
+              name="chevron"
+              size="xxs"
+              :rotate="childrenLeft ? 180 : 0"
+              :style="{
+                order: childrenLeft ? 1 : 2,
+              }"
+            />
             <ul
               :ref="`children-${item.text}`"
               class="bimdata-menu__item__children"
@@ -45,15 +64,20 @@
                 maxHeight: subListMaxHeight,
                 width: subListWidth,
                 top: `${definePos(item)}px`,
+                left: childrenLeft ? '-200px' : '100%',
               }"
             >
+              <slot name="child-header" :children="item.children" />
               <li
                 v-for="child in item.children.list"
                 :key="child.text"
                 @click.stop="child.action && child.action()"
               >
-                <BIMDataTextbox :text="child.text" />
+                <slot name="child-item" :child="child">
+                  <BIMDataTextbox :text="child.text" />
+                </slot>
               </li>
+              <slot name="child-footer" :children="item.children" />
             </ul>
           </slot>
         </template>
@@ -96,6 +120,10 @@ export default {
     isClickAway: {
       type: Boolean,
       default: true,
+    },
+    childrenLeft: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["item-click"],

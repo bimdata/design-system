@@ -10,15 +10,31 @@
     >
       <template #module>
         <BIMDataMenu :menuItems="options" @item-click="itemClick">
+          <!-- <template #header>
+            <BIMDataCheckbox
+              style="width: 14px; margin: 0 6px 0 0"
+              :modelValue="options.length === checkedItems.length"
+              @update:modelValue="checkAllItems"
+            />
+            <span>Tout sélectionner</span>
+          </template> -->
           <template #item="{ item }">
+            <!-- <BIMDataCheckbox
+              style="width: 14px; margin: 0 6px 0 0"
+              :modelValue="checkedItems.includes(item.text)"
+              @update:modelValue="checkItem(item)"
+            /> -->
             <BIMDataIcon
               v-if="isIcons"
               :name="item.icon"
               size="xs"
               margin="0 6px 0 0"
             />
-            <span>{{ item.text }}</span>
+            <!-- <span>{{ item.text }}</span> -->
           </template>
+          <template #child-header>HEADER</template>
+          <template #child-item="{ item }">yooo</template>
+          <template #child-footer>FOOTER</template>
         </BIMDataMenu>
       </template>
       <template #parameters>
@@ -69,6 +85,8 @@ export default {
       isGroupTitle: false,
       isIcons: false,
       isChildren: false,
+      checkedItems: [],
+      console,
     };
   },
   computed: {
@@ -140,6 +158,23 @@ export default {
       };
 
       return result(itemValue);
+    },
+    checkItem({ text }) {
+      const isChecked = this.checkedItems.includes(text);
+
+      if (isChecked) {
+        const itemIndex = this.checkedItems.indexOf(text);
+        this.checkedItems.splice(itemIndex, 1);
+      } else {
+        this.checkedItems.push(text);
+      }
+      return !isChecked;
+    },
+    checkAllItems() {
+      this.checkedItems =
+        this.checkedItems.length === this.options.length
+          ? []
+          : this.options.map(item => item.text);
     },
   },
 };
