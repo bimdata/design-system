@@ -1,0 +1,13 @@
+.safe-zone-inline {
+  &__playground {
+    position: relative;
+
+    &__component {
+      background-color: var(--color-white);
+      position: absolute;
+      z-index: 1;
+      top: -7px;
+      right: 0px;
+    }
+  }
+}

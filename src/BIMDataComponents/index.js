@@ -30,6 +30,7 @@ export { default as BIMDataPaginatedList } from "./BIMDataPaginatedList/BIMDataP
 export { default as BIMDataPieSpinner } from "./BIMDataPieSpinner/BIMDataPieSpinner.vue";
 export { default as BIMDataRadio } from "./BIMDataRadio/BIMDataRadio.vue";
 export { default as BIMDataResponsiveGrid } from "./BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
+export { default as BIMDataSafeZoneInline } from "./BIMDataSafeZoneInline/BIMDataSafeZoneInline.vue";
 export { default as BIMDataSafeZoneModal } from "./BIMDataSafeZoneModal/BIMDataSafeZoneModal.vue";
 export { default as BIMDataSearch } from "./BIMDataSearch/BIMDataSearch.vue";
 export { default as BIMDataSearchAutocomplete } from "./BIMDataSearchAutocomplete/BIMDataSearchAutocomplete.vue";
