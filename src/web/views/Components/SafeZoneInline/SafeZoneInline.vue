@@ -105,7 +105,7 @@ export default {
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["content", "Use this slot to add a custom text"],
+        ["content", "Use this slot to add a custom text."],
       ],
     };
   },
