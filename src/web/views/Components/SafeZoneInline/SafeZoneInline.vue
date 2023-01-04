@@ -61,21 +61,21 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataSafeZoneInline from "../../../../BIMDataComponents/BIMDataSafeZoneInline/BIMDataSafeZoneInline.vue";
 
 export default {
   components: {
     ComponentCode,
+    BIMDataText,
     BIMDataIcon,
+    BIMDataTable,
     BIMDataButton,
     BIMDataCheckbox,
-    BIMDataTable,
-    BIMDataText,
     BIMDataSafeZoneInline,
   },
   data() {

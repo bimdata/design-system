@@ -2,9 +2,9 @@
   display: flex;
   gap: 9px;
   padding: 6px 9px;
-  box-shadow: var(--box-shadow);
   border-radius: 5px;
-
+  box-shadow: var(--box-shadow);
+  
   &__btn-delete {
     width: 90px;
   }
