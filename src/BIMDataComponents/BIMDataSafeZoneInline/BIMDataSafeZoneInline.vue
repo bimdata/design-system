@@ -2,17 +2,17 @@
   <div class="safe-zone-inline">
     <BIMDataButton
       class="safe-zone-inline__btn-delete"
-      :style="{ order: reverse ? 2 : 0 }"
       color="high"
       fill
       radius
       @click="$emit('confirm-delete')"
     >
-      {{ deleteTrad[locale] }}
+      <slot name="content">Delete</slot>
     </BIMDataButton>
     <BIMDataButton
       class="safe-zone-inline__btn-close"
-      :style="{ minWidth: 0, width: '15px', order: reverse ? 1 : 0 }"
+      :style="{ width: '15px', order: reverse ? -1 : 0 }"
+      width="0px"
       radius
       @click="$emit('cancel-delete')"
     >
@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import deleteTrad from "./i18n.js";
-
 import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
@@ -33,21 +31,12 @@ export default {
     BIMDataButton,
   },
   props: {
-    locale: {
-      type: String,
-      default: "en",
-    },
     reverse: {
       type: Boolean,
       default: false,
     },
   },
   emits: ["confirm-delete", "cancel-delete"],
-  setup() {
-    return {
-      deleteTrad,
-    };
-  },
 };
 </script>
 

@@ -55,6 +55,12 @@
         </BIMDataText>
         <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
       </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Slots:
+        </BIMDataText>
+        <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
@@ -94,8 +100,12 @@ export default {
       ],
       eventData: [
         ["Event name", "Description"],
-        ["confirm-delete", "Use this event to confirm delete"],
-        ["cancel-delete", "Use this event to cancel celete"],
+        ["confirm-delete", "Use this event to confirm delete."],
+        ["cancel-delete", "Use this event to cancel delete."],
+      ],
+      slotData: [
+        ["Slot name", "Description"],
+        ["content", "Use this slot to add a custom text"],
       ],
     };
   },
