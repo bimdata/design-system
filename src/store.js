@@ -229,7 +229,7 @@ export default new Vuex.Store({
         },
         {
           title: "SafeZoneInline",
-          img: require("./web/assets/img/icon-safe_zone_modal.svg"),
+          img: require("./web/assets/img/icon-safe_zone_inline.svg"),
           path: "safe-zone-inline",
           text: "",
           btn: "View safe zone inline",
