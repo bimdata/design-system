@@ -7,7 +7,7 @@ export default [
     "menuItems",
     "Array",
     "() => []",
-    "Use this props to add content on BIMDataMenu component",
+    "Use this props to add content on BIMDataMenu component.",
   ],
   [
     "subListMaxHeight",
