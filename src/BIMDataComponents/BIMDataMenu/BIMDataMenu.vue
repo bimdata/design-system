@@ -34,7 +34,6 @@
           <BIMDataTextbox
             :text="item.text"
             :style="{
-              order: childrenLeft ? 2 : 1,
               marginLeft: childrenLeft
                 ? item.children
                   ? '11px'
@@ -50,7 +49,7 @@
               size="xxs"
               :rotate="childrenLeft ? 180 : 0"
               :style="{
-                order: childrenLeft ? 1 : 2,
+                order: childrenLeft ? -1 : 0,
               }"
             />
             <ul
