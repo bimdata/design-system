@@ -7,7 +7,7 @@ export default [
     "isSubmenuRight",
     "Boolean",
     "true",
-    "Set this props to 'false' to open the submenu on the left",
+    "Set this props to 'false' to open the submenu on the left.",
   ],
   [
     "width",
@@ -25,6 +25,6 @@ export default [
     "childrenLeft",
     "Boolean",
     "true",
-    "If true, children will be displayed at the left of the menu",
+    "If true, children will be displayed at the left of the menu.",
   ],
 ];

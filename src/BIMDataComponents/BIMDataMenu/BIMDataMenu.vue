@@ -63,7 +63,7 @@
                 maxHeight: subListMaxHeight,
                 width: subListWidth,
                 top: `${definePos(item)}px`,
-                left: childrenLeft ? '-200px' : '100%',
+                left: `${childrenLeft ? '-' : ''}100%`,
               }"
             >
               <slot name="child-header" :children="item.children" />
