@@ -374,7 +374,9 @@ export default {
   },
   methods: {
     isDisabled(file) {
-      const extensionMatch = file.file_name.match(/\.(\w+$)/);
+      if (file.nature === "Folder") return false;
+
+      const extensionMatch = file.file_name?.match(/\.(\w+$)/);
       const fileExtension = extensionMatch && extensionMatch[1];
 
       return (

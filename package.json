@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
-    "@bimdata/typescript-fetch-api-client": "9.2.7",
+    "@bimdata/typescript-fetch-api-client": "9.5.0",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-image": "^2.1.1",
