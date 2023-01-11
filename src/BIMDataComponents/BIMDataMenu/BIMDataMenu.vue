@@ -1,13 +1,13 @@
 <template>
   <ul class="bimdata-menu bimdata-list" :style="{ width }" v-clickaway="away">
     <div
-      :ref="`item-${item.text}`"
+      :ref="`item-${item.key}`"
       v-for="item in menuItems"
-      :key="item.text"
+      :key="item.key"
       class="bimdata-menu__item flex items-center"
       :class="[
         item.divider ? 'bimdata-menu__item--divider' : '',
-        { hover: isItemHover && currentItemText === item.text },
+        { hover: isItemHover && currentItemKey === item.key },
         hasNoChildren(item) ? 'bimdata-menu__item--no-children' : '',
       ]"
       @click.stop="onClick(item)"
@@ -26,7 +26,7 @@
         v-if="item.text"
         :style="{
           'background-color':
-            isItemHover && currentItemText === item.text ? item.background : '',
+            isItemHover && currentItemKey === item.key ? item.background : '',
           display: 'flex',
         }"
       >
@@ -53,11 +53,11 @@
               }"
             />
             <ul
-              :ref="`children-${item.text}`"
+              :ref="`children-${item.key}`"
               class="bimdata-menu__item__children"
               :style="{
                 visibility:
-                  isItemHover && currentItemText === item.text
+                  isItemHover && currentItemKey === item.key
                     ? 'visible'
                     : 'hidden',
                 maxHeight: subListMaxHeight,
@@ -129,7 +129,7 @@ export default {
   data() {
     return {
       isItemHover: false,
-      currentItemText: null,
+      currentItemKey: null,
       displayed: false,
     };
   },
@@ -137,8 +137,8 @@ export default {
     definePos(item) {
       if (!item.children.position || item.children.position !== "up") return 0;
 
-      const currentItem = this.$refs["item-" + item.text];
-      const currentChild = this.$refs["children-" + item.text];
+      const currentItem = this.$refs["item-" + item.key];
+      const currentChild = this.$refs["children-" + item.key];
 
       if (
         currentItem == undefined ||
@@ -154,13 +154,13 @@ export default {
 
       return (childPos.height - itemPos.height) * -1;
     },
-    handleCurrentItem(itemText) {
-      if (itemText) {
+    handleCurrentItem(itemKey) {
+      if (itemKey) {
         this.isItemHover = true;
-        this.currentItemText = itemText;
+        this.currentItemKey = itemKey;
       } else {
         this.isItemHover = false;
-        this.currentItemText = null;
+        this.currentItemKey = null;
       }
     },
     onClick(item) {
@@ -169,7 +169,7 @@ export default {
     },
     onMouseOver(item) {
       if (this.hasNoChildren(item)) return;
-      this.handleCurrentItem(item.text);
+      this.handleCurrentItem(item.key);
     },
     onMouseLeave(item) {
       if (this.hasNoChildren(item)) return;
