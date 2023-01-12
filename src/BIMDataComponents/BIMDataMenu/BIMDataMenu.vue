@@ -138,26 +138,6 @@ export default {
     };
   },
   methods: {
-    definePos(item) {
-      if (!item.children.position || item.children.position !== "up") return 0;
-
-      const currentItem = this.$refs["item-" + item.key];
-      const currentChild = this.$refs["children-" + item.key];
-
-      if (
-        currentItem == undefined ||
-        currentItem.length < 1 ||
-        currentChild == undefined ||
-        currentChild.length < 1
-      ) {
-        return;
-      }
-
-      const itemPos = currentItem[0].getBoundingClientRect();
-      const childPos = currentChild[0].getBoundingClientRect();
-
-      return (childPos.height - itemPos.height) * -1;
-    },
     getChildrenStyle(item) {
       if (this.currentItemKey !== item.key) return { display: "none" };
 
