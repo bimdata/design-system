@@ -2,6 +2,7 @@
   padding: var(--spacing-unit) 0;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
+  overflow-y: auto;
   &__item {
     display: flex;
     flex-direction: column;
@@ -53,13 +54,11 @@
     }
     &__children {
       overflow: auto;
+      position: fixed;
       padding: calc(var(--spacing-unit) / 2) 0;
       background-color: var(--color-white);
       border: 1px solid transparent;
       box-shadow: var(--box-shadow);
-      position: absolute;
-      left: 100%;
-      top: -6%;
     }
   }
 }
