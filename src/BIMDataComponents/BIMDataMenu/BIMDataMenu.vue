@@ -63,7 +63,7 @@
               <ul
                 :ref="`children-${item.key}`"
                 class="bimdata-menu__item__children"
-                :style="{ ...getChildrenStyle(item) }"
+                :style="getChildrenStyle(item)"
               >
                 <slot name="child-header" :children="item.children" />
                 <li
