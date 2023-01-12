@@ -1,5 +1,12 @@
 <template>
-  <ul class="bimdata-menu bimdata-list" :style="{ width }" v-clickaway="away">
+  <ul
+    class="bimdata-menu bimdata-list"
+    :style="{
+      width,
+      maxHeight,
+    }"
+    v-clickaway="away"
+  >
     <div
       :ref="`item-${item.key}`"
       v-for="item in menuItems"
@@ -52,32 +59,25 @@
                 order: childrenLeft ? -1 : 0,
               }"
             />
-            <ul
-              :ref="`children-${item.key}`"
-              class="bimdata-menu__item__children"
-              :style="{
-                visibility:
-                  isItemHover && currentItemKey === item.key
-                    ? 'visible'
-                    : 'hidden',
-                maxHeight: subListMaxHeight,
-                width: subListWidth,
-                top: `${definePos(item)}px`,
-                left: `${childrenLeft ? '-' : ''}100%`,
-              }"
-            >
-              <slot name="child-header" :children="item.children" />
-              <li
-                v-for="child in item.children.list"
-                :key="child.text"
-                @click.stop="child.action && child.action()"
+            <template v-if="isItemHover">
+              <ul
+                :ref="`children-${item.key}`"
+                class="bimdata-menu__item__children"
+                :style="{ ...getChildrenStyle(item) }"
               >
-                <slot name="child-item" :child="child">
-                  <BIMDataTextbox :text="child.text" />
-                </slot>
-              </li>
-              <slot name="child-footer" :children="item.children" />
-            </ul>
+                <slot name="child-header" :children="item.children" />
+                <li
+                  v-for="child in item.children.list"
+                  :key="child.text"
+                  @click.stop="child.action && child.action()"
+                >
+                  <slot name="child-item" :child="child">
+                    <BIMDataTextbox :text="child.text" />
+                  </slot>
+                </li>
+                <slot name="child-footer" :children="item.children" />
+              </ul>
+            </template>
           </slot>
         </template>
       </li>
@@ -104,15 +104,19 @@ export default {
       type: Array,
       default: () => [],
     },
+    maxHeight: {
+      type: String,
+      default: "auto",
+    },
+    width: {
+      type: String,
+      default: "200px",
+    },
     subListMaxHeight: {
       type: String,
       default: "auto",
     },
     subListWidth: {
-      type: String,
-      default: "100%",
-    },
-    width: {
       type: String,
       default: "200px",
     },
@@ -153,6 +157,22 @@ export default {
       const childPos = currentChild[0].getBoundingClientRect();
 
       return (childPos.height - itemPos.height) * -1;
+    },
+    getChildrenStyle(item) {
+      if (this.currentItemKey !== item.key) return { display: "none" };
+
+      const itemPos = this.$refs["item-" + item.key][0].getBoundingClientRect();
+      return {
+        width: this.subListWidth,
+        maxHeight: this.subListMaxHeight,
+        top: `${itemPos.top}px`,
+        left: `${
+          this.childrenLeft
+            ? itemPos.x -
+              parseInt(this.subListWidth.replace(/[a-zA-Z]/g, ""), 10)
+            : itemPos.x + itemPos.width
+        }px`,
+      };
     },
     handleCurrentItem(itemKey) {
       if (itemKey) {
