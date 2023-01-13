@@ -144,7 +144,7 @@ export default {
       default: false,
     },
   },
-  emits: ["on-hover"],
+  emits: ["hover"],
   data() {
     return {
       isItemHover: false,
@@ -185,11 +185,11 @@ export default {
 
     onMouseOver(item) {
       this.handleCurrentItem(item.key);
-      this.$emit("on-hover", item);
+      this.$emit("hover", item);
     },
     onMouseLeave() {
       this.handleCurrentItem();
-      this.$emit("on-hover");
+      this.$emit("hover");
     },
     hasNoChildren(item) {
       const { children } = item;
