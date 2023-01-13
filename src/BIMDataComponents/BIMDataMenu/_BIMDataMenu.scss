@@ -59,6 +59,10 @@
       background-color: var(--color-white);
       border: 1px solid transparent;
       box-shadow: var(--box-shadow);
+
+      &--list {
+        padding-left: 0;
+      }
     }
   }
 }

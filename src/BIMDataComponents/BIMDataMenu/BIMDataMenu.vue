@@ -40,12 +40,10 @@
         <slot name="item" :item="item">
           <BIMDataTextbox
             :text="item.text"
+            :tooltip="false"
+            width="80%"
             :style="{
-              marginLeft: childrenLeft
-                ? item.children
-                  ? '11px'
-                  : '24px'
-                : 'auto',
+              marginLeft: childrenLeft ? (item.children ? '11px' : '24px') : '',
             }"
           />
         </slot>
@@ -55,28 +53,36 @@
               name="chevron"
               size="xxs"
               :rotate="childrenLeft ? 180 : 0"
+              :margin="childrenLeft ? '' : '0 0 0 auto'"
               :style="{
                 order: childrenLeft ? -1 : 0,
               }"
             />
             <template v-if="isItemHover">
-              <ul
-                :ref="`children-${item.key}`"
-                class="bimdata-menu__item__children"
-                :style="getChildrenStyle(item)"
+              <template
+                v-if="hasNoChildren(item) && currentItemKey === item.key"
               >
-                <slot name="child-header" :children="item.children" />
-                <li
-                  v-for="child in item.children.list"
-                  :key="child.text"
-                  @click.stop="child.action && child.action()"
+                <slot name="children-without-child" :children="item.children" />
+              </template>
+              <template v-else>
+                <ul
+                  :ref="`children-${item.key}`"
+                  class="bimdata-menu__item__children"
+                  :style="getChildrenStyle(item)"
                 >
-                  <slot name="child-item" :child="child">
-                    <BIMDataTextbox :text="child.text" />
-                  </slot>
-                </li>
-                <slot name="child-footer" :children="item.children" />
-              </ul>
+                  <slot name="child-header" :children="item.children" />
+                  <li
+                    v-for="child in item.children.list"
+                    :key="child.text"
+                    @click.stop="child.action && child.action()"
+                  >
+                    <slot name="child-item" :child="child">
+                      <BIMDataTextbox :text="child.text" :tooltip="false" />
+                    </slot>
+                  </li>
+                  <slot name="child-footer" :children="item.children" />
+                </ul>
+              </template>
             </template>
           </slot>
         </template>
@@ -128,8 +134,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * This props is specific to the eponym platform feature.
+     * It's a temporary workaround that allow us
+     * to make items with no child hoverable.
+     */
+    userGroupImportFeature: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ["item-click"],
+  emits: ["on-hover"],
   data() {
     return {
       isItemHover: false,
@@ -167,13 +182,14 @@ export default {
       if (this.hasNoChildren(item) || !item.action) return;
       item.action();
     },
+
     onMouseOver(item) {
-      if (this.hasNoChildren(item)) return;
       this.handleCurrentItem(item.key);
+      this.$emit("on-hover", item);
     },
-    onMouseLeave(item) {
-      if (this.hasNoChildren(item)) return;
+    onMouseLeave() {
       this.handleCurrentItem();
+      this.$emit("on-hover");
     },
     hasNoChildren(item) {
       const { children } = item;
