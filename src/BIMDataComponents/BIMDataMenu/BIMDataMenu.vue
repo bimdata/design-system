@@ -134,15 +134,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    /**
-     * This props is specific to the eponym platform feature.
-     * It's a temporary workaround that allow us
-     * to make items with no child hoverable.
-     */
-    userGroupImportFeature: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ["hover"],
   data() {
