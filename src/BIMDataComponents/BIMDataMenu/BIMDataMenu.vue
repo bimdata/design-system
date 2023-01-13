@@ -175,8 +175,9 @@ export default {
     },
 
     onMouseOver(item) {
+      const itemPos = this.$refs["item-" + item.key][0].getBoundingClientRect();
       this.handleCurrentItem(item.key);
-      this.$emit("hover", item);
+      this.$emit("hover", { ...item, itemPos });
     },
     onMouseLeave() {
       this.handleCurrentItem();
