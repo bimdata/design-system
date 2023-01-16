@@ -14,6 +14,7 @@
             :paginated="simpleExample.paginated"
             :perPage="+simpleExample.perPage"
             @selection-changed="simpleExample.selection = $event"
+            @row-hovered="console.log('event', $event)"
           />
           <div class="selection-box">
             <div class="selection-box__label">Selection :</div>
@@ -301,7 +302,7 @@ export default {
         paginated: false,
         perPage: 4,
       },
-
+      console,
       advancedExample: {
         columns: [
           {
