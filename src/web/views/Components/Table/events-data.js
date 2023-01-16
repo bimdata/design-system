@@ -42,4 +42,10 @@ export default [
     "none",
     "Fired when all rows are deselected at once",
   ],
+  [
+    "dropped-row",
+    "Object",
+    "The file dropped on the row",
+    "Fired when a user drop a file on a specific row",
+  ],
 ];
