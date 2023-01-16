@@ -43,7 +43,7 @@ export default [
     "Fired when all rows are deselected at once",
   ],
   [
-    "dropped-row",
+    "row-dropped-over",
     "Object",
     "The file dropped on the row",
     "Fired when a user drop a file on a specific row",
