@@ -41,6 +41,7 @@
             :key="`body-row-${key}`"
             v-show="displayedRows.includes(key)"
             :style="{ height: `${rowHeight}px` }"
+            @drop="$emit('row-dropped-over', data)"
           >
             <td class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
@@ -171,6 +172,7 @@ export default {
     "row-deselected",
     "all-selected",
     "all-deselected",
+    "row-dropped-over",
   ],
   setup(props, { emit }) {
     // Compute rows keys based on props values.

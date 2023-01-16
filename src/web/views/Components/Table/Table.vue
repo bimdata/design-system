@@ -301,7 +301,6 @@ export default {
         paginated: false,
         perPage: 4,
       },
-
       advancedExample: {
         columns: [
           {
