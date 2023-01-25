@@ -35,7 +35,9 @@
       ]"
       :style="submenuPosition"
     >
-      <slot name="submenu"> </slot>
+      <transition name="fade">
+        <slot name="submenu"> </slot>
+      </transition>
     </div>
   </div>
 </template>
