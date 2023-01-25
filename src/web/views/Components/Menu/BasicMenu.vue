@@ -18,6 +18,7 @@
             <template v-if="isIcons">
               <BIMDataIcon :name="item.icon" size="xs" margin="0 6px 0 0" />
             </template>
+            <span>{{ item.text }}</span>
           </template>
         </BIMDataMenu>
       </template>
