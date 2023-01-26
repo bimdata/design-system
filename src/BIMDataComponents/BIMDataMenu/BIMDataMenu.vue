@@ -11,7 +11,7 @@
       :ref="`item-${item.key}`"
       v-for="item in menuItems"
       :key="item.key"
-      class="bimdata-menu__item flex items-center"
+      class="bimdata-menu__item flex"
       :class="[
         item.divider ? 'bimdata-menu__item--divider' : '',
         { hover: isItemHover && currentItemKey === item.key },
