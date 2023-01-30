@@ -1,6 +1,6 @@
 declare namespace BIMDataTable {
   type Columns = string[] | Column[];
-  type Rows = string[][] | Object[];
+  type Rows = string[][] | Object[] | Row[];
 
   interface Data {
     columns: Columns;
@@ -29,5 +29,10 @@ declare namespace BIMDataTable {
     width?: string;
     align?: "left" | "center" | "right";
     sort?: (a: any, b: any) => number;
+  }
+
+  interface Row {
+    key: string | number;
+    data: any;
   }
 }

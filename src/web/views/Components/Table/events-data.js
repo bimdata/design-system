@@ -43,9 +43,9 @@ export default [
     "Fired when all rows are deselected at once",
   ],
   [
-    "row-dropped-over",
-    "Object",
-    "The file dropped on the row",
-    "Fired when a user drop a file on a specific row",
+    "row-drop",
+    "{ data: Object, event: DragEvent }",
+    "The row it dropped over with the corresponding event",
+    "Fired when a drop event is fired on a row",
   ],
 ];
