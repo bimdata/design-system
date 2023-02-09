@@ -14,6 +14,7 @@
           :isSubmenuRight="isSubmenuRight"
           :width="isCustomButton ? '55px' : undefined"
           :isClickAway="isClickAway"
+          iconEllipsisSize="l"
         >
           <template #button="{ active }" v-if="isCustomButton">
             <span v-if="active">active</span>
@@ -64,6 +65,7 @@
                     icon
                     @click="yourClickEventHere()"
                     class="m-r-6"
+                    iconEllipsisSize="l"
                   &gt;
                     &lt;BIMDataIcon name="delete" fill color="primary" size="xxs" /&gt;
                   &lt;/BIMDataButton&gt;
