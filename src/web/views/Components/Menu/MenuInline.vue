@@ -54,7 +54,7 @@
         <pre>
             &lt;BIMDataMenuInline :isSubmenuRight="{{ isSubmenuRight }}" {{
             getWidth()
-          }} :isClickAway="{{ isClickAway }}" &gt;
+          }} :isClickAway="{{ isClickAway }}" iconEllipsisSize="l" &gt;
               {{ getButtonSlot() }}
               &lt;template #submenu&gt;
                 &lt;div class="flex items-center justify-center"&gt;
@@ -65,7 +65,6 @@
                     icon
                     @click="yourClickEventHere()"
                     class="m-r-6"
-                    iconEllipsisSize="l"
                   &gt;
                     &lt;BIMDataIcon name="delete" fill color="primary" size="xxs" /&gt;
                   &lt;/BIMDataButton&gt;
