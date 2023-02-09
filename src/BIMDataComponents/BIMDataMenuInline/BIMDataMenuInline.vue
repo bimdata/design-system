@@ -14,13 +14,14 @@
           name="ellipsis"
           fill
           color="granite-light"
+          :size="iconEllipsisSize"
         />
         <BIMDataIcon
           v-else
           name="close"
           fill
           color="granite-light"
-          size="xxs"
+          :size="iconCloseSize"
         />
       </slot>
     </BIMDataButton>
@@ -62,6 +63,22 @@ export default {
     isClickAway: {
       type: Boolean,
       default: false,
+    },
+    iconEllipsisSize: {
+      type: String,
+      default: "m",
+      validator: value =>
+        ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"].includes(
+          value
+        ),
+    },
+    iconCloseSize: {
+      type: String,
+      default: "xxs",
+      validator: value =>
+        ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"].includes(
+          value
+        ),
     },
   },
   data() {

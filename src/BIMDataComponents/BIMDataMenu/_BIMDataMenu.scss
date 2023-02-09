@@ -17,7 +17,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        span {
+        & > span {
           width: 100%;
         }
         &:hover {

@@ -14,6 +14,7 @@
           :isSubmenuRight="isSubmenuRight"
           :width="isCustomButton ? '55px' : undefined"
           :isClickAway="isClickAway"
+          iconEllipsisSize="l"
         >
           <template #button="{ active }" v-if="isCustomButton">
             <span v-if="active">active</span>
@@ -53,7 +54,7 @@
         <pre>
             &lt;BIMDataMenuInline :isSubmenuRight="{{ isSubmenuRight }}" {{
             getWidth()
-          }} :isClickAway="{{ isClickAway }}" &gt;
+          }} :isClickAway="{{ isClickAway }}" iconEllipsisSize="l" &gt;
               {{ getButtonSlot() }}
               &lt;template #submenu&gt;
                 &lt;div class="flex items-center justify-center"&gt;
