@@ -7,7 +7,7 @@ env:
 
 jobs:
   publish:
-    runs-on: self-hosted
+    runs-on: [self-hosted, common]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -23,7 +23,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
         run: npm run semantic-release
   build-and-push:
-    runs-on: self-hosted
+    runs-on: [self-hosted, common]
     if: contains('
           refs/heads/develop
           refs/heads/master
@@ -54,7 +54,7 @@ jobs:
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ env.tag }}
   
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, common]
     needs: build-and-push
     steps:
       - name: Login to BIMData Docker Registry
