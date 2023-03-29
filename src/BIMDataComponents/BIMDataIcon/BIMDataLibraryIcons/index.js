@@ -102,6 +102,7 @@ import settings from "./Settings.vue";
 import share from "./Share.vue";
 import show from "./Show.vue";
 import showSelected from "./ShowSelected.vue";
+import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
 import space from "./Space.vue";
 import split from "./Split.vue";
@@ -254,6 +255,7 @@ export default {
   share,
   show,
   showSelected,
+  smartview,
   socotec,
   space,
   split,
