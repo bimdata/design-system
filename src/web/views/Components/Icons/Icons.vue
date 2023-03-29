@@ -20,7 +20,7 @@
             class="bimdata-search-bar__primary"
             placeholder="Search an icon"
             v-model="filter"
-            width="95%"
+            width="94%"
           />
           <span class="icons-numbers"
             >icons: {{ Object.keys(icons).length }}</span
