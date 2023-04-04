@@ -81,6 +81,7 @@ import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import path from "./Path.vue";
 import pieGraph from "./PieGraph.vue";
+import pipette from "./Pipette.vue";
 import plus from "./Plus.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
@@ -113,11 +114,13 @@ import swap from "./Swap.vue";
 import synchro2d from "./Synchro2D.vue";
 import system from "./System.vue";
 import tag from "./Tag.vue";
+import translate from "./Translate.vue";
 import tree from "./Tree.vue";
 import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
 import union from "./Union.vue";
 import up from "./Up.vue";
+import upload from "./Upload.vue";
 import user from "./User.vue";
 import validate from "./Validate.vue";
 import validatedFile from "./ValidatedFile.vue";
@@ -234,6 +237,7 @@ export default {
   parameters,
   path,
   pieGraph,
+  pipette,
   plus,
   project,
   quickSelect,
@@ -266,11 +270,13 @@ export default {
   synchro2d,
   system,
   tag,
+  translate,
   tree,
   unarchive,
   undo,
   union,
   up,
+  upload,
   user,
   validate,
   validatedFile,
