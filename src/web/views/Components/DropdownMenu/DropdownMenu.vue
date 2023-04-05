@@ -14,11 +14,13 @@
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
             :header="checkboxDisabledHeader"
           >
-            <template #header v-if="checkboxHeaderChecked">
+            <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
-            </template>
-            <template #contentAfterHeader v-if="checkboxAfterHeaderChecked">
-              hi
+              <BIMDataIcon
+                name="chevron"
+                :rotate="isOpen ? 90 : 0"
+                size="xxs"
+              />
             </template>
             <template #element v-if="checkboxElementSlotChecked">
               <ul class="bimdata-list">
@@ -81,11 +83,6 @@
           >
           <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
           </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="contentAfterHeader"
-            v-model="checkboxAfterHeaderChecked"
-          >
-          </BIMDataCheckbox>
           <BIMDataCheckbox text="element" v-model="checkboxElementSlotChecked">
           </BIMDataCheckbox>
         </template>
@@ -102,7 +99,7 @@
               :header="{{ getHeaderProp() }}"
               {{ getMenuItems() }}
             &gt;
-              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
+              {{ getHeader() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
           </pre>
         </template>
@@ -132,6 +129,7 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
 import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
@@ -142,6 +140,7 @@ export default {
     BIMDataTable,
     BIMDataText,
     BIMDataDropdownMenu,
+    BIMDataIcon,
   },
   data() {
     return {
@@ -236,10 +235,9 @@ export default {
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["header", "Use this slot for add content "],
         [
-          "contentAfterHeader",
-          "Use this slot for add content after the header slot",
+          "header",
+          "Use this slot to add title content. Available slot props : isOpen (true when the menu is open)",
         ],
         [
           "element",
@@ -251,16 +249,13 @@ export default {
   methods: {
     getHeader() {
       if (this.checkboxHeaderChecked) {
-        return `<template #header>
-              dropdown menu example
-            </template>
-            `;
-      }
-    },
-    getContentAfterBtn() {
-      if (this.checkboxAfterHeaderChecked) {
-        return `<template #contentAfterHeader>
-              hi
+        return `<template #header="{ isOpen }">
+              <span>dropdown menu example</span>
+              <BIMDataIcon
+                name="chevron"
+                :rotate="isOpen ? 90 : 0"
+                size="xxs"
+              />
             </template>
             `;
       }
