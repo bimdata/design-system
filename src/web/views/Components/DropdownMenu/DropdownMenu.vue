@@ -14,8 +14,13 @@
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
             :header="checkboxDisabledHeader"
           >
-            <template #header v-if="checkboxHeaderChecked">
+            <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
+              <BIMDataIcon
+                name="chevron"
+                :rotate="isOpen ? 90 : 0"
+                size="xxs"
+              />
             </template>
             <template #element v-if="checkboxElementSlotChecked">
               <ul class="bimdata-list">
@@ -124,6 +129,7 @@ import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbo
 import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
 import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
@@ -134,6 +140,7 @@ export default {
     BIMDataTable,
     BIMDataText,
     BIMDataDropdownMenu,
+    BIMDataIcon,
   },
   data() {
     return {
@@ -228,7 +235,10 @@ export default {
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["header", "Use this slot for add content "],
+        [
+          "header",
+          "Use this slot to add title content. Available slot props : isOpen (true when the menu is open)",
+        ],
         [
           "element",
           "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice.",
@@ -239,8 +249,13 @@ export default {
   methods: {
     getHeader() {
       if (this.checkboxHeaderChecked) {
-        return `<template #header>
-              dropdown menu example
+        return `<template #header="{ isOpen }">
+              <span>dropdown menu example</span>
+              <BIMDataIcon
+                name="chevron"
+                :rotate="isOpen ? 90 : 0"
+                size="xxs"
+              />
             </template>
             `;
       }
