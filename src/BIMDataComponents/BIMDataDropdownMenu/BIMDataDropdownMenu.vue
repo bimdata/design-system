@@ -7,7 +7,6 @@
       :style="style"
     >
       <slot name="header"></slot>
-      <slot name="contentAfterHeader"></slot>
     </div>
 
     <transition :name="`slide-fade-${transitionName}`">

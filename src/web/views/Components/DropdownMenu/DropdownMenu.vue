@@ -17,9 +17,6 @@
             <template #header v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
             </template>
-            <template #contentAfterHeader v-if="checkboxAfterHeaderChecked">
-              hi
-            </template>
             <template #element v-if="checkboxElementSlotChecked">
               <ul class="bimdata-list">
                 <li v-for="element of list" :key="element">{{ element }}</li>
@@ -81,11 +78,6 @@
           >
           <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
           </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="contentAfterHeader"
-            v-model="checkboxAfterHeaderChecked"
-          >
-          </BIMDataCheckbox>
           <BIMDataCheckbox text="element" v-model="checkboxElementSlotChecked">
           </BIMDataCheckbox>
         </template>
@@ -102,7 +94,7 @@
               :header="{{ getHeaderProp() }}"
               {{ getMenuItems() }}
             &gt;
-              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
+              {{ getHeader() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
           </pre>
         </template>
@@ -238,10 +230,6 @@ export default {
         ["Slot name", "Description"],
         ["header", "Use this slot for add content "],
         [
-          "contentAfterHeader",
-          "Use this slot for add content after the header slot",
-        ],
-        [
           "element",
           "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice.",
         ],
@@ -253,14 +241,6 @@ export default {
       if (this.checkboxHeaderChecked) {
         return `<template #header>
               dropdown menu example
-            </template>
-            `;
-      }
-    },
-    getContentAfterBtn() {
-      if (this.checkboxAfterHeaderChecked) {
-        return `<template #contentAfterHeader>
-              hi
             </template>
             `;
       }
