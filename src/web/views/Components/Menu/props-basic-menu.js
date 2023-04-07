@@ -33,4 +33,10 @@ export default [
     "true",
     "If false, the menu component does not close when you click outside.",
   ],
+  [
+    "childrenLeft",
+    "Boolean",
+    "false",
+    "If true, the child menu opens to the left of the menu.",
+  ],
 ];
