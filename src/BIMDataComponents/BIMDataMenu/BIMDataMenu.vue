@@ -49,15 +49,7 @@
         </slot>
         <template v-if="item.children">
           <slot name="children">
-            <BIMDataIcon
-              name="chevron"
-              size="xxs"
-              :rotate="childrenLeft ? 180 : 0"
-              :margin="childrenLeft ? '' : '0 0 0 auto'"
-              :style="{
-                order: childrenLeft ? -1 : 0,
-              }"
-            />
+            <BIMDataIcon name="chevron" size="xxs" margin="0 0 0 auto" />
             <template v-if="isItemHover">
               <template
                 v-if="hasNoChildren(item) && currentItemKey === item.key"
