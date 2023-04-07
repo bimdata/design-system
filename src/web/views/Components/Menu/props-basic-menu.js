@@ -37,6 +37,6 @@ export default [
     "childrenLeft",
     "Boolean",
     "false",
-    "If true, the child menu will open to the left of the menu.",
+    "If true, the child menu opens to the left of the menu.",
   ],
 ];
