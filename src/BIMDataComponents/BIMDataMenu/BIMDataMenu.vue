@@ -25,7 +25,7 @@
       }"
     >
       <div v-if="item.groupTitle" class="bimdata-menu__item--title">
-        <slot name="groupTitle">
+        <slot name="groupTitle" :item="item">
           <span>{{ item.groupTitle }}</span>
         </slot>
       </div>
@@ -48,32 +48,51 @@
           />
         </slot>
         <template v-if="item.children">
-          <slot name="children">
+          <slot name="children" :children="item.children" :item="item">
             <BIMDataIcon name="chevron" size="xxs" margin="0 0 0 auto" />
-            <template v-if="isItemHover">
+            <template>
               <template
                 v-if="hasNoChildren(item) && currentItemKey === item.key"
               >
-                <slot name="children-without-child" :children="item.children" />
+                <slot
+                  name="children-without-child"
+                  :item="item"
+                  :children="item.children"
+                />
               </template>
               <template v-else>
-                <ul
-                  :ref="`children-${item.key}`"
+                <div
                   class="bimdata-menu__item__children"
                   :style="getChildrenStyle(item)"
                 >
-                  <slot name="child-header" :children="item.children" />
-                  <li
-                    v-for="child in item.children.list"
-                    :key="child.text"
-                    @click.stop="child.action && child.action()"
+                  <slot
+                    name="children-content"
+                    :item="item"
+                    :children="item.children"
                   >
-                    <slot name="child-item" :child="child">
-                      <BIMDataTextbox :text="child.text" :tooltip="false" />
-                    </slot>
-                  </li>
-                  <slot name="child-footer" :children="item.children" />
-                </ul>
+                    <ul :ref="`children-${item.key}`">
+                      <slot
+                        name="child-header"
+                        :item="item"
+                        :children="item.children"
+                      />
+                      <li
+                        v-for="child in item.children.list"
+                        :key="child.text"
+                        @click.stop="child.action && child.action()"
+                      >
+                        <slot name="child-item" :child="child" :item="item">
+                          <BIMDataTextbox :text="child.text" :tooltip="false" />
+                        </slot>
+                      </li>
+                      <slot
+                        name="child-footer"
+                        :item="item"
+                        :children="item.children"
+                      />
+                    </ul>
+                  </slot>
+                </div>
               </template>
             </template>
           </slot>
