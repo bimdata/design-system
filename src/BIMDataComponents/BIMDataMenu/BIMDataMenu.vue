@@ -50,7 +50,7 @@
         <template v-if="item.children">
           <slot name="children" :children="item.children" :item="item">
             <BIMDataIcon name="chevron" size="xxs" margin="0 0 0 auto" />
-            <template>
+            <template v-if="isItemHover">
               <template
                 v-if="hasNoChildren(item) && currentItemKey === item.key"
               >
