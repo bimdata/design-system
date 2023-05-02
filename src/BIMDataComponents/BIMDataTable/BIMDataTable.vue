@@ -260,6 +260,7 @@ export default {
     const onDrop = (data, event) => {
       if (props.canDragOverRow(data)) {
         emit("row-drop", { data, event });
+        dragOveredRowKey.value = null;
       }
     };
     const dragOveredRowKey = ref(null);
