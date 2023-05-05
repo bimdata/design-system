@@ -2,7 +2,6 @@
   padding: var(--spacing-unit) 0;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
-  overflow-y: auto;
   &__item {
     display: flex;
     flex-direction: column;
@@ -10,23 +9,26 @@
     justify-content: center;
     font-size: 12px;
     &:not(:empty) {
-      li {
+      .bimdata-menu__item__content {
         padding: 0 var(--spacing-unit);
         height: 29px;
         width: 100%;
         position: relative;
         display: flex;
         align-items: center;
+        cursor: pointer;
         & > span {
           width: 100%;
         }
         &:hover {
           background-color: var(--color-silver-light);
-          cursor: pointer;
+        }
+        &--active {
+          background-color: #f0f5ff;
         }
       }
     }
-    &--title {
+    &__title {
       padding: 0 var(--spacing-unit);
       height: 25px;
       display: flex;
@@ -35,33 +37,34 @@
       color: var(--color-granite);
       font-size: 11px;
     }
-    &--divider {
+    &__divider {
       .divider {
         margin: calc(var(--spacing-unit) / 2) auto;
         width: 90%;
         border-bottom: 1px solid #f2f2f2;
       }
     }
-    &--title,
-    &--divider {
+    &__title,
+    &__divider {
       &:hover {
         cursor: default;
         background-color: transparent;
       }
     }
-    &--no-children {
-      color: var(--color-silver-dark);
-    }
     &__children {
-      overflow: auto;
-      position: fixed;
+      position: absolute;
+      top: 0;
       padding: calc(var(--spacing-unit) / 2) 0;
       background-color: var(--color-white);
       border: 1px solid transparent;
       box-shadow: var(--box-shadow);
-
-      &--list {
-        padding-left: 0;
+      ul {
+        li {
+          height: 29px;
+          &:hover {
+            background-color: var(--color-silver-light);
+          }
+        }
       }
     }
   }

@@ -7,101 +7,78 @@
     }"
     v-clickaway="away"
   >
-    <div
-      :ref="`item-${item.key}`"
+    <li
       v-for="item in menuItems"
       :key="item.key"
       class="bimdata-menu__item flex"
       :class="[
-        item.divider ? 'bimdata-menu__item--divider' : '',
-        { hover: isItemHover && currentItemKey === item.key },
-        hasNoChildren(item) ? 'bimdata-menu__item--no-children' : '',
+        item.divider ? 'bimdata-menu__item__divider' : '',
+        { hover: hoveredItemKey === item.key },
       ]"
-      @click.stop="onClick(item)"
+      @click.stop="
+        onItemClick(item);
+        item.action && item.action();
+      "
       @mouseover="onMouseOver(item)"
-      @mouseleave="onMouseLeave(item)"
+      @mouseleave="hoveredItemKey = null"
       :style="{
         color: item.color,
       }"
     >
-      <div v-if="item.groupTitle" class="bimdata-menu__item--title">
+      <div v-if="item.groupTitle" class="bimdata-menu__item__title">
         <slot name="groupTitle" :item="item">
           <span>{{ item.groupTitle }}</span>
         </slot>
       </div>
-      <li
+      <div
         v-if="item.text"
         :style="{
           'background-color':
-            isItemHover && currentItemKey === item.key ? item.background : '',
-          display: 'flex',
+            hoveredItemKey === item.key ? item.background : '',
         }"
+        class="bimdata-menu__item__content flex"
+        :class="{ 'bimdata-menu__item__content--active': isItemActive(item) }"
       >
         <slot name="item" :item="item">
-          <BIMDataTextbox
-            :text="item.text"
-            :tooltip="false"
-            width="80%"
-            :style="{
-              marginLeft: childrenLeft ? (item.children ? '11px' : '24px') : '',
-            }"
+          <BIMDataTextbox :text="item.text" :tooltip="false" width="80%" />
+          <BIMDataIcon
+            v-if="item.children"
+            name="chevron"
+            size="xxs"
+            margin="0 0 0 auto"
           />
         </slot>
-        <template v-if="item.children">
+        <template v-if="isItemActive(item)">
           <slot name="children" :children="item.children" :item="item">
-            <BIMDataIcon name="chevron" size="xxs" margin="0 0 0 auto" />
-            <template v-if="isItemHover">
-              <template
-                v-if="hasNoChildren(item) && currentItemKey === item.key"
+            <template>
+              <div
+                class="bimdata-menu__item__children"
+                :style="{
+                  width: subListWidth,
+                  [childrenLeft ? 'left' : 'right']: `-${subListWidth}`,
+                }"
               >
-                <slot
-                  name="children-without-child"
-                  :item="item"
-                  :children="item.children"
-                />
-              </template>
-              <template v-else>
-                <div
-                  class="bimdata-menu__item__children"
-                  :style="getChildrenStyle(item)"
-                >
-                  <slot
-                    name="children-content"
-                    :item="item"
-                    :children="item.children"
+                <ul class="bimdata-list">
+                  <li
+                    v-for="child in item.children"
+                    :key="child.text"
+                    @click.stop="child.action && child.action()"
+                    class="flex items-center p-x-12"
                   >
-                    <ul :ref="`children-${item.key}`">
-                      <slot
-                        name="child-header"
-                        :item="item"
-                        :children="item.children"
-                      />
-                      <li
-                        v-for="child in item.children.list"
-                        :key="child.text"
-                        @click.stop="child.action && child.action()"
-                      >
-                        <slot name="child-item" :child="child" :item="item">
-                          <BIMDataTextbox :text="child.text" :tooltip="false" />
-                        </slot>
-                      </li>
-                      <slot
-                        name="child-footer"
-                        :item="item"
-                        :children="item.children"
-                      />
-                    </ul>
-                  </slot>
-                </div>
-              </template>
+                    <slot name="child-item" :child="child" :item="item">
+                      <BIMDataTextbox :text="child.text" :tooltip="false" />
+                    </slot>
+                  </li>
+                </ul>
+              </div>
             </template>
           </slot>
         </template>
-      </li>
+      </div>
       <template v-if="item.divider">
         <div class="divider"></div>
       </template>
-    </div>
+    </li>
   </ul>
 </template>
 
@@ -137,71 +114,38 @@ export default {
       type: String,
       default: "200px",
     },
-    isClickAway: {
-      type: Boolean,
-      default: true,
-    },
     childrenLeft: {
       type: Boolean,
       default: false,
     },
   },
-  emits: ["hover"],
   data() {
     return {
-      isItemHover: false,
-      currentItemKey: null,
-      displayed: false,
+      hoveredItemKey: null,
+      clickedItemKey: null,
     };
   },
   methods: {
-    getChildrenStyle(item) {
-      if (this.currentItemKey !== item.key) return { display: "none" };
-
-      const itemPos = this.$refs["item-" + item.key][0].getBoundingClientRect();
-      return {
-        width: this.subListWidth,
-        maxHeight: this.subListMaxHeight,
-        top: `${itemPos.top}px`,
-        left: `${
-          this.childrenLeft
-            ? itemPos.x -
-              parseInt(this.subListWidth.replace(/[a-zA-Z]/g, ""), 10)
-            : itemPos.x + itemPos.width
-        }px`,
-      };
-    },
-    handleCurrentItem(itemKey) {
-      if (itemKey) {
-        this.isItemHover = true;
-        this.currentItemKey = itemKey;
-      } else {
-        this.isItemHover = false;
-        this.currentItemKey = null;
-      }
-    },
-    onClick(item) {
-      if (this.hasNoChildren(item) || !item.action) return;
-      item.action();
-    },
-
-    onMouseOver(item) {
-      const itemPos = this.$refs["item-" + item.key][0].getBoundingClientRect();
-      this.handleCurrentItem(item.key);
-      this.$emit("hover", { ...item, itemPos });
-    },
-    onMouseLeave() {
-      this.handleCurrentItem();
-      this.$emit("hover");
-    },
-    hasNoChildren(item) {
-      const { children } = item;
-      return children && children.list.length === 0;
+    isItemActive(item) {
+      return (
+        (item.children?.length > 0 &&
+          this.hoveredItemKey === item.key &&
+          !this.clickedItemKey) ||
+        this.clickedItemKey === item.key
+      );
     },
     away() {
-      if (this.isClickAway) {
-        this.displayed = false;
+      this.clickedItemKey = null;
+    },
+    onItemClick(item) {
+      if (!item.children || item.key === this.clickedItemKey) {
+        this.clickedItemKey = null;
+      } else {
+        this.clickedItemKey = item.key;
       }
+    },
+    onMouseOver(item) {
+      this.hoveredItemKey = item.key;
     },
   },
 };
