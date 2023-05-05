@@ -119,6 +119,7 @@ export default {
       default: false,
     },
   },
+  emits: ["hover"],
   data() {
     return {
       hoveredItemKey: null,
