@@ -22,6 +22,9 @@ const en = {
   deleteDetail:
     "You are about to permanently delete the following files / folders",
   dmsRoot: "Root of the project's DMS",
+  validate: "Validate",
+  back: "Back",
+  pdfPageSelectorTitle: "Select a page",
 };
 
 const fr = {
@@ -48,6 +51,9 @@ const fr = {
   deleteDetail:
     "Vous êtes sur le point de supprimer définitivement les fichiers/dossiers suivants",
   dmsRoot: "Racine de la GED du projet",
+  validate: "Valider",
+  back: "Retour",
+  pdfPageSelectorTitle: "Sélectionner une page",
 };
 
 const es = {

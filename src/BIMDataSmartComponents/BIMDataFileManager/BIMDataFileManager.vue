@@ -130,6 +130,16 @@
       </div>
     </template>
     <BIMDataLoading v-else />
+    <div
+      v-if="pdfPageSelectorDisplayed"
+      class="bimdata-file-manager__pdf-page-selector"
+    >
+      <PdfPageSelector
+        :model="pdfModel"
+        @select="selectPdfPage"
+        @close="selectPdfPage(pdfModel)"
+      />
+    </div>
     <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
       <RenameModal
         :projectId="projectId"
@@ -171,6 +181,7 @@ import NewFolderButton from "./components/newFolder/NewFolderButton.vue";
 import UploadFileButton from "./components/UploadFileButton.vue";
 import RenameModal from "./components/modals/RenameModal.vue";
 import DeleteModal from "./components/modals/DeleteModal.vue";
+import PdfPageSelector from "./components/PdfPageSelector.vue";
 
 import getFlattenTree from "./utils/flattenTree.js";
 import { downloadFiles } from "./utils/files.js";
@@ -197,6 +208,7 @@ export default {
     RenameModal,
     DeleteModal,
     BIMDataPDFViewer,
+    PdfPageSelector,
   },
   provide() {
     return {
@@ -256,6 +268,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    pdfPageSelect: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -270,6 +286,9 @@ export default {
       entityDeletable: false,
       successFileIds: [],
       pdfToView: null,
+      pdfModel: null,
+      pdfPageSelectorDisplayed: false,
+      selectPdfPage: () => {},
     };
   },
   computed: {
@@ -524,21 +543,43 @@ export default {
         content: newFolder,
       });
     },
-    onToggleFileSelect(file) {
+    async onToggleFileSelect(file) {
       if (this.isFileSelected(file)) {
         this.selectedFiles = this.selectedFiles.filter(
-          selectedFile => selectedFile !== file
+          ({ document }) => document !== file
         );
       } else {
         if (!this.multi) {
           this.selectedFiles = [];
         }
-        this.selectedFiles.push(file);
+
+        let model = null;
+        if (file.model_id) {
+          model = await this.apiClient.modelApi.getModel(
+            this.spaceId,
+            file.model_id,
+            this.projectId
+          );
+        }
+        if (
+          this.pdfPageSelect &&
+          file.model_type === "PDF" &&
+          model.children?.length > 0
+        ) {
+          this.pdfModel = model;
+          this.pdfPageSelectorDisplayed = true;
+          model = await new Promise(res => (this.selectPdfPage = res));
+          this.selectPdfPage = () => {};
+          this.pdfPageSelectorDisplayed = false;
+          this.pdfModel = null;
+        }
+
+        this.selectedFiles.push({ document: file, model });
       }
       this.$emit("selection-change", this.selectedFiles);
     },
     isFileSelected(file) {
-      return this.selectedFiles.includes(file);
+      return this.selectedFiles.some(({ document }) => file === document);
     },
     onBreadcrumClick(step) {
       this.currentFolder = step;

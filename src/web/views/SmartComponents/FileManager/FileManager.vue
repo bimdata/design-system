@@ -1,174 +1,157 @@
 <template>
   <main class="article article-checkbox">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataFileManager
-            :spaceId="515"
-            :projectId="756"
-            apiUrl="https://api-staging.bimdata.io"
-            accessToken="eGNpr626gNtn8QrB5gk0imfrukoHDQiW"
-            :select="selectChecked"
-            :multi="multiChecked"
-            @selection-change="onSelectionChange"
             style="resize: auto; overflow: hidden"
+            :locale="locale"
+            :apiUrl="apiUrl"
+            :spaceId="spaceId"
+            :projectId="projectId"
+            :accessToken="accessToken"
+            :select="select"
+            :multi="multi"
+            :searchColor="searchColor"
             :headerButtons="headerButtons"
             :headerSearch="headerSearch"
-            :alreadySelectedIds="[2694]"
-            :selectableFileTypes="['pdf', 'dwg']"
-            :viewPdf="isViewPdf"
+            :alreadySelectedIds="alreadySelectedIds"
+            :selectableFileTypes="selectableFileTypes"
+            :viewPdf="viewPdf"
+            :pdfPageSelect="pdfPageSelect"
+            @selection-change="selectedFiles = $event"
           />
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="select" v-model="selectChecked" />
+          <BIMDataCheckbox text="select" v-model="select" />
+          <BIMDataCheckbox text="multi" v-model="multi" :disabled="!select" />
+          <BIMDataCheckbox text="headerButtons" v-model="headerButtons" />
+          <BIMDataCheckbox text="headerSearch" v-model="headerSearch" />
+          <BIMDataCheckbox text="viewPdf" v-model="viewPdf" />
           <BIMDataCheckbox
-            text="multi"
-            v-model="multiChecked"
-            :disabled="!selectChecked"
+            text="pdfPageSelect"
+            v-model="pdfPageSelect"
+            :disabled="!select"
           />
-          <BIMDataCheckbox text="header buttons" v-model="headerButtons" />
-          <BIMDataCheckbox text="header search" v-model="headerSearch" />
-          <BIMDataCheckbox text="viewPdf" v-model="isViewPdf" />
+          <div class="m-t-24">
+            <BIMDataInput
+              placeholder="selectableFileTypes"
+              v-model="selectableFileTypesValue"
+            />
+          </div>
         </template>
 
         <template #import>
-          import BIMDataCheckbox from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCheckbox.js"
+          import BIMDataFileManager from
+          "@bimdata/design-system/dist/js/BIMDataSmartComponents/BIMDataFileManager.js"
         </template>
 
         <template #code>
           <pre>
-              &lt;BIMDataSmartFileManager
-                :spaceId="515"
-                :projectId="756"
-                apiUrl="https://api-staging.bimdata.io"
-                accessToken="fc83e49ca9444d3ea41d212599f39040"
-                :select="{{ String(selectChecked) }}"
-                :multi="{{ String(multiChecked) }}"
-                :headerButtons="{{ headerButtons }}"
-                :headerSearch="{{ headerSearch }}"
-                :viewPdf="{{ isViewPdf }}"
-                /&gt;
-            </pre
-          >
+            &lt;BIMDataFileManager
+              locale="{{ locale }}"
+              :apiUrl="~ BIMData API URL ~"
+              :spaceId="~ your space id ~"
+              :projectId="~ your project id ~"
+              :accessToken="~ your access token ~"
+              :select="{{ select }}"
+              :multi="{{ multi }}"
+              searchColor="{{ searchColor }}"
+              :headerButtons="{{ headerButtons }}"
+              :headerSearch="{{ headerSearch }}"
+              :selectableFileTypes="{{
+              JSON.stringify(selectableFileTypes).replace(/"/g, "'")
+            }}"
+              :viewPdf="{{ viewPdf }}"
+              :pdfPageSelect="{{ pdfPageSelect }}"
+            /&gt;
+          </pre>
         </template>
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Props:</BIMDataText
-        >
-        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Props:
+        </BIMDataText>
+        <BIMDataTable
+          :columns="propsData[0]"
+          :rows="propsData.slice(1)"
+          :rowHeight="36"
+        />
+        <BIMDataText color="color-primary" margin="15px 0 0">
+          <strong>*</strong> : Required props.
+        </BIMDataText>
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0"
-          >Events:</BIMDataText
-        >
-        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Events:
+        </BIMDataText>
+        <BIMDataTable
+          :columns="eventsData[0]"
+          :rows="eventsData.slice(1)"
+          :rowHeight="36"
+        />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import eventsData from "./events-data.js";
+import propsData from "./props-data.js";
+// Components
+import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataFileManager from "../../../../BIMDataSmartComponents/BIMDataFileManager/BIMDataFileManager.vue";
-
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 
 export default {
   components: {
-    BIMDataFileManager,
-    ComponentCode,
+    BIMDataCheckbox,
+    BIMDataInput,
     BIMDataTable,
     BIMDataText,
-    BIMDataCheckbox,
+    BIMDataFileManager,
+    ComponentCode,
   },
   data() {
     return {
-      selectChecked: false,
-      multiChecked: false,
+      propsData,
+      eventsData,
+
+      locale: "en",
+      apiUrl: "https://api-staging.bimdata.io",
+      spaceId: 515,
+      projectId: 756,
+      accessToken: "eGNpr626gNtn8QrB5gk0imfrukoHDQiW",
+      select: false,
+      multi: false,
+      searchColor: "primary",
       headerButtons: true,
       headerSearch: true,
-      isViewPdf: false,
+      alreadySelectedIds: [],
+      selectableFileTypes: [],
+      viewPdf: false,
+      pdfPageSelect: false,
+
+      selectableFileTypesValue: "dwg, pdf",
       selectedFiles: [],
-      propsData: [
-        ["Props", "Type", "Default value", "Description"],
-        [
-          "apiUrl",
-          "string",
-          "https://api.bimdata.io",
-          "The API url to target.",
-        ],
-        ["spaceId", "number", "null", "The space ID"],
-        ["projectId", "number", "null", "The project ID"],
-        ["accessToken", "string", "null", "The access token"],
-        ["select", "boolean", "false", "Set the mode in select"],
-        [
-          "multi",
-          "boolean",
-          "false",
-          "Set the mode in multi select. Ignored if select is false.",
-        ],
-        [
-          "searchColor",
-          "string",
-          "secondary",
-          "Set the background color of the search bar.",
-        ],
-        [
-          "headerButtons",
-          "boolean",
-          "true",
-          "If false, the header buttons are not visible.",
-        ],
-        [
-          "headerSearch",
-          "boolean",
-          "true",
-          "If false, the header search is not visible.",
-        ],
-        [
-          "alreadySelectedIds",
-          "number[]",
-          "[]",
-          "An array of already selected ids. In select mode, already selected ids are not selectable and displayed as in success.",
-        ],
-        [
-          "selectableFileTypes",
-          "string[]",
-          "[]",
-          "An array of file type. In select mode, if some selectable file types are given, only those are selectable.",
-        ],
-        [
-          "viewPdf",
-          "Boolean",
-          "false",
-          "Allow PDF to be seen within a viewer.",
-        ],
-        ["locale", "String", "en", "Use this props to select a language."],
-      ],
-      eventsData: [
-        ["Event name", "Payload"],
-        ["selection-change", "An array of selected files"],
-        ["error", "The catched error."],
-        [
-          "success",
-          "{ type: ['folderDeleted', 'fileDeleted', 'folderRenamed', 'fileRenamed', 'folderCreated', 'fileCreated'], message: String, content: Object }",
-        ],
-      ],
     };
   },
-  methods: {
-    onSelectionChange(selectedFiles) {
-      this.selectedFiles = selectedFiles;
+  watch: {
+    selectableFileTypesValue: {
+      immediate: true,
+      handler: function (value) {
+        this.selectableFileTypes = value
+          ? value.split(",").map(s => s.trim())
+          : [];
+      },
     },
   },
 };
