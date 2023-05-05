@@ -119,7 +119,6 @@ export default {
       default: false,
     },
   },
-  emits: ["hover"],
   data() {
     return {
       hoveredItemKey: null,
@@ -147,7 +146,6 @@ export default {
     },
     onMouseOver(item) {
       this.hoveredItemKey = item.key;
-      this.$emit("hover", item);
     },
   },
 };
