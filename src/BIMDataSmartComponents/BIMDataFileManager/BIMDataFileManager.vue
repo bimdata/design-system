@@ -119,6 +119,7 @@
             @loaded="onFileLoaded(file, $event)"
             :writeAccess="currentFolder.user_permission >= 100"
             :viewPdf="viewPdf"
+            :pdfModelLoading="pdfModelLoading === file.id"
           />
         </BIMDataResponsiveGrid>
       </div>
@@ -137,7 +138,7 @@
       <PdfPageSelector
         :model="pdfModel"
         @select="selectPdfPage"
-        @close="selectPdfPage(pdfModel)"
+        @close="selectPdfPage"
       />
     </div>
     <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
@@ -287,8 +288,8 @@ export default {
       successFileIds: [],
       pdfToView: null,
       pdfModel: null,
+      pdfModelLoading: null,
       pdfPageSelectorDisplayed: false,
-      selectPdfPage: () => {},
     };
   },
   computed: {
@@ -553,28 +554,29 @@ export default {
           this.selectedFiles = [];
         }
 
-        let model = null;
-        if (file.model_id) {
-          model = await this.apiClient.modelApi.getModel(
+        let pdfPage = null;
+        if (this.pdfPageSelect && file.model_type === "PDF") {
+          // If 'pdfPageSelect' mode is on and the selected file is a PDF model
+          // fetch the corresponding model to check its children (pages)
+          this.pdfModelLoading = file.id;
+          const model = await this.apiClient.modelApi.getModel(
             this.spaceId,
             file.model_id,
             this.projectId
           );
-        }
-        if (
-          this.pdfPageSelect &&
-          file.model_type === "PDF" &&
-          model.children?.length > 0
-        ) {
-          this.pdfModel = model;
-          this.pdfPageSelectorDisplayed = true;
-          model = await new Promise(res => (this.selectPdfPage = res));
-          this.selectPdfPage = () => {};
-          this.pdfPageSelectorDisplayed = false;
-          this.pdfModel = null;
+          this.pdfModelLoading = null;
+          if (model.children?.length > 0) {
+            // If this is a multipage PDF open the page selector
+            this.pdfModel = model;
+            this.pdfPageSelectorDisplayed = true;
+            pdfPage = await new Promise(res => (this.selectPdfPage = res));
+            this.pdfPageSelectorDisplayed = false;
+            this.pdfModel = null;
+            if (!pdfPage) return; // If no page has been selected then the file is not selected
+          }
         }
 
-        this.selectedFiles.push({ document: file, model });
+        this.selectedFiles.push({ document: file, pdfPage });
       }
       this.$emit("selection-change", this.selectedFiles);
     },

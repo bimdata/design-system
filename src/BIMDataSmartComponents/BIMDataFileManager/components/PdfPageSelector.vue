@@ -7,9 +7,9 @@
           {{ $translate("back") }}
         </span>
       </BIMDataButton>
-      <span class="flex item-center">
+      <span class="title">
         <BIMDataIcon name="filePdfPolychrome" size="m" margin="0 6px 0 0" />
-        <span>{{ model.name }}</span>
+        <BIMDataTextbox :text="model.name" />
       </span>
       <BIMDataButton ghost rounded icon @click="$emit('close')">
         <BIMDataIcon name="close" size="xxs" />
@@ -27,7 +27,7 @@
           :key="page.id"
           class="pdf-page"
           :class="{ selected: selectedPage?.id === page.id }"
-          @click="selectedPage = page"
+          @click="selectedPage = selectedPage?.id === page.id ? null : page"
         >
           <div class="pdf-page__img">
             <template v-if="page.map_file">
@@ -62,12 +62,14 @@
 import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 import BIMDataResponsiveGrid from "../../../BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
+import BIMDataTextbox from "../../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataIcon,
     BIMDataResponsiveGrid,
+    BIMDataTextbox,
   },
   inject: ["$translate"],
   props: {
@@ -104,6 +106,12 @@ export default {
     justify-content: space-between;
     align-items: center;
     gap: var(--spacing-unit);
+
+    .title {
+      max-width: calc(100% - 180px);
+      display: flex;
+      align-items: center;
+    }
   }
 
   .body {
