@@ -26,8 +26,11 @@
           v-for="page of pages"
           :key="page.id"
           class="pdf-page"
-          :class="{ selected: selectedPage?.id === page.id }"
-          @click="selectedPage = selectedPage?.id === page.id ? null : page"
+          :class="{ selected: selectedPage && selectedPage.id === page.id }"
+          @click="
+            selectedPage =
+              selectedPage && selectedPage.id === page.id ? null : page
+          "
         >
           <div class="pdf-page__img">
             <template v-if="page.map_file">
