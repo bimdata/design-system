@@ -106,6 +106,7 @@ import showSelected from "./ShowSelected.vue";
 import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
 import space from "./Space.vue";
+import spacing from "./Spacing.vue";
 import split from "./Split.vue";
 import storey from "./Storey.vue";
 import success from "./Success.vue";
@@ -262,6 +263,7 @@ export default {
   smartview,
   socotec,
   space,
+  spacing,
   split,
   storey,
   success,
