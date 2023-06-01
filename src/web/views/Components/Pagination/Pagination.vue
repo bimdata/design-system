@@ -7,10 +7,18 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataPaginatedList
-            :list="paginatedListExample"
+            :list="isBasicPagination ? basicPagination : complexPagination"
             :perPage="Number(numberInput)"
             :numberDataElements="isNumberDataElements"
+            elementKey="id"
+            :activeElement="{ id: +searchInList }"
           >
+            <template v-if="isBasicPagination" #element="{ element }">
+              {{ element }}
+            </template>
+            <template v-else #element="{ element }">
+              {{ element.text }}
+            </template>
           </BIMDataPaginatedList>
         </template>
 
@@ -20,9 +28,20 @@
             placeholder="Number of items per page"
             type="number"
           ></BIMDataInput>
-
+          <BIMDataToggle v-model="isBasicPagination" class="m-b-30">
+            <span>complex pagination</span>
+            <template #right><span>basic pagination</span></template>
+          </BIMDataToggle>
+          <BIMDataInput
+            v-if="!isBasicPagination"
+            margin="30px 0px 18px"
+            v-model="searchInList"
+            placeholder="Search an item in list by id"
+            type="number"
+          ></BIMDataInput>
           <BIMDataCheckbox
-            text="numberDataElements"
+            margin="24px 0 0"
+            text="Display data elements"
             v-model="isNumberDataElements"
           />
         </template>
@@ -34,9 +53,11 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataPaginatedList :list="paginatedListExample" :perPage="{{
+            &lt;BIMDataPaginatedList :list="paginationList" :perPage="{{
               numberInput
-            }}"&gt;&lt;/BIMDataPaginatedList&gt;
+            }}"&gt;
+              {{ getPagination() }}
+            &lt;/BIMDataPaginatedList&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -66,12 +87,15 @@
 </template>
 
 <script>
+import { basicPagination, complexPagination } from "./option-sets.js";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import BIMDataPaginatedList from "../../../../../src/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
 
 export default {
   components: {
@@ -81,25 +105,16 @@ export default {
     BIMDataInput,
     BIMDataTable,
     BIMDataText,
+    BIMDataToggle,
   },
   data() {
     return {
-      numberInput: 4,
+      basicPagination,
+      complexPagination,
+      numberInput: 8,
+      searchInList: 2,
       isNumberDataElements: true,
-      paginatedListExample: [
-        "item 01",
-        "item 02",
-        "item 03",
-        "item 04",
-        "item 05",
-        "item 06",
-        "item 07",
-        "item 08",
-        "item 09",
-        "item 10",
-        "item 11",
-        "item 12",
-      ],
+      isBasicPagination: true,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         [
@@ -149,5 +164,24 @@ export default {
       ],
     };
   },
+  methods: {
+    getPagination() {
+      if (this.isBasicPagination) {
+        return `<template #element="{ element }">
+              {{ element }}
+            </template>`;
+      } else {
+        return `<template #element="{ element }">
+              {{ element.text }}
+            </template>`;
+      }
+    },
+  },
 };
 </script>
+
+<style scoped lang="scss">
+.toggle__button {
+  font-size: 12px;
+}
+</style>
