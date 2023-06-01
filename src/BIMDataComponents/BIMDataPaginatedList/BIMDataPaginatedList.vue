@@ -135,13 +135,10 @@ export default {
       return this.compareElements(element, this.activeElement);
     },
     async showElement(elem) {
-      const element = this.list.find(listElement =>
-        this.compareElements(elem, listElement)
-      );
-      if (!element) return;
       const elementIndex = this.list.findIndex(listElement =>
         this.compareElements(elem, listElement)
       );
+      if (elementIndex === -1) return;
       const startIndex = this.perPage * (this.currentPage - 1);
       const endIndex = startIndex + this.perPage;
       const isElementInCurrentPage =
