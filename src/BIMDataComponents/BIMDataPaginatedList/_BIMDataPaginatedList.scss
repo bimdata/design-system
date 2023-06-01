@@ -32,6 +32,14 @@
     height: auto;
   }
 
+  &__elements {
+    li {
+      &.element-active {
+        font-weight: bold;
+      }
+    }
+  }
+
   .bimdata-spinner {
     padding: 12px 0;
     justify-content: center;

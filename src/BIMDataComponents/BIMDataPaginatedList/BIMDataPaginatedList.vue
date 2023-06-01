@@ -8,6 +8,8 @@
           v-for="element of page"
           :key="elementKey ? element[elementKey] : element"
           @click="$emit('element-click', element)"
+          ref="elements"
+          :class="{ 'element-active': isElementActive(element) }"
         >
           <slot name="element" :element="element">
             {{ element && element.toString() }}
@@ -56,6 +58,7 @@ export default {
     },
     elementKey: {
       type: String,
+      default: "",
     },
     loading: {
       type: Boolean,
@@ -76,6 +79,9 @@ export default {
     backgroundColor: {
       type: String,
       default: "var(--color-white)",
+    },
+    activeElement: {
+      type: [String, Number, Object],
     },
   },
   emits: ["element-click"],
@@ -104,10 +110,50 @@ export default {
       deep: true,
       immediate: true,
     },
+    activeElement: {
+      handler(value) {
+        if (value) {
+          this.showElement(value);
+        }
+      },
+      immediate: true,
+    },
   },
   methods: {
     onPageChange(pageNumber) {
       this.currentPage = pageNumber;
+    },
+    compareElements(elementA, elementB) {
+      if (this.elementKey) {
+        return elementA[this.elementKey] === elementB[this.elementKey];
+      } else {
+        return elementA === elementB;
+      }
+    },
+    isElementActive(element) {
+      if (!this.activeElement) return false;
+      return this.compareElements(element, this.activeElement);
+    },
+    async showElement(elem) {
+      const element = this.list.find(listElement =>
+        this.compareElements(elem, listElement)
+      );
+      if (!element) return;
+      const elementIndex = this.list.findIndex(listElement =>
+        this.compareElements(elem, listElement)
+      );
+      const startIndex = this.perPage * (this.currentPage - 1);
+      const endIndex = startIndex + this.perPage;
+      const isElementInCurrentPage =
+        elementIndex >= startIndex && elementIndex < endIndex;
+      if (!isElementInCurrentPage) {
+        const elementPage = Math.ceil((elementIndex + 1) / this.perPage);
+        this.currentPage = elementPage;
+      }
+      await this.$nextTick();
+      const elementIndexOnPage = elementIndex % this.perPage;
+      const domElement = this.$refs.elements[elementIndexOnPage];
+      domElement.scrollIntoView({ block: "center" });
     },
   },
 };
