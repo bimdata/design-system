@@ -9,7 +9,7 @@
           :key="elementKey ? element[elementKey] : element"
           @click="$emit('element-click', element)"
           ref="elements"
-          :class="{ 'element-active': isElementActive(element) }"
+          :class="{ 'active-element': isElementActive(element) }"
         >
           <slot name="element" :element="element">
             {{ element && element.toString() }}
