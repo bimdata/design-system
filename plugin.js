@@ -8,7 +8,7 @@ import * as Directives from "./dist/js/BIMDataDirectives/index.js";
  */
 const pluginFactory = cfg => {
   return {
-    install(Vue) {
+    install(app) {
       // COMPONENTS
       Object.entries(Components).forEach(([componentName, component]) => {
         if (
@@ -25,14 +25,14 @@ const pluginFactory = cfg => {
           !cfg.includedComponents ||
           cfg.includedComponents.includes(componentName)
         ) {
-          Vue.component(componentName, component);
+          app.component(componentName, component);
         }
       });
 
       // DIRECTIVES
       if (!cfg || cfg.directives !== false) {
         Object.entries(Directives).forEach(([directiveName, directive]) =>
-          Vue.directive(directiveName.split("BIMData")[1], directive)
+          app.directive(directiveName.split("BIMData")[1], directive)
         );
       }
     },

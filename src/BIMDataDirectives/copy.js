@@ -1,7 +1,7 @@
 let clickListener = null;
 
 export default {
-  bind(el, binding) {
+  beforeMount(el, binding) {
     const div = document.createElement("button");
     div.textContent = "copy";
     div.style.width = "45px";
@@ -29,7 +29,7 @@ export default {
     div.addEventListener("click", clickListener);
     el.prepend(div);
   },
-  unbind(el) {
+  unmounted(el) {
     const div = [...el.children].find(child =>
       child.classList.contains("bimdata-ds__demo")
     );

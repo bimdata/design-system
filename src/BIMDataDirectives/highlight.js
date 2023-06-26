@@ -5,10 +5,10 @@ import Normalizer from "prismjs/plugins/normalize-whitespace/prism-normalize-whi
 const normalizer = new Normalizer();
 
 export default {
-  bind(el, binding, vnode) {
+  beforeMount(el, binding, vnode) {
     highlight(el, binding, vnode);
   },
-  componentUpdated(el, binding, vnode) {
+  updated(el, binding, vnode) {
     highlight(el, binding, vnode);
   },
 };
