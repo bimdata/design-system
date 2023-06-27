@@ -1,10 +1,16 @@
-import * as Components from "./dist/js/BIMDataComponents/index.js";
-import * as Directives from "./dist/js/BIMDataDirectives/index.js";
+import * as Components from "./src/BIMDataComponents/index.js";
+import * as Directives from "./src/BIMDataDirectives/index.js";
 
 /**
- * Instal components and directives from the design system.
- * WARNING: The css needs to be added manually.
- * @param { { directives?: boolean, includedComponents?: string[], excludedComponents?: string[] } } [cfg]
+ * Register all components and directives from the design system.
+ *
+ * @param {
+ *  {
+ *    directives?: boolean,
+ *    includedComponents?: string[],
+ *    excludedComponents?: string[]
+ *  }
+ * } [cfg]
  */
 const pluginFactory = cfg => {
   return {

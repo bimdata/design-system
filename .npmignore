@@ -1,5 +1,7 @@
-# ignore design system folder
-src/web/
+# ignore test files
+src/**/__test__/
 
-# ignore main.js of design system
+# ignore design system app files
+src/web/
 src/main.js
+src/store.js
