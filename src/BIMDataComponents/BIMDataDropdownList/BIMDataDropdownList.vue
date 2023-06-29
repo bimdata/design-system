@@ -35,7 +35,7 @@
         @element-click="onElementClick"
         :loading="loading"
       >
-        <template #element="{element}">
+        <template #element="{ element }">
           <slot
             name="element"
             :element="element"
@@ -142,10 +142,6 @@ export default {
 };
 </script>
 
-<style
-  lang="scss"
-  scoped
-  src="../../assets/scss/_BIMDataVariables.scss"
-></style>
+<style lang="scss" scoped src="../../assets/css/variables.css"></style>
 
 <style lang="scss" src="./_BIMDataDropdownList.scss"></style>

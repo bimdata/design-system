@@ -120,8 +120,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_list.scss";
+@import "../../assets/css/variables.css";
+@import "../../assets/css/utilities/_list.css";
 </style>
 
 <style scoped lang="scss" src="./_BIMDataNavigation.scss"></style>

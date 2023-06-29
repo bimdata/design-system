@@ -570,10 +570,10 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA COMPONENT VARIABLES
-@import "../../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../../assets/css/variables.css";
 
 // import BIMDATA UTILITIES
-@import "../../../../../assets/scss/utilities/_flex.scss";
+@import "../../../../../assets/css/utilities/_flex.css";
 
 // import COMPONENT STYLE
 @import "./_Margin.scss";

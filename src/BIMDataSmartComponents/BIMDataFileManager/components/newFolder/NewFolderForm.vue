@@ -130,7 +130,7 @@ export default {
 
 <style scoped lang="scss">
 // import BIMDATA VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/css/variables.css";
 
 .folder-creation-form {
   padding: var(--spacing-unit);

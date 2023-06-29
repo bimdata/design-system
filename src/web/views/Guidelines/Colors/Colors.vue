@@ -20,7 +20,7 @@
           @import "~@bimdata/design-system/dist/scss/BIMDataVariables.scss";
 
           /* to use the color utilities classes add this line. BIMDataVariables are already imported in _colors.scss */
-          @import "~@bimdata/design-system/dist/scss/utilities/_colors.scss";
+          @import "~@bimdata/design-system/dist/css/utilities/_colors.css";
         </pre>
       </Code>
       <div id="colors">
@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-// import BIMDATA MIXINS
-@import "../../../../assets/scss/mixins/_colors-variation.scss";
-
 // import ALERT COMPONENT STYLE
 @import "../../../../web/views/Elements/Alerts/_Alerts.scss";
 

@@ -1,6 +1,6 @@
 <template>
   <aside class="aside">
-    <div style="flex-grow: 1; overflow-y: auto;">
+    <div style="flex-grow: 1; overflow-y: auto">
       <BIMDataText
         component="h4"
         color="color-primary"
@@ -51,7 +51,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/scss/mixins/_colors-variation.scss";
-
 @import "./_DesignSystem-aside.scss";
 </style>

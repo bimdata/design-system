@@ -56,8 +56,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_text.scss";
+@import "../../assets/css/variables.css";
+@import "../../assets/css/utilities/_text.css";
 </style>
 
 <style lang="scss" src="./_BIMDataRadio.scss"></style>

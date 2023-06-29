@@ -1,4 +1,4 @@
-@import "../../assets/scss/BIMDataVariables.scss";
+@import "../../assets/css/variables.css";
 
 .bimdata-file-manager {
   width: 100%;
@@ -115,9 +115,9 @@
         align-items: center;
         justify-content: center;
         font-size: small;
-        color: $color-granite;
+        color: var(--color-granite);
         span {
-          margin-top: calc($spacing-unit * 2);
+          margin-top: calc(var(--spacing-unit) * 2);
         }
       }
     }

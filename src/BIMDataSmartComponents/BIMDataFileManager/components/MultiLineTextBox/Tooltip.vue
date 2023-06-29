@@ -17,8 +17,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../assets/scss/mixins/_pseudo.scss";
-
 .multi-line-textbox-tooltip {
   width: 100%;
   &__content {
@@ -36,7 +34,9 @@ export default {
     z-index: 1;
   }
   &::before {
-    @include pseudo;
+    content: "";
+    display: block;
+    position: absolute;
     top: -8px;
     border: var(--color-primary) solid 8px;
     transform: rotate(45deg);
