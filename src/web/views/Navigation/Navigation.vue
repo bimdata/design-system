@@ -24,6 +24,7 @@
 
 <script>
 import pkg from "../../../../package.json";
+import store from "../../../store.js";
 export default {
   version: pkg.version,
   props: {
@@ -47,7 +48,7 @@ export default {
   emits: ["switch-theme"],
   computed: {
     items() {
-      return Object.entries(this.$store.state).map(([title, page]) => ({
+      return Object.entries(store).map(([title, page]) => ({
         title,
         ...page,
       }));

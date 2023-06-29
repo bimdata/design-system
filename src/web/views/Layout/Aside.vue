@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import store from "../../../store.js";
 import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
@@ -36,7 +37,7 @@ export default {
       return result[0].replace(hyphenRegex, " ");
     },
     getPageChildren() {
-      return Object.values(this.$store.state).find(
+      return Object.values(store).find(
         page => page.path === this.getPathFirstElement()
       ).children;
     },

@@ -82,6 +82,8 @@
 
 <script>
 import propsData from "./props-data.js";
+import preview2dExample from "./preview-2d-example.png";
+import preview3dExample from "./preview-3d-example.png";
 // Components
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 import BIMDataModelPreview from "../../../../BIMDataComponents/BIMDataModelPreview/BIMDataModelPreview.vue";
@@ -91,8 +93,8 @@ import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDat
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 const exampleImg = {
-  "2d": require("./preview-2d-example.png"),
-  "3d": require("./preview-3d-example.png"),
+  "2d": preview2dExample,
+  "3d": preview3dExample,
 };
 
 export default {

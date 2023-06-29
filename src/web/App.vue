@@ -32,12 +32,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // import PRISMJS THEME
 @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-</style>
 
-<style lang="scss">
 // import BIMDATA STYLE
 @import "../assets/css/design-system.css";
 

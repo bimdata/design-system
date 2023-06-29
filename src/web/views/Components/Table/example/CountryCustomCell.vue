@@ -5,12 +5,18 @@
 </template>
 
 <script>
+import flagAustria from "./country-flags/austria.png";
+import flagFrance from "./country-flags/france.png";
+import flagGermany from "./country-flags/germany.png";
+import flagItaly from "./country-flags/italy.png";
+import flagRussia from "./country-flags/russia.png";
+
 const flags = {
-  austria: require("./country-flags/austria.png"),
-  france: require("./country-flags/france.png"),
-  germany: require("./country-flags/germany.png"),
-  italy: require("./country-flags/italy.png"),
-  russia: require("./country-flags/russia.png"),
+  austria: flagAustria,
+  france: flagFrance,
+  germany: flagGermany,
+  italy: flagItaly,
+  russia: flagRussia,
 };
 
 export default {

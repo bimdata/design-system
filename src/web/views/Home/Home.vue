@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import store from "../../../store.js";
 import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearch from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
@@ -60,7 +61,7 @@ export default {
   },
   computed: {
     getItems() {
-      return this.$store.state;
+      return store;
     },
   },
 };

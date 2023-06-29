@@ -1,16 +1,10 @@
-import Vue from "vue";
+import { createApp } from "vue";
+import VueClipboard from "vue3-clipboard";
+import router from "./router.js";
+
 import App from "./web/App.vue";
-import router from "./web/router/router";
-import VueClipboard from "vue-clipboard2";
-import store from "./store.js";
 
-Vue.config.productionTip = false;
-Vue.use(VueClipboard);
-
-new Vue({
-  router,
-  store,
-  render: function (h) {
-    return h(App);
-  },
-}).$mount("#app");
+const app = createApp(App);
+app.use(VueClipboard, {});
+app.use(router);
+app.mount("#app");

@@ -87,8 +87,8 @@ import clickaway from "../../../../BIMDataDirectives/click-away.js";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "@/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataColorSelector from "@/BIMDataComponents/BIMDataColorSelector/BIMDataColorSelector.vue";
+import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
+import BIMDataColorSelector from "../../../../BIMDataComponents/BIMDataColorSelector/BIMDataColorSelector.vue";
 
 export default {
   components: {

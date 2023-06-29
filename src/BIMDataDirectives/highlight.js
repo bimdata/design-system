@@ -1,4 +1,4 @@
-import Vue from "vue";
+import { nextTick } from "vue";
 import Prism from "prismjs";
 import Normalizer from "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js";
 
@@ -30,9 +30,9 @@ function highlight(el, binding, vnode) {
     vnode.children[1].children &&
     vnode.children[1].children[0]
   ) {
-    textToHighlight = vnode.children[1].children[0].text;
+    textToHighlight = vnode.children[1].children[0].children;
   } else {
-    textToHighlight = vnode.children[0].text;
+    textToHighlight = vnode.children[0].children;
   }
 
   el.innerHTML = normalizer.normalize(
@@ -46,5 +46,5 @@ function highlight(el, binding, vnode) {
       "remove-indent": true,
     }
   );
-  Vue.nextTick(() => Prism.highlightAll());
+  nextTick(() => Prism.highlightAll());
 }
