@@ -1,9 +1,9 @@
 <template>
   <main class="article variables">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <BIMDataText margin="10px 0 15px"
         >To be able to use all these variables listed below, please import this
         code into your project:</BIMDataText
@@ -148,9 +148,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../../../assets/css/variables.css";
-
-@import "../../../../assets/css/utilities/_colors.css";
-</style>

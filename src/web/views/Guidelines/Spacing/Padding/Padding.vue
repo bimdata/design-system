@@ -533,13 +533,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../../assets/css/variables.css";
-
-// import BIMDATA UTILITIES
-@import "../../../../../assets/css/utilities/_flex.css";
-
-// import COMPONENT STYLE
-@import "./_Padding.scss";
-</style>
+<style scoped lang="scss" src="./_Padding.scss"></style>

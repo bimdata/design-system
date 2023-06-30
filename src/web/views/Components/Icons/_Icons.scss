@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/mixins/_font-size.scss";
+
 .article-icons {
   img {
     width: 71px;
@@ -7,7 +9,7 @@
     margin: 0 0 var(--spacing-unit);
   }
   .bimdata-ds__demo {
-    ::v-deep .bimdata-ds__demo__module {
+    :deep(.bimdata-ds__demo__module) {
       align-items: flex-start;
       justify-content: flex-start;
     }

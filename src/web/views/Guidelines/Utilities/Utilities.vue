@@ -1,9 +1,9 @@
 <template>
   <main class="article variables">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary" margin="0 0 20px">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary" margin="0 0 20px">
+        {{ $route.name }}
+      </BIMDataText>
       <AnchorLink :navElements="navElements" />
       <div id="colors">
         <BIMDataText component="h3" color="color-primary" margin="40px 0 20px"

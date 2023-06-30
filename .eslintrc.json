@@ -22,6 +22,7 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double", "avoid-escape"],
     "semi": ["error", "always"],
+    "vue/multi-word-component-names": "off",
     "vue/order-in-components": [
       "error",
       {

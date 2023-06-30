@@ -1,7 +1,6 @@
-// import BIMDATA MIXINS
 @import "../../assets/scss/mixins/_font-size.scss";
-// import COMPONENT STYLE
 @import "./_keyframes.scss";
+
 input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--color-white) inset;
 }

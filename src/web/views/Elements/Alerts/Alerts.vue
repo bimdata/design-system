@@ -14,22 +14,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      alertType: null,
-    };
-  },
   props: {
     message: {
       type: String,
     },
   },
+  data() {
+    return {
+      alertType: null,
+    };
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/css/variables.css";
-
-@import "./_Alerts.scss";
-</style>
+<style scoped lang="scss" src="./_Alerts.scss"></style>

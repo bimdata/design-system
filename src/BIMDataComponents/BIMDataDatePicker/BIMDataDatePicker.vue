@@ -877,10 +877,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/css/variables.css";
-</style>
-
-<style lang="scss" src="">
-@import "./_BIMDataDatePicker.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataDatePicker.scss"></style>

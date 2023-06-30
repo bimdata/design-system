@@ -147,6 +147,7 @@
 
 <script>
 import BIMDataButton from "../../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+
 export default {
   components: {
     BIMDataButton,
@@ -185,7 +186,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../../../../../assets/scss/mixins/_font-size.scss";
-@import "./_ColorSwatche.scss";
-</style>
+<style scoped lang="scss" src="./_ColorSwatche.scss"></style>

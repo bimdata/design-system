@@ -102,7 +102,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import COMPONENT STYLE
-@import "./_Illustrations.scss";
-</style>
+<style scoped lang="scss" src="./_Illustrations.scss"></style>

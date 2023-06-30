@@ -1,9 +1,9 @@
 <template>
   <main class="article developpers">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <BIMDataText margin="5px 0" lineHeight="24px"
         >How to get started with BIMData's vuejs component library</BIMDataText
       >
@@ -196,12 +196,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "./_GettingStarted.scss";
-.bimdata-ds__code {
-  &:nth-child(5),
-  &:last-child {
-    margin: 0;
-  }
-}
-</style>
+<style scoped lang="scss" src="./_GettingStarted.scss"></style>

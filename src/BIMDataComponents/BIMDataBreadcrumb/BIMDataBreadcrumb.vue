@@ -100,7 +100,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .bimdata-breadcrumb {
   display: flex;
   align-items: center;

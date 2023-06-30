@@ -1,9 +1,9 @@
 <template>
   <main class="article article-spacing">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <AnchorLink :navElements="elements" />
       <div class="spacing-system" id="spacing-system">
         <div>
@@ -62,11 +62,23 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA VARIABLES
-@import "../../../../assets/css/variables.css";
-@import "../../../../assets/css/utilities/_flex.css";
-
-// import COMPONENT STYLE
-@import "./_Spacing.scss";
+<style scoped lang="scss">
+.article-spacing {
+  &__code {
+    display: flex;
+    justify-content: space-between;
+    &__item {
+      margin-right: var(--spacing-unit);
+      flex: 1;
+      pre {
+        margin-bottom: 0;
+      }
+    }
+  }
+  #spacing-system,
+  #margin,
+  #padding {
+    padding-top: 40px;
+  }
+}
 </style>

@@ -173,7 +173,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_Loaders.scss";
-</style>
+<style scoped lang="scss" src="./_Loaders.scss"></style>

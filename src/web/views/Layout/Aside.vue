@@ -51,6 +51,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "./_DesignSystem-aside.scss";
-</style>
+<style scoped lang="scss" src="./_DesignSystem-aside.scss"></style>

@@ -67,9 +67,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../../assets/css/variables.css";
-
-@import "./_keyframes.scss";
-@import "./_Home.scss";
-</style>
+<style scoped lang="scss" src="./_Home.scss"></style>

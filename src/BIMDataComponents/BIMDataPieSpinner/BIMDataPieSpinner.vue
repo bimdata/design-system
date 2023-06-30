@@ -75,6 +75,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "./_BIMDataPieSpinner.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataPieSpinner.scss"></style>

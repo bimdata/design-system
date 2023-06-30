@@ -141,9 +141,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// import BIMDATA VARIABLES
-@import "../../../../assets/css/variables.css";
-
 .rename-modal {
   background-color: var(--color-white);
 

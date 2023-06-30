@@ -151,4 +151,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./_BIMDataMenu.scss"></style>
+<style scoped lang="scss" src="./_BIMDataMenu.scss"></style>

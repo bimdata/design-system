@@ -98,7 +98,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import COMPONENT STYLE
-@import "./_DesignSystem-content.scss";
-</style>
+<style scoped lang="scss" src="./_DesignSystem-content.scss"></style>

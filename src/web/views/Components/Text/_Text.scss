@@ -1,6 +1,6 @@
 .article-text {
   &__component {
-    ::v-deep.bimdata-input {
+    :deep(.bimdata-input) {
       margin-top: 30px;
       label {
         top: -34px;

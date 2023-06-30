@@ -162,7 +162,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "../../assets/css/variables.css";
-@import "./_BIMDataTabs.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataTabs.scss"></style>

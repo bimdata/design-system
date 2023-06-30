@@ -1,9 +1,9 @@
 <template>
   <main class="article internal-doc">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <BIMDataText margin="5px 0 10px" lineHeight="24px"
         >All the design system resources are in the directory:
         <code class="code-highlight">src/web/views</code>. The following
@@ -119,6 +119,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "./_GettingStarted.scss";
-</style>
+<style scoped lang="scss" src="./_GettingStarted.scss"></style>

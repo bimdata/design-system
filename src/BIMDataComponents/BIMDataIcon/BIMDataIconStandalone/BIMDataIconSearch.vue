@@ -19,6 +19,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Search", Search);
 </script>
 
-<style lang="scss" scoped src="../../../assets/css/variables.css"></style>
-
-<style lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>

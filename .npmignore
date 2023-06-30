@@ -1,5 +1,2 @@
-# ignore test files
-src/**/__test__/
-
 # ignore design system app files
 src/web/
