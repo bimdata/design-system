@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import store from "../../../store.js";
+import store from "../../store.js";
 import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {

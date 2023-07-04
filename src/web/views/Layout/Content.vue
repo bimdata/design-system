@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import store from "../../../store.js";
+import store from "../../store.js";
 import BIMDataButton from "../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataResponsiveGrid from "../../../../src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";

@@ -24,7 +24,7 @@
 
 <script>
 import pkg from "../../../../package.json";
-import store from "../../../store.js";
+import store from "../../store.js";
 export default {
   version: pkg.version,
   props: {

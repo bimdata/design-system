@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import store from "../../../store.js";
+import store from "../../store.js";
 import BIMDataCard from "../../../BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataButton from "../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataSearch from "../../../BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
