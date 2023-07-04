@@ -28,7 +28,6 @@ import menu from "./assets/img/icon-menu.svg";
 import radio from "./assets/img/icon-radio.svg";
 import grid from "./assets/img/icon-grid.svg";
 import safe_zone_inline from "./assets/img/icon-safe_zone_inline.svg";
-import safe_zone_modal from "./assets/img/icon-safe_zone_modal.svg";
 import search from "./assets/img/icon-search.svg";
 import search_autocomplete from "./assets/img/icon-search_autocomplete.svg";
 import select from "./assets/img/icon-select.svg";
@@ -38,7 +37,6 @@ import text from "./assets/img/icon-text.svg";
 import textarea from "./assets/img/icon-textarea.svg";
 import toggle from "./assets/img/icon-toggle.svg";
 import tooltip from "./assets/img/icon-tooltip.svg";
-import smart_components from "./assets/img/icon-smart_components.svg";
 
 export default {
   "Getting started": {
@@ -236,13 +234,6 @@ export default {
         btn: "View menus",
       },
       {
-        title: "ModelPreview",
-        img: doc,
-        path: "model-preview",
-        text: "Model preview component",
-        btn: "View model preview",
-      },
-      {
         title: "Pagination",
         img: pagination,
         path: "pagination",
@@ -269,13 +260,6 @@ export default {
         path: "safe-zone-inline",
         text: "",
         btn: "View safe zone inline",
-      },
-      {
-        title: "SafeZoneModal",
-        img: safe_zone_modal,
-        path: "safe-zone-modal",
-        text: "",
-        btn: "View safe zone modal",
       },
       {
         title: "Search",
@@ -346,20 +330,6 @@ export default {
         path: "tooltips",
         text: "Tooltips are used to show contextual information on hover.",
         btn: "View tooltips",
-      },
-    ],
-  },
-  "Smart Components": {
-    text: "Smart components are components that are smart.",
-    img: smart_components,
-    path: "smart-components",
-    children: [
-      {
-        path: "file-manager",
-        img: list,
-        title: "FileManager",
-        text: "Navigate into a project file tree.",
-        btn: "View file manager",
       },
     ],
   },

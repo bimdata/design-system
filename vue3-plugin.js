@@ -1,5 +1,4 @@
 import * as Components from "./src/BIMDataComponents/index.js";
-import * as SmartComponents from "./src/BIMDataSmartComponents/index.js";
 import * as Directives from "./src/BIMDataDirectives/index.js";
 
 /**
@@ -9,7 +8,6 @@ import * as Directives from "./src/BIMDataDirectives/index.js";
  *  {
  *    includedComponents?: string[],
  *    excludedComponents?: string[],
- *    smartComponents?: boolean,
  *    directives?: boolean,
  *  }
  * } [cfg]
@@ -36,15 +34,6 @@ const pluginFactory = cfg => {
           app.component(componentName, component);
         }
       });
-
-      // SMART COMPONENTS
-      if (cfg?.smartComponents) {
-        Object.entries(SmartComponents).forEach(
-          ([componentName, component]) => {
-            app.component(componentName, component);
-          }
-        );
-      }
 
       // DIRECTIVES
       if (!cfg || cfg.directives !== false) {
