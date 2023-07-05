@@ -1,5 +1,4 @@
 @import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
 .bimdata-radio {
   position: relative;
   color: var(--color-primary);
@@ -20,7 +19,9 @@
 
   &__circle,
   &__dot {
-    @include pseudo;
+    content: '';
+    display: block;
+    position: absolute;
     border-radius: 50%;
     transition: all 0.2s ease;
     box-sizing: border-box;

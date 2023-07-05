@@ -5,7 +5,7 @@
         {{ $route.name }}
       </BIMDataText>
       <BIMDataText margin="10px 0 15px">
-        {{ $store.state[$route.name].text }}
+        {{ store[$route.name].text }}
       </BIMDataText>
       <div class="content-box">
         <BIMDataCard
@@ -40,7 +40,7 @@
           class="m-t-30"
         >
           <BIMDataCard
-            v-for="child in $store.state[$route.name].children"
+            v-for="child in store[$route.name].children"
             :key="child.id"
             :class="{
               'bimdata-card__secondary':
@@ -49,7 +49,7 @@
           >
             {{ child.title }}
             <template #content>
-              <router-link :to="child.path" append>
+              <router-link :to="{ name: child.path }" append>
                 <img
                   v-if="
                     child.title !== 'Variables' || child.title !== 'Utilities'
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import store from "../../store.js";
 import BIMDataButton from "../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataResponsiveGrid from "../../../../src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
@@ -91,7 +92,9 @@ export default {
     BIMDataResponsiveGrid,
     BIMDataText,
   },
-  methods: {},
+  setup() {
+    return { store };
+  },
 };
 </script>
 

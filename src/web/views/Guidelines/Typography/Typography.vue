@@ -37,7 +37,7 @@
           />
           <Code language="scss">
             <pre>
-              @import "node_modules/@bimdata/design-system/dist/scss/utilities/text.scss"
+              @import "node_modules/@bimdata/design-system/dist/css/utilities/text.css"
             </pre>
           </Code>
         </div>
@@ -104,7 +104,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/css/variables.css";
 
 @import "./_Typography.scss";
 </style>

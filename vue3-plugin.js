@@ -1,10 +1,18 @@
-import * as Components from "./dist/js/BIMDataComponents/vue3/index.js";
-import * as Directives from "./dist/js/BIMDataDirectives/vue3/index.js";
+import * as Components from "./src/BIMDataComponents/index.js";
+import * as SmartComponents from "./src/BIMDataSmartComponents/index.js";
+import * as Directives from "./src/BIMDataDirectives/index.js";
 
 /**
- * Instal components and directives from the design system.
- * WARNING: The css needs to be added manually.
- * @param { { directives?: boolean, includedComponents?: string[], excludedComponents?: string[] } } [cfg]
+ * Register all components and directives from the design system.
+ *
+ * @param {
+ *  {
+ *    includedComponents?: string[],
+ *    excludedComponents?: string[],
+ *    smartComponents?: boolean,
+ *    directives?: boolean,
+ *  }
+ * } [cfg]
  */
 const pluginFactory = cfg => {
   return {
@@ -28,6 +36,15 @@ const pluginFactory = cfg => {
           app.component(componentName, component);
         }
       });
+
+      // SMART COMPONENTS
+      if (cfg?.smartComponents) {
+        Object.entries(SmartComponents).forEach(
+          ([componentName, component]) => {
+            app.component(componentName, component);
+          }
+        );
+      }
 
       // DIRECTIVES
       if (!cfg || cfg.directives !== false) {

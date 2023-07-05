@@ -1,6 +1,5 @@
 // import BIMDATA MIXINS
 @import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
 // import COMPONENT STYLE
 @import "./_keyframes.scss";
 input:-webkit-autofill {
@@ -69,7 +68,9 @@ input:-webkit-autofill {
     &::before {
       width: 0;
       height: 2px;
-      @include pseudo;
+      content: '';
+      display: block;
+      position: absolute;
       background-color: var(--color-primary);
       transform: scaleX(0);
     }

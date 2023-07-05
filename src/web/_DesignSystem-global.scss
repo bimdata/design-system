@@ -1,5 +1,6 @@
 html,
-body {
+body,
+#app {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -47,7 +48,7 @@ pre[class*="language-"] {
       line-height: 18px;
       transition: all 0.25s ease-in;
       &:hover {
-        background-color: lightness(var(--color-secondary), 0.8);
+        background-color: hsl(45, 94.5, 57.5 * 0.8);
         transition: all 0.25s ease-in;
       }
     }

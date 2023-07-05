@@ -325,7 +325,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../../assets/scss/BIMDataVariables";
+@import "../../../assets/css/variables.css";
 
 .file-card {
   height: 192px;

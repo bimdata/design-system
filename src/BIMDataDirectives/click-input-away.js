@@ -1,5 +1,5 @@
 export default {
-  bind(el, binding) {
+  beforeMount(el, binding) {
     if (typeof binding.value !== "function") {
       throw Error(
         `click away directive needs function, got ${typeof binding.value}`
@@ -13,7 +13,7 @@ export default {
     };
     window.addEventListener("mousedown", el.clickAwayHandler, true);
   },
-  unbind(el) {
+  unmounted(el) {
     window.removeEventListener("mousedown", el.clickAwayHandler, true);
     delete el.clickAwayHandler;
   },

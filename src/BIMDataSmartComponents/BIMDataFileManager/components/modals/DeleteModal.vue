@@ -127,7 +127,7 @@ export default {
 
 <style scoped lang="scss">
 // import BIMDATA VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/css/variables.css";
 
 .delete-modal {
   background-color: var(--color-white);

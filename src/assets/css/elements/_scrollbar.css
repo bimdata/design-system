@@ -1,0 +1,23 @@
+/* Custom SCROLLBAR ------------------------ */
+
+/* width */
+.bimdata-scrollbar ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+.bimdata-scrollbar ::-webkit-scrollbar-track {
+  background-color: var(--color-silver);
+}
+
+/* Handle */
+.bimdata-scrollbar ::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  height: 48px;
+}
+
+/* Handle on hover */
+.bimdata-scrollbar ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-granite-light);
+}

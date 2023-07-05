@@ -8,9 +8,7 @@
         >To be able to use all these variables listed below, please import this
         code into your project:</BIMDataText
       >
-      <Code language="css">
-        @import "@/assets/scss/_BIMDataVariables.scss";
-      </Code>
+      <Code language="css"> @import "@/assets/css/variables.css"; </Code>
       <div class="m-y-12">
         <BIMDataText component="h6" color="color-primary"
           >Colors variables summary</BIMDataText
@@ -152,7 +150,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/css/variables.css";
 
-@import "../../../../assets/scss/utilities/_colors.scss";
+@import "../../../../assets/css/utilities/_colors.css";
 </style>

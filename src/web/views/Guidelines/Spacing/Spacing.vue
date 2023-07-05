@@ -21,7 +21,7 @@
           <Code language="scss">
             <pre>
               // import BIMDATA SPACING UTILITIES
-              @import "node_modules/@bimdata/design-system/dist/scss/utilities/spacing.scss";
+              @import "node_modules/@bimdata/design-system/dist/css/utilities/spacing.css";
             </pre>
           </Code>
         </div>
@@ -64,8 +64,8 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
-@import "../../../../assets/scss/utilities/_flex.scss";
+@import "../../../../assets/css/variables.css";
+@import "../../../../assets/css/utilities/_flex.css";
 
 // import COMPONENT STYLE
 @import "./_Spacing.scss";

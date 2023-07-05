@@ -77,5 +77,5 @@ function formatIconComponentsNames(illustrations = {}) {
 <style
   lang="scss"
   scoped
-  src="../../assets/scss/_BIMDataVariables.scss"
+  src="../../assets/css/variables.css"
 ></style>
