@@ -1,58 +1,58 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "./web/views/Home/Home.vue";
-import Layout from "./web/views/Layout/Layout.vue";
-import Content from "./web/views/Layout/Content.vue";
+import Home from "./views/Home/Home.vue";
+import Layout from "./views/Layout/Layout.vue";
+import Content from "./views/Layout/Content.vue";
 
 // import GETTING STARTED
-import Designers from "./web/views/GettingStarted/Designers.vue";
-import Developpers from "./web/views/GettingStarted/Developpers.vue";
-import InternalDoc from "./web/views/GettingStarted/InternalDoc.vue";
+import Designers from "./views/GettingStarted/Designers.vue";
+import Developpers from "./views/GettingStarted/Developpers.vue";
+import InternalDoc from "./views/GettingStarted/InternalDoc.vue";
 
 // import GUIDELINES
-import Colors from "./web/views/Guidelines/Colors/Colors.vue";
-import List from "./web/views/Guidelines/List/List.vue";
-import Markup from "./web/views/Guidelines/Markup/Markup.vue";
-import Spacing from "./web/views/Guidelines/Spacing/Spacing.vue";
-import Typography from "./web/views/Guidelines/Typography/Typography.vue";
-import Utilities from "./web/views/Guidelines/Utilities/Utilities.vue";
-import Variables from "./web/views/Guidelines/Variables/Variables.vue";
+import Colors from "./views/Guidelines/Colors/Colors.vue";
+import List from "./views/Guidelines/List/List.vue";
+import Markup from "./views/Guidelines/Markup/Markup.vue";
+import Spacing from "./views/Guidelines/Spacing/Spacing.vue";
+import Typography from "./views/Guidelines/Typography/Typography.vue";
+import Utilities from "./views/Guidelines/Utilities/Utilities.vue";
+import Variables from "./views/Guidelines/Variables/Variables.vue";
 
 // import COMPONENTS
-import Buttons from "./web/views/Components/Buttons/Buttons.vue";
-import Card from "./web/views/Components/Card/Card.vue";
-import Carousel from "./web/views/Components/Carousel/Carousel.vue";
-import Charts from "./web/views/Components/Charts/Charts.vue";
-import Checkbox from "./web/views/Components/Checkbox/Checkbox.vue";
-import ColorSelector from "./web/views/Components/ColorSelector/ColorSelector.vue";
-import DatePicker from "./web/views/Components/DatePicker/DatePicker.vue";
-import DropdownMenu from "./web/views/Components/DropdownMenu/DropdownMenu.vue";
-import DropdownList from "./web/views/Components/DropdownList/DropdownList.vue";
-import FileIcon from "./web/views/Components/FileIcon/FileIcon.vue";
-import Icons from "./web/views/Components/Icons/Icons.vue";
-import Illustrations from "./web/views/Components/Illustrations/Illustrations.vue";
-import Input from "./web/views/Components/Input/Input.vue";
-import Loaders from "./web/views/Components/Loaders/Loaders.vue";
-import Menus from "./web/views/Components/Menu/Menus.vue";
-import ModelPreview from "./web/views/Components/ModelPreview/ModelPreview.vue";
-import Pagination from "./web/views/Components/Pagination/Pagination.vue";
-import Radio from "./web/views/Components/Radio/Radio.vue";
-import ResponsiveGrid from "./web/views/Components/ResponsiveGrid/ResponsiveGrid.vue";
-import SafeZoneModal from "./web/views/Components/SafeZoneModal/SafeZoneModal.vue";
-import SafeZoneInline from "./web/views/Components/SafeZoneInline/SafeZoneInline.vue";
-import Search from "./web/views/Components/Search/Search.vue";
-import SearchAutocomplete from "./web/views/Components/SearchAutocomplete/SearchAutocomplete.vue";
-import Select from "./web/views/Components/Select/Select.vue";
-import Table from "./web/views/Components/Table/Table.vue";
-import Tabs from "./web/views/Components/Tabs/Tabs.vue";
-import Text from "./web/views/Components/Text/Text.vue";
-import Textarea from "./web/views/Components/Textarea/Textarea.vue";
-import Textbox from "./web/views/Components/Textbox/Textbox.vue";
-import Toggle from "./web/views/Components/Toggle/Toggle.vue";
-import Tooltip from "./web/views/Components/Tooltip/Tooltip.vue";
+import Buttons from "./views/Components/Buttons/Buttons.vue";
+import Card from "./views/Components/Card/Card.vue";
+import Carousel from "./views/Components/Carousel/Carousel.vue";
+import Charts from "./views/Components/Charts/Charts.vue";
+import Checkbox from "./views/Components/Checkbox/Checkbox.vue";
+import ColorSelector from "./views/Components/ColorSelector/ColorSelector.vue";
+import DatePicker from "./views/Components/DatePicker/DatePicker.vue";
+import DropdownMenu from "./views/Components/DropdownMenu/DropdownMenu.vue";
+import DropdownList from "./views/Components/DropdownList/DropdownList.vue";
+import FileIcon from "./views/Components/FileIcon/FileIcon.vue";
+import Icons from "./views/Components/Icons/Icons.vue";
+import Illustrations from "./views/Components/Illustrations/Illustrations.vue";
+import Input from "./views/Components/Input/Input.vue";
+import Loaders from "./views/Components/Loaders/Loaders.vue";
+import Menus from "./views/Components/Menu/Menus.vue";
+import ModelPreview from "./views/Components/ModelPreview/ModelPreview.vue";
+import Pagination from "./views/Components/Pagination/Pagination.vue";
+import Radio from "./views/Components/Radio/Radio.vue";
+import ResponsiveGrid from "./views/Components/ResponsiveGrid/ResponsiveGrid.vue";
+import SafeZoneModal from "./views/Components/SafeZoneModal/SafeZoneModal.vue";
+import SafeZoneInline from "./views/Components/SafeZoneInline/SafeZoneInline.vue";
+import Search from "./views/Components/Search/Search.vue";
+import SearchAutocomplete from "./views/Components/SearchAutocomplete/SearchAutocomplete.vue";
+import Select from "./views/Components/Select/Select.vue";
+import Table from "./views/Components/Table/Table.vue";
+import Tabs from "./views/Components/Tabs/Tabs.vue";
+import Text from "./views/Components/Text/Text.vue";
+import Textarea from "./views/Components/Textarea/Textarea.vue";
+import Textbox from "./views/Components/Textbox/Textbox.vue";
+import Toggle from "./views/Components/Toggle/Toggle.vue";
+import Tooltip from "./views/Components/Tooltip/Tooltip.vue";
 
 // Smart Components views
-import FileManager from "./web/views/SmartComponents/FileManager/FileManager.vue";
+import FileManager from "./views/SmartComponents/FileManager/FileManager.vue";
 
 const routes = [
   {
