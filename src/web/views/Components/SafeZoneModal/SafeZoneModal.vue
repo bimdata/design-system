@@ -157,4 +157,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="./_SafeZoneModal.scss"></style>
+<style scoped lang="scss" src="./_SafeZoneModal.scss"></style>

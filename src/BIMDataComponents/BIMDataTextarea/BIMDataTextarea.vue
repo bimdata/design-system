@@ -120,9 +120,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/css/variables.css";
-@import "../../assets/css/utilities/_text.css";
-</style>
-
-<style lang="scss" src="./_BIMDataTextarea.scss"></style>
+<style scoped lang="scss" src="./_BIMDataTextarea.scss"></style>

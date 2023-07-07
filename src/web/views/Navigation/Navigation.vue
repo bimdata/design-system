@@ -25,6 +25,7 @@
 <script>
 import pkg from "../../../../package.json";
 import store from "../../store.js";
+
 export default {
   version: pkg.version,
   props: {
@@ -62,10 +63,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../../assets/css/variables.css";
-@import "../../../assets/css/utilities/_list.css";
-@import "../../../assets/scss/mixins/_font-size.scss";
-
-@import "./_DesignSystem-navigation.scss";
-</style>
+<style scoped lang="scss" src="./_DesignSystem-navigation.scss"></style>

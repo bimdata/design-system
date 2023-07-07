@@ -9,7 +9,6 @@
     "src/BIMDataDirectives",
     "src/BIMDataSmartComponents",
     "design-system.png",
-    "index.js",
     "vue3-plugin.js"
   ],
   "scripts": {

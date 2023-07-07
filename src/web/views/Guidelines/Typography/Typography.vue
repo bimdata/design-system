@@ -1,9 +1,9 @@
 <template>
   <main class="article typography">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <div class="typography-size m-y-12">
         <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
           >Font size</BIMDataText
@@ -103,8 +103,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../../../assets/css/variables.css";
-
-@import "./_Typography.scss";
-</style>
+<style scoped lang="scss" src="./_Typography.scss"></style>

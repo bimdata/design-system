@@ -206,4 +206,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="./_BIMDataSearchAutocomplete.scss"></style>
+<style scoped lang="scss" src="./_BIMDataSearchAutocomplete.scss"></style>

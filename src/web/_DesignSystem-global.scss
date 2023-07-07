@@ -1,3 +1,6 @@
+@import "../../node_modules/prismjs/themes/prism-tomorrow.css";
+@import "../assets/css/design-system.css";
+
 html,
 body,
 #app {
@@ -48,7 +51,7 @@ pre[class*="language-"] {
       line-height: 18px;
       transition: all 0.25s ease-in;
       &:hover {
-        background-color: hsl(45, 94.5, 57.5 * 0.8);
+        background-color: hsl(45deg, 94.5%, 46%);
         transition: all 0.25s ease-in;
       }
     }

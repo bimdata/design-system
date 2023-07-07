@@ -12,3 +12,11 @@
   display: flex;
   align-items: center;
 }
+
+.anchor-link {
+  margin-right: 12px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}

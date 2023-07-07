@@ -43,6 +43,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "./_GettingStarted.scss";
-</style>
+<style scoped lang="scss" src="./_GettingStarted.scss"></style>

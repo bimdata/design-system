@@ -1,4 +1,3 @@
-@import "../../../assets/css/variables.css";
 .designers,
 .developpers,
 .internal-doc {
@@ -36,5 +35,12 @@
         }
       }
     }
+  }
+}
+
+.bimdata-ds__code {
+  &:nth-child(5),
+  &:last-child {
+    margin: 0;
   }
 }

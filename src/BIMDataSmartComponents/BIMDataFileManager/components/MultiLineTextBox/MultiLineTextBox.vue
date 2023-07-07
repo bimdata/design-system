@@ -19,9 +19,7 @@
           <div class="multi-line-text-box__content__tail__text">
             <span>{{ text }} </span>
           </div>
-          <div class="multi-line-text-box__content__tail__ellipsis">
-            ...
-          </div>
+          <div class="multi-line-text-box__content__tail__ellipsis">...</div>
         </div>
       </template>
       <span class="multi-line-text-box__content__full" v-else>
@@ -98,7 +96,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .multi-line-text-box {
   position: relative;
   line-height: var(--textbox-line-height, 14px);

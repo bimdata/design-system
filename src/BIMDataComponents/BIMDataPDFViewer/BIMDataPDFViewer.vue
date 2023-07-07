@@ -82,9 +82,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// import BIMDATA VARIABLES
-@import "../../assets/css/variables.css";
-
 .pdf-viewer {
   width: 100%;
   height: 100%;

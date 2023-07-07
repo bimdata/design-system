@@ -1,9 +1,9 @@
 <template>
   <main class="article article-textarea">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
         language="javascript"
@@ -350,13 +350,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/css/variables.css";
-
-// import BIMDATA COMPONENT MIXINS
-@import "../../../../assets/scss/mixins/_font-size.scss";
-
-// import COMPONENT STYLE
-@import "./_Text.scss";
-</style>
+<style scoped lang="scss" src="./_Text.scss"></style>

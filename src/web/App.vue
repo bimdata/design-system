@@ -32,13 +32,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import PRISMJS THEME
-@import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-
-// import BIMDATA STYLE
-@import "../assets/css/design-system.css";
-
-// import DESIGN SYSTEM STYLE
-@import "./_DesignSystem-global.scss";
-</style>
+<style lang="scss" src="./_DesignSystem-global.scss"></style>

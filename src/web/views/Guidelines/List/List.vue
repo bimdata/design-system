@@ -39,13 +39,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/css/variables.css";
-
-// import COMPONENT STYLE
-@import "./_List.scss";
+<style scoped lang="scss">
 .utilities-list {
+  ul {
+    outline: 2px dotted var(--color-granite);
+    li {
+      outline: 1px dotted var(--color-silver);
+    }
+  }
+
   .bimdata-ds__code {
     margin: 0;
     border-bottom: 0.5px solid var(--color-silver-light);

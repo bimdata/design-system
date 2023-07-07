@@ -73,9 +73,3 @@ function formatIconComponentsNames(illustrations = {}) {
   return illustrationsCopy;
 }
 </script>
-
-<style
-  lang="scss"
-  scoped
-  src="../../assets/css/variables.css"
-></style>

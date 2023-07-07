@@ -1,9 +1,9 @@
 <template>
   <main class="article article-card">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataResponsiveGrid
@@ -124,6 +124,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "./_ResponsiveGrid.scss";
-</style>
+<style scoped lang="scss" src="./_ResponsiveGrid.scss"></style>

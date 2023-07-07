@@ -142,6 +142,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="../../assets/css/variables.css"></style>
-
-<style lang="scss" src="./_BIMDataDropdownList.scss"></style>
+<style scoped lang="scss" src="./_BIMDataDropdownList.scss"></style>

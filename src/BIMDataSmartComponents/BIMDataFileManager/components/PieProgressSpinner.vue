@@ -6,7 +6,7 @@
       fill="transparent"
       :width="width"
       :height="width"
-      style="transform: rotate(-90deg);"
+      style="transform: rotate(-90deg)"
     >
       <circle
         class="bimdata-pie-progress-spinner__path--back"
@@ -58,7 +58,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .bimdata-pie-progress-spinner {
   &__path {
     &--back {

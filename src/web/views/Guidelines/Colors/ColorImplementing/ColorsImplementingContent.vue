@@ -164,9 +164,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import "../../../../../assets/css/variables.css";
-@import "../../../../../assets/scss/mixins/_font-size.scss";
-@import "./_ColorsImplementingContent.scss";
-</style>

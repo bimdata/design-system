@@ -1,14 +1,9 @@
 <template>
   <main class="article colors">
     <div class="article-wrapper">
-      <!-- <div class="colors-animations">
-        <div class="colors-animations__box colors-animations__box1"></div>
-        <div class="colors-animations__box colors-animations__box2"></div>
-        <div class="colors-animations__box colors-animations__box3"></div>
-      </div> -->
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <AnchorLink class="m-y-12" :navElements="elements" />
       <BIMDataText margin="10px 0 15px">
         For maintainability, please use these instead of hardcoding color
@@ -59,12 +54,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import ALERT COMPONENT STYLE
-@import "../../../../web/views/Elements/Alerts/_Alerts.scss";
-
-// import COMPONENT STYLE
-@import "./_colors-keyframes.scss";
-@import "./_colors-animations.scss";
-@import "./_Colors.scss";
+<style scoped lang="scss">
+.colors {
+  #colors,
+  #implementing {
+    padding-top: 40px;
+  }
+}
 </style>

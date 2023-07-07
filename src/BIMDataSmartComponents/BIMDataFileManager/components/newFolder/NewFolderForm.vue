@@ -129,9 +129,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// import BIMDATA VARIABLES
-@import "../../../../assets/css/variables.css";
-
 .folder-creation-form {
   padding: var(--spacing-unit);
   background-color: var(--color-white);

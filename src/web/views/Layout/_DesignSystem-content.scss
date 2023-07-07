@@ -10,7 +10,7 @@
       flex: 0;
       box-shadow: var(--box-shadow);
       transition: all ease 0.1s;
-      ::v-deep &__content {
+      :deep(.bimdata-card__content) {
         width: 100%;
         a {
           height: 100%;

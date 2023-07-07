@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .multi-line-textbox-tooltip {
   width: 100%;
   &__content {

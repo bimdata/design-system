@@ -17,7 +17,7 @@
               {{ getHeaderIcons() }}
             </template>
             <template #left v-if="submenuLeft">
-              <BIMDataBurgerMenu />
+              <BIMDataIcon name="burgerMenu" size="xxs" />
             </template>
             <template #right v-if="submenuIcons">
               {{ getSubmenuIcons() }}
@@ -159,7 +159,6 @@
 import propsData from "./props-data.js";
 import slotsData from "./slots-data.js";
 
-import BIMDataBurgerMenu from "../../../../../src/BIMDataComponents/BIMDataBurgerMenu/BIMDataBurgerMenu.vue";
 import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
 import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
@@ -171,7 +170,6 @@ import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 export default {
   components: {
     ComponentCode,
-    BIMDataBurgerMenu,
     BIMDataCard,
     BIMDataCheckbox,
     BIMDataInput,
@@ -210,7 +208,7 @@ export default {
     },
     getSubmenuLeft() {
       if (this.submenuLeft) {
-        return "<BIMDataBurgerMenu />";
+        return '<BIMDataIcon name="burgerMenu" size="xxs" />';
       }
     },
     getSubmenuText() {

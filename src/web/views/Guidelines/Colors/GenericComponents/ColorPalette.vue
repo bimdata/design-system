@@ -76,7 +76,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../../../../../assets/scss/mixins/_font-size.scss";
-@import "./_ColorPalette.scss";
-</style>
+<style scoped lang="scss" src="./_ColorPalette.scss"></style>

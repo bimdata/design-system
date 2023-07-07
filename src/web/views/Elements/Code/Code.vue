@@ -19,18 +19,22 @@ export default {
   components: {
     Alerts,
   },
-  data() {
-    return {
-      alerts: false,
-      alertType: null,
-      message: "",
-    };
+  directives: {
+    highlight,
+    copy,
   },
   props: {
     language: {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      alerts: false,
+      alertType: null,
+      message: "",
+    };
   },
   methods: {
     onCopy() {
@@ -42,14 +46,7 @@ export default {
       }, 3000);
     },
   },
-  directives: { highlight, copy },
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/css/variables.css";
-
-// import COMPONENT STYLE
-@import "./_Code.scss";
-</style>
+<style scoped lang="scss" src="./_Code.scss"></style>

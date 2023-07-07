@@ -30,15 +30,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/css/variables.css";
-@import "./_AnchorLink.scss";
-.anchor-link {
-  margin-right: 12px;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-}
-</style>
+<style scoped lang="scss" src="./_AnchorLink.scss"></style>
