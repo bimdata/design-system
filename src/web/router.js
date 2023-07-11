@@ -34,11 +34,9 @@ import Illustrations from "./views/Components/Illustrations/Illustrations.vue";
 import Input from "./views/Components/Input/Input.vue";
 import Loaders from "./views/Components/Loaders/Loaders.vue";
 import Menus from "./views/Components/Menu/Menus.vue";
-import ModelPreview from "./views/Components/ModelPreview/ModelPreview.vue";
 import Pagination from "./views/Components/Pagination/Pagination.vue";
 import Radio from "./views/Components/Radio/Radio.vue";
 import ResponsiveGrid from "./views/Components/ResponsiveGrid/ResponsiveGrid.vue";
-import SafeZoneModal from "./views/Components/SafeZoneModal/SafeZoneModal.vue";
 import SafeZoneInline from "./views/Components/SafeZoneInline/SafeZoneInline.vue";
 import Search from "./views/Components/Search/Search.vue";
 import SearchAutocomplete from "./views/Components/SearchAutocomplete/SearchAutocomplete.vue";
@@ -50,9 +48,6 @@ import Textarea from "./views/Components/Textarea/Textarea.vue";
 import Textbox from "./views/Components/Textbox/Textbox.vue";
 import Toggle from "./views/Components/Toggle/Toggle.vue";
 import Tooltip from "./views/Components/Tooltip/Tooltip.vue";
-
-// Smart Components views
-import FileManager from "./views/SmartComponents/FileManager/FileManager.vue";
 
 const routes = [
   {
@@ -222,11 +217,6 @@ const routes = [
         component: Menus,
       },
       {
-        path: "model-preview",
-        name: "model-preview",
-        component: ModelPreview,
-      },
-      {
         path: "pagination",
         name: "pagination",
         component: Pagination,
@@ -245,11 +235,6 @@ const routes = [
         path: "safe-zone-inline",
         name: "safe-zone-inline",
         component: SafeZoneInline,
-      },
-      {
-        path: "safe-zone-modal",
-        name: "safe-zone-modal",
-        component: SafeZoneModal,
       },
       {
         path: "search",
@@ -295,18 +280,6 @@ const routes = [
         path: "tooltips",
         name: "tooltips",
         component: Tooltip,
-      },
-    ],
-  },
-  {
-    path: "/smart-components",
-    redirect: "/smart-components/file-manager",
-    component: Layout,
-    children: [
-      {
-        path: "file-manager",
-        name: "file-manager",
-        component: FileManager,
       },
     ],
   },
