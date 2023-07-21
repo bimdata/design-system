@@ -18,7 +18,7 @@ export { default as BIMDataDropdownList } from "./BIMDataDropdownList/BIMDataDro
 export { default as BIMDataDropdownMenu } from "./BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export { default as BIMDataFileIcon } from "./BIMDataFileIcon/BIMDataFileIcon.vue";
 export { default as BIMDataIcon } from "./BIMDataIcon/BIMDataIcon.vue";
-export { default as BIMDataIcons } from "./BIMDataIcon/BIMDataLibraryIcons/index.js";
+export * from "./BIMDataIcon/BIMDataIconStandalone/index.js";
 export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
 export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
 export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";

@@ -1,16 +1,13 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid meet"
-    viewBox="0 0 24 24"
-    width="100%"
-    :fill="fillColor"
+  <Icon
+    :fill="fill"
+    :fillColor="fillColor"
     :color="color"
     :class="classes"
     :style="style"
   >
     <DoubleChevron />
-  </svg>
+  </Icon>
 </template>
 
 <script>

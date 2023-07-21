@@ -9,12 +9,11 @@
     :class="classes"
     :style="style"
   >
-    <component :is="`bimdata-icon-${name}`" />
+    <component :is="`BIMDataIcon${capitalized(name)}`" />
   </svg>
 </template>
 
 <script>
-import icons from "./BIMDataLibraryIcons/index.js";
 import iconsColors from "../../assets/iconsColors.js";
 
 const sizeToPixel = {
@@ -29,25 +28,12 @@ const sizeToPixel = {
   xxxl: 60,
 };
 
-function formatIconComponentsNames(icons = {}) {
-  return Object.entries(icons).reduce(
-    (obj, [key, value]) => ({ ...obj, [`bimdata-icon-${key}`]: value }),
-    {}
-  );
-}
-
 export default {
   name: "BIMDataIcon",
-  components: {
-    ...formatIconComponentsNames(icons),
-  },
   props: {
     name: {
       type: String,
       required: true,
-      validator(value) {
-        return Object.keys(icons).includes(value);
-      },
     },
     color: {
       type: String,
@@ -111,6 +97,12 @@ export default {
   methods: {
     getPixelSize() {
       return this.customSize ? this.customSize : sizeToPixel[this.size];
+    },
+    capitalized(name) {
+      const capitalizedFirst = name[0].toUpperCase();
+      const rest = name.slice(1);
+
+      return capitalizedFirst + rest;
     },
   },
 };
