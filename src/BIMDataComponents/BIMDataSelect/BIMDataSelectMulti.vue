@@ -52,7 +52,7 @@
 import clickaway from "../../BIMDataDirectives/click-away.js";
 // Components
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {

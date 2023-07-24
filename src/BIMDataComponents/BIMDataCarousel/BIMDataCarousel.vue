@@ -9,7 +9,7 @@
       icon
       @click="index--"
     >
-      <BIMDataIcon name="chevron" size="s" :rotate="180" />
+      <BIMDataIconChevron size="s" :rotate="180" />
     </BIMDataButton>
     <div class="bimdata-carousel__container">
       <div
@@ -31,19 +31,19 @@
       icon
       @click="index++"
     >
-      <BIMDataIcon name="chevron" size="s" />
+      <BIMDataIconChevron size="s" />
     </BIMDataButton>
   </div>
 </template>
 
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {
     BIMDataButton,
-    BIMDataIcon,
+    BIMDataIconChevron,
   },
   props: {
     sliderPadding: {

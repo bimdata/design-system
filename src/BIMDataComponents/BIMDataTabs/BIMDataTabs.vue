@@ -40,7 +40,7 @@
 
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {

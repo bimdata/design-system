@@ -50,7 +50,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 // Components
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {

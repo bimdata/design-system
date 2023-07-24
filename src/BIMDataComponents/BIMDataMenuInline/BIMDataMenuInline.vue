@@ -9,16 +9,14 @@
       :width="width"
     >
       <slot name="button" :active="active">
-        <BIMDataIcon
+        <BIMDataIconEllipsis
           v-if="!active"
-          name="ellipsis"
           fill
           color="granite-light"
           :size="iconEllipsisSize"
         />
-        <BIMDataIcon
+        <BIMDataIconClose
           v-else
-          name="close"
           fill
           color="granite-light"
           :size="iconCloseSize"
@@ -44,12 +42,17 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import {
+  BIMDataIconClose,
+  BIMDataIconEllipsis,
+} from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+
 export default {
   directives: { clickaway },
   components: {
     BIMDataButton,
-    BIMDataIcon,
+    BIMDataIconClose,
+    BIMDataIconEllipsis,
   },
   props: {
     isSubmenuRight: {

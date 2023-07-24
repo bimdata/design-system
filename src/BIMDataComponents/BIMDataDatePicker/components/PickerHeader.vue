@@ -56,7 +56,7 @@
       @keydown.right.prevent="arrowRightNext"
     >
       <slot name="nextIntervalBtn">
-        <BIMDataIcon name="chevron" size="xxxs" fill color="default" />
+        <BIMDataIconChevron size="xxxs" fill color="default" />
       </slot>
     </button>
     <button
@@ -72,17 +72,20 @@
       @keydown.right.prevent="arrowRightPrev"
     >
       <slot name="prevIntervalBtn">
-        <BIMDataIcon name="doubleChevron" size="xxxs" fill color="default" />
+        <BIMDataIconDoubleChevron size="xxxs" fill color="default" />
       </slot>
     </button>
   </header>
 </template>
 
 <script>
-import BIMDataIcon from "../../BIMDataIcon/BIMDataIcon.vue";
+import {
+  BIMDataIconChevron,
+  BIMDataIconDoubleChevron,
+} from "../../BIMDataIcon/BIMDataIconStandalone/index.js";
 export default {
   name: "PickerHeader",
-  components: { BIMDataIcon },
+  components: { BIMDataIconChevron, BIMDataIconDoubleChevron },
   props: {
     isNextDisabled: {
       type: Boolean,

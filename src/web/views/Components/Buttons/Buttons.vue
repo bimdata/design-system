@@ -20,8 +20,7 @@
               :color="selectedBtnOptionsvalues"
               :icon="checkboxIconChecked && !checkboxTextChecked"
             >
-              <BIMDataIcon
-                name="chevron"
+              <BIMDataIconChevron
                 size="xxxs"
                 v-if="checkboxIconChecked"
                 :margin="getIconMargin()"
@@ -91,23 +90,16 @@
           </template>
 
           <template #import>
-            import BIMDataButton from
-            "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
-            <pre v-if="checkboxIconChecked === true">
-              import BIMDataButton from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataButton.js";
-              import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcon.js";
-            </pre>
+            {{ getImportContent() }}
           </template>
 
           <template #code>
             <pre>
-              &lt;BIMDataButton
-                {{ getWidthBtn() }} {{ getHeightBtn() }} color="{{
-                selectedBtnOptionsvalues
-              }}" {{ selectedBtnOptionstypes }} {{ selectedBtnOptionskinds }} {{
-                getIconClass()
-              }} {{ getButtonDisabled() }}
-                &gt;
+              &lt;BIMDataButton color="{{ selectedBtnOptionsvalues }}" {{
+                selectedBtnOptionstypes
+              }} {{ selectedBtnOptionskinds }} {{ getIconClass() }} {{
+                getButtonDisabled()
+              }} {{ getWidthBtn() }} {{ getHeightBtn() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -130,26 +122,12 @@
 import colors from "../../../../assets/colors.js";
 import propsData from "./props-data.js";
 
-import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   name: "Buttons",
   components: {
     ComponentCode,
-    BIMDataButton,
-    BIMDataTable,
-    BIMDataRadio,
-    BIMDataCheckbox,
-    BIMDataIcon,
-    BIMDataInput,
-    BIMDataText,
   },
   data() {
     return {
@@ -205,15 +183,24 @@ export default {
     },
   },
   methods: {
+    getImportContent() {
+      return `
+        import BIMDataButton from "@bimdata/design-system/src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+        ${
+          this.checkboxIconChecked
+            ? 'import BIMDataIconChevron from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";'
+            : ""
+        }`;
+    },
     getOverviewButtonClasses() {
       return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
     },
     getIcon() {
       if (this.checkboxIconChecked && this.checkboxTextChecked) {
-        return '<BIMDataIcon name="chevron" size="xxxs" margin="0 12px 0 0" />';
+        return '<BIMDataIconChevron size="xxxs" margin="0 12px 0 0" />';
       }
       if (this.checkboxIconChecked) {
-        return '<BIMDataIcon name="chevron" size="xxxs"/>';
+        return '<BIMDataIconChevron size="xxxs"/>';
       }
     },
     getText() {

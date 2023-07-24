@@ -80,6 +80,10 @@
               v-model="isAutoCloseRange"
             />
           </template>
+          <template #import>
+            import BIMDataDatePicker from
+            "@bimdata/design-system/src/BIMDataComponents/BIMDataDatePicker/BIMDataDatePicker.vue"
+          </template>
           <template #code>
             <pre>
               &lt;BIMDataDatePicker
@@ -96,7 +100,7 @@
                 :autoCloseRange="{{ isAutoCloseRange }}"
               &gt;
                 &lt;template #beforeDateInput&gt;
-                  &lt;BIMDataIcon name="close" fill color="default" /&gt;
+                  &lt;BIMDataIconClose fill color="default" /&gt;
                 &lt;/template&gt;
               &lt;/BIMDataDatePicker&gt;
             </pre>
@@ -152,23 +156,10 @@ import {
   formatOptions,
 } from "./option-sets";
 
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataDatePicker from "../../../../../src/BIMDataComponents/BIMDataDatePicker/BIMDataDatePicker.vue";
-import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataDatePicker,
-    BIMDataText,
-    BIMDataSelect,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataTable,
     ComponentCode,
   },
   data() {

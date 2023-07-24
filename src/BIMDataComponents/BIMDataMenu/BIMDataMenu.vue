@@ -41,9 +41,8 @@
       >
         <slot name="item" :item="item">
           <BIMDataTextbox :text="item.text" :tooltip="false" width="80%" />
-          <BIMDataIcon
+          <BIMDataIconChevron
             v-if="item.children"
-            name="chevron"
             size="xxs"
             margin="0 0 0 auto"
           />
@@ -84,13 +83,15 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
-import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIconChevron from "../../BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
+import Chevron from "../../BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons/Chevron.vue";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   directives: { clickaway },
   components: {
-    BIMDataIcon,
+    BIMDataIconChevron,
+    Chevron,
     BIMDataTextbox,
   },
   props: {
