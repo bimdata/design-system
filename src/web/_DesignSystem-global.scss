@@ -51,7 +51,7 @@ pre[class*="language-"] {
       line-height: 18px;
       transition: all 0.25s ease-in;
       &:hover {
-        background-color: hsl(45deg, 94.5%, 46%);
+        background-color: var(--color-secondary-light);
         transition: all 0.25s ease-in;
       }
     }
