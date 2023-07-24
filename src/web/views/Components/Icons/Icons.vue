@@ -22,19 +22,17 @@
             v-model="filter"
             width="94%"
           />
-          <span class="icons-numbers"
-            >icons: {{ Object.keys(icons).length }}</span
-          >
+          <span class="icons-numbers">icons: {{ filteredList.length }}</span>
           <div class="icons">
             <div
               class="icon"
               v-for="icon of filteredList"
-              :key="icon"
-              :class="{ active: icon === activeIcon }"
+              :key="icon.name"
+              :class="{ active: icon.name === activeIcon }"
               @click="onActiveIcons(icon)"
             >
-              <BIMDataIcon
-                :name="icon"
+              <component
+                :is="icon"
                 :size="selectedIconOptionssize"
                 :class="getOverviewIconClasses()"
                 :rotate="Number(rotationDeg)"
@@ -86,17 +84,21 @@
 
         <template #import>
           <pre>
-            import BIMDataIcon from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIcon.js";
+            import {{
+              activeIcon
+            }} from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/{{
+              activeIcon
+            }}.js";
           </pre>
         </template>
 
         <template #code>
           <pre>
-            &lt;BIMDataIcon name="{{ activeIcon }}" {{
-              getIconOptionsSize()
-            }} {{ selectedIconOptionstypes }} color="{{
-              selectedIconOptionsvalues
-            }}" {{ getRotateDegree() }} {{ getMarginIcon() }}/&gt;
+            &lt;{{ activeIcon }} {{ getIconOptionsSize() }} {{
+              selectedIconOptionstypes
+            }} color="{{ selectedIconOptionsvalues }}" {{
+              getRotateDegree()
+            }} {{ getMarginIcon() }} /&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -124,15 +126,7 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
-import icons from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons/index.js";
-
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import * as allIcons from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/index.js";
 
 import highlight from "../../../../BIMDataDirectives/highlight.js";
 import copy from "../../../../BIMDataDirectives/copy.js";
@@ -142,12 +136,7 @@ import iconsColors from "../../../../assets/iconsColors.js";
 export default {
   components: {
     ComponentCode,
-    BIMDataSearch,
-    BIMDataRadio,
-    BIMDataInput,
-    BIMDataIcon,
-    BIMDataTable,
-    BIMDataText,
+    ...allIcons,
   },
   directives: { highlight, copy },
   data() {
@@ -155,13 +144,13 @@ export default {
       marginIcon: "0",
       rotationDeg: "",
       size: "m",
-      icons,
+      allIcons,
       filter: "",
       selectedIconOptionstypes: "fill",
       selectedIconOptionsvalues: "default",
       selectedIconOptionssize: "s",
       checkboxIconRotate: false,
-      activeIcon: "addFile",
+      activeIcon: "BIMDataIconAddFile",
       iconOptions: {
         types: ["fill", "stroke"],
         values: iconsColors,
@@ -214,7 +203,7 @@ export default {
           "true",
           "",
           "Use this props to add an icon name to BIMDataIcon.",
-          "addFile",
+          "AddFile",
         ],
         [
           "rotate",
@@ -257,12 +246,15 @@ export default {
   },
   computed: {
     filteredList() {
-      return Object.keys(icons).filter(iconName => {
+      return Object.keys(allIcons).filter(iconName => {
         return iconName.toLowerCase().includes(this.filter.toLowerCase());
       });
     },
   },
   methods: {
+    test() {
+      return this.allIcons.length;
+    },
     onActiveIcons(iconName) {
       this.activeIcon = iconName;
     },
