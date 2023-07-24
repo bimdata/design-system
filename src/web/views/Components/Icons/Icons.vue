@@ -49,8 +49,7 @@
           >
           <BIMDataInput
             v-model="marginIcon"
-            placeholder="margin around icon"
-            type="number"
+            placeholder="margin around icon (in px)"
             min="0"
           ></BIMDataInput>
           <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
@@ -141,7 +140,7 @@ export default {
   directives: { highlight, copy },
   data() {
     return {
-      marginIcon: "0",
+      marginIcon: "0px",
       rotationDeg: "",
       size: "m",
       allIcons,
@@ -271,8 +270,8 @@ export default {
       }
     },
     getMarginIcon() {
-      if (this.marginIcon > 0) {
-        return `:margin="${this.marginIcon}"`;
+      if (this.marginIcon !== "0px" && this.marginIcon.includes("px")) {
+        return `margin="${this.marginIcon}"`;
       }
     },
     getOverviewIconClasses() {
