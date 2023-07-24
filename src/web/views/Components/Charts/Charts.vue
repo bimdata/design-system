@@ -35,7 +35,7 @@
 
         <template #import>
           import BIMDataSimplePieChart from
-          "@bimdata/design-system/src/BIMDataComponents/BIMDataSimplePieChart.BIMDataSimplePieChart.vue";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
         </template>
 
         <template #code>
@@ -125,7 +125,7 @@
 
         <template #import>
           import BIMDataMultiplePieChart from
-          "@bimdata/design-system/src/BIMDataComponents/BIMDataMultiplePieChart.BIMDataMultiplePieChart.vue";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataMultiplePieChart/BIMDataMultiplePieChart.vue";
         </template>
 
         <template #code>
