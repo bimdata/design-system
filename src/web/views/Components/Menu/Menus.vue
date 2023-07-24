@@ -49,9 +49,6 @@
 </template>
 
 <script>
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
-
 import MenuInline from "./MenuInline.vue";
 import BasicMenu from "./BasicMenu.vue";
 
@@ -62,8 +59,6 @@ import slotsBasicMenu from "./slots-basic-menu.js";
 
 export default {
   components: {
-    BIMDataTable,
-    BIMDataText,
     MenuInline,
     BasicMenu,
   },

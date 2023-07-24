@@ -65,7 +65,7 @@
 
         <template #import>
           import BIMDataSearch from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearch.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
         </template>
 
         <template #code>
@@ -105,22 +105,10 @@ import eventsData from "./events-data.js";
 
 // Components
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataRadio,
-    BIMDataSearch,
-    BIMDataText,
-    BIMDataCheckbox,
-    BIMDataInput,
   },
   data() {
     return {

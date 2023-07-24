@@ -46,7 +46,7 @@
         </template>
         <template #import>
           import BIMDataTabs from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTabs.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTabs/BIMDataTabs.vue";
         </template>
         <template #code>
           <pre>
@@ -141,12 +141,6 @@
 <script>
 import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
-// Components
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataTabs from "../../../../BIMDataComponents/BIMDataTabs/BIMDataTabs.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -154,11 +148,6 @@ import CustomTabColors from "./CustomTabColors.vue";
 
 export default {
   components: {
-    BIMDataIcon,
-    BIMDataInput,
-    BIMDataTable,
-    BIMDataTabs,
-    BIMDataText,
     Code,
     ComponentCode,
     CustomTabColors,

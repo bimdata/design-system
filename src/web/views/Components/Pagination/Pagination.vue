@@ -48,15 +48,17 @@
 
         <template #import>
           import BIMDataPaginatedList from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataPaginatedList.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
         </template>
 
         <template #code>
           <pre>
-            &lt;BIMDataPaginatedList :list="paginationList" :perPage="{{
-              numberInput
+            &lt;BIMDataPaginatedList :list="{{
+              getPaginationList()
+            }}" :perPage="{{ numberInput }}" :numberDataElements="{{
+              isNumberDataElements
             }}"&gt;
-              {{ getPagination() }}
+              {{ getPagination() }} 
             &lt;/BIMDataPaginatedList&gt;
           </pre>
         </template>
@@ -90,22 +92,10 @@
 import { basicPagination, complexPagination } from "./option-sets.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataPaginatedList from "../../../../../src/BIMDataComponents/BIMDataPaginatedList/BIMDataPaginatedList.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataPaginatedList,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataToggle,
   },
   data() {
     return {
@@ -165,6 +155,9 @@ export default {
     };
   },
   methods: {
+    getPaginationList() {
+      return this.isBasicPagination ? "basicPagination" : "complexPagination";
+    },
     getPagination() {
       if (this.isBasicPagination) {
         return `<template #element="{ element }">

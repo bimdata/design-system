@@ -44,7 +44,7 @@
 
         <template #import>
           import BIMDataResponsiveGrid from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataResponsiveGrid.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
         </template>
 
         <template #code>
@@ -79,21 +79,9 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataResponsiveGrid from "../../../../../src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataResponsiveGrid,
-    BIMDataTable,
-    BIMDataText,
   },
   data() {
     return {

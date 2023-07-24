@@ -11,7 +11,7 @@
 
         <template #import>
           import BIMDataLoading from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataLoading.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataLoading/BIMDataLoading.js";
         </template>
 
         <template #code>
@@ -44,7 +44,7 @@
 
         <template #import>
           import BIMDataBigSpinner from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataBigSpinner.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
         </template>
 
         <template #code>
@@ -65,7 +65,7 @@
 
         <template #import>
           import BIMDataSpinner from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSpinner.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSpinner/BIMDataSpinner.vue";
         </template>
 
         <template #code>
@@ -85,20 +85,21 @@
       <ComponentCode class="m-t-12" language="javascript">
         <template #module>
           <BIMDataPieSpinner :delay="50" @lap="lap = $event">
-            <BIMDataIcon name="close" size="xxxs" class="fill-primary" />
+            <BIMDataIconClose size="xxxs" class="fill-primary" />
           </BIMDataPieSpinner>
         </template>
 
         <template #import>
-          import BIMDataPieSpinner from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataPieSpinner.js";
+          <pre>
+          import BIMDataPieSpinner from "@bimdata/design-system/src/js/BIMDataComponents/BIMDataPieSpinner/BIMDataPieSpinner.vue";
+          import BIMDataIconClose from "@bimdata/design-system/src/js/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconClose.vue";
+          </pre>
         </template>
 
         <template #code>
           <pre>
             &lt;BIMDataPieSpinner :delay="50"&gt;
-              &lt;BIMDataIcon
-                name="close"
+              &lt;BIMDataIconClose
                 size="xxxs"
                 class="fill-primary"
               /&gt;
@@ -128,25 +129,10 @@
 </template>
 
 <script>
-import BIMDataLoading from "../../../../../src/BIMDataComponents/BIMDataLoading/BIMDataLoading.vue";
-import BIMDataBigSpinner from "../../../../../src/BIMDataComponents/BIMDataBigSpinner/BIMDataBigSpinner.vue";
-import BIMDataSpinner from "../../../../../src/BIMDataComponents/BIMDataSpinner/BIMDataSpinner.vue";
-import BIMDataPieSpinner from "../../../../../src/BIMDataComponents/BIMDataPieSpinner/BIMDataPieSpinner.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataLoading,
-    BIMDataBigSpinner,
-    BIMDataSpinner,
-    BIMDataPieSpinner,
-    BIMDataIcon,
-    BIMDataTable,
-    BIMDataText,
     ComponentCode,
   },
   data() {

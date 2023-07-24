@@ -116,17 +116,10 @@
 
 <script>
 import Code from "../../Elements/Code/Code.vue";
-// components
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataTabs from "../../../../BIMDataComponents/BIMDataTabs/BIMDataTabs.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     Code,
-    BIMDataIcon,
-    BIMDataTabs,
-    BIMDataText,
   },
   data() {
     return {

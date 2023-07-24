@@ -45,7 +45,7 @@
 
         <template #import>
           import BIMDataToggle from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataToggle.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
         </template>
 
         <template #code>
@@ -85,18 +85,9 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataToggle,
   },
   data() {
     return {

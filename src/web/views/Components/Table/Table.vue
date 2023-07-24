@@ -80,7 +80,7 @@
 
         <template #import>
           import BIMDataTable from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTable/BIMDataTable.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
         </template>
 
         <template #code>
@@ -265,10 +265,6 @@ import propsData from "./props-data.js";
 // Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import AgeCustomCell from "./example/AgeCustomCell.vue";
 import CountryCustomCell from "./example/CountryCustomCell.vue";
 
@@ -276,10 +272,6 @@ export default {
   components: {
     Code,
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataTable,
-    BIMDataText,
     AgeCustomCell,
     CountryCustomCell,
   },

@@ -64,7 +64,7 @@
 
         <template #import>
           import BIMDataTextbox from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTextbox.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
         </template>
 
         <template #code>
@@ -91,23 +91,11 @@
 
 <script>
 import propsData from "./props-data.js";
-// Components
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
-import BIMDataTextbox from "../../../../../src/BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataInput,
-    BIMDataSelect,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataTextarea,
-    BIMDataTextbox,
     ComponentCode,
   },
   data() {

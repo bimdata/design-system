@@ -67,7 +67,7 @@
 
         <template #import>
           import BIMDataSelect from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSelect.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
         </template>
 
         <template #code>
@@ -158,19 +158,11 @@ import { stringOptions, objectOptions, groupOptions } from "./option-sets";
 import eventsData from "./events-data.js";
 import propsData from "./props-data";
 // Components
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataSelect from "../../../../BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataCheckbox,
-    BIMDataSelect,
-    BIMDataTable,
-    BIMDataText,
     Code,
     ComponentCode,
   },
