@@ -1,16 +1,11 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid meet"
-    viewBox="0 0 23 23"
-    width="100%"
+  <component
+    :is="`BIMDataIcon${capitalized(name)}`"
     :fill="fillColor"
     :color="color"
     :class="classes"
     :style="style"
-  >
-    <component :is="`BIMDataIcon${capitalized(name)}`" />
-  </svg>
+  />
 </template>
 
 <script>
