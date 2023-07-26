@@ -2,16 +2,18 @@
 
 .submenu {
   position: absolute;
-  z-index: 2;
   top: 0;
-  left: 0;
-  width: 100%;
-  padding: calc(var(--spacing-unit) / 2) 0;
-  border-radius: 3px;
   box-shadow: var(--box-shadow);
   background-color: var(--color-white);
 }
-
+.submenu:is(.submenu--up, .submenu--down, .submenu--left, .submenu--right, .submenu--no-direction)
+ {
+  padding: calc(var(--spacing-unit) / 2) 0;
+  width: 100%;
+  left: 0;
+  border-radius: 3px;
+  z-index: 2;
+ }
 .submenu li {
   padding: calc(var(--spacing-unit) / 2);
   cursor: pointer;
