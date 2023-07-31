@@ -43,7 +43,7 @@
 
         <template #import>
           import BIMDataTextarea from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTextarea.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
         </template>
 
         <template #code>
@@ -98,20 +98,9 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataTextarea,
-    BIMDataInput,
   },
   data() {
     return {

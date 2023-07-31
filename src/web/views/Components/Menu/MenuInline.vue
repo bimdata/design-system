@@ -30,7 +30,7 @@
                 @click="deleteClick($event)"
                 class="m-r-6"
               >
-                <BIMDataIcon name="delete" fill color="primary" size="xxs" />
+                <BIMDataIconDelete fill color="primary" size="xxs" />
               </BIMDataButton>
               <BIMDataButton
                 color="primary"
@@ -39,7 +39,7 @@
                 icon
                 @click="editClick($event)"
               >
-                <BIMDataIcon name="edit" fill color="primary" size="xxs" />
+                <BIMDataIconEdit fill color="primary" size="xxs" />
               </BIMDataButton>
             </div>
           </template>
@@ -66,7 +66,7 @@
                     @click="yourClickEventHere()"
                     class="m-r-6"
                   &gt;
-                    &lt;BIMDataIcon name="delete" fill color="primary" size="xxs" /&gt;
+                    &lt;BIMDataIconDelete fill color="primary" size="xxs" /&gt;
                   &lt;/BIMDataButton&gt;
                   &lt;BIMDataButton
                     color="primary"
@@ -75,7 +75,7 @@
                     icon
                     @click="yourClickEventHere()"
                   &gt;
-                    &lt;BIMDataIcon name="edit" fill color="primary" size="xxs" /&gt;
+                    &lt;BIMDataIconEdit fill color="primary" size="xxs" /&gt;
                   &lt;/BIMDataButton&gt;
                 &lt;/div&gt;
               &lt;/template&gt;
@@ -90,7 +90,10 @@
 <script>
 import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import {
+  BIMDataIconDelete,
+  BIMDataIconEdit,
+} from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/index.js";
 import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 import BIMDataMenuInline from "../../../../BIMDataComponents/BIMDataMenuInline/BIMDataMenuInline.vue";
@@ -100,7 +103,8 @@ export default {
   components: {
     BIMDataButton,
     BIMDataCheckbox,
-    BIMDataIcon,
+    BIMDataIconDelete,
+    BIMDataIconEdit,
     BIMDataText,
     BIMDataMenuInline,
     ComponentCode,

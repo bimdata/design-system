@@ -51,7 +51,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 

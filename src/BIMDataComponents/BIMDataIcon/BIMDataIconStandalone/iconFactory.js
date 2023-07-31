@@ -1,3 +1,4 @@
+import Icon from "../Icon.vue";
 import iconsColors from "../../../assets/iconsColors.js";
 
 const sizeToPixel = {
@@ -12,10 +13,11 @@ const sizeToPixel = {
   xxxl: 60,
 };
 
-export default (iconName, Icon) => ({
+export default (iconName, icon) => ({
   name: `BIMDataIcon${iconName}`,
   components: {
-    [iconName]: Icon,
+    Icon,
+    [iconName]: icon,
   },
   props: {
     color: {

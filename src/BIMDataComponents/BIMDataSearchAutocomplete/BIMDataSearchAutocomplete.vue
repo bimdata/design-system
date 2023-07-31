@@ -2,7 +2,7 @@
   <div class="bimdata-search-autocomplete" v-clickaway="away">
     <div class="bimdata-search-autocomplete__input flex items-center">
       <span class="bimdata-search-icon flex">
-        <BIMDataIcon name="search" fill color="default" size="xxs" />
+        <BIMDataIconSearch fill color="default" size="xxs" />
       </span>
       <input
         class="form-control p-l-36 p-r-12"
@@ -41,7 +41,7 @@
               </template>
               <template v-else>
                 <slot name="logoPlaceholder">
-                  <BIMDataIcon name="default" fill color="default" />
+                  <BIMDataIconDefault fill color="default" />
                 </slot>
               </template>
             </div>
@@ -76,12 +76,16 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import {
+  BIMDataIconDefault,
+  BIMDataIconSearch,
+} from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   components: {
-    BIMDataIcon,
+    BIMDataIconDefault,
+    BIMDataIconSearch,
     BIMDataTextbox,
   },
   directives: { clickaway },

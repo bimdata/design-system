@@ -25,7 +25,7 @@
 
         <template #import>
           import BIMDataCheckbox from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCheckbox.js"
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
         </template>
 
         <template #code>
@@ -60,17 +60,11 @@
 import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
 
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataCheckbox,
   },
   data() {
     return {

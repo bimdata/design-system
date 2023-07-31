@@ -52,7 +52,7 @@
 
         <template #import>
           import BIMDataRadio from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataRadio.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
         </template>
 
         <template #code>
@@ -105,22 +105,9 @@ import eventsData from "./events-data.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataButton from "../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataButton,
-    BIMDataCheckbox,
-    BIMDataRadio,
-    BIMDataText,
-    BIMDataInput,
   },
   data() {
     return {

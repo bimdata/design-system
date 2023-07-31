@@ -38,7 +38,7 @@
             >
               <BIMDataTextbox :text="item.name" />
               <template v-if="item.children">
-                <BIMDataIcon name="chevron" size="xxs" />
+                <BIMDataIconChevron size="xxs" />
                 <ul
                   :ref="`children-${item.name}`"
                   class="bimdata-dropdown__elements__menu-items__item__children"
@@ -73,12 +73,12 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
-import BIMDataIcon from "../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   directives: { clickaway },
-  components: { BIMDataIcon, BIMDataTextbox },
+  components: { BIMDataIconChevron, BIMDataTextbox },
   props: {
     disabled: {
       type: Boolean,

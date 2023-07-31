@@ -105,7 +105,7 @@
         <!-- bloc IMPORTS LINES CODE -->
         <template #import>
           import BIMDataDropdownList from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataDropdownList.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
         </template>
         <template #code>
           <pre>
@@ -149,24 +149,10 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
-import BIMDataDropdownList from "../../../../../src/BIMDataComponents/BIMDataDropdownList/BIMDataDropdownList.vue";
 export default {
   components: {
     ComponentCode,
-    BIMDataInput,
-    BIMDataCheckbox,
-    BIMDataRadio,
-    BIMDataTable,
-    BIMDataIcon,
-    BIMDataDropdownList,
-    BIMDataText,
   },
   data() {
     return {
@@ -299,7 +285,7 @@ export default {
       if (this.checkboxElementChecked) {
         return `<template #element="{ element }">
                 <div class="flex items-center">
-                  <BIMDataIcon name="chevron" size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
                   {{ element }}
                 </div>
              </template>`;

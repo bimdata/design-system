@@ -63,7 +63,7 @@
       @click="clearDate"
     >
       <slot name="clearBtn">
-        <BIMDataIcon name="delete" size="xxxs" fill color="default" />
+        <BIMDataIconDelete size="xxxs" fill color="default" />
       </slot>
     </BIMDataButton>
     <slot name="afterDateInput" />
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import BIMDataIcon from "../../BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIconDelete from "../../BIMDataIcon/BIMDataIconStandalone/BIMDataIconDelete.vue";
 import BIMDataButton from "../../BIMDataButton/BIMDataButton.vue";
 
 import makeDateUtils from "../utils/DateUtils.js";
@@ -79,7 +79,7 @@ import inputProps from "../mixins/inputProps.vue";
 
 export default {
   name: "DateInput",
-  components: { BIMDataIcon, BIMDataButton },
+  components: { BIMDataIconDelete, BIMDataButton },
   mixins: [inputProps],
   props: {
     isOpen: {

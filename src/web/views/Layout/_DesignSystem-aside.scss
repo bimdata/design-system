@@ -24,24 +24,30 @@
         line-height: 24px;
         text-decoration: none;
         font-size: 14px;
+        transition: all ease 0.2s;
+
         img {
           width: 30px;
           margin-right: var(--spacing-unit);
         }
         &.router-link-exact-active {
+          background-color: var(--color-white);
+          transition: all ease 0.2s;
+
           &:hover {
             &::before {
-              background-color: hsl(222deg, 22.3%, 21.84%);
+              background-color: var(--color-primary-light);
+              transition: all ease 0.2s;
             }
           }
           &::before {
             background-color: var(--color-primary);
+            transition: all ease 0.2s;
           }
         }
         &:hover {
-          &::before {
-            background-color: hsl(222deg, 22.3%, 21.84%);
-          }
+          background-color: rgb(240, 240, 240);
+          transition: all ease 0.2s;
         }
         &::before {
           content: "";

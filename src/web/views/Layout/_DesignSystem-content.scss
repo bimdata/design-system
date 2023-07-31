@@ -48,13 +48,15 @@
         width: 100%;
         height: auto;
         min-height: 80px;
-        a {
-          flex-direction: inherit;
-          align-items: center;
-          justify-content: space-between;
-        }
-        p {
-          height: auto;
+        .bimdata-card__content {
+          a {
+            flex-direction: inherit;
+            align-items: center;
+            justify-content: space-between;
+          }
+          p {
+            height: auto;
+          }
         }
       }
       &:hover {

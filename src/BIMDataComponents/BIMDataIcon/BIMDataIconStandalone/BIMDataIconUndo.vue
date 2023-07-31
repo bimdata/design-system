@@ -1,0 +1,21 @@
+<template>
+  <Icon
+    :fill="fill"
+    :fillColor="fillColor"
+    :color="color"
+    :class="classes"
+    :style="style"
+  >
+    <Undo />
+  </Icon>
+</template>
+
+<script>
+import Undo from "../BIMDataLibraryIcons/Undo.vue";
+import makeIcon from "./iconFactory.js";
+export default makeIcon("Undo", Undo);
+</script>
+
+<style lang="scss" scoped src="../../../assets/css/variables.css"></style>
+
+<style lang="scss" src="../_BIMDataIcon.scss"></style>

@@ -16,11 +16,7 @@
           >
             <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
-              <BIMDataIcon
-                name="chevron"
-                :rotate="isOpen ? 90 : 0"
-                size="xxs"
-              />
+              <BIMDataIconChevron :rotate="isOpen ? 90 : 0" size="xxs" />
             </template>
             <template #element v-if="checkboxElementSlotChecked">
               <ul class="bimdata-list">
@@ -90,7 +86,7 @@
         <!-- bloc IMPORTS LINES CODE -->
         <template #import>
           import BIMDataDropdownMenu from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataDropdownMenu.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
         </template>
         <template #code>
           <pre>
@@ -125,22 +121,10 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
 
-import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataRadio,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataDropdownMenu,
-    BIMDataIcon,
   },
   data() {
     return {
@@ -251,8 +235,7 @@ export default {
       if (this.checkboxHeaderChecked) {
         return `<template #header="{ isOpen }">
               <span>dropdown menu example</span>
-              <BIMDataIcon
-                name="chevron"
+              <BIMDataIconChevron
                 :rotate="isOpen ? 90 : 0"
                 size="xxs"
               />

@@ -26,7 +26,7 @@
 
         <template #import>
           <pre>
-            import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustration.js";
+            import BIMDataIllustration from "@bimdata/design-system/src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
           </pre>
         </template>
 
@@ -52,17 +52,10 @@
 <script>
 import Illustrations from "./Illustrations.js";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-
-import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataIllustration,
-    BIMDataTable,
-    BIMDataText,
   },
   data() {
     return {

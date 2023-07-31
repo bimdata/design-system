@@ -21,14 +21,14 @@ import camera from "./Camera.vue";
 import cancelCamera from "./CancelCamera.vue";
 import check from "./Check.vue";
 import chevron from "./Chevron.vue";
-import classificationCategorie from "./ClassificationCategorie.vue";
+import classificationCategory from "./ClassificationCategory.vue";
 import classificationElement from "./ClassificationElement.vue";
 import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
 import color from "./Color.vue";
 import comment from "./Comment.vue";
-import cursor from "./Cursor.vue";
+import navigation from "./Navigation.vue";
 import dateAscending from "./DateAscending.vue";
 import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
@@ -48,7 +48,7 @@ import explosion from "./Explosion.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import failed from "./Failed.vue";
-import filter from "./Filter.vue";
+import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
 import folderMove from "./FolderMove.vue";
@@ -76,10 +76,10 @@ import lock from "./Lock.vue";
 import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
-import model3d from "./Model3d.vue";
+import model3d from "./Model3D.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
-import path from "./Path.vue";
+import pathway from "./Pathway.vue";
 import pieGraph from "./PieGraph.vue";
 import pipette from "./Pipette.vue";
 import plus from "./Plus.vue";
@@ -126,7 +126,7 @@ import user from "./User.vue";
 import validate from "./Validate.vue";
 import validatedFile from "./ValidatedFile.vue";
 import versioning from "./Versioning.vue";
-import video from "./Video.vue";
+import videocam from "./Videocam.vue";
 import visa from "./Visa.vue";
 import warning from "./Warning.vue";
 import windowBottom from "./WindowBottom.vue";
@@ -178,14 +178,14 @@ export default {
   cancelCamera,
   check,
   chevron,
-  classificationCategorie,
+  classificationCategory,
   classificationElement,
   click,
   close,
   cloud,
   color,
   comment,
-  cursor,
+  navigation,
   dateAscending,
   dateDescending,
   default: Default,
@@ -205,7 +205,7 @@ export default {
   export: Export,
   exportIfc,
   failed,
-  filter,
+  filterList,
   fitView,
   folder,
   folderMove,
@@ -236,7 +236,7 @@ export default {
   model3d,
   organization,
   parameters,
-  path,
+  pathway,
   pieGraph,
   pipette,
   plus,
@@ -283,7 +283,7 @@ export default {
   validate,
   validatedFile,
   versioning,
-  video,
+  videocam,
   visa,
   warning,
   windowBottom,

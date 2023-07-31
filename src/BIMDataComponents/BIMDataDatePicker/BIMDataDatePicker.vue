@@ -877,4 +877,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataDatePicker.scss"></style>
+<style lang="scss" src="./_BIMDataDatePicker.scss"></style>

@@ -1,21 +1,19 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid meet"
-    viewBox="0 0 24 24"
-    width="100%"
-    :fill="fillColor"
+  <Icon
+    :fill="fill"
+    :fillColor="fillColor"
     :color="color"
     :class="classes"
     :style="style"
   >
     <Close />
-  </svg>
+  </Icon>
 </template>
 
 <script>
 import Close from "../BIMDataLibraryIcons/Close.vue";
 import makeIcon from "./iconFactory.js";
+
 export default makeIcon("Close", Close);
 </script>
 

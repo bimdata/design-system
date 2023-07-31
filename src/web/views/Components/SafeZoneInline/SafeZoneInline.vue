@@ -14,7 +14,7 @@
               icon
               @click="isModalOpen = true"
             >
-              <BIMDataIcon name="delete" size="xs" color="high" />
+              <BIMDataIconDelete size="xs" color="high" />
             </BIMDataButton>
             <BIMDataSafeZoneInline
               class="safe-zone-inline__playground__component"
@@ -33,7 +33,7 @@
 
         <template #import>
           import BIMDataSafeZoneInline from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSafeZoneInline.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSafeZoneInline/BIMDataSafeZoneInline.vue";
         </template>
 
         <template #code>
@@ -67,22 +67,10 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataIcon from "../../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataSafeZoneInline from "../../../../BIMDataComponents/BIMDataSafeZoneInline/BIMDataSafeZoneInline.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataText,
-    BIMDataIcon,
-    BIMDataTable,
-    BIMDataButton,
-    BIMDataCheckbox,
-    BIMDataSafeZoneInline,
   },
   data() {
     return {

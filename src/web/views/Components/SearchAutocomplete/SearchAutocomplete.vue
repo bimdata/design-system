@@ -46,7 +46,7 @@
 
         <template #import>
           import BIMDataSearchAutocomplete from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearchAutocomplete.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSearchAutocomplete/BIMDataSearchAutocomplete.vue";
         </template>
 
         <template #code>
@@ -86,20 +86,9 @@ import slotsData from "./slots-data.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataButton from "../../../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataSearchAutocomplete from "../../../../BIMDataComponents/BIMDataSearchAutocomplete/BIMDataSearchAutocomplete.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataButton,
-    BIMDataCheckbox,
-    BIMDataSearchAutocomplete,
-    BIMDataText,
-    BIMDataTable,
   },
   data: function () {
     return {

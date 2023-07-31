@@ -158,7 +158,7 @@
 
         <template #import>
           import BIMDataText from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataText.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataText/BIMDataText.vue";
         </template>
 
         <template #code>
@@ -198,19 +198,10 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataRadio,
-    BIMDataText,
-    BIMDataInput,
   },
   data() {
     return {

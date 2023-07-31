@@ -16,18 +16,18 @@
       radius
       @click="$emit('cancel-delete')"
     >
-      <BIMDataIcon name="close" size="xxs" color="granite" />
+      <BIMDataIconClose size="xxs" color="granite" />
     </BIMDataButton>
   </div>
 </template>
 
 <script>
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIconClose from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconClose.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
-    BIMDataIcon,
+    BIMDataIconClose,
     BIMDataButton,
   },
   props: {

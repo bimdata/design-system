@@ -35,7 +35,7 @@
 
         <template #import>
           import BIMDataSimplePieChart from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSimplePieChart.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
         </template>
 
         <template #code>
@@ -125,7 +125,7 @@
 
         <template #import>
           import BIMDataMultiplePieChart from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataMultiplePieChart.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataMultiplePieChart/BIMDataMultiplePieChart.vue";
         </template>
 
         <template #code>
@@ -168,20 +168,10 @@
 import simplePiePropsData from "./simple-pie-props-data.js";
 import multiplePiePropsData from "./multiple-pie-props-data.js";
 
-import BIMDataSimplePieChart from "../../../../BIMDataComponents/BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
-import BIMDataMultiplePieChart from "../../../../BIMDataComponents/BIMDataMultiplePieChart/BIMDataMultiplePieChart.vue";
-import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataSimplePieChart,
-    BIMDataMultiplePieChart,
-    BIMDataInput,
-    BIMDataTable,
-    BIMDataText,
     ComponentCode,
   },
   data() {

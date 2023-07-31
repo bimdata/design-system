@@ -17,7 +17,7 @@
               {{ getHeaderIcons() }}
             </template>
             <template #left v-if="submenuLeft">
-              <BIMDataIcon name="burgerMenu" size="xxs" />
+              <BIMDataIconBurgerMenu size="xs" />
             </template>
             <template #right v-if="submenuIcons">
               {{ getSubmenuIcons() }}
@@ -109,8 +109,7 @@
         </template>
 
         <template #import>
-          import BIMDataCard from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCard.js";
+          {{ getImportContent() }}
         </template>
 
         <template #code>
@@ -159,23 +158,11 @@
 import propsData from "./props-data.js";
 import slotsData from "./slots-data.js";
 
-import BIMDataCard from "../../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataCard,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataRadio,
-    BIMDataTable,
-    BIMDataText,
   },
   data() {
     return {
@@ -196,6 +183,15 @@ export default {
     };
   },
   methods: {
+    getImportContent() {
+      return `
+        import BIMDataCard from "@bimdata/design-system/src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
+        ${
+          this.submenuLeft
+            ? 'import BIMDataIconBurgerMenu from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconBurgerMenu.vue";'
+            : ""
+        }`;
+    },
     getHeaderTitle() {
       if (this.headerTitle) {
         return "header title";
@@ -208,7 +204,7 @@ export default {
     },
     getSubmenuLeft() {
       if (this.submenuLeft) {
-        return '<BIMDataIcon name="burgerMenu" size="xxs" />';
+        return "<BIMDataIconBurgerMenu size='xxs' />";
       }
     },
     getSubmenuText() {

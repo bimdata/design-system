@@ -65,7 +65,7 @@
 
         <template #import>
           import BIMDataCarousel from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCarousel.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataCarousel/BIMDataCarousel.vue";
         </template>
 
         <template #code>
@@ -100,18 +100,10 @@
 <script>
 import propsData from "./props-data.js";
 
-import BIMDataCarousel from "../../../../BIMDataComponents/BIMDataCarousel/BIMDataCarousel.vue";
-import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataCarousel,
-    BIMDataInput,
-    BIMDataTable,
-    BIMDataText,
     ComponentCode,
   },
   data() {

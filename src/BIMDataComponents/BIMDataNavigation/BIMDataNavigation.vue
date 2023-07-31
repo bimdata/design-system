@@ -68,7 +68,6 @@ import {
   BIMDataIconChevron,
   BIMDataIconDoubleChevron,
 } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
-
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
