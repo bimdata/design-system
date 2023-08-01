@@ -1,53 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-
 import Home from "./views/Home/Home.vue";
-import Layout from "./views/Layout/Layout.vue";
-import Content from "./views/Layout/Content.vue";
-
-// import GETTING STARTED
-import Designers from "./views/GettingStarted/Designers.vue";
-import Developpers from "./views/GettingStarted/Developpers.vue";
-import InternalDoc from "./views/GettingStarted/InternalDoc.vue";
-
-// import GUIDELINES
-import Colors from "./views/Guidelines/Colors/Colors.vue";
-import List from "./views/Guidelines/List/List.vue";
-import Markup from "./views/Guidelines/Markup/Markup.vue";
-import Spacing from "./views/Guidelines/Spacing/Spacing.vue";
-import Typography from "./views/Guidelines/Typography/Typography.vue";
-import Utilities from "./views/Guidelines/Utilities/Utilities.vue";
-import Variables from "./views/Guidelines/Variables/Variables.vue";
-
-// import COMPONENTS
-import Buttons from "./views/Components/Buttons/Buttons.vue";
-import Card from "./views/Components/Card/Card.vue";
-import Carousel from "./views/Components/Carousel/Carousel.vue";
-import Charts from "./views/Components/Charts/Charts.vue";
-import Checkbox from "./views/Components/Checkbox/Checkbox.vue";
-import ColorSelector from "./views/Components/ColorSelector/ColorSelector.vue";
-import DatePicker from "./views/Components/DatePicker/DatePicker.vue";
-import DropdownMenu from "./views/Components/DropdownMenu/DropdownMenu.vue";
-import DropdownList from "./views/Components/DropdownList/DropdownList.vue";
-import FileIcon from "./views/Components/FileIcon/FileIcon.vue";
-import Icons from "./views/Components/Icons/Icons.vue";
-import Illustrations from "./views/Components/Illustrations/Illustrations.vue";
-import Input from "./views/Components/Input/Input.vue";
-import Loaders from "./views/Components/Loaders/Loaders.vue";
-import Menus from "./views/Components/Menu/Menus.vue";
-import Pagination from "./views/Components/Pagination/Pagination.vue";
-import Radio from "./views/Components/Radio/Radio.vue";
-import ResponsiveGrid from "./views/Components/ResponsiveGrid/ResponsiveGrid.vue";
-import SafeZoneInline from "./views/Components/SafeZoneInline/SafeZoneInline.vue";
-import Search from "./views/Components/Search/Search.vue";
-import SearchAutocomplete from "./views/Components/SearchAutocomplete/SearchAutocomplete.vue";
-import Select from "./views/Components/Select/Select.vue";
-import Table from "./views/Components/Table/Table.vue";
-import Tabs from "./views/Components/Tabs/Tabs.vue";
-import Text from "./views/Components/Text/Text.vue";
-import Textarea from "./views/Components/Textarea/Textarea.vue";
-import Textbox from "./views/Components/Textbox/Textbox.vue";
-import Toggle from "./views/Components/Toggle/Toggle.vue";
-import Tooltip from "./views/Components/Tooltip/Tooltip.vue";
 
 const routes = [
   {
@@ -57,229 +9,238 @@ const routes = [
   },
   {
     path: "/getting-started",
-    component: Layout,
+    component: () => import("./views/Layout/Layout.vue"),
     children: [
       {
         path: "",
         name: "Getting started",
-        component: Content,
+        component: () => import("./views/Layout/Content.vue"),
       },
       {
         path: "designers",
         name: "designers",
-        component: Designers,
+        component: () => import("./views/GettingStarted/Designers.vue"),
       },
       {
         path: "developpers",
         name: "developpers",
-        component: Developpers,
+        component: () => import("./views/GettingStarted/Developpers.vue"),
       },
       {
         path: "internal-doc",
         name: "internal-doc",
-        component: InternalDoc,
+        component: () => import("./views/GettingStarted/InternalDoc.vue"),
       },
     ],
   },
   {
     path: "/guidelines-utilities",
-    component: Layout,
+    component: () => import("./views/Layout/Layout.vue"),
     children: [
       {
         path: "",
         name: "Guidelines & Utilities",
-        component: Content,
+        component: () => import("./views/Layout/Content.vue"),
       },
       {
         path: "colors",
         name: "colors",
-        component: Colors,
+        component: () => import("./views/Guidelines/Colors/Colors.vue"),
       },
       {
         path: "list",
         name: "list",
-        component: List,
+        component: () => import("./views/Guidelines/List/List.vue"),
       },
       {
         path: "markup",
         name: "markup",
-        component: Markup,
+        component: () => import("./views/Guidelines/Markup/Markup.vue"),
       },
       {
         path: "spacing",
         name: "spacing",
-        component: Spacing,
+        component: () => import("./views/Guidelines/Spacing/Spacing.vue"),
       },
       {
         path: "typography",
         name: "typography",
-        component: Typography,
+        component: () => import("./views/Guidelines/Typography/Typography.vue"),
       },
       {
         path: "utilities",
         name: "utilities",
-        component: Utilities,
+        component: () => import("./views/Guidelines/Utilities/Utilities.vue"),
       },
       {
         path: "variables",
         name: "variables",
-        component: Variables,
+        component: () => import("./views/Guidelines/Variables/Variables.vue"),
       },
     ],
   },
   {
     path: "/components",
-    component: Layout,
+    component: () => import("./views/Layout/Layout.vue"),
     children: [
       {
         path: "",
         name: "Components",
-        component: Content,
+        component: () => import("./views/Layout/Content.vue"),
       },
       {
         path: "searchautocomplete",
         name: "searchautocomplete",
-        component: SearchAutocomplete,
+        component: () =>
+          import(
+            "./views/Components/SearchAutocomplete/SearchAutocomplete.vue"
+          ),
       },
       {
         path: "buttons",
         name: "buttons",
-        component: Buttons,
+        component: () => import("./views/Components/Buttons/Buttons.vue"),
       },
       {
         path: "cards",
         name: "cards",
-        component: Card,
+        component: () => import("./views/Components/Card/Card.vue"),
       },
       {
         path: "carousel",
         name: "carousel",
-        component: Carousel,
+        component: () => import("./views/Components/Carousel/Carousel.vue"),
       },
       {
         path: "charts",
         name: "charts",
-        component: Charts,
+        component: () => import("./views/Components/Charts/Charts.vue"),
       },
       {
         path: "checkbox",
         name: "checkbox",
-        component: Checkbox,
+        component: () => import("./views/Components/Checkbox/Checkbox.vue"),
       },
       {
         path: "colorselector",
         name: "colorselector",
-        component: ColorSelector,
+        component: () =>
+          import("./views/Components/ColorSelector/ColorSelector.vue"),
       },
       {
         path: "datepicker",
         name: "datepicker",
-        component: DatePicker,
+        component: () => import("./views/Components/DatePicker/DatePicker.vue"),
       },
       {
         path: "dropdownlist",
         name: "dropdownlist",
-        component: DropdownList,
+        component: () =>
+          import("./views/Components/DropdownList/DropdownList.vue"),
       },
       {
         path: "dropdownmenu",
         name: "dropdownmenu",
-        component: DropdownMenu,
+        component: () =>
+          import("./views/Components/DropdownMenu/DropdownMenu.vue"),
       },
       {
         path: "fileicon",
         name: "fileicon",
-        component: FileIcon,
+        component: () => import("./views/Components/FileIcon/FileIcon.vue"),
       },
       {
         path: "icons",
         name: "icons",
-        component: Icons,
+        component: () => import("./views/Components/Icons/Icons.vue"),
       },
       {
         path: "illustrations",
         name: "illustrations",
-        component: Illustrations,
+        component: () =>
+          import("./views/Components/Illustrations/Illustrations.vue"),
       },
       {
         path: "input",
         name: "input",
-        component: Input,
+        component: () => import("./views/Components/Input/Input.vue"),
       },
       {
         path: "loaders",
         name: "loaders",
-        component: Loaders,
+        component: () => import("./views/Components/Loaders/Loaders.vue"),
       },
       {
         path: "menus",
         name: "menus",
-        component: Menus,
+        component: () => import("./views/Components/Menu/Menus.vue"),
       },
       {
         path: "pagination",
         name: "pagination",
-        component: Pagination,
+        component: () => import("./views/Components/Pagination/Pagination.vue"),
       },
       {
         path: "radio",
         name: "radio",
-        component: Radio,
+        component: () => import("./views/Components/Radio/Radio.vue"),
       },
       {
         path: "responsive-grid",
         name: "responsive-grid",
-        component: ResponsiveGrid,
+        component: () =>
+          import("./views/Components/ResponsiveGrid/ResponsiveGrid.vue"),
       },
       {
         path: "safe-zone-inline",
         name: "safe-zone-inline",
-        component: SafeZoneInline,
+        component: () =>
+          import("./views/Components/SafeZoneInline/SafeZoneInline.vue"),
       },
       {
         path: "search",
         name: "search",
-        component: Search,
+        component: () => import("./views/Components/Search/Search.vue"),
       },
       {
         path: "select",
         name: "select",
-        component: Select,
+        component: () => import("./views/Components/Select/Select.vue"),
       },
       {
         path: "table",
         name: "table",
-        component: Table,
+        component: () => import("./views/Components/Table/Table.vue"),
       },
       {
         path: "tabs",
         name: "tabs",
-        component: Tabs,
+        component: () => import("./views/Components/Tabs/Tabs.vue"),
       },
       {
         path: "text",
         name: "text",
-        component: Text,
+        component: () => import("./views/Components/Text/Text.vue"),
       },
       {
         path: "textarea",
         name: "textarea",
-        component: Textarea,
+        component: () => import("./views/Components/Textarea/Textarea.vue"),
       },
       {
         path: "textbox",
         name: "textbox",
-        component: Textbox,
+        component: () => import("./views/Components/Textbox/Textbox.vue"),
       },
       {
-        path: "toggle",
+        path: "Textbox",
         name: "toggle",
-        component: Toggle,
+        component: () => import("./views/Components/Toggle/Toggle.vue"),
       },
       {
         path: "tooltips",
         name: "tooltips",
-        component: Tooltip,
+        component: () => import("./views/Components/Tooltip/Tooltip.vue"),
       },
     ],
   },
