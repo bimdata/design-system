@@ -17,6 +17,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Model3D", Model3D);
 </script>
 
-<style lang="scss" scoped src="../../../assets/css/variables.css"></style>
-
-<style lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
