@@ -7,6 +7,10 @@ export default defineConfig(() => {
     server: {
       port: 8080,
     },
+    build: {
+      // Disables the preload.
+      modulePreload: false,
+    },
   };
 
   return config;
