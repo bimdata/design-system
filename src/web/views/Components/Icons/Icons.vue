@@ -28,7 +28,7 @@
               class="icon"
               v-for="icon of filteredList"
               :key="icon.name"
-              :class="{ active: icon.name === activeIcon }"
+              :class="{ active: icon === activeIcon }"
               @click="onActiveIcons(icon)"
             >
               <component
