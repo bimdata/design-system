@@ -1,7 +1,8 @@
 <template>
   <component
     :is="`BIMDataIcon${capitalized(name)}`"
-    :fill="fillColor"
+    :fill="fill"
+    :fillColor="fillColor"
     :color="color"
     :class="classes"
     :style="style"
