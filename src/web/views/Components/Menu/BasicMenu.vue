@@ -151,24 +151,24 @@ export default {
     getChildren() {
       if (this.isChildren) {
         return `
-        <template #child-item="{ item }">
-          <div v-if="item.children[0].data">
-            <span
-              v-for="child in item.children"
-              :key="child.id"
-              class="color-high"
-            >
-              <BIMDataIcon
-                name="warning"
-                size="xxs"
-                margin="0 6px 0 0"
-                fill
-                color="high"
-              />
-              {{ child.data }}
-            </span>
-          </div>
-        </template>
+            <template #child-item="{ item }">
+              <div v-if="item.children[0].data">
+                <span
+                  v-for="child in item.children"
+                  :key="child.id"
+                  class="color-high"
+                >
+                  <BIMDataIcon
+                    name="warning"
+                    size="xxs"
+                    margin="0 6px 0 0"
+                    fill
+                    color="high"
+                  />
+                  {{ child.data }}
+                </span>
+              </div>
+            </template>
       `;
       }
     },
