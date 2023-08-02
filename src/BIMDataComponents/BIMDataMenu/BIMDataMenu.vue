@@ -49,28 +49,26 @@
         </slot>
         <template v-if="isItemActive(item)">
           <slot name="children" :children="item.children" :item="item">
-            <template>
-              <div
-                class="bimdata-menu__item__children"
-                :style="{
-                  width: subListWidth,
-                  [childrenLeft ? 'left' : 'right']: `-${subListWidth}`,
-                }"
-              >
-                <ul class="bimdata-list">
-                  <li
-                    v-for="child in item.children"
-                    :key="child.text"
-                    @click.stop="child.action && child.action()"
-                    class="flex items-center p-x-12"
-                  >
-                    <slot name="child-item" :child="child" :item="item">
-                      <BIMDataTextbox :text="child.text" :tooltip="false" />
-                    </slot>
-                  </li>
-                </ul>
-              </div>
-            </template>
+            <div
+              class="bimdata-menu__item__children"
+              :style="{
+                width: subListWidth,
+                [childrenLeft ? 'left' : 'right']: `-${subListWidth}`,
+              }"
+            >
+              <ul class="bimdata-list">
+                <li
+                  v-for="child in item.children"
+                  :key="child.text"
+                  @click.stop="child.action && child.action()"
+                  class="flex items-center p-x-12"
+                >
+                  <slot name="child-item" :child="child" :item="item">
+                    <BIMDataTextbox :text="child.text" :tooltip="false" />
+                  </slot>
+                </li>
+              </ul>
+            </div>
           </slot>
         </template>
       </div>
