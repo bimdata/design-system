@@ -13,6 +13,28 @@ export default {
   },
 };
 
+/**
+ * @param { { children: Array | string } } vnode
+ * @returns { string }
+ */
+function getTextFromVNode(vnode) {
+  if (typeof vnode.children === "string") {
+    return vnode.children;
+  } else {
+    return vnode.children.map(getTextFromVNode).join("");
+  }
+}
+
+function removeWhiteSpaces(string) {
+  return string
+    .split("\n")
+    .filter(line => !line.match(/^ +$/))
+    .join("\n")
+    .replace(/(?<![\n {2,}]) {2,}/, " ");
+}
+
+window.removeWhiteSpaces = removeWhiteSpaces;
+
 function highlight(el, binding, vnode) {
   const choosedLanguage = binding.arg;
   if (
@@ -24,16 +46,7 @@ function highlight(el, binding, vnode) {
       "Supported languages are xml, javascript, css, scss, html and bash"
     );
   }
-  let textToHighlight = null;
-  if (
-    vnode.children[1] &&
-    vnode.children[1].children &&
-    vnode.children[1].children[0]
-  ) {
-    textToHighlight = vnode.children[1].children[0].children;
-  } else {
-    textToHighlight = vnode.children[0].children;
-  }
+  const textToHighlight = removeWhiteSpaces(getTextFromVNode(vnode));
 
   el.innerHTML = normalizer.normalize(
     Prism.highlight(
