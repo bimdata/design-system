@@ -87,7 +87,7 @@
               activeIcon
             }} from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/{{
               activeIcon
-            }}.js";
+            }}.vue";
           </pre>
         </template>
 
