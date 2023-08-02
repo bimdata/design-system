@@ -20,7 +20,8 @@
         left: 0;
       }
       .icons-numbers {
-        width: 6%;
+        padding: 0 6px;
+        min-width: 6%;
         height: 32px;
         background-color: var(--color-primary);
         color: var(--color-white);
@@ -37,7 +38,8 @@
         width: 100%;
         margin-top: 24px;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fill, 210px);
+        justify-content: center;
         & > div {
           padding: var(--spacing-unit);
           flex: 19%;
