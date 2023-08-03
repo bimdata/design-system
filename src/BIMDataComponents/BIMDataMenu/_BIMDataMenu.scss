@@ -53,6 +53,7 @@
     }
     &__children {
       position: absolute;
+      z-index: 1;
       top: 0;
       padding: calc(var(--spacing-unit) / 2) 0;
       background-color: var(--color-white);

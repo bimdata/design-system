@@ -82,14 +82,12 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataIconChevron from "../../BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
-import Chevron from "../../BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons/Chevron.vue";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   directives: { clickaway },
   components: {
     BIMDataIconChevron,
-    Chevron,
     BIMDataTextbox,
   },
   props: {
