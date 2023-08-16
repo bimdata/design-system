@@ -4,7 +4,6 @@
 ## Libraries that use the DS (need to merge first)
 
 - [ ] [BCF Components](https://github.com/bimdata/bcf-components)
-- [ ] [Guided tour](https://github.com/bimdata/guided-tour-components)
 - [ ] [BIMData Components](https://github.com/bimdata/bimdata-components)
 - [ ] [Building maker](https://github.com/bimdata/building-maker)
 
