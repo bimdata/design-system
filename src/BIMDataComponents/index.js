@@ -35,6 +35,7 @@ export { default as BIMDataSearchAutocomplete } from "./BIMDataSearchAutocomplet
 export { default as BIMDataSelect } from "./BIMDataSelect/BIMDataSelect.vue";
 export { default as BIMDataSimplePieChart } from "./BIMDataSimplePieChart/BIMDataSimplePieChart.vue";
 export { default as BIMDataSpinner } from "./BIMDataSpinner/BIMDataSpinner.vue";
+export { default as BIMDataSlider } from "./BIMDataSlider/BIMDataSlider.vue";
 export { default as BIMDataTable } from "./BIMDataTable/BIMDataTable.vue";
 export { default as BIMDataTabs } from "./BIMDataTabs/BIMDataTabs.vue";
 export { default as BIMDataText } from "./BIMDataText/BIMDataText.vue";

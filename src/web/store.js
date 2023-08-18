@@ -283,6 +283,13 @@ export default {
         btn: "View select",
       },
       {
+        title: "Slider",
+        img: select,
+        path: "slider",
+        text: "slider",
+        btn: "View slider",
+      },
+      {
         title: "Table",
         img: table,
         path: "table",
