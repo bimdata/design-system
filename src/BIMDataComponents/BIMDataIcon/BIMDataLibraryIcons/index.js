@@ -57,6 +57,7 @@ import fullscreen from "./Fullscreen.vue";
 import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
+import home from "./Home.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
@@ -214,6 +215,7 @@ export default {
   grid,
   group,
   hide,
+  home,
   ifc,
   ifcFile,
   import: Import,

@@ -56,6 +56,7 @@ export { default as BIMDataIconFullscreen } from "./BIMDataIconFullscreen.vue";
 export { default as BIMDataIconGrid } from "./BIMDataIconGrid.vue";
 export { default as BIMDataIconGroup } from "./BIMDataIconGroup.vue";
 export { default as BIMDataIconHide } from "./BIMDataIconHide.vue";
+export { default as BIMDataIconHome } from "./BIMDataIconHome.vue";
 export { default as BIMDataIconIfc } from "./BIMDataIconIfc.vue";
 export { default as BIMDataIconIfcFile } from "./BIMDataIconIfcFile.vue";
 export { default as BIMDataIconImport } from "./BIMDataIconImport.vue";
