@@ -6,14 +6,14 @@
     :class="classes"
     :style="style"
   >
-    <ExportXlsx />
+    <RemoveModel />
   </Icon>
 </template>
 
 <script>
-import ExportXlsx from "../BIMDataLibraryIcons/ExportXlsx.vue";
+import RemoveModel from "../BIMDataLibraryIcons/RemoveModel.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("ExportXlsx", ExportXlsx);
+export default makeIcon("RemoveModel", RemoveModel);
 </script>
 
 <style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
