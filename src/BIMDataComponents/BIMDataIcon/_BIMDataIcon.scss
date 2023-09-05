@@ -33,6 +33,9 @@
     &--silver-light {
       fill: var(--color-silver-light);
     }
+    &--silver-dark {
+      fill: var(--color-silver-dark);
+    }
     &--warning {
       fill: var(--color-warning);
     }
@@ -77,6 +80,9 @@
     }
     &--silver-light {
       stroke: var(--color-silver-light);
+    }
+    &--silver-dark {
+      stroke: var(--color-silver-dark);
     }
     &--warning {
       stroke: var(--color-warning);

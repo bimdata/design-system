@@ -6,14 +6,15 @@
     :class="classes"
     :style="style"
   >
-    <ExportXlsx />
+    <Preview />
   </Icon>
 </template>
 
 <script>
-import ExportXlsx from "../BIMDataLibraryIcons/ExportXlsx.vue";
+import Preview from "../BIMDataLibraryIcons/Preview.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("ExportXlsx", ExportXlsx);
+
+export default makeIcon("Preview", Preview);
 </script>
 
 <style scoped lang="scss" src="../_BIMDataIcon.scss"></style>

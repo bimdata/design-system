@@ -11,7 +11,6 @@ import app from "./App.vue";
 import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
-import backInTime from "./BackInTime.vue";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
@@ -28,7 +27,6 @@ import close from "./Close.vue";
 import cloud from "./Cloud.vue";
 import color from "./Color.vue";
 import comment from "./Comment.vue";
-import navigation from "./Navigation.vue";
 import dateAscending from "./DateAscending.vue";
 import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
@@ -47,7 +45,7 @@ import expanded from "./Expanded.vue";
 import explosion from "./Explosion.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
-import exportXlsx from "./ExportXlsx.vue"; 
+import exportXlsx from "./ExportXlsx.vue";
 import failed from "./Failed.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
@@ -79,20 +77,24 @@ import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
+import navigation from "./Navigation.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import pathway from "./Pathway.vue";
 import pieGraph from "./PieGraph.vue";
 import pipette from "./Pipette.vue";
 import plus from "./Plus.vue";
+import preview from "./Preview.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
 import readonlyFolder from "./ReadonlyFolder.vue";
 import redo from "./Redo.vue";
 import reduced from "./Reduced.vue";
 import refresh from "./Refresh.vue";
+import removeModel from "./RemoveModel.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
 import reset from "./Reset.vue";
+import restore from "./Restore.vue";
 import right from "./Right.vue";
 import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
@@ -101,6 +103,7 @@ import screenConfig from "./ScreenConfig.vue";
 import screenshot from "./Screenshot.vue";
 import search from "./Search.vue";
 import section from "./Section.vue";
+import setAsModel from "./SetAsModel.vue";
 import settings from "./Settings.vue";
 import share from "./Share.vue";
 import show from "./Show.vue";
@@ -170,7 +173,6 @@ export default {
   archive,
   arrow,
   attach,
-  backInTime,
   bcf,
   building,
   burgerMenu,
@@ -206,7 +208,7 @@ export default {
   explosion,
   export: Export,
   exportIfc,
-  exportXlsx, 
+  exportXlsx,
   failed,
   filterList,
   fitView,
@@ -244,14 +246,17 @@ export default {
   pieGraph,
   pipette,
   plus,
+  preview,
   project,
   quickSelect,
   readonlyFolder,
   redo,
   reduced,
   refresh,
+  removeModel,
   reprocessIfc,
   reset,
+  restore,
   right,
   rules,
   sandglass,
@@ -260,6 +265,7 @@ export default {
   screenshot,
   search,
   section,
+  setAsModel,
   settings,
   share,
   show,
