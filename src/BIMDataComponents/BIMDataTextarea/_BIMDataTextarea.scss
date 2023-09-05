@@ -20,6 +20,7 @@ textarea:-webkit-autofill {
     display: flex;
     margin: 0px;
     color: var(--color-primary);
+    font-family: var(--primary-font);
     border: none;
     &:disabled {
       background-color: transparent;
@@ -68,7 +69,7 @@ textarea:-webkit-autofill {
     &::after {
       width: 0;
       height: 2px;
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       background-color: var(--color-primary);
