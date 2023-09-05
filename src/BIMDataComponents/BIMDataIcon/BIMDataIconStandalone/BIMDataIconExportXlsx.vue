@@ -6,7 +6,7 @@
     :class="classes"
     :style="style"
   >
-    <BcfExportXlsx/>
+    <ExportXlsx/>
   </Icon>
 </template>
   

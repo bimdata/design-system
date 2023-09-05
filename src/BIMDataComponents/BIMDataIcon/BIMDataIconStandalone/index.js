@@ -46,6 +46,7 @@ export { default as BIMDataIconExpanded } from "./BIMDataIconExpanded.vue";
 export { default as BIMDataIconExplosion } from "./BIMDataIconExplosion.vue";
 export { default as BIMDataIconExport } from "./BIMDataIconExport.vue";
 export { default as BIMDataIconExportIfc } from "./BIMDataIconExportIfc.vue";
+export { default as BIMDataIconExportXlsx } from "./BIMDataIconExportXlsx.vue";
 export { default as BIMDataIconFailed } from "./BIMDataIconFailed.vue";
 export { default as BIMDataIconFilterList } from "./BIMDataIconFilterList.vue";
 export { default as BIMDataIconFitView } from "./BIMDataIconFitView.vue";

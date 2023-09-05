@@ -17,4 +17,3 @@
       fill="#2F374A"/>
   </g>
 </template>
-  

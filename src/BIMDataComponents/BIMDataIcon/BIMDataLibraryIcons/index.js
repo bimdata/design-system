@@ -47,6 +47,7 @@ import expanded from "./Expanded.vue";
 import explosion from "./Explosion.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
+import exportXlsx from "./ExportXlsx.vue"; 
 import failed from "./Failed.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
@@ -205,6 +206,7 @@ export default {
   explosion,
   export: Export,
   exportIfc,
+  exportXlsx, 
   failed,
   filterList,
   fitView,
