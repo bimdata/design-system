@@ -81,10 +81,9 @@ export default {
       this.$emit("update:modelValue", +event.target.value);
     },
     getTooltipPosition() {
-      const val = this.modelValue;
       const min = this.min ? this.min : 0;
       const max = this.max ? this.max : 100;
-      const newVal = Number(((val - min) * 100) / (max - min));
+      const newVal = Number(((this.modelValue - min) * 100) / (max - min));
       this.tooltipPosition = `calc(${newVal}% + (${8 - newVal * 0.18}px))`;
     },
   },
