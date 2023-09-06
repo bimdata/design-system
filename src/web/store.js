@@ -31,6 +31,7 @@ import safe_zone_inline from "./assets/img/icon-safe_zone_inline.svg";
 import search from "./assets/img/icon-search.svg";
 import search_autocomplete from "./assets/img/icon-search_autocomplete.svg";
 import select from "./assets/img/icon-select.svg";
+import slider from "./assets/img/icon-slider.svg";
 import table from "./assets/img/icon-table.svg";
 import tabs from "./assets/img/icon-tabs.svg";
 import text from "./assets/img/icon-text.svg";
@@ -284,7 +285,7 @@ export default {
       },
       {
         title: "Slider",
-        img: select,
+        img: slider,
         path: "slider",
         text: "slider",
         btn: "View slider",
