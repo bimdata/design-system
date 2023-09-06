@@ -56,13 +56,6 @@ export default {
       this.$nextTick(() => {
         this.backgroundSize = this.getBackgroundSize();
 
-        // let sliderWidth = document.getElementsByClassName(
-        //   "bimdata-slider-input"
-        // )[0].offsetWidth;
-        // let  tooltipWidth = document.getElementsByClassName(
-        //   "bimdata-slider-tooltip"
-        // )[0].offsetWidth;
-
         this.getTooltipPosition();
       });
     },
