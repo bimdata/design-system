@@ -12,6 +12,9 @@
       :disabled="disabled"
       @input="onInput"
     />
+    <output class="bimdata-slider-tooltip" :style="{ left: tooltipPosition }">{{
+      modelValue
+    }}</output>
   </div>
 </template>
 
@@ -43,12 +46,24 @@ export default {
   data() {
     return {
       backgroundSize: 0,
+      tooltipPosition: `calc(${this.modelValue}% + (${
+        8 - this.modelValue * 0.18
+      }px))`,
     };
   },
   watch: {
     modelValue() {
       this.$nextTick(() => {
         this.backgroundSize = this.getBackgroundSize();
+
+        // let sliderWidth = document.getElementsByClassName(
+        //   "bimdata-slider-input"
+        // )[0].offsetWidth;
+        // let  tooltipWidth = document.getElementsByClassName(
+        //   "bimdata-slider-tooltip"
+        // )[0].offsetWidth;
+
+        this.getTooltipPosition();
       });
     },
   },
@@ -71,6 +86,14 @@ export default {
     },
     onInput(event) {
       this.$emit("update:modelValue", +event.target.value);
+    },
+    getTooltipPosition() {
+      this.tooltipPosition = this.modelValue;
+      const val = this.modelValue;
+      const min = this.min ? this.min : 0;
+      const max = this.max ? this.max : 100;
+      const newVal = Number(((val - min) * 100) / (max - min));
+      this.tooltipPosition = `calc(${newVal}% + (${8 - newVal * 0.18}px))`;
     },
   },
 };

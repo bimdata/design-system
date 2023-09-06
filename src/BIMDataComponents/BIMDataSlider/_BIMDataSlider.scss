@@ -42,6 +42,35 @@
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
     }
   }
+  &:hover {
+    .bimdata-slider-tooltip {
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
+    }
+  }
+  &-tooltip {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: calc(var(--spacing-unit) / 2);
+    position: absolute;
+    border-radius: 4px;
+    bottom: calc(var(--spacing-unit) * 3);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    &::after {
+      border: 5px solid transparent;
+      border-top-color: var(--color-primary);
+      bottom: 5px * -2;
+      content: "";
+      height: 0;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%);
+      width: 0;
+    }
+  }
   .bimdata-slider-input,
   .bimdata-slider-input::-webkit-slider-runnable-track,
   .bimdata-slider-input::-webkit-slider-thumb {
