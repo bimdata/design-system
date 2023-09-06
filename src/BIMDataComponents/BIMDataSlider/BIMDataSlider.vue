@@ -81,7 +81,6 @@ export default {
       this.$emit("update:modelValue", +event.target.value);
     },
     getTooltipPosition() {
-      this.tooltipPosition = this.modelValue;
       const val = this.modelValue;
       const min = this.min ? this.min : 0;
       const max = this.max ? this.max : 100;
