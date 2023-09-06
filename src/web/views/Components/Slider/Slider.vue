@@ -7,11 +7,27 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <div class="m-t-24">
-            <BIMDataSlider v-model="slider" min="0" max="100" />
+            <BIMDataSlider v-model="slider" :min="minRange" :max="maxRange" />
           </div>
         </template>
 
-        <template #parameters> </template>
+        <template #parameters>
+          <BIMDataInput
+            type="number"
+            placeholder="Min range"
+            v-model="minRange"
+          />
+          <BIMDataInput
+            type="number"
+            placeholder="Max range"
+            v-model="maxRange"
+          />
+          <BIMDataInput
+            type="number"
+            placeholder="Slider default value"
+            v-model="slider"
+          />
+        </template>
 
         <template #import>
           import BIMDataSlider from
@@ -33,7 +49,9 @@ export default {
   },
   data() {
     return {
-      slider: 0,
+      slider: 40,
+      minRange: 0,
+      maxRange: 100,
     };
   },
 };
