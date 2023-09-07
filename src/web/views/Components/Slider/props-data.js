@@ -1,0 +1,51 @@
+/* eslint-disable */
+export default [
+  [
+    "Props",
+    "Type",
+    "Required",
+    "Default value",
+    "Description",
+    "Example",
+  ],
+  [
+    "min",
+    "Number, String",
+    "",
+    "null",
+    "Use this props to define min range.",
+    "0",
+  ],
+  [
+    "max",
+    "Number, String",
+    "",
+    "null",
+    "Use this props to define max range.",
+    "100",
+  ],
+  [
+    "step",
+    "Number, String",
+    "",
+    "null",
+    "You can change the default step increment.",
+    "10",
+  ],
+  [
+    "modelValue",
+    "Number",
+    "",
+    "0",
+    "Slider input range value.",
+    "",
+  ],
+  [
+    "disabled",
+    "Boolean",
+    "",
+    "false",
+    "Use this props to disable slider.",
+    "true",
+  ],
+];
