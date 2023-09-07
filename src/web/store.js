@@ -287,7 +287,7 @@ export default {
         title: "Slider",
         img: slider,
         path: "slider",
-        text: "slider",
+        text: "Sliders allow users to make selections from a range of values.",
         btn: "View slider",
       },
       {
