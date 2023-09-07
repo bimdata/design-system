@@ -12,9 +12,12 @@
       :disabled="disabled"
       @input="onInput"
     />
-    <output class="bimdata-slider-tooltip" :style="{ left: tooltipPosition }">{{
-      modelValue
-    }}</output>
+    <output
+      v-if="tooltip"
+      class="bimdata-slider-tooltip"
+      :style="{ left: tooltipPosition }"
+      >{{ modelValue }}</output
+    >
   </div>
 </template>
 
@@ -41,6 +44,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    tooltip: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   data() {
@@ -55,8 +62,9 @@ export default {
     modelValue() {
       this.$nextTick(() => {
         this.backgroundSize = this.getBackgroundSize();
-
-        this.getTooltipPosition();
+        if (this.tooltip) {
+          this.getTooltipPosition();
+        }
       });
     },
   },
