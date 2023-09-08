@@ -208,6 +208,11 @@ const routes = [
         component: () => import("./views/Components/Select/Select.vue"),
       },
       {
+        path: "slider",
+        name: "slider",
+        component: () => import("./views/Components/Slider/Slider.vue"),
+      },
+      {
         path: "table",
         name: "table",
         component: () => import("./views/Components/Table/Table.vue"),

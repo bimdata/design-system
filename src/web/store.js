@@ -31,6 +31,7 @@ import safe_zone_inline from "./assets/img/icon-safe_zone_inline.svg";
 import search from "./assets/img/icon-search.svg";
 import search_autocomplete from "./assets/img/icon-search_autocomplete.svg";
 import select from "./assets/img/icon-select.svg";
+import slider from "./assets/img/icon-slider.svg";
 import table from "./assets/img/icon-table.svg";
 import tabs from "./assets/img/icon-tabs.svg";
 import text from "./assets/img/icon-text.svg";
@@ -281,6 +282,13 @@ export default {
         path: "select",
         text: "Select (dropdown) is used to enabled a user to select a single item from a list of options.",
         btn: "View select",
+      },
+      {
+        title: "Slider",
+        img: slider,
+        path: "slider",
+        text: "Sliders allow users to make selections from a range of values.",
+        btn: "View slider",
       },
       {
         title: "Table",
