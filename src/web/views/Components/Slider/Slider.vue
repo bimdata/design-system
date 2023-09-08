@@ -31,7 +31,8 @@
           <BIMDataInput
             type="number"
             placeholder="Slider default value"
-            v-model="slider"
+            :modelValue="slider"
+            @update:modelValue="slider = +$event"
           />
           <BIMDataInput type="number" placeholder="Step value" v-model="step" />
           <BIMDataCheckbox text="Tooltip" v-model="tooltip" />
