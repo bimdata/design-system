@@ -48,4 +48,12 @@ export default [
     "Use this props to disable slider.",
     "true",
   ],
+  [
+    "tooltip",
+    "Boolean",
+    "",
+    "false",
+    "Use this props to enable tooltip with slider value.",
+    "true",
+  ],
 ];
