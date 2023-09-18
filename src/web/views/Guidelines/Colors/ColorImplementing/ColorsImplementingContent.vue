@@ -1,26 +1,30 @@
 <template>
   <div class="colors-implementing-container">
-    <!----------------------------------
-        BRAND COLORS
-      ----------------------------------->
     <BIMDataText
       component="h2"
       display="block"
       color="color-primary"
       margin="20px 0 10px"
-      >How implementing colors and extended palette</BIMDataText
     >
+      How implementing colors and extended palette
+    </BIMDataText>
+
+    <!----------------------------------
+        BRAND COLORS
+      ----------------------------------->
     <BIMDataText
       component="h4"
       display="block"
       color="color-primary"
       margin="20px 0 10px"
-      >Brand colors</BIMDataText
     >
+      Brand colors
+    </BIMDataText>
+
     <!-- color PRIMARY -->
-    <BIMDataText component="h5" color="color-primary" margin="10px 0"
-      >Primary Color & variants</BIMDataText
-    >
+    <BIMDataText component="h5" color="color-primary" margin="10px 0">
+      Primary color & variants
+    </BIMDataText>
     <ColorSwatche :colors="primaryColors"></ColorSwatche>
     <BIMDataTable
       class="m-b-24"
@@ -29,9 +33,9 @@
     />
 
     <!-- color SECONDARY -->
-    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
-      >Secondary Color & variants</BIMDataText
-    >
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Secondary color & variants
+    </BIMDataText>
     <ColorSwatche :colors="secondaryColors"></ColorSwatche>
     <BIMDataTable
       class="m-b-24"
@@ -47,12 +51,14 @@
       display="block"
       color="color-primary"
       margin="20px 0 10px"
-      >State colors</BIMDataText
     >
+      State colors
+    </BIMDataText>
+
     <!-- color HIGH -->
-    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
-      >High Color & variants</BIMDataText
-    >
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      High color & variants
+    </BIMDataText>
     <ColorSwatche :colors="highColors"></ColorSwatche>
     <BIMDataTable
       class="m-b-24"
@@ -61,9 +67,9 @@
     />
 
     <!-- color WARNING -->
-    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
-      >Warning Color & variants</BIMDataText
-    >
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Warning color & variants
+    </BIMDataText>
     <ColorSwatche :colors="warningColors"></ColorSwatche>
     <BIMDataTable
       class="m-b-24"
@@ -72,28 +78,41 @@
     />
 
     <!-- color SUCCESS -->
-    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px"
-      >Success Color & variants</BIMDataText
-    >
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Success color & variants
+    </BIMDataText>
     <ColorSwatche :colors="successColors"></ColorSwatche>
     <BIMDataTable
       class="m-b-24"
       :columns="successColorData[0]"
       :rows="successColorData.slice(1)"
     />
+
+    <!-- color NEUTRAL -->
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Neutral color & variants
+    </BIMDataText>
+    <ColorSwatche :colors="neutralColors"></ColorSwatche>
+    <BIMDataTable
+      class="m-b-24"
+      :columns="neutralColorData[0]"
+      :rows="neutralColorData.slice(1)"
+    />
   </div>
 </template>
 
 <script>
+import highColors from "../js/highColors.js";
+import neutralColors from "../js/neutralColors.js";
+import primaryColors from "../js/primaryColors.js";
+import secondaryColors from "../js/secondaryColors.js";
+import successColors from "../js/successColors.js";
+import warningColors from "../js/warningColors.js";
+
 import BIMDataTable from "../../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
-
 import ColorSwatche from "../GenericComponents/ColorSwatche.vue";
-import primaryColors from "../js/primaryColors";
-import secondaryColors from "../js/secondaryColors";
-import highColors from "../js/highColors";
-import warningColors from "../js/warningColors";
-import successColors from "../js/successColors";
+
 export default {
   components: {
     BIMDataTable,
@@ -102,11 +121,12 @@ export default {
   },
   data() {
     return {
+      highColors,
+      neutralColors,
       primaryColors,
       secondaryColors,
-      highColors,
-      warningColors,
       successColors,
+      warningColors,
       primaryColorData: [
         ["Colors", "Description"],
         ["Primary", ""],
@@ -135,7 +155,7 @@ export default {
       ],
       highColorData: [
         ["Colors", "Description"],
-        ["High", "Used for : "],
+        ["High", ""],
         [
           "High Lighter",
           "Used for background-color hover state for high outline button & background-color hover state ghost button.",
@@ -148,17 +168,24 @@ export default {
       ],
       warningColorData: [
         ["Colors", "Description"],
-        ["Warning", "Used for : "],
+        ["Warning", ""],
         ["Warning Lighter", "Not used yet."],
-        ["Warning Light", ""],
+        ["Warning Light", "Not used yet."],
         ["Warning Dark", "Not used yet."],
       ],
       successColorData: [
         ["Colors", "Description"],
-        ["Success", "Used for : "],
+        ["Success", ""],
         ["Success Lighter", "Not used yet."],
-        ["Success Light", ""],
+        ["Success Light", "Not used yet."],
         ["Success Dark", "Not used yet."],
+      ],
+      neutralColorData: [
+        ["Colors", "Description"],
+        ["Neutral", ""],
+        ["Neutral Lighter", "Not used yet."],
+        ["Neutral Light", "Not used yet."],
+        ["Neutral Dark", "Not used yet."],
       ],
     };
   },

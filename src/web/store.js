@@ -6,8 +6,6 @@ import guidelines from "./assets/img/icon-guidelines.svg";
 import utilities2 from "./assets/img/icon-utilities2.svg";
 import variables from "./assets/img/icon-variables.svg";
 import colors from "./assets/img/icon-colors.svg";
-import list from "./assets/img/icon-list.svg";
-import markup from "./assets/img/icon-markup.svg";
 import spacing from "./assets/img/icon-spacing.svg";
 import typo from "./assets/img/icon-typo.svg";
 import components from "./assets/img/icon-components.svg";
@@ -60,7 +58,7 @@ export default {
         btn: "Get dev kit",
       },
       {
-        title: "InternalDoc",
+        title: "Internal Doc",
         img: doc,
         path: "internal-doc",
         text: "Documentation, if you want to add your own components",
@@ -93,20 +91,6 @@ export default {
         img: colors,
         text: "BIMData uses a color palette to achieve clean interfaces.",
         btn: "View colors",
-      },
-      {
-        title: "list",
-        img: list,
-        path: "list",
-        text: "Minimal layout container for displaying a group of items.",
-        btn: "View list",
-      },
-      {
-        title: "Markup & Style",
-        img: markup,
-        path: "markup",
-        text: "How to name your classes to respect the structure already in place.",
-        btn: "View markup",
       },
       {
         title: "Spacing",

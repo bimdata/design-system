@@ -1,23 +1,22 @@
 <template>
   <main class="article colors">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
-        {{ $route.name }}
-      </BIMDataText>
-      <AnchorLink class="m-y-12" :navElements="elements" />
+      <BIMDataText component="h1" color="color-primary"> Colors </BIMDataText>
+      <AnchorLink class="m-y-12" :navElements="navElements" />
       <BIMDataText margin="10px 0 15px">
-        For maintainability, please use these instead of hardcoding color
-        values.
+        For maintainability, please use these variables instead of hardcoding
+        color values.
       </BIMDataText>
       <Code language="css">
         <pre>
-          /* to use only the variables, import this line */
-          @import "~@bimdata/design-system/dist/scss/BIMDataVariables.scss";
+          /* To use only the variables, use this import */
+          @import "@bimdata/design-system/src/assets/css/variables.css";
 
-          /* to use the color utilities classes add this line. BIMDataVariables are already imported in _colors.scss */
-          @import "~@bimdata/design-system/dist/css/utilities/_colors.css";
+          /* To use the color utility classes add this line */
+          @import "@bimdata/design-system/src/assets/css/utilities/_colors.css";
         </pre>
       </Code>
+
       <div id="colors">
         <ColorsPaletteContent />
       </div>
@@ -31,24 +30,22 @@
 
 <script>
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
-import Code from "../../Elements/Code/Code.vue";
 import AnchorLink from "../../Elements/AnchorLink/AnchorLink.vue";
-
+import Code from "../../Elements/Code/Code.vue";
 import ColorsPaletteContent from "./ColorPalette/ColorsPaletteContent.vue";
 import ColorsImplementingContent from "./ColorImplementing/ColorsImplementingContent.vue";
 
 export default {
   components: {
     BIMDataText,
+    AnchorLink,
     Code,
     ColorsPaletteContent,
     ColorsImplementingContent,
-    AnchorLink,
   },
   data() {
     return {
-      elements: ["colors", "implementing"],
+      navElements: ["colors", "implementing"],
     };
   },
 };

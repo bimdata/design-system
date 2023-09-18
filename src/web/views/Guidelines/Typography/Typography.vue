@@ -5,18 +5,17 @@
         {{ $route.name }}
       </BIMDataText>
       <div class="typography-size m-y-12">
-        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
-          >Font size</BIMDataText
-        >
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px">
+          Font size
+        </BIMDataText>
         <div class="m-b-24">
-          <BIMDataText
-            >If you use
-            <router-link class="bimdata-link" to="../components/text"
-              >&lt;BIMDataText&gt;</router-link
-            >
-            component, you have the possibility of having pre-defined titles
-            :</BIMDataText
-          >
+          <BIMDataText>
+            If you use
+            <router-link class="bimdata-link" to="../components/text">
+              &lt;BIMDataText&gt;
+            </router-link>
+            component, you have the possibility of having pre-defined titles:
+          </BIMDataText>
         </div>
         <BIMDataTable
           :rowHeight="36"
@@ -25,9 +24,9 @@
         />
       </div>
       <div class="typography-weight m-y-12">
-        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
-          >Font weights</BIMDataText
-        >
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px">
+          Font weights
+        </BIMDataText>
         <div class="m-b-24">
           <BIMDataText>Use this css classes in html class :</BIMDataText>
           <BIMDataTable
@@ -37,27 +36,26 @@
           />
           <Code language="scss">
             <pre>
-              @import "node_modules/@bimdata/design-system/dist/css/utilities/text.css"
+              @import "@bimdata/design-system/src/assets/css/utilities/_text.css";
             </pre>
           </Code>
         </div>
       </div>
 
       <div class="typography-use m-y-12">
-        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
-          >How to further customize font-size</BIMDataText
-        >
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px">
+          How to further customize font-size
+        </BIMDataText>
         <div class="m-b-24">
-          <BIMDataText
-            >If the size options set above are not enought to customize the font
-            size, you can use this mixin to customize font-size in
-            'em'.</BIMDataText
-          >
+          <BIMDataText>
+            If the size options set above are not enought to customize the font
+            size, you can use this SCSS mixin to customize font-size in 'em':
+          </BIMDataText>
         </div>
         <div class="typography-use__content">
           <Code language="scss">
             <pre>
-              @import "node_modules/@bimdata/design-system/dist/scss/mixins/font-size.scss"
+              @import "@bimdata/design-system/src/assets/scss/mixins/_font-size.scss";
             </pre>
           </Code>
           <Code language="scss">
@@ -72,16 +70,15 @@
 </template>
 
 <script>
-import Code from "../../Elements/Code/Code.vue";
-
 import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import Code from "../../Elements/Code/Code.vue";
 
 export default {
   components: {
-    Code,
     BIMDataTable,
     BIMDataText,
+    Code,
   },
   data() {
     return {

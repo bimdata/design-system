@@ -43,19 +43,19 @@ const routes = [
         component: () => import("./views/Layout/Content.vue"),
       },
       {
+        path: "utilities",
+        name: "utilities",
+        component: () => import("./views/Guidelines/Utilities/Utilities.vue"),
+      },
+      {
+        path: "variables",
+        name: "variables",
+        component: () => import("./views/Guidelines/Variables/Variables.vue"),
+      },
+      {
         path: "colors",
         name: "colors",
         component: () => import("./views/Guidelines/Colors/Colors.vue"),
-      },
-      {
-        path: "list",
-        name: "list",
-        component: () => import("./views/Guidelines/List/List.vue"),
-      },
-      {
-        path: "markup",
-        name: "markup",
-        component: () => import("./views/Guidelines/Markup/Markup.vue"),
       },
       {
         path: "spacing",
@@ -66,16 +66,6 @@ const routes = [
         path: "typography",
         name: "typography",
         component: () => import("./views/Guidelines/Typography/Typography.vue"),
-      },
-      {
-        path: "utilities",
-        name: "utilities",
-        component: () => import("./views/Guidelines/Utilities/Utilities.vue"),
-      },
-      {
-        path: "variables",
-        name: "variables",
-        component: () => import("./views/Guidelines/Variables/Variables.vue"),
       },
     ],
   },

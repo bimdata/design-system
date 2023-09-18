@@ -31,13 +31,6 @@ const sizeToPixel = {
 export default {
   name: "BIMDataIcon",
   props: {
-    // name: {
-    // type: String,
-    // required: true,
-    // validator(value) {
-    //   return Object.keys(icons).includes(value);
-    // },
-    // },
     color: {
       type: String,
       default: "default",
