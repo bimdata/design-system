@@ -59,4 +59,9 @@ export default Object.freeze([
     hex: "#00af50",
     textcolor: "#ffffff",
   },
+  {
+    name: "Neutral",
+    hex: "#205dbd",
+    textcolor: "#ffffff",
+  },
 ]);

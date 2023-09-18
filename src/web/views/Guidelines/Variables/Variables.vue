@@ -109,6 +109,10 @@ export default {
         ["--color-high-light", "rgba(255, 104, 81, 1)"],
         ["--color-high-lighter", "rgba(255, 237, 234, 1)"],
         ["--color-high-dark", "rgba(234, 31, 0, 1)"],
+        ["--color-neutral", "rgba(32, 93, 189, 1)"],
+        ["--color-neutral-light", "rgba(51, 117, 221, 1)"],
+        ["--color-neutral-lighter", "rgba(240, 245, 255, 1)"],
+        ["--color-neutral-dark", "rgba(25, 72, 145, 1)"],
         ["--color-text", "rgba(47, 55, 74, 1)"],
       ],
       boxShadowVariables: [
