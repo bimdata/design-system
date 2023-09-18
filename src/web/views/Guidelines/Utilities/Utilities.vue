@@ -117,6 +117,7 @@ export default {
         ["bg-success", "background-color: #00af50"],
         ["bg-warning", "background-color: #ff9100"],
         ["bg-high", "background-color: #ff3d1e"],
+        ["bg-neutral", "background-color: #205dbd"],
         ["color-primary", "color: #2f374a"],
         ["color-secondary", "color: #f9c72c"],
         ["color-silver", "color: #d8d8d8"],
@@ -129,6 +130,7 @@ export default {
         ["color-success", "color: #00af50"],
         ["color-warning", "color: #ff9100"],
         ["color-high", "color: #ff3d1e"],
+        ["color-neutral", "color: #205dbd"],
       ],
       flexboxUtilities: [
         ["flex", "display: flex"],

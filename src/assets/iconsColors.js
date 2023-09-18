@@ -4,6 +4,7 @@ export default Object.freeze([
   "granite",
   "granite-light",
   "high",
+  "neutral",
   "primary",
   "secondary",
   "success",

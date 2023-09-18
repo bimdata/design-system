@@ -1,12 +1,12 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
-      <BIMDataText component="h3" color="color-primary" margin="10px 0"
-        >Size usage for designers</BIMDataText
-      >
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
+      <BIMDataText component="h3" color="color-primary" margin="10px 0">
+        Size usage for designers
+      </BIMDataText>
       <BIMDataText>Use a 23px box for icons of 23px.</BIMDataText>
       <div>
         <img src="../../../assets/img/design-system__icon-plus.jpg" alt="" />
@@ -44,30 +44,39 @@
         </template>
 
         <template #parameters>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-            >margin</BIMDataText
+          <BIMDataText
+            component="h5"
+            color="color-primary"
+            margin="15px 0 10px"
           >
+            margin
+          </BIMDataText>
           <BIMDataInput
             v-model="marginIcon"
             placeholder="margin around icon (in px)"
             min="0"
-          ></BIMDataInput>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-            >rotate</BIMDataText
+          />
+          <BIMDataText
+            component="h5"
+            color="color-primary"
+            margin="15px 0 10px"
           >
+            rotate
+          </BIMDataText>
           <BIMDataInput
             v-model="rotationDeg"
             placeholder="Degree of rotation"
             type="number"
             min="0"
-          ></BIMDataInput>
+          />
           <div v-for="[key, values] in Object.entries(iconOptions)" :key="key">
             <BIMDataText
               component="h5"
               color="color-primary"
               margin="15px 0 10px"
-              >{{ key }}</BIMDataText
             >
+              {{ key }}
+            </BIMDataText>
             <BIMDataRadio
               v-for="value in values"
               :key="value"
@@ -103,16 +112,16 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Props:
+        </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Summary icons size:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Summary icons size:
+        </BIMDataText>
         <BIMDataTable
           :columns="iconsSizeData[0]"
           :rows="iconsSizeData.slice(1)"
