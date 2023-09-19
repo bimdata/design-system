@@ -25,14 +25,14 @@
 
         <template #import>
           import BIMDataCheckbox from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataCheckbox.js"
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
         </template>
 
         <template #code>
           <pre>
             &lt;BIMDataCheckbox
               :disabled="{{ getCheckboxDisabled() }}"
-              ext="Your label here"
+              text="Your label here"
               v-model="checked"
             /&gt;
           </pre>
@@ -45,32 +45,36 @@
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
+
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Events:
+        </BIMDataText>
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
 
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataCheckbox,
   },
   data() {
     return {
       checked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
+      margin: "0px",
       // Data
       propsData,
+      eventsData,
     };
   },
   methods: {

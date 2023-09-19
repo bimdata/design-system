@@ -1,9 +1,9 @@
 <template>
   <main class="article article-card">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataResponsiveGrid
@@ -11,10 +11,11 @@
             :itemWidth="itemWidth"
             :rowGap="rowGap"
             :columnGap="columnGap"
+            :isRepeatFit="checkboxFitItemsChecked"
           >
             <div
               class="demo-grid-item"
-              :style="{ width: itemWidth, height: itemWidth }"
+              :style="{ width: '100%', height: itemWidth }"
               v-for="(n, i) of Array.from({ length: +nbItem })"
               :key="i"
             >
@@ -34,12 +35,16 @@
             <BIMDataInput v-model="itemWidth" placeholder="Item width" />
             <BIMDataInput v-model="rowGap" placeholder="Row gap" />
             <BIMDataInput v-model="columnGap" placeholder="Column gap" />
+            <BIMDataCheckbox
+              text="Fit items to grid"
+              v-model="checkboxFitItemsChecked"
+            />
           </div>
         </template>
 
         <template #import>
           import BIMDataResponsiveGrid from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataResponsiveGrid.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
         </template>
 
         <template #code>
@@ -48,9 +53,10 @@
               {{ `itemWidth="${itemWidth}"` }}
               {{ `rowGap="${rowGap}"` }}
               {{ `columnGap="${columnGap}"` }}
+              {{ `:isRepeatFit="${checkboxFitItemsChecked}"` }}
             &gt;
               &lt;div
-                {{ `style="width: ${itemWidth}; height: ${itemWidth}"` }}
+                {{ `style="width: 100%; height: ${itemWidth}"` }}
                 v-for="i of items"
                 :key="i"
               &gt;
@@ -73,19 +79,9 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataResponsiveGrid from "../../../../../src/BIMDataComponents/BIMDataResponsiveGrid/BIMDataResponsiveGrid.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataInput,
-    BIMDataResponsiveGrid,
-    BIMDataTable,
-    BIMDataText,
   },
   data() {
     return {
@@ -93,17 +89,27 @@ export default {
       itemWidth: "150px",
       rowGap: "6px",
       columnGap: "18px",
+      checkboxFitItemsChecked: false,
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["itemWidth", "String", "100px", "Define available width for items"],
         ["rowGap", "String", "12px", "Define the space between two rows"],
-        ["columnGap", "String", "12px", "Define the space between two columns"],
+        [
+          "columnGap",
+          "String",
+          "12px",
+          "Define the space between two columns.",
+        ],
+        [
+          "isRepeatFit",
+          "Boolean",
+          "false",
+          "Set this props to 'true' If you want fits the currently available columns into the space by expanding them so that they take up any available space. By default, the component fills the row with as many columns as it can fit.",
+        ],
       ],
     };
   },
 };
 </script>
 
-<style scoped lang="scss">
-@import "./_ResponsiveGrid.scss";
-</style>
+<style scoped lang="scss" src="./_ResponsiveGrid.scss"></style>

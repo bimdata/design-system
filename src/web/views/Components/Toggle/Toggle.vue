@@ -1,9 +1,9 @@
 <template>
   <main class="article toggle">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataToggle v-model="toggled" :disabled="checkboxDisabledChecked">
@@ -45,7 +45,7 @@
 
         <template #import>
           import BIMDataToggle from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataToggle.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
         </template>
 
         <template #code>
@@ -67,6 +67,13 @@
 
       <div class="m-t-24">
         <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
           >Slots:</BIMDataText
         >
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
@@ -78,18 +85,9 @@
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataToggle from "../../../../../src/BIMDataComponents/BIMDataToggle/BIMDataToggle.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataToggle,
   },
   data() {
     return {
@@ -100,6 +98,10 @@ export default {
       propsData: [
         ["Props", "Type", "Default value", "Description"],
         ["disabled", "String", "false", "Use this props to disabled toggle"],
+      ],
+      eventsData: [
+        ["Event name", "Payload"],
+        ["update:modelValue", "The input state."],
       ],
       slotsData: [
         ["Slot name", "Description"],

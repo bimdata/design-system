@@ -1,20 +1,15 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid meet"
-    viewBox="0 0 24 24"
-    width="100%"
-    :fill="fillColor"
+  <component
+    :is="`BIMDataIcon${capitalized(name)}`"
+    :fill="fill"
+    :fillColor="fillColor"
     :color="color"
     :class="classes"
     :style="style"
-  >
-    <component :is="`bimdata-icon-${name}`" />
-  </svg>
+  />
 </template>
 
 <script>
-import icons from "./BIMDataLibraryIcons/index.js";
 import iconsColors from "../../assets/iconsColors.js";
 
 const sizeToPixel = {
@@ -29,25 +24,12 @@ const sizeToPixel = {
   xxxl: 60,
 };
 
-function formatIconComponentsNames(icons = {}) {
-  return Object.entries(icons).reduce(
-    (obj, [key, value]) => ({ ...obj, [`bimdata-icon-${key}`]: value }),
-    {}
-  );
-}
-
 export default {
   name: "BIMDataIcon",
-  components: {
-    ...formatIconComponentsNames(icons),
-  },
   props: {
     name: {
       type: String,
       required: true,
-      validator(value) {
-        return Object.keys(icons).includes(value);
-      },
     },
     color: {
       type: String,
@@ -112,14 +94,14 @@ export default {
     getPixelSize() {
       return this.customSize ? this.customSize : sizeToPixel[this.size];
     },
+    capitalized(name) {
+      const capitalizedFirst = name[0].toUpperCase();
+      const rest = name.slice(1);
+
+      return capitalizedFirst + rest;
+    },
   },
 };
 </script>
 
-<style
-  lang="scss"
-  scoped
-  src="../../assets/scss/_BIMDataVariables.scss"
-></style>
-
-<style lang="scss" src="./_BIMDataIcon.scss"></style>
+<style scoped lang="scss" src="./_BIMDataIcon.scss"></style>

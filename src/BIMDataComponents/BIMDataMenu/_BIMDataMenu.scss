@@ -1,0 +1,72 @@
+.bimdata-menu {
+  padding: var(--spacing-unit) 0;
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 12px;
+    &:not(:empty) {
+      .bimdata-menu__item__content {
+        padding: 0 var(--spacing-unit);
+        height: 29px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        & > span {
+          width: 100%;
+        }
+        &:hover {
+          background-color: var(--color-silver-light);
+        }
+        &--active {
+          background-color: #f0f5ff;
+        }
+      }
+    }
+    &__title {
+      padding: 0 var(--spacing-unit);
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-granite);
+      font-size: 11px;
+    }
+    &__divider {
+      .divider {
+        margin: calc(var(--spacing-unit) / 2) auto;
+        width: 90%;
+        border-bottom: 1px solid #f2f2f2;
+      }
+    }
+    &__title,
+    &__divider {
+      &:hover {
+        cursor: default;
+        background-color: transparent;
+      }
+    }
+    &__children {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      padding: calc(var(--spacing-unit) / 2) 0;
+      background-color: var(--color-white);
+      border: 1px solid transparent;
+      box-shadow: var(--box-shadow);
+      ul {
+        li {
+          height: 29px;
+          &:hover {
+            background-color: var(--color-silver-light);
+          }
+        }
+      }
+    }
+  }
+}

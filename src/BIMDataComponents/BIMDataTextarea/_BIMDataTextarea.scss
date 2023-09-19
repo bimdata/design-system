@@ -1,6 +1,4 @@
-// import BIMDATA MIXINS
 @import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
 
 textarea:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--color-white) inset;
@@ -11,7 +9,8 @@ textarea:-webkit-autofill {
   position: relative;
   inline-size: min-content;
   font-family: var(--primary-font);
-  font-size: calculateEm(14px);
+  color: var(--color-primary);
+  font-size: calculateEm(15px);
   textarea {
     padding: 0px;
     width: 100%;
@@ -20,6 +19,8 @@ textarea:-webkit-autofill {
     min-height: inherit;
     display: flex;
     margin: 0px;
+    color: var(--color-primary);
+    font-family: var(--primary-font);
     border: none;
     &:disabled {
       background-color: transparent;
@@ -68,7 +69,9 @@ textarea:-webkit-autofill {
     &::after {
       width: 0;
       height: 2px;
-      @include pseudo;
+      content: "";
+      display: block;
+      position: absolute;
       background-color: var(--color-primary);
       transform: scaleX(0);
     }

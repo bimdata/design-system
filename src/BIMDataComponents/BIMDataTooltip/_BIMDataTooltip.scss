@@ -1,7 +1,4 @@
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_text.scss";
 @import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
 
 .bimdata-tooltip {
   position: relative;
@@ -92,8 +89,8 @@
     }
 
     &--secondary {
-      background-color: $color-secondary;
-      color: $color-primary;
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
       &::before {
         border-color: var(--color-secondary) transparent transparent;
       }

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`BIMDataButton should render a button with a custom height and match snapshot 1`] = `"<button color=\\"default\\" type=\\"button\\" class=\\"bimdata-btn\\" style=\\"min-width: 32px; min-height: 50px;\\"></button>"`;
-
-exports[`BIMDataButton should render a button with a custom width and match snapshot 1`] = `"<button color=\\"default\\" type=\\"button\\" class=\\"bimdata-btn\\" style=\\"min-width: 50px; min-height: 32px;\\"></button>"`;
-
-exports[`BIMDataButton should render a button with a slot and match snapshot 1`] = `"<button color=\\"default\\" type=\\"button\\" class=\\"bimdata-btn\\" style=\\"min-width: 32px; min-height: 32px;\\"><span>test</span></button>"`;
-
-exports[`BIMDataButton should render component and match snapshot 1`] = `"<button color=\\"default\\" type=\\"button\\" class=\\"bimdata-btn\\" style=\\"min-width: 32px; min-height: 32px;\\"></button>"`;

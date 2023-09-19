@@ -7,6 +7,7 @@
       'not-empty': modelValue.length > 0,
     }"
     :style="{ width }"
+    v-clickaway="() => (isOpen = false)"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
@@ -20,11 +21,7 @@
     </div>
 
     <transition name="slide-fade-down">
-      <ul
-        v-show="!disabled && isOpen"
-        v-clickaway="() => (isOpen = false)"
-        class="bimdata-select__option-list"
-      >
+      <ul v-show="!disabled && isOpen" class="bimdata-select__option-list">
         <li
           class="bimdata-select__option-list__entry"
           v-for="(option, index) of options"
@@ -55,7 +52,7 @@
 import clickaway from "../../BIMDataDirectives/click-away.js";
 // Components
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {
@@ -90,6 +87,9 @@ export default {
     modelValue: {
       type: Array,
     },
+    nullLabel: {
+      type: String,
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -119,6 +119,9 @@ export default {
       return option;
     },
     optionLabel(option) {
+      if (this.nullLabel && option == null) {
+        return this.nullLabel;
+      }
       if (this.optionLabelKey && option) {
         return option[this.optionLabelKey];
       }
@@ -155,4 +158,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./BIMDataSelect.scss"></style>
+<style scoped lang="scss" src="./_BIMDataSelect.scss"></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-ds" :class="theme">
+  <div class="bimdata-ds bimdata-scrollbar" :class="theme">
     <Navigation :theme="theme" @switch-theme="switchTheme()"></Navigation>
     <router-view />
   </div>
@@ -32,17 +32,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import PRISMJS THEME
-@import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-</style>
-
-<style lang="scss">
-// import BIMDATA STYLE
-@import "../assets/scss/BIMData.scss";
-@import "../assets/scss/_BIMDataFonts.scss";
-@import "../assets/scss/mixins/_colors-variation.scss";
-
-// import DESIGN SYSTEM STYLE
-@import "./_DesignSystem-global.scss";
-</style>
+<style lang="scss" src="./_DesignSystem-global.scss"></style>

@@ -16,9 +16,7 @@
             @selection-changed="simpleExample.selection = $event"
           />
           <div class="selection-box">
-            <div class="selection-box__label">
-              Selection :
-            </div>
+            <div class="selection-box__label">Selection :</div>
             <div
               class="selection-box__item"
               v-for="(s, i) of simpleExample.selection"
@@ -26,9 +24,7 @@
             >
               {{ `[${i}] - ${s.join(", ")}` }}
             </div>
-            <div v-show="simpleExample.selection.length === 0">
-              ( None )
-            </div>
+            <div v-show="simpleExample.selection.length === 0">( None )</div>
           </div>
         </template>
 
@@ -84,7 +80,7 @@
 
         <template #import>
           import BIMDataTable from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTable/BIMDataTable.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
         </template>
 
         <template #code>
@@ -106,9 +102,9 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Props:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Props:
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="propsData[0]"
@@ -116,9 +112,9 @@
         />
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Events:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Events:
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="eventsData[0]"
@@ -165,7 +161,7 @@
           <pre>
             let columns = [
               { id: "fullName", label: "Name" },
-              { id: "age", label: "Age", width: "40px" },
+              { id: "age", label: "Age", width: "64px" },
               { id: "country", label: "Country", width: "200px", align: "center" }
             ];
           </pre>
@@ -183,7 +179,7 @@
           <pre>
             &lt;BIMDataTable :columns="columns" :rows="rows"&gt;
               &lt;template #cell-fullName="{ row }"&gt;
-                {{ "{{ `${row.firstName} ${row.lastName}` }" + "}" }}
+                {{ "{" + "{ `${row.firstName} ${row.lastName}` }" + "}" }}
               &lt;/template&gt;
               &lt;template #cell-age="{ row }"&gt;
                 &lt;AgeCustomCell :age="row.age" /&gt;
@@ -224,19 +220,23 @@
         the following resources:
         <ul>
           <li>
-            <a href="https://v3.vuejs.org/guide/component-slots.html">Slots</a>
+            <a href="https://v3.vuejs.org/guide/component-slots.html">
+              Slots
+            </a>
           </li>
           <li>
             <a
               href="https://v3.vuejs.org/guide/component-slots.html#dynamic-slot-names"
-              >Dynamic slot names</a
             >
+              Dynamic slot names
+            </a>
           </li>
           <li>
             <a
               href="https://v3.vuejs.org/guide/component-slots.html#scoped-slots"
-              >Scoped slots</a
             >
+              Scoped slots
+            </a>
           </li>
         </ul>
       </div>
@@ -265,21 +265,13 @@ import propsData from "./props-data.js";
 // Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import AgeCustomCell from "./AgeCustomCell.vue";
-import CountryCustomCell from "./CountryCustomCell.vue";
+import AgeCustomCell from "./example/AgeCustomCell.vue";
+import CountryCustomCell from "./example/CountryCustomCell.vue";
 
 export default {
   components: {
     Code,
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataTable,
-    BIMDataText,
     AgeCustomCell,
     CountryCustomCell,
   },
@@ -301,16 +293,37 @@ export default {
         paginated: false,
         perPage: 4,
       },
-
       advancedExample: {
         columns: [
-          { id: "fullName", label: "Name" },
-          { id: "age", label: "Age", width: "40px" },
-          { id: "country", label: "Country", width: "200px", align: "center" },
+          {
+            id: "fullName",
+            label: "Name",
+          },
+          {
+            id: "age",
+            label: "Age",
+            width: "64px",
+          },
+          {
+            id: "country",
+            label: "Country",
+            width: "200px",
+            align: "center",
+          },
         ],
         rows: [
-          { firstName: "John", lastName: "Doe", age: 26, country: "Germany" },
-          { firstName: "Jane", lastName: "Doe", age: 21, country: "Austria" },
+          {
+            firstName: "John",
+            lastName: "Doe",
+            age: 26,
+            country: "Germany",
+          },
+          {
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 21,
+            country: "Austria",
+          },
           {
             firstName: "Martine",
             lastName: "Durand",
@@ -323,7 +336,12 @@ export default {
             age: 64,
             country: "Italy",
           },
-          { firstName: "Enrico", lastName: "Fermi", age: 41, country: "Italy" },
+          {
+            firstName: "Enrico",
+            lastName: "Fermi",
+            age: 41,
+            country: "Italy",
+          },
           {
             firstName: "Lev Davidovitch",
             lastName: "Landau",

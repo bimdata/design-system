@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/mixins/_font-size.scss";
+
 .article-icons {
   img {
     width: 71px;
@@ -7,8 +9,8 @@
     margin: 0 0 var(--spacing-unit);
   }
   .bimdata-ds__demo {
-    ::v-deep.bimdata-ds__demo__module {
-      padding-top: 38px;
+    :deep(.bimdata-ds__demo__module) {
+      align-items: flex-start;
       justify-content: flex-start;
     }
     &__module {
@@ -18,33 +20,37 @@
         left: 0;
       }
       .icons-numbers {
-        height: 32px;
         padding: 0 6px;
+        min-width: 6%;
+        height: 32px;
         background-color: var(--color-primary);
         color: var(--color-white);
         font-size: 10px;
         letter-spacing: 1px;
         display: flex;
         align-items: center;
+        justify-content: center;
         position: absolute;
         top: 0;
         right: 0;
       }
       .icons {
-        display: flex;
-        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 210px);
         justify-content: center;
         & > div {
-          margin: calc(var(--spacing-unit) / 2);
           padding: var(--spacing-unit);
-          width: 118px;
+          flex: 19%;
+          flex-grow: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           p {
             margin: calc(var(--spacing-unit) / 2) 0 0 0;
-            font-size: calculateEm(12px);
+            font-size: calculateEm(10px);
           }
           &:hover {
             background-color: var(--color-silver-light);

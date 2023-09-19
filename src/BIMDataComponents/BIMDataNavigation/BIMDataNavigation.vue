@@ -68,7 +68,6 @@ import {
   BIMDataIconChevron,
   BIMDataIconDoubleChevron,
 } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
-
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 
 export default {
@@ -118,10 +117,5 @@ export default {
   emits: ["first", "previous", "next", "last"],
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_list.scss";
-</style>
 
 <style scoped lang="scss" src="./_BIMDataNavigation.scss"></style>

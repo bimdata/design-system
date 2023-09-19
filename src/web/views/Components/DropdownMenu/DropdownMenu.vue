@@ -11,12 +11,12 @@
             :disabled="checkboxDisabledChecked"
             :transitionName="selectedDropdownOptionstransition"
             :directionClass="selectedDropdownOptionsdirection"
+            :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
+            :header="checkboxDisabledHeader"
           >
-            <template #header v-if="checkboxHeaderChecked">
+            <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
-            </template>
-            <template #contentAfterHeader v-if="checkboxAfterHeaderChecked">
-              hi
+              <BIMDataIconChevron :rotate="isOpen ? 90 : 0" size="xxs" />
             </template>
             <template #element v-if="checkboxElementSlotChecked">
               <ul class="bimdata-list">
@@ -37,6 +37,22 @@
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="header"
+            v-model="checkboxDisabledHeader"
+          >
+          </BIMDataCheckbox>
+          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+            >two level list</BIMDataText
+          >
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="content"
+            v-model="checkboxTwoLevelChecked"
+          >
+          </BIMDataCheckbox>
+
           <div
             v-for="[key, values] in Object.entries(dropdownOptions)"
             :key="key"
@@ -63,11 +79,6 @@
           >
           <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
           </BIMDataCheckbox>
-          <BIMDataCheckbox
-            text="contentAfterHeader"
-            v-model="checkboxAfterHeaderChecked"
-          >
-          </BIMDataCheckbox>
           <BIMDataCheckbox text="element" v-model="checkboxElementSlotChecked">
           </BIMDataCheckbox>
         </template>
@@ -75,14 +86,16 @@
         <!-- bloc IMPORTS LINES CODE -->
         <template #import>
           import BIMDataDropdownMenu from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataDropdownMenu.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
         </template>
         <template #code>
           <pre>
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
+              :header="{{ getHeaderProp() }}"
+              {{ getMenuItems() }}
             &gt;
-              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
+              {{ getHeader() }} {{ getElement() }}
             &lt;/BIMDataDropdownMenu&gt;
           </pre>
         </template>
@@ -108,27 +121,19 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
-import BIMDataDropdownMenu from "../../../../../src/BIMDataComponents/BIMDataDropdownMenu/BIMDataDropdownMenu.vue";
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataRadio,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataDropdownMenu,
   },
   data() {
     return {
       checkboxDisabledChecked: false,
+      checkboxTwoLevelChecked: false,
       checkboxHeaderChecked: true,
+      checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
-      checkboxElementSlotChecked: false,
+      checkboxElementSlotChecked: true,
       customListCheckbox: false,
       dropdownOptions: {
         transition: ["up", "down"],
@@ -137,6 +142,28 @@ export default {
       selectedDropdownOptionstransition: "up",
       selectedDropdownOptionsdirection: "down",
       list: ["item 01", "item 02", "item 03", "item 04", "item 05", "item 06"],
+      multiLevelList: [
+        {
+          name: "project1",
+          children: {
+            position: "up",
+            list: [{ name: "project1.1" }],
+          },
+        },
+        { name: "project2", action: () => console.log("clicked") },
+        {
+          name: "project3",
+          children: {
+            list: [
+              {
+                name: "project3.1",
+                action: () => console.log("clicked"),
+              },
+              { name: "project3.2" },
+            ],
+          },
+        },
+      ],
       propsData: [
         ["Props", "Type", "Default value", "Validator", "Description"],
         ["disabled", "Boolean", "false", "", ""],
@@ -168,13 +195,33 @@ export default {
           "",
           "Use this props to custom height of BIMDataDropdownList component.",
         ],
+        [
+          "header",
+          "Boolean",
+          "true",
+          "",
+          "Use this props to not display the header.",
+        ],
+        [
+          "menuItems",
+          "Array",
+          "[]",
+          "",
+          "Use this props to add content with two level of nesting",
+        ],
+        [
+          "subListMaxHeight",
+          "String",
+          "auto",
+          "",
+          "Use this props to define the sub-list maximum height",
+        ],
       ],
       slotData: [
         ["Slot name", "Description"],
-        ["header", "Use this slot for add content "],
         [
-          "contentAfterHeader",
-          "Use this slot for add content after the header slot",
+          "header",
+          "Use this slot to add title content. Available slot props : isOpen (true when the menu is open)",
         ],
         [
           "element",
@@ -186,16 +233,12 @@ export default {
   methods: {
     getHeader() {
       if (this.checkboxHeaderChecked) {
-        return `<template #header>
-              dropdown menu example
-            </template>
-            `;
-      }
-    },
-    getContentAfterBtn() {
-      if (this.checkboxAfterHeaderChecked) {
-        return `<template #contentAfterHeader>
-              hi
+        return `<template #header="{ isOpen }">
+              <span>dropdown menu example</span>
+              <BIMDataIconChevron
+                :rotate="isOpen ? 90 : 0"
+                size="xxs"
+              />
             </template>
             `;
       }
@@ -208,6 +251,18 @@ export default {
               </ul>
             </template>
             `;
+      }
+    },
+    getMenuItems() {
+      if (this.checkboxTwoLevelChecked) {
+        return `:menuItems=${JSON.stringify(this.multiLevelList)}`;
+      }
+    },
+    getHeaderProp() {
+      if (this.checkboxDisabledHeader) {
+        return true;
+      } else {
+        return false;
       }
     },
   },

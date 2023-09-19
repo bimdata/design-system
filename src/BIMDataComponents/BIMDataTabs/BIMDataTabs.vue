@@ -23,7 +23,7 @@
         :style="{ minWidth: tabWidth }"
         @click="onTabClick(tab)"
       >
-        <slot name="tab" :tab="tab">
+        <slot name="tab" :tab="tab" :active="tab.id === activeTab.id">
           {{ tab.label }}
         </slot>
       </li>
@@ -40,7 +40,7 @@
 
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {
@@ -162,7 +162,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "./_BIMDataTabs.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataTabs.scss"></style>

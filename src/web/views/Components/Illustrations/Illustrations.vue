@@ -26,7 +26,7 @@
 
         <template #import>
           <pre>
-            import BIMDataIllustration from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataIllustration.js";
+            import BIMDataIllustration from "@bimdata/design-system/src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
           </pre>
         </template>
 
@@ -38,6 +38,13 @@
           </pre>
         </template>
       </ComponentCode>
+
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Props:</BIMDataText
+        >
+        <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
@@ -46,14 +53,9 @@
 import Illustrations from "./Illustrations.js";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
-import BIMDataIllustration from "../../../../../src/BIMDataComponents/BIMDataIllustration/BIMDataIllustration.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-
 export default {
   components: {
     ComponentCode,
-    BIMDataIllustration,
-    BIMDataText,
   },
   data() {
     return {
@@ -64,6 +66,25 @@ export default {
         x: "23",
         y: "30",
       },
+      propsData: [
+        ["Props", "Type", "Required", "Default value", "Description"],
+        ["x", "[Number, String]", "", "90", "Specify the width"],
+        ["y", "[Number, String]", "", "90", "Specify the height"],
+        [
+          "customWidth",
+          "[Number, String]",
+          "",
+          "90",
+          "Specify the width, won't affect the viewBox",
+        ],
+        [
+          "customHeight",
+          "[Number, String]",
+          "",
+          "90",
+          "Specify the height, won't affect the viewBox",
+        ],
+      ],
     };
   },
   methods: {
@@ -74,7 +95,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// import COMPONENT STYLE
-@import "./_Illustrations.scss";
-</style>
+<style scoped lang="scss" src="./_Illustrations.scss"></style>

@@ -1,5 +1,5 @@
 export default {
-  bind(el, binding) {
+  beforeMount(el, binding) {
     if (typeof binding.value !== "function") {
       throw Error(
         `click away directive needs function, got ${typeof binding.value}`
@@ -11,10 +11,14 @@ export default {
         binding.value();
       }
     };
-    window.addEventListener("click", el.clickAwayHandler, true);
+    window.addEventListener(binding.arg || "click", el.clickAwayHandler, true);
   },
-  unbind(el) {
-    window.removeEventListener("click", el.clickAwayHandler, true);
+  unmounted(el, binding) {
+    window.removeEventListener(
+      binding.arg || "click",
+      el.clickAwayHandler,
+      true
+    );
     delete el.clickAwayHandler;
   },
 };

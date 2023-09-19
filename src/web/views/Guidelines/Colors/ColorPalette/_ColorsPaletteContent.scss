@@ -1,13 +1,17 @@
+@import "../../../../../assets/scss/mixins/_font-size.scss";
+
 .colors-container {
   .color-swatches {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
+
     .color-swatche {
       margin: 12px 12px 12px 0;
       width: 320px;
       box-shadow: var(--box-shadow);
       overflow: hidden;
+
       &__header,
       &__body {
         &__item {
@@ -24,6 +28,7 @@
           }
         }
       }
+
       &__header {
         height: 140px;
         display: flex;
@@ -38,6 +43,7 @@
           }
         }
       }
+
       &__body {
         padding: 6px 12px;
         background-color: #fcfcfc;

@@ -1,0 +1,51 @@
+/* Custom SUBMENU ------------------------ */
+
+.submenu {
+  position: absolute;
+  top: 0;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
+}
+.submenu:is(.submenu--up, .submenu--down, .submenu--left, .submenu--right, .submenu--no-direction)
+ {
+  padding: calc(var(--spacing-unit) / 2) 0;
+  width: 100%;
+  left: 0;
+  border-radius: 3px;
+  z-index: 2;
+ }
+.submenu li {
+  padding: calc(var(--spacing-unit) / 2);
+  cursor: pointer;
+}
+
+.submenu li:hover {
+  background-color: var(--color-silver-light);
+}
+
+.submenu li.disabled {
+  cursor: inherit;
+}
+
+.submenu li.disabled:hover {
+  background-color: transparent;
+}
+
+.submenu--up {
+  top: auto;
+  bottom: calc(100% + calc(var(--spacing-unit)) / 2);
+}
+
+.submenu--down {
+  top: calc(100% + calc(var(--spacing-unit)) / 2);
+}
+
+.submenu--right {
+  left: calc(100% + calc(var(--spacing-unit)) / 2);
+  right: auto;
+}
+
+.submenu--left {
+  left: auto;
+  right: calc(100% + calc(var(--spacing-unit)) / 2);
+}

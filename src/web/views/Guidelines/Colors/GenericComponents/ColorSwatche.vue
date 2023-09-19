@@ -24,9 +24,9 @@
               v-clipboard:error="onError"
             >
               <span> {{ color.hex }} </span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
           <div class="color-swatche__body__item">
@@ -38,23 +38,9 @@
               v-clipboard:error="onError"
             >
               <span>{{ color.rgb }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
-            </div>
-          </div>
-          <div class="color-swatche__body__item">
-            <div class="label">SCSS</div>
-            <div
-              class="value"
-              v-clipboard:copy="`${color.scss}`"
-              v-clipboard:success="onCopy"
-              v-clipboard:error="onError"
-            >
-              <span>{{ color.scss }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
           <div class="color-swatche__body__item">
@@ -66,9 +52,9 @@
               v-clipboard:error="onError"
             >
               <span>{{ color.css }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
           <div class="color-swatche__body__item">
@@ -80,9 +66,9 @@
               v-clipboard:error="onError"
             >
               <span>{{ color.background }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
           <div class="color-swatche__body__item">
@@ -94,9 +80,9 @@
               v-clipboard:error="onError"
             >
               <span>{{ color.color }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
           <div class="color-swatche__body__item">
@@ -108,9 +94,9 @@
               v-clipboard:error="onError"
             >
               <span>{{ color.fill }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
           <div class="color-swatche__body__item">
@@ -122,9 +108,9 @@
               v-clipboard:error="onError"
             >
               <span>{{ color.stroke }}</span>
-              <BIMDataButton fill radius width="55px" height="24px"
-                >copy</BIMDataButton
-              >
+              <BIMDataButton fill radius width="55px" height="24px">
+                copy
+              </BIMDataButton>
             </div>
           </div>
         </div>
@@ -132,12 +118,12 @@
     </div>
     <transition name="fade">
       <div
+        v-if="alerts"
         class="alerts"
         :class="{
           success: alertType === 'success',
           error: alertType === 'error',
         }"
-        v-if="alerts"
       >
         {{ message }}
       </div>
@@ -147,6 +133,7 @@
 
 <script>
 import BIMDataButton from "../../../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+
 export default {
   components: {
     BIMDataButton,
@@ -185,7 +172,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../../../../../assets/scss/mixins/_font-size.scss";
-@import "./_ColorSwatche.scss";
-</style>
+<style scoped lang="scss" src="./_ColorSwatche.scss"></style>

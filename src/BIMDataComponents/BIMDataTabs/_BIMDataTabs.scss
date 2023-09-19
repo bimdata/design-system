@@ -1,5 +1,4 @@
 @import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
 
 .bimdata-tabs {
   position: relative;
@@ -24,12 +23,12 @@
     scroll-behavior: smooth;
 
     &__tab {
+      padding: 0;
       box-sizing: border-box;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 calc(var(--spacing-unit) / 2);
       text-align: center;
       color: var(--color-granite);
       cursor: pointer;

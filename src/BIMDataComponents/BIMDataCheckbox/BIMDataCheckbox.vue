@@ -4,6 +4,7 @@
     :class="{ indeterminate, disabled, checked }"
     @click="onClick"
     :style="style"
+    v-bind="$attrs"
   >
     <span class="bimdata-checkbox__mark"></span>
     <span class="bimdata-checkbox__text" v-if="text">
@@ -64,9 +65,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss" src="./_BIMDataCheckbox.scss"></style>
+<style scoped lang="scss" src="./_BIMDataCheckbox.scss"></style>

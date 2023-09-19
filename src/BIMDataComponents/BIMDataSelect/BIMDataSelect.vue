@@ -51,6 +51,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    nullLabel: {
+      type: String,
+    },
     disabled: {
       type: Boolean,
       default: false,

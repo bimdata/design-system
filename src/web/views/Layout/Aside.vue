@@ -1,6 +1,6 @@
 <template>
   <aside class="aside">
-    <div style="flex-grow: 1; overflow-y: auto;">
+    <div style="flex-grow: 1; overflow-y: auto">
       <BIMDataText
         component="h4"
         color="color-primary"
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import store from "../../store.js";
 import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
@@ -36,7 +37,7 @@ export default {
       return result[0].replace(hyphenRegex, " ");
     },
     getPageChildren() {
-      return Object.values(this.$store.state).find(
+      return Object.values(store).find(
         page => page.path === this.getPathFirstElement()
       ).children;
     },
@@ -50,8 +51,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../../assets/scss/mixins/_colors-variation.scss";
-
-@import "./_DesignSystem-aside.scss";
-</style>
+<style scoped lang="scss" src="./_DesignSystem-aside.scss"></style>

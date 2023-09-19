@@ -88,7 +88,7 @@
 
         <template #import>
           import BIMDataTooltip from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTooltip.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
         </template>
 
         <template #code>
@@ -118,26 +118,12 @@
 
 <script>
 import propsData from "./props-data.js";
-// Components
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
-import BIMDataTooltip from "../../../../../src/BIMDataComponents/BIMDataTooltip/BIMDataTooltip.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataRadio,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataTextarea,
-    BIMDataTooltip,
   },
   data() {
     return {

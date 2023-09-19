@@ -1,6 +1,5 @@
-// import BIMDATA MIXINS
 @import "../../assets/scss/mixins/_font-size.scss";
-@import "../../assets/scss/mixins/_pseudo.scss";
+
 //custom LABEL
 .bimdata-checkbox {
   position: relative;
@@ -28,7 +27,9 @@
     &::after {
       width: 4px;
       height: 7px;
-      @include pseudo;
+      content: '';
+      display: block;
+      position: absolute;
       top: 1px;
       left: 3px;
       border: solid transparent;

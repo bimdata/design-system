@@ -1,10 +1,10 @@
 <script>
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
+import BIMDataIconArrow from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconArrow.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
 export default {
   components: {
-    BIMDataIcon,
+    BIMDataIconArrow,
   },
   props: {
     steps: {
@@ -42,13 +42,7 @@ export default {
               click: () => this.onBackClick(),
             },
           },
-          [
-            h(BIMDataIcon, {
-              props: {
-                name: "arrow",
-              },
-            }),
-          ]
+          [h(BIMDataIconArrow)]
         )
       );
 
@@ -100,7 +94,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .bimdata-breadcrumb {
   display: flex;
   align-items: center;

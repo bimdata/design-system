@@ -6,7 +6,7 @@
       fill="transparent"
       :width="width"
       :height="width"
-      style="transform: rotate(-90deg);"
+      style="transform: rotate(-90deg)"
     >
       <circle
         :cx="width / 2"
@@ -20,11 +20,16 @@
         --dasharray: ${dashArray};
         --dashoffset-from: ${dashOffsetFrom};
         --dashoffset-to: ${dashOffsetTo};`"
-        @animationiteration="$emit('lap', (delay * laps - $event.elapsedTime) / delay)"
+        @animationiteration="
+          $emit('lap', (delay * laps - $event.elapsedTime) / delay)
+        "
         @animationend="$emit('stop')"
       />
     </svg>
-    <div class="bimdata-pie-spinner__inside" :style="{width : width + 'px', height: width + 'px'}">
+    <div
+      class="bimdata-pie-spinner__inside"
+      :style="{ width: width + 'px', height: width + 'px' }"
+    >
       <slot />
     </div>
   </div>
@@ -35,44 +40,39 @@ export default {
   props: {
     width: {
       type: Number,
-      default: 22
+      default: 22,
     },
     strokeWidth: {
       type: Number,
-      default: 2
+      default: 2,
     },
     stroke: {
       type: String,
-      default: "currentColor"
+      default: "currentColor",
     },
     delay: {
       type: Number,
-      default: 1
+      default: 1,
     },
     laps: {
       type: [Number, String],
-      default: 1
+      default: 1,
     },
     dashOffsetFrom: {
       type: Number,
-      default: 0
+      default: 0,
     },
     dashOffsetTo: {
       type: Number,
-      default: 63
+      default: 63,
     },
     dashArray: {
       type: Number,
-      default: 63
-    }
+      default: 63,
+    },
   },
-  emits: [
-    'lap',
-    'stop'
-  ]
+  emits: ["lap", "stop"],
 };
 </script>
 
-<style lang="scss">
-@import "./_BIMDataPieSpinner.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataPieSpinner.scss"></style>

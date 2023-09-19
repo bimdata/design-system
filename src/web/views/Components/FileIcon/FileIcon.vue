@@ -33,8 +33,8 @@
         </template>
 
         <template #import>
-          import BIMDataInput from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataInput.js";
+          import BIMDataFileIcon from
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
         </template>
 
         <template #code>
@@ -60,19 +60,11 @@
 <script>
 import propsData from "./props-data.js";
 
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataInput from "../../../../BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataFileIcon from "../../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataInput,
-    BIMDataFileIcon,
-    BIMDataText,
   },
   data() {
     return {

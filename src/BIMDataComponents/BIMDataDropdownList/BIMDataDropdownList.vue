@@ -35,7 +35,7 @@
         @element-click="onElementClick"
         :loading="loading"
       >
-        <template #element="{element}">
+        <template #element="{ element }">
           <slot
             name="element"
             :element="element"
@@ -51,7 +51,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 
@@ -142,10 +142,4 @@ export default {
 };
 </script>
 
-<style
-  lang="scss"
-  scoped
-  src="../../assets/scss/_BIMDataVariables.scss"
-></style>
-
-<style lang="scss" src="./_BIMDataDropdownList.scss"></style>
+<style scoped lang="scss" src="./_BIMDataDropdownList.scss"></style>

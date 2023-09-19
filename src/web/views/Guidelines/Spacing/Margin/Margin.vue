@@ -17,8 +17,9 @@
               component="h5"
               color="color-primary"
               margin="15px 0 10px"
-              >{{ size }}</BIMDataText
             >
+              {{ size }}
+            </BIMDataText>
             <BIMDataCheckbox
               :text="value.text"
               v-model="value.checked"
@@ -41,13 +42,13 @@
       </template>
     </ComponentCode>
     <div class="m-y-12">
-      <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
-        >Class summary</BIMDataText
-      >
+      <BIMDataText component="h3" color="color-primary" margin="15px 0 10px">
+        Class summary
+      </BIMDataText>
       <div class="m-y-12">
-        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px"
-          >Global</BIMDataText
-        >
+        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px">
+          Global
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="globalClassData[0]"
@@ -55,9 +56,9 @@
         />
       </div>
       <div class="m-y-12">
-        <BIMDataText component="h6" color="color-primary" margin="15px 0 10px"
-          >Top, Bottom, Vertical</BIMDataText
-        >
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px">
+          Top, Bottom, Vertical
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="verticalClassData[0]"
@@ -65,9 +66,9 @@
         />
       </div>
       <div class="m-y-12">
-        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px"
-          >Left, Right, Horizontal</BIMDataText
-        >
+        <BIMDataText component="h3" color="color-primary" margin="15px 0 10px">
+          Left, Right, Horizontal
+        </BIMDataText>
         <BIMDataTable
           :rowHeight="36"
           :columns="horizontalClassData[0]"
@@ -79,17 +80,17 @@
 </template>
 
 <script>
-import ComponentCode from "../../../../views/Elements/ComponentCode/ComponentCode.vue";
 import BIMDataCheckbox from "../../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataTable from "../../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
+import ComponentCode from "../../../../views/Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    ComponentCode,
     BIMDataCheckbox,
     BIMDataTable,
     BIMDataText,
+    ComponentCode,
   },
   data() {
     return {
@@ -568,13 +569,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA UTILITIES
-@import "../../../../../assets/scss/utilities/_flex.scss";
-
-// import COMPONENT STYLE
-@import "./_Margin.scss";
-</style>
+<style scoped lang="scss" src="./_Margin.scss"></style>

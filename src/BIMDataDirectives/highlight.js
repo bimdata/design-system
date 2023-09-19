@@ -1,17 +1,39 @@
-import Vue from "vue";
+import { nextTick } from "vue";
 import Prism from "prismjs";
 import Normalizer from "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js";
 
 const normalizer = new Normalizer();
 
 export default {
-  bind(el, binding, vnode) {
+  beforeMount(el, binding, vnode) {
     highlight(el, binding, vnode);
   },
-  componentUpdated(el, binding, vnode) {
+  updated(el, binding, vnode) {
     highlight(el, binding, vnode);
   },
 };
+
+/**
+ * @param { { children: Array | string } } vnode
+ * @returns { string }
+ */
+function getTextFromVNode(vnode) {
+  if (typeof vnode.children === "string") {
+    return vnode.children;
+  } else {
+    return vnode.children.map(getTextFromVNode).join("");
+  }
+}
+
+function removeWhiteSpaces(string) {
+  return string
+    .split("\n")
+    .filter(line => !line.match(/^ +$/))
+    .join("\n")
+    .replace(/(?<![\n {2,}]) {2,}/, " ");
+}
+
+window.removeWhiteSpaces = removeWhiteSpaces;
 
 function highlight(el, binding, vnode) {
   const choosedLanguage = binding.arg;
@@ -24,16 +46,7 @@ function highlight(el, binding, vnode) {
       "Supported languages are xml, javascript, css, scss, html and bash"
     );
   }
-  let textToHighlight = null;
-  if (
-    vnode.children[1] &&
-    vnode.children[1].children &&
-    vnode.children[1].children[0]
-  ) {
-    textToHighlight = vnode.children[1].children[0].text;
-  } else {
-    textToHighlight = vnode.children[0].text;
-  }
+  const textToHighlight = removeWhiteSpaces(getTextFromVNode(vnode));
 
   el.innerHTML = normalizer.normalize(
     Prism.highlight(
@@ -46,5 +59,5 @@ function highlight(el, binding, vnode) {
       "remove-indent": true,
     }
   );
-  Vue.nextTick(() => Prism.highlightAll());
+  nextTick(() => Prism.highlightAll());
 }

@@ -18,7 +18,7 @@
             :margin="marginInput"
           >
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIcon name="show" class="fill-granite-light" />
+              <BIMDataIconShow class="fill-granite-light" />
             </template>
           </BIMDataInput>
         </template>
@@ -61,8 +61,7 @@
         </template>
 
         <template #import>
-          import BIMDataInput from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataInput.js";
+          {{ getImportContent() }}
         </template>
 
         <template #code>
@@ -76,9 +75,7 @@
               {{ getMargin() }}
             &gt;
 
-              &lt;template #inputIcon v-if="inputIcon"&gt;
-                {{ getInputIcon() }}
-              &lt;/template&gt;
+            {{ getInputIcon() }}
 
             &lt;/BIMDataInput&gt;
           </pre>
@@ -126,20 +123,10 @@ import propsData from "./props-data.js";
 import slotsData from "./slots-data.js";
 // Components
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataCheckbox from "../../../../../src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataIcon from "../../../../../src/BIMDataComponents/BIMDataIcon/BIMDataIcon.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataCheckbox,
-    BIMDataInput,
-    BIMDataIcon,
-    BIMDataText,
   },
   data() {
     return {
@@ -158,6 +145,15 @@ export default {
     };
   },
   methods: {
+    getImportContent() {
+      return `
+        import BIMDataInput from "@bimdata/design-system/src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
+        ${
+          this.inputIcon
+            ? 'import BIMDataIconShow from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconShow.vue";'
+            : ""
+        }`;
+    },
     getErrorMessage() {
       if (this.error && this.errorMessage) {
         return "your error message here";
@@ -184,7 +180,10 @@ export default {
     },
     getInputIcon() {
       if (this.inputIcon) {
-        return '<BIMDataIcon name="show" class="fill-granite-light"/>';
+        return `
+        <template #inputIcon v-if="inputIcon">
+          <BIMDataIconShow class="fill-granite-light"/>"
+        </template>`;
       }
     },
     getMargin() {

@@ -1,9 +1,9 @@
 <template>
   <main class="article article-textarea">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText component="h1" color="color-primary">
+        {{ $route.name }}
+      </BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
         language="javascript"
@@ -139,7 +139,7 @@
             >
             <BIMDataInput
               v-model="marginText"
-              placeholder="Change margin"
+              placeholder="Change margin (in px or em)"
             ></BIMDataInput>
           </div>
           <div>
@@ -151,14 +151,14 @@
             >
             <BIMDataInput
               v-model="paddingText"
-              placeholder="Change padding"
+              placeholder="Change padding (in px or em)"
             ></BIMDataInput>
           </div>
         </template>
 
         <template #import>
           import BIMDataText from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataText.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataText/BIMDataText.vue";
         </template>
 
         <template #code>
@@ -198,19 +198,10 @@
 
 <script>
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataRadio,
-    BIMDataText,
-    BIMDataInput,
   },
   data() {
     return {
@@ -350,13 +341,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// import BIMDATA COMPONENT VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
-
-// import BIMDATA COMPONENT MIXINS
-@import "../../../../assets/scss/mixins/_font-size.scss";
-
-// import COMPONENT STYLE
-@import "./_Text.scss";
-</style>
+<style scoped lang="scss" src="./_Text.scss"></style>

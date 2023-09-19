@@ -1,7 +1,13 @@
 <template>
   <div
     class="bimdata-input"
-    :class="{ error, success, disabled, loading, 'not-empty': !!modelValue }"
+    :class="{
+      error,
+      success,
+      disabled,
+      loading,
+      'not-empty': modelValue != null,
+    }"
     :style="style"
   >
     <input
@@ -40,7 +46,7 @@ export default {
   },
   props: {
     modelValue: {
-      type: [String, Number, Boolean],
+      type: [String, Number],
       default: "",
     },
     placeholder: {
@@ -113,9 +119,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "../../assets/scss/utilities/_text.scss";
-</style>
-
-<style lang="scss" src="./_BIMDataInput.scss"></style>
+<style scoped lang="scss" src="./_BIMDataInput.scss"></style>

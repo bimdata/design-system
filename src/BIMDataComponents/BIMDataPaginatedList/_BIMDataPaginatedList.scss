@@ -22,7 +22,7 @@
           background-color: var(--color-silver-light);
         }
         &:nth-child(even) {
-          background-color: hsl(var(--color-silver-light), 5%);
+          background-color: var(--color-white);
         }
       }
     }
@@ -30,6 +30,14 @@
 
   &--empty {
     height: auto;
+  }
+
+  &__elements {
+    li {
+      &.active-element {
+        font-weight: bold;
+      }
+    }
   }
 
   .bimdata-spinner {

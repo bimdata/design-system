@@ -4,6 +4,8 @@
   background-color: var(--color-white);
 
   &__container {
+    height: 100%;
+
     table {
       border-collapse: collapse;
       border-spacing: 0;
@@ -23,12 +25,20 @@
       }
 
       th {
-        font-weight: 700;
+        font-weight: bold;
         color: var(--color-primary);
+
+        &.cell-sub-header {
+          min-height: 0;
+          padding: 0;
+          text-align: left;
+          font-weight: normal;
+          color: var(--color-granite-lightest);
+        }
       }
 
       td {
-        color: var(--color-granite);
+        color: var(--color-granite-light);
       }
     }
 
@@ -38,8 +48,7 @@
       align-items: center;
       padding: var(--spacing-unit);
       font-size: 1rem;
-      font-weight: 700;
-      background-color: var(--color-silver-light);
+      font-weight: bold;
     }
   }
 

@@ -1,5 +1,2 @@
-# ignore design system folder
+# ignore design system app files
 src/web/
-
-# ignore main.js of design system
-src/main.js

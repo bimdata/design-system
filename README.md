@@ -1,16 +1,16 @@
 # BIMData Design System
 
-> BIMData's Design System is an open-source DS. The documentation is available at this url: [design.bimdata.io](https://design.bimdata.io/)
+> BIMData's Design System is an open-source DS. The documentation is available here: [design.bimdata.io](https://design.bimdata.io/)
 
 <p align="center">
-  <img src="./screenshots/design-system_illustration.png" alt="Design system illustration" />
+  <img src="./design-system.png" alt="BIMData Design System" />
 </p>
 
 ## Used by
 
 - [BIMData Viewer](https://www.npmjs.com/package/@bimdata/viewer)
 - [BIMData Viewer SDK](https://github.com/bimdata/bimdata-viewer-sdk)
-- BIMData Marketplace (coming soon..)
+- [BIMData Marketplace](https://marketplace.bimdata.io/)
 - [BIMData Platform](https://platform.bimdata.io)
 
 ## :runner: Getting started
@@ -21,7 +21,7 @@ npm i @bimdata/design-system
 
 ## :raising_hand: Compatibility
 
-BIMData Design System is a library compatible with Vue 2 and Vue 3.
+BIMData Design System is a library compatible with Vue 3.
 
 ## :open_hands: Contributing
 
@@ -37,14 +37,8 @@ npm install
 ### Compiles and hot-reloads for development
 npm run dev
 
-### Compiles and minifies for production
-npm run build
-
 ### Run your tests
 npm run test
-
-### Lints and fixes files
-npm run lint
 ```
 
 ## :package: Publish / :rocket: Deploy
@@ -94,3 +88,7 @@ The branches on which it is possible to publish are the following:
 
 For Merging this branches together, and to avoid any unexpected behavior, use `--no-ff` git merge option.
 After deploying a new latest tag with master branch, merge master into develop to update `package.json` and `CHANGELOG.md`.
+
+## License
+
+BIMData Design System is published under the term of MIT License (see [LICENSE](./LICENSE)).

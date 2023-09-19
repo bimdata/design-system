@@ -12,12 +12,34 @@
         <template #module>
           <BIMDataSearch
             :class="getOverviewSearchClasses()"
-            placeholder="Search"
+            :placeholder="placeholder"
             value=""
+            :clear="isClear"
+            :width="width + 'px'"
+            :height="height + 'px'"
           />
         </template>
 
         <template #parameters>
+          <BIMDataInput
+            margin="24px 0"
+            type="number"
+            placeholder="Preview width (in px)"
+            v-model="width"
+          />
+          <BIMDataInput
+            margin="24px 0"
+            type="number"
+            placeholder="Preview height (in px)"
+            v-model="height"
+          />
+          <BIMDataInput
+            margin="24px 0"
+            type="string"
+            placeholder="Placeholder"
+            v-model="placeholder"
+          />
+          <BIMDataCheckbox text="clear" v-model="isClear" />
           <div
             v-for="[key, values] in Object.entries(searchOptions)"
             :key="key"
@@ -43,15 +65,18 @@
 
         <template #import>
           import BIMDataSearch from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSearch.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
         </template>
 
         <template #code>
           <pre>
             &lt;BIMDataSearch
-              placeholder="Search"
+              placeholder="{{ placeholder }}"
               color="{{ selectedSearchOptionsstyle }}"
               {{ selectedSearchOptionskinds }}
+              clear="{{ isClear }}"
+              :width="{{ width + "px" }}"
+              :height="{{ height + "px" }}"
             /&gt;
           </pre>
         </template>
@@ -63,30 +88,35 @@
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import propsData from "./props-data.js";
+import eventsData from "./events-data.js";
+
 // Components
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataRadio from "../../../../../src/BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
-import BIMDataSearch from "../../../../../src/BIMDataComponents/BIMDataSearch/BIMDataSearch.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataTable,
-    BIMDataRadio,
-    BIMDataSearch,
-    BIMDataText,
   },
   data() {
     return {
       backgroundColor: false,
+      placeholder: "Search",
+      isClear: false,
+      width: 150,
+      height: 32,
       selectedSearchOptionskinds: "radius",
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
@@ -94,6 +124,7 @@ export default {
         style: ["primary", "secondary"],
       },
       propsData,
+      eventsData,
     };
   },
   computed: {

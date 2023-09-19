@@ -7,9 +7,14 @@ import emptySectionPlanes from "./EmptySectionPlanes.vue";
 import emptyTree from "./EmptyTree.vue";
 import emptyViewer from "./EmptyViewer.vue";
 import logo from "./Logo.vue";
+import emptyPdf from "./EmptyPdf.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
 import shortcutRotate from "./ShortcutRotate.vue";
 import shortcutZoom from "./ShortcutZoom.vue";
+import shortcutMove2D from "./ShortcutMove2D.vue";
+import shortcutOpen2D from "./ShortcutOpen2D.vue";
+import shortcutRotate2D from "./ShortcutRotate2D.vue";
+import shortcutZoom2D from "./ShortcutZoom2D.vue";
 import successSplit from "./SuccessSplit.vue";
 
 export default {
@@ -22,8 +27,13 @@ export default {
   emptyTree,
   emptyViewer,
   logo,
+  emptyPdf,
   shortcutOpen,
   shortcutRotate,
   shortcutZoom,
+  shortcutMove2D,
+  shortcutOpen2D,
+  shortcutRotate2D,
+  shortcutZoom2D,
   successSplit,
 };

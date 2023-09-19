@@ -20,6 +20,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "emptyPdf",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "emptyProperties",
     x: "90",
     y: "90",
@@ -56,6 +61,26 @@ export default Object.freeze([
   },
   {
     name: "shortcutZoom",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutMove2D",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutOpen2D",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutRotate2D",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutZoom2D",
     x: "200",
     y: "200",
   },

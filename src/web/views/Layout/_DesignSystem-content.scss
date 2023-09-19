@@ -3,16 +3,14 @@
     text-transform: capitalize;
   }
   &-box {
-    display: flex;
-    flex-wrap: wrap;
     .bimdata-card {
-      margin: 24px 24px 0 0;
+      height: 260px;
       min-height: 260px;
       display: inline-flex;
       flex: 0;
       box-shadow: var(--box-shadow);
       transition: all ease 0.1s;
-      ::v-deep &__content {
+      :deep(.bimdata-card__content) {
         width: 100%;
         a {
           height: 100%;
@@ -20,6 +18,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: space-around;
+          gap: 0 18px;
           h5,
           p {
             color: var(--color-primary);
@@ -43,6 +42,21 @@
         h5,
         p {
           color: var(--color-primary);
+        }
+      }
+      &.getting-started__card {
+        width: 100%;
+        height: auto;
+        min-height: 80px;
+        .bimdata-card__content {
+          a {
+            flex-direction: inherit;
+            align-items: center;
+            justify-content: space-between;
+          }
+          p {
+            height: auto;
+          }
         }
       }
       &:hover {

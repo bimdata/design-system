@@ -15,7 +15,7 @@
         <BIMDataText
           component="h4"
           color="color-primary"
-          margin="10px 0"
+          margin="12px 0 24px"
           display="block"
           >{{ componentTitle }} options</BIMDataText
         >
@@ -123,7 +123,7 @@ export default {
 
 <style lang="scss" scoped>
 // import BIMDATA VARIABLES
-@import "../../../../assets/scss/_BIMDataVariables.scss";
+@import "../../../../assets/css/variables.css";
 
 // import COMPONENT STYLE
 @import "./_ComponentCode.scss";

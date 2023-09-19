@@ -54,8 +54,8 @@
     }
 
     &--secondary {
-      background-color: $color-secondary;
-      color: $color-primary;
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
       &::before {
         border-color: var(--color-secondary) transparent transparent;
       }

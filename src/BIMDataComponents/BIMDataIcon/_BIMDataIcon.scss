@@ -12,6 +12,9 @@
     &--high {
       fill: var(--color-high);
     }
+    &--neutral {
+      fill: var(--color-neutral);
+    }
     &--primary {
       fill: var(--color-primary);
     }
@@ -32,6 +35,9 @@
     }
     &--silver-light {
       fill: var(--color-silver-light);
+    }
+    &--silver-dark {
+      fill: var(--color-silver-dark);
     }
     &--warning {
       fill: var(--color-warning);
@@ -77,6 +83,9 @@
     }
     &--silver-light {
       stroke: var(--color-silver-light);
+    }
+    &--silver-dark {
+      stroke: var(--color-silver-dark);
     }
     &--warning {
       stroke: var(--color-warning);

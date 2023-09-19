@@ -6,9 +6,7 @@
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <div>
-            Hover over the text box to show full text.
-          </div>
+          <div>Hover over the text box to show full text.</div>
           <div class="m-24" :style="{ width: `${boxWidth}px` }">
             <BIMDataTextbox
               :text="text"
@@ -22,7 +20,7 @@
         <template #parameters>
           <div class="m-t-24">
             <BIMDataTextarea
-              style="width: 100%; resize: vertical;"
+              style="width: 100%; resize: vertical"
               label="Text"
               placeholder="Text"
               v-model="text"
@@ -66,7 +64,7 @@
 
         <template #import>
           import BIMDataTextbox from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTextbox.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
         </template>
 
         <template #code>
@@ -92,25 +90,13 @@
 </template>
 
 <script>
-import propsData from "./props-data";
-// Components
-import BIMDataInput from "../../../../../src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-import BIMDataSelect from "../../../../../src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
-import BIMDataTable from "../../../../../src/BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../../src/BIMDataComponents/BIMDataText/BIMDataText.vue";
-import BIMDataTextarea from "../../../../../src/BIMDataComponents/BIMDataTextarea/BIMDataTextarea.vue";
-import BIMDataTextbox from "../../../../../src/BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
+import propsData from "./props-data.js";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
     ComponentCode,
-    BIMDataInput,
-    BIMDataSelect,
-    BIMDataTable,
-    BIMDataText,
-    BIMDataTextarea,
-    BIMDataTextbox,
   },
   data() {
     return {

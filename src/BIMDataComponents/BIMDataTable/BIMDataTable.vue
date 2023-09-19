@@ -6,14 +6,16 @@
         height: paginated ? `${(perPage + 1) * rowHeight}px` : undefined,
       }"
     >
-      <table :style="{ width: tableWidth }">
+      <table :style="{ width: tableWidth, tableLayout }">
         <thead>
           <tr key="head-row-0" :style="{ height: `${rowHeight}px` }">
             <th class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
                 :disabled="rows.length === 0"
-                :modelValue="rows.length > 0 && selection.size === rows.length"
-                @update:modelValue="toggleFullSelection"
+                :modelValue="
+                  rows.length > 0 && rowSelection.size === rows.length
+                "
+                @update:modelValue="toggleAll"
               />
             </th>
             <th
@@ -27,30 +29,40 @@
               {{ column.id ? column.label || column.id : column }}
             </th>
           </tr>
+          <tr key="head-row-1">
+            <th class="cell-sub-header" :colspan="columns.length + selectable">
+              <slot name="sub-header"></slot>
+            </th>
+          </tr>
         </thead>
-        <tbody>
+        <tbody @dragleave="onDragleave">
           <tr
-            v-for="(row, i) of rows"
-            :key="`body-row-${i}`"
-            v-show="displayedRows.includes(i)"
+            v-for="{ key, data } of computedRows"
+            :key="`body-row-${key}`"
+            v-show="displayedRows.includes(key)"
             :style="{ height: `${rowHeight}px` }"
+            @drop="onDrop(data, $event)"
+            @dragover="onDragover(key, data, $event)"
+            :class="{
+              'bimdata-table__row--drag-overed': dragOveredRowKey === key,
+            }"
           >
             <td class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
-                :modelValue="selection.has(i)"
-                @update:modelValue="toggleSelection(i)"
+                :modelValue="rowSelection.has(key)"
+                @update:modelValue="toggleRow({ key, data })"
               />
             </td>
             <td
               v-for="(column, j) of columns"
-              :key="`body-row-${i}-col-${j}`"
+              :key="`body-row-${key}-col-${j}`"
               :style="{
                 width: column.width || 'auto',
                 textAlign: column.align || 'left',
               }"
             >
-              <slot :name="`cell-${column.id}`" :row="row">
-                {{ row[column.id] || row[j] || "" }}
+              <slot :name="`cell-${column.id}`" :row="data">
+                {{ data[column.id] || data[j] }}
               </slot>
             </td>
           </tr>
@@ -58,12 +70,14 @@
       </table>
       <div
         class="bimdata-table__container__placeholder"
-        v-if="rows.length === 0 && placeholder"
+        v-if="rows.length === 0"
         :style="{
           height: `calc(100% - ${rowHeight}px)`,
         }"
       >
-        {{ placeholder }}
+        <slot name="placeholder">
+          {{ placeholder }}
+        </slot>
       </div>
     </div>
     <div
@@ -75,19 +89,19 @@
         ghost
         rounded
         icon
-        :disabled="pageStartIndex === 1"
+        :disabled="pageIndexStart === 1"
         @click="pageIndex--"
       >
         <BIMDataIconChevron size="s" :rotate="180" />
       </BIMDataButton>
       <span class="bimdata-table__page-nav__text">
-        {{ `${pageStartIndex} - ${pageEndIndex} of ${rows.length}` }}
+        {{ `${pageIndexStart} - ${pageIndexEnd} / ${rows.length}` }}
       </span>
       <BIMDataButton
         ghost
         rounded
         icon
-        :disabled="pageEndIndex === rows.length"
+        :disabled="pageIndexEnd === rows.length"
         @click="pageIndex++"
       >
         <BIMDataIconChevron size="s" />
@@ -97,9 +111,12 @@
 </template>
 
 <script>
+import { computed, ref, watch } from "vue";
+import { useRowSelection } from "./table-row-selection.js";
+// Components
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {
@@ -116,6 +133,9 @@ export default {
       type: Array,
       required: true,
     },
+    rowKey: {
+      type: String,
+    },
     rowHeight: {
       type: Number,
       default: 50,
@@ -123,6 +143,10 @@ export default {
     selectable: {
       type: Boolean,
       default: false,
+    },
+    selection: {
+      type: Map,
+      default: () => new Map(),
     },
     paginated: {
       type: Boolean,
@@ -137,134 +161,137 @@ export default {
       default: "",
     },
     tableWidth: {
-      type: [Number, String],
+      type: String,
       default: "100%",
+    },
+    tableLayout: {
+      type: String,
+      default: "auto",
+    },
+    canDragOverRow: {
+      type: Function,
+      default: () => false,
     },
   },
   emits: [
+    "update:selection",
     "selection-changed",
     "row-selected",
-    "row-unselected",
+    "row-deselected",
     "all-selected",
-    "all-unselected",
+    "all-deselected",
+    "row-drop",
   ],
-  data() {
-    return {
-      displayedRows: [],
-      pageIndex: 0,
-      pageStartIndex: 1,
-      pageEndIndex: 1,
-      selection: new Map(),
-      selectionRefs: [],
-      oldSelectionRefs: [],
-      fullSelectionRef: false,
-    };
-  },
-  watch: {
-    rows: {
-      immediate: true,
-      handler(value) {
-        this.selection = new Map();
-        this.buildSelectionRefs(value, false);
-        this.setPagination();
-      },
-    },
-    paginated: {
-      immediate: true,
-      handler() {
-        this.setPagination();
-      },
-    },
-    perPage: {
-      immediate: true,
-      handler() {
-        this.pageIndex = 0;
-        this.setPagination();
-      },
-    },
-    pageIndex: {
-      immediate: true,
-      handler() {
-        this.setPagination();
-      },
-    },
-    selection: {
-      handler(map) {
-        this.$emit("selection-changed", Array.from(map.values()));
-      },
-    },
-    selectionRefs: {
-      handler(newValue) {
-        if (this.$props.selectable) {
-          const index = newValue.findIndex(
-            (s, i) => s !== this.oldSelectionRefs[i]
-          );
-          if (index !== -1) {
-            const checked = newValue[index];
-            const row = this.$props.rows[index];
-            if (checked) {
-              this.selection.set(index, row);
-              this.selection = new Map([...this.selection.entries()]);
-              this.$emit("row-selected", row);
-            } else {
-              this.selection.delete(index);
-              this.selection = new Map([...this.selection.entries()]);
-              this.$emit("row-unselected", row);
-            }
-          }
-        }
-      },
-    },
-    fullSelectionRef: {
-      handler(checked) {
-        if (this.$props.selectable) {
-          if (checked) {
-            this.selection = new Map([
-              ...this.$props.rows.map((row, i) => [i, row]),
-            ]);
-            this.buildSelectionRefs(this.$props.rows, true);
-            this.$emit("all-selected");
-          } else {
-            this.selection = new Map();
-            this.buildSelectionRefs(this.$props.rows, false);
-            this.$emit("all-unselected");
-          }
-        }
-      },
-    },
-  },
-  created() {
-    this.pageEndIndex = this.$props.perPage;
-  },
-  methods: {
-    buildSelectionRefs(rows, value) {
-      this.selectionRefs = Array.from(rows, () => value);
-    },
-    toggleFullSelection() {
-      this.fullSelectionRef = !this.fullSelectionRef;
-    },
-    toggleSelection(i) {
-      this.oldSelectionRefs = this.selectionRefs.slice();
-      this.selectionRefs.splice(i, 1, !this.selectionRefs[i]);
-    },
-    setPagination() {
-      const rowIndexes = this.$props.rows.map((_, i) => i);
-      if (this.$props.paginated) {
-        const start = this.$props.perPage * this.pageIndex;
-        const end = start + this.$props.perPage;
+  setup(props, { emit }) {
+    // Compute rows keys based on props values.
+    const computedRows = computed(() =>
+      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row }))
+    );
 
-        this.displayedRows = rowIndexes.slice(start, end);
-        this.pageStartIndex = start + 1;
-        this.pageEndIndex = Math.min(end, this.$props.rows.length);
-      } else {
-        this.displayedRows = rowIndexes;
+    const { rowSelection, toggleRowSelection, toggleFullSelection } =
+      useRowSelection(
+        computedRows,
+        computed(() => props.selection),
+        {
+          rowSelectionUpdateEffect: map => {
+            emit("update:selection", map);
+            emit("selection-changed", Array.from(map.values()));
+          },
+          rowSelectionToggleEffect: (selected, { data }) => {
+            if (selected) {
+              emit("row-selected", data);
+            } else {
+              emit("row-deselected", data);
+            }
+          },
+          fullSelectionToggleEffect: selected => {
+            if (selected) {
+              emit("all-selected");
+            } else {
+              emit("all-deselected");
+            }
+          },
+        }
+      );
+
+    const toggleRow = row => {
+      if (props.selectable) {
+        toggleRowSelection(row);
       }
-    },
+    };
+    const toggleAll = () => {
+      if (props.selectable) {
+        toggleFullSelection();
+      }
+    };
+
+    const displayedRows = ref([]);
+    const pageIndex = ref(0);
+    const pageIndexStart = ref(1);
+    const pageIndexEnd = ref(props.perPage);
+
+    // Reset `pageIndex` when rows array or the number of rows per page change.
+    watch(
+      [computedRows, () => props.perPage],
+      () => {
+        pageIndex.value = 0;
+      },
+      { immediate: true }
+    );
+    // Compute `displayedRows` according to rows array and pagination settings.
+    watch(
+      [computedRows, () => props.paginated, () => props.perPage, pageIndex],
+      ([rows, paginated, perPage, index]) => {
+        const rowKeys = rows.map(r => r.key);
+        if (paginated) {
+          const start = perPage * index;
+          const end = start + perPage;
+
+          displayedRows.value = rowKeys.slice(start, end);
+          pageIndexStart.value = start + 1;
+          pageIndexEnd.value = Math.min(end, rows.length);
+        } else {
+          displayedRows.value = rowKeys;
+        }
+      },
+      { immediate: true }
+    );
+
+    const onDrop = (data, event) => {
+      if (props.canDragOverRow(data)) {
+        emit("row-drop", { data, event });
+        dragOveredRowKey.value = null;
+      }
+    };
+    const dragOveredRowKey = ref(null);
+    const onDragover = (key, data, event) => {
+      if (props.canDragOverRow(data)) {
+        event.preventDefault();
+        dragOveredRowKey.value = key;
+      }
+    };
+    const onDragleave = () => {
+      dragOveredRowKey.value = null;
+    };
+
+    return {
+      // References
+      computedRows,
+      displayedRows,
+      pageIndex,
+      pageIndexEnd,
+      pageIndexStart,
+      rowSelection,
+      dragOveredRowKey,
+      // Methods
+      onDrop,
+      onDragover,
+      onDragleave,
+      toggleAll,
+      toggleRow,
+    };
   },
 };
 </script>
 
-<style scoped lang="scss">
-@import "../../assets/scss/_BIMDataVariables.scss";
-@import "./_BIMDataTable.scss";
-</style>
+<style scoped lang="scss" src="./_BIMDataTable.scss"></style>

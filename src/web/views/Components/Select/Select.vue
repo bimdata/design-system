@@ -23,7 +23,7 @@
             Selection:
             <template v-if="isMulti">
               [
-              <ul style="list-style: none;">
+              <ul style="list-style: none">
                 <li v-for="(s, index) of selection" :key="index">
                   {{ JSON.stringify(s) }}
                 </li>
@@ -67,7 +67,7 @@
 
         <template #import>
           import BIMDataSelect from
-          "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataSelect.js";
+          "@bimdata/design-system/src/BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
         </template>
 
         <template #code>
@@ -92,6 +92,13 @@
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
+      </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Events:</BIMDataText
+        >
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
@@ -148,21 +155,14 @@
 
 <script>
 import { stringOptions, objectOptions, groupOptions } from "./option-sets";
+import eventsData from "./events-data.js";
 import propsData from "./props-data";
 // Components
-import BIMDataCheckbox from "../../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
-import BIMDataSelect from "../../../../BIMDataComponents/BIMDataSelect/BIMDataSelect.vue";
-import BIMDataTable from "../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
-import BIMDataText from "../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
   components: {
-    BIMDataCheckbox,
-    BIMDataSelect,
-    BIMDataTable,
-    BIMDataText,
     Code,
     ComponentCode,
   },
@@ -177,6 +177,7 @@ export default {
       optionLabelKey: null,
       selection: null,
       propsData,
+      eventsData,
     };
   },
   methods: {

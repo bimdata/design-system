@@ -96,4 +96,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="./_BIMDataTooltip.scss"></style>
+<style scoped lang="scss" src="./_BIMDataTooltip.scss"></style>

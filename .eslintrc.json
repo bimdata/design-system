@@ -15,13 +15,15 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "ignorePatterns": ["/dist", "/dist-web"],
+  "ignorePatterns": ["/dist", "/dist-web", "*.d.ts"],
   "rules": {
     "prettier/prettier": "error",
     "indent": "off",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double", "avoid-escape"],
     "semi": ["error", "always"],
+    "vue/multi-word-component-names": "off",
+    "vue/no-reserved-component-names": "off",
     "vue/order-in-components": [
       "error",
       {

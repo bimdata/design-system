@@ -7,6 +7,12 @@ export default [
     "Description"
   ],
   [
+    "update:selection",
+    "Map",
+    "The row selection map",
+    "Fired each time the selection change",
+  ],
+  [
     "selection-changed",
     "Array",
     "The list of selected rows",
@@ -19,10 +25,10 @@ export default [
     "Fired each time a row is selected",
   ],
   [
-    "row-unselected",
+    "row-deselected",
     "Object",
-    "The unselected row",
-    "Fired each time a row is unselected",
+    "The deselected row",
+    "Fired each time a row is deselected",
   ],
   [
     "all-selected",
@@ -31,9 +37,15 @@ export default [
     "Fired when all rows are selected at once",
   ],
   [
-    "all-unselected",
+    "all-deselected",
     "-",
     "none",
-    "Fired when all rows are unselected at once",
+    "Fired when all rows are deselected at once",
+  ],
+  [
+    "row-drop",
+    "{ data: Object, event: DragEvent }",
+    "The row it dropped over with the corresponding event",
+    "Fired when a drop event is fired on a row",
   ],
 ];

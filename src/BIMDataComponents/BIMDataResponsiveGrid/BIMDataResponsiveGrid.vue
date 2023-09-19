@@ -2,7 +2,9 @@
   <div
     class="bimdata-responsive-grid"
     :style="{
-      gridTemplateColumns: `repeat(auto-fill, ${itemWidth})`,
+      gridTemplateColumns: isRepeatFit
+        ? `repeat(auto-fit, minmax(${itemWidth}, 1fr))`
+        : `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
       rowGap,
       columnGap,
     }"
@@ -25,6 +27,10 @@ export default {
     columnGap: {
       type: String,
       default: "12px",
+    },
+    isRepeatFit: {
+      type: Boolean,
+      default: false,
     },
   },
 };

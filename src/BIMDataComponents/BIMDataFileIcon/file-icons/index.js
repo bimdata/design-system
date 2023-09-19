@@ -108,7 +108,6 @@ import icon_iff from "./iff.svg";
 import icon_image from "./image.svg";
 import icon_img from "./img.svg";
 import icon_indd from "./indd.svg";
-import icon_index from "./index.js";
 import icon_inf from "./inf.svg";
 import icon_ini from "./ini.svg";
 import icon_iso from "./iso.svg";
@@ -392,7 +391,6 @@ export default {
   icon_image,
   icon_img,
   icon_indd,
-  icon_index,
   icon_inf,
   icon_ini,
   icon_iso,
