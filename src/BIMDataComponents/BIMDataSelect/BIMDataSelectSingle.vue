@@ -24,7 +24,7 @@
       <div v-show="!disabled && isOpen" class="bimdata-select__option-list">
         <BIMDataSearch
           v-if="search"
-          width="94%"
+          width="calc(100% - 12px)"
           color="primary"
           radius
           :placeholder="searchPlaceholder"
