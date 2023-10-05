@@ -48,6 +48,18 @@ export default [
     "Use this boolean to select multiple options from a list of options.",
   ],
   [
+    "search",
+    "Boolean",
+    "false",
+    "Use this boolean to add a search bar.",
+  ],
+  [
+    "searchPlaceholder",
+    "String",
+    "Search",
+    "Use this props to custom search placeholder.",
+  ],
+  [
     "nullValue",
     "Boolean",
     "false",

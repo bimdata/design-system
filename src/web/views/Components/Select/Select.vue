@@ -10,6 +10,7 @@
             <BIMDataSelect
               :disabled="isDisabled"
               :multi="isMulti"
+              :search="search"
               width="200px"
               label="Selector label"
               :options="options"
@@ -17,7 +18,11 @@
               :optionLabelKey="optionLabelKey"
               :nullValue="hasNullValue"
               v-model="selection"
-            />
+            >
+              <template #empty v-if="isEmpty">
+                <span class="p-x-6 color-granite">No result</span>
+              </template>
+            </BIMDataSelect>
           </div>
           <BIMDataText margin="18px 0">
             Selection:
@@ -37,7 +42,8 @@
         </template>
 
         <template #parameters>
-          <div class="m-t-12">
+          <h5 class="m-t-6 m-b-12">Props options :</h5>
+          <div>
             <BIMDataCheckbox text="Disabled" v-model="isDisabled" />
           </div>
           <div class="m-t-12">
@@ -55,6 +61,13 @@
               v-model="hasNullValue"
             />
           </div>
+          <div class="m-t-12">
+            <BIMDataCheckbox
+              text="Search"
+              :modelValue="search"
+              @update:modelValue="toggleSearch"
+            />
+          </div>
           <div class="m-t-24">
             <BIMDataSelect
               label="Option set"
@@ -63,6 +76,12 @@
               @update:modelValue="changeOptionSet"
             />
           </div>
+          <h5 class="m-t-12 m-b-6">Slots options :</h5>
+          <BIMDataCheckbox
+            text="Empty slot"
+            :modelValue="isEmpty"
+            @update:modelValue="toggleEmpty"
+          />
         </template>
 
         <template #import>
@@ -75,6 +94,7 @@
             &lt;BIMDataSelect
               {{ isDisabled ? "disabled" : "" }}
               {{ isMulti ? ':multi="true"' : "" }}
+              {{ search ? ':search="true"' : "" }}
               width="200px"
               label="Selector label"
               :options="options"
@@ -82,7 +102,10 @@
               {{ optionLabelKey ? `optionLabelKey="${optionLabelKey}"` : "" }}
               {{ hasNullValue ? ':nullValue="true"' : "" }}
               v-model="selection"
-            /&gt;
+            &gt;
+            {{ getEmptySlot() }}
+              
+            &lt;/BIMDataSelect&gt;
           </pre>
         </template>
       </ComponentCode>
@@ -99,6 +122,13 @@
           >Events:</BIMDataText
         >
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          >Slots:</BIMDataText
+        >
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
@@ -157,6 +187,8 @@
 import { stringOptions, objectOptions, groupOptions } from "./option-sets";
 import eventsData from "./events-data.js";
 import propsData from "./props-data";
+import slotsData from "./slots-data";
+
 // Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
@@ -170,6 +202,7 @@ export default {
     return {
       isDisabled: false,
       isMulti: false,
+      isEmpty: false,
       hasNullValue: false,
       optionSet: "string",
       options: stringOptions,
@@ -178,6 +211,9 @@ export default {
       selection: null,
       propsData,
       eventsData,
+      slotsData,
+      search: false,
+      searchText: "",
     };
   },
   methods: {
@@ -188,6 +224,17 @@ export default {
         this.selection = null;
       }
       this.isMulti = value;
+    },
+    toggleSearch(value) {
+      this.search = value;
+    },
+    toggleEmpty(value) {
+      this.isEmpty = value;
+    },
+    getEmptySlot() {
+      if (this.isEmpty) {
+        return "<template #empty>No result</template>";
+      }
     },
     changeOptionSet(value) {
       switch (value) {
@@ -213,3 +260,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.bimdata-select {
+  span {
+    font-size: 12px;
+  }
+}
+</style>
