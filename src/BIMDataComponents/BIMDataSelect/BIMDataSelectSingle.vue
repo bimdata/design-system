@@ -133,8 +133,9 @@ export default {
       if (this.searchText === "") {
         return this.options;
       } else {
+        const lowerCaseSearchText = this.searchText.toLowerCase();
         return this.options.filter(option => {
-          return option.toLowerCase().includes(this.searchText.toLowerCase());
+          return option.toLowerCase().includes(lowerCaseSearchText);
         });
       }
     },
