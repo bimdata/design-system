@@ -21,28 +21,42 @@
     </div>
 
     <transition name="slide-fade-down">
-      <ul v-show="!disabled && isOpen" class="bimdata-select__option-list">
-        <li
-          v-if="nullValue"
-          class="bimdata-select__option-list__entry"
-          @click="onNullValueClick()"
-        >
-          {{ nullLabel || "None" }}
-        </li>
-        <li
-          class="bimdata-select__option-list__entry"
-          v-for="(option, index) of options"
-          :key="index"
-          :class="{
-            selected: isSelected(option),
-            disabled: isDisabled(option),
-            'option-group': isOptionGroup(option),
-          }"
-          @click="onOptionClick(option)"
-        >
-          {{ optionLabel(option) }}
-        </li>
-      </ul>
+      <div v-show="!disabled && isOpen" class="bimdata-select__option-list">
+        <BIMDataSearch
+          v-if="search"
+          width="94%"
+          color="primary"
+          radius
+          :placeholder="searchPlaceholder"
+          v-model="searchText"
+          class="m-6"
+        />
+        <div v-if="filteredOptions.length === 0" class="p-x-6 p-b-6">
+          <slot name="empty"></slot>
+        </div>
+        <ul class="bimdata-list m-y-6">
+          <li
+            v-if="nullValue"
+            class="bimdata-select__option-list__entry"
+            @click="onNullValueClick()"
+          >
+            {{ nullLabel || "None" }}
+          </li>
+          <li
+            class="bimdata-select__option-list__entry"
+            v-for="(option, index) of filteredOptions"
+            :key="index"
+            :class="{
+              selected: isSelected(option),
+              disabled: isDisabled(option),
+              'option-group': isOptionGroup(option),
+            }"
+            @click="onOptionClick(option)"
+          >
+            {{ optionLabel(option) }}
+          </li>
+        </ul>
+      </div>
     </transition>
   </div>
 </template>
@@ -95,16 +109,34 @@ export default {
       type: Boolean,
       default: false,
     },
+    search: {
+      type: Boolean,
+      default: false,
+    },
+    searchPlaceholder: {
+      type: String,
+      default: "Search",
+    },
   },
   emits: ["update:modelValue"],
   data() {
     return {
       isOpen: false,
+      searchText: "",
     };
   },
   computed: {
     displayedValue() {
       return this.optionLabel(this.modelValue);
+    },
+    filteredOptions() {
+      if (this.searchText === "") {
+        return this.options;
+      } else {
+        return this.options.filter(option => {
+          return option.toLowerCase().includes(this.searchText.toLowerCase());
+        });
+      }
     },
   },
   methods: {

@@ -4,7 +4,7 @@
     :class="{
       disabled,
       active: isOpen,
-      'not-empty': modelValue.length > 0,
+      'not-empty': modelValue !== undefined && modelValue !== null,
     }"
     :style="{ width }"
     v-clickaway="() => (isOpen = false)"
@@ -21,43 +21,34 @@
     </div>
 
     <transition name="slide-fade-down">
-      <div v-show="!disabled && isOpen" class="bimdata-select__option-list">
+      <ul v-show="!disabled && isOpen" class="bimdata-select__option-list">
         <BIMDataSearch
-          v-if="search"
-          width="94%"
-          color="primary"
+          width="100%"
           radius
-          :placeholder="searchPlaceholder"
+          placeholder="Search"
           v-model="searchText"
-          class="m-6"
         />
-        <div v-if="filteredOptions.length === 0" class="p-x-6 p-b-6">
-          <slot name="empty"></slot>
-        </div>
-        <ul class="bimdata-list m-b-6">
-          <li
-            class="bimdata-select__option-list__entry"
-            v-for="(option, index) of filteredOptions"
-            :key="index"
-            :class="{
-              selected: isSelected(option),
-              disabled: isDisabled(option),
-              'option-group': isOptionGroup(option),
-            }"
-            @click="onOptionClick(option)"
-          >
-            <template v-if="isOptionGroup(option)">
-              {{ optionLabel(option) }}
-            </template>
-            <BIMDataCheckbox
-              v-else
-              :modelValue="isSelected(option)"
-              :disabled="isDisabled(option)"
-              :text="optionLabel(option)"
-            ></BIMDataCheckbox>
-          </li>
-        </ul>
-      </div>
+        <li
+          v-if="nullValue"
+          class="bimdata-select__option-list__entry"
+          @click="onNullValueClick()"
+        >
+          {{ nullLabel || "None" }}
+        </li>
+        <li
+          class="bimdata-select__option-list__entry"
+          v-for="(option, index) of filteredOptions"
+          :key="index"
+          :class="{
+            selected: isSelected(option),
+            disabled: isDisabled(option),
+            'option-group': isOptionGroup(option),
+          }"
+          @click="onOptionClick(option)"
+        >
+          {{ optionLabel(option) }}
+        </li>
+      </ul>
     </transition>
   </div>
 </template>
@@ -65,12 +56,10 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 // Components
-import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
-import { BIMDataIconChevron } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
   components: {
-    BIMDataCheckbox,
     BIMDataIconChevron,
   },
   directives: {
@@ -99,7 +88,11 @@ export default {
       type: String,
     },
     modelValue: {
-      type: Array,
+      type: [String, Object],
+    },
+    nullValue: {
+      type: Boolean,
+      default: false,
     },
     nullLabel: {
       type: String,
@@ -108,14 +101,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    search: {
-      type: Boolean,
-      default: false,
-    },
-    searchPlaceholder: {
-      type: String,
-      default: "Search",
-    },
+    // searchText: {
+    //   type: String,
+    //   default: "",
+    // },
   },
   emits: ["update:modelValue"],
   data() {
@@ -126,7 +115,7 @@ export default {
   },
   computed: {
     displayedValue() {
-      return this.modelValue.map(this.optionLabel).join(", ");
+      return this.optionLabel(this.modelValue);
     },
     filteredOptions() {
       if (this.searchText === "") {
@@ -164,8 +153,8 @@ export default {
     },
     isSelected(option) {
       const value = this.optionValue(option);
-      const currentValues = this.modelValue.map(this.optionValue);
-      return currentValues.includes(value);
+      const currentValue = this.optionValue(this.modelValue);
+      return currentValue === value;
     },
     isDisabled(option) {
       return this.optionKey && option && option.disabled;
@@ -177,17 +166,15 @@ export default {
       if (this.optionKey && (option.disabled || option.optionGroup)) {
         return;
       }
-      let options;
-      if (this.isSelected(option)) {
-        const value = this.optionValue(option);
-        options = this.modelValue.filter(v => this.optionValue(v) !== value);
-      } else {
-        options = this.modelValue.concat(option);
-      }
-      this.$emit("update:modelValue", options);
+      this.$emit("update:modelValue", option);
+      this.isOpen = false;
+    },
+    onNullValueClick() {
+      this.$emit("update:modelValue", null);
+      this.isOpen = false;
     },
   },
 };
 </script>
 
-<style scoped lang="scss" src="./BIMDataSelect.scss"></style>
+<style scoped lang="scss" src="./_BIMDataSelect.scss"></style>

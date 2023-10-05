@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { h } from "vue";
 // Components
 import BIMDataSelectMulti from "./BIMDataSelectMulti.vue";
 import BIMDataSelectSingle from "./BIMDataSelectSingle.vue";
@@ -60,10 +61,18 @@ export default {
     },
   },
   emits: ["update:modelValue"],
-  computed: {
-    selectorComponent() {
-      return this.multi ? "BIMDataSelectMulti" : "BIMDataSelectSingle";
-    },
+  setup(props, { emit, slots }) {
+    return () =>
+      h(
+        props.multi ? BIMDataSelectMulti : BIMDataSelectSingle,
+        {
+          ...props,
+          "onUpdate:modelValue": event => emit("update:modelValue", event),
+        },
+        {
+          empty: () => slots.empty?.(),
+        },
+      );
   },
 };
 </script>
