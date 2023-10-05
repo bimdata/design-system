@@ -18,6 +18,7 @@
               :optionLabelKey="optionLabelKey"
               :nullValue="hasNullValue"
               v-model="selection"
+              :isResetSearch="clearSearch"
             >
               <template #empty v-if="isEmpty">
                 <span class="p-x-6 color-granite">No result</span>
@@ -68,6 +69,14 @@
               @update:modelValue="toggleSearch"
             />
           </div>
+          <div class="m-t-12">
+            <BIMDataCheckbox
+              text="Clear search after action"
+              :disabled="!search"
+              :modelValue="clearSearch"
+              @update:modelValue="toggleClearSearch"
+            />
+          </div>
           <div class="m-t-24">
             <BIMDataSelect
               label="Option set"
@@ -95,6 +104,7 @@
               {{ isDisabled ? "disabled" : "" }}
               {{ isMulti ? ':multi="true"' : "" }}
               {{ search ? ':search="true"' : "" }}
+              {{ clearSearch ? ':isResetSearch="true"' : "" }}
               width="200px"
               label="Selector label"
               :options="options"
@@ -212,6 +222,7 @@ export default {
       isMulti: false,
       isEmpty: false,
       hasNullValue: false,
+      clearSearch: false,
       optionSet: "string",
       options: stringOptions,
       optionKey: null,
@@ -235,9 +246,15 @@ export default {
     },
     toggleSearch(value) {
       this.search = value;
+      if (!this.search) {
+        this.clearSearch = false;
+      }
     },
     toggleEmpty(value) {
       this.isEmpty = value;
+    },
+    toggleClearSearch(value) {
+      this.clearSearch = value;
     },
     getEmptySlot() {
       if (this.isEmpty) {
