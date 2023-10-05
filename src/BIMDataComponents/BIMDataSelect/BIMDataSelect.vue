@@ -1,12 +1,3 @@
-<template>
-  <component
-    :is="selectorComponent"
-    v-bind="$props"
-    :modelValue="modelValue"
-    @update:modelValue="$emit('update:modelValue', $event)"
-  />
-</template>
-
 <script>
 import { h } from "vue";
 // Components
