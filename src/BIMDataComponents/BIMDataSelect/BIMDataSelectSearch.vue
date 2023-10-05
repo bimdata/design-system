@@ -21,42 +21,34 @@
     </div>
 
     <transition name="slide-fade-down">
-      <div v-show="!disabled && isOpen" class="bimdata-select__option-list">
+      <ul v-show="!disabled && isOpen" class="bimdata-select__option-list">
         <BIMDataSearch
-          v-if="search"
-          width="94%"
-          color="primary"
+          width="100%"
           radius
-          :placeholder="searchPlaceholder"
+          placeholder="Search"
           v-model="searchText"
-          class="m-6"
         />
-        <div v-if="filteredOptions.length === 0" class="p-x-6 p-b-6">
-          <slot name="empty"></slot>
-        </div>
-        <ul class="bimdata-list m-y-6">
-          <li
-            v-if="nullValue"
-            class="bimdata-select__option-list__entry"
-            @click="onNullValueClick()"
-          >
-            {{ nullLabel || "None" }}
-          </li>
-          <li
-            class="bimdata-select__option-list__entry"
-            v-for="(option, index) of filteredOptions"
-            :key="index"
-            :class="{
-              selected: isSelected(option),
-              disabled: isDisabled(option),
-              'option-group': isOptionGroup(option),
-            }"
-            @click="onOptionClick(option)"
-          >
-            {{ optionLabel(option) }}
-          </li>
-        </ul>
-      </div>
+        <li
+          v-if="nullValue"
+          class="bimdata-select__option-list__entry"
+          @click="onNullValueClick()"
+        >
+          {{ nullLabel || "None" }}
+        </li>
+        <li
+          class="bimdata-select__option-list__entry"
+          v-for="(option, index) of filteredOptions"
+          :key="index"
+          :class="{
+            selected: isSelected(option),
+            disabled: isDisabled(option),
+            'option-group': isOptionGroup(option),
+          }"
+          @click="onOptionClick(option)"
+        >
+          {{ optionLabel(option) }}
+        </li>
+      </ul>
     </transition>
   </div>
 </template>
@@ -109,14 +101,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    search: {
-      type: Boolean,
-      default: false,
-    },
-    searchPlaceholder: {
-      type: String,
-      default: "Search",
-    },
+    // searchText: {
+    //   type: String,
+    //   default: "",
+    // },
   },
   emits: ["update:modelValue"],
   data() {
