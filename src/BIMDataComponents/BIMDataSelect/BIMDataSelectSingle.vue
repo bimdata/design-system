@@ -7,7 +7,7 @@
       'not-empty': modelValue !== undefined && modelValue !== null,
     }"
     :style="{ width }"
-    v-clickaway="() => (isOpen = false)"
+    v-clickaway="away"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
@@ -117,6 +117,10 @@ export default {
       type: String,
       default: "Search",
     },
+    isResetSearch: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   data() {
@@ -175,16 +179,27 @@ export default {
     isOptionGroup(option) {
       return this.optionKey && option && option.optionGroup;
     },
+    resetSearch() {
+      if (this.isResetSearch) {
+        return (this.searchText = "");
+      }
+    },
     onOptionClick(option) {
       if (this.optionKey && (option.disabled || option.optionGroup)) {
         return;
       }
       this.$emit("update:modelValue", option);
+      this.resetSearch();
       this.isOpen = false;
     },
     onNullValueClick() {
       this.$emit("update:modelValue", null);
+      this.resetSearch();
       this.isOpen = false;
+    },
+    away() {
+      this.isOpen = false;
+      this.resetSearch();
     },
   },
 };
