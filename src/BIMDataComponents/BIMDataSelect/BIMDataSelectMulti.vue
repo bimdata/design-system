@@ -137,9 +137,9 @@ export default {
         return this.options;
       } else {
         const lowerCaseSearchText = this.searchText.toLowerCase();
-        return this.options.filter(option => {
-          return option.toLowerCase().includes(lowerCaseSearchText);
-        });
+        return this.options.filter(option =>
+          option.toLowerCase().includes(lowerCaseSearchText),
+        );
       }
     },
   },
@@ -193,7 +193,7 @@ export default {
     },
     resetSearch() {
       if (this.isResetSearch) {
-        return (this.searchText = "");
+        this.searchText = "";
       }
     },
     away() {
