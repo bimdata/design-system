@@ -17,10 +17,14 @@
             :loading="checkboxLoadingChecked"
             :closeOnElementClick="checkboxCloseOnElementClickChecked"
             @element-click="onItemClick"
+            :search="checkboxSearchChecked"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span v-if="selectedItem">{{ item }}</span>
               <span v-else>dropdown list example</span>
+            </template>
+            <template #empty v-if="checkboxEmptyChecked">
+              <span class="p-x-6 color-granite">No result</span>
             </template>
             <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
               hi
@@ -46,23 +50,29 @@
           >
           <BIMDataCheckbox
             class="m-y-12"
-            text="disabled"
+            text="Disabled"
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
-            text="loading"
+            text="Loading"
             v-model="checkboxLoadingChecked"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
-            class="m-t-12 m-b-24"
-            text="close on element click"
+            class="m-y-12"
+            text="Close on element click"
             v-model="checkboxCloseOnElementClickChecked"
           >
           </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="Search"
+            v-model="checkboxSearchChecked"
+          />
           <BIMDataInput
+            class="m-t-30"
             v-model="numberInput"
             placeholder="Number of items per page"
             type="number"
@@ -100,6 +110,7 @@
           </BIMDataCheckbox>
           <BIMDataCheckbox text="element" v-model="checkboxElementChecked">
           </BIMDataCheckbox>
+          <BIMDataCheckbox text="empty" v-model="checkboxEmptyChecked" />
         </template>
 
         <!-- bloc IMPORTS LINES CODE -->
@@ -113,10 +124,18 @@
               :list="list"
               :perPage="{{ numberInput }}"
               elementKey="dropdown"
-              :disabled="{{ checkboxDisabledChecked }}"
-              :closeOnElementClick="{{ checkboxCloseOnElementClickChecked }}"
+              {{ checkboxLoadingChecked ? ':loading="true"' : "" }}
+              {{ checkboxDisabledChecked ? ':disabled="true"' : "" }}
+              {{
+              checkboxCloseOnElementClickChecked
+                ? ':closeOnElementClick="true"'
+                : ""
+            }}
+              {{ checkboxSearchChecked ? ':search="true"' : "" }}
             &gt;
-              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
+              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }} {{
+              getEmpty()
+            }}
             &lt;/BIMDataDropdownList&gt;
           </pre>
         </template>
@@ -161,9 +180,11 @@ export default {
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
+      checkboxSearchChecked: false,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
+      checkboxEmptyChecked: false,
       customListCheckbox: false,
       dropdownOptions: {
         transition: ["up", "down"],
@@ -289,6 +310,11 @@ export default {
                   {{ element }}
                 </div>
              </template>`;
+      }
+    },
+    getEmpty() {
+      if (this.checkboxEmptyChecked) {
+        return "<template #empty>No result</template>";
       }
     },
   },
