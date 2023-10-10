@@ -26,24 +26,40 @@
       <slot name="contentAfterBtn" :isOpen="displayed"></slot>
     </div>
     <transition :name="`slide-fade-${transitionName}`">
-      <BIMDataPaginatedList
-        :class="`submenu submenu--${directionClass}`"
-        v-show="displayed"
-        :list="list"
-        :perPage="perPage"
-        :elementKey="elementKey"
-        @element-click="onElementClick"
-        :loading="loading"
-      >
-        <template #element="{element}">
-          <slot
-            name="element"
-            :element="element"
-            :close="away"
-            :isOpen="displayed"
-          ></slot>
-        </template>
-      </BIMDataPaginatedList>
+      <div>
+        <BIMDataPaginatedList
+          :class="`submenu submenu--${directionClass}`"
+          v-show="displayed"
+          :list="filteredList"
+          :perPage="perPage"
+          :elementKey="elementKey"
+          @element-click="onElementClick"
+          :loading="loading"
+        >
+          <template #header>
+            <BIMDataSearch
+              v-if="search"
+              width="calc(100% - 12px)"
+              color="primary"
+              radius
+              :placeholder="searchPlaceholder"
+              v-model="searchText"
+              class="m-6"
+            />
+            <div v-if="filteredList.length === 0" class="p-x-6 p-b-6">
+              <slot name="empty"></slot>
+            </div>
+          </template>
+          <template #element="{ element }">
+            <slot
+              name="element"
+              :element="element"
+              :close="away"
+              :isOpen="displayed"
+            ></slot>
+          </template>
+        </BIMDataPaginatedList>
+      </div>
     </transition>
   </div>
 </template>
@@ -105,11 +121,20 @@ export default {
       type: String,
       default: "36px",
     },
+    search: {
+      type: Boolean,
+      default: false,
+    },
+    searchPlaceholder: {
+      type: String,
+      default: "Search",
+    },
   },
   emits: ["element-click"],
   data() {
     return {
       displayed: false,
+      searchText: "",
     };
   },
   computed: {
@@ -121,6 +146,16 @@ export default {
     },
     iconRotation() {
       return this.displayed ? (this.directionClass === "up" ? -90 : 90) : 0;
+    },
+    filteredList() {
+      if (this.searchText === "") {
+        return this.list;
+      } else {
+        const lowerCaseSearchText = this.searchText.toLowerCase();
+        return this.list.filter(element =>
+          element.toLowerCase().includes(lowerCaseSearchText),
+        );
+      }
     },
   },
   methods: {

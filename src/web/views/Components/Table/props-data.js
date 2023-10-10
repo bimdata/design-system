@@ -96,4 +96,12 @@ export default [
     "Use this prop to set table-layout css property (e.g. 'auto' or 'fixed').",
     "",
   ],
+  [
+    "canDragOverRow",
+    "Function",
+    "",
+    "row => false",
+    "If returns true, a 'bimdata-table__row--drag-overed' class is added on the row on drag over, and the `row-drop` event is emitted on drop.",
+    "",
+  ],
 ];

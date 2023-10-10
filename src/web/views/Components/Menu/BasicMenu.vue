@@ -19,6 +19,30 @@
               <BIMDataIcon :name="item.icon" size="xs" margin="0 6px 0 0" />
             </template>
             <span>{{ item.text }}</span>
+            <BIMDataIcon
+              v-if="item.children"
+              name="chevron"
+              size="xxs"
+              margin="0 0 0 auto"
+            />
+          </template>
+          <template #child-item="{ item }">
+            <div v-if="item.children[0].data">
+              <span
+                v-for="child in item.children"
+                :key="child.id"
+                class="color-high"
+              >
+                <BIMDataIcon
+                  name="warning"
+                  size="xxs"
+                  margin="0 6px 0 0"
+                  fill
+                  color="high"
+                />
+                {{ child.data }}
+              </span>
+            </div>
           </template>
         </BIMDataMenu>
       </template>
@@ -39,11 +63,13 @@
                   {{ formatMenuItem(item) }},</template>
               ]"
               @item-click="itemClick"
+              :childrenLeft="{{isChildrenLeft}}"
             &gt;
             &lt;template #item="{ item }"&gt;
               {{ getIcons() }}
               &lt;span&gt;{{ "{{ item.text }" + "}" }}&lt;/span&gt;
             &lt;/template&gt;
+            {{getChildren()}}
           &lt;/BIMDataMenu&gt;
         </pre>
       </template>
@@ -95,15 +121,17 @@ export default {
       if (this.isChildren) {
         opts[1] = {
           ...opts[1],
-          children: {
-            list: [
-              {
-                text: "Child item 1",
-                action: () => console.log("child clicked"),
-              },
-              { text: "Child item 2" },
-            ],
-          },
+          children: [
+            {
+              text: "Child item 1",
+              action: () => console.log("child clicked"),
+            },
+            { text: "Child item 2" },
+          ],
+        };
+        opts[2] = {
+          ...opts[2],
+          children: [{ data: "Item 03 children" }],
         };
       }
       return opts;
@@ -118,6 +146,30 @@ export default {
                 size="xs"
                 margin="0 6px 0 0"
               />`;
+      }
+    },
+    getChildren() {
+      if (this.isChildren) {
+        return `
+        <template #child-item="{ item }">
+          <div v-if="item.children[0].data">
+            <span
+              v-for="child in item.children"
+              :key="child.id"
+              class="color-high"
+            >
+              <BIMDataIcon
+                name="warning"
+                size="xxs"
+                margin="0 6px 0 0"
+                fill
+                color="high"
+              />
+              {{ child.data }}
+            </span>
+          </div>
+        </template>
+      `;
       }
     },
     itemClick($event) {

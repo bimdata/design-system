@@ -28,9 +28,9 @@ export default [
     "Use this props to custom width of BIMDataMenu component.",
   ],
   [
-    "isClickAway",
+    "childrenLeft",
     "Boolean",
-    "true",
-    "If false, the menu component does not close when you click outside.",
+    "false",
+    "If true, the child menu opens to the left of the menu.",
   ],
 ];

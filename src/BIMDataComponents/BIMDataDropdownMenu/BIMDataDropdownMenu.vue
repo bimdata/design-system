@@ -6,8 +6,7 @@
       @click="onHeaderClick"
       :style="style"
     >
-      <slot name="header"></slot>
-      <slot name="contentAfterHeader"></slot>
+      <slot name="header" :isOpen="displayed" />
     </div>
 
     <transition :name="`slide-fade-${transitionName}`">

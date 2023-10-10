@@ -32,7 +32,7 @@
           <pre>
             &lt;BIMDataCheckbox
               :disabled="{{ getCheckboxDisabled() }}"
-              ext="Your label here"
+              text="Your label here"
               v-model="checked"
             /&gt;
           </pre>

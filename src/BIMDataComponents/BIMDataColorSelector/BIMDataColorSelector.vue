@@ -13,7 +13,7 @@
           :key="`colorElement${j}ofColorLine${i}`"
           :style="`background-color: #${colorValue}`"
           :title="colorName"
-          @click="$emit('update:modelValue', colorValue)"
+          @click.stop="$emit('update:modelValue', colorValue)"
         ></div>
       </div>
     </template>

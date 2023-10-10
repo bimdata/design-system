@@ -36,19 +36,24 @@
             <BIMDataIcon name="ellipsis" size="l" fill color="granite-light" />
           </BIMDataButton>
           <div v-else-if="!isFolder">
-            <BIMDataCheckbox
-              :disabled="disabled"
-              v-if="multiSelect"
-              :modelValue="selected"
-              class="file-card__content__header__btn-menu__checkbox"
-            />
-            <BIMDataRadio
-              :disabled="disabled"
-              v-else
-              big
-              :modelValue="selected"
-              name="BIMDataFileCardRadio"
-            />
+            <template v-if="pdfModelLoading">
+              <BIMDataSpinner style="margin: 10px" />
+            </template>
+            <template v-else>
+              <BIMDataCheckbox
+                :disabled="disabled"
+                v-if="multiSelect"
+                :modelValue="selected"
+                class="file-card__content__header__btn-menu__checkbox"
+              />
+              <BIMDataRadio
+                :disabled="disabled"
+                v-else
+                big
+                :modelValue="selected"
+                name="BIMDataFileCardRadio"
+              />
+            </template>
           </div>
         </div>
         <template v-if="file.nature === 'Folder'">
@@ -126,6 +131,7 @@ import BIMDataIcon from "../../../BIMDataComponents/BIMDataIcon/BIMDataIcon.vue"
 import BIMDataRadio from "../../../BIMDataComponents/BIMDataRadio/BIMDataRadio.vue";
 import BIMDataCheckbox from "../../../BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataFileIcon from "../../../BIMDataComponents/BIMDataFileIcon/BIMDataFileIcon.vue";
+import BIMDataSpinner from "../../../BIMDataComponents/BIMDataSpinner/BIMDataSpinner.vue";
 import clickaway from "../../../BIMDataDirectives/click-away.js";
 
 import PieProgressSpinner from "./PieProgressSpinner.vue";
@@ -138,6 +144,7 @@ export default {
     BIMDataRadio,
     BIMDataCheckbox,
     BIMDataFileIcon,
+    BIMDataSpinner,
     PieProgressSpinner,
     MultiLineTextBox,
   },
@@ -193,6 +200,10 @@ export default {
       default: false,
     },
     viewPdf: {
+      type: Boolean,
+      default: false,
+    },
+    pdfModelLoading: {
       type: Boolean,
       default: false,
     },

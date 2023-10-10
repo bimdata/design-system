@@ -35,13 +35,17 @@
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody @dragleave="onDragleave">
           <tr
             v-for="{ key, data } of computedRows"
             :key="`body-row-${key}`"
             v-show="displayedRows.includes(key)"
             :style="{ height: `${rowHeight}px` }"
-            @drop="$emit('row-drop', { data, event: $event })"
+            @drop="onDrop(data, $event)"
+            @dragover="onDragover(key, data, $event)"
+            :class="{
+              'bimdata-table__row--drag-overed': dragOveredRowKey === key,
+            }"
           >
             <td class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
@@ -164,6 +168,10 @@ export default {
       type: String,
       default: "auto",
     },
+    canDragOverRow: {
+      type: Function,
+      default: () => false,
+    },
   },
   emits: [
     "update:selection",
@@ -249,6 +257,23 @@ export default {
       { immediate: true }
     );
 
+    const onDrop = (data, event) => {
+      if (props.canDragOverRow(data)) {
+        emit("row-drop", { data, event });
+        dragOveredRowKey.value = null;
+      }
+    };
+    const dragOveredRowKey = ref(null);
+    const onDragover = (key, data, event) => {
+      if (props.canDragOverRow(data)) {
+        event.preventDefault();
+        dragOveredRowKey.value = key;
+      }
+    };
+    const onDragleave = () => {
+      dragOveredRowKey.value = null;
+    };
+
     return {
       // References
       computedRows,
@@ -257,7 +282,11 @@ export default {
       pageIndexEnd,
       pageIndexStart,
       rowSelection,
+      dragOveredRowKey,
       // Methods
+      onDrop,
+      onDragover,
+      onDragleave,
       toggleAll,
       toggleRow,
     };
