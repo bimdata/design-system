@@ -152,9 +152,9 @@ export default {
         return this.list;
       } else {
         const lowerCaseSearchText = this.searchText.toLowerCase();
-        return this.list.filter(element => {
-          return element.toLowerCase().includes(lowerCaseSearchText);
-        });
+        return this.list.filter(element =>
+          element.toLowerCase().includes(lowerCaseSearchText),
+        );
       }
     },
   },
