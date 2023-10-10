@@ -18,7 +18,7 @@
               :optionLabelKey="optionLabelKey"
               :nullValue="hasNullValue"
               v-model="selection"
-              :isResetSearch="clearSearch"
+              :clearSearchOnLeave="clearSearch"
             >
               <template #empty v-if="isEmpty">
                 <span class="p-x-6 color-granite">No result</span>
@@ -104,7 +104,7 @@
               {{ isDisabled ? "disabled" : "" }}
               {{ isMulti ? ':multi="true"' : "" }}
               {{ search ? ':search="true"' : "" }}
-              {{ clearSearch ? ':isResetSearch="true"' : "" }}
+              {{ clearSearch ? ':clearSearchOnLeave="true"' : "" }}
               width="200px"
               label="Selector label"
               :options="options"

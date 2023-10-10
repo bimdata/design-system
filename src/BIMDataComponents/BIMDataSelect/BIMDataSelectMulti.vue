@@ -116,7 +116,7 @@ export default {
       type: String,
       default: "Search",
     },
-    isResetSearch: {
+    resetOnLeave: {
       type: Boolean,
       default: false,
     },
@@ -192,7 +192,7 @@ export default {
       this.$emit("update:modelValue", options);
     },
     resetSearch() {
-      if (this.isResetSearch) {
+      if (this.clearSearchOnLeave) {
         this.searchText = "";
       }
     },
