@@ -1,0 +1,57 @@
+/* eslint-disable */
+export default [
+  ["Props", "Type", "Default value", "Validator", "Description"],
+  ["list", "Array", "() => []", "", ""],
+  [
+    "perPage",
+    "Number",
+    "10",
+    "",
+    "Use this props to choose the number of elements per page, before displaying the pagination.",
+  ],
+  ["elementKey", "String", "", "", ""],
+  [
+    "elementLabelKey",
+    "String",
+    "null",
+    "",
+    "Only use this props if the 'list' props is an array of objects. Specify which field of the object represent the option label.",
+  ],
+  ["disabled", "Boolean", "false", "", ""],
+  [
+    "transitionName",
+    "String",
+    "'up'",
+    "'up' or 'down' values",
+    "Use this props to choose the opening transition of the submenu",
+  ],
+  [
+    "directionClass",
+    "String",
+    "'down'",
+    "'up', 'down', 'right' or 'left' values",
+    "Use this props to choose the opening of the submenu.",
+  ],
+  ["loading", "Boolean", "false", "", "Use this props to display a loader."],
+  [
+    "closeOnElementClick",
+    "Boolean",
+    "false",
+    "",
+    "Use this props to close the dropdown submenu when clicking on the item.",
+  ],
+  [
+    "width",
+    "String",
+    "220px",
+    "",
+    "Use this props to custom width of BIMDataDropdownList component.",
+  ],
+  [
+    "height",
+    "String",
+    "36px",
+    "",
+    "Use this props to custom height of BIMDataDropdownList component.",
+  ],
+];

@@ -18,6 +18,7 @@
             :closeOnElementClick="checkboxCloseOnElementClickChecked"
             @element-click="onItemClick"
             :search="checkboxSearchChecked"
+            :elementLabelKey="elementLabelKey"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span v-if="selectedItem">{{ item }}</span>
@@ -37,7 +38,8 @@
                   class="fill-primary"
                   margin="0 6px 0 0"
                 />
-                {{ element }}
+                <span v-if="optionSet === 'object'">{{ element.label }}</span>
+                <span v-else>{{ element }}</span>
               </div>
             </template>
           </BIMDataDropdownList>
@@ -77,6 +79,14 @@
             placeholder="Number of items per page"
             type="number"
           ></BIMDataInput>
+          <div class="m-t-24">
+            <BIMDataSelect
+              label="Option set"
+              :options="['string', 'object']"
+              :modelValue="optionSet"
+              @update:modelValue="changeOptionSet"
+            />
+          </div>
           <div
             v-for="[key, values] in Object.entries(dropdownOptions)"
             :key="key"
@@ -132,6 +142,7 @@
                 : ""
             }}
               {{ checkboxSearchChecked ? ':search="true"' : "" }}
+              {{ elementLabelKey ? ':elementLabelKey="label"' : "" }}
             &gt;
               {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }} {{
               getEmpty()
@@ -160,13 +171,18 @@
         <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
           >Events:</BIMDataText
         >
-        <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import { stringElements, objectElements } from "./option-sets";
+import propsData from "./props-data";
+import slotData from "./slots-data";
+import eventsData from "./events-data";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
@@ -192,88 +208,12 @@ export default {
       },
       selectedDropdownOptionstransition: "up",
       selectedDropdownOptionsdirection: "down",
-      list: [
-        "item 01",
-        "item 02",
-        "item 03",
-        "item 04",
-        "item 05",
-        "item 06",
-        "item 07",
-        "item 08",
-        "item 09",
-        "item 10",
-        "item 11",
-        "item 12",
-      ],
-      propsData: [
-        ["Props", "Type", "Default value", "Validator", "Description"],
-        ["list", "Array", "() => []", "", ""],
-        [
-          "perPage",
-          "Number",
-          "10",
-          "",
-          "Use this props to choose the number of elements per page, before displaying the pagination.",
-        ],
-        ["elementKey", "String", "", "", ""],
-        ["disabled", "Boolean", "false", "", ""],
-        [
-          "transitionName",
-          "String",
-          "'up'",
-          "'up' or 'down' values",
-          "Use this props to choose the opening transition of the submenu",
-        ],
-        [
-          "directionClass",
-          "String",
-          "'down'",
-          "'up', 'down', 'right' or 'left' values",
-          "Use this props to choose the opening of the submenu.",
-        ],
-        [
-          "loading",
-          "Boolean",
-          "false",
-          "",
-          "Use this props to display a loader.",
-        ],
-        [
-          "closeOnElementClick",
-          "Boolean",
-          "false",
-          "",
-          "Use this props to close the dropdown submenu when clicking on the item.",
-        ],
-        [
-          "width",
-          "String",
-          "220px",
-          "",
-          "Use this props to custom width of BIMDataDropdownList component.",
-        ],
-        [
-          "height",
-          "String",
-          "36px",
-          "",
-          "Use this props to custom height of BIMDataDropdownList component.",
-        ],
-      ],
-      slotData: [
-        ["Slot name", "Description"],
-        ["header", "Use this slot for add content before the icon button"],
-        [
-          "contentAfterBtn",
-          "Use this slot for add content after the icon button",
-        ],
-        ["element", "Use this slot to custum the elements list"],
-      ],
-      eventData: [
-        ["Event name", "Description"],
-        ["element-click", "Use this event to get the clicked element data"],
-      ],
+      list: stringElements,
+      optionSet: "string",
+      elementLabelKey: null,
+      propsData,
+      slotData,
+      eventsData,
     };
   },
   computed: {
@@ -282,9 +222,13 @@ export default {
     },
   },
   methods: {
-    onItemClick(list) {
-      // console.log(this.selectedItem = list);
-      this.selectedItem = list;
+    onItemClick(element) {
+      if (this.optionSet === "string") {
+        this.selectedItem = element;
+        return;
+      } else {
+        this.selectedItem = element.label;
+      }
     },
     getHeader() {
       if (this.checkboxHeaderChecked) {
@@ -303,7 +247,15 @@ export default {
       }
     },
     getElement() {
-      if (this.checkboxElementChecked) {
+      if (this.checkboxElementChecked && this.optionSet === "object") {
+        return `<template #element="{ element }">
+                <div class="flex items-center">
+                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  {{ element.label }}
+                </div>
+             </template>`;
+      }
+      if (this.checkboxElementChecked && this.optionSet === "string") {
         return `<template #element="{ element }">
                 <div class="flex items-center">
                   <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
@@ -311,6 +263,20 @@ export default {
                 </div>
              </template>`;
       }
+    },
+    changeOptionSet(value) {
+      switch (value) {
+        case "string":
+          this.elementLabelKey = null;
+          this.list = stringElements;
+          break;
+        case "object":
+          this.elementLabelKey = "label";
+          this.list = objectElements;
+          this.checkboxElementChecked = true;
+          break;
+      }
+      this.optionSet = value;
     },
     getEmpty() {
       if (this.checkboxEmptyChecked) {
