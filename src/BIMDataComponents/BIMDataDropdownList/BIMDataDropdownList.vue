@@ -90,6 +90,9 @@ export default {
     elementKey: {
       type: String,
     },
+    elementLabelKey: {
+      type: String,
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -152,6 +155,13 @@ export default {
         return this.list;
       } else {
         const lowerCaseSearchText = this.searchText.toLowerCase();
+        if (this.elementLabelKey) {
+          return this.list.filter(element =>
+            element[this.elementLabelKey]
+              .toLowerCase()
+              .includes(lowerCaseSearchText),
+          );
+        }
         return this.list.filter(element =>
           element.toLowerCase().includes(lowerCaseSearchText),
         );
