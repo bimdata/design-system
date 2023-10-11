@@ -117,7 +117,7 @@ export default {
       type: String,
       default: "Search",
     },
-    isResetSearch: {
+    clearSearchOnLeave: {
       type: Boolean,
       default: false,
     },
@@ -180,7 +180,7 @@ export default {
       return this.optionKey && option && option.optionGroup;
     },
     resetSearch() {
-      if (this.isResetSearch) {
+      if (this.clearSearchOnLeave) {
         this.searchText = "";
       }
     },

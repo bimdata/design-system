@@ -3,7 +3,7 @@ export default [
   ["Name", "Type", "Default value", "Description"],
   ["disabled", "Boolean", "false", "When true the selector will be disabled."],
   [
-    "isResetSearch",
+    "clearSearchOnLeave",
     "Boolean",
     "false",
     "In multi-selection mode: clear search bar on click away. In single selection: clear search bar on select element or click away.",
