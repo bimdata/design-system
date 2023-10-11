@@ -137,9 +137,26 @@ export default {
         return this.options;
       } else {
         const lowerCaseSearchText = this.searchText.toLowerCase();
-        return this.options.filter(option =>
-          option.toLowerCase().includes(lowerCaseSearchText),
-        );
+        if (this.optionLabelKey) {
+          return this.options.filter(option =>
+            option[this.optionLabelKey]
+              .toLowerCase()
+              .includes(lowerCaseSearchText),
+          );
+        }
+        if (this.optionKey) {
+          return this.options.filter(
+            option =>
+              option.optionGroup ||
+              option[this.optionKey]
+                .toLowerCase()
+                .includes(lowerCaseSearchText),
+          );
+        } else {
+          return this.options.filter(option =>
+            option.toLowerCase().includes(lowerCaseSearchText),
+          );
+        }
       }
     },
   },
