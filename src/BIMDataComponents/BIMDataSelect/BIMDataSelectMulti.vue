@@ -34,7 +34,7 @@
         <div v-if="filteredOptions.length === 0">
           <slot name="empty"></slot>
         </div>
-        <ul class="bimdata-list m-b-6">
+        <ul class="bimdata-list m-y-6">
           <li
             class="bimdata-select__option-list__entry"
             v-for="(option, index) of filteredOptions"
