@@ -223,12 +223,7 @@ export default {
   },
   methods: {
     onItemClick(element) {
-      if (this.optionSet === "string") {
-        this.selectedItem = element;
-        return;
-      } else {
-        this.selectedItem = element.label;
-      }
+      this.selectedItem = this.optionSet === "string" ? element : element.label;
     },
     getHeader() {
       if (this.checkboxHeaderChecked) {
