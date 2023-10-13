@@ -31,7 +31,7 @@
           v-model="searchText"
           class="m-6"
         />
-        <div v-if="filteredOptions.length === 0" class="p-x-6 p-b-6">
+        <div v-if="filteredOptions.length === 0">
           <slot name="empty"></slot>
         </div>
         <ul class="bimdata-list m-y-6">
