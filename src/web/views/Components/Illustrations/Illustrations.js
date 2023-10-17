@@ -85,6 +85,46 @@ export default Object.freeze([
     y: "200",
   },
   {
+    name: "shortcutMoveDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutOpenDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutRotateDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutZoomDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutMovePlan",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutOpenPlan",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutRotatePlan",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutZoomPlan",
+    x: "200",
+    y: "200",
+  },
+  {
     name: "successSplit",
     x: "200",
     y: "200",
