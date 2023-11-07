@@ -96,6 +96,7 @@ import reprocessIfc from "./ReprocessIfc.vue";
 import reset from "./Reset.vue";
 import restore from "./Restore.vue";
 import right from "./Right.vue";
+import rotate from "./Rotate.vue";
 import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
 import save from "./Save.vue";
@@ -258,6 +259,7 @@ export default {
   reset,
   restore,
   right,
+  rotate,
   rules,
   sandglass,
   save,
