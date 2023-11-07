@@ -96,6 +96,7 @@ export { default as BIMDataIconReprocessIfc } from "./BIMDataIconReprocessIfc.vu
 export { default as BIMDataIconReset } from "./BIMDataIconReset.vue";
 export { default as BIMDataIconRestore } from "./BIMDataIconRestore.vue";
 export { default as BIMDataIconRight } from "./BIMDataIconRight.vue";
+export { default as BIMDataIconRotate } from "./BIMDataIconRotate.vue";
 export { default as BIMDataIconRules } from "./BIMDataIconRules.vue";
 export { default as BIMDataIconSandglass } from "./BIMDataIconSandglass.vue";
 export { default as BIMDataIconSave } from "./BIMDataIconSave.vue";
