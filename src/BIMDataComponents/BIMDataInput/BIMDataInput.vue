@@ -6,7 +6,8 @@
       success,
       disabled,
       loading,
-      'not-empty': modelValue !== '' || !!modelValue,
+      empty:
+        modelValue === undefined || modelValue === null || modelValue === '',
     }"
     :style="style"
   >
