@@ -6,7 +6,8 @@
       success,
       disabled,
       loading,
-      'not-empty': modelValue != null,
+      empty:
+        modelValue === undefined || modelValue === null || modelValue === '',
     }"
     :style="style"
   >
@@ -105,7 +106,7 @@ export default {
         if (successAndError) {
           throw new Error("Input state cannot be both success and error.");
         }
-      }
+      },
     );
   },
   methods: {

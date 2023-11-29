@@ -11,11 +11,11 @@ input:-webkit-autofill {
   font-family: var(--primary-font);
   color: var(--color-primary);
   font-size: calculateEm(15px);
-  &.not-empty {
+  &.empty {
     label {
-      top: -22px;
-      color: var(--color-primary);
-      font-size: calculateEm(10px);
+      top: 0;
+      font-size: calculateEm(12px);
+      color: var(--color-granite-light);
     }
   }
   input {
@@ -50,13 +50,13 @@ input:-webkit-autofill {
   }
   label {
     position: absolute;
-    top: 0;
     left: 0;
-    font-size: calculateEm(12px);
     transform: translateY(8px);
     transition: 0.2s ease all;
-    color: var(--color-granite-light);
     cursor: pointer;
+    top: -22px;
+    color: var(--color-primary);
+    font-size: calculateEm(10px);
   }
   .bar {
     width: 100%;
@@ -67,7 +67,7 @@ input:-webkit-autofill {
     &::before {
       width: 0;
       height: 2px;
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       background-color: var(--color-primary);
