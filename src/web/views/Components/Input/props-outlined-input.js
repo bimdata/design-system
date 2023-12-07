@@ -8,6 +8,12 @@ export default [
     "Whether 'autocomplete' attribute is 'on' or 'off'."
   ],
   [
+    "counter",
+    "Boolean",
+    "false",
+    "Specifies whether the input should have a counter at the bottom.",
+  ],
+  [
     "disabled",
     "Boolean",
     "false",
@@ -38,6 +44,12 @@ export default [
     "Custom input margins",
   ],
   [
+    "maxLength",
+    "Number",
+    "100",
+    "Specifies maximum length of input.",
+  ],
+  [
     "modelValue",
     "String",
     "",
@@ -60,5 +72,11 @@ export default [
     "String",
     "' '",
     "Use this props to add a success message to your input.",
+  ],
+  [
+    "width",
+    "String",
+    "'250px'",
+    "Use this props to custom input width.",
   ],
 ];
