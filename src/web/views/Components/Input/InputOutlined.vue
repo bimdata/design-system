@@ -199,6 +199,7 @@ export default {
         "url",
         "time",
         "email",
+        "tel",
       ],
       inputTypeSelection: "text",
     };

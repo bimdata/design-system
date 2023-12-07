@@ -71,21 +71,25 @@ export default {
     event: "update:modelValue",
   },
   props: {
-    width: {
+    autocomplete: {
+      type: Boolean,
+      default: false,
+    },
+    counter: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errorMessage: {
       type: String,
-      default: "250px",
-    },
-    modelValue: {
-      type: [String, Number],
       default: "",
-    },
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    maxLength: {
-      type: Number,
-      default: 100,
     },
     inputType: {
       type: String,
@@ -99,35 +103,16 @@ export default {
           "url",
           "time",
           "email",
+          "tel",
         ];
         return possibleTypes.includes(type);
       },
-    },
-    error: {
-      type: Boolean,
-      default: false,
-    },
-    success: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      type: String,
-      default: "",
-    },
-    successMessage: {
-      type: String,
-      default: "",
-    },
-    loading: {
-      type: Boolean,
-      default: false,
     },
     label: {
       type: Boolean,
       default: false,
     },
-    disabled: {
+    loading: {
       type: Boolean,
       default: false,
     },
@@ -135,13 +120,29 @@ export default {
       type: String,
       default: "12px 0px",
     },
-    autocomplete: {
+    maxLength: {
+      type: Number,
+      default: 100,
+    },
+    modelValue: {
+      type: [String, Number],
+      default: "",
+    },
+    placeholder: {
+      type: String,
+      default: "",
+    },
+    success: {
       type: Boolean,
       default: false,
     },
-    counter: {
-      type: Boolean,
-      default: false,
+    successMessage: {
+      type: String,
+      default: "",
+    },
+    width: {
+      type: String,
+      default: "250px",
     },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
