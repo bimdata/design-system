@@ -40,7 +40,7 @@ input:-webkit-autofill {
       color: var(--color-primary);
       background-color: transparent;
       border-style: none;
-      cursor: inherit;
+      cursor: auto;
       font-family: inherit;
       &:focus {
         outline: none;
