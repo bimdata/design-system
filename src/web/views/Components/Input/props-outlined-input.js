@@ -23,7 +23,7 @@ export default [
     "error",
     "Boolean",
     "false",
-    "Use this boolean to check if your input is bad.",
+    "Use this boolean to check if your input is incorrect.",
   ],
   [
     "errorMessage",
@@ -77,7 +77,7 @@ export default [
     "success",
     "Boolean",
     "false",
-    "Use this boolean to check if your input is good.",
+    "Use this boolean to check if your input is correct.",
   ],
   [
     "successMessage",
