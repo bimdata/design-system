@@ -170,10 +170,10 @@ export default {
   },
   methods: {
     focus() {
-      this.$refs.input && this.$refs.input.focus();
+      this.$refs.input?.focus();
     },
     blur() {
-      this.$refs.input && this.$refs.input.blur();
+      this.$refs.input?.blur();
     },
   },
 };
