@@ -1,11 +1,17 @@
 /* eslint-disable */
 export default [
-  [ "Props", "Type", "Default value", "Description" ],
+  [ "Props", "Type", "Default value", "Description"],
   [
     "autocomplete",
     "Boolean",
     "false",
     "Whether 'autocomplete' attribute is 'on' or 'off'."
+  ],
+  [
+    "counter",
+    "Boolean",
+    "false",
+    "Specifies whether the input should have a counter at the bottom.",
   ],
   [
     "disabled",
@@ -26,6 +32,18 @@ export default [
     "Use this props to add an error message to your input.",
   ],
   [
+    "inputType",
+    "String",
+    "'text'",
+    "Will be used as the type attribute of the input element among the following possibilities : 'email', 'file', 'password', 'number', 'text', 'tel', 'time', 'url'.",
+  ],
+  [
+    "label",
+    "Boolean",
+    "false",
+    "Add a label above the input field.",
+  ],
+  [
     "loading",
     "Boolean",
     "false",
@@ -35,7 +53,13 @@ export default [
     "margin",
     "String",
     "12px 0",
-    "Custom input margins",
+    "Custom input margins.",
+  ],
+  [
+    "maxLength",
+    "Number",
+    "100",
+    "Specifies maximum length of input.",
   ],
   [
     "modelValue",
@@ -60,5 +84,11 @@ export default [
     "String",
     "' '",
     "Use this props to add a success message to your input.",
+  ],
+  [
+    "width",
+    "String",
+    "'250px'",
+    "Use this props to custom input width.",
   ],
 ];
