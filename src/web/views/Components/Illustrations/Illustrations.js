@@ -20,6 +20,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "emptyNamingConvention",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "emptyPdf",
     x: "90",
     y: "90",
@@ -128,5 +133,20 @@ export default Object.freeze([
     name: "successSplit",
     x: "200",
     y: "200",
+  },
+  {
+    name: "createList",
+    x: "110",
+    y: "110",
+  },
+  {
+    name: "manageList",
+    x: "110",
+    y: "110",
+  },
+  {
+    name: "renameFile",
+    x: "110",
+    y: "110",
   },
 ]);
