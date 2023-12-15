@@ -1,13 +1,17 @@
 import click from "./Click.vue";
+import createList from "./CreateList.vue";
 import emptyBcf from "./EmptyBcf.vue";
 import emptyBucket from "./EmptyBucket.vue";
 import emptyMeasure from "./EmptyMeasure.vue";
+import emptyNamingConvention from "./EmptyNamingConvention.vue";
+import emptyPdf from "./EmptyPdf.vue";
 import emptyProperties from "./EmptyProperties.vue";
 import emptySectionPlanes from "./EmptySectionPlanes.vue";
 import emptyTree from "./EmptyTree.vue";
 import emptyViewer from "./EmptyViewer.vue";
 import logo from "./Logo.vue";
-import emptyPdf from "./EmptyPdf.vue";
+import manageList from "./ManageList.vue";
+import renameFile from "./RenameFile.vue";
 import shortcutOpen from "./ShortcutOpen.vue";
 import shortcutRotate from "./ShortcutRotate.vue";
 import shortcutZoom from "./ShortcutZoom.vue";
@@ -27,15 +31,19 @@ import successSplit from "./SuccessSplit.vue";
 
 export default {
   click,
+  createList,
   emptyBcf,
   emptyBucket,
   emptyMeasure,
+  emptyNamingConvention,
+  emptyPdf,
   emptyProperties,
   emptySectionPlanes,
   emptyTree,
   emptyViewer,
   logo,
-  emptyPdf,
+  manageList,
+  renameFile,
   shortcutOpen,
   shortcutRotate,
   shortcutZoom,
