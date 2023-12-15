@@ -1,5 +1,7 @@
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
+import addGavel from "./AddGavel.vue";
+import addList from "./AddList.vue";
 import addUser from "./AddUser.vue";
 import alphabeticalAscending from "./AlphabeticalAscending.vue";
 import alphabeticalDescending from "./AlphabeticalDescending.vue";
@@ -53,6 +55,7 @@ import folder from "./Folder.vue";
 import folderMove from "./FolderMove.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
+import gavel from "./Gavel.vue";
 import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
@@ -77,6 +80,7 @@ import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
+import namingConvention from "./NamingConvention.vue";
 import navigation from "./Navigation.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
@@ -163,6 +167,8 @@ import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 export default {
   addFile,
   addFolder,
+  addGavel,
+  addList,
   addUser,
   alphabeticalAscending,
   alphabeticalDescending,
@@ -217,6 +223,7 @@ export default {
   folderMove,
   folderOpen,
   fullscreen,
+  gavel,
   grid,
   group,
   hide,
@@ -241,6 +248,7 @@ export default {
   measure,
   minus,
   model3d,
+  namingConvention,
   organization,
   parameters,
   pathway,
