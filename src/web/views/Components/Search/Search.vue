@@ -17,6 +17,7 @@
             :clear="isClear"
             :width="width + 'px'"
             :height="height + 'px'"
+            :disabled="isDisabled"
           />
         </template>
 
@@ -40,6 +41,7 @@
             v-model="placeholder"
           />
           <BIMDataCheckbox text="clear" v-model="isClear" />
+          <BIMDataCheckbox text="disabled" v-model="isDisabled" />
           <div
             v-for="[key, values] in Object.entries(searchOptions)"
             :key="key"
@@ -75,6 +77,7 @@
               color="{{ selectedSearchOptionsstyle }}"
               {{ selectedSearchOptionskinds }}
               clear="{{ isClear }}"
+              disabled="{{ isDisabled }}"
               :width="{{ width + "px" }}"
               :height="{{ height + "px" }}"
             /&gt;
@@ -115,6 +118,7 @@ export default {
       backgroundColor: false,
       placeholder: "Search",
       isClear: false,
+      isDisabled: false,
       width: 150,
       height: 32,
       selectedSearchOptionskinds: "radius",
