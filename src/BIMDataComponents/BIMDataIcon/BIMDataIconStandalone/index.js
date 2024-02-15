@@ -28,6 +28,8 @@ export { default as BIMDataIconClick } from "./BIMDataIconClick.vue";
 export { default as BIMDataIconClose } from "./BIMDataIconClose.vue";
 export { default as BIMDataIconCloud } from "./BIMDataIconCloud.vue";
 export { default as BIMDataIconColor } from "./BIMDataIconColor.vue";
+export { default as BIMDataIconCreateSpace } from "./BIMDataIconCreateSpace.vue";
+export { default as BIMDataIconCreateZone } from "./BIMDataIconCreateZone.vue";
 export { default as BIMDataIconComment } from "./BIMDataIconComment.vue";
 export { default as BIMDataIconDateAscending } from "./BIMDataIconDateAscending.vue";
 export { default as BIMDataIconDateDescending } from "./BIMDataIconDateDescending.vue";

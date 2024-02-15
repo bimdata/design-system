@@ -28,6 +28,8 @@ import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
 import color from "./Color.vue";
+import createSpace from "./CreateSpace.vue";
+import createZone from "./CreateZone.vue";
 import comment from "./Comment.vue";
 import dateAscending from "./DateAscending.vue";
 import dateDescending from "./DateDescending.vue";
@@ -196,6 +198,8 @@ export default {
   cloud,
   color,
   comment,
+  createSpace,
+  createZone,
   navigation,
   dateAscending,
   dateDescending,
