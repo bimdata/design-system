@@ -24,4 +24,14 @@ export default [
     "'left' ; 'center' ; 'right'",
     "Set how text is aligned in the column.",
   ],
+  [
+    "sortable",
+    "Boolean",
+    "If you want to sort the column, set this to true. Sortable by id value.",
+  ],
+  [
+    "defaultSortAs",
+    "'desc' ; 'asc'",
+    "Set the default sort order for the column.",
+  ],
 ];

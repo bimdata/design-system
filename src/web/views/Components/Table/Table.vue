@@ -14,7 +14,8 @@
             :paginated="simpleExample.paginated"
             :perPage="+simpleExample.perPage"
             @selection-changed="simpleExample.selection = $event"
-          />
+          >
+          </BIMDataTable>
           <div class="selection-box">
             <div class="selection-box__label">Selection :</div>
             <div
@@ -298,17 +299,23 @@ export default {
           {
             id: "fullName",
             label: "Name",
+            sortable: true,
+            defaultSortAs: "desc",
           },
           {
             id: "age",
             label: "Age",
             width: "64px",
+            sortable: true,
+            defaultSortAs: "desc",
           },
           {
             id: "country",
             label: "Country",
             width: "200px",
             align: "center",
+            sortable: true,
+            defaultSortAs: "desc",
           },
         ],
         rows: [

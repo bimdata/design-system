@@ -26,7 +26,15 @@
                 textAlign: column.align || 'left',
               }"
             >
-              {{ column.id ? column.label || column.id : column }}
+              <div :style="{ display: 'inline-flex' }">
+                {{ column.id ? column.label || column.id : column }}
+                <slot name="header-right"></slot>
+                <HeaderTableFilter
+                  v-if="column.sortable"
+                  :column="column"
+                  @click="toggleSorting(column)"
+                />
+              </div>
             </th>
           </tr>
           <tr key="head-row-1">
@@ -37,7 +45,7 @@
         </thead>
         <tbody @dragleave="onDragleave">
           <tr
-            v-for="{ key, data } of computedRows"
+            v-for="{ key, data } of sortedRows"
             :key="`body-row-${key}`"
             v-show="displayedRows.includes(key)"
             :style="{ height: `${rowHeight}px` }"
@@ -117,12 +125,14 @@ import { useRowSelection } from "./table-row-selection.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
+import HeaderTableFilter from "./header-table-filter/HeaderTableFilter.vue";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataCheckbox,
     BIMDataIconChevron,
+    HeaderTableFilter,
   },
   props: {
     columns: {
@@ -185,7 +195,7 @@ export default {
   setup(props, { emit }) {
     // Compute rows keys based on props values.
     const computedRows = computed(() =>
-      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row }))
+      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row })),
     );
 
     const { rowSelection, toggleRowSelection, toggleFullSelection } =
@@ -211,7 +221,7 @@ export default {
               emit("all-deselected");
             }
           },
-        }
+        },
       );
 
     const toggleRow = row => {
@@ -236,7 +246,7 @@ export default {
       () => {
         pageIndex.value = 0;
       },
-      { immediate: true }
+      { immediate: true },
     );
     // Compute `displayedRows` according to rows array and pagination settings.
     watch(
@@ -254,7 +264,7 @@ export default {
           displayedRows.value = rowKeys;
         }
       },
-      { immediate: true }
+      { immediate: true },
     );
 
     const onDrop = (data, event) => {
@@ -274,6 +284,34 @@ export default {
       dragOveredRowKey.value = null;
     };
 
+    const sortingColumn = ref(null);
+    const sortedRows = computed(() => {
+      if (sortingColumn.value) {
+        console.log(sortingColumn.value);
+        // by default, sort in ascending order
+        const ascendingSort =
+          sortingColumn.value.defaultSortAs !== "desc" ? 1 : -1;
+        return Array.from(computedRows.value).sort((a, b) => {
+          if (a.data[sortingColumn.value.id] < b.data[sortingColumn.value.id]) {
+            return ascendingSort;
+          }
+          if (a.data[sortingColumn.value.id] > b.data[sortingColumn.value.id]) {
+            return -ascendingSort;
+          }
+          return 0;
+        });
+      }
+      return computedRows.value;
+    });
+    const toggleSorting = column => {
+      if (column.defaultSortAs === "asc") {
+        column.defaultSortAs = "desc";
+      } else {
+        column.defaultSortAs = "asc";
+      }
+      sortingColumn.value = column;
+    };
+
     return {
       // References
       computedRows,
@@ -289,6 +327,8 @@ export default {
       onDragleave,
       toggleAll,
       toggleRow,
+      toggleSorting,
+      sortedRows,
     };
   },
 };
