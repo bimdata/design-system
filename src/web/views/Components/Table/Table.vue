@@ -170,14 +170,14 @@
             { 
               id: "fullName",
               label: "Name",
-              sortable: true, defaultSortAs: "desc",
+              sortable: true, defaultSortOrder: "desc",
               sortFunction: (a, b) => {
                 const fullNameA = `${a.firstName} ${a.lastName}`;
                 const fullNameB = `${b.firstName} ${b.lastName}`;
                 return fullNameA &lt; fullNameB ? 1 : -1;
               },
-              { id: "age", label: "Age", width: "64px", sortable: true, defaultSortAs: "desc" },
-              { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortAs: "desc" }
+              { id: "age", label: "Age", width: "64px", sortable: true, defaultSortOrder: "desc" },
+              { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortOrder: "desc" }
             ];
           </pre>
         </Code>
@@ -316,7 +316,7 @@ export default {
             id: "fullName",
             label: "Name",
             sortable: true,
-            defaultSortAs: "desc",
+            defaultSortOrder: "desc",
             sortFunction: (a, b) => {
               const fullNameA = `${a.firstName} ${a.lastName}`;
               const fullNameB = `${b.firstName} ${b.lastName}`;
@@ -329,7 +329,7 @@ export default {
             label: "Age",
             width: "64px",
             sortable: true,
-            defaultSortAs: "desc",
+            defaultSortOrder: "desc",
           },
           {
             id: "country",
@@ -337,7 +337,7 @@ export default {
             width: "200px",
             align: "center",
             sortable: true,
-            defaultSortAs: "desc",
+            defaultSortOrder: "desc",
           },
         ],
         rows: [

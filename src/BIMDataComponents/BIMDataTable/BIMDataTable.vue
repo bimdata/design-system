@@ -28,8 +28,8 @@
             >
               <div :style="{ display: 'inline-flex' }">
                 {{ column.id ? column.label || column.id : column }}
-                <slot name="header-right"></slot>
-                <HeaderTableFilter
+                <slot name="column-header-right"></slot>
+                <ColumnSorting
                   v-if="column.sortable"
                   :column="column"
                   @click="toggleSorting(column)"
@@ -125,14 +125,14 @@ import { useRowSelection } from "./table-row-selection.js";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
-import HeaderTableFilter from "./header-table-filter/HeaderTableFilter.vue";
+import ColumnSorting from "./column-sorting/ColumnSorting.vue";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataCheckbox,
     BIMDataIconChevron,
-    HeaderTableFilter,
+    ColumnSorting,
   },
   props: {
     columns: {
@@ -288,13 +288,11 @@ export default {
     const sortedRows = computed(() => {
       if (sortingColumn.value) {
         // by default, sort in ascending order
-        const ascendingSort =
-          sortingColumn.value.defaultSortAs !== "desc" ? 1 : -1;
+        const sortOrder =
+          sortingColumn.value.defaultSortOrder !== "desc" ? 1 : -1;
         if (sortingColumn.value.sortFunction) {
           const sortFunction = (a, b) => {
-            return (
-              sortingColumn.value.sortFunction(a.data, b.data) * ascendingSort
-            );
+            return sortingColumn.value.sortFunction(a.data, b.data) * sortOrder;
           };
           return Array.from(computedRows.value).sort(sortFunction);
         } else {
@@ -302,12 +300,12 @@ export default {
             if (
               a.data[sortingColumn.value.id] < b.data[sortingColumn.value.id]
             ) {
-              return ascendingSort;
+              return sortOrder;
             }
             if (
               a.data[sortingColumn.value.id] > b.data[sortingColumn.value.id]
             ) {
-              return -ascendingSort;
+              return -sortOrder;
             }
             return 0;
           });
@@ -316,10 +314,10 @@ export default {
       return computedRows.value;
     });
     const toggleSorting = column => {
-      if (column.defaultSortAs === "asc") {
-        column.defaultSortAs = "desc";
+      if (column.defaultSortOrder === "asc") {
+        column.defaultSortOrder = "desc";
       } else {
-        column.defaultSortAs = "asc";
+        column.defaultSortOrder = "asc";
       }
       sortingColumn.value = column;
     };

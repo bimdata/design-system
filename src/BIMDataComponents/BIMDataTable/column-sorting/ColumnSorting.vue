@@ -1,17 +1,18 @@
 <template>
   <span
     v-if="column.sortable"
-    :class="[column.defaultSortAs === 'asc' ? 'asc' : 'desc', 'm-l-6']"
+    :class="[column.defaultSortOrder === 'asc' ? 'asc' : 'desc', 'm-l-6']"
     @mousedown.prevent
   >
-    <BIMDataIconUp
-      v-if="column.defaultSortAs === 'desc'"
+    <BIMDataIconCaret
+      v-if="column.defaultSortOrder === 'desc'"
+      :rotate="180"
       size="xxxs"
       fill
       color="default"
     />
-    <BIMDataIconDown
-      v-if="column.defaultSortAs === 'asc'"
+    <BIMDataIconCaret
+      v-if="column.defaultSortOrder === 'asc'"
       size="xxxs"
       fill
       color="default"

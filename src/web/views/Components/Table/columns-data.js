@@ -30,7 +30,7 @@ export default [
     "If you want to sort the column, set this to true. Sortable by id value.",
   ],
   [
-    "defaultSortAs",
+    "defaultSortOrder",
     "'desc' ; 'asc'",
     "Set the default sort order for the column.",
   ],
