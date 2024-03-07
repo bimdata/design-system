@@ -301,6 +301,12 @@ export default {
             label: "Name",
             sortable: true,
             defaultSortAs: "desc",
+            sortFunction: (a, b) => {
+              const fullNameA = `${a.firstName} ${a.lastName}`;
+              const fullNameB = `${b.firstName} ${b.lastName}`;
+
+              return fullNameA < fullNameB ? 1 : -1;
+            },
           },
           {
             id: "age",

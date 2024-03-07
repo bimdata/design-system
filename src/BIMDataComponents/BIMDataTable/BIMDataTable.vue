@@ -287,19 +287,31 @@ export default {
     const sortingColumn = ref(null);
     const sortedRows = computed(() => {
       if (sortingColumn.value) {
-        console.log(sortingColumn.value);
         // by default, sort in ascending order
         const ascendingSort =
           sortingColumn.value.defaultSortAs !== "desc" ? 1 : -1;
-        return Array.from(computedRows.value).sort((a, b) => {
-          if (a.data[sortingColumn.value.id] < b.data[sortingColumn.value.id]) {
-            return ascendingSort;
-          }
-          if (a.data[sortingColumn.value.id] > b.data[sortingColumn.value.id]) {
-            return -ascendingSort;
-          }
-          return 0;
-        });
+        if (sortingColumn.value.sortFunction) {
+          const sortFunction = (a, b) => {
+            return (
+              sortingColumn.value.sortFunction(a.data, b.data) * ascendingSort
+            );
+          };
+          return Array.from(computedRows.value).sort(sortFunction);
+        } else {
+          return Array.from(computedRows.value).sort((a, b) => {
+            if (
+              a.data[sortingColumn.value.id] < b.data[sortingColumn.value.id]
+            ) {
+              return ascendingSort;
+            }
+            if (
+              a.data[sortingColumn.value.id] > b.data[sortingColumn.value.id]
+            ) {
+              return -ascendingSort;
+            }
+            return 0;
+          });
+        }
       }
       return computedRows.value;
     });
