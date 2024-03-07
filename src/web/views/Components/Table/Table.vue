@@ -161,9 +161,17 @@
         <Code language="javascript">
           <pre>
             let columns = [
-              { id: "fullName", label: "Name" },
-              { id: "age", label: "Age", width: "64px" },
-              { id: "country", label: "Country", width: "200px", align: "center" }
+            { 
+              id: "fullName",
+              label: "Name",
+              sortable: true, defaultSortAs: "desc",
+              sortFunction: (a, b) => {
+                const fullNameA = `${a.firstName} ${a.lastName}`;
+                const fullNameB = `${b.firstName} ${b.lastName}`;
+                return fullNameA &lt; fullNameB ? 1 : -1;
+              },
+              { id: "age", label: "Age", width: "64px", sortable: true, defaultSortAs: "desc" },
+              { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortAs: "desc" }
             ];
           </pre>
         </Code>

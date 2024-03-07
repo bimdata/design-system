@@ -34,4 +34,9 @@ export default [
     "'desc' ; 'asc'",
     "Set the default sort order for the column.",
   ],
+  [
+    "sortFunction",
+    "Function",
+    "Set a custom sort function for the column.",
+  ],
 ];
