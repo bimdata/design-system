@@ -37,6 +37,6 @@ export default [
   [
     "sortFunction",
     "Function",
-    "Set a custom sort function for the column.",
+    "Set a custom sort function for the column. If not specified, the default sort function will be used.",
   ],
 ];
