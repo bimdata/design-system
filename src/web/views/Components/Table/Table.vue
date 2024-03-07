@@ -122,6 +122,12 @@
           :rows="eventsData.slice(1)"
         />
       </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Slots:
+        </BIMDataText>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
+      </div>
     </div>
 
     <div class="article-wrapper">
@@ -271,6 +277,8 @@
 import columnsData from "./columns-data.js";
 import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
+import slotsData from "./slots-data.js";
+
 // Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
@@ -375,6 +383,7 @@ export default {
       propsData,
       eventsData,
       columnsData,
+      slotsData,
     };
   },
 };
