@@ -1,6 +1,5 @@
 <template>
   <span
-    v-if="column.sortable"
     :class="[column.defaultSortOrder === 'asc' ? 'asc' : 'desc', 'm-l-6']"
     @mousedown.prevent
   >
