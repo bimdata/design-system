@@ -24,6 +24,7 @@
               :style="{
                 width: column.width || 'auto',
                 textAlign: column.align || 'left',
+                position: 'relative',
               }"
             >
               <div :style="{ display: 'inline-flex' }">
@@ -34,6 +35,20 @@
                   :column="column"
                   @click="toggleSorting(column)"
                 />
+                <div v-if="column.filter" class="m-l-6">
+                  <BIMDataIconCaret
+                    size="xxxs"
+                    fill
+                    color="default"
+                    @click="toggleFilter(column)"
+                    @mousedown.prevent
+                  />
+                  <ColumnFilters
+                    v-if="displayFilters"
+                    :column="column"
+                    :rows="sortedRows"
+                  />
+                </div>
               </div>
             </th>
           </tr>
@@ -126,6 +141,7 @@ import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import ColumnSorting from "./column-sorting/ColumnSorting.vue";
+import ColumnFilters from "./column-filters/ColumnFilters.vue";
 
 export default {
   components: {
@@ -133,6 +149,7 @@ export default {
     BIMDataCheckbox,
     BIMDataIconChevron,
     ColumnSorting,
+    ColumnFilters,
   },
   props: {
     columns: {
@@ -322,9 +339,16 @@ export default {
       sortingColumn.value = column;
     };
 
+    const displayFilters = ref(false);
+    const toggleFilter = column => {
+      displayFilters.value = !displayFilters.value;
+      console.log({ column });
+    };
+
     return {
       // References
       computedRows,
+      displayFilters,
       displayedRows,
       pageIndex,
       pageIndexEnd,
@@ -335,10 +359,11 @@ export default {
       onDrop,
       onDragover,
       onDragleave,
+      sortedRows,
       toggleAll,
       toggleRow,
       toggleSorting,
-      sortedRows,
+      toggleFilter,
     };
   },
 };
