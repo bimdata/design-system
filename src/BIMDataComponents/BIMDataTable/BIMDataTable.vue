@@ -26,13 +26,16 @@
                 textAlign: column.align || 'left',
               }"
             >
-              <div :style="{ display: 'inline-flex' }">
+              <div :style="{ display: 'inline-flex', 'align-items': 'center' }">
                 {{ column.id ? column.label || column.id : column }}
                 <slot name="column-header-right"></slot>
                 <ColumnSorting
                   v-if="column.sortable"
                   :column="column"
+                  :index="j"
+                  :active="j === activeHeaderColumnIndex"
                   @click="toggleSorting(column)"
+                  @set-active="activeHeaderColumnIndex = $event"
                 />
               </div>
             </th>
@@ -324,6 +327,7 @@ export default {
 
     return {
       // References
+      activeHeaderColumnIndex: null,
       computedRows,
       displayedRows,
       pageIndex,
