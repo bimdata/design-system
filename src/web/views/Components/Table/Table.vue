@@ -332,13 +332,6 @@ export default {
             defaultSortOrder: "asc",
           },
           {
-            id: "tags",
-            label: "Tags",
-            width: "200px",
-            align: "center",
-            filter: true,
-          },
-          {
             id: "country",
             label: "Country",
             width: "200px",
