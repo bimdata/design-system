@@ -16,5 +16,9 @@ export default [
   [
     "placeholder",
     "Use this slot to add a custom placeholder when the table is empty."
+  ],
+  [
+    "column-filters",
+    "Use this slot to add custom filters for the table."
   ]
 ];

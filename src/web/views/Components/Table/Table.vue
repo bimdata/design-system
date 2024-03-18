@@ -177,6 +177,7 @@
                 return fullNameA &lt; fullNameB ? 1 : -1;
               },
               { id: "age", label: "Age", width: "64px", sortable: true, defaultSortOrder: "asc" },
+              { id: "tags", label: "Tags", width: "200px", align: "center", filter: true },
               { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortOrder: "asc" }
             ];
           </pre>
@@ -332,6 +333,13 @@ export default {
             defaultSortOrder: "asc",
           },
           {
+            id: "tags",
+            label: "Tags",
+            width: "200px",
+            align: "center",
+            filter: true,
+          },
+          {
             id: "country",
             label: "Country",
             width: "200px",
@@ -345,36 +353,42 @@ export default {
             firstName: "John",
             lastName: "Doe",
             age: 26,
+            tags: "Tag 4",
             country: "Germany",
           },
           {
             firstName: "Jane",
             lastName: "Doe",
             age: 21,
+            tags: "Tag 2",
             country: "Austria",
           },
           {
             firstName: "Martine",
             lastName: "Durand",
             age: 35,
+            tags: "Tag 1",
             country: "France",
           },
           {
             firstName: "Giuseppe",
             lastName: "Bompiani",
             age: 64,
+            tags: "Tag 1",
             country: "Italy",
           },
           {
             firstName: "Enrico",
             lastName: "Fermi",
             age: 41,
+            tags: "Tag 1",
             country: "Italy",
           },
           {
             firstName: "Lev Davidovitch",
             lastName: "Landau",
             age: 23,
+            tags: "Tag 3",
             country: "Russia",
           },
         ],

@@ -39,4 +39,9 @@ export default [
     "Function",
     "Set a custom sort function for the column. If not specified, the default sort function will be used.",
   ],
+  [
+    "filter",
+    "Boolean",
+    "If you want to filter the column, set this to true. Sortable by id value.",
+  ],
 ];
