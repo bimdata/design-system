@@ -24,6 +24,7 @@
               :style="{
                 width: column.width || 'auto',
                 textAlign: column.align || 'left',
+                position: 'relative',
               }"
             >
               <div :style="{ display: 'inline-flex', 'align-items': 'center' }">
@@ -33,10 +34,31 @@
                   v-if="column.sortable"
                   :column="column"
                   :index="j"
-                  :active="j === activeHeaderColumnIndex"
+                  :active="j === activeHeadercolumnKey"
                   @click="toggleSorting(column)"
-                  @set-active="activeHeaderColumnIndex = $event"
+                  @set-active="activeHeadercolumnKey = $event"
                 />
+                <div v-if="column.filter" v-clickaway="away">
+                  <BIMDataButton
+                    color="primary"
+                    ghost
+                    rounded
+                    icon
+                    class="m-l-6"
+                    :class="{ active: filters.length > 0 }"
+                    @click="displayFilters = !displayFilters"
+                    @mousedown.prevent
+                  >
+                    <BIMDataIconCaret size="xxxs" fill color="default" />
+                  </BIMDataButton>
+                  <ColumnFilters
+                    v-if="displayFilters"
+                    :column="column"
+                    :rows="computedRows"
+                    :filters="filters"
+                    @filter="updateFilters"
+                  />
+                </div>
               </div>
             </th>
           </tr>
@@ -48,9 +70,9 @@
         </thead>
         <tbody @dragleave="onDragleave">
           <tr
-            v-for="{ key, data } of sortedRows"
+            v-for="{ key, data } of displayedRows"
             :key="`body-row-${key}`"
-            v-show="displayedRows.includes(key)"
+            v-show="paginatedRows.includes(key)"
             :style="{ height: `${rowHeight}px` }"
             @drop="onDrop(data, $event)"
             @dragover="onDragover(key, data, $event)"
@@ -124,11 +146,14 @@
 <script>
 import { computed, ref, watch } from "vue";
 import { useRowSelection } from "./table-row-selection.js";
+import clickaway from "../../BIMDataDirectives/click-away.js";
+
 // Components
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import ColumnSorting from "./column-sorting/ColumnSorting.vue";
+import ColumnFilters from "./column-filters/ColumnFilters.vue";
 
 export default {
   components: {
@@ -136,7 +161,9 @@ export default {
     BIMDataCheckbox,
     BIMDataIconChevron,
     ColumnSorting,
+    ColumnFilters,
   },
+  directives: { clickaway },
   props: {
     columns: {
       type: Array,
@@ -238,7 +265,7 @@ export default {
       }
     };
 
-    const displayedRows = ref([]);
+    const paginatedRows = ref([]);
     const pageIndex = ref(0);
     const pageIndexStart = ref(1);
     const pageIndexEnd = ref(props.perPage);
@@ -251,7 +278,7 @@ export default {
       },
       { immediate: true },
     );
-    // Compute `displayedRows` according to rows array and pagination settings.
+    // Compute `paginatedRows` according to rows array and pagination settings.
     watch(
       [computedRows, () => props.paginated, () => props.perPage, pageIndex],
       ([rows, paginated, perPage, index]) => {
@@ -260,11 +287,11 @@ export default {
           const start = perPage * index;
           const end = start + perPage;
 
-          displayedRows.value = rowKeys.slice(start, end);
+          paginatedRows.value = rowKeys.slice(start, end);
           pageIndexStart.value = start + 1;
           pageIndexEnd.value = Math.min(end, rows.length);
         } else {
-          displayedRows.value = rowKeys;
+          paginatedRows.value = rowKeys;
         }
       },
       { immediate: true },
@@ -288,6 +315,7 @@ export default {
     };
 
     const sortingColumn = ref(null);
+    const filteringColumn = ref([]);
     const sortedRows = computed(() => {
       if (sortingColumn.value) {
         // by default, sort in ascending order
@@ -314,8 +342,17 @@ export default {
           });
         }
       }
+      if (filteringColumn.value.length > 0) {
+        return Array.from(computedRows.value).filter(row => {
+          return (
+            row.data[filteringColumn.value[0].id] ===
+            filteringColumn.value[0].text
+          );
+        });
+      }
       return computedRows.value;
     });
+
     const toggleSorting = column => {
       if (column.defaultSortOrder === "asc") {
         column.defaultSortOrder = "desc";
@@ -325,24 +362,69 @@ export default {
       sortingColumn.value = column;
     };
 
+    /**
+     * @typedef {Object} ColumnFilter
+     * @property {number} columnKey
+     * @property {string[]} columnFilters
+     */
+
+    /**
+     * @type { { value: ColumnFilter[] } }
+     */
+    const filters = ref([]);
+
+    const displayFilters = ref(false);
+    const toggleFiltersMenu = () => {
+      displayFilters.value = !displayFilters.value;
+    };
+    const away = () => {
+      displayFilters.value = false;
+    };
+
+    const displayedRows = computed(() => {
+      return sortedRows.value.filter(row => {
+        return filters.value.every(filter => {
+          return filter.columnFilters.includes(row.data[filter.columnKey]);
+        });
+      });
+    });
+
+    /**
+     * @param {ColumnFilter} columnFilter
+     */
+    const updateFilters = columnFilter => {
+      filters.value = filters.value.filter(
+        filter => filter.columnKey !== columnFilter.columnKey,
+      );
+      if (columnFilter.columnFilters.length > 0) {
+        filters.value.push(columnFilter);
+      }
+    };
+
     return {
       // References
-      activeHeaderColumnIndex: null,
+      activeHeadercolumnKey: null,
       computedRows,
-      displayedRows,
+      paginatedRows,
       pageIndex,
       pageIndexEnd,
       pageIndexStart,
       rowSelection,
       dragOveredRowKey,
+      displayFilters,
+      filteringColumn,
+      filters,
       // Methods
+      away,
       onDrop,
       onDragover,
       onDragleave,
       toggleAll,
       toggleRow,
       toggleSorting,
-      sortedRows,
+      updateFilters,
+      toggleFiltersMenu,
+      displayedRows,
     };
   },
 };
