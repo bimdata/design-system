@@ -116,7 +116,9 @@
     <div
       class="bimdata-table__page-nav"
       v-if="paginated"
-      :style="{ visibility: rows.length > perPage ? 'visible' : 'hidden' }"
+      :style="{
+        visibility: displayedRows.length > perPage ? 'visible' : 'hidden',
+      }"
     >
       <BIMDataButton
         ghost
@@ -128,13 +130,13 @@
         <BIMDataIconChevron size="s" :rotate="180" />
       </BIMDataButton>
       <span class="bimdata-table__page-nav__text">
-        {{ `${pageIndexStart} - ${pageIndexEnd} / ${rows.length}` }}
+        {{ `${pageIndexStart} - ${pageIndexEnd} / ${displayedRows.length}` }}
       </span>
       <BIMDataButton
         ghost
         rounded
         icon
-        :disabled="pageIndexEnd === rows.length"
+        :disabled="pageIndexEnd === displayedRows.length"
         @click="pageIndex++"
       >
         <BIMDataIconChevron size="s" />
