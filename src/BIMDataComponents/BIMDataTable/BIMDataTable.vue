@@ -265,38 +265,6 @@ export default {
       }
     };
 
-    const paginatedRows = ref([]);
-    const pageIndex = ref(0);
-    const pageIndexStart = ref(1);
-    const pageIndexEnd = ref(props.perPage);
-
-    // Reset `pageIndex` when rows array or the number of rows per page change.
-    watch(
-      [computedRows, () => props.perPage],
-      () => {
-        pageIndex.value = 0;
-      },
-      { immediate: true },
-    );
-    // Compute `paginatedRows` according to rows array and pagination settings.
-    watch(
-      [computedRows, () => props.paginated, () => props.perPage, pageIndex],
-      ([rows, paginated, perPage, index]) => {
-        const rowKeys = rows.map(r => r.key);
-        if (paginated) {
-          const start = perPage * index;
-          const end = start + perPage;
-
-          paginatedRows.value = rowKeys.slice(start, end);
-          pageIndexStart.value = start + 1;
-          pageIndexEnd.value = Math.min(end, rows.length);
-        } else {
-          paginatedRows.value = rowKeys;
-        }
-      },
-      { immediate: true },
-    );
-
     const onDrop = (data, event) => {
       if (props.canDragOverRow(data)) {
         emit("row-drop", { data, event });
@@ -400,6 +368,38 @@ export default {
         filters.value.push(columnFilter);
       }
     };
+
+    const paginatedRows = ref([]);
+    const pageIndex = ref(0);
+    const pageIndexStart = ref(1);
+    const pageIndexEnd = ref(props.perPage);
+
+    // Reset `pageIndex` when rows array or the number of rows per page change.
+    watch(
+      [displayedRows, () => props.perPage],
+      () => {
+        pageIndex.value = 0;
+      },
+      { immediate: true },
+    );
+    // Compute `paginatedRows` according to rows array and pagination settings.
+    watch(
+      [displayedRows, () => props.paginated, () => props.perPage, pageIndex],
+      ([rows, paginated, perPage, index]) => {
+        const rowKeys = rows.map(r => r.key);
+        if (paginated) {
+          const start = perPage * index;
+          const end = start + perPage;
+
+          paginatedRows.value = rowKeys.slice(start, end);
+          pageIndexStart.value = start + 1;
+          pageIndexEnd.value = Math.min(end, rows.length);
+        } else {
+          paginatedRows.value = rowKeys;
+        }
+      },
+      { immediate: true },
+    );
 
     return {
       // References
