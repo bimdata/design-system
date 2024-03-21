@@ -42,11 +42,11 @@ export default {
         props.filters.find(filter => filter.columnKey === props.column.id)
           ?.columnFilters ?? [],
     );
-    const elements = [
+    const elements = computed([
       ...new Set(props.rows.map(row => row.data[props.column.id])),
-    ];
+    ]);
     const columnElements = computed(() =>
-      elements.map(element => ({
+      elements.value.map(element => ({
         text: element,
         checked: columnFilters.value.includes(element),
       })),
