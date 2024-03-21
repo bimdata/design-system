@@ -42,7 +42,7 @@ export default {
         props.filters.find(filter => filter.columnKey === props.column.id)
           ?.columnFilters ?? [],
     );
-    const elements = computed([
+    const elements = computed(() => [
       ...new Set(props.rows.map(row => row.data[props.column.id])),
     ]);
     const columnElements = computed(() =>
