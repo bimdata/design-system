@@ -9,7 +9,7 @@ jobs:
   publish:
     runs-on: [self-hosted, common]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
@@ -34,7 +34,7 @@ jobs:
       refs/heads/main'
       , github.ref)
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Login to BIMData Docker Registry
         uses: docker/login-action@v2
         with:
