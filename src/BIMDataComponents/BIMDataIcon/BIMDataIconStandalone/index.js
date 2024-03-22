@@ -20,6 +20,7 @@ export { default as BIMDataIconCalendar } from "./BIMDataIconCalendar.vue";
 export { default as BIMDataIconCaliper } from "./BIMDataIconCaliper.vue";
 export { default as BIMDataIconCamera } from "./BIMDataIconCamera.vue";
 export { default as BIMDataIconCancelCamera } from "./BIMDataIconCancelCamera.vue";
+export { default as BIMDataIconCaret } from "./BIMDataIconCaret.vue";
 export { default as BIMDataIconCheck } from "./BIMDataIconCheck.vue";
 export { default as BIMDataIconChevron } from "./BIMDataIconChevron.vue";
 export { default as BIMDataIconClassificationCategory } from "./BIMDataIconClassificationCategory.vue";

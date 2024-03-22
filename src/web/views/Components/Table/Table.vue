@@ -14,7 +14,8 @@
             :paginated="simpleExample.paginated"
             :perPage="+simpleExample.perPage"
             @selection-changed="simpleExample.selection = $event"
-          />
+          >
+          </BIMDataTable>
           <div class="selection-box">
             <div class="selection-box__label">Selection :</div>
             <div
@@ -121,6 +122,12 @@
           :rows="eventsData.slice(1)"
         />
       </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Slots:
+        </BIMDataText>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
+      </div>
     </div>
 
     <div class="article-wrapper">
@@ -160,9 +167,18 @@
         <Code language="javascript">
           <pre>
             let columns = [
-              { id: "fullName", label: "Name" },
-              { id: "age", label: "Age", width: "64px" },
-              { id: "country", label: "Country", width: "200px", align: "center" }
+            { 
+              id: "fullName",
+              label: "Name",
+              sortable: true, defaultSortOrder: "asc",
+              sortFunction: (a, b) => {
+                const fullNameA = `${a.firstName} ${a.lastName}`;
+                const fullNameB = `${b.firstName} ${b.lastName}`;
+                return fullNameA &lt; fullNameB ? 1 : -1;
+              },
+              { id: "age", label: "Age", width: "64px", sortable: true, defaultSortOrder: "asc" },
+              { id: "tags", label: "Tags", width: "200px", align: "center", filter: true },
+              { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortOrder: "asc" }
             ];
           </pre>
         </Code>
@@ -262,6 +278,8 @@
 import columnsData from "./columns-data.js";
 import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
+import slotsData from "./slots-data.js";
+
 // Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
@@ -298,17 +316,36 @@ export default {
           {
             id: "fullName",
             label: "Name",
+            sortable: true,
+            defaultSortOrder: "asc",
+            sortFunction: (a, b) => {
+              const fullNameA = `${a.firstName} ${a.lastName}`;
+              const fullNameB = `${b.firstName} ${b.lastName}`;
+
+              return fullNameA < fullNameB ? 1 : -1;
+            },
           },
           {
             id: "age",
             label: "Age",
             width: "64px",
+            sortable: true,
+            defaultSortOrder: "asc",
+          },
+          {
+            id: "tags",
+            label: "Tags",
+            width: "200px",
+            align: "center",
+            filter: true,
           },
           {
             id: "country",
             label: "Country",
             width: "200px",
             align: "center",
+            sortable: true,
+            defaultSortOrder: "asc",
           },
         ],
         rows: [
@@ -316,36 +353,42 @@ export default {
             firstName: "John",
             lastName: "Doe",
             age: 26,
+            tags: "Tag 4",
             country: "Germany",
           },
           {
             firstName: "Jane",
             lastName: "Doe",
             age: 21,
+            tags: "Tag 2",
             country: "Austria",
           },
           {
             firstName: "Martine",
             lastName: "Durand",
             age: 35,
+            tags: "Tag 1",
             country: "France",
           },
           {
             firstName: "Giuseppe",
             lastName: "Bompiani",
             age: 64,
+            tags: "Tag 1",
             country: "Italy",
           },
           {
             firstName: "Enrico",
             lastName: "Fermi",
             age: 41,
+            tags: "Tag 1",
             country: "Italy",
           },
           {
             firstName: "Lev Davidovitch",
             lastName: "Landau",
             age: 23,
+            tags: "Tag 3",
             country: "Russia",
           },
         ],
@@ -354,6 +397,7 @@ export default {
       propsData,
       eventsData,
       columnsData,
+      slotsData,
     };
   },
 };

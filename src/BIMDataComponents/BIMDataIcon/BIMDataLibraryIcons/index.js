@@ -20,6 +20,8 @@ import calendar from "./Calendar.vue";
 import caliper from "./Caliper.vue";
 import camera from "./Camera.vue";
 import cancelCamera from "./CancelCamera.vue";
+import caret from "./Caret.vue";
+
 import check from "./Check.vue";
 import chevron from "./Chevron.vue";
 import classificationCategory from "./ClassificationCategory.vue";
@@ -189,6 +191,7 @@ export default {
   caliper,
   camera,
   cancelCamera,
+  caret,
   check,
   chevron,
   classificationCategory,
