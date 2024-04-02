@@ -50,7 +50,9 @@
 <script>
 import { inject, ref, computed, watch, isRef, h } from "vue";
 
-const NodeChildren = {
+let Node, NodeChildren;
+
+NodeChildren = {
   inject: ["root"],
   props: {
     node: {
@@ -82,7 +84,7 @@ const NodeChildren = {
   },
 };
 
-export default {
+Node = {
   name: "Node",
   components: {
     NodeChildren,
@@ -174,6 +176,8 @@ export default {
     };
   },
 };
+
+export default Node;
 </script>
 
 <style scoped lang="scss">
