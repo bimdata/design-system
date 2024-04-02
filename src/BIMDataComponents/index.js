@@ -44,3 +44,4 @@ export { default as BIMDataTextarea } from "./BIMDataTextarea/BIMDataTextarea.vu
 export { default as BIMDataTextbox } from "./BIMDataTextbox/BIMDataTextbox.vue";
 export { default as BIMDataToggle } from "./BIMDataToggle/BIMDataToggle.vue";
 export { default as BIMDataTooltip } from "./BIMDataTooltip/BIMDataTooltip.vue";
+export { default as BIMDataTree } from "./BIMDataTree/BIMDataTree.vue";
