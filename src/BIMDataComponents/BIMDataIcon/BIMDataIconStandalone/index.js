@@ -118,6 +118,7 @@ export { default as BIMDataIconShowSelected } from "./BIMDataIconShowSelected.vu
 export { default as BIMDataIconSmartview } from "./BIMDataIconSmartview.vue";
 export { default as BIMDataIconSocotec } from "./BIMDataIconSocotec.vue";
 export { default as BIMDataIconSpace } from "./BIMDataIconSpace.vue";
+export { default as BIMDataIconSpace2 } from "./BIMDataIconSpace2.vue";
 export { default as BIMDataIconSpacing } from "./BIMDataIconSpacing.vue";
 export { default as BIMDataIconSplit } from "./BIMDataIconSplit.vue";
 export { default as BIMDataIconStorey } from "./BIMDataIconStorey.vue";
@@ -147,6 +148,7 @@ export { default as BIMDataIconWindowLeft } from "./BIMDataIconWindowLeft.vue";
 export { default as BIMDataIconWindowRight } from "./BIMDataIconWindowRight.vue";
 export { default as BIMDataIconWindowTop } from "./BIMDataIconWindowTop.vue";
 export { default as BIMDataIconZone } from "./BIMDataIconZone.vue";
+export { default as BIMDataIconZone2 } from "./BIMDataIconZone2.vue";
 
 // polychrome icons
 export { default as BIMDataIconBcfPolychrome } from "./BIMDataIconBcfPolychrome.vue";

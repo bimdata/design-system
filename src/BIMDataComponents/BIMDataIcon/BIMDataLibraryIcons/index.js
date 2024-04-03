@@ -118,6 +118,7 @@ import showSelected from "./ShowSelected.vue";
 import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
 import space from "./Space.vue";
+import space2 from "./Space2.vue";
 import spacing from "./Spacing.vue";
 import split from "./Split.vue";
 import storey from "./Storey.vue";
@@ -147,6 +148,7 @@ import windowLeft from "./WindowLeft.vue";
 import windowRight from "./WindowRight.vue";
 import windowTop from "./WindowTop.vue";
 import zone from "./Zone.vue";
+import zone2 from "./Zone2.vue";
 
 // Polychrome icons
 import bcfPolychrome from "./polychrome/BcfPolychrome.vue";
@@ -287,6 +289,7 @@ export default {
   smartview,
   socotec,
   space,
+  space2,
   spacing,
   split,
   storey,
@@ -316,6 +319,7 @@ export default {
   windowRight,
   windowTop,
   zone,
+  zone2,
   // Polychrome icons
   bcfPolychrome,
   createWindowPolychrome,
