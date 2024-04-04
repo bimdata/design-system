@@ -36,7 +36,6 @@ import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
-import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
 import distance from "./Distance.vue";
 import doubleChevron from "./DoubleChevron.vue";
@@ -89,6 +88,7 @@ import parameters from "./Parameters.vue";
 import pathway from "./Pathway.vue";
 import pieGraph from "./PieGraph.vue";
 import pipette from "./Pipette.vue";
+import plan from "./Plan.vue";
 import plus from "./Plus.vue";
 import preview from "./Preview.vue";
 import project from "./Project.vue";
@@ -208,7 +208,6 @@ export default {
   default: Default,
   delete: Delete,
   deniedFile,
-  deploy,
   detach,
   distance,
   doubleChevron,
@@ -260,6 +259,7 @@ export default {
   pathway,
   pieGraph,
   pipette,
+  plan,
   plus,
   preview,
   project,
