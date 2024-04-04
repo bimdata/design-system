@@ -1,6 +1,12 @@
 <template>
   <div class="column-filters p-12">
     <div
+      v-if="columnElements.length === 0"
+      class="column-filters__element flex align-center"
+    >
+      <slot name="column-filter-empty"></slot>
+    </div>
+    <div
       v-for="element in columnElements"
       :key="element.data"
       class="column-filters__element flex align-center"

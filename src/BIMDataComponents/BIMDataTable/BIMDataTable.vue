@@ -74,8 +74,8 @@
                     "
                     @filter="updateFilters(column, $event)"
                   >
-                    <template #column-filters>
-                      <slot name="column-filters" :rows="computedRows"></slot>
+                    <template #column-filter-empty>
+                      <slot name="column-filter-empty"></slot>
                     </template>
                   </ColumnFilters>
                 </div>
