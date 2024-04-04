@@ -24,7 +24,6 @@
               :style="{
                 width: column.width || 'auto',
                 textAlign: column.align || 'left',
-                position: 'relative',
               }"
             >
               <div :style="{ display: 'inline-flex', 'align-items': 'center' }">
@@ -32,32 +31,53 @@
                 <slot name="column-header-right"></slot>
                 <ColumnSorting
                   v-if="column.sortable"
-                  :column="column"
+                  :sortOrder="
+                    !sortObject.order || sortObject.column !== column
+                      ? 'asc'
+                      : sortObject.order
+                  "
                   :index="j"
                   :active="j === activeHeadercolumnKey"
                   @click="toggleSorting(column)"
                   @set-active="activeHeadercolumnKey = $event"
                 />
-                <div v-if="column.filter" v-clickaway="away">
+                <div
+                  v-if="column.filter"
+                  v-clickaway="() => awayFromFilter(column)"
+                >
                   <BIMDataButton
                     color="primary"
                     ghost
                     rounded
                     icon
                     class="m-l-6"
-                    :class="{ active: filters.length > 0 }"
-                    @click="displayFilters = !displayFilters"
-                    @mousedown.prevent
+                    :class="{
+                      active: filters.some(
+                        filter => filter.columnKey === column.id,
+                      ),
+                    }"
+                    @click="toggleFiltersMenu(column)"
                   >
                     <BIMDataIconCaret size="xxxs" fill color="default" />
                   </BIMDataButton>
                   <ColumnFilters
-                    v-if="displayFilters"
+                    v-if="displayedColumnFilterId === column.id"
                     :column="column"
-                    :rows="computedRows"
-                    :filters="filters"
-                    @filter="updateFilters"
-                  />
+                    :columnData="
+                      computedRows.map(
+                        computedRow => computedRow.data[column.id],
+                      )
+                    "
+                    :filters="
+                      filters.find(filter => filter.columnKey === column.id)
+                        ?.columnFilters ?? []
+                    "
+                    @filter="updateFilters(column, $event)"
+                  >
+                    <template #column-filters>
+                      <slot name="column-filters" :rows="computedRows"></slot>
+                    </template>
+                  </ColumnFilters>
                 </div>
               </div>
             </th>
@@ -146,13 +166,14 @@
 </template>
 
 <script>
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, shallowReactive } from "vue";
 import { useRowSelection } from "./table-row-selection.js";
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
 // Components
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
+import BIMDataIconCaret from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconCaret.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import ColumnSorting from "./column-sorting/ColumnSorting.vue";
 import ColumnFilters from "./column-filters/ColumnFilters.vue";
@@ -161,6 +182,7 @@ export default {
   components: {
     BIMDataButton,
     BIMDataCheckbox,
+    BIMDataIconCaret,
     BIMDataIconChevron,
     ColumnSorting,
     ColumnFilters,
@@ -284,58 +306,70 @@ export default {
       dragOveredRowKey.value = null;
     };
 
-    const sortingColumn = ref(null);
-    const filteringColumn = ref([]);
+    const displayedColumnFilterId = ref(null);
+
+    const toggleFiltersMenu = column => {
+      if (displayedColumnFilterId.value === column.id) {
+        displayedColumnFilterId.value = null;
+      } else {
+        displayedColumnFilterId.value = column.id;
+      }
+    };
+
+    const awayFromFilter = column => {
+      if (column.id === displayedColumnFilterId.value) {
+        displayedColumnFilterId.value = null;
+      }
+    };
+
+    const sortObject = shallowReactive({ column: null, order: null });
+    const filteringColumns = ref([]);
     const sortedRows = computed(() => {
-      if (sortingColumn.value) {
+      if (sortObject.column) {
         // by default, sort in ascending order
-        const sortOrder =
-          sortingColumn.value.defaultSortOrder !== "desc" ? 1 : -1;
-        if (sortingColumn.value.sortFunction) {
+        const sortOrder = sortObject.order !== "desc" ? 1 : -1;
+        if (sortObject.column.sortFunction) {
           const sortFunction = (a, b) => {
-            return sortingColumn.value.sortFunction(a.data, b.data) * sortOrder;
+            return sortObject.column.sortFunction(a.data, b.data) * sortOrder;
           };
           return Array.from(computedRows.value).sort(sortFunction);
         } else {
           return Array.from(computedRows.value).sort((a, b) => {
-            if (
-              a.data[sortingColumn.value.id] < b.data[sortingColumn.value.id]
-            ) {
+            if (a.data[sortObject.column.id] < b.data[sortObject.column.id]) {
               return sortOrder;
             }
-            if (
-              a.data[sortingColumn.value.id] > b.data[sortingColumn.value.id]
-            ) {
+            if (a.data[sortObject.column.id] > b.data[sortObject.column.id]) {
               return -sortOrder;
             }
             return 0;
           });
         }
       }
-      if (filteringColumn.value.length > 0) {
+      if (filteringColumns.value.length > 0) {
         return Array.from(computedRows.value).filter(row => {
           return (
-            row.data[filteringColumn.value[0].id] ===
-            filteringColumn.value[0].text
+            row.data[filteringColumns.value[0].id] ===
+            filteringColumns.value[0].text
           );
         });
       }
+
       return computedRows.value;
     });
 
     const toggleSorting = column => {
-      if (column.defaultSortOrder === "asc") {
-        column.defaultSortOrder = "desc";
+      if (sortObject.column === column) {
+        sortObject.order = sortObject.order === "asc" ? "desc" : "asc";
       } else {
-        column.defaultSortOrder = "asc";
+        sortObject.column = column;
+        sortObject.order = column.defaultSortOrder ?? "asc";
       }
-      sortingColumn.value = column;
     };
 
     /**
      * @typedef {Object} ColumnFilter
      * @property {number} columnKey
-     * @property {string[]} columnFilters
+     * @property {any[]} columnFilters
      */
 
     /**
@@ -343,18 +377,31 @@ export default {
      */
     const filters = ref([]);
 
-    const displayFilters = ref(false);
-    const toggleFiltersMenu = () => {
-      displayFilters.value = !displayFilters.value;
-    };
-    const away = () => {
-      displayFilters.value = false;
-    };
-
     const displayedRows = computed(() => {
       return sortedRows.value.filter(row => {
         return filters.value.every(filter => {
-          return filter.columnFilters.includes(row.data[filter.columnKey]);
+          const column = props.columns.find(
+            column => column.id === filter.columnKey,
+          );
+          const columnRowData = row.data[filter.columnKey];
+
+          if (columnRowData === null) return;
+
+          if (Array.isArray(columnRowData)) {
+            return columnRowData.some(columnRowDataElement =>
+              filter.columnFilters.includes(
+                column.filterKey
+                  ? columnRowDataElement[column.filterKey]
+                  : columnRowDataElement,
+              ),
+            );
+          } else {
+            return filter.columnFilters.includes(
+              column.filterKey
+                ? columnRowData[column.filterKey]
+                : columnRowData,
+            );
+          }
         });
       });
     });
@@ -362,12 +409,15 @@ export default {
     /**
      * @param {ColumnFilter} columnFilter
      */
-    const updateFilters = columnFilter => {
+    const updateFilters = (column, columnFilters) => {
       filters.value = filters.value.filter(
-        filter => filter.columnKey !== columnFilter.columnKey,
+        filter => filter.columnKey !== column.id,
       );
-      if (columnFilter.columnFilters.length > 0) {
-        filters.value.push(columnFilter);
+      if (columnFilters.length > 0) {
+        filters.value.push({
+          columnKey: column.id,
+          columnFilters,
+        });
       }
     };
 
@@ -413,11 +463,12 @@ export default {
       pageIndexStart,
       rowSelection,
       dragOveredRowKey,
-      displayFilters,
-      filteringColumn,
+      displayedColumnFilterId,
+      filteringColumns,
       filters,
+      sortObject,
       // Methods
-      away,
+      awayFromFilter,
       onDrop,
       onDragover,
       onDragleave,

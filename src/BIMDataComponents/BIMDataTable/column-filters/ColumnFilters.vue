@@ -1,18 +1,16 @@
 <template>
   <div class="column-filters p-12">
-    <slot name="column-filters">
-      <div
-        v-for="element in columnElements"
-        :key="element.text"
-        class="column-filters__element flex justify-center"
-      >
-        <BIMDataCheckbox
-          :text="element.text"
-          :modelValue="element.checked"
-          @update:modelValue="toggle(element, $event)"
-        />
-      </div>
-    </slot>
+    <div
+      v-for="element in columnElements"
+      :key="element.data"
+      class="column-filters__element flex align-center"
+    >
+      <BIMDataCheckbox
+        :text="element.data"
+        :modelValue="element.checked"
+        @update:modelValue="toggle(element.data, $event)"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -27,7 +25,7 @@ export default {
       type: Object,
       required: true,
     },
-    rows: {
+    columnData: {
       type: Array,
       required: true,
     },
@@ -36,30 +34,44 @@ export default {
       required: true,
     },
   },
+  emits: ["filter"],
   setup(props, { emit }) {
-    const columnFilters = computed(
-      () =>
-        props.filters.find(filter => filter.columnKey === props.column.id)
-          ?.columnFilters ?? [],
-    );
-    const elements = computed(() => [
-      ...new Set(props.rows.map(row => row.data[props.column.id])),
-    ]);
+    const column = props.column;
+
+    const elements = computed(() => {
+      const columnData = props.columnData;
+      const newColumnData = columnData.filter(data => data !== null);
+      return [
+        ...new Set(
+          newColumnData.flatMap(data => {
+            if (!Array.isArray(data)) {
+              data = [data];
+            }
+            return column?.filterKey
+              ? data.map(d => d[column?.filterKey])
+              : data;
+          }),
+        ),
+      ];
+    });
+
     const columnElements = computed(() =>
       elements.value.map(element => ({
-        text: element,
-        checked: columnFilters.value.includes(element),
+        data: element,
+        checked: props.filters.includes(element),
       })),
     );
 
     const toggle = (element, checked) => {
-      const newColumnFilters = checked
-        ? [...columnFilters.value, element.text]
-        : columnFilters.value.filter(filter => filter !== element.text);
-      emit("filter", {
-        columnKey: props.column.id,
-        columnFilters: newColumnFilters,
-      });
+      const newFilters = new Set(props.filters);
+
+      if (checked) {
+        newFilters.add(element);
+      } else {
+        newFilters.delete(element);
+      }
+
+      emit("filter", [...newFilters]);
     };
 
     return {

@@ -1,6 +1,6 @@
 <template>
   <span
-    :class="[column.defaultSortOrder === 'asc' ? 'asc' : 'desc', 'm-l-6']"
+    :class="[sortOrder === 'asc' ? 'asc' : 'desc', 'm-l-6']"
     @mousedown.prevent
   >
     <BIMDataButton
@@ -12,14 +12,7 @@
       @click="toggleActive"
     >
       <BIMDataIconCaret
-        v-if="column.defaultSortOrder === 'desc'"
-        :rotate="180"
-        size="xxxs"
-        fill
-        color="default"
-      />
-      <BIMDataIconCaret
-        v-if="column.defaultSortOrder === 'asc'"
+        :rotate="sortOrder === 'desc' ? 180 : 0"
         size="xxxs"
         fill
         color="default"
@@ -29,11 +22,19 @@
 </template>
 
 <script>
+// Components
+import BIMDataButton from "../../BIMDataButton/BIMDataButton.vue";
+import BIMDataIconCaret from "../../BIMDataIcon/BIMDataIconStandalone/BIMDataIconCaret.vue";
 export default {
+  components: {
+    BIMDataButton,
+    BIMDataIconCaret,
+  },
   props: {
-    column: {
-      type: Object,
+    sortOrder: {
+      type: String,
       required: true,
+      validator: value => ["asc", "desc"].includes(value),
     },
     index: {
       type: Number,
