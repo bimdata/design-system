@@ -226,6 +226,9 @@
           <template #cell-age="{ row }">
             <AgeCustomCell :age="row.age" />
           </template>
+          <template #cell-tags="{ row }">
+            <TagsCustomCell :tags="row.tags" />
+          </template>
           <template #cell-country="{ row }">
             <CountryCustomCell :country="row.country" />
           </template>
@@ -285,6 +288,7 @@ import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import AgeCustomCell from "./example/AgeCustomCell.vue";
 import CountryCustomCell from "./example/CountryCustomCell.vue";
+import TagsCustomCell from "./example/TagsCustomCell.vue";
 
 export default {
   components: {
@@ -292,6 +296,7 @@ export default {
     ComponentCode,
     AgeCustomCell,
     CountryCustomCell,
+    TagsCustomCell,
   },
   data() {
     return {
@@ -333,11 +338,19 @@ export default {
             defaultSortOrder: "asc",
           },
           {
+            id: "priority",
+            label: "Priority",
+            width: "200px",
+            align: "center",
+            filter: true,
+          },
+          {
             id: "tags",
             label: "Tags",
             width: "200px",
             align: "center",
             filter: true,
+            filterKey: "name",
           },
           {
             id: "country",
@@ -353,42 +366,82 @@ export default {
             firstName: "John",
             lastName: "Doe",
             age: 26,
-            tags: "Tag 4",
+            priority: "High",
+            tags: [
+              {
+                name: "Tag 2",
+                color: "#ff69b4",
+              },
+            ],
             country: "Germany",
           },
           {
             firstName: "Jane",
             lastName: "Doe",
             age: 21,
-            tags: "Tag 2",
+            priority: "Low",
+            tags: [
+              {
+                name: "Tag 2",
+                color: "#ff69b4",
+              },
+            ],
             country: "Austria",
           },
           {
             firstName: "Martine",
             lastName: "Durand",
             age: 35,
-            tags: "Tag 1",
+            priority: "Medium",
+            tags: [
+              {
+                name: "My tag",
+                color: "#2AAA8A",
+              },
+              {
+                name: "Reviewed",
+                color: "#ff6954",
+              },
+            ],
             country: "France",
           },
           {
             firstName: "Giuseppe",
             lastName: "Bompiani",
             age: 64,
-            tags: "Tag 1",
+            priority: "Low",
+            tags: [
+              {
+                name: "Tag 5",
+                color: "#bf70a4",
+              },
+            ],
             country: "Italy",
           },
           {
             firstName: "Enrico",
             lastName: "Fermi",
             age: 41,
-            tags: "Tag 1",
+            priority: "low",
+            tags: [
+              {
+                name: "Missing",
+                color: "#fh69u6",
+              },
+            ],
             country: "Italy",
           },
           {
             firstName: "Lev Davidovitch",
             lastName: "Landau",
             age: 23,
-            tags: "Tag 3",
+            priority: "Medium",
+            tags: [
+              {
+                name: "Tag 2",
+                color: "#ff69b4",
+              },
+            ],
             country: "Russia",
           },
         ],

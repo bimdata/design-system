@@ -44,4 +44,9 @@ export default [
     "Boolean",
     "If you want to filter the column, set this to true. Sortable by id value.",
   ],
+  [
+    "filterKey",
+    "String",
+    "Set the key to specify a filter by.",
+  ]
 ];
