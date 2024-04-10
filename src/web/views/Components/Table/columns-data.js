@@ -24,4 +24,29 @@ export default [
     "'left' ; 'center' ; 'right'",
     "Set how text is aligned in the column.",
   ],
+  [
+    "sortable",
+    "Boolean",
+    "If you want to sort the column, set this to true. Sortable by id value.",
+  ],
+  [
+    "defaultSortOrder",
+    "'desc' ; 'asc'",
+    "Set the default sort order for the column.",
+  ],
+  [
+    "sortFunction",
+    "Function",
+    "Set a custom sort function for the column. If not specified, the default sort function will be used.",
+  ],
+  [
+    "filter",
+    "Boolean",
+    "If you want to filter the column, set this to true. Sortable by id value.",
+  ],
+  [
+    "filterKey",
+    "String",
+    "Set the key to specify a filter by.",
+  ]
 ];

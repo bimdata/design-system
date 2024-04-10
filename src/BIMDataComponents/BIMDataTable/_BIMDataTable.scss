@@ -25,6 +25,7 @@
       }
 
       th {
+        position: relative;
         font-weight: bold;
         color: var(--color-primary);
 
@@ -34,6 +35,9 @@
           text-align: left;
           font-weight: normal;
           color: var(--color-granite-lightest);
+        }
+        .active {
+          background-color: #e0eef9;
         }
       }
 
