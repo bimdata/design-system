@@ -7,7 +7,12 @@
     @mouseup.self="onMouseUp"
   >
     <div class="bimdata-tree__nodes" @mouseleave="onNodesMouseLeave">
-      <Node v-for="node of data" :key="node.id" :node="node">
+      <Node
+        v-for="node of data"
+        :key="node.id"
+        :node="node"
+        :drag-and-drop="dragAndDrop"
+      >
         <slot
           name="node"
           :node="node"
@@ -73,6 +78,10 @@ export default {
       type: Number,
       default: null,
     },
+    dragAndDrop: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["drop", "click", "hover"],
   setup(props, { emit }) {
@@ -95,7 +104,10 @@ export default {
 
     const dropHelperDisplayed = computed(
       () =>
-        hover.value && state.dragPosition !== null && state.hoveredNode === null
+        props.dragAndDrop &&
+        hover.value &&
+        state.dragPosition !== null &&
+        state.hoveredNode === null
     );
 
     return {

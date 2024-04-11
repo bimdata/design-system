@@ -62,7 +62,7 @@ export default function useState(props, emit) {
     state.dragPosition = { x: clientX, y: clientY };
   };
   const onNodeMouseUp = (node, domElement, expanded) => {
-    if (!state.dragPosition) return;
+    if (!props.dragAndDrop || !state.dragPosition) return;
 
     if (state.hoveredNode?.id === pressedNode.value?.id) return;
 
@@ -131,7 +131,7 @@ export default function useState(props, emit) {
     emit("click", null);
   };
   const onTreeMouseUp = () => {
-    if (!state.dragPosition) return;
+    if (!props.dragAndDrop || !state.dragPosition) return;
 
     if (state.trees.indexOf(pressedNode.value) === state.trees.length - 1) {
       // to drop the last root node at the end of the list does not fire the drop event
