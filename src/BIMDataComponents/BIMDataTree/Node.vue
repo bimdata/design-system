@@ -44,6 +44,7 @@
     v-if="node.children?.length > 0 && expanded"
     :node="node"
     :depth="depth + 1"
+    :drag-and-drop="dragAndDrop"
   />
 </template>
 
@@ -64,20 +65,25 @@ NodeChildren = {
       type: Number,
       default: 0,
     },
+    dragAndDrop: {
+      type: Boolean,
+      default: false,
+    },
   },
   render() {
-    const { node, depth, root } = this;
+    const { node, depth, dragAndDrop, root } = this;
 
     const state = root.state;
 
     return node.children.map(child =>
-      h(Node, { node: child, depth, key: child.id }, () =>
+      h(Node, { node: child, depth, dragAndDrop, key: child.id }, () =>
         root.$slots.node?.({
           node: child,
           depth,
           selected: child.id === state.selectedId,
           hovered: child.id === state.hoveredNode?.id,
           ancestorSelected: state.hasAncestorSelected(child),
+          dragAndDrop,
         })
       )
     );
@@ -98,6 +104,10 @@ Node = {
     depth: {
       type: Number,
       default: 0,
+    },
+    dragAndDrop: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -154,7 +164,11 @@ Node = {
     };
 
     const dropHelperPosition = computed(() => {
-      if (!state.dragPosition || state.hoveredNode?.id !== props.node.id)
+      if (
+        !props.dragAndDrop ||
+        !state.dragPosition ||
+        state.hoveredNode?.id !== props.node.id
+      )
         return null;
 
       return state.getNodeDropPosition(props.node, nodeRef.value);
