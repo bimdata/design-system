@@ -1,6 +1,7 @@
 <template>
   <div
     ref="nodeRef"
+    v-show="visible"
     class="bimdata-tree__node"
     :class="{
       'bimdata-tree__node--selected': node.id === state.selectedId,
@@ -113,12 +114,20 @@ Node = {
   setup(props) {
     const state = inject("state");
 
+    let visible = null;
+    if (isRef(props.node.visibleRef)) {
+      visible = props.node.visibleRef;
+    } else {
+      visible = ref(true);
+    }
+
     let expanded = null;
     if (isRef(props.node.expandedRef)) {
       expanded = props.node.expandedRef;
     } else {
       expanded = ref(false);
     }
+
     const nodeRef = ref(null);
 
     let expandTimer = null;
@@ -181,6 +190,7 @@ Node = {
       state,
       nodeRef,
       expanded,
+      visible,
       dropHelperPosition,
       hasAncestorSelected: state.hasAncestorSelected,
       onMouseEnter,
