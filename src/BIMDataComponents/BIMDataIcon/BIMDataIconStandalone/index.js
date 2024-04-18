@@ -123,6 +123,7 @@ export { default as BIMDataIconSpace2 } from "./BIMDataIconSpace2.vue";
 export { default as BIMDataIconSpacing } from "./BIMDataIconSpacing.vue";
 export { default as BIMDataIconSplit } from "./BIMDataIconSplit.vue";
 export { default as BIMDataIconStorey } from "./BIMDataIconStorey.vue";
+export { default as BIMDataIconStructure } from "./BIMDataIconStructure.vue";
 export { default as BIMDataIconSuccess } from "./BIMDataIconSuccess.vue";
 export { default as BIMDataIconSurface } from "./BIMDataIconSurface.vue";
 export { default as BIMDataIconSwap } from "./BIMDataIconSwap.vue";

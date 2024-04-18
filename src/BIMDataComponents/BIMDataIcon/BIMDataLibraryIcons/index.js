@@ -123,6 +123,7 @@ import space2 from "./Space2.vue";
 import spacing from "./Spacing.vue";
 import split from "./Split.vue";
 import storey from "./Storey.vue";
+import structure from "./Structure.vue";
 import success from "./Success.vue";
 import surface from "./Surface.vue";
 import swap from "./Swap.vue";
@@ -295,6 +296,7 @@ export default {
   spacing,
   split,
   storey,
+  structure,
   success,
   surface,
   swap,
