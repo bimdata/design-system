@@ -48,5 +48,10 @@ export default [
     "filterKey",
     "String",
     "Set the key to specify a filter by.",
+  ],
+  [
+    "filterFunction",
+    "Function",
+    "Set a custom filter function for the column. Be careful, this property takes precedence over “FilterKey”",
   ]
 ];

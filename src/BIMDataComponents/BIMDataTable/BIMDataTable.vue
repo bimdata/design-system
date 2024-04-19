@@ -53,7 +53,7 @@
                     class="m-l-6"
                     :class="{
                       active: filters.some(
-                        filter => filter.columnKey === column.id,
+                        filter => filter.columnKey === column.id
                       ),
                     }"
                     @click="toggleFiltersMenu(column)"
@@ -65,7 +65,7 @@
                     :column="column"
                     :columnData="
                       computedRows.map(
-                        computedRow => computedRow.data[column.id],
+                        computedRow => computedRow.data[column.id]
                       )
                     "
                     :filters="
@@ -249,7 +249,7 @@ export default {
   setup(props, { emit }) {
     // Compute rows keys based on props values.
     const computedRows = computed(() =>
-      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row })),
+      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row }))
     );
 
     const { rowSelection, toggleRowSelection, toggleFullSelection } =
@@ -275,7 +275,7 @@ export default {
               emit("all-deselected");
             }
           },
-        },
+        }
       );
 
     const toggleRow = row => {
@@ -381,7 +381,7 @@ export default {
       return sortedRows.value.filter(row => {
         return filters.value.every(filter => {
           const column = props.columns.find(
-            column => column.id === filter.columnKey,
+            column => column.id === filter.columnKey
           );
           const columnRowData = row.data[filter.columnKey];
 
@@ -390,16 +390,20 @@ export default {
           if (Array.isArray(columnRowData)) {
             return columnRowData.some(columnRowDataElement =>
               filter.columnFilters.includes(
-                column.filterKey
+                typeof column.filterFunction === "function"
+                  ? column.filterFunction(columnRowDataElement)
+                  : column.filterKey
                   ? columnRowDataElement[column.filterKey]
-                  : columnRowDataElement,
-              ),
+                  : columnRowDataElement
+              )
             );
           } else {
             return filter.columnFilters.includes(
-              column.filterKey
+              typeof column.filterFunction === "function"
+                ? column.filterFunction(columnRowData)
+                : column.filterKey
                 ? columnRowData[column.filterKey]
-                : columnRowData,
+                : columnRowData
             );
           }
         });
@@ -411,7 +415,7 @@ export default {
      */
     const updateFilters = (column, columnFilters) => {
       filters.value = filters.value.filter(
-        filter => filter.columnKey !== column.id,
+        filter => filter.columnKey !== column.id
       );
       if (columnFilters.length > 0) {
         filters.value.push({
@@ -432,7 +436,7 @@ export default {
       () => {
         pageIndex.value = 0;
       },
-      { immediate: true },
+      { immediate: true }
     );
     // Compute `paginatedRows` according to rows array and pagination settings.
     watch(
@@ -450,7 +454,7 @@ export default {
           paginatedRows.value = rowKeys;
         }
       },
-      { immediate: true },
+      { immediate: true }
     );
 
     return {
