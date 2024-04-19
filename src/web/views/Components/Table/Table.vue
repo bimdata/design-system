@@ -200,8 +200,11 @@
         <Code language="xml">
           <pre>
             &lt;BIMDataTable :columns="columns" :rows="rows"&gt;
+              &lt;template #cell-filename="{ row }"&gt;
+                {{ "{" + "{ `${row.fileName}${row.extensionFile}` }" + "}" }}
+              &lt;/template&gt;
               &lt;template #cell-created_by="{ row }"&gt;
-                {{ "{" + "{ `${row.firstName} ${row.lastName}` }" + "}" }}
+              &lt;FullNameCell :creator="row.created_by" /&gt;
               &lt;/template&gt;
               &lt;template #cell-age="{ row }"&gt;
                 &lt;AgeCustomCell :age="row.age" /&gt;
@@ -226,6 +229,9 @@
           :columns="advancedExample.columns"
           :rows="advancedExample.rows"
         >
+          <template #cell-filename="{ row }">
+            {{ `${row.fileName}${row.extensionFile}` }}
+          </template>
           <template #cell-created_by="{ row }">
             <FullNameCell :creator="row.created_by" />
           </template>
@@ -327,7 +333,7 @@ export default {
       advancedExample: {
         columns: [
           {
-            id: "fileName",
+            id: "filename",
             label: "Filename",
             sortable: true,
             defaultSortOrder: "asc",
@@ -383,6 +389,7 @@ export default {
               lastName: "Doe",
             },
             fileName: "My_file_name",
+            extensionFile: ".pdf",
             age: 26,
             priority: "High",
             tags: [
@@ -399,6 +406,7 @@ export default {
               lastName: "Doe",
             },
             fileName: "My_other_file_name",
+            extensionFile: ".jpeg",
             age: 21,
             priority: "Low",
             tags: [
@@ -415,6 +423,7 @@ export default {
               lastName: "Durand",
             },
             fileName: "File_name",
+            extensionFile: ".png",
             age: 35,
             priority: "Medium",
             tags: [
@@ -435,6 +444,7 @@ export default {
               lastName: "Bompiani",
             },
             fileName: "One_file_name",
+            extensionFile: ".pdf",
             age: 64,
             priority: "Low",
             tags: [
@@ -451,6 +461,7 @@ export default {
               lastName: "Doe",
             },
             fileName: "filename",
+            extensionFile: ".pdf",
             age: 41,
             priority: "low",
             tags: [
@@ -467,6 +478,7 @@ export default {
               lastName: "Landau",
             },
             fileName: "filename",
+            extensionFile: ".jpeg",
             age: 23,
             priority: "Medium",
             tags: [
