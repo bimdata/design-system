@@ -148,12 +148,12 @@
         <Code language="javascript">
           <pre>
             let rows = [
-              { firstName: "John", lastName: "Doe", age: 26, country: "Germany" },
-              { firstName: "Jane", lastName: "Doe", age: 21, country: "Austria" },
-              { firstName: "Martine", lastName: "Durand", age: 35, country: "France" },
-              { firstName: "Giuseppe", lastName: "Bompiani", age: 64, country: "Italy" },
-              { firstName: "Enrico", lastName: "Fermi", age: 41, country: "Italy" },
-              { firstName: "Lev Davidovitch", lastName: "Landau", age: 23, country: "Russia" }
+              { created_by: {firstName: "John", lastName: "Doe"}, fileName: "My_file_name", age: 26, priority: "High", tags: [{ name: "Tag 2", color: "#ff69b4"}],country: "Germany" },
+              { created_by: {firstName: "Jane", lastName: "Doe"}, fileName: "My_other_file_name", age: 21, priority: "Low", tags: [{ name: "Tag 2", color: "#ff69b4"}],country: "Austria" },
+              { created_by: {firstName: "Martine", lastName: "Durand"}, fileName: "My_file_name", age: 35, priority: "Medium", tags: [{ name: "My tag", color: "#2AAA8A"}, { name: "Reviewed", color: "#ff6954"}],country: "France" },
+              { created_by: {firstName: "Giuseppe", lastName: "Bompiani"}, fileName: "One_file_name", age: 64, priority: "Low", tags: [{ name: "Tag 5", color: "#bf70a4"}],country: "Italy" },
+              { created_by: {firstName: "Giuseppe", lastName: "Bompiani"}, fileName: "One_file_name", age: 64, priority: "low", tags: [{ name: "Missing", color: "#fh69u6"}],country: "Italy" },
+              { created_by: {firstName: "Lev Davidovitch", lastName: "Landau"}, fileName: "filename", age: 23, priority: "low", tags: [{ name: "Tag 2", color: "#ff69b4"}],country: "Russia" }
             ];
           </pre>
         </Code>
@@ -168,15 +168,21 @@
           <pre>
             let columns = [
             { 
-              id: "fullName",
-              label: "Name",
+              id: "fileName",
+              label: "Filename",
               sortable: true, defaultSortOrder: "asc",
               sortFunction: (a, b) => {
-                const fullNameA = `${a.firstName} ${a.lastName}`;
-                const fullNameB = `${b.firstName} ${b.lastName}`;
-                return fullNameA &lt; fullNameB ? 1 : -1;
+                const fullFileNameA = `${a.fileName} ${a.extesionFile}`;
+                const fullFileNameB = `${b.fileName} ${b.extesionFile}`;
+                return fullFileNameA &lt; fullFileNameB ? 1 : -1;
+              },
+              id: "created_by",
+              label: "Full name",
+              filter: true,
+              filterFunction: rowData => `${rowData.lastName} ${rowData.firstName}`,
               },
               { id: "age", label: "Age", width: "64px", sortable: true, defaultSortOrder: "asc" },
+              { id: "priority", label: "Priority", width: "200px", align: "center", filter: true },
               { id: "tags", label: "Tags", width: "200px", align: "center", filter: true },
               { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortOrder: "asc" }
             ];
@@ -220,8 +226,8 @@
           :columns="advancedExample.columns"
           :rows="advancedExample.rows"
         >
-          <template #cell-fullName="{ row }">
-            {{ `${row.firstName} ${row.lastName}` }}
+          <template #cell-created_by="{ row }">
+            <FullNameCell :creator="row.created_by" />
           </template>
           <template #cell-age="{ row }">
             <AgeCustomCell :age="row.age" />
@@ -288,6 +294,7 @@ import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import AgeCustomCell from "./example/AgeCustomCell.vue";
 import CountryCustomCell from "./example/CountryCustomCell.vue";
+import FullNameCell from "./example/FullNameCell.vue";
 import TagsCustomCell from "./example/TagsCustomCell.vue";
 
 export default {
@@ -296,6 +303,7 @@ export default {
     ComponentCode,
     AgeCustomCell,
     CountryCustomCell,
+    FullNameCell,
     TagsCustomCell,
   },
   data() {
@@ -319,16 +327,23 @@ export default {
       advancedExample: {
         columns: [
           {
-            id: "fullName",
-            label: "Name",
+            id: "fileName",
+            label: "Filename",
             sortable: true,
             defaultSortOrder: "asc",
             sortFunction: (a, b) => {
-              const fullNameA = `${a.firstName} ${a.lastName}`;
-              const fullNameB = `${b.firstName} ${b.lastName}`;
+              const fullFileNameA = `${a.fileName} ${a.extesionFile}`;
+              const fullFileNameB = `${b.fileName} ${b.extesionFile}`;
 
-              return fullNameA < fullNameB ? 1 : -1;
+              return fullFileNameA < fullFileNameB ? 1 : -1;
             },
+          },
+          {
+            id: "created_by",
+            label: "Full name",
+            filter: true,
+            filterFunction: rowData =>
+              `${rowData.lastName} ${rowData.firstName}`,
           },
           {
             id: "age",
@@ -363,8 +378,11 @@ export default {
         ],
         rows: [
           {
-            firstName: "John",
-            lastName: "Doe",
+            created_by: {
+              firstName: "John",
+              lastName: "Doe",
+            },
+            fileName: "My_file_name",
             age: 26,
             priority: "High",
             tags: [
@@ -376,8 +394,11 @@ export default {
             country: "Germany",
           },
           {
-            firstName: "Jane",
-            lastName: "Doe",
+            created_by: {
+              firstName: "Jane",
+              lastName: "Doe",
+            },
+            fileName: "My_other_file_name",
             age: 21,
             priority: "Low",
             tags: [
@@ -389,8 +410,11 @@ export default {
             country: "Austria",
           },
           {
-            firstName: "Martine",
-            lastName: "Durand",
+            created_by: {
+              firstName: "Martine",
+              lastName: "Durand",
+            },
+            fileName: "File_name",
             age: 35,
             priority: "Medium",
             tags: [
@@ -406,8 +430,11 @@ export default {
             country: "France",
           },
           {
-            firstName: "Giuseppe",
-            lastName: "Bompiani",
+            created_by: {
+              firstName: "Giuseppe",
+              lastName: "Bompiani",
+            },
+            fileName: "One_file_name",
             age: 64,
             priority: "Low",
             tags: [
@@ -419,8 +446,11 @@ export default {
             country: "Italy",
           },
           {
-            firstName: "Enrico",
-            lastName: "Fermi",
+            created_by: {
+              firstName: "Enrico",
+              lastName: "Doe",
+            },
+            fileName: "filename",
             age: 41,
             priority: "low",
             tags: [
@@ -432,8 +462,11 @@ export default {
             country: "Italy",
           },
           {
-            firstName: "Lev Davidovitch",
-            lastName: "Landau",
+            created_by: {
+              firstName: "Lev Davidovitch",
+              lastName: "Landau",
+            },
+            fileName: "filename",
             age: 23,
             priority: "Medium",
             tags: [
