@@ -12,7 +12,7 @@
             <th class="cell-checkbox" v-if="selectable">
               <BIMDataCheckbox
                 :disabled="rows.length === 0"
-                :modelValue="selectedElements"
+                :modelValue="selectionState"
                 @update:modelValue="toggleAll"
               />
             </th>
@@ -276,7 +276,7 @@ export default {
         }
       );
 
-    const selectedElements = computed(() =>
+    const selectionState = computed(() =>
       rowSelection.value.size < props.rows.length
         ? rowSelection.value.size > 0
           ? null
@@ -476,7 +476,7 @@ export default {
       displayedColumnFilterId,
       filteringColumns,
       filters,
-      selectedElements,
+      selectionState,
       sortObject,
       // Methods
       awayFromFilter,
