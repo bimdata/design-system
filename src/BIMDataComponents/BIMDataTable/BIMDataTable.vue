@@ -266,8 +266,8 @@ export default {
               emit("row-deselected", data);
             }
           },
-          fullSelectionToggleEffect: selected => {
-            if (selected) {
+          fullSelectionToggleEffect: selectedState => {
+            if (selectedState) {
               emit("all-selected");
             } else {
               emit("all-deselected");

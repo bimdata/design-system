@@ -49,13 +49,17 @@ function useRowSelection(
     rowSelectionToggleEffect(isSelected(), { key, data });
   };
   const toggleFullSelection = () => {
-    const isSelected = () => rowSelection.value.size === rows.value.length;
-    if (isSelected()) {
+    const selectedState = rowSelection.value.size < rows.value.length
+    ? rowSelection.value.size > 0
+      ? null
+      : false
+    : rowSelection.value.size > 0;
+    if (selectedState || selectedState === null) {
       rowSelection.value = new Map();
     } else {
       rowSelection.value = new Map(rows.value.map(({ key, data }) => [key, data]));
     }
-    fullSelectionToggleEffect(isSelected());
+    fullSelectionToggleEffect(selectedState);
   };
 
   return {
