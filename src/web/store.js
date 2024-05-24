@@ -205,6 +205,13 @@ export default {
         btn: "View input",
       },
       {
+        title: "List",
+        img: loader,
+        path: "list",
+        text: "A performant list to display thousands of elements without latency.",
+        btn: "View list",
+      },
+      {
         title: "Loaders",
         img: loader,
         path: "loaders",
