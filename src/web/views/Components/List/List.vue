@@ -15,7 +15,11 @@
               :items="items"
               :itemHeight="+itemHeight"
               :offset="+offset"
-            />
+            >
+              <template #default="{ item }">
+                {{ item }}
+              </template>
+            </BIMDataList>
           </div>
         </template>
 
@@ -52,6 +56,10 @@
               :itemHeight="{{ +itemHeight }}"
               :offset="{{ +offset }}"
             /&gt;
+              &lt;template #default="{ item }"&gt;
+                &#123;&#123; item &#125;&#125;
+              &lt;/template&gt;
+            &lt;/BIMDataList&gt;
           </pre>
         </template>
       </ComponentCode>
