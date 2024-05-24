@@ -21,6 +21,7 @@ import fileicon from "./assets/img/icon-fileicon.svg";
 import icons from "./assets/img/icon-icons.svg";
 import illustration from "./assets/img/icon-illustration.svg";
 import input from "./assets/img/icon-input.svg";
+import list from "./assets/img/icon-list.svg";
 import loader from "./assets/img/icon-loader.svg";
 import menu from "./assets/img/icon-menu.svg";
 import radio from "./assets/img/icon-radio.svg";
@@ -206,7 +207,7 @@ export default {
       },
       {
         title: "List",
-        img: loader,
+        img: list,
         path: "list",
         text: "A performant list to display thousands of elements without latency.",
         btn: "View list",
