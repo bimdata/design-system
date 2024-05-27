@@ -16,8 +16,8 @@
               :itemHeight="+itemHeight"
               :offset="+offset"
             >
-              <template #default="{ item, index }">
-                  {{ item }}
+              <template #default="{ item }">
+                {{ item }}
               </template>
             </BIMDataList>
           </div>

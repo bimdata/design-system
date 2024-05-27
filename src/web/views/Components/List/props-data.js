@@ -3,7 +3,7 @@ export default [
   [ "Props", "Type", "Default value", "Description" ],
   [
     "items",
-    "any",
+    "Array<any>",
     "REQUIRED",
     "Items to display in the list.",
   ],
