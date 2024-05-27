@@ -16,7 +16,7 @@
         (offsetedStartIndex + index) * itemHeight
       }px`"
     >
-      <slot :item="item">
+      <slot :item="item" :index="offsetedStartIndex + index">
         {{ item }}
       </slot>
     </div>
@@ -55,7 +55,7 @@ export default {
       return Math.max(this.startIndex - this.offset, 0);
     },
     offsetedEndIndex() {
-      return Math.min(this.endIndex + this.offset, this.items.length);
+      return Math.min(this.endIndex + this.offset, this.items.length - 1);
     },
     displayedItems() {
       return this.items.slice(
@@ -75,8 +75,8 @@ export default {
       const startIndex = Math.floor(scrollTop / itemHeight);
 
       const endIndex = Math.min(
-        startIndex + Math.ceil(clientHeight / itemHeight) + 1,
-        items.length
+        startIndex + Math.ceil(clientHeight / itemHeight),
+        items.length - 1
       );
 
       this.startIndex = startIndex;

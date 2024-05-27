@@ -16,8 +16,10 @@
               :itemHeight="+itemHeight"
               :offset="+offset"
             >
-              <template #default="{ item }">
-                {{ item }}
+              <template #default="{ item, index }">
+                <div :style="`background-color: ${index % 2 === 0 ? 'white' : 'var(--color-silver-light)'}; height: 100%`">
+                  {{ item }}
+                </div>
               </template>
             </BIMDataList>
           </div>
