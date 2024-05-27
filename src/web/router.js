@@ -156,6 +156,11 @@ const routes = [
         component: () => import("./views/Components/Input/Input.vue"),
       },
       {
+        path: "list",
+        name: "list",
+        component: () => import("./views/Components/List/List.vue"),
+      },
+      {
         path: "loaders",
         name: "loaders",
         component: () => import("./views/Components/Loaders/Loaders.vue"),
