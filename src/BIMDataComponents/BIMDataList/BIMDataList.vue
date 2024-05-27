@@ -91,7 +91,6 @@ export default {
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 1px solid #ccc;
 
   width: 100%;
   height: 100%;
@@ -100,19 +99,8 @@ export default {
   position: relative;
 
   &__element {
-    overflow: hidden;
     position: absolute;
     width: 100%;
-  }
-
-  &__placeholder {
-    background: repeating-linear-gradient(
-      #ffffff,
-      #ffffff calc(var(--bimdata-list--item-height, 30px) - 1px),
-      var(--color-silver, #000000)
-        calc(var(--bimdata-list--item-height, 30px) - 1px),
-      var(--color-silver, #000000) var(--bimdata-list--item-height, 30px)
-    );
   }
 }
 </style>
