@@ -17,9 +17,7 @@
               :offset="+offset"
             >
               <template #default="{ item, index }">
-                <div :style="`background-color: ${index % 2 === 0 ? 'white' : 'var(--color-silver-light)'}; height: 100%`">
                   {{ item }}
-                </div>
               </template>
             </BIMDataList>
           </div>
@@ -58,7 +56,7 @@
               :itemHeight="{{ +itemHeight }}"
               :offset="{{ +offset }}"
             /&gt;
-              &lt;template #default="{ item }"&gt;
+              &lt;template #default="{ item, index }"&gt;
                 &#123;&#123; item &#125;&#125;
               &lt;/template&gt;
             &lt;/BIMDataList&gt;
