@@ -50,13 +50,17 @@ export default {
       return [
         ...new Set(
           newColumnData.flatMap(data => {
+            if (typeof column.filterFunction === "function") {
+              return column.filterFunction(data);
+            }
+
             if (!Array.isArray(data)) {
               data = [data];
             }
             return column?.filterKey
               ? data.map(d => d[column?.filterKey])
               : data;
-          }),
+          })
         ),
       ];
     });
@@ -65,7 +69,7 @@ export default {
       elements.value.map(element => ({
         data: element,
         checked: props.filters.includes(element),
-      })),
+      }))
     );
 
     const toggle = (element, checked) => {

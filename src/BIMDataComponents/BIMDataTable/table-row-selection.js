@@ -49,7 +49,7 @@ function useRowSelection(
     rowSelectionToggleEffect(isSelected(), { key, data });
   };
   const toggleFullSelection = () => {
-    const isSelected = () => rowSelection.value.size === rows.value.length;
+    const isSelected = () => rowSelection.value.size > 0;
     if (isSelected()) {
       rowSelection.value = new Map();
     } else {

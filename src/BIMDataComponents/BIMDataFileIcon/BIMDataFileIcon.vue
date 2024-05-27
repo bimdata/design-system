@@ -3,7 +3,7 @@
     class="file-icon"
     :width="size"
     :height="(+size * 4) / 3"
-    :src="imageUrl"
+    :src="imgSrc"
   />
 </template>
 
@@ -22,22 +22,9 @@ export default {
     },
   },
   computed: {
-    name() {
-      return (this.getFileExtension(this.fileName) || "unknown").toLowerCase();
-    },
-    imageUrl() {
-      return icons[`icon_${this.name}`] || icons.icon_unknown;
-    },
-  },
-  methods: {
-    getFileExtension(fileName = "") {
-      const match = fileName.match(/\.([0-9a-zA-Z]+$)/);
-      const extension = match && match[1];
-      if (extension && extension.toLowerCase() === "ifczip") {
-        return "ifc";
-      } else {
-        return extension;
-      }
+    imgSrc() {
+      const ext = this.fileName?.match(/\.([0-9a-zA-Z]+$)/)?.[1];
+      return icons[ext?.toLowerCase()] ?? icons["unknown"];
     },
   },
 };
