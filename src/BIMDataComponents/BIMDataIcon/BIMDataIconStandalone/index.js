@@ -54,6 +54,7 @@ export { default as BIMDataIconFailed } from "./BIMDataIconFailed.vue";
 export { default as BIMDataIconFilterList } from "./BIMDataIconFilterList.vue";
 export { default as BIMDataIconFitView } from "./BIMDataIconFitView.vue";
 export { default as BIMDataIconFolder } from "./BIMDataIconFolder.vue";
+export { default as BIMDataIconFolderLocation } from "./BIMDataIconFolderLocation.vue";
 export { default as BIMDataIconFolderMove } from "./BIMDataIconFolderMove.vue";
 export { default as BIMDataIconFolderOpen } from "./BIMDataIconFolderOpen.vue";
 export { default as BIMDataIconFullscreen } from "./BIMDataIconFullscreen.vue";

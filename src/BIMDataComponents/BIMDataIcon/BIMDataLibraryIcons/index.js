@@ -54,6 +54,7 @@ import failed from "./Failed.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
+import folderLocation from "./FolderLocation.vue";
 import folderMove from "./FolderMove.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
@@ -228,6 +229,7 @@ export default {
   filterList,
   fitView,
   folder,
+  folderLocation,
   folderMove,
   folderOpen,
   fullscreen,
