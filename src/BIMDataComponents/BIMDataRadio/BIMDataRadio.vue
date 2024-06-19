@@ -10,10 +10,14 @@
     :disabled="disabled"
     @click="onClick"
   >
-    <div class="bimdata-radio__background" />
-    <div class="bimdata-radio__circle"></div>
-    <div class="bimdata-radio__dot"></div>
-    <span class="bimdata-radio__text">{{ text }}</span>
+    <div class="bimdata-radio__btn">
+      <div class="bimdata-radio__background" />
+      <div class="bimdata-radio__circle"></div>
+      <div class="bimdata-radio__dot"></div>
+    </div>
+    <div class="bimdata-radio__text">
+      <slot>{{ text }}</slot>
+    </div>
   </button>
 </template>
 
