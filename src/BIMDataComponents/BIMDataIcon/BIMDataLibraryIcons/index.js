@@ -1,5 +1,7 @@
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
+import addGavel from "./AddGavel.vue";
+import addList from "./AddList.vue";
 import addUser from "./AddUser.vue";
 import alphabeticalAscending from "./AlphabeticalAscending.vue";
 import alphabeticalDescending from "./AlphabeticalDescending.vue";
@@ -18,6 +20,7 @@ import calendar from "./Calendar.vue";
 import caliper from "./Caliper.vue";
 import camera from "./Camera.vue";
 import cancelCamera from "./CancelCamera.vue";
+import caret from "./Caret.vue";
 import check from "./Check.vue";
 import chevron from "./Chevron.vue";
 import classificationCategory from "./ClassificationCategory.vue";
@@ -26,13 +29,14 @@ import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
 import color from "./Color.vue";
+import createSpace from "./CreateSpace.vue";
+import createZone from "./CreateZone.vue";
 import comment from "./Comment.vue";
 import dateAscending from "./DateAscending.vue";
 import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
-import deploy from "./Deploy.vue";
 import detach from "./Detach.vue";
 import distance from "./Distance.vue";
 import doubleChevron from "./DoubleChevron.vue";
@@ -50,9 +54,11 @@ import failed from "./Failed.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
+import folderLocation from "./FolderLocation.vue";
 import folderMove from "./FolderMove.vue";
 import folderOpen from "./FolderOpen.vue";
 import fullscreen from "./Fullscreen.vue";
+import gavel from "./Gavel.vue";
 import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
@@ -77,12 +83,14 @@ import logout from "./Logout.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
+import namingConvention from "./NamingConvention.vue";
 import navigation from "./Navigation.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import pathway from "./Pathway.vue";
 import pieGraph from "./PieGraph.vue";
 import pipette from "./Pipette.vue";
+import plan from "./Plan.vue";
 import plus from "./Plus.vue";
 import preview from "./Preview.vue";
 import project from "./Project.vue";
@@ -96,6 +104,7 @@ import reprocessIfc from "./ReprocessIfc.vue";
 import reset from "./Reset.vue";
 import restore from "./Restore.vue";
 import right from "./Right.vue";
+import rotate from "./Rotate.vue";
 import rules from "./Rules.vue";
 import sandglass from "./Sandglass.vue";
 import save from "./Save.vue";
@@ -111,9 +120,11 @@ import showSelected from "./ShowSelected.vue";
 import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
 import space from "./Space.vue";
+import space2 from "./Space2.vue";
 import spacing from "./Spacing.vue";
 import split from "./Split.vue";
 import storey from "./Storey.vue";
+import structure from "./Structure.vue";
 import success from "./Success.vue";
 import surface from "./Surface.vue";
 import swap from "./Swap.vue";
@@ -140,6 +151,7 @@ import windowLeft from "./WindowLeft.vue";
 import windowRight from "./WindowRight.vue";
 import windowTop from "./WindowTop.vue";
 import zone from "./Zone.vue";
+import zone2 from "./Zone2.vue";
 
 // Polychrome icons
 import bcfPolychrome from "./polychrome/BcfPolychrome.vue";
@@ -162,6 +174,8 @@ import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 export default {
   addFile,
   addFolder,
+  addGavel,
+  addList,
   addUser,
   alphabeticalAscending,
   alphabeticalDescending,
@@ -180,6 +194,7 @@ export default {
   caliper,
   camera,
   cancelCamera,
+  caret,
   check,
   chevron,
   classificationCategory,
@@ -189,13 +204,14 @@ export default {
   cloud,
   color,
   comment,
+  createSpace,
+  createZone,
   navigation,
   dateAscending,
   dateDescending,
   default: Default,
   delete: Delete,
   deniedFile,
-  deploy,
   detach,
   distance,
   doubleChevron,
@@ -213,9 +229,11 @@ export default {
   filterList,
   fitView,
   folder,
+  folderLocation,
   folderMove,
   folderOpen,
   fullscreen,
+  gavel,
   grid,
   group,
   hide,
@@ -240,11 +258,13 @@ export default {
   measure,
   minus,
   model3d,
+  namingConvention,
   organization,
   parameters,
   pathway,
   pieGraph,
   pipette,
+  plan,
   plus,
   preview,
   project,
@@ -258,6 +278,7 @@ export default {
   reset,
   restore,
   right,
+  rotate,
   rules,
   sandglass,
   save,
@@ -273,9 +294,11 @@ export default {
   smartview,
   socotec,
   space,
+  space2,
   spacing,
   split,
   storey,
+  structure,
   success,
   surface,
   swap,
@@ -302,6 +325,7 @@ export default {
   windowRight,
   windowTop,
   zone,
+  zone2,
   // Polychrome icons
   bcfPolychrome,
   createWindowPolychrome,

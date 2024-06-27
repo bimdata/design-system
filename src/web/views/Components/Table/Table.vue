@@ -14,7 +14,8 @@
             :paginated="simpleExample.paginated"
             :perPage="+simpleExample.perPage"
             @selection-changed="simpleExample.selection = $event"
-          />
+          >
+          </BIMDataTable>
           <div class="selection-box">
             <div class="selection-box__label">Selection :</div>
             <div
@@ -121,6 +122,12 @@
           :rows="eventsData.slice(1)"
         />
       </div>
+      <div class="m-t-12">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+          Slots:
+        </BIMDataText>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
+      </div>
     </div>
 
     <div class="article-wrapper">
@@ -141,12 +148,12 @@
         <Code language="javascript">
           <pre>
             let rows = [
-              { firstName: "John", lastName: "Doe", age: 26, country: "Germany" },
-              { firstName: "Jane", lastName: "Doe", age: 21, country: "Austria" },
-              { firstName: "Martine", lastName: "Durand", age: 35, country: "France" },
-              { firstName: "Giuseppe", lastName: "Bompiani", age: 64, country: "Italy" },
-              { firstName: "Enrico", lastName: "Fermi", age: 41, country: "Italy" },
-              { firstName: "Lev Davidovitch", lastName: "Landau", age: 23, country: "Russia" }
+              { created_by: {firstName: "John", lastName: "Doe"}, fileName: "My_file_name", age: 26, priority: "High", tags: [{ name: "Tag 2", color: "#ff69b4"}],country: "Germany" },
+              { created_by: {firstName: "Jane", lastName: "Doe"}, fileName: "My_other_file_name", age: 21, priority: "Low", tags: [{ name: "Tag 2", color: "#ff69b4"}],country: "Austria" },
+              { created_by: {firstName: "Martine", lastName: "Durand"}, fileName: "My_file_name", age: 35, priority: "Medium", tags: [{ name: "My tag", color: "#2AAA8A"}, { name: "Reviewed", color: "#ff6954"}],country: "France" },
+              { created_by: {firstName: "Giuseppe", lastName: "Bompiani"}, fileName: "One_file_name", age: 64, priority: "Low", tags: [{ name: "Tag 5", color: "#bf70a4"}],country: "Italy" },
+              { created_by: {firstName: "Giuseppe", lastName: "Bompiani"}, fileName: "One_file_name", age: 64, priority: "low", tags: [{ name: "Missing", color: "#fh69u6"}],country: "Italy" },
+              { created_by: {firstName: "Lev Davidovitch", lastName: "Landau"}, fileName: "filename", age: 23, priority: "low", tags: [{ name: "Tag 2", color: "#ff69b4"}],country: "Russia" }
             ];
           </pre>
         </Code>
@@ -160,9 +167,24 @@
         <Code language="javascript">
           <pre>
             let columns = [
-              { id: "fullName", label: "Name" },
-              { id: "age", label: "Age", width: "64px" },
-              { id: "country", label: "Country", width: "200px", align: "center" }
+            { 
+              id: "fileName",
+              label: "Filename",
+              sortable: true, defaultSortOrder: "asc",
+              sortFunction: (a, b) => {
+                const fullFileNameA = `${a.fileName} ${a.extesionFile}`;
+                const fullFileNameB = `${b.fileName} ${b.extesionFile}`;
+                return fullFileNameA &lt; fullFileNameB ? 1 : -1;
+              },
+              id: "created_by",
+              label: "Full name",
+              filter: true,
+              filterFunction: rowData => `${rowData.lastName} ${rowData.firstName}`,
+              },
+              { id: "age", label: "Age", width: "64px", sortable: true, defaultSortOrder: "asc" },
+              { id: "priority", label: "Priority", width: "200px", align: "center", filter: true },
+              { id: "tags", label: "Tags", width: "200px", align: "center", filter: true },
+              { id: "country", label: "Country", width: "200px", align: "center", sortable: true, defaultSortOrder: "asc" }
             ];
           </pre>
         </Code>
@@ -178,8 +200,11 @@
         <Code language="xml">
           <pre>
             &lt;BIMDataTable :columns="columns" :rows="rows"&gt;
-              &lt;template #cell-fullName="{ row }"&gt;
-                {{ "{" + "{ `${row.firstName} ${row.lastName}` }" + "}" }}
+              &lt;template #cell-filename="{ row }"&gt;
+                {{ "{" + "{ `${row.fileName}${row.extensionFile}` }" + "}" }}
+              &lt;/template&gt;
+              &lt;template #cell-created_by="{ row }"&gt;
+              &lt;FullNameCell :creator="row.created_by" /&gt;
               &lt;/template&gt;
               &lt;template #cell-age="{ row }"&gt;
                 &lt;AgeCustomCell :age="row.age" /&gt;
@@ -204,11 +229,17 @@
           :columns="advancedExample.columns"
           :rows="advancedExample.rows"
         >
-          <template #cell-fullName="{ row }">
-            {{ `${row.firstName} ${row.lastName}` }}
+          <template #cell-filename="{ row }">
+            {{ `${row.fileName}${row.extensionFile}` }}
+          </template>
+          <template #cell-created_by="{ row }">
+            <FullNameCell :creator="row.created_by" />
           </template>
           <template #cell-age="{ row }">
             <AgeCustomCell :age="row.age" />
+          </template>
+          <template #cell-tags="{ row }">
+            <TagsCustomCell :tags="row.tags" />
           </template>
           <template #cell-country="{ row }">
             <CountryCustomCell :country="row.country" />
@@ -262,11 +293,15 @@
 import columnsData from "./columns-data.js";
 import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
+import slotsData from "./slots-data.js";
+
 // Components
 import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 import AgeCustomCell from "./example/AgeCustomCell.vue";
 import CountryCustomCell from "./example/CountryCustomCell.vue";
+import FullNameCell from "./example/FullNameCell.vue";
+import TagsCustomCell from "./example/TagsCustomCell.vue";
 
 export default {
   components: {
@@ -274,6 +309,8 @@ export default {
     ComponentCode,
     AgeCustomCell,
     CountryCustomCell,
+    FullNameCell,
+    TagsCustomCell,
   },
   data() {
     return {
@@ -296,56 +333,160 @@ export default {
       advancedExample: {
         columns: [
           {
-            id: "fullName",
-            label: "Name",
+            id: "filename",
+            label: "Filename",
+            sortable: true,
+            defaultSortOrder: "asc",
+            sortFunction: (a, b) => {
+              const fullFileNameA = `${a.fileName} ${a.extesionFile}`;
+              const fullFileNameB = `${b.fileName} ${b.extesionFile}`;
+
+              return fullFileNameA < fullFileNameB ? 1 : -1;
+            },
+          },
+          {
+            id: "created_by",
+            label: "Full name",
+            filter: true,
+            filterFunction: rowData =>
+              `${rowData.lastName} ${rowData.firstName}`,
           },
           {
             id: "age",
             label: "Age",
             width: "64px",
+            sortable: true,
+            defaultSortOrder: "asc",
+          },
+          {
+            id: "priority",
+            label: "Priority",
+            width: "200px",
+            align: "center",
+            filter: true,
+          },
+          {
+            id: "tags",
+            label: "Tags",
+            width: "200px",
+            align: "center",
+            filter: true,
+            filterKey: "name",
           },
           {
             id: "country",
             label: "Country",
             width: "200px",
             align: "center",
+            sortable: true,
+            defaultSortOrder: "asc",
           },
         ],
         rows: [
           {
-            firstName: "John",
-            lastName: "Doe",
+            created_by: {
+              firstName: "John",
+              lastName: "Doe",
+            },
+            fileName: "My_file_name",
+            extensionFile: ".pdf",
             age: 26,
+            priority: "High",
+            tags: [
+              {
+                name: "Tag 2",
+                color: "#ff69b4",
+              },
+            ],
             country: "Germany",
           },
           {
-            firstName: "Jane",
-            lastName: "Doe",
+            created_by: {
+              firstName: "Jane",
+              lastName: "Doe",
+            },
+            fileName: "My_other_file_name",
+            extensionFile: ".jpeg",
             age: 21,
+            priority: "Low",
+            tags: [
+              {
+                name: "Tag 2",
+                color: "#ff69b4",
+              },
+            ],
             country: "Austria",
           },
           {
-            firstName: "Martine",
-            lastName: "Durand",
+            created_by: {
+              firstName: "Martine",
+              lastName: "Durand",
+            },
+            fileName: "File_name",
+            extensionFile: ".png",
             age: 35,
+            priority: "Medium",
+            tags: [
+              {
+                name: "My tag",
+                color: "#2AAA8A",
+              },
+              {
+                name: "Reviewed",
+                color: "#ff6954",
+              },
+            ],
             country: "France",
           },
           {
-            firstName: "Giuseppe",
-            lastName: "Bompiani",
+            created_by: {
+              firstName: "Giuseppe",
+              lastName: "Bompiani",
+            },
+            fileName: "One_file_name",
+            extensionFile: ".pdf",
             age: 64,
+            priority: "Low",
+            tags: [
+              {
+                name: "Tag 5",
+                color: "#bf70a4",
+              },
+            ],
             country: "Italy",
           },
           {
-            firstName: "Enrico",
-            lastName: "Fermi",
+            created_by: {
+              firstName: "Enrico",
+              lastName: "Doe",
+            },
+            fileName: "filename",
+            extensionFile: ".pdf",
             age: 41,
+            priority: "low",
+            tags: [
+              {
+                name: "Missing",
+                color: "#fh69u6",
+              },
+            ],
             country: "Italy",
           },
           {
-            firstName: "Lev Davidovitch",
-            lastName: "Landau",
+            created_by: {
+              firstName: "Lev Davidovitch",
+              lastName: "Landau",
+            },
+            fileName: "filename",
+            extensionFile: ".jpeg",
             age: 23,
+            priority: "Medium",
+            tags: [
+              {
+                name: "Tag 2",
+                color: "#ff69b4",
+              },
+            ],
             country: "Russia",
           },
         ],
@@ -354,6 +495,7 @@ export default {
       propsData,
       eventsData,
       columnsData,
+      slotsData,
     };
   },
 };

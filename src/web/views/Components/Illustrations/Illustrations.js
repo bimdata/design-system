@@ -20,6 +20,11 @@ export default Object.freeze([
     y: "90",
   },
   {
+    name: "emptyNamingConvention",
+    x: "90",
+    y: "90",
+  },
+  {
     name: "emptyPdf",
     x: "90",
     y: "90",
@@ -85,8 +90,63 @@ export default Object.freeze([
     y: "200",
   },
   {
+    name: "shortcutMoveDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutOpenDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutRotateDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutZoomDwg",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutMovePlan",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutOpenPlan",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutRotatePlan",
+    x: "200",
+    y: "200",
+  },
+  {
+    name: "shortcutZoomPlan",
+    x: "200",
+    y: "200",
+  },
+  {
     name: "successSplit",
     x: "200",
     y: "200",
+  },
+  {
+    name: "createList",
+    x: "110",
+    y: "110",
+  },
+  {
+    name: "manageList",
+    x: "110",
+    y: "110",
+  },
+  {
+    name: "renameFile",
+    x: "110",
+    y: "110",
   },
 ]);

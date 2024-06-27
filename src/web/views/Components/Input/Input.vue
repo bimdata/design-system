@@ -4,6 +4,7 @@
       <BIMDataText component="h1" color="color-primary">
         {{ $route.name }}
       </BIMDataText>
+      <h2>Basic input</h2>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataInput
@@ -17,6 +18,7 @@
             :disabled="getDisabled()"
             :margin="marginInput"
           >
+            >
             <template #inputIcon v-if="inputIcon">
               <BIMDataIconShow class="fill-granite-light" />
             </template>
@@ -75,8 +77,7 @@
               {{ getMargin() }}
             &gt;
 
-            {{ getInputIcon() }}
-
+          {{ getInputIcon() }}
             &lt;/BIMDataInput&gt;
           </pre>
         </template>
@@ -113,6 +114,8 @@
         </BIMDataText>
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
+
+      <InputOutlined />
     </div>
   </main>
 </template>
@@ -123,10 +126,12 @@ import propsData from "./props-data.js";
 import slotsData from "./slots-data.js";
 // Components
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
+import InputOutlined from "./InputOutlined.vue";
 
 export default {
   components: {
     ComponentCode,
+    InputOutlined,
   },
   data() {
     return {
@@ -165,18 +170,10 @@ export default {
       }
     },
     getLoading() {
-      if (this.loading) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.loading;
     },
     getDisabled() {
-      if (this.disabled) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.disabled;
     },
     getInputIcon() {
       if (this.inputIcon) {

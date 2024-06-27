@@ -5,7 +5,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["plugin:vue/essential", "eslint:recommended", "prettier"],
+  "extends": ["plugin:vue/vue3-essential", "eslint:recommended", "prettier"],
   "plugins": ["prettier", "vue"],
   "globals": {
     "Atomics": "readonly",
@@ -17,7 +17,13 @@
   },
   "ignorePatterns": ["/dist", "/dist-web", "*.d.ts"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "avoid",
+        "trailingComma": "es5"
+      }
+    ],
     "indent": "off",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double", "avoid-escape"],

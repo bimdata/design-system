@@ -94,10 +94,10 @@
         <template #code>
           <pre>
             &lt;BIMDataTooltip
-              :text="{{ tooltipText }}"
-              :maxWidth="{{ tooltipMaxWidth }}"
-              :position="{{ tooltipPosition }}"
-              :color="{{ tooltipColor }}"
+              text="{{ tooltipText }}"
+              maxWidth="{{ tooltipMaxWidth }}"
+              position="{{ tooltipPosition }}"
+              color="{{ tooltipColor }}"
               :disabled="{{ tooltipDisabled }}"
             &gt;
               &lt;span&gt;Hover me&lt;/span&gt;

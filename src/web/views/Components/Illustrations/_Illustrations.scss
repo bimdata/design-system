@@ -1,9 +1,9 @@
 .article-illustrations {
   .illustrations {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
     justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, 210px);
+    width: 100%;
     .illustration {
       padding: 12px;
       margin: 6px;

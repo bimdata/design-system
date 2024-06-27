@@ -15,22 +15,22 @@
             :text="text"
             value="v0"
             v-model="selectedValue"
-            :disabled="checkboxDisabledChecked"
-            :big="checkboxBigChecked"
+            :disabled="isDisabled"
+            :big="isBig"
           />
           <BIMDataRadio
             text="Mode 1"
             value="v1"
             v-model="selectedValue"
-            :disabled="checkboxDisabledChecked"
-            :big="checkboxBigChecked"
+            :disabled="isDisabled"
+            :big="isBig"
           />
           <BIMDataRadio
             text="Mode 2"
             value="v2"
             v-model="selectedValue"
-            :disabled="checkboxDisabledChecked"
-            :big="checkboxBigChecked"
+            :disabled="isDisabled"
+            :big="isBig"
           />
           <div style="width: 100%; padding: 36px; text-align: center">
             {{ `Selected Value: ${selectedValue}` }}
@@ -38,8 +38,8 @@
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" />
-          <BIMDataCheckbox text="big" v-model="checkboxBigChecked" />
+          <BIMDataCheckbox text="disabled" v-model="isDisabled" />
+          <BIMDataCheckbox text="big" v-model="isBig" />
           <BIMDataInput
             style="margin-top: 32px"
             v-model="text"
@@ -61,22 +61,22 @@
               text="{{ text }}"
               value="v0"
               v-model="selectedValue"
-              :disabled="{{ checkboxDisabledChecked }}"
-              :big="{{ checkboxBigChecked }}"
+              :disabled="{{ isDisabled }}"
+              :big="{{ isBig }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 1"
               value="v1"
               v-model="selectedValue"
-              :disabled="{{ checkboxDisabledChecked }}"
-              :big="{{ checkboxBigChecked }}"
+              :disabled="{{ isDisabled }}"
+              :big="{{ isBig }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 2"
               value="v2"
               v-model="selectedValue"
-              :disabled="{{ checkboxDisabledChecked }}"
-              :big="{{ checkboxBigChecked }}"
+              :disabled="{{ isDisabled }}"
+              :big="{{ isBig }}"
             /&gt;
           </pre>
         </template>
@@ -90,10 +90,17 @@
       </div>
 
       <div class="m-t-24">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
-          >Events:</BIMDataText
-        >
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Events:
+        </BIMDataText>
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
+      </div>
+
+      <div class="m-t-24">
+        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+          Slots:
+        </BIMDataText>
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
@@ -102,6 +109,7 @@
 <script>
 import propsData from "./props-data.js";
 import eventsData from "./events-data.js";
+import slotsData from "./slots-data.js";
 
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
@@ -113,15 +121,16 @@ export default {
     return {
       text: "Mode 0",
       selectedValue: null,
-      checkboxDisabledChecked: false,
-      checkboxBigChecked: false,
+      isDisabled: false,
+      isBig: false,
       propsData,
       eventsData,
+      slotsData,
     };
   },
   methods: {
     resetRadio() {
-      return (this.selectedValue = null);
+      this.selectedValue = null;
     },
   },
 };

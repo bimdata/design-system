@@ -1,6 +1,8 @@
 .bimdata-slider {
   position: relative;
   .bimdata-slider-input {
+    cursor: pointer;
+    height: 12px;
     &::-webkit-slider-runnable-track {
       height: 3px;
       background: linear-gradient(

@@ -1,6 +1,6 @@
 {
   "name": "@bimdata/design-system",
-  "version": "2.0.0",
+  "version": "2.1.0-rc.33",
   "main": "./src/BIMDataComponents/index.js",
   "module": "./src/BIMDataComponents/index.js",
   "files": [
@@ -33,7 +33,7 @@
     "prismjs": "^1.29.0",
     "sass": "^1.67.0",
     "semantic-release": "^22.0.0",
-    "vite": "^4.4.9",
+    "vite": "^4.5.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
     "vue3-clipboard": "^1.0.0"

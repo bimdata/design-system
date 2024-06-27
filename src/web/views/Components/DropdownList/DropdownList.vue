@@ -17,10 +17,15 @@
             :loading="checkboxLoadingChecked"
             :closeOnElementClick="checkboxCloseOnElementClickChecked"
             @element-click="onItemClick"
+            :search="checkboxSearchChecked"
+            :elementLabelKey="elementLabelKey"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span v-if="selectedItem">{{ item }}</span>
               <span v-else>dropdown list example</span>
+            </template>
+            <template #empty v-if="checkboxEmptyChecked">
+              <span class="p-x-6 color-granite">No result</span>
             </template>
             <template #contentAfterBtn v-if="checkboxAfterBtnChecked">
               hi
@@ -33,7 +38,8 @@
                   class="fill-primary"
                   margin="0 6px 0 0"
                 />
-                {{ element }}
+                <span v-if="optionSet === 'object'">{{ element.label }}</span>
+                <span v-else>{{ element }}</span>
               </div>
             </template>
           </BIMDataDropdownList>
@@ -46,27 +52,41 @@
           >
           <BIMDataCheckbox
             class="m-y-12"
-            text="disabled"
+            text="Disabled"
             v-model="checkboxDisabledChecked"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
-            text="loading"
+            text="Loading"
             v-model="checkboxLoadingChecked"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
-            class="m-t-12 m-b-24"
-            text="close on element click"
+            class="m-y-12"
+            text="Close on element click"
             v-model="checkboxCloseOnElementClickChecked"
           >
           </BIMDataCheckbox>
+          <BIMDataCheckbox
+            class="m-y-12"
+            text="Search"
+            v-model="checkboxSearchChecked"
+          />
           <BIMDataInput
+            class="m-t-30"
             v-model="numberInput"
             placeholder="Number of items per page"
             type="number"
           ></BIMDataInput>
+          <div class="m-t-24">
+            <BIMDataSelect
+              label="Option set"
+              :options="['string', 'object']"
+              :modelValue="optionSet"
+              @update:modelValue="changeOptionSet"
+            />
+          </div>
           <div
             v-for="[key, values] in Object.entries(dropdownOptions)"
             :key="key"
@@ -100,6 +120,7 @@
           </BIMDataCheckbox>
           <BIMDataCheckbox text="element" v-model="checkboxElementChecked">
           </BIMDataCheckbox>
+          <BIMDataCheckbox text="empty" v-model="checkboxEmptyChecked" />
         </template>
 
         <!-- bloc IMPORTS LINES CODE -->
@@ -113,10 +134,19 @@
               :list="list"
               :perPage="{{ numberInput }}"
               elementKey="dropdown"
-              :disabled="{{ checkboxDisabledChecked }}"
-              :closeOnElementClick="{{ checkboxCloseOnElementClickChecked }}"
+              {{ checkboxLoadingChecked ? ':loading="true"' : "" }}
+              {{ checkboxDisabledChecked ? ':disabled="true"' : "" }}
+              {{
+              checkboxCloseOnElementClickChecked
+                ? ':closeOnElementClick="true"'
+                : ""
+            }}
+              {{ checkboxSearchChecked ? ':search="true"' : "" }}
+              {{ elementLabelKey ? ':elementLabelKey="label"' : "" }}
             &gt;
-              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }}
+              {{ getHeader() }} {{ getContentAfterBtn() }} {{ getElement() }} {{
+              getEmpty()
+            }}
             &lt;/BIMDataDropdownList&gt;
           </pre>
         </template>
@@ -141,13 +171,18 @@
         <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
           >Events:</BIMDataText
         >
-        <BIMDataTable :columns="eventData[0]" :rows="eventData.slice(1)" />
+        <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import { stringElements, objectElements } from "./option-sets";
+import propsData from "./props-data";
+import slotData from "./slots-data";
+import eventsData from "./events-data";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
@@ -161,9 +196,11 @@ export default {
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
+      checkboxSearchChecked: false,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
+      checkboxEmptyChecked: false,
       customListCheckbox: false,
       dropdownOptions: {
         transition: ["up", "down"],
@@ -171,88 +208,12 @@ export default {
       },
       selectedDropdownOptionstransition: "up",
       selectedDropdownOptionsdirection: "down",
-      list: [
-        "item 01",
-        "item 02",
-        "item 03",
-        "item 04",
-        "item 05",
-        "item 06",
-        "item 07",
-        "item 08",
-        "item 09",
-        "item 10",
-        "item 11",
-        "item 12",
-      ],
-      propsData: [
-        ["Props", "Type", "Default value", "Validator", "Description"],
-        ["list", "Array", "() => []", "", ""],
-        [
-          "perPage",
-          "Number",
-          "10",
-          "",
-          "Use this props to choose the number of elements per page, before displaying the pagination.",
-        ],
-        ["elementKey", "String", "", "", ""],
-        ["disabled", "Boolean", "false", "", ""],
-        [
-          "transitionName",
-          "String",
-          "'up'",
-          "'up' or 'down' values",
-          "Use this props to choose the opening transition of the submenu",
-        ],
-        [
-          "directionClass",
-          "String",
-          "'down'",
-          "'up', 'down', 'right' or 'left' values",
-          "Use this props to choose the opening of the submenu.",
-        ],
-        [
-          "loading",
-          "Boolean",
-          "false",
-          "",
-          "Use this props to display a loader.",
-        ],
-        [
-          "closeOnElementClick",
-          "Boolean",
-          "false",
-          "",
-          "Use this props to close the dropdown submenu when clicking on the item.",
-        ],
-        [
-          "width",
-          "String",
-          "220px",
-          "",
-          "Use this props to custom width of BIMDataDropdownList component.",
-        ],
-        [
-          "height",
-          "String",
-          "36px",
-          "",
-          "Use this props to custom height of BIMDataDropdownList component.",
-        ],
-      ],
-      slotData: [
-        ["Slot name", "Description"],
-        ["header", "Use this slot for add content before the icon button"],
-        [
-          "contentAfterBtn",
-          "Use this slot for add content after the icon button",
-        ],
-        ["element", "Use this slot to custum the elements list"],
-      ],
-      eventData: [
-        ["Event name", "Description"],
-        ["element-click", "Use this event to get the clicked element data"],
-      ],
+      list: stringElements,
+      optionSet: "string",
+      elementLabelKey: null,
+      propsData,
+      slotData,
+      eventsData,
     };
   },
   computed: {
@@ -261,9 +222,8 @@ export default {
     },
   },
   methods: {
-    onItemClick(list) {
-      // console.log(this.selectedItem = list);
-      this.selectedItem = list;
+    onItemClick(element) {
+      this.selectedItem = this.optionSet === "string" ? element : element.label;
     },
     getHeader() {
       if (this.checkboxHeaderChecked) {
@@ -282,13 +242,40 @@ export default {
       }
     },
     getElement() {
-      if (this.checkboxElementChecked) {
+      if (this.checkboxElementChecked && this.optionSet === "object") {
+        return `<template #element="{ element }">
+                <div class="flex items-center">
+                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  {{ element.label }}
+                </div>
+             </template>`;
+      }
+      if (this.checkboxElementChecked && this.optionSet === "string") {
         return `<template #element="{ element }">
                 <div class="flex items-center">
                   <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
                   {{ element }}
                 </div>
              </template>`;
+      }
+    },
+    changeOptionSet(value) {
+      switch (value) {
+        case "string":
+          this.elementLabelKey = null;
+          this.list = stringElements;
+          break;
+        case "object":
+          this.elementLabelKey = "label";
+          this.list = objectElements;
+          this.checkboxElementChecked = true;
+          break;
+      }
+      this.optionSet = value;
+    },
+    getEmpty() {
+      if (this.checkboxEmptyChecked) {
+        return "<template #empty>No result</template>";
       }
     },
   },

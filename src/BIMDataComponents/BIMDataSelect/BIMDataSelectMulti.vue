@@ -7,7 +7,7 @@
       'not-empty': modelValue.length > 0,
     }"
     :style="{ width }"
-    v-clickaway="() => (isOpen = false)"
+    v-clickaway="away"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
@@ -21,29 +21,43 @@
     </div>
 
     <transition name="slide-fade-down">
-      <ul v-show="!disabled && isOpen" class="bimdata-select__option-list">
-        <li
-          class="bimdata-select__option-list__entry"
-          v-for="(option, index) of options"
-          :key="index"
-          :class="{
-            selected: isSelected(option),
-            disabled: isDisabled(option),
-            'option-group': isOptionGroup(option),
-          }"
-          @click="onOptionClick(option)"
-        >
-          <template v-if="isOptionGroup(option)">
-            {{ optionLabel(option) }}
-          </template>
-          <BIMDataCheckbox
-            v-else
-            :modelValue="isSelected(option)"
-            :disabled="isDisabled(option)"
-            :text="optionLabel(option)"
-          ></BIMDataCheckbox>
-        </li>
-      </ul>
+      <div v-show="!disabled && isOpen" class="bimdata-select__option-list">
+        <BIMDataSearch
+          v-if="search"
+          width="calc(100% - 12px)"
+          color="primary"
+          radius
+          :placeholder="searchPlaceholder"
+          v-model="searchText"
+          class="m-6"
+        />
+        <div v-if="filteredOptions.length === 0">
+          <slot name="empty"></slot>
+        </div>
+        <ul class="bimdata-list m-y-6">
+          <li
+            class="bimdata-select__option-list__entry"
+            v-for="(option, index) of filteredOptions"
+            :key="index"
+            :class="{
+              selected: isSelected(option),
+              disabled: isDisabled(option),
+              'option-group': isOptionGroup(option),
+            }"
+            @click="onOptionClick(option)"
+          >
+            <template v-if="isOptionGroup(option)">
+              {{ optionLabel(option) }}
+            </template>
+            <BIMDataCheckbox
+              v-else
+              :modelValue="isSelected(option)"
+              :disabled="isDisabled(option)"
+              :text="optionLabel(option)"
+            ></BIMDataCheckbox>
+          </li>
+        </ul>
+      </div>
     </transition>
   </div>
 </template>
@@ -94,16 +108,56 @@ export default {
       type: Boolean,
       default: false,
     },
+    search: {
+      type: Boolean,
+      default: false,
+    },
+    searchPlaceholder: {
+      type: String,
+      default: "Search",
+    },
+    resetOnLeave: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   data() {
     return {
       isOpen: false,
+      searchText: "",
     };
   },
   computed: {
     displayedValue() {
       return this.modelValue.map(this.optionLabel).join(", ");
+    },
+    filteredOptions() {
+      if (this.searchText === "") {
+        return this.options;
+      } else {
+        const lowerCaseSearchText = this.searchText.toLowerCase();
+        if (this.optionLabelKey) {
+          return this.options.filter(option =>
+            option[this.optionLabelKey]
+              .toLowerCase()
+              .includes(lowerCaseSearchText),
+          );
+        }
+        if (this.optionKey) {
+          return this.options.filter(
+            option =>
+              option.optionGroup ||
+              option[this.optionKey]
+                .toLowerCase()
+                .includes(lowerCaseSearchText),
+          );
+        } else {
+          return this.options.filter(option =>
+            option.toLowerCase().includes(lowerCaseSearchText),
+          );
+        }
+      }
     },
   },
   methods: {
@@ -153,6 +207,15 @@ export default {
         options = this.modelValue.concat(option);
       }
       this.$emit("update:modelValue", options);
+    },
+    resetSearch() {
+      if (this.clearSearchOnLeave) {
+        this.searchText = "";
+      }
+    },
+    away() {
+      this.isOpen = false;
+      this.resetSearch();
     },
   },
 };

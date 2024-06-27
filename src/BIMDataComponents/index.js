@@ -21,6 +21,8 @@ export { default as BIMDataIcon } from "./BIMDataIcon/BIMDataIcon.vue";
 export * from "./BIMDataIcon/BIMDataIconStandalone/index.js";
 export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
 export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
+export { default as BIMDataInputOutlined } from "./BIMDataInputOutlined/BIMDataInputOutlined.vue";
+export { default as BIMDataList } from "./BIMDataList/BIMDataList.vue";
 export { default as BIMDataLoading } from "./BIMDataLoading/BIMDataLoading.vue";
 export { default as BIMDataMenu } from "./BIMDataMenu/BIMDataMenu.vue";
 export { default as BIMDataMenuInline } from "./BIMDataMenuInline/BIMDataMenuInline.vue";
@@ -43,3 +45,4 @@ export { default as BIMDataTextarea } from "./BIMDataTextarea/BIMDataTextarea.vu
 export { default as BIMDataTextbox } from "./BIMDataTextbox/BIMDataTextbox.vue";
 export { default as BIMDataToggle } from "./BIMDataToggle/BIMDataToggle.vue";
 export { default as BIMDataTooltip } from "./BIMDataTooltip/BIMDataTooltip.vue";
+export { default as BIMDataTree } from "./BIMDataTree/BIMDataTree.vue";

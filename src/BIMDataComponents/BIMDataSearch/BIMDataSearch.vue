@@ -3,7 +3,7 @@
     class="bimdata-search-bar"
     v-clickaway="away"
     :style="{ width: width, height: height }"
-    :class="{ focus: focused, ...classes }"
+    :class="{ focus: focused, disabled, ...classes }"
   >
     <span class="bimdata-search-icon">
       <BIMDataIconSearch size="xxs" />
@@ -18,6 +18,7 @@
       :placeholder="placeholder"
       @keyup.enter="$emit('enter', $event.target.value)"
       :autocomplete="autocomplete ? 'on' : 'off'"
+      :disabled="disabled"
     />
     <BIMDataButton
       width="25px"
@@ -96,6 +97,10 @@ export default {
       validator: color => colors.includes(color),
     },
     autocomplete: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
