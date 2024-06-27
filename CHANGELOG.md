@@ -1,3 +1,55 @@
+# [2.1.0](https://github.com/bimdata/design-system/compare/v2.0.0...v2.1.0) (2024-06-27)
+
+
+### chore
+
+* add dependabot.yml ([db3061d](https://github.com/bimdata/design-system/commit/db3061d0497ec7bf96cea10eac96114ccabdc843))
+* update .vscode/settings.json ([9998126](https://github.com/bimdata/design-system/commit/9998126fcb7561b458c61e92894eb89e2b4f90ef))
+
+### documentation
+
+* Update neutral colors (#352) ([1b2ccc0](https://github.com/bimdata/design-system/commit/1b2ccc0f441caf2ee04ccebf2ea7c1cd5005c329)), closes [#352](https://github.com/bimdata/design-system/issues/352)
+
+### MINOR
+
+* add BIMDataList component (#358) ([1c6f115](https://github.com/bimdata/design-system/commit/1c6f115b98946b56848f9b0549604e849058ce88)), closes [#358](https://github.com/bimdata/design-system/issues/358)
+* add search bar into BIMDataDropdownList component (#316) ([e860b40](https://github.com/bimdata/design-system/commit/e860b408c04013e9fc082ef43e6180f7bf5faead)), closes [#316](https://github.com/bimdata/design-system/issues/316)
+* create BIMDataInputOutlined component and add documentation (#329) ([3ecf39f](https://github.com/bimdata/design-system/commit/3ecf39fcecacd0b701febafb15c3fcc753141dda)), closes [#329](https://github.com/bimdata/design-system/issues/329)
+* feat: add BIMDataTree component (#343) ([63111fa](https://github.com/bimdata/design-system/commit/63111fa8f980f0961f4dcc440bf95966df3ac444)), closes [#343](https://github.com/bimdata/design-system/issues/343)
+* Feature/add multiple icons (#330) ([8edd657](https://github.com/bimdata/design-system/commit/8edd6576691ee7a3e21761723d1e9b39427d1ea2)), closes [#330](https://github.com/bimdata/design-system/issues/330)
+* Feature/bim data table filter (#336) ([6f58f84](https://github.com/bimdata/design-system/commit/6f58f840f77fde786208ba88165d53766e504467)), closes [#336](https://github.com/bimdata/design-system/issues/336)
+* Feature/search in select (#315) ([a6974ad](https://github.com/bimdata/design-system/commit/a6974adc89610e8efbbe062a0f2558042946510f)), closes [#315](https://github.com/bimdata/design-system/issues/315)
+
+### PATCH
+
+* add 'indeterminate' value in haeder checkbox for selectable table elements (#355) ([fd193d8](https://github.com/bimdata/design-system/commit/fd193d877d9e0d8bb812016b9661945ec90377bf)), closes [#355](https://github.com/bimdata/design-system/issues/355)
+* add createSpace & createZone icons ([1db62e5](https://github.com/bimdata/design-system/commit/1db62e5b7552ffb3bd86cb35f6a71e1b1e7426a1))
+* add disabled props for BIMDataSearch component & doc (#331) ([b5b83b0](https://github.com/bimdata/design-system/commit/b5b83b04f58908d7d5c8f49520c2c004eef29c73)), closes [#331](https://github.com/bimdata/design-system/issues/331)
+* add filterFunction & documentation (#353) ([d2740f0](https://github.com/bimdata/design-system/commit/d2740f0a63698a4a04a75cf90a9a52f122f87ccb)), closes [#353](https://github.com/bimdata/design-system/issues/353)
+* add FolderLocation icon (#361) ([9a36604](https://github.com/bimdata/design-system/commit/9a366046f66e3113c338b416d72df5bb005201be)), closes [#361](https://github.com/bimdata/design-system/issues/361)
+* Add illustrations for Dwg & plan shortcuts (#323) ([0a795c1](https://github.com/bimdata/design-system/commit/0a795c11b36beaf4d7bbd1ce641afe5028fb9e4c)), closes [#323](https://github.com/bimdata/design-system/issues/323)
+* add rotate icon (#324) ([405f324](https://github.com/bimdata/design-system/commit/405f324e7905e86fad6bd1e4303736975f7b53ae)), closes [#324](https://github.com/bimdata/design-system/issues/324)
+* better slider UX - cursor pointer + more height (#326) ([7500ba8](https://github.com/bimdata/design-system/commit/7500ba8318349b494cfbb1ccef702bc730cfeb4c)), closes [#326](https://github.com/bimdata/design-system/issues/326)
+* BIMDataList fixes (#360) ([984ef8c](https://github.com/bimdata/design-system/commit/984ef8cd549dc40ef442ccba77fb7896b019bd73)), closes [#360](https://github.com/bimdata/design-system/issues/360)
+* check if empty or 0 (#327) ([39fb094](https://github.com/bimdata/design-system/commit/39fb09496a5a552772bbbc4375b1aeab83a02215)), closes [#327](https://github.com/bimdata/design-system/issues/327)
+* chore: keep only the most used file icons (#335) ([8c4fd1e](https://github.com/bimdata/design-system/commit/8c4fd1ea0a826b7bb031b8c9fa26c10f18591229)), closes [#335](https://github.com/bimdata/design-system/issues/335)
+* chore(deps-dev): bump postcss from 8.4.29 to 8.4.31 (#317) ([d90902c](https://github.com/bimdata/design-system/commit/d90902c9b818e421334101a1f924e2629b05d7e8)), closes [#317](https://github.com/bimdata/design-system/issues/317)
+* feat(bimdata-tree): add dragAndDrop prop to enable/disable drag and drop feature (#349) ([65a8aad](https://github.com/bimdata/design-system/commit/65a8aadcdf05e9acdf83d64e090ebe4e75c58381)), closes [#349](https://github.com/bimdata/design-system/issues/349)
+* feat(icons): add monochrome structure icon ([cbe2d6c](https://github.com/bimdata/design-system/commit/cbe2d6cce35583aff17673a3abca59405a471861))
+* feat(icons): add plan icon, remove deploy icon (#348) ([ce14cbc](https://github.com/bimdata/design-system/commit/ce14cbcbee77459ed7c96c08c6c14554c00bb07c)), closes [#348](https://github.com/bimdata/design-system/issues/348)
+* feat(icons): add space2 and zone2 icons (#346) ([72e6eb0](https://github.com/bimdata/design-system/commit/72e6eb0c2e373d17078ec7cfcecf7da86a61b675)), closes [#346](https://github.com/bimdata/design-system/issues/346)
+* feat(radio): add slot to customize radio button label (#364) ([912c5f6](https://github.com/bimdata/design-system/commit/912c5f62c64bd116e3d2573afa1b25aef9dd6e93)), closes [#364](https://github.com/bimdata/design-system/issues/364)
+* feat(tree): add visibleRef to bimdata tree node (#351) ([9f33b5f](https://github.com/bimdata/design-system/commit/9f33b5fbf63bb5bc0b35e3c156d09e64a4846300)), closes [#351](https://github.com/bimdata/design-system/issues/351)
+* fix list margin into BIMDataSelectMulti ([9745277](https://github.com/bimdata/design-system/commit/9745277d3ad01f2767a5fa402683dd07d125e7cb))
+* Fix warning icon (#354) ([6434b78](https://github.com/bimdata/design-system/commit/6434b784fbd2dfbaae3e6495f5ba4cbab4bb6be2)), closes [#354](https://github.com/bimdata/design-system/issues/354)
+* fix: BIMDataTree node children components ([161c745](https://github.com/bimdata/design-system/commit/161c745b03f3a170c0b47f7bc895d4379e563abb))
+* Fix/search in components (#321) ([e77ac42](https://github.com/bimdata/design-system/commit/e77ac42673d65eb8edfea0f8ea65e9d433ad3d54)), closes [#321](https://github.com/bimdata/design-system/issues/321)
+* remove circular dependency in BIMDataTree (#345) ([545bca0](https://github.com/bimdata/design-system/commit/545bca00b349f986a8b1293937e2173e4a811e04)), closes [#345](https://github.com/bimdata/design-system/issues/345)
+* remove specific style (#322) ([449ec51](https://github.com/bimdata/design-system/commit/449ec519e1740749bfee56c6114bad7bd2bbc771)), closes [#322](https://github.com/bimdata/design-system/issues/322)
+* remove unnecessary drop down heights (#342) ([091c389](https://github.com/bimdata/design-system/commit/091c38920d0867d467c494fe0cfeff119c997845)), closes [#342](https://github.com/bimdata/design-system/issues/342)
+* rename props to clear search on leave (#320) ([5414a7c](https://github.com/bimdata/design-system/commit/5414a7c09c56953a76ebf6c04fd58212549b2061)), closes [#320](https://github.com/bimdata/design-system/issues/320)
+* use selectedState instead of isSelected for deselect all files if one row is selected (#356) ([9319e28](https://github.com/bimdata/design-system/commit/9319e28a028784d2fa00cd78ab1838bc7d08e819)), closes [#356](https://github.com/bimdata/design-system/issues/356)
+
 # [2.0.0](https://github.com/bimdata/design-system/compare/v1.3.0...v2.0.0) (2023-09-19)
 
 
