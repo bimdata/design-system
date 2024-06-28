@@ -136,6 +136,7 @@ import tree from "./Tree.vue";
 import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
 import union from "./Union.vue";
+import unknownFile from "./UnknownFile.vue";
 import up from "./Up.vue";
 import upload from "./Upload.vue";
 import user from "./User.vue";
@@ -310,6 +311,7 @@ export default {
   unarchive,
   undo,
   union,
+  unknownFile,
   up,
   upload,
   user,

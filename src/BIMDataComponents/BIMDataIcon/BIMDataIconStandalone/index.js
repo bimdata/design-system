@@ -136,6 +136,7 @@ export { default as BIMDataIconTree } from "./BIMDataIconTree.vue";
 export { default as BIMDataIconUnarchive } from "./BIMDataIconUnarchive.vue";
 export { default as BIMDataIconUndo } from "./BIMDataIconUndo.vue";
 export { default as BIMDataIconUnion } from "./BIMDataIconUnion.vue";
+export { default as BIMDataIconUnknownFile } from "./BIMDataIconUnknownFile.vue";
 export { default as BIMDataIconUp } from "./BIMDataIconUp.vue";
 export { default as BIMDataIconUpload } from "./BIMDataIconUpload.vue";
 export { default as BIMDataIconUser } from "./BIMDataIconUser.vue";
