@@ -100,6 +100,7 @@ import redo from "./Redo.vue";
 import reduced from "./Reduced.vue";
 import refresh from "./Refresh.vue";
 import removeModel from "./RemoveModel.vue";
+import rename from "./Rename.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
 import reset from "./Reset.vue";
 import restore from "./Restore.vue";
@@ -275,6 +276,7 @@ export default {
   reduced,
   refresh,
   removeModel,
+  rename,
   reprocessIfc,
   reset,
   restore,

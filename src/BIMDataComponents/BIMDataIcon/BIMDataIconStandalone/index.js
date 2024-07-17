@@ -100,6 +100,7 @@ export { default as BIMDataIconRedo } from "./BIMDataIconRedo.vue";
 export { default as BIMDataIconReduced } from "./BIMDataIconReduced.vue";
 export { default as BIMDataIconRefresh } from "./BIMDataIconRefresh.vue";
 export { default as BIMDataIconRemoveModel } from "./BIMDataIconRemoveModel.vue";
+export { default as BIMDataIconRename } from "./BIMDataIconRename.vue";
 export { default as BIMDataIconReprocessIfc } from "./BIMDataIconReprocessIfc.vue";
 export { default as BIMDataIconReset } from "./BIMDataIconReset.vue";
 export { default as BIMDataIconRestore } from "./BIMDataIconRestore.vue";
