@@ -151,6 +151,11 @@ const routes = [
           import("./views/Components/Illustrations/Illustrations.vue"),
       },
       {
+        path: "infobox",
+        name: "infobox",
+        component: () => import("./views/Components/Infobox/Infobox.vue"),
+      },
+      {
         path: "input",
         name: "input",
         component: () => import("./views/Components/Input/Input.vue"),

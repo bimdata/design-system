@@ -20,6 +20,7 @@ export { default as BIMDataFileIcon } from "./BIMDataFileIcon/BIMDataFileIcon.vu
 export { default as BIMDataIcon } from "./BIMDataIcon/BIMDataIcon.vue";
 export * from "./BIMDataIcon/BIMDataIconStandalone/index.js";
 export { default as BIMDataIllustration } from "./BIMDataIllustration/BIMDataIllustration.vue";
+export { default as BIMDataInfobox } from "./BIMDataInfobox/BIMDataInfobox.vue";
 export { default as BIMDataInput } from "./BIMDataInput/BIMDataInput.vue";
 export { default as BIMDataInputOutlined } from "./BIMDataInputOutlined/BIMDataInputOutlined.vue";
 export { default as BIMDataList } from "./BIMDataList/BIMDataList.vue";
