@@ -65,7 +65,12 @@ defineProps({
   .bimdata-infobox__icon {
     width: 18px;
     height: 18px;
-    margin-top: 2px;
+    line-height: 18px;
+    margin-top: calc((1em * 1.25 - 18px) / 2);
+  }
+
+  .bimdata-infobox__text {
+    line-height: 1.25;
   }
 }
 </style>
