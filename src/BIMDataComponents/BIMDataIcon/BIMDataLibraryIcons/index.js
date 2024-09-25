@@ -100,6 +100,7 @@ import redo from "./Redo.vue";
 import reduced from "./Reduced.vue";
 import refresh from "./Refresh.vue";
 import removeModel from "./RemoveModel.vue";
+import rename from "./Rename.vue";
 import reprocessIfc from "./ReprocessIfc.vue";
 import reset from "./Reset.vue";
 import restore from "./Restore.vue";
@@ -136,6 +137,7 @@ import tree from "./Tree.vue";
 import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
 import union from "./Union.vue";
+import unknownFile from "./UnknownFile.vue";
 import up from "./Up.vue";
 import upload from "./Upload.vue";
 import user from "./User.vue";
@@ -274,6 +276,7 @@ export default {
   reduced,
   refresh,
   removeModel,
+  rename,
   reprocessIfc,
   reset,
   restore,
@@ -310,6 +313,7 @@ export default {
   unarchive,
   undo,
   union,
+  unknownFile,
   up,
   upload,
   user,

@@ -7,12 +7,12 @@ const config = {
       "@semantic-release/commit-analyzer",
       {
         releaseRules: [
-          { tag: "MINOR", release: "minor" },
           { tag: "PATCH", release: "patch" },
+          { tag: "MINOR", release: "minor" },
           { tag: "MAJOR", release: "major" },
         ],
         parserOpts: {
-          headerPattern: /^(MINOR|PATCH|MAJOR): (.*)$/,
+          headerPattern: /^(PATCH|MINOR|MAJOR): (.*)$/,
           headerCorrespondence: ["tag", "subject"],
         },
       },
@@ -38,7 +38,7 @@ const config = {
     {
       name: "develop",
       channel: "next",
-      prerelease: "rc",
+      prerelease: "beta",
     },
     {
       name: "release/[0-9]+(.[0-9]+)?.(x|X)",

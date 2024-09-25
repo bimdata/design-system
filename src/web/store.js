@@ -199,6 +199,13 @@ export default {
         btn: "View illustrations",
       },
       {
+        title: "Infobox",
+        img: text,
+        path: "infobox",
+        text: "Infobox are used to highlight some piece of text in the UI.",
+        btn: "View infobox",
+      },
+      {
         title: "Input",
         img: input,
         path: "input",

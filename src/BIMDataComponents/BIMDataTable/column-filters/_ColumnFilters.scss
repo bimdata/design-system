@@ -1,5 +1,8 @@
 .column-filters {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
+  max-width: 150%;
+  word-break: break-all;
   display: grid;
   position: absolute;
   left: 0;
@@ -10,5 +13,7 @@
   z-index: 1;
   .bimdata-checkbox {
     font-weight: 400;
+    align-items: flex-start;
+    text-align: left;
   }
 }
