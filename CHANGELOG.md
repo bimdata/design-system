@@ -1,3 +1,24 @@
+# [2.2.0](https://github.com/bimdata/design-system/compare/v2.1.0...v2.2.0) (2024-09-25)
+
+
+### chore
+
+* update dependencies ([e6f44b9](https://github.com/bimdata/design-system/commit/e6f44b981ba04ef01f49b281f1e6841e649a7d2b))
+
+### MINOR
+
+* feat: add BIMDataInfobox component (#368) ([5311fa4](https://github.com/bimdata/design-system/commit/5311fa4e0564bb8d2aacdbbbf69d9489a88acf4e)), closes [#368](https://github.com/bimdata/design-system/issues/368)
+
+### PATCH
+
+* add rename icon (#367) ([e0ae557](https://github.com/bimdata/design-system/commit/e0ae5572c7b1372609bb30158ba0e27635902f01)), closes [#367](https://github.com/bimdata/design-system/issues/367)
+* chore: update dependencies ([6eae8df](https://github.com/bimdata/design-system/commit/6eae8df8032cf626bda9f04e9377cddf94739701))
+* chore: update dependencies ([8959dda](https://github.com/bimdata/design-system/commit/8959ddac4017d5fbb49cb6e6d007b833308b1f52))
+* chore: update semantic release config ([b705758](https://github.com/bimdata/design-system/commit/b705758860b27a47923d581ac6a6a9ac44e4b69f))
+* Feature/fix filters and add icon (#365) ([46fc96b](https://github.com/bimdata/design-system/commit/46fc96b764beff2fb61195088be08d2065b4486d)), closes [#365](https://github.com/bimdata/design-system/issues/365)
+* fix column filters for long content (#366) ([fbafe69](https://github.com/bimdata/design-system/commit/fbafe6936114a7fa6ddaff12f2923499ded5b78b)), closes [#366](https://github.com/bimdata/design-system/issues/366)
+* fix(infobox): properly align icon according to font-size ([eabfde3](https://github.com/bimdata/design-system/commit/eabfde3cbd7e6adc97bbfbfbefbcceeeb039482e))
+
 # [2.1.0](https://github.com/bimdata/design-system/compare/v2.0.0...v2.1.0) (2024-06-27)
 
 
