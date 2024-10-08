@@ -100,10 +100,10 @@ export default {
     this.computeText();
   },
   beforeUnmount() {
-    this.observer.disconnect();
+    this.observer?.disconnect();
   },
   beforeDestroy() {
-    this.observer.disconnect();
+    this.observer?.disconnect();
   },
   methods: {
     async computeText() {
