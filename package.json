@@ -1,6 +1,7 @@
 {
   "name": "@bimdata/design-system",
   "version": "2.2.1-beta.1",
+  "type": "module",
   "main": "./src/BIMDataComponents/index.js",
   "module": "./src/BIMDataComponents/index.js",
   "files": [
@@ -25,16 +26,16 @@
     "@semantic-release/release-notes-generator": "^14.0.1",
     "@vitejs/plugin-vue": "^5.1.4",
     "conventional-changelog-eslint": "^6.0.0",
-    "eslint": "^9.11.1",
+    "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.28.0",
+    "eslint-plugin-vue": "^9.29.0",
     "prettier": "^3.3.3",
     "prismjs": "^1.29.0",
-    "sass": "^1.79.3",
-    "semantic-release": "^24.1.1",
-    "vite": "^5.4.8",
-    "vue": "^3.5.8",
+    "sass-embedded": "^1.79.5",
+    "semantic-release": "^24.1.2",
+    "vite": "^5.4.9",
+    "vue": "^3.5.12",
     "vue-router": "^4.4.5",
     "vue3-clipboard": "^1.0.0"
   }
