@@ -78,13 +78,13 @@ git commit -m "MINOR: explain the new feature to deploy"
 
 The branches on which it is possible to publish are the following:
 
-| Branches      |      Git tag      | Npm version             |   Env   |
-| ------------- | :---------------: | ----------------------- | :-----: |
-| develop       | 1.3.0-rc.1 **\*** | 1.0.3-rc.1<br>tag: next | staging |
-| release/X.X.x |       1.1.6       | 1.1.6<br>tag: 1.1.x     |         |
-| master        |       1.2.8       | 1.2.8<br>tag: latest    |  prod   |
+| Branches      |       Git tag       | NPM version               |   Env   |
+| ------------- | :-----------------: | ------------------------- | :-----: |
+| develop       | 1.3.0-beta.1 **\*** | 1.0.3-beta.1<br>tag: next | staging |
+| release/X.X.x |        1.1.6        | 1.1.6<br>tag: 1.1.x       |         |
+| master        |        1.2.8        | 1.2.8<br>tag: latest      |  prod   |
 
-**\*** The `develop` branch will only release `rc.x` in succession until the release candidate or a higher version has been deployed to `master`.
+**\*** The `develop` branch will only release `beta.x` in succession until the release candidate or a higher version has been deployed to `master`.
 
 For Merging this branches together, and to avoid any unexpected behavior, use `--no-ff` git merge option.
 After deploying a new latest tag with master branch, merge master into develop to update `package.json` and `CHANGELOG.md`.
