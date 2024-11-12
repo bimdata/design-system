@@ -146,7 +146,7 @@ export default [
     "	Use UTC for time calculations"
   ],
   [
-    "value",
+    "modelValue",
     "Date|String",
     "",
     "Date value of the datepicker"
