@@ -62,7 +62,7 @@ export default {
         const ids = new Set();
 
         for (const node of value) {
-          if (!Number.isFinite(node?.id)) return false;
+          if (!Number.isFinite(node?.id) && typeof node?.id !== "string") return false;
           if (node.children && !Array.isArray(node.children)) return false;
           ids.add(node.id);
         }

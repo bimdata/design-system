@@ -60,7 +60,7 @@ NodeChildren = {
     node: {
       type: Object,
       required: true,
-      validator: node => Number.isFinite(node?.id),
+      validator: node => (Number.isFinite(node?.id) || typeof node?.id === "string"),
     },
     depth: {
       type: Number,
