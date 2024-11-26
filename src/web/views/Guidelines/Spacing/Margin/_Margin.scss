@@ -1,3 +1,5 @@
+@use "../../../../../assets/scss/mixins/_font-size.scss";
+
 .spacing-system__margin {
   :deep(.bimdata-ds__demo__module) {
     grid-column: 1 / 2;
