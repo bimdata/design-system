@@ -55,12 +55,12 @@
         <div class="typography-use__content">
           <Code language="scss">
             <pre>
-              @import "@bimdata/design-system/src/assets/scss/mixins/_font-size.scss";
+              @use "@bimdata/design-system/src/assets/scss/mixins/_font-size.scss";
             </pre>
           </Code>
           <Code language="scss">
             <pre>
-              font-size: calculateEm(12px);
+              font-size: font-size.calculateEm(12px);
             </pre>
           </Code>
         </div>

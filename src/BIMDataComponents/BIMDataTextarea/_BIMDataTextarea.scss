@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins/_font-size.scss";
+@use "../../assets/scss/mixins/_font-size.scss";
 
 textarea:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--color-white) inset;
@@ -10,7 +10,7 @@ textarea:-webkit-autofill {
   inline-size: min-content;
   font-family: var(--primary-font);
   color: var(--color-primary);
-  font-size: calculateEm(15px);
+  font-size: font-size.calculateEm(15px);
   textarea {
     padding: 0px;
     width: 100%;
@@ -33,7 +33,7 @@ textarea:-webkit-autofill {
       outline: none;
       & ~ label {
         top: -26px;
-        font-size: calculateEm(10px);
+        font-size: font-size.calculateEm(10px);
       }
       & ~ .bar {
         &:after {
@@ -48,14 +48,14 @@ textarea:-webkit-autofill {
     label {
       top: -26px;
       color: var(--color-primary);
-      font-size: calculateEm(10px);
+      font-size: font-size.calculateEm(10px);
     }
   }
   label {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: calculateEm(12px);
+    font-size: font-size.calculateEm(12px);
     transform: translateY(8px);
     transition: 0.2s ease all;
     color: var(--color-granite-light);
@@ -78,11 +78,11 @@ textarea:-webkit-autofill {
   }
   .error {
     color: var(--color-high);
-    font-size: calculateEm(11px);
+    font-size: font-size.calculateEm(11px);
   }
   .success {
     color: var(--color-success);
-    font-size: calculateEm(11px);
+    font-size: font-size.calculateEm(11px);
   }
   &.error {
     label {

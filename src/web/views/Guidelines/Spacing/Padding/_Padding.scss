@@ -14,7 +14,7 @@
       background-color: var(--color-primary);
       color: var(--color-white);
       text-align: center;
-      font-size: calculateEm(12px);
+      font-size: font-size.calculateEm(12px);
       span {
         width: 150px;
         height: 150px;

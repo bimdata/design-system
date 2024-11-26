@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/mixins/_font-size.scss";
+@use "../../../../assets/scss/mixins/_font-size.scss";
 
 .article-icons {
   img {
@@ -48,7 +48,7 @@
           justify-content: center;
           p {
             margin: calc(var(--spacing-unit) / 2) 0 0 0;
-            font-size: calculateEm(10px);
+            font-size: font-size.calculateEm(10px);
           }
           &:hover {
             background-color: var(--color-silver-light);

@@ -1,9 +1,9 @@
-@import "../../assets/scss/mixins/_font-size.scss";
+@use "../../assets/scss/mixins/_font-size.scss";
 
 .bimdata-select {
   position: relative;
   font-family: var(--primary-font);
-  font-size: calculateEm(15px);
+  font-size: font-size.calculateEm(15px);
   user-select: none;
 
   &__content {
@@ -34,7 +34,7 @@
       position: absolute;
       top: 6px;
       left: 0;
-      font-size: calculateEm(12px);
+      font-size: font-size.calculateEm(12px);
       transition: 0.2s ease all;
       color: var(--color-granite-light);
       transition: 0.2s ease all;
@@ -59,7 +59,7 @@
     .bimdata-select__content {
       .bimdata-select__content__label {
         top: -18px;
-        font-size: calculateEm(10px);
+        font-size: font-size.calculateEm(10px);
         color: var(--color-primary);
       }
     }
@@ -80,7 +80,7 @@
       padding: 0 var(--spacing-unit);
       display: flex;
       align-items: center;
-      font-size: calculateEm(12px);
+      font-size: font-size.calculateEm(12px);
       cursor: pointer;
 
       &:hover {

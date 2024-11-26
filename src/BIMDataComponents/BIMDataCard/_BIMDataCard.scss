@@ -1,14 +1,14 @@
-@import "../../assets/scss/mixins/_font-size.scss";
+@use "../../assets/scss/mixins/_font-size.scss";
 
 .bimdata-card {
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
   font-family: var(--primary-font);
-  font-size: calculateEm(14px);
+  font-size: font-size.calculateEm(14px);
   overflow: auto;
   &__content,
   &__footer {
-    font-size: calculateEm(12px);
+    font-size: font-size.calculateEm(12px);
   }
   &__header {
     padding: 10px var(--spacing-unit);
@@ -18,7 +18,7 @@
     justify-content: space-between;
     background-color: var(--color-silver-light);
     color: var(--color-primary);
-    font-size: calculateEm(13px);
+    font-size: font-size.calculateEm(13px);
   }
   &__submenu {
     padding: calc(#{var(--spacing-unit)} / 2) var(--spacing-unit);
@@ -27,7 +27,7 @@
     position: relative;
     background: var(--color-white);
     box-shadow: var(--box-shadow);
-    font-size: calculateEm(12px);
+    font-size: font-size.calculateEm(12px);
   }
   &__content {
     padding: var(--spacing-unit);

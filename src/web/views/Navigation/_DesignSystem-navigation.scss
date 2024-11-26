@@ -1,4 +1,4 @@
-@import "../../../assets/scss/mixins/_font-size.scss";
+@use "../../../assets/scss/mixins/_font-size.scss";
 
 .bimdata-ds {
   &__header {
@@ -139,6 +139,6 @@
     align-items: center;
     justify-content: center;
     flex: 1;
-    font-size: calculateEm(10px);
+    font-size: font-size.calculateEm(10px);
   }
 }

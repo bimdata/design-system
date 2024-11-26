@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins/_font-size.scss";
+@use "../../assets/scss/mixins/_font-size.scss";
 
 input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--color-white) inset;
