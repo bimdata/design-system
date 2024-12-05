@@ -165,6 +165,7 @@ import fileIfcPolychrome from "./polychrome/FileIfcPolychrome.vue";
 import fileImagePolychrome from "./polychrome/FileImagePolychrome.vue";
 import fileJpegPolychrome from "./polychrome/FileJpegPolychrome.vue";
 import filePdfPolychrome from "./polychrome/FilePdfPolychrome.vue";
+import filePhotospherePolychrome from "./polychrome/FilePhotospherePolychrome.vue";
 import filePngPolychrome from "./polychrome/FilePngPolychrome.vue";
 import filePointCloudPolychrome from "./polychrome/FilePointCloudPolychrome.vue";
 import filePlanPolychrome from "./polychrome/FilePlanPolychrome.vue";
@@ -340,6 +341,7 @@ export default {
   fileImagePolychrome,
   fileJpegPolychrome,
   filePdfPolychrome,
+  filePhotospherePolychrome,
   filePngPolychrome,
   filePointCloudPolychrome,
   filePlanPolychrome,

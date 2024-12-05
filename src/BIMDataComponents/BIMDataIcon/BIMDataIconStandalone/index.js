@@ -165,6 +165,7 @@ export { default as BIMDataIconFileIfcPolychrome } from "./BIMDataIconFileIfcPol
 export { default as BIMDataIconFileImagePolychrome } from "./BIMDataIconFileImagePolychrome.vue";
 export { default as BIMDataIconFileJpegPolychrome } from "./BIMDataIconFileJpegPolychrome.vue";
 export { default as BIMDataIconFilePdfPolychrome } from "./BIMDataIconFilePdfPolychrome.vue";
+export { default as BIMDataIconFilePhotospherePolychrome } from "./BIMDataIconFilePhotospherePolychrome.vue";
 export { default as BIMDataIconFilePlanPolychrome } from "./BIMDataIconFilePlanPolychrome.vue";
 export { default as BIMDataIconFilePngPolychrome } from "./BIMDataIconFilePngPolychrome.vue";
 export { default as BIMDataIconFilePointCloudPolychrome } from "./BIMDataIconFilePointCloudPolychrome.vue";
