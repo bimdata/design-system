@@ -1,3 +1,19 @@
+<template>
+  <div class="bimdata-infobox">
+    <div class="bimdata-infobox__stripe"
+      :style="{ backgroundColor: `var(--color-${color})` }"
+    >
+      <!-- left stripe -->
+    </div>
+    <div class="bimdata-infobox__icon">
+      <BIMDataIcon :name="icon" :customSize="18" :color="color" fill />
+    </div>
+    <div class="bimdata-infobox__text">
+      <slot>{{ text }}</slot>
+    </div>
+  </div>
+</template>
+
 <script setup>
 defineProps({
   text: {
@@ -24,22 +40,6 @@ defineProps({
   },
 });
 </script>
-
-<template>
-  <div class="bimdata-infobox">
-    <div class="bimdata-infobox__stripe"
-      :style="{ backgroundColor: `var(--color-${color})` }"
-    >
-      <!-- left stripe -->
-    </div>
-    <div class="bimdata-infobox__icon">
-      <BIMDataIcon :name="icon" :customSize="18" :color="color" fill />
-    </div>
-    <div class="bimdata-infobox__text">
-      <slot>{{ text }}</slot>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .bimdata-infobox {
