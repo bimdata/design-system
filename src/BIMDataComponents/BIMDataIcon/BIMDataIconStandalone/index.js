@@ -13,6 +13,7 @@ export { default as BIMDataIconApp } from "./BIMDataIconApp.vue";
 export { default as BIMDataIconArchive } from "./BIMDataIconArchive.vue";
 export { default as BIMDataIconArrow } from "./BIMDataIconArrow.vue";
 export { default as BIMDataIconAttach } from "./BIMDataIconAttach.vue";
+export { default as BIMDataIconBack } from "./BIMDataIconBack.vue";
 export { default as BIMDataIconBcf } from "./BIMDataIconBcf.vue";
 export { default as BIMDataIconBuilding } from "./BIMDataIconBuilding.vue";
 export { default as BIMDataIconBurgerMenu } from "./BIMDataIconBurgerMenu.vue";

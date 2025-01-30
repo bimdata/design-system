@@ -13,6 +13,7 @@ import app from "./App.vue";
 import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
+import back from "./Back.vue";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
@@ -190,6 +191,7 @@ export default {
   archive,
   arrow,
   attach,
+  back,
   bcf,
   building,
   burgerMenu,
