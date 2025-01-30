@@ -25,6 +25,7 @@ jobs:
 
   build-and-push:
     runs-on: [self-hosted, common]
+    needs: publish
     if: contains('
       refs/heads/develop
       refs/heads/master
