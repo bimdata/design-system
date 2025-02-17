@@ -1,3 +1,26 @@
+## [2.2.1](https://github.com/bimdata/design-system/compare/v2.2.0...v2.2.1) (2025-02-17)
+
+
+### chore
+
+* rearrange <script setup> in vue files ([26e55a4](https://github.com/bimdata/design-system/commit/26e55a4e6fd8b465b746b041e7e6fcb2518f965d))
+* update dependencies ([d934f99](https://github.com/bimdata/design-system/commit/d934f99feff389fe2f626478fea00d9a567bbc54))
+* update README ([8e5735d](https://github.com/bimdata/design-system/commit/8e5735dc6ce58f8ce17405d58bec41a47a75edc4))
+
+### PATCH
+
+* chore: fix build-web npm script ([9e85c5e](https://github.com/bimdata/design-system/commit/9e85c5e57200b7a653baa5ce5ac2e1a646052eee))
+* chore: fix Dockerfile ([b0b198e](https://github.com/bimdata/design-system/commit/b0b198ef846541dc389e7b245149df1f7b5a9f02))
+* chore: update dependencies ([56e3afa](https://github.com/bimdata/design-system/commit/56e3afac97b70a537b3cf3046769d50c7516ba52))
+* chore: update dependencies ([166dd2a](https://github.com/bimdata/design-system/commit/166dd2aeebc9bcddd0ecc018abbca601371acf18))
+* chore: update dependencies ([200eb18](https://github.com/bimdata/design-system/commit/200eb189f1b12ad45b44b2ecf846f07282151519))
+* chore: upgrade to vite v6 + fix sass deprecation warnings ([ce1ecdf](https://github.com/bimdata/design-system/commit/ce1ecdff0fd0612f0a5e8a3b8d6fde3c317693d3))
+* empty commit to trigger CI ([470f9fd](https://github.com/bimdata/design-system/commit/470f9fd742549a620d433cf4e926a8a55012ee24))
+* feat(icon): add 'back' icon ([ba6a1b1](https://github.com/bimdata/design-system/commit/ba6a1b15479de11e23461b93898c7a38f64e659a))
+* feat(icon): add 'filePhotospherePolychrome' icon ([34b61cc](https://github.com/bimdata/design-system/commit/34b61cc76c6a2f52c46233ce1ee459ecd7c2b253))
+* fix ci ([abe070f](https://github.com/bimdata/design-system/commit/abe070f4c93af6314023a4b9f63fbb247b46f74f))
+* fix(tree): allow node.id to be a string (#372) ([288ef38](https://github.com/bimdata/design-system/commit/288ef38c8a296bcc1b030716ece6e7266536c525)), closes [#372](https://github.com/bimdata/design-system/issues/372)
+
 # [2.2.0](https://github.com/bimdata/design-system/compare/v2.1.0...v2.2.0) (2024-09-25)
 
 
