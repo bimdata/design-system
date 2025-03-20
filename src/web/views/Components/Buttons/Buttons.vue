@@ -15,6 +15,7 @@
             <BIMDataButton
               :width="widthButton"
               :height="heightButton"
+              :size="fontSizeButton"
               :disabled="getButtonDisabled()"
               :class="getOverviewButtonClasses()"
               :color="selectedBtnOptionsvalues"
@@ -27,7 +28,7 @@
               />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
-                {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
+                {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }} {{ selectedBtnOptionsweight }}
               </span>
             </BIMDataButton>
           </template>
@@ -60,16 +61,8 @@
               >
                 modifiers
               </BIMDataText>
-              <BIMDataCheckbox
-                text="icon"
-                v-model="checkboxIconChecked"
-                :disabled="checkboxIconDisabled"
-              />
-              <BIMDataCheckbox
-                text="text"
-                v-model="checkboxTextChecked"
-                :disabled="checkboxTextDisabled"
-              />
+              <BIMDataCheckbox text="icon" v-model="checkboxIconChecked" />
+              <BIMDataCheckbox text="text" v-model="checkboxTextChecked" />
               <BIMDataCheckbox
                 text="disabled"
                 v-model="checkboxDisabledChecked"
@@ -82,10 +75,17 @@
             <BIMDataInput
               v-model="widthButton"
               placeholder="button's min-width in px or %"
+              margin="24px 0px"
             />
             <BIMDataInput
               v-model="heightButton"
               placeholder="button's min-height in px or %"
+              margin="24px 0px"
+            />
+            <BIMDataInput
+              v-model="fontSizeButton"
+              placeholder="button's font-size in px"
+              margin="24px 0px"
             />
           </template>
 
@@ -97,9 +97,9 @@
             <pre>
               &lt;BIMDataButton color="{{ selectedBtnOptionsvalues }}" {{
                 selectedBtnOptionstypes
-              }} {{ selectedBtnOptionskinds }} {{ getIconClass() }} {{
+              }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsweight }} {{ getIconClass() }} {{
                 getButtonDisabled()
-              }} {{ getWidthBtn() }} {{ getHeightBtn() }}&gt;
+              }} {{ getWidthBtn() }} {{ getHeightBtn() }} {{ getFontSizeBtn() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -134,52 +134,30 @@ export default {
       message: "",
       widthButton: "32px",
       heightButton: "32px",
+      fontSizeButton: "15px",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
       selectedBtnOptionsicons: "icon",
       selectedBtnOptionstypes: "fill",
-      selectedBtnOptionskinds: "radius",
+      selectedBtnOptionskinds: "rounded",
       selectedBtnOptionsvalues: "primary",
+      selectedBtnOptionsweight: "normal",
       btnOptions: {
-        types: ["fill", "outline", "ghost", "ripple"],
-        kinds: ["radius", "square", "rounded"],
+        types: ["fill", "ghost", "outline", "ripple"],
+        kinds: ["radius", "rounded", "square"],
         values: colors,
+        weight: ["normal", "light", "bold"],
       },
       propsData,
     };
   },
   computed: {
-    checkboxTextDisabled() {
-      return (
-        this.selectedBtnOptionskinds === "rounded" ||
-        this.checkboxIconChecked === false
-      );
-    },
-    checkboxIconDisabled() {
-      return (
-        this.selectedBtnOptionskinds === "rounded" ||
-        this.checkboxTextChecked === false
-      );
-    },
     buttonDisabled() {
       if (this.checkboxDisabledChecked === true) {
         return ":disabled='disabled'";
       }
       return "";
-    },
-  },
-  watch: {
-    selectedBtnOptionskinds: {
-      handler(newValue, oldValue) {
-        if (newValue === "rounded") {
-          this.checkboxTextChecked = false;
-          this.checkboxIconChecked = true;
-        } else if (oldValue === "rounded") {
-          this.checkboxTextChecked = true;
-        }
-      },
-      deep: true,
     },
   },
   methods: {
@@ -193,7 +171,7 @@ export default {
         }`;
     },
     getOverviewButtonClasses() {
-      return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
+      return `${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues} ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionsweight}`;
     },
     getIcon() {
       if (this.checkboxIconChecked && this.checkboxTextChecked) {
@@ -205,7 +183,7 @@ export default {
     },
     getText() {
       if (this.checkboxTextChecked && this.checkboxIconChecked) {
-        return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}</span>`;
+        return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues} ${this.selectedBtnOptionsweight} </span>`;
       }
       if (this.checkboxTextChecked) {
         return `Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}`;
@@ -238,6 +216,11 @@ export default {
     getHeightBtn() {
       if (this.heightButton != "32px") {
         return `height="${this.heightButton}"`;
+      }
+    },
+    getFontSizeBtn() {
+      if (this.fontSizeButton != "15px") {
+        return `size="${this.fontSizeButton}"`;
       }
     },
   },
