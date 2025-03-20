@@ -70,14 +70,6 @@ export default {
       type: String,
       default: "15px",
     },
-    useColor: {
-      type: Boolean,
-      default: true, 
-    },
-    useWeight: {
-      type: Boolean,
-      default: true,
-    },
   },
   emits: ["click"],
   computed: {
