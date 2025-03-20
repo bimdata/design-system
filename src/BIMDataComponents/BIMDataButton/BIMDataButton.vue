@@ -1,10 +1,9 @@
 <template>
   <button
     class="bimdata-btn"
-    :class="classes"
-    :style="style"
+    :class="buttonClasses"
+    :style="buttonStyles"
     @click="$emit('click', $event)"
-    :color="color"
     type="button"
   >
     <slot></slot>
@@ -23,7 +22,7 @@ export default {
     },
     height: {
       type: String,
-      default: "32px",
+      default: "40px",
     },
     fill: {
       type: Boolean,
@@ -62,33 +61,47 @@ export default {
       default: "default",
       validator: color => colors.includes(color),
     },
+    weight: {
+      type: String,
+      default: "normal",
+      validator: weight => ["light", "normal", "bold"].includes(weight),
+    },
+    size: {
+      type: String,
+      default: "15px",
+    },
+    useColor: {
+      type: Boolean,
+      default: true, 
+    },
+    useWeight: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ["click"],
   computed: {
-    classes() {
+    buttonClasses() {
       return {
-        "bimdata-btn__icon": this.icon,
-        "bimdata-btn__fill": this.fill,
-        "bimdata-btn__outline": this.outline,
-        "bimdata-btn__ghost": this.ghost,
-        "bimdata-btn__ripple": this.ripple,
-        "bimdata-btn__radius": this.radius,
-        "bimdata-btn__square": this.square,
-        "bimdata-btn__rounded": this.rounded,
-        [`bimdata-btn__fill--${this.color}`]: this.fill && this.color,
-        [`bimdata-btn__outline--${this.color}`]: this.outline && this.color,
-        [`bimdata-btn__ghost--${this.color}`]: this.ghost && this.color,
-        [`bimdata-btn__ripple--${this.color}`]: this.ripple && this.color,
+        "icon": this.icon,
+        "fill": this.fill,
+        "outline": this.outline,
+        "ghost": this.ghost,
+        "ripple": this.ripple,
+        "radius": this.radius,
+        "square": this.square,
+        "rounded": this.rounded,
       };
     },
-    style() {
+    buttonStyles() {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
+        "font-size": `${this.size}`
       };
     },
   },
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataButton.scss"></style>
+<style scoped src="./BIMDataButton.css"></style>
