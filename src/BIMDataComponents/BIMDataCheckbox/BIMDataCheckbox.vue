@@ -65,4 +65,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataCheckbox.scss"></style>
+<style scoped src="./BIMDataCheckbox.css"></style>
