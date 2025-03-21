@@ -7,7 +7,7 @@
   justify-content: center;
   user-select: none;
 
-  &__content {
+  .bimdata-dropdown-list__content {
     padding: 0 var(--spacing-unit);
     display: flex;
     align-items: center;
@@ -19,13 +19,16 @@
     cursor: pointer;
 
     .bimdata-btn {
-      background-color: var(--color-silver-light);
+      background-color: var(--color-white);
     }
 
     &.active {
       background-color: var(--color-white);
       border: 1px solid transparent;
       box-shadow: var(--box-shadow);
+      .bimdata-btn {
+        background-color: var(--color-silver-light);
+      }
     }
 
     &.disabled {
@@ -38,8 +41,8 @@
     }
   }
 
-  .bimdata-paginated-list {
-    &__elements {
+  &::v-deep .bimdata-paginated-list {
+    .bimdata-paginated-list__elements {
       font-size: 11px;
     }
 
