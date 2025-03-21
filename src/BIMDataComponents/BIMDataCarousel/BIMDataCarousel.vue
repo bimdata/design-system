@@ -140,4 +140,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./BIMDataCarousel.scss"></style>
+<style scoped src="./BIMDataCarousel.css"></style>
