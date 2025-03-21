@@ -104,4 +104,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataIcon.scss"></style>
+<style scoped src="./BIMDataIcon.css"></style>
