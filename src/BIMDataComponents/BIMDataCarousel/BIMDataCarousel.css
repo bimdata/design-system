@@ -3,22 +3,22 @@
 
   position: relative;
 
-  &__container {
+  .bimdata-carousel__container {
     overflow-x: hidden;
 
-    // Here is a hack to make overflow-y visible
-    // See: https://stackoverflow.com/q/6421966/8298197
+    /* Here is a hack to make overflow-y visible
+       See: https://stackoverflow.com/q/6421966/8298197 */
     margin: -28px 0;
     padding: 28px 0;
 
-    &__slider {
+    .bimdata-carousel__container__slider {
       position: relative;
       transition: transform 0.5s ease-out;
     }
   }
 
-  &__btn-prev,
-  &__btn-next {
+  .bimdata-carousel__btn-prev,
+  .bimdata-carousel__btn-next {
     position: absolute;
     z-index: 2;
     top: calc(50% - var(--button-size) / 2);
@@ -27,11 +27,11 @@
     box-shadow: var(--box-shadow);
   }
 
-  &__btn-prev {
+  .bimdata-carousel__btn-prev {
     left: calc(0px - var(--button-size) / 2);
   }
 
-  &__btn-next {
+  .bimdata-carousel__btn-next {
     right: calc(0px - var(--button-size) / 2);
   }
 }
