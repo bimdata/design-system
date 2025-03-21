@@ -16,4 +16,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Caret", Caret);
 </script>
 
-<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped lang="scss" src="../BIMDataIcon.css"></style>

@@ -17,4 +17,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Failed", Failed);
 </script>
 
-<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped lang="scss" src="../BIMDataIcon.css"></style>

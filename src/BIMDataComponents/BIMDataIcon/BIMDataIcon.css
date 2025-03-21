@@ -1,96 +1,96 @@
 .icon {
-  &-fill {
-    &--black {
+  .icon-fill {
+    &.icon-fill--black {
       fill: var(--color-black);
     }
-    &--default {
+    &.icon-fill--default {
       fill: currentColor;
     }
-    &--disabled {
+    &.icon-fill--disabled {
       fill: var(--color-silver-dark);
     }
-    &--high {
+    &.icon-fill--high {
       fill: var(--color-high);
     }
-    &--neutral {
+    &.icon-fill--neutral {
       fill: var(--color-neutral);
     }
-    &--primary {
+    &.icon-fill--primary {
       fill: var(--color-primary);
     }
-    &--secondary {
+    &.icon-fill--secondary {
       fill: var(--color-secondary);
     }
-    &--success {
+    &.icon-fill--success {
       fill: var(--color-success);
     }
-    &--silver {
+    &.icon-fill--silver {
       fill: var(--color-silver);
     }
-    &--granite-light {
+    &.icon-fill--granite-light {
       fill: var(--color-granite-light);
     }
-    &--granite {
+    &.icon-fill--granite {
       fill: var(--color-granite);
     }
-    &--silver-light {
+    &.icon-fill--silver-light {
       fill: var(--color-silver-light);
     }
-    &--silver-dark {
+    &.icon-fill--silver-dark {
       fill: var(--color-silver-dark);
     }
-    &--warning {
+    &.icon-fill--warning {
       fill: var(--color-warning);
     }
-    &--white {
+    &.icon-fill--white {
       fill: var(--color-white);
     }
   }
-  &-stroke {
+  .icon-stroke {
     fill: transparent;
-    &--black {
+    &.icon-stroke--black {
       stroke: var(--color-black);
     }
-    &--default {
+    &.icon-stroke--default {
       stroke: currentColor;
     }
-    &--disabled {
+    &.icon-stroke--disabled {
       stroke: var(--color-silver-dark);
     }
-    &--high {
+    &.icon-stroke--high {
       stroke: var(--color-high);
     }
-    &--neutral {
+    &.icon-stroke--neutral {
       stroke: var(--color-neutral);
     }
-    &--primary {
+    &.icon-stroke--primary {
       stroke: var(--color-primary);
     }
-    &--secondary {
+    &.icon-stroke--secondary {
       stroke: var(--color-secondary);
     }
-    &--success {
+    &.icon-stroke--success {
       stroke: var(--color-success);
     }
-    &--silver {
+    &.icon-stroke--silver {
       stroke: var(--color-silver);
     }
-    &--granite-light {
+    &.icon-stroke--granite-light {
       stroke: var(--color-granite-light);
     }
-    &--granite {
+    &.icon-stroke--granite {
       stroke: var(--color-granite);
     }
-    &--silver-light {
+    &.icon-stroke--silver-light {
       stroke: var(--color-silver-light);
     }
-    &--silver-dark {
+    &.icon-stroke--silver-dark {
       stroke: var(--color-silver-dark);
     }
-    &--warning {
+    &.icon-stroke--warning {
       stroke: var(--color-warning);
     }
-    &--white {
+    &.icon-stroke--white {
       stroke: var(--color-white);
     }
   }
