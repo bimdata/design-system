@@ -1,0 +1,11 @@
+.bimdata-card__brand {
+  justify-content: space-between;
+  & .bimdata-card__brand--left {
+    margin-right: var(--spacing-unit);
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: calc(var(--spacing-unit) / 2);
+    }
+  }
+}
