@@ -16,6 +16,7 @@
               :width="widthButton"
               :height="heightButton"
               :size="fontSizeButton"
+              :padding="paddingButton"
               :disabled="getButtonDisabled()"
               :class="getOverviewButtonClasses()"
               :color="selectedBtnOptionsvalues"
@@ -87,6 +88,11 @@
               placeholder="button's font-size in px"
               margin="24px 0px"
             />
+            <BIMDataInput
+              v-model="paddingButton"
+              placeholder="button's padding in px"
+              margin="24px 0px"
+            />
           </template>
 
           <template #import>
@@ -99,7 +105,7 @@
                 selectedBtnOptionstypes
               }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsweight }} {{ getIconClass() }} {{
                 getButtonDisabled()
-              }} {{ getWidthBtn() }} {{ getHeightBtn() }} {{ getFontSizeBtn() }}&gt;
+              }} {{ getWidthBtn() }} {{ getHeightBtn() }} {{ getFontSizeBtn() }} {{ getPaddingBtn() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -135,6 +141,7 @@ export default {
       widthButton: "32px",
       heightButton: "32px",
       fontSizeButton: "15px",
+      paddingButton: "0px 1rem",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
@@ -221,6 +228,11 @@ export default {
     getFontSizeBtn() {
       if (this.fontSizeButton != "15px") {
         return `size="${this.fontSizeButton}"`;
+      }
+    },
+    getPaddingBtn() {
+      if (this.paddingButton != "0px 1rem") {
+        return `padding="${this.paddingButton}"`;
       }
     },
   },

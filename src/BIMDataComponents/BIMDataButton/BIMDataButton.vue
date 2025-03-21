@@ -70,6 +70,10 @@ export default {
       type: String,
       default: "15px",
     },
+    padding: {
+      type: String,
+      default: "0 1rem",
+    },
   },
   emits: ["click"],
   computed: {
@@ -89,7 +93,8 @@ export default {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
-        "font-size": `${this.size}`
+        "font-size": `${this.size}`,
+        "padding": this.padding,
       };
     },
   },
