@@ -1,0 +1,65 @@
+.bimdata-card {
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  font-family: var(--primary-font);
+  font-size: 14px;
+  overflow: auto;
+  & .bimdata-card__content,
+  & .bimdata-card__footer {
+    font-size: 12px;
+  }
+  & .bimdata-card__header {
+    padding: 10px var(--spacing-unit);
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-silver-light);
+    color: var(--color-primary);
+    font-size: 13px;
+  }
+  & .bimdata-card__submenu {
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+    font-size: 12px;
+  }
+  & .bimdata-card__content {
+    padding: var(--spacing-unit);
+    color: var(--color-granite);
+  }
+  & .bimdata-card__footer {
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
+  }
+
+  & .bimdata-card__primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    .bimdata-card__header,
+    .bimdata-card__submenu {
+      background-color: var(--color-primary);
+    }
+    .bimdata-card__header {
+      color: var(--color-white);
+      filter: saturate(0.8);
+    }
+    .bimdata-card__content {
+      color: var(--color-white);
+    }
+  }
+  & .bimdata-card__secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    .bimdata-card__header,
+    .bimdata-card__submenu {
+      background-color: var(--color-secondary);
+    }
+    .bimdata-card__header {
+      color: var(--color-primary);
+      filter: saturate(0.8);
+    }
+  }
+}

@@ -73,4 +73,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataCard.scss"></style>
+<style scoped src="./BIMDataCard.css"></style>
