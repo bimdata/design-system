@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   user-select: none;
-  &__content {
+  .bimdata-dropdown__content {
     padding: 0 var(--spacing-unit);
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
       }
     }
   }
-  &__elements {
+  .bimdata-dropdown__elements {
     font-size: 11px;
 
     &.no-header {
@@ -41,18 +41,18 @@
       transform: translate(-50%, -50%);
     }
 
-    &__menu-items {
+    .bimdata-dropdown__elements__menu-items {
       padding-left: 0px;
       overflow: visible;
       margin: 0;
 
-      &__item {
+      .bimdata-dropdown__elements__menu-items__item {
         position: relative;
 
-        &--no-children {
+        .bimdata-dropdown__elements__menu-items__item--no-children {
           color: var(--color-silver-dark);
         }
-        &--has-children {
+        .bimdata-dropdown__elements__menu-items__item--has-children {
           color: var(--color-primary);
         }
 
@@ -60,7 +60,7 @@
           padding-left: var(--spacing-unit);
         }
 
-        &__children {
+        .bimdata-dropdown__elements__menu-items__item__children {
           overflow: auto;
           padding: calc(var(--spacing-unit) / 2) 0;
           background-color: var(--color-white);
@@ -75,7 +75,7 @@
     }
 
     &:first-child :not(&__menu-items) {
-      padding: calc(#{var(--spacing-unit)} / 2) 0;
+      padding: calc(var(--spacing-unit) / 2) 0;
       overflow: auto;
       z-index: 1;
     }

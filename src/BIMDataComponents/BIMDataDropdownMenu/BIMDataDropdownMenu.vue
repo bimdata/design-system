@@ -200,4 +200,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataDropdownMenu.scss"></style>
+<style scoped src="./BIMDataDropdownMenu.css"></style>
