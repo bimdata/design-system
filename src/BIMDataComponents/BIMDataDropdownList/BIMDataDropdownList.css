@@ -41,7 +41,7 @@
     }
   }
 
-  &::v-deep .bimdata-paginated-list {
+  &:deep(.bimdata-paginated-list) {
     .bimdata-paginated-list__elements {
       font-size: 11px;
     }
