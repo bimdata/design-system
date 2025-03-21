@@ -1,7 +1,7 @@
 .color-selector {
-  &__line {
+  & .color-selector__line {
     display: flex;
-    &__element {
+    & .color-selector__line__element {
       cursor: pointer;
       height: 30px;
       width: 30px;

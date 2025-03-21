@@ -53,4 +53,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataColorSelector.scss"></style>
+<style scoped src="./BIMDataColorSelector.css"></style>
