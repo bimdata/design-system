@@ -72,7 +72,7 @@ export default {
     },
     padding: {
       type: String,
-      default: "0 1rem",
+      default: "0 calc(var(--spacing-unit) / 2)",
     },
   },
   emits: ["click"],
