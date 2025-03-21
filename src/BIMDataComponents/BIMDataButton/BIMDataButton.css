@@ -8,7 +8,7 @@
   color: var(--color-primary);
   cursor: pointer;
   font-family: var(--primary-font);
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.1s ease;
   &:hover {
     transition: all 0.25s ease-in;
