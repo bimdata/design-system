@@ -11,8 +11,8 @@
     }"
     :style="style"
   >
-    <label v-if="label !== ''" :for="`bimdata-input-${uuid}`">{{
-      label
+    <label v-if="computedLabel !== ''" :for="`bimdata-input-${uuid}`">{{
+      computedLabel
     }}</label>
     <div class="bimdata-input__content" style="position: relative;" :style="{
           'background-color': backgroundColor,
@@ -122,6 +122,10 @@ export default {
       return {
         margin: `${this.margin}`,
       };
+    },
+    computedLabel() {
+      // Si `label` est vide, utilise la valeur de `placeholder`
+      return this.label || this.placeholder;
     },
   },
   beforeCreate() {
