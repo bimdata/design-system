@@ -11,27 +11,40 @@
     }"
     :style="style"
   >
-    <input
-      ref="input"
-      :id="`bimdata-input-${uuid}`"
-      @input="$emit('update:modelValue', $event.currentTarget.value)"
-      :disabled="disabled"
-      :value="modelValue"
-      @focus="
-        $event.target.select();
-        $emit('focus', $event);
-      "
-      @blur="$emit('blur', $event)"
-      @keypress="$emit('keypress', $event)"
-      @change="$emit('change', $event)"
-      :autocomplete="autocomplete ? 'on' : 'off'"
-      v-bind="$attrs"
-    />
-    <div class="bimdata-input__icon">
-      <slot name="inputIcon"></slot>
+    <label v-if="label !== ''" :for="`bimdata-input-${uuid}`">{{
+      label
+    }}</label>
+    <div class="bimdata-input__content" style="position: relative;" :style="{
+          'background-color': backgroundColor,
+        }">
+      <div class="bimdata-input__icon left-icon">
+        <slot name="leftInputIcon"></slot>
+      </div>
+      <input
+        ref="input"
+        :id="`bimdata-input-${uuid}`"
+        @input="$emit('update:modelValue', $event.currentTarget.value)"
+        :disabled="disabled"
+        :value="modelValue"
+        @focus="
+          $event.target.select();
+          $emit('focus', $event);
+        "
+        @blur="$emit('blur', $event)"
+        @keypress="$emit('keypress', $event)"
+        @change="$emit('change', $event)"
+        :autocomplete="autocomplete ? 'on' : 'off'"
+        v-bind="$attrs"
+        :placeholder="placeholder"
+        :style="{
+          padding: padding,
+          height: height,
+        }"
+      />
+      <div class="bimdata-input__icon">
+        <slot name="inputIcon"></slot>
+      </div>
     </div>
-    <label :for="`bimdata-input-${uuid}`">{{ placeholder }}</label>
-    <span class="bar"></span>
     <span v-if="error" class="error">{{ errorMessage }}</span>
     <span v-if="success" class="success">{{ successMessage }}</span>
   </div>
@@ -51,6 +64,10 @@ export default {
       default: "",
     },
     placeholder: {
+      type: String,
+      default: "",
+    },
+    label: {
       type: String,
       default: "",
     },
@@ -82,9 +99,21 @@ export default {
       type: String,
       default: "12px 0px",
     },
+    padding: {
+      type: String,
+      default: "0px 12px",
+    },
     autocomplete: {
       type: Boolean,
       default: false,
+    },
+    height: {
+      type: String,
+      default: "32px",
+    },
+    backgroundColor: {
+      type: String,
+      default: "var(--color-silver-light)",
     },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
@@ -120,4 +149,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataInput.scss"></style>
+<style scoped src="./BIMDataInput.css"></style>
