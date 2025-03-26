@@ -1,11 +1,9 @@
-@use "../../assets/scss/mixins/_font-size.scss";
-
 .bimdata-radio {
   position: relative;
   color: var(--color-primary);
   line-height: 1.5;
   font-family: var(--primary-font);
-  font-size: font-size.calculateEm(14px);
+  font-size: 14px;
   background-color: transparent;
   border: none;
   margin: 0px;
@@ -14,17 +12,17 @@
   align-items: center;
   cursor: pointer;
 
-  &__btn {
+  & .bimdata-radio__btn {
     position: relative;
     width: 23px;
     height: 23px;
   }
 
-  &__text {
-    font-size: font-size.calculateEm(12px);
+  & .bimdata-radio__text {
+    font-size: 12px;
   }
 
-  &__background {
+  & .bimdata-radio__background {
     cursor: inherit;
     position: absolute;
     top: 0;
@@ -41,8 +39,8 @@
     transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
   }
 
-  &__circle,
-  &__dot {
+  & .bimdata-radio__circle,
+  & .bimdata-radio__dot {
     content: '';
     display: block;
     position: absolute;
@@ -51,7 +49,7 @@
     box-sizing: border-box;
   }
 
-  &__circle {
+  & .bimdata-radio__circle {
     border: 1px solid var(--color-granite);
     width: 13px;
     height: 13px;
@@ -59,7 +57,7 @@
     left: 5px;
   }
 
-  &__dot {
+  & .bimdata-radio__dot {
     width: 7px;
     height: 7px;
     top: 3px;
@@ -68,7 +66,7 @@
     transform: translate(5px, 5px) scale(0);
   }
 
-  &--checked {
+  &.bimdata-radio--checked {
     .bimdata-radio__background {
       background-color: var(--color-primary);
     }
@@ -81,7 +79,7 @@
     }
   }
 
-  &--big {
+  &.bimdata-radio--big {
     .bimdata-radio__btn,
     .bimdata-radio__background {
       width: 30px;

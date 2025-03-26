@@ -59,4 +59,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataRadio.scss"></style>
+<style scoped src="./BIMDataRadio.css"></style>
