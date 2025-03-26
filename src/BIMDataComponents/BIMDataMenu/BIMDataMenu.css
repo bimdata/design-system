@@ -2,7 +2,8 @@
   padding: var(--spacing-unit) 0;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
-  &__item {
+  border-radius: 12px;
+  & .bimdata-menu__item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -28,7 +29,7 @@
         }
       }
     }
-    &__title {
+    & .bimdata-menu__item__title {
       padding: 0 var(--spacing-unit);
       height: 25px;
       display: flex;
@@ -37,21 +38,21 @@
       color: var(--color-granite);
       font-size: 11px;
     }
-    &__divider {
+    &.bimdata-menu__item__divider {
       .divider {
         margin: calc(var(--spacing-unit) / 2) auto;
         width: 90%;
         border-bottom: 1px solid #f2f2f2;
       }
     }
-    &__title,
-    &__divider {
+    & .bimdata-menu__item__title,
+    &.bimdata-menu__item__divider {
       &:hover {
         cursor: default;
         background-color: transparent;
       }
     }
-    &__children {
+    & .bimdata-menu__item__children {
       position: absolute;
       z-index: 1;
       top: 0;
