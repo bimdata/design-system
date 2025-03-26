@@ -1,11 +1,12 @@
 .bimdata-menu-inline {
   position: relative;
-  &__submenu {
+  & .bimdata-menu-inline__submenu {
     padding: 0 calc(var(--spacing-unit) / 2);
     position: absolute;
     top: 0;
     background-color: var(--color-white);
     border-radius: 5px;
     gap: calc(var(--spacing-unit) / 2);
+    border-radius: 8px;
   }
 }
