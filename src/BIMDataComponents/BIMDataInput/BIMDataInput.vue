@@ -45,6 +45,7 @@
         <slot name="inputIcon"></slot>
       </div>
     </div>
+    <div v-if="loading" class="bar"></div>
     <span v-if="error" class="error">{{ errorMessage }}</span>
     <span v-if="success" class="success">{{ successMessage }}</span>
   </div>
