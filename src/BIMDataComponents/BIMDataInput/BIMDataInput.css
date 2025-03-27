@@ -5,6 +5,7 @@ input:-webkit-autofill {
 
 .bimdata-input {
   font-size: 16px;
+  position: relative;
   &.empty {
      input {
       color: rgba(47, 55, 74, .5);
@@ -40,6 +41,32 @@ input:-webkit-autofill {
       display: inline-flex;
     }
   }
+  &.loading {
+    .bimdata-input__content {
+      border-radius: 8px 8px 0 0;
+    }
+    .bar {
+      &:before, &:after {
+        width: 0;
+        height: 2px;
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: var(--color-primary);
+        transform: scaleX(0);
+      }
+      &:after {
+        width: 50%;
+        animation: scaleX 2s linear infinite none;
+        transform-origin: right;
+      }
+      &:before {
+        width: 50%;
+        animation: scaleX 2s linear 1s infinite none;
+        transform-origin: right;
+      }
+    }
+  }
   label {
     margin-bottom: calc(var(--spacing-unit) / 2);
     display: block;
@@ -69,5 +96,28 @@ input:-webkit-autofill {
     label {
       color: var(--color-success);
     }
+  }
+}
+
+@keyframes scaleX {
+  0% {
+    transform: scaleX(0);
+    left: -50%;
+  }
+  25% {
+    transform: scaleX(1);
+    left: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    left: 50%;
+  }
+  75% {
+    transform: scaleX(0);
+    left: 50%;
+  }
+  100% {
+    transform: scaleX(0);
+    left: 50%;
   }
 }
