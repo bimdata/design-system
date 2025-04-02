@@ -83,10 +83,12 @@
               v-model="widthCard"
               margin="20px 0"
               placeholder="card's min-width in px or %"
+              backgroundColor="white"
             />
             <BIMDataInput
               v-model="borderRadiusCard"
               placeholder="card's border-radius in px or %"
+              backgroundColor="white"
             />
 
             <BIMDataText
