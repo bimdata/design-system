@@ -75,21 +75,25 @@
             </BIMDataText>
             <BIMDataInput
               v-model="widthButton"
+              backgroundColor="white"
               placeholder="button's min-width in px or %"
               margin="24px 0px"
             />
             <BIMDataInput
               v-model="heightButton"
+              backgroundColor="white"
               placeholder="button's min-height in px or %"
               margin="24px 0px"
             />
             <BIMDataInput
               v-model="fontSizeButton"
+              backgroundColor="white"
               placeholder="button's font-size in px"
               margin="24px 0px"
             />
             <BIMDataInput
               v-model="paddingButton"
+              backgroundColor="white"
               placeholder="button's padding in px"
               margin="24px 0px"
             />
