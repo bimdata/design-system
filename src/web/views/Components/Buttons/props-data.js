@@ -6,21 +6,7 @@ export default [
     "String",
     "true",
     "",
-    "Use this props to use ghost button"
-  ],
-  [
-    "width",
-    "[Number, String]",
-    "",
-    "32",
-    "Use this props to change the min-width of the button",
-  ],
-  [
-    "height",
-    "[Number, String]",
-    "",
-    "32",
-    "Use this props to change the height of the button",
+    "Use this props to change the color of the button. Values can be 'default', 'primary',  'secondary', 'tertiary', 'success', 'warning', 'high', 'info', 'granite'",
   ],
   [
     "fill",
@@ -30,13 +16,6 @@ export default [
     "Use this props to use fill button"
   ],
   [
-    "outline",
-    "Boolean",
-    "",
-    "false",
-    "Use this props to use outline button",
-  ],
-  [
     "ghost",
     "Boolean",
     "",
@@ -44,11 +23,32 @@ export default [
     "Use this props to use ghost button"
   ],
   [
-    "ripple",
+    "height",
+    "[Number, String]",
+    "",
+    "32",
+    "Use this props to change the height of the button",
+  ],
+  [
+    "icon",
     "Boolean",
     "",
     "false",
-    "Use this props to use button with ripple effect",
+    "Use this props to add icon in the button",
+  ],
+  [
+    "outline",
+    "Boolean",
+    "",
+    "false",
+    "Use this props to use outline button",
+  ],
+  [
+    "padding",
+    "String",
+    "",
+    "0 calc(var(--spacing-unit) / 2)",
+    "Use this props to custom padding of the button",
   ],
   [
     "radius",
@@ -58,11 +58,11 @@ export default [
     "Use this props to use radius button",
   ],
   [
-    "square",
+    "ripple",
     "Boolean",
     "",
     "false",
-    "Use this props to use square button",
+    "Use this props to use button with ripple effect",
   ],
   [
     "rounded",
@@ -70,5 +70,33 @@ export default [
     "",
     "false",
     "Use this props to use rounded button",
+  ],
+  [
+    "size",
+    "String",
+    "",
+    "15px",
+    "Use this props to custom font-size of the button",
+  ],
+  [
+    "square",
+    "Boolean",
+    "",
+    "false",
+    "Use this props to use square button",
+  ],
+  [
+    "weight",
+    "[Number, String]",
+    "",
+    "normal",
+    "Use this props to change the font-weight of the button. Values can be 'light', 'normal' or 'bold'",
+  ],
+  [
+    "width",
+    "[Number, String]",
+    "",
+    "32",
+    "Use this props to change the min-width of the button",
   ],
 ];
