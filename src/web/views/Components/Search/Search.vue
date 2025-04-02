@@ -26,18 +26,21 @@
             margin="24px 0"
             type="number"
             placeholder="Preview width (in px)"
+            backgroundColor="white"
             v-model="width"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Preview height (in px)"
+            backgroundColor="white"
             v-model="height"
           />
           <BIMDataInput
             margin="24px 0"
             type="string"
             placeholder="Placeholder"
+            backgroundColor="white"
             v-model="placeholder"
           />
           <BIMDataCheckbox text="clear" v-model="isClear" />
@@ -125,7 +128,7 @@ export default {
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
         kinds: ["radius", "square"],
-        style: ["primary", "secondary"],
+        style: ["primary", "secondary", "tertiary"],
       },
       propsData,
       eventsData,
