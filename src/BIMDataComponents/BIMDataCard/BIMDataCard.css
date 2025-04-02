@@ -35,7 +35,7 @@
     padding: 0 var(--spacing-unit) var(--spacing-unit);
   }
 
-  & .bimdata-card__primary {
+  &.bimdata-card__primary {
     background-color: var(--color-primary);
     color: var(--color-white);
     .bimdata-card__header,
@@ -50,7 +50,7 @@
       color: var(--color-white);
     }
   }
-  & .bimdata-card__secondary {
+  &.bimdata-card__secondary {
     background-color: var(--color-secondary);
     color: var(--color-primary);
     .bimdata-card__header,
