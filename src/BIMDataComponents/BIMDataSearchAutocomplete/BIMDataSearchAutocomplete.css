@@ -1,0 +1,145 @@
+.bimdata-search-autocomplete {
+  position: relative;
+  display: inline-block;
+  width: 350px;
+
+  & .bimdata-search-autocomplete__input {
+    position: relative;
+    .bimdata-search-icon {
+      position: absolute;
+      left: 12px;
+      height: 13px;
+    }
+    input {
+      height: 32px;
+      width: 100%;
+      border-radius: 50px;
+      border: none;
+      &:focus,
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+  &.open {
+    input {
+      border-radius: 20px 20px 0 0;
+    }
+  }
+  & .bimdata-search-autocomplete__dropdown {
+    width: 100%;
+    display: none;
+    color: var(--color-primary);
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    .bimdata-list {
+      padding: 0;
+    }
+    &.open {
+      display: block;
+      position: absolute;
+      z-index: 1;
+    }
+    li {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    & .bimdata-search-autocomplete__dropdown__left {
+      min-width: 50px;
+      max-width: 50px;
+      .logo {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+    & .bimdata-search-autocomplete__dropdown__right {
+      .title {
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .text {
+        font-size: 12px;
+      }
+    }
+    & .bimdata-search-autocomplete__dropdown__button {
+      height: 37px;
+      border-top: 1px solid var(--color-silver);
+      font-size: 14px;
+      &:hover {
+        background-color: color-mix(in srgb, transparent, var(--color-tertiary) 3%);
+        cursor: pointer;
+      }
+    }
+  }
+  &.bimdata-search-autocomplete--primary {
+    input {
+      background-color: var(--color-silver-light);
+    }
+    & .bimdata-search-autocomplete__dropdown {
+      background-color: var(--color-silver-light);
+      .active {
+        background-color: color-mix(in srgb, transparent, var(--color-granite) 5%);
+      }
+      li {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-granite) 3%);
+          cursor: pointer;
+        }
+      }
+      & .bimdata-search-autocomplete__dropdown__button {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-granite) 3%);
+        }
+      }
+    }
+  }
+  &.bimdata-search-autocomplete--secondary {
+    input {
+      background-color: var(--color-white);
+    }
+    & .bimdata-search-autocomplete__dropdown {
+      background-color: var(--color-white);
+      box-shadow: var(--box-shadow);
+      .active {
+        background-color: color-mix(in srgb, transparent, var(--color-primary) 5%);
+      }
+      li {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-primary) 3%);
+          cursor: pointer;
+        }
+      }
+      & .bimdata-search-autocomplete__dropdown__button {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-primary) 3%);
+        }
+      }
+    }
+  }
+  &.bimdata-search-autocomplete--tertiary {
+    input {
+      background-color: var(--color-tertiary-lighter);
+    }
+    & .bimdata-search-autocomplete__dropdown {
+      background-color: var(--color-tertiary-lighter);
+      .active {
+        background-color: color-mix(in srgb, transparent, var(--color-tertiary) 5%);
+      }
+      li {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-tertiary) 3%);
+          cursor: pointer;
+        }
+      }
+      & .bimdata-search-autocomplete__dropdown__button {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-tertiary) 3%);
+        }
+      }
+    }
+  }
+}

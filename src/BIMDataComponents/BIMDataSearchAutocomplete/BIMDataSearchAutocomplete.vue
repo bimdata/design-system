@@ -1,5 +1,9 @@
 <template>
-  <div class="bimdata-search-autocomplete" v-clickaway="away">
+  <div
+    class="bimdata-search-autocomplete"
+    v-clickaway="away"
+    :class="[{ open: openResults }, `bimdata-search-autocomplete--${color}`]"
+  >
     <div class="bimdata-search-autocomplete__input flex items-center">
       <span class="bimdata-search-icon flex">
         <BIMDataIconSearch fill color="default" size="xxs" />
@@ -76,6 +80,7 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
+import colors from "../../assets/colors.js";
 import {
   BIMDataIconDefault,
   BIMDataIconSearch,
@@ -119,6 +124,11 @@ export default {
       type: Boolean,
       default: true,
     },
+    color: {
+      type: String,
+      default: "primary",
+      validator: color => colors.includes(color),
+    },
   },
   data() {
     return {
@@ -142,7 +152,7 @@ export default {
           return fieldToFilter.some(field =>
             typeof str[field] === "string"
               ? str[field].toLowerCase().includes(agnosticFilter)
-              : false
+              : false,
           );
         })
         .slice(0, this.perPage);
@@ -210,4 +220,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataSearchAutocomplete.scss"></style>
+<style scoped src="./BIMDataSearchAutocomplete.css"></style>

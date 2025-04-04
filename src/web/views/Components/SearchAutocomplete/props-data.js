@@ -37,4 +37,10 @@ export default [
     "true",
     "If true (default), automatically clear search text when an item is selected",
   ],
+  [
+    "color",
+    "String",
+    "deault",
+    "Use this props to change the color of the button. Values can be 'primary',  'secondary', 'tertiary'",
+  ],
 ];
