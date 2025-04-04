@@ -1,10 +1,8 @@
-@use "../../assets/scss/mixins/_font-size.scss";
-
 .bimdata-search-bar {
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
-  font-size: font-size.calculateEm(14px);
+  font-size: 14px;
   .bimdata-search-icon {
     padding: 0 var(--spacing-unit);
     display: flex;
@@ -18,33 +16,43 @@
     border: none;
     box-sizing: border-box;
     font-family: var(--primary-font);
-    font-size: font-size.calculateEm(12px);
+    font-size: 12px;
     &:focus {
       outline: none;
     }
   }
   &.focus {
     background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
-    transition: all 0.2s ease;
+    /* box-shadow: var(--box-shadow);
+    transition: all 0.2s ease; */
   }
   &.disabled {
     color: var(--color-silver);
     input {
       color: var(--color-silver);
+      &::placeholder{
+        color: var(--color-silver);
+      }
+    }
+    .bimdata-btn {
+      cursor: default;
+      color: var(--color-silver);
     }
   }
 
-  &__radius {
-    border-radius: 3px;
+  &.bimdata-search-bar__radius {
+    border-radius: 50px;
   }
-  &__square {
+  &.bimdata-search-bar__square {
     border-radius: 0;
   }
-  &__primary {
+  &.bimdata-search-bar__primary {
     background-color: var(--color-silver-light);
   }
-  &__secondary {
+  &.bimdata-search-bar__secondary {
     background-color: var(--color-white);
+  }
+  &.bimdata-search-bar__tertiary {
+    background-color: var(--color-tertiary-lighter);
   }
 }

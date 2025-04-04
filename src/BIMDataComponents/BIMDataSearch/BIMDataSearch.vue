@@ -22,7 +22,9 @@
     />
     <BIMDataButton
       width="25px"
+      height="25px"
       @click="clickClear()"
+      padding="0 12px"
       v-if="clear && modelValue !== ''"
     >
       <BIMDataIconClose size="xxs" />
@@ -139,4 +141,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataSearch.scss"></style>
+<style scoped src="./BIMDataSearch.css"></style>
