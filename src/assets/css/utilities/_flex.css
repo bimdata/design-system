@@ -1,60 +1,62 @@
-.flex{
-  display: flex;
-}
+.bimdata-design-system {
+  .flex{
+    display: flex;
+  }
 
-/* flex direction */
-.flex-row{
-  flex-direction: row;
-}
-.flex-col{
-  flex-direction: column;
-}
+  /* flex direction */
+  .flex-row{
+    flex-direction: row;
+  }
+  .flex-col{
+    flex-direction: column;
+  }
 
-.inline-flex {
-  display: inline-flex;
-}
+  .inline-flex {
+    display: inline-flex;
+  }
 
-/* align items */
-.items-start{
-  align-items: flex-start;
-}
-.items-center{
-  align-items: center;
-}
-.items-end{
-  align-items: flex-end;
-}
+  /* align items */
+  .items-start{
+    align-items: flex-start;
+  }
+  .items-center{
+    align-items: center;
+  }
+  .items-end{
+    align-items: flex-end;
+  }
 
-/* align content */
-.content-start{
-  align-content: flex-start;
-}
-.content-center{
-  align-content: center;
-}
-.content-end{
-  align-content: flex-end;
-}
-.content-between{
-  align-content: between;
-}
-.content-around{
-  align-content: flex-around;
-}
+  /* align content */
+  .content-start{
+    align-content: flex-start;
+  }
+  .content-center{
+    align-content: center;
+  }
+  .content-end{
+    align-content: flex-end;
+  }
+  .content-between{
+    align-content: between;
+  }
+  .content-around{
+    align-content: flex-around;
+  }
 
-/* justify content */
-.justify-start{
-  justify-content: flex-start;
-}
-.justify-center{
-  justify-content: center;
-}
-.justify-end{
-  justify-content: flex-end;
-}
-.justify-between{
-  justify-content: space-between;
-}
-.justify-around{
-  justify-content: space-around;
+  /* justify content */
+  .justify-start{
+    justify-content: flex-start;
+  }
+  .justify-center{
+    justify-content: center;
+  }
+  .justify-end{
+    justify-content: flex-end;
+  }
+  .justify-between{
+    justify-content: space-between;
+  }
+  .justify-around{
+    justify-content: space-around;
+  }
 }

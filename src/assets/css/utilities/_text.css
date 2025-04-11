@@ -1,19 +1,21 @@
-.text-left {
-  text-align: left;
-}
-.text-center {
-  text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.bimdata-link {
-  color: var(--primary-font);
-  border-bottom: 1px solid var(--primary-font);
-  font-weight: bold;
-}
+.bimdata-design-system {
+  .text-left {
+    text-align: left;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .bimdata-link {
+    color: var(--primary-font);
+    border-bottom: 1px solid var(--primary-font);
+    font-weight: bold;
+  }
 
-/* BIMDATA FONT WEIGHT */
-.primary-font {
-  font-family: var(--primary-font);
+  /* BIMDATA FONT WEIGHT */
+  .primary-font {
+    font-family: var(--primary-font);
+  }
 }
