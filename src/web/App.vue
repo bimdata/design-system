@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-ds bimdata-scrollbar" :class="theme">
+  <div class="bimdata-ds bimdata-design-system bimdata-scrollbar" :class="theme">
     <Navigation :theme="theme" @switch-theme="switchTheme()"></Navigation>
     <router-view />
   </div>

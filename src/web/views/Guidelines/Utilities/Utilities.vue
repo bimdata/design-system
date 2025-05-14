@@ -5,6 +5,15 @@
         Utilities
       </BIMDataText>
       <AnchorLink :navElements="navElements" />
+      <div id="usage">
+        <BIMDataText component="h3" color="color-primary" margin="40px 0 20px">
+          Usage
+        </BIMDataText>
+        <p>
+          To use BIMData utility classes you need to add the <b>"bimdata-design-system"</b> class to the root of your application.<br/>
+          Utility classes will only be applied when on element that have an ancestor with <b>"bimdata-design-system"</b> class. 
+        </p>
+      </div>
       <div id="colors">
         <BIMDataText component="h3" color="color-primary" margin="40px 0 20px">
           Colors
@@ -99,7 +108,7 @@ export default {
   },
   data() {
     return {
-      navElements: ["colors", "flexbox", "grid", "spacing", "text", "import"],
+      navElements: ["usage", "colors", "flexbox", "grid", "spacing", "text", "import"],
       columns: [
         { id: "name", label: "Class name", width: "300px" },
         { id: "value", label: "Output value" },
