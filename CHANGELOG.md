@@ -1,3 +1,15 @@
+# [2.3.0](https://github.com/bimdata/design-system/compare/v2.2.1...v2.3.0) (2025-05-14)
+
+
+### MINOR
+
+* fix: style encapsulation with .bimdata-design-system class (#374) ([0732190](https://github.com/bimdata/design-system/commit/0732190b67aeb08dafe65036786e395ee30292d3)), closes [#374](https://github.com/bimdata/design-system/issues/374)
+
+### PATCH
+
+* chore: update dependencies ([fb1d0b7](https://github.com/bimdata/design-system/commit/fb1d0b77948ac9c85cd2061c07277d6df352a55c))
+* fix(css): include submenu styles in BIMDataDropdownList and BIMDataDropdownMenu components ([5d35042](https://github.com/bimdata/design-system/commit/5d35042f17337c24fd460d30742d0ffd6b0c9641))
+
 ## [2.2.1](https://github.com/bimdata/design-system/compare/v2.2.0...v2.2.1) (2025-02-17)
 
 
