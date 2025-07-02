@@ -43,6 +43,17 @@
       :rows="secondaryColorData.slice(1)"
     />
 
+    <!-- color TERTIARY -->
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Tertiary color & variants
+    </BIMDataText>
+    <ColorSwatche :colors="tertiaryColors"></ColorSwatche>
+    <BIMDataTable
+      class="m-b-24"
+      :columns="tertiaryColorData[0]"
+      :rows="tertiaryColorData.slice(1)"
+    />
+
     <!----------------------------------
         STATE COLORS
       ----------------------------------->
@@ -152,6 +163,19 @@ export default {
           "Used fo hover fill secondary button & active ripple secondary buttons.",
         ],
         ["Secondary Dark", "Not used yet."],
+      ],
+      tertiaryColorData: [
+        ["Colors", "Description"],
+        ["Tertiary", ""],
+        [
+          "Tertiary Lighter",
+          "Used for background hover tertiary outline & tertiary ghost buttons.",
+        ],
+        [
+          "Tertiary Light",
+          "Used fo hover fill tertiary button & active ripple tertiary buttons.",
+        ],
+        ["Tertiary Dark", "Not used yet."],
       ],
       highColorData: [
         ["Colors", "Description"],
