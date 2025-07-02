@@ -10,6 +10,16 @@ export default Object.freeze([
     textcolor: "#2f374a",
   },
   {
+    name: "Tertiary",
+    hex: "#2672D2",
+    textcolor: "#ffffff",
+  },
+  {
+    name: "Quaternary",
+    hex: "#242F4B",
+    textcolor: "#ffffff",
+  },
+  {
     name: "White",
     hex: "#ffffff",
     textcolor: "#2f374a",

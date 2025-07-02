@@ -63,6 +63,18 @@ export default {
           "rgb(249, 199, 44)",
           "This color highlight and complement the primary color. It's used to make the UI elements stand out.",
         ],
+        [
+          "Tertiary",
+          "--color-tertiary",
+          "rgb(38, 114, 210)",
+          "This color highlight and complement the primary color. It's used to make the UI elements stand out.",
+        ],
+        [
+          "Quaternary",
+          "--color-quaternary",
+          "rgb(36, 47, 75)",
+          "This color highlight and complement the primary color. It's used to make the UI elements stand out.",
+        ],
         ["White", "--color-white", "rgb(255,255,255)", "This is white color !"],
         [
           "Silver Light",
