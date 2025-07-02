@@ -1,6 +1,5 @@
 .bimdata-card {
   background-color: var(--color-white);
-  box-shadow: var(--box-shadow);
   font-family: var(--primary-font);
   font-size: 14px;
   overflow: auto;
@@ -29,7 +28,6 @@
   }
   & .bimdata-card__content {
     padding: var(--spacing-unit);
-    color: var(--color-granite);
   }
   & .bimdata-card__footer {
     padding: 0 var(--spacing-unit) var(--spacing-unit);
@@ -61,5 +59,8 @@
       color: var(--color-primary);
       filter: saturate(0.8);
     }
+  }
+  &.bimdata-card__box-shadow {
+    box-shadow: var(--box-shadow);
   }
 }
