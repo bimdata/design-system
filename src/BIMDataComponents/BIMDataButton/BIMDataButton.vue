@@ -79,14 +79,15 @@ export default {
   computed: {
     buttonClasses() {
       return {
-        "icon": this.icon,
-        "fill": this.fill,
-        "outline": this.outline,
-        "ghost": this.ghost,
-        "ripple": this.ripple,
-        "radius": this.radius,
-        "square": this.square,
-        "rounded": this.rounded,
+        icon: this.icon,
+        fill: this.fill,
+        outline: this.outline,
+        ghost: this.ghost,
+        ripple: this.ripple,
+        radius: this.radius,
+        square: this.square,
+        rounded: this.rounded,
+        [`${this.color}`]: this.color,
       };
     },
     buttonStyles() {
@@ -94,7 +95,7 @@ export default {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
         "font-size": `${this.size}`,
-        "padding": this.padding,
+        padding: this.padding,
       };
     },
   },
