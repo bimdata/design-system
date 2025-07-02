@@ -41,10 +41,11 @@
     &.default {
       background-color: #e9eff8;
       color: var(--color-primary);
-      /* &:hover {
-        background-color: var(--color-silver-light);
-      } */
-    }
+      &:hover {
+        /* background-color: #f5f7fc; */
+        filter: brightness(95%);
+      }
+    } 
     /* style BIMDATA BTN LIGHT-DEFAULT FILL ---------- */
     &.light-default {
       background-color: #E9EFF8;
@@ -70,9 +71,17 @@
     &.tertiary {
       background-color: var(--color-tertiary);
       color: var(--color-white);
-      /* &:hover {
+      &:hover {
         background-color: var(--color-tertiary-light);
-      } */
+      }
+    }
+    /* style BIMDATA BTN QUATERNARY FILL ---------- */
+    &.quaternary {
+      background-color: var(--color-quaternary);
+      color: var(--color-white);
+      &:hover {
+        background-color: var(--color-quaternary-light);
+      }
     }
     /* style BIMDATA BTN GREY FILL ------------- */
     &.granite {
@@ -80,6 +89,14 @@
       color: var(--color-white);
       &:hover {
         background-color: var(--color-granite);
+      }
+    }
+    /* style BIMDATA BTN GREY FILL ------------- */
+    &.silver {
+      background-color: var(--color-silver);
+      color: var(--color-white);
+      &:hover {
+        background-color: var(--color-silver);
       }
     }
     /* style BIMDATA BTN RED FILL ------------- */
@@ -112,12 +129,6 @@
       color: var(--color-white);
       &:hover {
         background-color: var(--color-neutral-light);
-      }
-    }
-    /* style BIMDATA BTN FILL BTN ICON --------- */
-    &--btn-icon {
-      svg {
-        margin: 0 6px;
       }
     }
     &:disabled {
@@ -203,6 +214,20 @@
         transition: background 0s;
       }
     }
+    &.quaternary {
+      background-color: var(--color-quaternary);
+      color: var(--color-white);
+      &:hover {
+        background: var(--color-quaternary)
+          radial-gradient(circle, transparent 1%, var(--color-quaternary) 1%)
+          center/15000%;
+      }
+      &:active:not(:disabled) {
+        background-color: var(--color-quaternary-light);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
     &.granite {
       background-color: var(--color-granite);
       color: var(--color-white);
@@ -213,6 +238,20 @@
       }
       &:active:not(:disabled) {
         background-color: var(--color-granite-light);
+        background-size: 100%;
+        transition: background 0s;
+      }
+    }
+    &.silver {
+      background-color: var(--color-silver);
+      color: var(--color-white);
+      &:hover {
+        background: var(--color-silver)
+          radial-gradient(circle, transparent 1%, var(--color-silver) 1%)
+          center/15000%;
+      }
+      &:active:not(:disabled) {
+        background-color: var(--color-silver-light);
         background-size: 100%;
         transition: background 0s;
       }
@@ -319,9 +358,23 @@
         background-color: var(--color-tertiary-lighter);
       }
     }
+    &.quaternary {
+      border-color: var(--color-quaternary);
+      color: var(--color-quaternary);
+      &:hover {
+        background-color: var(--color-quaternary-lighter);
+      }
+    }
     &.granite {
       border-color: var(--color-granite);
       color: var(--color-granite);
+      &:hover {
+        background-color: var(--color-silver-light);
+      }
+    }
+    &.silver {
+      border-color: var(--color-silver);
+      color: var(--color-granite-light);
       &:hover {
         background-color: var(--color-silver-light);
       }
@@ -395,8 +448,20 @@
         background-color: var(--color-tertiary-lighter);
       }
     }
+    &.quaternary {
+      color: var(--color-quaternary);
+      &:hover {
+        background-color: var(--color-quaternary-lighter);
+      }
+    }
     &.granite {
       color: var(--color-granite);
+      &:hover {
+        background-color: var(--color-silver-light);
+      }
+    }
+    &.silver {
+      color: var(--color-granite-light);
       &:hover {
         background-color: var(--color-silver-light);
       }
