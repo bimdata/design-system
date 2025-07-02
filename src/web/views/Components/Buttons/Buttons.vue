@@ -19,7 +19,6 @@
               :padding="paddingButton"
               :disabled="getButtonDisabled()"
               :class="getOverviewButtonClasses()"
-              :color="selectedBtnOptionsvalues"
               :icon="checkboxIconChecked && !checkboxTextChecked"
             >
               <BIMDataIconChevron
