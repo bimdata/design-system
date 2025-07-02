@@ -12,6 +12,7 @@
             :width="widthCard"
             :borderRadius="borderRadiusCard"
             :bgColor="selectedBgColorCard"
+            :boxShadow="boxShadow"
           >
             <template #headerIcons v-if="headerIcons">
               {{ getHeaderIcons() }}
@@ -79,6 +80,7 @@
             >
               Parameters
             </BIMDataText>
+            <BIMDataCheckbox text="Box shadow" v-model="boxShadow" />
             <BIMDataInput
               v-model="widthCard"
               margin="20px 0"
@@ -118,7 +120,7 @@
           <pre>
             &lt;BIMDataCard :titleHeader="{{
               getHeaderTitle()
-            }}" :submenuText="{{ getSubmenuText() }}" {{ getCardColor() }}&gt;
+            }}" :submenuText="{{ getSubmenuText() }}" {{ getBoxShadow() }} {{ getCardColor() }}&gt;
             &lt;template #headerIcons&gt;
               {{ getHeaderIcons() }}
             &lt;/template&gt;
@@ -175,6 +177,7 @@ export default {
       submenuIcons: true,
       content: true,
       footer: true,
+      boxShadow: true,
       widthCard: "215px",
       borderRadiusCard: "0px",
       colorsCard: ["default", "primary", "secondary"],
@@ -227,6 +230,11 @@ export default {
     getFooter() {
       if (this.footer) {
         return "text footer or any component";
+      }
+    },
+    getBoxShadow() {
+      if (this.boxShadow !== true) {
+        return `:boxShadow="${this.boxShadow}"`
       }
     },
     getCardColor() {
