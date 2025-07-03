@@ -36,4 +36,11 @@ export default [
     "",
     "The id (or index) of the tab to be selected",
   ],
+  [
+    "dark",
+    "Boolean",
+    "",
+    "false",
+    "Use this props to set BIMDataTabs component into dark mode.",
+  ],
 ];

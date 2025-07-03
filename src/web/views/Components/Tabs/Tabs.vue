@@ -13,6 +13,7 @@
             :tabSize="tabSize"
             @tab-selected="activeTab = $event"
             :selected="0"
+            :dark="checkboxDarkmodeChecked"
           />
           <div class="m-t-24">Active Tab: {{ activeTab || "none" }}</div>
         </template>
@@ -27,22 +28,31 @@
           <BIMDataInput
             type="number"
             v-model="tabNumber"
+            backgroundColor="white"
             placeholder="Number of tabs"
           />
           <BIMDataInput
             margin="24px 0"
             v-model="width"
+            backgroundColor="white"
             placeholder="Tabs container width in px or %"
           />
           <BIMDataInput
             v-model="height"
+            backgroundColor="white"
             placeholder="Tabs minimum height in px"
           />
           <BIMDataInput
             margin="24px 0"
             v-model="tabSize"
+            backgroundColor="white"
             placeholder="Tabs minimum width in px or %"
           />
+          <BIMDataCheckbox
+              margin="12px 0 0"
+              text="Dark"
+              v-model="checkboxDarkmodeChecked"
+            />
         </template>
         <template #import>
           import BIMDataTabs from
@@ -102,6 +112,7 @@
           height="40px"
           tabSize="220px"
           :selected="0"
+          :dark="checkboxDarkmodeChecked"
         >
           <template #tab="{ tab }">
             <BIMDataIcon :name="tab.icon" size="xs" margin="0 6px 0 0" />
@@ -134,6 +145,9 @@
       </div>
 
       <CustomTabColors />
+
+      <CustomTabSegmentedButton />
+
     </div>
   </main>
 </template>
@@ -145,12 +159,14 @@ import Code from "../../Elements/Code/Code.vue";
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 import CustomTabColors from "./CustomTabColors.vue";
+import CustomTabSegmentedButton from "./CustomTabSegmentedButton.vue";
 
 export default {
   components: {
     Code,
     ComponentCode,
     CustomTabColors,
+    CustomTabSegmentedButton
   },
   data() {
     return {
@@ -161,6 +177,7 @@ export default {
       activeTab: "",
       propsData,
       eventsData,
+      checkboxDarkmodeChecked: false,
     };
   },
   computed: {
