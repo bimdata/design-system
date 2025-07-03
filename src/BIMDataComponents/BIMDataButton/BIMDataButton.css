@@ -78,7 +78,7 @@
     /* style BIMDATA BTN QUATERNARY FILL ---------- */
     &.quaternary {
       background-color: var(--color-quaternary);
-      color: var(--color-white);
+      color: var(--color-quaternary-lighter);
       &:hover {
         background-color: var(--color-quaternary-light);
       }
@@ -129,6 +129,14 @@
       color: var(--color-white);
       &:hover {
         background-color: var(--color-neutral-light);
+      }
+    }
+    /* style BIMDATA BTN WHITE FILL ------------- */
+     &.white {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      &:hover {
+        filter: brightness(98%);
       }
     }
     &:disabled {
@@ -216,7 +224,7 @@
     }
     &.quaternary {
       background-color: var(--color-quaternary);
-      color: var(--color-white);
+      color: var(--color-quaternary-lighter);
       &:hover {
         background: var(--color-quaternary)
           radial-gradient(circle, transparent 1%, var(--color-quaternary) 1%)
@@ -310,6 +318,25 @@
         background-color: var(--color-neutral-light);
         background-size: 100%;
         transition: background 0s;
+      }
+    }
+    /* style BIMDATA BTN WHITE FILL ------------- */
+    &.white {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      &:hover {
+        background: var(--color-white)
+          radial-gradient(circle, transparent 1%, var(--color-silver-light) 1%)
+          center/15000%;
+      }
+      &:active:not(:disabled) {
+        background-color: var(--color-white);
+        background-size: 100%;
+        transition: background 0s;
+      }
+      &:disabled {
+        background-color: var(--color-silver-dark);
+        color: var(--color-white);
       }
     }
     &:disabled {
@@ -407,6 +434,13 @@
         background-color: var(--color-neutral-lighter);
       }
     }
+    &.white {
+      border-color: var(--color-white);
+      color: var(--color-white);
+      &:hover {
+        background-color: var(--color-quaternary);
+      }
+    }
     &:disabled {
       border-color: var(--color-silver-dark);
       color: var(--color-silver-dark);
@@ -449,9 +483,9 @@
       }
     }
     &.quaternary {
-      color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
       &:hover {
-        background-color: var(--color-quaternary-lighter);
+        background-color: var(--color-quaternary-dark);
       }
     }
     &.granite {
@@ -488,6 +522,12 @@
       color: var(--color-neutral);
       &:hover {
         background-color: var(--color-neutral-lighter);
+      }
+    }
+    &.white {
+      color: var(--color-white);
+      &:hover {
+        background-color: var(--color-quaternary);
       }
     }
     &:disabled {

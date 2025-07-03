@@ -11,4 +11,5 @@ export default Object.freeze([
   "success",
   "warning",
   "info",
+  "white",
 ]);
