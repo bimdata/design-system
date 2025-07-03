@@ -1,5 +1,3 @@
-@use "../../assets/scss/mixins/_font-size.scss";
-
 .bimdata-tabs {
   position: relative;
   display: flex;
@@ -14,15 +12,16 @@
     }
   }
 
-  &__container {
+  & .bimdata-tabs__container {
     position: relative;
     display: flex;
     padding: 0;
     margin: 0;
     overflow: hidden;
     scroll-behavior: smooth;
+    border-radius: 50px;
 
-    &__tab {
+    & .bimdata-tabs__container__tab {
       padding: 0;
       box-sizing: border-box;
       position: relative;
@@ -32,13 +31,25 @@
       text-align: center;
       color: var(--color-granite);
       cursor: pointer;
+      border-radius: 50px;
 
       &.active {
         z-index: 1;
-        border-bottom: 2px solid var(--color-primary);
-        background-color: var(--color-silver-light);
+        background-color: var(--color-tertiary-lighter);
         color: var(--color-primary);
       }
     }
+    &.dark {
+      background-color: var(--color-quaternary);
+      & .bimdata-tabs__container__tab {
+        color: var(--color-quaternary-lighter);
+        &.active {
+          background-color: var(--color-tertiary);
+          color: var(--color-white);
+          font-weight: bold;
+        }
+      }
+    }
   }
+
 }
