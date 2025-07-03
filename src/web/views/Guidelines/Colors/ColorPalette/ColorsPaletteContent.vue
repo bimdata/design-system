@@ -73,7 +73,7 @@ export default {
           "Quaternary",
           "--color-quaternary",
           "rgb(36, 47, 75)",
-          "This color highlight and complement the primary color. It's used to make the UI elements stand out.",
+          "This color is used to prepare the dark mode.",
         ],
         ["White", "--color-white", "rgb(255,255,255)", "This is white color !"],
         [
