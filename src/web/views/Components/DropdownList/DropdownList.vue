@@ -18,7 +18,9 @@
             :closeOnElementClick="checkboxCloseOnElementClickChecked"
             @element-click="onItemClick"
             :search="checkboxSearchChecked"
+            :dark="checkboxDarkmodeChecked"
             :elementLabelKey="elementLabelKey"
+            :borderRadius="numberBorderRadius"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span v-if="selectedItem">{{ item }}</span>
@@ -35,7 +37,8 @@
                 <BIMDataIcon
                   name="chevron"
                   size="xxxs"
-                  class="fill-primary"
+                  fill
+                  :color="!dark ? 'primary' : 'quaternary-lighter'"
                   margin="0 6px 0 0"
                 />
                 <span v-if="optionSet === 'object'">{{ element.label }}</span>
@@ -74,11 +77,28 @@
             v-model="checkboxSearchChecked"
           />
           <BIMDataInput
-            class="m-t-30"
             v-model="numberInput"
             placeholder="Number of items per page"
             type="number"
+            backgroundColor="white"
           ></BIMDataInput>
+          <BIMDataInput
+            v-model="numberBorderRadius"
+            placeholder="Border radius"
+            backgroundColor="white"
+          ></BIMDataInput>
+          <div class="m-t-18 m-b-36">
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              >color</BIMDataText
+            >
+            <BIMDataCheckbox
+            margin="12px 0 0"
+            text="Dark"
+            v-model="checkboxDarkmodeChecked"
+          />
+          </div>
           <div class="m-t-24">
             <BIMDataSelect
               label="Option set"
@@ -133,6 +153,7 @@
             &lt;BIMDataDropdownList
               :list="list"
               :perPage="{{ numberInput }}"
+              :borderRadius="{{ numberBorderRadius }}"
               elementKey="dropdown"
               {{ checkboxLoadingChecked ? ':loading="true"' : "" }}
               {{ checkboxDisabledChecked ? ':disabled="true"' : "" }}
@@ -193,10 +214,12 @@ export default {
     return {
       selectedItem: null,
       numberInput: 6,
+      numberBorderRadius: '3px',
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
       checkboxSearchChecked: false,
+      checkboxDarkmodeChecked: false,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
@@ -245,7 +268,7 @@ export default {
       if (this.checkboxElementChecked && this.optionSet === "object") {
         return `<template #element="{ element }">
                 <div class="flex items-center">
-                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  <BIMDataIconChevron size="xxxs" fill :color="!dark ? 'primary' : 'quaternary-lighter'" margin="0 6px 0 0" />
                   {{ element.label }}
                 </div>
              </template>`;
@@ -253,7 +276,7 @@ export default {
       if (this.checkboxElementChecked && this.optionSet === "string") {
         return `<template #element="{ element }">
                 <div class="flex items-center">
-                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  <BIMDataIconChevron size="xxxs" fill :color="!dark ? 'primary' : 'quaternary-lighter'" margin="0 6px 0 0" />
                   {{ element }}
                 </div>
              </template>`;

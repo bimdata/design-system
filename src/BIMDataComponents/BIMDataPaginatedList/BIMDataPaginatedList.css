@@ -1,13 +1,10 @@
-@use "../../assets/scss/mixins/_font-size.scss";
-
-// custom PAGINATED LIST
 .bimdata-paginated-list {
   font-family: var(--primary-font);
-  font-size: font-size.calculateEm(14px);
+  font-size: 14px;
   line-height: 1.5;
   overflow: auto;
 
-  &--small {
+  .bimdata-paginated-list--small {
     height: 100%;
     position: relative;
 
@@ -17,7 +14,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: font-size.calculateEm(12px);
+        font-size: 12px;
         &:nth-child(odd) {
           background-color: var(--color-silver-light);
         }
@@ -28,11 +25,11 @@
     }
   }
 
-  &--empty {
+  .bimdata-paginated-list--empty {
     height: auto;
   }
 
-  &__elements {
+  .bimdata-paginated-list__elements {
     li {
       &.active-element {
         font-weight: bold;
@@ -43,5 +40,10 @@
   .bimdata-spinner {
     padding: 12px 0;
     justify-content: center;
+  }
+
+  &.dark {
+    background-color: var(--color-quaternary);
+    color: var(--color-quaternary-lighter);
   }
 }

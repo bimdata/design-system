@@ -54,4 +54,18 @@ export default [
     "",
     "Use this props to custom height of BIMDataDropdownList component.",
   ],
+  [
+    "borderRadius",
+    "String",
+    "3px",
+    "",
+    "Use this props to custom border-radius of BIMDataDropdownList component.",
+  ],
+  [
+    "dark",
+    "Boolean",
+    "false",
+    "",
+    "Use this props to set BIMDataDropdownList component into dark mode.",
+  ],
 ];

@@ -8,13 +8,13 @@
   >
     <div
       class="bimdata-dropdown-list__content"
-      :class="{ active: displayed, disabled }"
+      :class="{ active: displayed, disabled, dark }"
       @click="onHeaderClick"
       :style="style"
     >
       <slot name="header" :isOpen="displayed"></slot>
       <BIMDataButton
-        color="default"
+        :color="!dark ? 'white' : 'quaternary'"
         icon
         radius
         fill
@@ -35,6 +35,9 @@
           :elementKey="elementKey"
           @element-click="onElementClick"
           :loading="loading"
+          :background-color="!dark ? 'var(--color-white)' : 'var(--color-quaternary)'"
+          :dark="dark"
+          :borderRadius="borderRadius"
         >
           <template #header>
             <BIMDataSearch
@@ -124,6 +127,10 @@ export default {
       type: String,
       default: "36px",
     },
+    borderRadius: {
+      type: String,
+      default: "3px",
+    },
     search: {
       type: Boolean,
       default: false,
@@ -132,6 +139,10 @@ export default {
       type: String,
       default: "Search",
     },
+    dark: {
+      type: Boolean,
+      default: false,
+    }
   },
   emits: ["element-click"],
   data() {
@@ -145,6 +156,7 @@ export default {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
+        'border-radius': `${this.borderRadius}`
       };
     },
     iconRotation() {
