@@ -15,12 +15,7 @@
     font-size: 13px;
     background-color: var(--color-silver-light);
     border: 1px solid var(--color-silver);
-    border-radius: 3px;
     cursor: pointer;
-
-    .bimdata-btn {
-      background-color: var(--color-white);
-    }
 
     &.active {
       background-color: var(--color-white);
@@ -37,6 +32,17 @@
       .bimdata-btn {
         cursor: default;
         color: var(--color-silver-dark);
+      }
+    }
+
+    &.dark {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
+      border: none;
+      &.active {
+        .bimdata-btn {
+          background-color: var(--color-quaternary-dark);
+        }
       }
     }
   }
