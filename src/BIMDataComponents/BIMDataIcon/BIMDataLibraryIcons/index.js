@@ -82,6 +82,7 @@ import location from "./Location.vue";
 import lock from "./Lock.vue";
 import logout from "./Logout.vue";
 import measure from "./Measure.vue";
+import mic from "./Mic.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
 import namingConvention from "./NamingConvention.vue";
@@ -114,6 +115,7 @@ import screenConfig from "./ScreenConfig.vue";
 import screenshot from "./Screenshot.vue";
 import search from "./Search.vue";
 import section from "./Section.vue";
+import send from "./Send.vue";
 import setAsModel from "./SetAsModel.vue";
 import settings from "./Settings.vue";
 import share from "./Share.vue";
@@ -134,6 +136,7 @@ import synchro2d from "./Synchro2D.vue";
 import system from "./System.vue";
 import tag from "./Tag.vue";
 import translate from "./Translate.vue";
+import trash from "./Trash.vue";
 import tree from "./Tree.vue";
 import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
@@ -261,6 +264,7 @@ export default {
   lock,
   logout,
   measure,
+  mic,
   minus,
   model3d,
   namingConvention,
@@ -292,6 +296,7 @@ export default {
   screenshot,
   search,
   section,
+  send,
   setAsModel,
   settings,
   share,
@@ -312,6 +317,7 @@ export default {
   system,
   tag,
   translate,
+  trash,
   tree,
   unarchive,
   undo,
