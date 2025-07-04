@@ -66,6 +66,7 @@
               {{ `height="${height}"` }}
               {{ `tabSize="${tabSize}"` }}
               @tab-selected="activeTab = $event"
+              {{ `:dark="${checkboxDarkmodeChecked}"` }}
             /&gt;
           </pre>
         </template>
