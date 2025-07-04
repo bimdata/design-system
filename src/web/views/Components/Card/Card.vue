@@ -180,7 +180,7 @@ export default {
       boxShadow: true,
       widthCard: "215px",
       borderRadiusCard: "0px",
-      colorsCard: ["default", "primary", "secondary"],
+      colorsCard: ["default", "primary", "secondary", "tertiary", "quaternary"],
       selectedBgColorCard: "default",
       // Data
       propsData,

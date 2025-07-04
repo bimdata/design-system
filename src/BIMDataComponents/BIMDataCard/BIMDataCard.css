@@ -60,6 +60,36 @@
       filter: saturate(0.8);
     }
   }
+  &.bimdata-card__tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--color-white);
+    .bimdata-card__header,
+    .bimdata-card__submenu {
+      background-color: var(--color-tertiary);
+    }
+    .bimdata-card__header {
+      color: var(--color-white);
+      filter: saturate(0.8);
+    }
+    .bimdata-card__content {
+      color: var(--color-white);
+    }
+  }
+  &.bimdata-card__quaternary {
+    background-color: var(--color-quaternary);
+    color: var(--color-white);
+    .bimdata-card__header,
+    .bimdata-card__submenu {
+      background-color: var(--color-quaternary);
+    }
+    .bimdata-card__header {
+      color: var(--color-quaternary-lighter);
+      filter: saturate(0.8);
+    }
+    .bimdata-card__submenu, .bimdata-card__content, .bimdata-card__footer {
+      color: var(--color-quaternary-lighter);
+    }
+  }
   &.bimdata-card__box-shadow {
     box-shadow: var(--box-shadow);
   }
