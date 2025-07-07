@@ -7,6 +7,7 @@ export default [
     "false",
     "Whether 'autocomplete' attribute is 'on' or 'off'."
   ],
+  ["borderRadius", "String", "8px", "Custom input border-radius."],
   [
     "disabled",
     "Boolean",
@@ -25,6 +26,7 @@ export default [
     "' '",
     "Use this props to add an error message to your input.",
   ],
+  ["isLabel", "Boolean", "true", "Use this boolean to display a label."],
   [
     "loading",
     "Boolean",

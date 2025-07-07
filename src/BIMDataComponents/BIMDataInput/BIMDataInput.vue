@@ -11,11 +11,12 @@
     }"
     :style="style"
   >
-    <label v-if="computedLabel !== ''" :for="`bimdata-input-${uuid}`">{{
+    <label v-if="isLabel && computedLabel !== ''" :for="`bimdata-input-${uuid}`">{{
       computedLabel
     }}</label>
     <div class="bimdata-input__content" style="position: relative;" :style="{
           'background-color': backgroundColor,
+          'border-radius': borderRadius,
         }">
       <div class="bimdata-input__icon left-icon">
         <slot name="leftInputIcon"></slot>
@@ -116,6 +117,14 @@ export default {
       type: String,
       default: "var(--color-silver-light)",
     },
+    borderRadius: {
+      type: String,
+      default: "8px",
+    },
+    isLabel: {
+      type: Boolean,
+      default: true,
+    }
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
   computed: {
