@@ -16,7 +16,6 @@ input:-webkit-autofill {
     display: flex;
     align-items: center;
     background-color: var(--color-silver-light);
-    border-radius: 8px;
     input {
       width: 100%;
       height: 32px;

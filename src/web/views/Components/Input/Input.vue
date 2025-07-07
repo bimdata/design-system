@@ -18,10 +18,12 @@
             :loading="getLoading()"
             :disabled="getDisabled()"
             :margin="marginInput"
-            :background-color="backgroundColorInput"
+            :backgroundColor="backgroundColorInput"
+            :borderRadius="borderRadiusInput"
+            :isLabel="isLabel"
             :height="heightInput"
           >
-          <template #leftInputIcon v-if="leftInputIcon">
+            <template #leftInputIcon v-if="leftInputIcon">
               <BIMDataIconShow class="fill-granite-light" margin="6px" />
             </template>
             <template #inputIcon v-if="inputIcon">
@@ -55,6 +57,7 @@
           <BIMDataCheckbox text="right icon" v-model="inputIcon" />
           <BIMDataCheckbox text="loading" v-model="loading" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
+          <BIMDataCheckbox text="label" v-model="isLabel" />
 
           <div>
             <BIMDataText
@@ -64,11 +67,38 @@
             >
               Modifiers
             </BIMDataText>
-            <BIMDataInput v-model="labelInput" label="Change label" backgroundColor="white" />
-            <BIMDataInput v-model="placeholderInput" label="Change placeholder" backgroundColor="white" />
-            <BIMDataInput v-model="marginInput" label="Change margin" backgroundColor="white" />
-            <BIMDataInput v-model="backgroundColorInput" label="Change background-color" backgroundColor="white" /> 
-            <BIMDataInput v-model="heightInput" label="Change height" backgroundColor="white"  height="40px" />  
+            <BIMDataInput
+              v-model="labelInput"
+              label="Change label"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="placeholderInput"
+              label="Change placeholder"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="marginInput"
+              label="Change margin"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="backgroundColorInput"
+              label="Change background-color"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="heightInput"
+              label="Change height"
+              backgroundColor="white"
+              height="40px"
+            />
+            <BIMDataInput
+              v-model="borderRadiusInput"
+              label="Change border-radius"
+              backgroundColor="white"
+              height="40px"
+            />
           </div>
         </template>
 
@@ -83,6 +113,9 @@
               placeholder="Your placeholder here"
               :error="!textInput"
               errorMessage="your error message here"
+              :backgroundColor="{{ backgroundColorInput }}"
+              :borderRadius="{{ borderRadiusInput }}"
+              :isLabel="{{ isLabel }}"
               :loading="{{ getLoading() }}"
               {{ getMargin() }}
             &gt;
@@ -159,6 +192,8 @@ export default {
       marginInput: "12px 0px",
       backgroundColorInput: "var(--color-silver-light)",
       heightInput: "32px",
+      borderRadiusInput: "8px",
+      isLabel: true,
       propsData,
       eventsData,
       slotsData,
