@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: space-between;
     font-size: 13px;
-    border: 1px solid var(--color-silver);
+    border: 1px solid transparent;
     border-radius: 3px;
     cursor: pointer;
     .bimdata-btn {
@@ -85,6 +85,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+  }
+
+  &.border {
+    .bimdata-dropdown__content {
+      border-color: var(--color-silver);
+    }
+  }
+
+  &.dark.border {
+    .bimdata-dropdown__content {
+      border-color: var(--color-quaternary-lighter);
+    }
+  }
+
+  &.dark {
+    .bimdata-dropdown__content {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
     }
   }
 }
