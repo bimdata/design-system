@@ -8,7 +8,7 @@
   >
     <div
       class="bimdata-dropdown-list__content"
-      :class="{ active: displayed, disabled, dark }"
+      :class="{ active: displayed, disabled, dark, border }"
       @click="onHeaderClick"
       :style="style"
     >
@@ -140,6 +140,10 @@ export default {
       default: "Search",
     },
     dark: {
+      type: Boolean,
+      default: false,
+    },
+    border: {
       type: Boolean,
       default: false,
     }
