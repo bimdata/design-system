@@ -13,6 +13,8 @@
             :directionClass="selectedDropdownOptionsdirection"
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
             :header="checkboxDisabledHeader"
+            :dark="checkboxDarkmodeChecked"
+            :border="checkboxBorderChecked"
           >
             <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
@@ -43,6 +45,23 @@
             v-model="checkboxDisabledHeader"
           >
           </BIMDataCheckbox>
+          <div class="m-t-12">
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              >style</BIMDataText
+            >
+            <BIMDataCheckbox
+              margin="12px 0 0"
+              text="dark"
+              v-model="checkboxDarkmodeChecked"
+            />
+            <BIMDataCheckbox
+              margin="0 0 12px"
+              text="border"
+              v-model="checkboxBorderChecked"
+            />
+          </div>
           <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
             >two level list</BIMDataText
           >
@@ -93,6 +112,8 @@
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
               :header="{{ getHeaderProp() }}"
+              :dark="{{ checkboxDarkmodeChecked }}"
+              :border="{{ checkboxBorderChecked }}"
               {{ getMenuItems() }}
             &gt;
               {{ getHeader() }} {{ getElement() }}
@@ -113,13 +134,16 @@
         <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
           >Slots:</BIMDataText
         >
-        <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import propsData from "./props-data";
+import slotsData from "./slots-data";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
@@ -128,9 +152,13 @@ export default {
   },
   data() {
     return {
+      propsData,
+      slotsData,
       checkboxDisabledChecked: false,
       checkboxTwoLevelChecked: false,
       checkboxHeaderChecked: true,
+      checkboxDarkmodeChecked: false,
+      checkboxBorderChecked: true,
       checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
       checkboxElementSlotChecked: true,
@@ -163,70 +191,6 @@ export default {
             ],
           },
         },
-      ],
-      propsData: [
-        ["Props", "Type", "Default value", "Validator", "Description"],
-        ["disabled", "Boolean", "false", "", ""],
-        [
-          "transitionName",
-          "String",
-          "'up'",
-          "'up' or 'down' values",
-          "Use this props to choose the opening transition of the submenu",
-        ],
-        [
-          "directionClass",
-          "String",
-          "'down'",
-          "'up', 'down', 'right' or 'left' values",
-          "Use this props to choose the opening of the submenu.",
-        ],
-        [
-          "width",
-          "String",
-          "220px",
-          "",
-          "Use this props to custom width of BIMDataDropdownList component.",
-        ],
-        [
-          "height",
-          "String",
-          "36px",
-          "",
-          "Use this props to custom height of BIMDataDropdownList component.",
-        ],
-        [
-          "header",
-          "Boolean",
-          "true",
-          "",
-          "Use this props to not display the header.",
-        ],
-        [
-          "menuItems",
-          "Array",
-          "[]",
-          "",
-          "Use this props to add content with two level of nesting",
-        ],
-        [
-          "subListMaxHeight",
-          "String",
-          "auto",
-          "",
-          "Use this props to define the sub-list maximum height",
-        ],
-      ],
-      slotData: [
-        ["Slot name", "Description"],
-        [
-          "header",
-          "Use this slot to add title content. Available slot props : isOpen (true when the menu is open)",
-        ],
-        [
-          "element",
-          "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice.",
-        ],
       ],
     };
   },

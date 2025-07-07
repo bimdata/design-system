@@ -1,0 +1,56 @@
+/* eslint-disable */
+export default [
+  ["Props", "Type", "Default value", "Validator", "Description"],
+  ["border", "Boolean", "true", "", "Use this props to display the border."],
+  ["dark", "Boolean", "false", "", "Use this props to display the dark theme."],
+  [
+    "directionClass",
+    "String",
+    "'down'",
+    "'up', 'down', 'right' or 'left' values",
+    "Use this props to choose the opening of the submenu.",
+  ],
+  ["disabled", "Boolean", "false", "", ""],
+  [
+    "header",
+    "Boolean",
+    "true",
+    "",
+    "Use this props to not display the header.",
+  ],
+  [
+    "height",
+    "String",
+    "36px",
+    "",
+    "Use this props to custom height of BIMDataDropdownList component.",
+  ],
+  [
+    "menuItems",
+    "Array",
+    "[]",
+    "",
+    "Use this props to add content with two level of nesting",
+  ],
+  [
+    "subListMaxHeight",
+    "String",
+    "auto",
+    "",
+    "Use this props to define the sub-list maximum height",
+  ],
+  [
+    "transitionName",
+    "String",
+    "'up'",
+    "'up' or 'down' values",
+    "Use this props to choose the opening transition of the submenu",
+  ],
+  [
+    "width",
+    "String",
+    "220px",
+    "",
+    "Use this props to custom width of BIMDataDropdownList component.",
+  ],
+];

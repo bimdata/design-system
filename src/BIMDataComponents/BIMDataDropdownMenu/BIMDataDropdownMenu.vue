@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-dropdown" v-clickaway="away">
+  <div class="bimdata-dropdown" v-clickaway="away" :class="{dark, border}">
     <div
       class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
@@ -114,6 +114,14 @@ export default {
     subListMaxHeight: {
       type: String,
       default: "auto",
+    },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+    border: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
