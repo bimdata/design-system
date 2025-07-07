@@ -19,6 +19,7 @@
             @element-click="onItemClick"
             :search="checkboxSearchChecked"
             :dark="checkboxDarkmodeChecked"
+            :border="checkboxBorderChecked"
             :elementLabelKey="elementLabelKey"
             :borderRadius="numberBorderRadius"
           >
@@ -88,16 +89,19 @@
             backgroundColor="white"
           ></BIMDataInput>
           <div class="m-t-18 m-b-36">
-            <BIMDataText
-              component="h5"
-              color="color-primary"
-              >color</BIMDataText
+            <BIMDataText component="h5" color="color-primary"
+              >style</BIMDataText
             >
             <BIMDataCheckbox
-            margin="12px 0 0"
-            text="Dark"
-            v-model="checkboxDarkmodeChecked"
-          />
+              margin="12px 0 0"
+              text="dark"
+              v-model="checkboxDarkmodeChecked"
+            />
+            <BIMDataCheckbox
+              margin="0 0 12px"
+              text="border"
+              v-model="checkboxBorderChecked"
+            />
           </div>
           <div class="m-t-24">
             <BIMDataSelect
@@ -152,6 +156,8 @@
           <pre>
             &lt;BIMDataDropdownList
               :list="list"
+              :dark="{{ checkboxDarkmodeChecked }}"
+              :border="{{ checkboxBorderChecked }}"
               :perPage="{{ numberInput }}"
               :borderRadius="{{ numberBorderRadius }}"
               elementKey="dropdown"
@@ -214,12 +220,13 @@ export default {
     return {
       selectedItem: null,
       numberInput: 6,
-      numberBorderRadius: '3px',
+      numberBorderRadius: "3px",
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
       checkboxSearchChecked: false,
       checkboxDarkmodeChecked: false,
+      checkboxBorderChecked: true,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
