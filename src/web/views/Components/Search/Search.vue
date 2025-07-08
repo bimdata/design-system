@@ -128,7 +128,7 @@ export default {
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
         kinds: ["radius", "square"],
-        style: ["primary", "secondary", "tertiary"],
+        style: ["primary", "secondary", "tertiary", "quaternary"],
       },
       propsData,
       eventsData,
