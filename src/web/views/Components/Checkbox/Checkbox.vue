@@ -6,6 +6,7 @@
       </BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
+        :class="{ 'bimdata-ds__demo__quaternary': checkboxDarkmodeChecked }"
         language="javascript"
         codepenLink="https://codepen.io/bimdata/pen/dyMyvYW"
         githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
@@ -14,13 +15,22 @@
           <BIMDataCheckbox
             :text="getCheckboxText()"
             v-model="checked"
+            :margin="marginInput"
             :disabled="getCheckboxDisabled()"
+            :dark="checkboxDarkmodeChecked"
           />
         </template>
 
         <template #parameters>
           <BIMDataCheckbox text="text" v-model="checkboxTextChecked" />
           <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" />
+          <BIMDataCheckbox text="dark" v-model="checkboxDarkmodeChecked" />
+
+          <BIMDataInput
+            v-model="marginInput"
+            label="Change margin"
+            backgroundColor="white"
+          />
         </template>
 
         <template #import>
@@ -34,6 +44,8 @@
               :disabled="{{ getCheckboxDisabled() }}"
               text="Your label here"
               v-model="checked"
+              :dark="{{ checkboxDarkmodeChecked }}"
+              margin="{{ marginInput }}"
             /&gt;
           </pre>
         </template>
@@ -71,7 +83,8 @@ export default {
       checked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
-      margin: "0px",
+      checkboxDarkmodeChecked: false,
+      marginInput: "0px",
       // Data
       propsData,
       eventsData,
@@ -89,3 +102,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.bimdata-ds__demo__quaternary {
+  &:deep(.bimdata-ds__demo__module) {
+    background-color: var(--color-quaternary);
+  }
+}
+</style>

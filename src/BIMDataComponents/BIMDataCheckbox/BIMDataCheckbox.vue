@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-checkbox"
-    :class="{ indeterminate, disabled, checked }"
+    :class="{ indeterminate, disabled, checked, dark }"
     @click="onClick"
     :style="style"
     v-bind="$attrs"
@@ -39,6 +39,10 @@ export default {
     margin: {
       type: String,
       default: "0px",
+    },
+    dark: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["update:modelValue"],
