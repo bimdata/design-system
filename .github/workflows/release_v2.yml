@@ -1,10 +1,9 @@
-name: main
+name: release/2.x
 
 on:
   push:
     branches:
-      - "*"
-      - "!release/2.x"
+      - release/2.x
 
 env:
   app: design
@@ -30,11 +29,6 @@ jobs:
   build-and-push:
     runs-on: [self-hosted, common]
     needs: publish
-    if: contains('
-      refs/heads/develop
-      refs/heads/master
-      refs/heads/main'
-      , github.ref)
     steps:
       - uses: actions/checkout@v4
       - name: Login to BIMData Docker Registry
@@ -43,11 +37,10 @@ jobs:
           registry: docker-registry.bimdata.io
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-      - id: tag
+      # If branch is release/2.x, use prod as tag
+      - if: ${{ startsWith(github.ref, 'refs/heads/release/2.x') }}
         name: Get docker tag
-        uses: bimdata/actions/get-docker-tag@v3
-        with:
-          branch: ${{ github.ref }}
+        run: echo "tag=prod" >> $GITHUB_ENV
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -57,15 +50,11 @@ jobs:
           pull: true
           tags: |
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ github.sha }}
-            docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ env.tag }}
+            docker-registry.bimdata.io/bimdata/${{ env.app }}:v2-${{ env.tag }}
 
   deploy:
     runs-on: [self-hosted, common]
     needs: build-and-push
-    env:
-      # We use it to temporary deploy the "new" design system on a different URL
-      # This should be removed when the new design system is fully deployed
-      app: design_new
     steps:
       - name: Login to BIMData Docker Registry
         uses: docker/login-action@v3
@@ -73,11 +62,10 @@ jobs:
           registry: docker-registry.bimdata.io
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-      - id: tag
-        name: Get docker tag
-        uses: bimdata/actions/get-docker-tag@v3
-        with:
-          branch: ${{ github.ref }}
+      # We deploy on prod inventory, that why we set the tag to prod, yes the naming is confusing
+      - name: Get docker tag
+        run: |
+          echo "tag=prod" >> $GITHUB_ENV
       - name: Deploy on ${{ env.tag }}
         uses: bimdata/actions/deployment@v3
         with:
