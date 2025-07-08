@@ -55,4 +55,14 @@
   &.bimdata-search-bar__tertiary {
     background-color: var(--color-tertiary-lighter);
   }
+  &.bimdata-search-bar__quaternary {
+    background-color: var(--color-quaternary);
+    color: var(--color-quaternary-lighter);
+    input {
+      color: var(--color-quaternary-lighter);
+      &::placeholder{
+        color: var(--color-quaternary-lighter);
+      }
+    }
+  }
 }
