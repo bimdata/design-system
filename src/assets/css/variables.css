@@ -27,6 +27,7 @@ html {
   --------------- color QUATERNARY & VARIANTS -----------------
   ----------------------------------------------------------- */
   --color-quaternary: rgba(36, 47, 75, 1);
+  --color-quaternary-darker: rgba(31, 34, 44, 1);
   --color-quaternary-dark: rgba(31, 37, 53, 1);
   --color-quaternary-light: rgba(39, 46, 66, 1);
   --color-quaternary-lighter: rgba(209, 216, 237, 1);
