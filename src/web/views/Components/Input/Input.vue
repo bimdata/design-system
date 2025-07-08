@@ -13,10 +13,16 @@
             :label="labelInput"
             :error="error"
             :success="success"
-            :errorMessage="getErrorMessage()"
-            :successMessage="getSuccessMessage()"
-            :loading="getLoading()"
-            :disabled="getDisabled()"
+            :error-message="
+              error && errorMessage ? 'your error message here' : undefined
+            "
+            :success-message="
+              success && successMessage
+                ? 'your success message here'
+                : undefined
+            "
+            :loading="loading"
+            :disabled="disabled"
             :margin="marginInput"
             :backgroundColor="backgroundColorInput"
             :borderRadius="borderRadiusInput"
@@ -108,21 +114,14 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataInput
-              v-model="textInput"
-              placeholder="Your placeholder here"
-              :error="!textInput"
-              errorMessage="your error message here"
-              :backgroundColor="{{ backgroundColorInput }}"
-              :borderRadius="{{ borderRadiusInput }}"
-              :isLabel="{{ isLabel }}"
-              :loading="{{ getLoading() }}"
-              {{ getMargin() }}
-            &gt;
-          {{ getLeftInputIcon() }}
-          {{ getInputIcon() }}
-            &lt;/BIMDataInput&gt;
-          </pre>
+&lt;BIMDataInput
+  v-model="textInput"
+  {{ getInputAttributes() }}
+&gt;
+{{ getSlotTemplates() }}
+&lt;/BIMDataInput&gt;
+  </pre
+          >
         </template>
       </ComponentCode>
 
@@ -178,6 +177,7 @@ export default {
   },
   data() {
     return {
+      // State
       textInput: "",
       error: false,
       success: false,
@@ -185,15 +185,21 @@ export default {
       successMessage: false,
       loading: false,
       disabled: false,
+
+      // Display
       inputIcon: false,
       leftInputIcon: false,
+      isLabel: true,
+
+      // Styling
       labelInput: "Your label here",
       placeholderInput: "Your placeholder here",
       marginInput: "12px 0px",
       backgroundColorInput: "var(--color-silver-light)",
       heightInput: "32px",
       borderRadiusInput: "8px",
-      isLabel: true,
+
+      // Documentation
       propsData,
       eventsData,
       slotsData,
@@ -209,42 +215,50 @@ export default {
             : ""
         }`;
     },
-    getErrorMessage() {
-      if (this.error && this.errorMessage) {
-        return "your error message here";
-      }
+    getInputAttributes() {
+      const attrs = [];
+
+      if (this.labelInput) attrs.push(`label="${this.labelInput}"`);
+      if (this.placeholderInput)
+        attrs.push(`placeholder="${this.placeholderInput}"`);
+      if (this.backgroundColorInput)
+        attrs.push(`backgroundColor="${this.backgroundColorInput}"`);
+      if (this.borderRadiusInput)
+        attrs.push(`borderRadius="${this.borderRadiusInput}"`);
+      if (this.isLabel !== true) attrs.push(`:isLabel="${this.isLabel}"`);
+      if (this.loading) attrs.push(`:loading="true"`);
+      if (this.disabled) attrs.push(`:disabled="true"`);
+      if (this.marginInput !== "12px 0px")
+        attrs.push(`margin="${this.marginInput}"`);
+
+      // Error/success
+      if (this.error) attrs.push(`:error="true"`);
+      if (this.errorMessage)
+        attrs.push(`errorMessage="your error message here"`);
+      if (this.success) attrs.push(`:success="true"`);
+      if (this.successMessage)
+        attrs.push(`successMessage="your success message here"`);
+
+      return attrs.join("\n  ");
     },
-    getSuccessMessage() {
-      if (this.success && this.successMessage) {
-        return "your success message here";
-      }
-    },
-    getLoading() {
-      return this.loading;
-    },
-    getDisabled() {
-      return this.disabled;
-    },
-    getLeftInputIcon() {
+    getSlotTemplates() {
+      const slots = [];
+
       if (this.leftInputIcon) {
-        return `
-        <template #leftInputIcon v-if="leftInputIcon">
-          <BIMDataIconShow class="fill-granite-light" margin="6px"/>
-        </template>`;
+        slots.push(`
+  <template #leftInputIcon>
+    <BIMDataIconShow class="fill-granite-light" margin="6px" />
+  </template>`);
       }
-    },
-    getInputIcon() {
+
       if (this.inputIcon) {
-        return `
-        <template #inputIcon v-if="inputIcon">
-          <BIMDataIconShow class="fill-granite-light" margin="6px"/>
-        </template>`;
+        slots.push(`
+  <template #inputIcon>
+    <BIMDataIconShow class="fill-granite-light" margin="6px" />
+  </template>`);
       }
-    },
-    getMargin() {
-      if (this.marginInput != "12px 0px") {
-        return `margin="${this.marginInput}"`;
-      }
+
+      return slots.join("\n");
     },
   },
 };

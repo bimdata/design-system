@@ -8,10 +8,14 @@
           placeholder="Your placeholder here"
           :error="error"
           :success="success"
-          :errorMessage="getErrorMessage()"
-          :successMessage="getSuccessMessage()"
-          :loading="getLoading()"
-          :disabled="getDisabled()"
+          :loading="loading"
+          :disabled="disabled"
+          :error-message="
+            error && errorMessage ? 'your error message here' : undefined
+          "
+          :success-message="
+            success && successMessage ? 'your success message here' : undefined
+          "
           :margin="marginInput"
           :type="inputTypeSelection"
           :counter="counter"
@@ -84,14 +88,14 @@
         </div>
 
         <div>
-          <BIMDataText
-            component="h5"
-            color="color-primary"
-            margin="15px 0 10px"
-          >
+          <BIMDataText component="h5" color="color-primary" margin="16px 0 0">
             Margin
           </BIMDataText>
-          <BIMDataInput v-model="marginInput" placeholder="Change margin" />
+          <BIMDataInput
+            v-model="marginInput"
+            backgroundColor="white"
+            placeholder="Change margin"
+          />
         </div>
       </template>
 
@@ -101,28 +105,13 @@
 
       <template #code>
         <pre>
-            &lt;BIMDataInputOutlined
-              v-model="textInput"
-              placeholder="Your placeholder here"
-              {{ error ? ':error="true"' : "" }}
-              {{ errorMessage ? 'errorMessage="your error message here"' : "" }}
-              {{ success ? ':success="true"' : "" }}
-              {{
-            successMessage ? 'successMessage="your success message here"' : ""
-          }}
-              {{ loading ? ':loading="true"' : "" }}
-              {{ disabled ? ':disabled="true"' : "" }}
-              {{ getMargin() }}
-            &gt;
-
-            {{ getPrefixSlot() }}
-            {{ getPrefixInnerSlot() }}
-            {{ getSuffixInnerSlot() }}
-            {{ getSuffixSlot() }}
-
-
-            &lt;/BIMDataInputOutlined&gt;
-          </pre
+&lt;BIMDataInputOutlined
+  v-model="textInput"
+  {{ getInputAttributes() }}
+&gt;
+{{ getInputSlots() }}
+&lt;/BIMDataInputOutlined&gt;
+  </pre
         >
       </template>
     </ComponentCode>
@@ -207,65 +196,68 @@ export default {
   methods: {
     getImportContent() {
       return `
-        import BIMDataInput from "@bimdata/design-system/src/BIMDataComponents/BIMDataInput/BIMDataInput.vue";
-        ${
-          this.inputIcon
-            ? 'import BIMDataIconShow from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconShow.vue";'
-            : ""
-        }`;
+    import BIMDataInputOutlined from "@bimdata/design-system/src/BIMDataComponents/BIMDataInput/BIMDataInputOutlined.vue";
+    ${
+      this.prefix || this.prefixInner || this.suffix || this.suffixInner
+        ? 'import BIMDataIconShow from "@bimdata/design-system/src/BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconShow.vue";'
+        : ""
+    }`;
     },
-    getErrorMessage() {
-      if (this.error && this.errorMessage) {
-        return "your error message here";
+    getInputAttributes() {
+      const attrs = [];
+
+      attrs.push(`placeholder="Your placeholder here"`);
+      if (this.label) attrs.push(`:label="true"`); // Ou `label="Your label here"` si texte statique
+      if (this.counter) attrs.push(`:counter="true"`);
+      if (this.inputTypeSelection && this.inputTypeSelection !== "text") {
+        attrs.push(`type="${this.inputTypeSelection}"`);
       }
-    },
-    getSuccessMessage() {
-      if (this.success && this.successMessage) {
-        return "your success message here";
+      if (this.loading) attrs.push(`:loading="true"`);
+      if (this.disabled) attrs.push(`:disabled="true"`);
+      if (this.marginInput !== "12px 0px") {
+        attrs.push(`margin="${this.marginInput}"`);
       }
+      if (this.error) attrs.push(`:error="true"`);
+      if (this.errorMessage)
+        attrs.push(`errorMessage="your error message here"`);
+      if (this.success) attrs.push(`:success="true"`);
+      if (this.successMessage)
+        attrs.push(`successMessage="your success message here"`);
+
+      return attrs.join("\n  ");
     },
-    getLoading() {
-      return this.loading;
-    },
-    getDisabled() {
-      return this.disabled;
-    },
-    getPrefixSlot() {
+    getInputSlots() {
+      const slots = [];
+
       if (this.prefix) {
-        return `
-        <template #prefix>
-          <BIMDataIconShow class="fill-granite-light" margin="0 6px 0 0" />
-        </template>`;
+        slots.push(`
+  <template #prefix>
+    <BIMDataIconShow class="fill-granite-light" margin="0 6px 0 0" />
+  </template>`);
       }
-    },
-    getPrefixInnerSlot() {
+
       if (this.prefixInner) {
-        return `
-        <template #prefixInner>
-          <BIMDataIconShow class="fill-granite-light" margin="0 6px 0 0" />
-        </template>`;
+        slots.push(`
+  <template #prefixInner>
+    <BIMDataIconShow class="fill-granite-light" margin="0 6px 0 0" />
+  </template>`);
       }
-    },
-    getSuffixSlot() {
-      if (this.suffix) {
-        return `
-        <template #suffix>
-          <BIMDataIconShow class="fill-granite-light" margin="0 6px 0 0" />
-        </template>`;
-      }
-    },
-    getSuffixInnerSlot() {
+
       if (this.suffixInner) {
-        return `
-        <template #suffixInner>
-          <BIMDataIconShow class="fill-granite-light" margin="0 6px 0 0" />
-        </template>`;
+        slots.push(`
+  <template #suffixInner>
+    <BIMDataIconShow ${this.error ? 'class="fill-high"' : 'class="fill-granite-light"'} />
+  </template>`);
       }
-    },
-    getMargin() {
-      if (this.marginInput != "12px 0px") {
-        return `margin="${this.marginInput}"`;
+
+      if (this.suffix) {
+        slots.push(`
+  <template #suffix>
+    <BIMDataIconShow class="fill-granite-light" margin="0 0 0 6px" />
+  </template>`);
       }
+
+      return slots.join("\n");
     },
   },
 };
