@@ -1,7 +1,7 @@
 <template>
   <main class="article toggle">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -109,6 +109,12 @@ export default {
         ["right", "Use this slot to add content after the toggle switch"],
       ],
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
   methods: {
     getLabelText() {

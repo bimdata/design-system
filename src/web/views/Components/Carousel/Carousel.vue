@@ -1,7 +1,7 @@
 <template>
   <main class="article article-card">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
 
@@ -118,9 +118,13 @@ export default {
       propsData,
     };
   },
+  inject: ["theme"],
   computed: {
     items() {
       return Array.from({ length: this.nbItems }, (_, i) => i + 1);
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

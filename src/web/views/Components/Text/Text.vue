@@ -1,7 +1,7 @@
 <template>
   <main class="article article-textarea">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode
@@ -295,6 +295,12 @@ export default {
         ],
       ],
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
   methods: {
     getColor() {

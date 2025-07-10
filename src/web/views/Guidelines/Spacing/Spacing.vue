@@ -1,7 +1,7 @@
 <template>
   <main class="article article-spacing">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary"> Spacing </BIMDataText>
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"> Spacing </BIMDataText>
       <AnchorLink :navElements="navElements" />
       <div class="spacing-system" id="spacing-system">
         <div>

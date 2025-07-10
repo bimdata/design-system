@@ -1,6 +1,6 @@
 <template>
-  <div class="bimdata-ds bimdata-design-system bimdata-scrollbar" :class="theme">
-    <Navigation :theme="theme" @switch-theme="switchTheme()"></Navigation>
+  <div class="bimdata-ds bimdata-design-system bimdata-scrollbar">
+    <Navigation :theme="themeState.value" @switch-theme="switchTheme()"></Navigation>
     <router-view />
   </div>
 </template>
@@ -17,17 +17,26 @@ export default {
   },
   data() {
     return {
-      theme: "theme-light",
+      themeState: {
+        value: "theme-light",
+      },
     };
   },
   methods: {
     switchTheme() {
-      if (this.theme === "theme-light") {
-        this.theme = "theme-dark";
-      } else {
-        this.theme = "theme-light";
-      }
+      document.documentElement.classList.remove(this.themeState.value);
+      this.themeState.value  = this.themeState.value === "theme-light" ? "theme-dark" : "theme-light";
+      document.documentElement.classList.add(this.themeState.value);
     },
+  },
+
+  mounted() {
+    document.documentElement.classList.add(this.themeState.value);
+  },
+  provide() {
+    return {
+      theme: this.themeState,
+    };
   },
 };
 </script>

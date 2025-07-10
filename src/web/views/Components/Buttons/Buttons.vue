@@ -1,7 +1,7 @@
 <template>
   <main class="article article-buttons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <div class="button-overview">
@@ -28,7 +28,8 @@
               />
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
-                {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }} {{ selectedBtnOptionsweight }}
+                {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
+                {{ selectedBtnOptionsweight }}
               </span>
             </BIMDataButton>
           </template>
@@ -38,7 +39,7 @@
               <BIMDataText
                 component="h5"
                 margin="15px 0 10px"
-                color="color-primary"
+                :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
               >
                 {{ key }}
               </BIMDataText>
@@ -57,7 +58,7 @@
               <BIMDataText
                 component="h5"
                 margin="15px 0 10px"
-                color="color-primary"
+                :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
               >
                 modifiers
               </BIMDataText>
@@ -69,7 +70,7 @@
               />
             </div>
 
-            <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+            <BIMDataText component="h5" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'" margin="15px 0 0">
               size
             </BIMDataText>
             <BIMDataInput
@@ -106,9 +107,11 @@
             <pre>
               &lt;BIMDataButton color="{{ selectedBtnOptionsvalues }}" {{
                 selectedBtnOptionstypes
-              }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsweight }} {{ getIconClass() }} {{
-                getButtonDisabled()
-              }} {{ getWidthBtn() }} {{ getHeightBtn() }} {{ getFontSizeBtn() }} {{ getPaddingBtn() }}&gt;
+              }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsweight }} {{
+                getIconClass()
+              }} {{ getButtonDisabled() }} {{ getWidthBtn() }} {{
+                getHeightBtn()
+              }} {{ getFontSizeBtn() }} {{ getPaddingBtn() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -117,7 +120,7 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+          <BIMDataText :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'" margin="15px 0 0" color="color-primary">
             Props:
           </BIMDataText>
           <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
@@ -138,6 +141,7 @@ export default {
   components: {
     ComponentCode,
   },
+  inject: ["theme"],
   data() {
     return {
       message: "",
@@ -168,6 +172,9 @@ export default {
         return ":disabled='disabled'";
       }
       return "";
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <main class="article article-search">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode
@@ -134,12 +134,16 @@ export default {
       eventsData,
     };
   },
+  inject: ["theme"],
   computed: {
     changeBackgroundColor() {
       return {
         "bimdata-ds__demo__silver-light":
           this.selectedSearchOptionsstyle === "secondary",
       };
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {

@@ -95,4 +95,29 @@ html {
 
   /* base FONTS --------------------------------------------- */
   --primary-font: "roboto", sans-serif;
+
+  &.theme-dark {
+    --color-ds-primary: var(--color-white);
+    --color-ds-light-background: var(--color-quaternary);
+    --color-ds-dark-background: var(--color-quaternary-dark);
+    --color-ds-light-pre: #32343e;
+    --color-ds-dark-pre: #282b34;
+    --color-ds-text: var(--color-quaternary-lighter);
+    --color-ds-border: var(--color-quaternary-lighter);
+    --color-ds-light-border: rgba(255, 255, 255, 0.2);
+    --color-ds-hover: var(--color-primary-light);
+    --color-ds-granite-light: var(--color-white);
+  }
+  &.theme-light {
+    --color-ds-primary: var(--color-primary);
+    --color-ds-light-background: var(--color-white);
+    --color-ds-dark-background: var(--color-silver-light);
+    --color-ds-light-pre: #32343e;
+    --color-ds-dark-pre: #282b34;
+    --color-ds-text: var(--color-primary);
+    --color-ds-border: var(--color-silver);
+    --color-ds-light-border: rgba(0,0,0,.05);
+    --color-ds-hover: rgb(240,240,240);
+    --color-ds-granite-light: var(--color-granite-light);
+  }
 }

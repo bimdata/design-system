@@ -1,7 +1,7 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">{{
         $route.name
       }}</BIMDataText>
       <ComponentCode componentTitle="DropdownList" language="javascript">
@@ -246,9 +246,13 @@ export default {
       eventsData,
     };
   },
+  inject: ["theme"],
   computed: {
     item() {
       return this.selectedItem;
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <main class="article article-checkbox">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode
@@ -90,6 +90,7 @@ export default {
       eventsData,
     };
   },
+  injeyct: ["theme"],
   methods: {
     getCheckboxDisabled() {
       return this.checkboxDisabledChecked;
@@ -98,6 +99,11 @@ export default {
       if (this.checkboxTextChecked) {
         return "Your label here";
       }
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <h2>Basic input</h2>
@@ -204,6 +204,12 @@ export default {
       eventsData,
       slotsData,
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
   methods: {
     getImportContent() {

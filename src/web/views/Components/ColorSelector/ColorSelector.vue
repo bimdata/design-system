@@ -1,7 +1,7 @@
 <template>
   <main class="article color-selector">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -100,10 +100,16 @@ export default {
       functionsData,
     };
   },
+  inject: ["theme"],
   methods: {
     updateColorSelector($event) {
       console.log("update color", $event);
       this.color = $event;
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

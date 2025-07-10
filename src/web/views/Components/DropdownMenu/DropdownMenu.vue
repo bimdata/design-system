@@ -1,7 +1,7 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">{{
         $route.name
       }}</BIMDataText>
       <ComponentCode componentTitle="DropdownMenu" language="javascript">
@@ -194,6 +194,7 @@ export default {
       ],
     };
   },
+  inject: ["theme"],
   methods: {
     getHeader() {
       if (this.checkboxHeaderChecked) {
@@ -228,6 +229,11 @@ export default {
       } else {
         return false;
       }
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

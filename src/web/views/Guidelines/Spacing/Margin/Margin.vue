@@ -1,6 +1,6 @@
 <template>
   <div class="spacing-system__margin">
-    <BIMDataText component="h1" color="color-primary">Margin</BIMDataText>
+    <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">Margin</BIMDataText>
     <ComponentCode componentTitle="margin">
       <template #module>
         <div class="ds-spacing">

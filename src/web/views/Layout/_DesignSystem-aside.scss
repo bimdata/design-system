@@ -5,7 +5,7 @@
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
-  background-color: var(--color-silver-light);
+  background-color: var(--color-ds-dark-background);
   overflow-y: auto;
   overflow-x: hidden;
   h4 {
@@ -19,7 +19,7 @@
         padding: 8px 24px;
         display: flex;
         align-items: center;
-        color: var(--color-primary);
+        color: var(--color-ds-text);
         position: relative;
         line-height: 24px;
         text-decoration: none;
@@ -31,7 +31,7 @@
           margin-right: var(--spacing-unit);
         }
         &.router-link-exact-active {
-          background-color: var(--color-white);
+          background-color: var(--color-ds-light-background);
           transition: all ease 0.2s;
 
           &:hover {
@@ -41,12 +41,12 @@
             }
           }
           &::before {
-            background-color: var(--color-primary);
+            background-color: var(--color-ds-text);
             transition: all ease 0.2s;
           }
         }
         &:hover {
-          background-color: rgb(240, 240, 240);
+          background-color: var(--color-ds-hover);
           transition: all ease 0.2s;
         }
         &::before {

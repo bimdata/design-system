@@ -1,7 +1,7 @@
 <template>
   <main class="article article-table">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }} (Simple use case)
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -497,6 +497,12 @@ export default {
       columnsData,
       slotsData,
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <main class="article internal-doc">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         Internal Documentation
       </BIMDataText>
       <BIMDataText margin="5px 0" lineHeight="24px">

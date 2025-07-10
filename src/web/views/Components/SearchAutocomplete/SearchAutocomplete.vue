@@ -1,7 +1,7 @@
 <template>
   <main class="article autocomplete-search">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
 
@@ -146,12 +146,16 @@ export default {
       ],
     };
   },
+  inject: ["theme"],
   computed: {
     changeBackgroundColor() {
       return {
         "bimdata-ds__demo__silver-light":
           this.selectedSearchOptionsstyle === "secondary",
       };
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {
