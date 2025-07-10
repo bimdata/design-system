@@ -124,4 +124,15 @@
       background-color: var(--color-silver-dark);
     }
   }
+  &.dark {
+    color: var(--color-quaternary-lighter);
+    .bimdata-radio__circle {
+      border-color: var(--color-quaternary-lighter);
+    }
+    &.bimdata-radio--checked {
+      .bimdata-radio__dot {
+        background-color: var(--color-quaternary-lighter);
+      }
+    }
+  }
 }

@@ -6,6 +6,7 @@
       disabled,
       'bimdata-radio--checked': checked,
       'bimdata-radio--big': big,
+      dark
     }"
     :disabled="disabled"
     @click="onClick"
@@ -41,6 +42,10 @@ export default {
     },
     modelValue: {},
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    dark: {
       type: Boolean,
       default: false,
     },
