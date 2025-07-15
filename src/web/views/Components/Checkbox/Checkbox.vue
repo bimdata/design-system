@@ -1,7 +1,10 @@
 <template>
   <main class="article article-checkbox">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode
@@ -22,14 +25,27 @@
         </template>
 
         <template #parameters>
-          <BIMDataCheckbox text="text" v-model="checkboxTextChecked" />
-          <BIMDataCheckbox text="disabled" v-model="checkboxDisabledChecked" />
-          <BIMDataCheckbox text="dark" v-model="checkboxDarkmodeChecked" />
+          <BIMDataCheckbox
+            text="text"
+            v-model="checkboxTextChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          />
+          <BIMDataCheckbox
+            text="disabled"
+            v-model="checkboxDisabledChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          />
+          <BIMDataCheckbox
+            text="dark"
+            v-model="checkboxDarkmodeChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          />
 
           <BIMDataInput
             v-model="marginInput"
             label="Change margin"
             backgroundColor="white"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -52,14 +68,14 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+        <BIMDataText component="h5" margin="15px 0 0" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+        <BIMDataText component="h5" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'" margin="15px 0 10px">
           Events:
         </BIMDataText>
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
@@ -90,7 +106,7 @@ export default {
       eventsData,
     };
   },
-  injeyct: ["theme"],
+  inject: ["theme"],
   methods: {
     getCheckboxDisabled() {
       return this.checkboxDisabledChecked;

@@ -36,30 +36,35 @@
             type="text"
             placeholder="Carousel width"
             v-model="carouselWidth"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Slider padding (in px)"
             v-model="sliderPadding"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Minimum gap (in px)"
             v-model="minGap"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Number of items"
             v-model="nbItems"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Item width (in px)"
             v-model="itemWidth"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -88,7 +93,7 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" margin="15px 0 10px" color="color-primary">
+        <BIMDataText component="h5" margin="15px 0 10px" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />

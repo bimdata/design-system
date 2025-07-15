@@ -3,7 +3,7 @@
     <div style="flex-grow: 1; overflow-y: auto">
       <BIMDataText
         component="h4"
-        color="color-primary"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
         padding="30px 24px 0"
         @click="onTitleClick"
         >{{ getParentTitle() }}</BIMDataText
@@ -28,6 +28,7 @@ export default {
   components: {
     BIMDataText,
   },
+  inject: ["theme"],
   methods: {
     getParentTitle() {
       const path = this.$route.matched[0].path;
@@ -38,7 +39,7 @@ export default {
     },
     getPageChildren() {
       return Object.values(store).find(
-        page => page.path === this.getPathFirstElement()
+        page => page.path === this.getPathFirstElement(),
       ).children;
     },
     getPathFirstElement() {
@@ -46,6 +47,11 @@ export default {
     },
     onTitleClick() {
       return this.$router.push("/" + this.getPathFirstElement());
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

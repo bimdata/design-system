@@ -6,6 +6,9 @@
     <div
       class="bimdata-ds__demo__module"
       :class="{ 'without-options': !componentTitle }"
+      :style="{
+        backgroundColor: currentTheme === 'theme-dark' ? 'var(--color-ds-dark-background)' : '#ffffff',
+      }"
     >
       <slot name="module"></slot>
     </div>
