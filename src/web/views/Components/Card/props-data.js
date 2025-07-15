@@ -25,4 +25,5 @@ export default [
     "0px",
     "Use this props to change the border radius of the card.",
   ],
+  ["border", "Boolean", "false", "Use this props to add a border."],
 ];

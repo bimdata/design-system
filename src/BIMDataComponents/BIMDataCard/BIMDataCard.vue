@@ -66,12 +66,17 @@ export default {
       type: Boolean,
       default: true,
     },
+    border: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return {
         [`bimdata-card__${this.bgColor}`]: this.bgColor,
         ["bimdata-card__box-shadow"]: this.boxShadow,
+        ["bimdata-card__border"]: this.border,
       };
     },
   },
