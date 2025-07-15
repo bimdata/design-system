@@ -26,6 +26,7 @@
             :margin="marginInput"
             :backgroundColor="backgroundColorInput"
             :borderRadius="borderRadiusInput"
+            :dark="dark"
             :isLabel="isLabel"
             :height="heightInput"
           >
@@ -63,7 +64,8 @@
           <BIMDataCheckbox text="right icon" v-model="inputIcon" />
           <BIMDataCheckbox text="loading" v-model="loading" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
-          <BIMDataCheckbox text="label" v-model="isLabel" />
+          <BIMDataCheckbox text="dark" v-model="dark" />
+          <BIMDataCheckbox text="add label" v-model="isLabel" />
 
           <div>
             <BIMDataText
@@ -185,6 +187,7 @@ export default {
       successMessage: false,
       loading: false,
       disabled: false,
+      dark: false,
 
       // Display
       inputIcon: false,

@@ -6,6 +6,7 @@
       success,
       disabled,
       loading,
+      dark,
       empty:
         modelValue === undefined || modelValue === null || modelValue === '',
     }"
@@ -124,7 +125,11 @@ export default {
     isLabel: {
       type: Boolean,
       default: true,
-    }
+    },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
   computed: {

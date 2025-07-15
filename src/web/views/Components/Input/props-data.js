@@ -8,6 +8,7 @@ export default [
     "Whether 'autocomplete' attribute is 'on' or 'off'."
   ],
   ["borderRadius", "String", "8px", "Custom input border-radius."],
+  ["dark", "Boolean", "false", "Use this boolean to apply dark mode."],
   [
     "disabled",
     "Boolean",

@@ -96,6 +96,20 @@ input:-webkit-autofill {
       color: var(--color-success);
     }
   }
+  &.dark {
+    & .bimdata-input__content {
+      background-color: var(--color-quaternary) !important;
+      input {
+        color: var(--color-quaternary-lighter);
+        &::placeholder {
+          color: var(--color-quaternary-lighter);
+        }
+      }
+    }
+    label {
+      color: var(--color-quaternary-lighter);
+    }
+  }
 }
 
 @keyframes scaleX {
