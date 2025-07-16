@@ -1,30 +1,34 @@
 <template>
   <main class="article article-select">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
-          <div class="m-t-24">
-            <BIMDataSelect
-              :disabled="isDisabled"
-              :multi="isMulti"
-              :search="search"
-              width="200px"
-              label="Selector label"
-              :options="options"
-              :optionKey="optionKey"
-              :optionLabelKey="optionLabelKey"
-              :nullValue="hasNullValue"
-              v-model="selection"
-              :clearSearchOnLeave="clearSearch"
-            >
-              <template #empty v-if="isEmpty">
-                <span class="p-x-6 color-granite">No result</span>
-              </template>
-            </BIMDataSelect>
-          </div>
+          <BIMDataSelect
+            :disabled="isDisabled"
+            :multi="isMulti"
+            :search="search"
+            width="200px"
+            label="Selector label"
+            :options="options"
+            :optionKey="optionKey"
+            :optionLabelKey="optionLabelKey"
+            :nullValue="hasNullValue"
+            v-model="selection"
+            :clearSearchOnLeave="clearSearch"
+            :dark="checkboxDarkmodeChecked"
+            :color="selectedOptionsColor"
+            :searchColor="selectedSearchColor"
+          >
+            <template #empty v-if="isEmpty">
+              <span class="p-x-6 color-granite">No result</span>
+            </template>
+          </BIMDataSelect>
           <BIMDataText margin="18px 0">
             Selection:
             <template v-if="isMulti">
@@ -47,7 +51,7 @@
           <div>
             <BIMDataCheckbox text="Disabled" v-model="isDisabled" />
           </div>
-          <div class="m-t-12">
+          <div class="m-t-6">
             <BIMDataCheckbox
               text="Multi selection"
               :disabled="hasNullValue"
@@ -55,21 +59,27 @@
               @update:modelValue="toggleMulti"
             />
           </div>
-          <div class="m-t-12">
+          <div class="m-t-6">
             <BIMDataCheckbox
               text="None option"
               :disabled="isMulti"
               v-model="hasNullValue"
             />
           </div>
-          <div class="m-t-12">
+          <div class="m-t-6">
+            <BIMDataCheckbox
+              text="Dark mode"
+              v-model="checkboxDarkmodeChecked"
+            />
+          </div>
+          <div class="m-t-6">
             <BIMDataCheckbox
               text="Search"
               :modelValue="search"
               @update:modelValue="toggleSearch"
             />
           </div>
-          <div class="m-t-12">
+          <div class="m-t-6">
             <BIMDataCheckbox
               text="Clear search after action"
               :disabled="!search"
@@ -77,6 +87,29 @@
               @update:modelValue="toggleClearSearch"
             />
           </div>
+
+          <div v-for="(setting, key) in colorSettings" :key="key">
+            <BIMDataText
+              component="h5"
+              margin="15px 0 10px"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+            >
+              {{ setting.label }}
+            </BIMDataText>
+            <BIMDataRadio
+              v-for="value in setting.options"
+              :key="value"
+              :text="value"
+              :id="`${key}-${value}`"
+              :value="value"
+              :name="key"
+              :dark="currentTheme === 'theme-dark'"
+              v-model="$data[setting.model]"
+            />
+          </div>
+
           <div class="m-t-24">
             <BIMDataSelect
               label="Option set"
@@ -112,6 +145,9 @@
               {{ optionLabelKey ? `optionLabelKey="${optionLabelKey}"` : "" }}
               {{ hasNullValue ? ':nullValue="true"' : "" }}
               v-model="selection"
+              {{ checkboxDarkmodeChecked ? ':dark="true"' : "" }}
+              {{ selectedOptionsColor ? `color="${selectedOptionsColor}"` : "" }}
+              {{ selectedSearchColor && search ? `searchColor="${selectedSearchColor}"` : "" }}
             &gt;
             {{ getEmptySlot() }}
               
@@ -215,6 +251,7 @@ export default {
       isEmpty: false,
       hasNullValue: false,
       clearSearch: false,
+      checkboxDarkmodeChecked: false,
       optionSet: "string",
       options: stringOptions,
       optionKey: null,
@@ -225,6 +262,32 @@ export default {
       slotsData,
       search: false,
       searchText: "",
+      colorSettings: {
+        color: {
+          label: "Select color",
+          options: [
+            "default",
+            "primary",
+            "secondary",
+            "tertiary",
+            "tertiary-light",
+            "quaternary",
+          ],
+          model: "selectedOptionsColor",
+        },
+        searchColor: {
+          label: "Search color",
+          options: [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+          ],
+          model: "selectedSearchColor",
+        },
+      },
+      selectedOptionsColor: "default",
+      selectedSearchColor: "primary",
     };
   },
   inject: ["theme"],

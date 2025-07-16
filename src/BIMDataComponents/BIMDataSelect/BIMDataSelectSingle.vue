@@ -5,19 +5,20 @@
       disabled,
       active: isOpen,
       'not-empty': modelValue !== undefined && modelValue !== null,
+      dark,
+      [color]: true,
     }"
     :style="{ width }"
     v-clickaway="away"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
-        <span>{{ displayedValue }}</span>
+        <span class="m-r-6">{{ displayedValue }}</span>
         <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
       </div>
-      <label class="bimdata-select__content__label">
+      <label v-if="isLabel" class="bimdata-select__content__label">
         {{ label }}
-      </label>
-      <span class="bimdata-select__content__underline"></span>
+      </label> 
     </div>
 
     <transition name="slide-fade-down">
@@ -25,7 +26,7 @@
         <BIMDataSearch
           v-if="search"
           width="calc(100% - 12px)"
-          color="primary"
+          :color="searchColor"
           radius
           :placeholder="searchPlaceholder"
           v-model="searchText"
@@ -85,6 +86,10 @@ export default {
       type: String,
       default: null,
     },
+    isLabel: {
+      type: Boolean,
+      default: true,
+    },
     options: {
       type: Array,
       default: () => [],
@@ -120,6 +125,22 @@ export default {
     clearSearchOnLeave: {
       type: Boolean,
       default: false,
+    },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+    color: {
+      type: String,
+      default: "default",
+      validator: value =>
+        ["default", "primary", "secondary", "tertiary", "tertiary-light", "quaternary"].includes(value),
+    },
+    searchColor: {
+      type: String,
+      default: "primary",
+      validator: value =>
+        ["primary", "secondary", "tertiary", "quaternary"].includes(value),
     },
   },
   emits: ["update:modelValue"],
@@ -222,4 +243,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataSelect.scss"></style>
+<style scoped src="./BIMDataSelect.css"></style>

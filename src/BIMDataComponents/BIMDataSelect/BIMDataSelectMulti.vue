@@ -11,7 +11,7 @@
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
-        <span>{{ displayedValue }}</span>
+        <span class="m-r-6">{{ displayedValue }}</span>
         <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
       </div>
       <label class="bimdata-select__content__label">
@@ -221,4 +221,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataSelect.scss"></style>
+<style scoped src="./BIMDataSelect.css"></style>
