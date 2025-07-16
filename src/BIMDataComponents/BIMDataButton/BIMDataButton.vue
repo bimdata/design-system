@@ -87,7 +87,7 @@ export default {
         radius: this.radius,
         square: this.square,
         rounded: this.rounded,
-        [`${this.color}`]: this.color,
+        [this.color]: true,
       };
     },
     buttonStyles() {
