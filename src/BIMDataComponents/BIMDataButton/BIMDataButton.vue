@@ -22,7 +22,7 @@ export default {
     },
     height: {
       type: String,
-      default: "40px",
+      default: "32px",
     },
     fill: {
       type: Boolean,
