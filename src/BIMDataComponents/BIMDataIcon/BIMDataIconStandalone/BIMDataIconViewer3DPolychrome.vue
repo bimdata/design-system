@@ -16,4 +16,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Viewer3DPolychrome", Viewer3DPolychrome);
 </script>
 
-<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped src="../BIMDataIcon.css"></style>

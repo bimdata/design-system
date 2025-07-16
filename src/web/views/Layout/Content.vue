@@ -1,7 +1,10 @@
 <template>
   <main class="article">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <BIMDataText margin="10px 0 15px">
@@ -16,13 +19,13 @@
             <router-link to="../getting-started">
               <BIMDataText
                 component="h5"
-                color="color-white"
+                color="color-primary"
                 margin="10px"
                 fontWeight="700"
               >
                 Getting started
               </BIMDataText>
-              <BIMDataText color="color-white" display="block" padding="12px 0">
+              <BIMDataText color="color-primary" display="block">
                 Learn how to quickly get started with our component library to
                 build expressive, consistent UI at BIMData.
               </BIMDataText>
@@ -42,6 +45,8 @@
           <BIMDataCard
             v-for="child in store[$route.name].children"
             :key="child.id"
+            :bgColor="currentTheme === 'theme-dark' ? 'quaternary' : 'white'"
+            borderRadius="8px"
             :class="{
               'bimdata-card__secondary':
                 child.title === 'Variables' || child.title === 'Utilities',
@@ -58,15 +63,21 @@
                 />
                 <BIMDataText
                   component="h5"
-                  color="color-primary"
+                  :color="currentTheme === 'theme-dark' ? 'color-quaternary-light' : 'color-primary'"
                   fontWeight="700"
                 >
                   {{ child.title }}
                 </BIMDataText>
-                <BIMDataText color="color-granite">
+                <BIMDataText :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-granite'">
                   {{ child.text }}
                 </BIMDataText>
-                <BIMDataButton width="120px" radius fill color="primary">
+                <BIMDataButton
+                  width="180px"
+                  rounded
+                  fill
+                  size="13px"
+                  height="32px"
+                >
                   {{ child.btn }}
                 </BIMDataButton>
               </router-link>
@@ -79,6 +90,7 @@
 </template>
 
 <script>
+import { computed, inject } from "vue";
 import store from "../../store.js";
 import BIMDataButton from "../../../../src/BIMDataComponents/BIMDataButton/BIMDataButton.vue";
 import BIMDataCard from "../../../../src/BIMDataComponents/BIMDataCard/BIMDataCard.vue";
@@ -93,7 +105,10 @@ export default {
     BIMDataText,
   },
   setup() {
-    return { store };
+    // inject("theme"),
+    const theme = inject("theme");
+    const currentTheme = computed(() => theme.value);
+    return { store, currentTheme };
   },
 };
 </script>

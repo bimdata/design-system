@@ -7,25 +7,23 @@
   justify-content: center;
   user-select: none;
 
-  &__content {
+  .bimdata-dropdown-list__content {
     padding: 0 var(--spacing-unit);
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 13px;
     background-color: var(--color-silver-light);
-    border: 1px solid var(--color-silver);
-    border-radius: 3px;
+    border: 1px solid transparent;
     cursor: pointer;
-
-    .bimdata-btn {
-      background-color: var(--color-silver-light);
-    }
 
     &.active {
       background-color: var(--color-white);
       border: 1px solid transparent;
       box-shadow: var(--box-shadow);
+      .bimdata-btn {
+        background-color: var(--color-silver-light);
+      }
     }
 
     &.disabled {
@@ -36,10 +34,28 @@
         color: var(--color-silver-dark);
       }
     }
+
+    &.border{
+      border-color: var(--color-silver);
+    }
+
+    &.dark.border {
+      border-color: var(--color-quaternary-lighter);
+    }
+
+    &.dark {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
+      &.active {
+        .bimdata-btn {
+          background-color: var(--color-quaternary-dark);
+        }
+      }
+    }
   }
 
-  .bimdata-paginated-list {
-    &__elements {
+  &:deep(.bimdata-paginated-list) {
+    .bimdata-paginated-list__elements {
       font-size: 11px;
     }
 

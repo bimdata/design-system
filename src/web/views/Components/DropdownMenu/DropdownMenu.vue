@@ -1,9 +1,11 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        >{{ $route.name }}</BIMDataText
+      >
       <ComponentCode componentTitle="DropdownMenu" language="javascript">
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
@@ -13,6 +15,8 @@
             :directionClass="selectedDropdownOptionsdirection"
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
             :header="checkboxDisabledHeader"
+            :dark="checkboxDarkmodeChecked"
+            :border="checkboxBorderChecked"
           >
             <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
               <span>dropdown menu example</span>
@@ -28,28 +32,62 @@
 
         <!-- bloc PARAMETERS - right side -->
         <template #parameters>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >modifiers</BIMDataText
           >
           <BIMDataCheckbox
             class="m-y-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="header"
             v-model="checkboxDisabledHeader"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <div class="m-t-12">
+            <BIMDataText
+              component="h5"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+              >style</BIMDataText
+            >
+            <BIMDataCheckbox
+              margin="12px 0 0"
+              text="dark"
+              v-model="checkboxDarkmodeChecked"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+            <BIMDataCheckbox
+              margin="0 0 12px"
+              text="border"
+              v-model="checkboxBorderChecked"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+          </div>
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >two level list</BIMDataText
           >
           <BIMDataCheckbox
             class="m-y-12"
             text="content"
             v-model="checkboxTwoLevelChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
 
@@ -59,7 +97,9 @@
           >
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               margin="15px 0 10px"
               >{{ key }}</BIMDataText
             >
@@ -70,16 +110,30 @@
               :id="value"
               :value="value"
               :name="key"
+              :dark="currentTheme === 'theme-dark' ? true : false"
               v-model="$data[`selectedDropdownOptions${key}`]"
             >
             </BIMDataRadio>
           </div>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >slots</BIMDataText
           >
-          <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
+          <BIMDataCheckbox
+            text="header"
+            v-model="checkboxHeaderChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          >
           </BIMDataCheckbox>
-          <BIMDataCheckbox text="element" v-model="checkboxElementSlotChecked">
+          <BIMDataCheckbox
+            text="element"
+            v-model="checkboxElementSlotChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          >
           </BIMDataCheckbox>
         </template>
 
@@ -93,6 +147,8 @@
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
               :header="{{ getHeaderProp() }}"
+              :dark="{{ checkboxDarkmodeChecked }}"
+              :border="{{ checkboxBorderChecked }}"
               {{ getMenuItems() }}
             &gt;
               {{ getHeader() }} {{ getElement() }}
@@ -113,13 +169,16 @@
         <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
           >Slots:</BIMDataText
         >
-        <BIMDataTable :columns="slotData[0]" :rows="slotData.slice(1)" />
+        <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import propsData from "./props-data";
+import slotsData from "./slots-data";
+
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
@@ -128,9 +187,13 @@ export default {
   },
   data() {
     return {
+      propsData,
+      slotsData,
       checkboxDisabledChecked: false,
       checkboxTwoLevelChecked: false,
       checkboxHeaderChecked: true,
+      checkboxDarkmodeChecked: false,
+      checkboxBorderChecked: true,
       checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
       checkboxElementSlotChecked: true,
@@ -164,72 +227,9 @@ export default {
           },
         },
       ],
-      propsData: [
-        ["Props", "Type", "Default value", "Validator", "Description"],
-        ["disabled", "Boolean", "false", "", ""],
-        [
-          "transitionName",
-          "String",
-          "'up'",
-          "'up' or 'down' values",
-          "Use this props to choose the opening transition of the submenu",
-        ],
-        [
-          "directionClass",
-          "String",
-          "'down'",
-          "'up', 'down', 'right' or 'left' values",
-          "Use this props to choose the opening of the submenu.",
-        ],
-        [
-          "width",
-          "String",
-          "220px",
-          "",
-          "Use this props to custom width of BIMDataDropdownList component.",
-        ],
-        [
-          "height",
-          "String",
-          "36px",
-          "",
-          "Use this props to custom height of BIMDataDropdownList component.",
-        ],
-        [
-          "header",
-          "Boolean",
-          "true",
-          "",
-          "Use this props to not display the header.",
-        ],
-        [
-          "menuItems",
-          "Array",
-          "[]",
-          "",
-          "Use this props to add content with two level of nesting",
-        ],
-        [
-          "subListMaxHeight",
-          "String",
-          "auto",
-          "",
-          "Use this props to define the sub-list maximum height",
-        ],
-      ],
-      slotData: [
-        ["Slot name", "Description"],
-        [
-          "header",
-          "Use this slot to add title content. Available slot props : isOpen (true when the menu is open)",
-        ],
-        [
-          "element",
-          "Use this slot to custom dropdown menu element content. You can put a list like the example above, or any other element or component of your choice.",
-        ],
-      ],
     };
   },
+  inject: ["theme"],
   methods: {
     getHeader() {
       if (this.checkboxHeaderChecked) {
@@ -264,6 +264,11 @@ export default {
       } else {
         return false;
       }
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

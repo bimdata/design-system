@@ -107,4 +107,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataMenuInline.scss"></style>
+<style scoped src="./BIMDataMenuInline.css"></style>

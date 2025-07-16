@@ -10,6 +10,7 @@
     <ul
       ref="container"
       class="bimdata-tabs__container"
+      :class="{ dark }"
       :style="{
         width: containerWidth,
         minHeight: containerHeight,
@@ -66,6 +67,10 @@ export default {
     },
     selected: {
       type: [String, Number],
+    },
+    dark: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["tab-click", "tab-selected"],
@@ -143,7 +148,7 @@ export default {
       if (this.tabs.length > 0) {
         let cw = this.$refs.container.offsetWidth;
         let tw = this.$refs.container.querySelector(
-          ".bimdata-tabs__container__tab"
+          ".bimdata-tabs__container__tab",
         ).offsetWidth;
 
         const shouldComputeScrollValues =
@@ -151,7 +156,7 @@ export default {
 
         if (shouldComputeScrollValues) {
           this.scrollValues = [0].concat(
-            this.tabs.map((_, i) => (i + 1) * tw - cw).filter(v => v > 0)
+            this.tabs.map((_, i) => (i + 1) * tw - cw).filter(v => v > 0),
           );
         } else {
           this.scrollValues = [];
@@ -162,4 +167,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataTabs.scss"></style>
+<style scoped src="./BIMDataTabs.css"></style>

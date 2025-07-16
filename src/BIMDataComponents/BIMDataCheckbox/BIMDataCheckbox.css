@@ -1,12 +1,10 @@
-@use "../../assets/scss/mixins/_font-size.scss";
-
-//custom LABEL
+/* custom LABEL */
 .bimdata-checkbox {
   position: relative;
   display: flex;
   align-items: center;
   font-family: var(--primary-font);
-  font-size: font-size.calculateEm(14px);
+  font-size: 14px;
   cursor: pointer;
   user-select: none;
   :after,
@@ -14,8 +12,8 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  // custom CHECKMARK
-  &__mark {
+  /* custom CHECKMARK */
+  .bimdata-checkbox__mark {
     width: 13px;
     height: 13px;
     position: relative;
@@ -37,13 +35,36 @@
       transform: rotate(45deg);
     }
   }
-  // custom TEXT CHECKBOX
-  &__text {
+  /* custom TEXT CHECKBOX */
+  .bimdata-checkbox__text {
     width: calc(100% - 13px - 5px);
     margin-left: 6px;
-    font-size: font-size.calculateEm(12px);
+    font-size: 12px;
+  }
+  /* custom DARK CHECKBOX */
+  &.dark {
+    .bimdata-checkbox__mark {
+      border-color: var(--color-quaternary-lighter);
+      &::after {
+        border-color: var(--color-quaternary-lighter);
+      }
+    }
+    .bimdata-checkbox__text {
+      color: var(--color-quaternary-lighter);
+    }
+    &.checked {
+      & > .bimdata-checkbox__mark,
+      .bimdata-checkbox.indeterminate > .bimdata-checkbox__mark {
+        background-color: var(--color-quaternary-lighter);
+      }
+      &.bimdata-checkbox:not(.indeterminate) > .bimdata-checkbox__mark::after,
+      &.bimdata-checkbox.checked > .bimdata-checkbox__mark::after {
+        border-color: var(--color-quaternary);
+      }
+    }
   }
 }
+
 
 /* custom CHECKMARK CHECKED ------------------------------------ */
 .bimdata-checkbox.checked > .bimdata-checkbox__mark,
@@ -71,7 +92,7 @@
 .bimdata-checkbox {
   &.disabled {
     cursor: default;
-    & > .bimdata-checkbox__mark {
+    .bimdata-checkbox__mark {
       border-color: var(--color-silver-dark);
     }
     > .bimdata-checkbox__text {
@@ -79,7 +100,7 @@
     }
   }
   &.checked.disabled {
-    & > .bimdata-checkbox__mark {
+    .bimdata-checkbox__mark {
       background-color: var(--color-silver-dark);
     }
   }

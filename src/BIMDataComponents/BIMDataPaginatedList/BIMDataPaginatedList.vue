@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-paginated-list">
+  <div class="bimdata-paginated-list" :class="{ dark }" :style="style">
     <BIMDataSpinner v-if="loading" />
     <div v-else>
       <slot name="header"></slot>
@@ -30,6 +30,7 @@
         :last="last"
         :numberDataElements="numberDataElements"
         :backgroundColor="backgroundColor"
+        :dark="dark"
       />
     </div>
   </div>
@@ -83,6 +84,14 @@ export default {
     activeElement: {
       type: [String, Number, Object],
     },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+    borderRadius: {
+      type: String,
+      default: "3px",
+    },
   },
   emits: ["element-click"],
   data() {
@@ -98,6 +107,18 @@ export default {
       const startIndex = this.perPage * (this.currentPage - 1);
       const endIndex = startIndex + this.perPage;
       return this.list.slice(startIndex, endIndex);
+    },
+    style() {
+      const value = parseInt(this.borderRadius, 10);
+      if (value > 10) {
+        return {
+          "border-radius": "10px",
+        };
+      } else {
+        return {
+          "border-radius": `${this.borderRadius}`,
+        };
+      }
     },
   },
   watch: {
@@ -136,7 +157,7 @@ export default {
     },
     async showElement(elem) {
       const elementIndex = this.list.findIndex(listElement =>
-        this.compareElements(elem, listElement)
+        this.compareElements(elem, listElement),
       );
       if (elementIndex === -1) return;
       const startIndex = this.perPage * (this.currentPage - 1);
@@ -156,4 +177,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataPaginatedList.scss"></style>
+<style scoped lang="scss" src="./BIMDataPaginatedList.css"></style>

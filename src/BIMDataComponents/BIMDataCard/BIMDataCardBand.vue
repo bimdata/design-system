@@ -18,4 +18,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataCardBrand.scss"></style>
+<style scoped src="./BIMDataCardBrand.css"></style>

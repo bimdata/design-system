@@ -1,7 +1,7 @@
 <template>
   <main class="article variables">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         Variables
       </BIMDataText>
       <BIMDataText margin="12px 0">

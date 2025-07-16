@@ -4,7 +4,7 @@
   height: 38px;
   justify-content: center;
   align-items: center;
-  &__item {
+  .bimdata-navigation__item {
     padding: 6px 2px;
 
     .bimdata-btn {
@@ -19,10 +19,14 @@
     }
   }
 
-  &__left,
-  &__right {
+  .bimdata-navigation__left,
+  .bimdata-navigation__right {
     padding: 6px 2px;
     font-size: 10px;
     cursor: default;
+  }
+
+  &.dark {
+    
   }
 }

@@ -16,4 +16,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("AddFile", AddFile);
 </script>
 
-<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped src="../BIMDataIcon.css"></style>

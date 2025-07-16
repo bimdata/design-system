@@ -1,9 +1,11 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        >{{ $route.name }}</BIMDataText
+      >
       <ComponentCode componentTitle="DropdownList" language="javascript">
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
@@ -18,7 +20,10 @@
             :closeOnElementClick="checkboxCloseOnElementClickChecked"
             @element-click="onItemClick"
             :search="checkboxSearchChecked"
+            :dark="checkboxDarkmodeChecked"
+            :border="checkboxBorderChecked"
             :elementLabelKey="elementLabelKey"
+            :borderRadius="numberBorderRadius"
           >
             <template #header v-if="checkboxHeaderChecked">
               <span v-if="selectedItem">{{ item }}</span>
@@ -35,7 +40,8 @@
                 <BIMDataIcon
                   name="chevron"
                   size="xxxs"
-                  class="fill-primary"
+                  fill
+                  :color="!dark ? 'primary' : 'quaternary-lighter'"
                   margin="0 6px 0 0"
                 />
                 <span v-if="optionSet === 'object'">{{ element.label }}</span>
@@ -47,44 +53,83 @@
 
         <!-- bloc PARAMETERS - right side -->
         <template #parameters>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >modifiers</BIMDataText
           >
           <BIMDataCheckbox
             class="m-y-12"
             text="Disabled"
             v-model="checkboxDisabledChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="Loading"
             v-model="checkboxLoadingChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="Close on element click"
             v-model="checkboxCloseOnElementClickChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="Search"
             v-model="checkboxSearchChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
-            class="m-t-30"
             v-model="numberInput"
             placeholder="Number of items per page"
             type="number"
+            backgroundColor="white"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           ></BIMDataInput>
+          <BIMDataInput
+            v-model="numberBorderRadius"
+            placeholder="Border radius"
+            backgroundColor="white"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          ></BIMDataInput>
+          <div class="m-t-18 m-b-36">
+            <BIMDataText
+              component="h5"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+              >style</BIMDataText
+            >
+            <BIMDataCheckbox
+              margin="12px 0 0"
+              text="dark"
+              v-model="checkboxDarkmodeChecked"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+            <BIMDataCheckbox
+              margin="0 0 12px"
+              text="border"
+              v-model="checkboxBorderChecked"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+          </div>
           <div class="m-t-24">
             <BIMDataSelect
               label="Option set"
               :options="['string', 'object']"
               :modelValue="optionSet"
               @update:modelValue="changeOptionSet"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+              :color="currentTheme === 'theme-dark' ? 'quaternary' : 'tertiary-light'"
             />
           </div>
           <div
@@ -93,7 +138,9 @@
           >
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               margin="15px 0 10px"
               >{{ key }}</BIMDataText
             >
@@ -104,23 +151,42 @@
               :id="value"
               :value="value"
               :name="key"
+              :dark="currentTheme === 'theme-dark' ? true : false"
               v-model="$data[`selectedDropdownOptions${key}`]"
             >
             </BIMDataRadio>
           </div>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >slots</BIMDataText
           >
-          <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
+          <BIMDataCheckbox
+            text="header"
+            v-model="checkboxHeaderChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="contentAfterBtn"
             v-model="checkboxAfterBtnChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
-          <BIMDataCheckbox text="element" v-model="checkboxElementChecked">
+          <BIMDataCheckbox
+            text="element"
+            v-model="checkboxElementChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          >
           </BIMDataCheckbox>
-          <BIMDataCheckbox text="empty" v-model="checkboxEmptyChecked" />
+          <BIMDataCheckbox
+            text="empty"
+            v-model="checkboxEmptyChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          />
         </template>
 
         <!-- bloc IMPORTS LINES CODE -->
@@ -132,7 +198,10 @@
           <pre>
             &lt;BIMDataDropdownList
               :list="list"
+              :dark="{{ checkboxDarkmodeChecked }}"
+              :border="{{ checkboxBorderChecked }}"
               :perPage="{{ numberInput }}"
+              :borderRadius="{{ numberBorderRadius }}"
               elementKey="dropdown"
               {{ checkboxLoadingChecked ? ':loading="true"' : "" }}
               {{ checkboxDisabledChecked ? ':disabled="true"' : "" }}
@@ -193,10 +262,13 @@ export default {
     return {
       selectedItem: null,
       numberInput: 6,
+      numberBorderRadius: "3px",
       checkboxDisabledChecked: false,
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
       checkboxSearchChecked: false,
+      checkboxDarkmodeChecked: false,
+      checkboxBorderChecked: true,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
       checkboxElementChecked: false,
@@ -216,9 +288,13 @@ export default {
       eventsData,
     };
   },
+  inject: ["theme"],
   computed: {
     item() {
       return this.selectedItem;
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {
@@ -245,7 +321,7 @@ export default {
       if (this.checkboxElementChecked && this.optionSet === "object") {
         return `<template #element="{ element }">
                 <div class="flex items-center">
-                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  <BIMDataIconChevron size="xxxs" fill :color="!dark ? 'primary' : 'quaternary-lighter'" margin="0 6px 0 0" />
                   {{ element.label }}
                 </div>
              </template>`;
@@ -253,7 +329,7 @@ export default {
       if (this.checkboxElementChecked && this.optionSet === "string") {
         return `<template #element="{ element }">
                 <div class="flex items-center">
-                  <BIMDataIconChevron size="xxxs" class="fill-primary" margin="0 6px 0 0" />
+                  <BIMDataIconChevron size="xxxs" fill :color="!dark ? 'primary' : 'quaternary-lighter'" margin="0 6px 0 0" />
                   {{ element }}
                 </div>
              </template>`;

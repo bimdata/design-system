@@ -17,4 +17,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Detach", Detach);
 </script>
 
-<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped src="../BIMDataIcon.css"></style>

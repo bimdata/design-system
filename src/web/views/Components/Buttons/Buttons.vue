@@ -1,7 +1,10 @@
 <template>
   <main class="article article-buttons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <div class="button-overview">
@@ -15,9 +18,10 @@
             <BIMDataButton
               :width="widthButton"
               :height="heightButton"
+              :size="fontSizeButton"
+              :padding="paddingButton"
               :disabled="getButtonDisabled()"
               :class="getOverviewButtonClasses()"
-              :color="selectedBtnOptionsvalues"
               :icon="checkboxIconChecked && !checkboxTextChecked"
             >
               <BIMDataIconChevron
@@ -28,6 +32,7 @@
               <span v-if="checkboxTextChecked">
                 BIMData button {{ selectedBtnOptionstypes }}
                 {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsvalues }}
+                {{ selectedBtnOptionsweight }}
               </span>
             </BIMDataButton>
           </template>
@@ -37,7 +42,11 @@
               <BIMDataText
                 component="h5"
                 margin="15px 0 10px"
-                color="color-primary"
+                :color="
+                  currentTheme === 'theme-dark'
+                    ? 'color-white'
+                    : 'color-primary'
+                "
               >
                 {{ key }}
               </BIMDataText>
@@ -48,6 +57,7 @@
                 :id="value"
                 :value="value"
                 :name="key"
+                :dark="currentTheme === 'theme-dark' ? true : false"
                 v-model="$data[`selectedBtnOptions${key}`]"
               >
               </BIMDataRadio>
@@ -56,36 +66,67 @@
               <BIMDataText
                 component="h5"
                 margin="15px 0 10px"
-                color="color-primary"
+                :color="
+                  currentTheme === 'theme-dark'
+                    ? 'color-white'
+                    : 'color-primary'
+                "
               >
                 modifiers
               </BIMDataText>
               <BIMDataCheckbox
                 text="icon"
                 v-model="checkboxIconChecked"
-                :disabled="checkboxIconDisabled"
+                :dark="currentTheme === 'theme-dark' ? true : false"
               />
               <BIMDataCheckbox
                 text="text"
                 v-model="checkboxTextChecked"
-                :disabled="checkboxTextDisabled"
+                :dark="currentTheme === 'theme-dark' ? true : false"
               />
               <BIMDataCheckbox
                 text="disabled"
                 v-model="checkboxDisabledChecked"
+                :dark="currentTheme === 'theme-dark' ? true : false"
               />
             </div>
 
-            <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+            <BIMDataText
+              component="h5"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+              margin="15px 0 0"
+            >
               size
             </BIMDataText>
             <BIMDataInput
               v-model="widthButton"
-              placeholder="button's min-width in px or %"
+              backgroundColor="white"
+              placeholder="min-width in px or %"
+              margin="12px 0px 18px"
+              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataInput
               v-model="heightButton"
-              placeholder="button's min-height in px or %"
+              backgroundColor="white"
+              placeholder="min-height in px or %"
+              margin="18px 0px"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+            <BIMDataInput
+              v-model="fontSizeButton"
+              backgroundColor="white"
+              placeholder="font-size in px"
+              margin="18px 0px"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+            <BIMDataInput
+              v-model="paddingButton"
+              backgroundColor="white"
+              placeholder="padding in px"
+              margin="18px 0px"
+              :dark="currentTheme === 'theme-dark' ? true : false"
             />
           </template>
 
@@ -97,9 +138,11 @@
             <pre>
               &lt;BIMDataButton color="{{ selectedBtnOptionsvalues }}" {{
                 selectedBtnOptionstypes
-              }} {{ selectedBtnOptionskinds }} {{ getIconClass() }} {{
-                getButtonDisabled()
-              }} {{ getWidthBtn() }} {{ getHeightBtn() }}&gt;
+              }} {{ selectedBtnOptionskinds }} {{ selectedBtnOptionsweight }} {{
+                getIconClass()
+              }} {{ getButtonDisabled() }} {{ getWidthBtn() }} {{
+                getHeightBtn()
+              }} {{ getFontSizeBtn() }} {{ getPaddingBtn() }}&gt;
                 {{ getIcon() }}
                 {{ getText() }}
               &lt;/BIMDataButton&gt;
@@ -108,7 +151,13 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+          <BIMDataText
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 0"
+            color="color-primary"
+          >
             Props:
           </BIMDataText>
           <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
@@ -129,57 +178,40 @@ export default {
   components: {
     ComponentCode,
   },
+  inject: ["theme"],
   data() {
     return {
       message: "",
       widthButton: "32px",
       heightButton: "32px",
+      fontSizeButton: "15px",
+      paddingButton: "0px 1rem",
       checkboxIconChecked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
       selectedBtnOptionsicons: "icon",
       selectedBtnOptionstypes: "fill",
-      selectedBtnOptionskinds: "radius",
+      selectedBtnOptionskinds: "rounded",
       selectedBtnOptionsvalues: "primary",
+      selectedBtnOptionsweight: "normal",
       btnOptions: {
-        types: ["fill", "outline", "ghost", "ripple"],
-        kinds: ["radius", "square", "rounded"],
+        types: ["fill", "ghost", "outline", "ripple"],
+        kinds: ["radius", "rounded", "square"],
         values: colors,
+        weight: ["normal", "light", "bold"],
       },
       propsData,
     };
   },
   computed: {
-    checkboxTextDisabled() {
-      return (
-        this.selectedBtnOptionskinds === "rounded" ||
-        this.checkboxIconChecked === false
-      );
-    },
-    checkboxIconDisabled() {
-      return (
-        this.selectedBtnOptionskinds === "rounded" ||
-        this.checkboxTextChecked === false
-      );
-    },
     buttonDisabled() {
       if (this.checkboxDisabledChecked === true) {
         return ":disabled='disabled'";
       }
       return "";
     },
-  },
-  watch: {
-    selectedBtnOptionskinds: {
-      handler(newValue, oldValue) {
-        if (newValue === "rounded") {
-          this.checkboxTextChecked = false;
-          this.checkboxIconChecked = true;
-        } else if (oldValue === "rounded") {
-          this.checkboxTextChecked = true;
-        }
-      },
-      deep: true,
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {
@@ -193,7 +225,7 @@ export default {
         }`;
     },
     getOverviewButtonClasses() {
-      return `bimdata-btn__${this.selectedBtnOptionstypes} bimdata-btn__${this.selectedBtnOptionstypes}--${this.selectedBtnOptionsvalues} bimdata-btn__${this.selectedBtnOptionskinds}`;
+      return `${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues} ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionsweight}`;
     },
     getIcon() {
       if (this.checkboxIconChecked && this.checkboxTextChecked) {
@@ -205,7 +237,7 @@ export default {
     },
     getText() {
       if (this.checkboxTextChecked && this.checkboxIconChecked) {
-        return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}</span>`;
+        return `<span>Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues} ${this.selectedBtnOptionsweight} </span>`;
       }
       if (this.checkboxTextChecked) {
         return `Button ${this.selectedBtnOptionskinds} ${this.selectedBtnOptionstypes} ${this.selectedBtnOptionsvalues}`;
@@ -238,6 +270,16 @@ export default {
     getHeightBtn() {
       if (this.heightButton != "32px") {
         return `height="${this.heightButton}"`;
+      }
+    },
+    getFontSizeBtn() {
+      if (this.fontSizeButton != "15px") {
+        return `size="${this.fontSizeButton}"`;
+      }
+    },
+    getPaddingBtn() {
+      if (this.paddingButton != "0px 1rem") {
+        return `padding="${this.paddingButton}"`;
       }
     },
   },

@@ -1,11 +1,14 @@
 <template>
   <div class="bimdata-ds__demo">
-    <BIMDataText component="h3" color="color-primary" margin="10px 0"
+    <BIMDataText component="h3" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'" margin="10px 0"
       >Examples</BIMDataText
     >
     <div
       class="bimdata-ds__demo__module"
       :class="{ 'without-options': !componentTitle }"
+      :style="{
+        backgroundColor: currentTheme === 'theme-dark' ? 'var(--color-ds-dark-background)' : '#ffffff',
+      }"
     >
       <slot name="module"></slot>
     </div>
@@ -14,8 +17,8 @@
       <div class="bimdata-ds__demo__parameters__options">
         <BIMDataText
           component="h4"
-          color="color-primary"
-          margin="12px 0 24px"
+          :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+          margin="12px 0"
           display="block"
           >{{ componentTitle }} options</BIMDataText
         >
@@ -101,6 +104,7 @@ export default {
       default: null,
     },
   },
+  inject: ['theme'],
   data() {
     return {
       alerts: false,
@@ -116,6 +120,11 @@ export default {
       setTimeout(() => {
         this.alerts = false;
       }, 3000);
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

@@ -31,4 +31,10 @@ export default [
     "false",
     ""
   ],
+  [
+    "dark",
+    "boolean",
+    "false",
+    ""
+  ],
 ];

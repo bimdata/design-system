@@ -9,13 +9,20 @@
     :nextDisabled="isLastPage"
     :lastDisabled="isLastPage"
     class="bimdata-pagination"
+    :class="{ dark }"
     :backgroundColor="backgroundColor"
+    :dark="dark"
   >
     <template #left v-if="numberDataElements">
       {{ firstIndex }} - {{ lastIndex }} of {{ length }}
     </template>
     <span class="bimdata-pagination__item">
-      <BIMDataButton ghost width="21px" height="21px">
+      <BIMDataButton
+        ghost
+        :color="!dark ? 'default' : 'quaternary'"
+        width="21px"
+        height="21px"
+      >
         {{ currentPage }}
       </BIMDataButton>
     </span>
@@ -58,6 +65,10 @@ export default {
       validator: value => {
         return value > 0;
       },
+    },
+    dark: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["pagechanged"],

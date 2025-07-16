@@ -1,7 +1,7 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <h2>Basic input</h2>
@@ -9,18 +9,32 @@
         <template #module>
           <BIMDataInput
             v-model="textInput"
-            placeholder="Your placeholder here"
+            :placeholder="placeholderInput"
+            :label="labelInput"
             :error="error"
             :success="success"
-            :errorMessage="getErrorMessage()"
-            :successMessage="getSuccessMessage()"
-            :loading="getLoading()"
-            :disabled="getDisabled()"
+            :error-message="
+              error && errorMessage ? 'your error message here' : undefined
+            "
+            :success-message="
+              success && successMessage
+                ? 'your success message here'
+                : undefined
+            "
+            :loading="loading"
+            :disabled="disabled"
             :margin="marginInput"
+            :backgroundColor="backgroundColorInput"
+            :borderRadius="borderRadiusInput"
+            :dark="dark"
+            :isLabel="isLabel"
+            :height="heightInput"
           >
-            >
+            <template #leftInputIcon v-if="leftInputIcon">
+              <BIMDataIconShow class="fill-granite-light" margin="6px" />
+            </template>
             <template #inputIcon v-if="inputIcon">
-              <BIMDataIconShow class="fill-granite-light" />
+              <BIMDataIconShow class="fill-granite-light" margin="6px" />
             </template>
           </BIMDataInput>
         </template>
@@ -46,9 +60,12 @@
             v-model="successMessage"
             :disabled="error || errorMessage"
           />
-          <BIMDataCheckbox text="icon" v-model="inputIcon" />
+          <BIMDataCheckbox text="left icon" v-model="leftInputIcon" />
+          <BIMDataCheckbox text="right icon" v-model="inputIcon" />
           <BIMDataCheckbox text="loading" v-model="loading" />
           <BIMDataCheckbox text="disabled" v-model="disabled" />
+          <BIMDataCheckbox text="dark" v-model="dark" />
+          <BIMDataCheckbox text="add label" v-model="isLabel" />
 
           <div>
             <BIMDataText
@@ -56,9 +73,40 @@
               color="color-primary"
               margin="15px 0 10px"
             >
-              Margin
+              Modifiers
             </BIMDataText>
-            <BIMDataInput v-model="marginInput" placeholder="Change margin" />
+            <BIMDataInput
+              v-model="labelInput"
+              label="Change label"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="placeholderInput"
+              label="Change placeholder"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="marginInput"
+              label="Change margin"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="backgroundColorInput"
+              label="Change background-color"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="heightInput"
+              label="Change height"
+              backgroundColor="white"
+              height="40px"
+            />
+            <BIMDataInput
+              v-model="borderRadiusInput"
+              label="Change border-radius"
+              backgroundColor="white"
+              height="40px"
+            />
           </div>
         </template>
 
@@ -68,18 +116,14 @@
 
         <template #code>
           <pre>
-            &lt;BIMDataInput
-              v-model="textInput"
-              placeholder="Your placeholder here"
-              :error="!textInput"
-              errorMessage="your error message here"
-              :loading="{{ getLoading() }}"
-              {{ getMargin() }}
-            &gt;
-
-          {{ getInputIcon() }}
-            &lt;/BIMDataInput&gt;
-          </pre>
+&lt;BIMDataInput
+  v-model="textInput"
+  {{ getInputAttributes() }}
+&gt;
+{{ getSlotTemplates() }}
+&lt;/BIMDataInput&gt;
+  </pre
+          >
         </template>
       </ComponentCode>
 
@@ -135,6 +179,7 @@ export default {
   },
   data() {
     return {
+      // State
       textInput: "",
       error: false,
       success: false,
@@ -142,12 +187,32 @@ export default {
       successMessage: false,
       loading: false,
       disabled: false,
+      dark: false,
+
+      // Display
       inputIcon: false,
+      leftInputIcon: false,
+      isLabel: true,
+
+      // Styling
+      labelInput: "Your label here",
+      placeholderInput: "Your placeholder here",
       marginInput: "12px 0px",
+      backgroundColorInput: "var(--color-silver-light)",
+      heightInput: "32px",
+      borderRadiusInput: "8px",
+
+      // Documentation
       propsData,
       eventsData,
       slotsData,
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
   methods: {
     getImportContent() {
@@ -159,34 +224,50 @@ export default {
             : ""
         }`;
     },
-    getErrorMessage() {
-      if (this.error && this.errorMessage) {
-        return "your error message here";
+    getInputAttributes() {
+      const attrs = [];
+
+      if (this.labelInput) attrs.push(`label="${this.labelInput}"`);
+      if (this.placeholderInput)
+        attrs.push(`placeholder="${this.placeholderInput}"`);
+      if (this.backgroundColorInput)
+        attrs.push(`backgroundColor="${this.backgroundColorInput}"`);
+      if (this.borderRadiusInput)
+        attrs.push(`borderRadius="${this.borderRadiusInput}"`);
+      if (this.isLabel !== true) attrs.push(`:isLabel="${this.isLabel}"`);
+      if (this.loading) attrs.push(`:loading="true"`);
+      if (this.disabled) attrs.push(`:disabled="true"`);
+      if (this.marginInput !== "12px 0px")
+        attrs.push(`margin="${this.marginInput}"`);
+
+      // Error/success
+      if (this.error) attrs.push(`:error="true"`);
+      if (this.errorMessage)
+        attrs.push(`errorMessage="your error message here"`);
+      if (this.success) attrs.push(`:success="true"`);
+      if (this.successMessage)
+        attrs.push(`successMessage="your success message here"`);
+
+      return attrs.join("\n  ");
+    },
+    getSlotTemplates() {
+      const slots = [];
+
+      if (this.leftInputIcon) {
+        slots.push(`
+  <template #leftInputIcon>
+    <BIMDataIconShow class="fill-granite-light" margin="6px" />
+  </template>`);
       }
-    },
-    getSuccessMessage() {
-      if (this.success && this.successMessage) {
-        return "your success message here";
-      }
-    },
-    getLoading() {
-      return this.loading;
-    },
-    getDisabled() {
-      return this.disabled;
-    },
-    getInputIcon() {
+
       if (this.inputIcon) {
-        return `
-        <template #inputIcon v-if="inputIcon">
-          <BIMDataIconShow class="fill-granite-light"/>"
-        </template>`;
+        slots.push(`
+  <template #inputIcon>
+    <BIMDataIconShow class="fill-granite-light" margin="6px" />
+  </template>`);
       }
-    },
-    getMargin() {
-      if (this.marginInput != "12px 0px") {
-        return `margin="${this.marginInput}"`;
-      }
+
+      return slots.join("\n");
     },
   },
 };

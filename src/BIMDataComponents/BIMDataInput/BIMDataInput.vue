@@ -6,32 +6,48 @@
       success,
       disabled,
       loading,
+      dark,
       empty:
         modelValue === undefined || modelValue === null || modelValue === '',
     }"
     :style="style"
   >
-    <input
-      ref="input"
-      :id="`bimdata-input-${uuid}`"
-      @input="$emit('update:modelValue', $event.currentTarget.value)"
-      :disabled="disabled"
-      :value="modelValue"
-      @focus="
-        $event.target.select();
-        $emit('focus', $event);
-      "
-      @blur="$emit('blur', $event)"
-      @keypress="$emit('keypress', $event)"
-      @change="$emit('change', $event)"
-      :autocomplete="autocomplete ? 'on' : 'off'"
-      v-bind="$attrs"
-    />
-    <div class="bimdata-input__icon">
-      <slot name="inputIcon"></slot>
+    <label v-if="isLabel && computedLabel !== ''" :for="`bimdata-input-${uuid}`">{{
+      computedLabel
+    }}</label>
+    <div class="bimdata-input__content" style="position: relative;" :style="{
+          'background-color': backgroundColor,
+          'border-radius': borderRadius,
+        }">
+      <div class="bimdata-input__icon left-icon">
+        <slot name="leftInputIcon"></slot>
+      </div>
+      <input
+        ref="input"
+        :id="`bimdata-input-${uuid}`"
+        @input="$emit('update:modelValue', $event.currentTarget.value)"
+        :disabled="disabled"
+        :value="modelValue"
+        @focus="
+          $event.target.select();
+          $emit('focus', $event);
+        "
+        @blur="$emit('blur', $event)"
+        @keypress="$emit('keypress', $event)"
+        @change="$emit('change', $event)"
+        :autocomplete="autocomplete ? 'on' : 'off'"
+        v-bind="$attrs"
+        :placeholder="placeholder"
+        :style="{
+          padding: padding,
+          height: height,
+        }"
+      />
+      <div class="bimdata-input__icon">
+        <slot name="inputIcon"></slot>
+      </div>
     </div>
-    <label :for="`bimdata-input-${uuid}`">{{ placeholder }}</label>
-    <span class="bar"></span>
+    <div v-if="loading" class="bar"></div>
     <span v-if="error" class="error">{{ errorMessage }}</span>
     <span v-if="success" class="success">{{ successMessage }}</span>
   </div>
@@ -51,6 +67,10 @@ export default {
       default: "",
     },
     placeholder: {
+      type: String,
+      default: "",
+    },
+    label: {
       type: String,
       default: "",
     },
@@ -82,7 +102,31 @@ export default {
       type: String,
       default: "12px 0px",
     },
+    padding: {
+      type: String,
+      default: "0px 12px",
+    },
     autocomplete: {
+      type: Boolean,
+      default: false,
+    },
+    height: {
+      type: String,
+      default: "32px",
+    },
+    backgroundColor: {
+      type: String,
+      default: "var(--color-silver-light)",
+    },
+    borderRadius: {
+      type: String,
+      default: "8px",
+    },
+    isLabel: {
+      type: Boolean,
+      default: true,
+    },
+    dark: {
       type: Boolean,
       default: false,
     },
@@ -93,6 +137,10 @@ export default {
       return {
         margin: `${this.margin}`,
       };
+    },
+    computedLabel() {
+      // Si `label` est vide, utilise la valeur de `placeholder`
+      return this.label || this.placeholder;
     },
   },
   beforeCreate() {
@@ -120,4 +168,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataInput.scss"></style>
+<style scoped src="./BIMDataInput.css"></style>

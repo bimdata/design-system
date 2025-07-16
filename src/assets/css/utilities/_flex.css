@@ -3,13 +3,16 @@
     display: flex;
   }
 
-  /* flex direction */
-  .flex-row{
-    flex-direction: row;
-  }
-  .flex-col{
-    flex-direction: column;
-  }
+/* flex direction */
+.flex-row{
+  flex-direction: row;
+}
+.flex-col{
+  flex-direction: column;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
 
   .inline-flex {
     display: inline-flex;

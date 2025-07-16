@@ -1,7 +1,7 @@
 <template>
   <main class="article typography">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <div class="typography-size m-y-12">

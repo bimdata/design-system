@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-dropdown" v-clickaway="away">
+  <div class="bimdata-dropdown" v-clickaway="away" :class="{dark, border}">
     <div
       class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
@@ -115,6 +115,14 @@ export default {
       type: String,
       default: "auto",
     },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+    border: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -200,4 +208,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataDropdownMenu.scss"></style>
+<style scoped src="./BIMDataDropdownMenu.css"></style>

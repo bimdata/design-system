@@ -11,7 +11,7 @@
   }
   &__silver-light {
     .bimdata-ds__demo__module {
-      background-color: var(--color-silver-light);
+      background-color: var(--color-ds-dark-background);
     }
   }
   &__module {
@@ -29,7 +29,7 @@
   }
   &__parameters {
     grid-area: 2 / 3 / 4 / 4;
-    background-color: var(--color-silver-light);
+    background-color: var(--color-ds-dark-background);
     &__options {
       padding: 24px;
       line-height: 1.5;
@@ -61,7 +61,7 @@
     position: relative;
     pre {
       margin: 0;
-      background: #32343e;
+      background: var(--color-ds-light-pre);
     }
     &__language {
       position: absolute;
@@ -77,7 +77,7 @@
     position: relative;
     pre {
       margin: 0;
-      background: #282b34;
+      background: var(--color-ds-dark-pre);
     }
   }
 }

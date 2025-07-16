@@ -1,54 +1,55 @@
 /* Custom SUBMENU ------------------------ */
-
 .submenu {
   position: absolute;
   top: 0;
   box-shadow: var(--box-shadow);
   background-color: var(--color-white);
+  &:is(.submenu--up, .submenu--down, .submenu--left, .submenu--right, .submenu--no-direction)
+  {
+   padding: calc(var(--spacing-unit) / 2) 0;
+   width: 100%;
+   left: 0;
+   z-index: 2;
+  }
+  &.submenu--up {
+    top: auto;
+    bottom: calc(100% + calc(var(--spacing-unit)) / 2);
+  }
+  
+  &.submenu--down {
+    top: calc(100% + calc(var(--spacing-unit)) / 2);
+  }
+  
+  &.submenu--right {
+    left: calc(100% + calc(var(--spacing-unit)) / 2);
+    right: auto;
+  }
+  
+  &.submenu--left {
+    left: auto;
+    right: calc(100% + calc(var(--spacing-unit)) / 2);
+  }
 }
-
-.submenu:is(.submenu--up, .submenu--down, .submenu--left, .submenu--right, .submenu--no-direction)
-{
-  padding: calc(var(--spacing-unit) / 2) 0;
-  width: 100%;
-  left: 0;
-  border-radius: 3px;
-  z-index: 2;
-}
-
 .submenu li,
 .submenu :deep(li) {
   padding: calc(var(--spacing-unit) / 2);
   cursor: pointer;
-
   &:hover {
     background-color: var(--color-silver-light);
   }
-
   &.disabled {
     cursor: inherit;
+    &:hover {
+      background-color: transparent;
+    }
   }
 
-  &.disabled:hover {
-    background-color: transparent;
+  &.dark {
+    li {
+      &:hover {
+        background-color: var(--color-quaternary-light);
+      }
+    }
   }
 }
 
-.submenu--up {
-  top: auto;
-  bottom: calc(100% + calc(var(--spacing-unit)) / 2);
-}
-
-.submenu--down {
-  top: calc(100% + calc(var(--spacing-unit)) / 2);
-}
-
-.submenu--right {
-  left: calc(100% + calc(var(--spacing-unit)) / 2);
-  right: auto;
-}
-
-.submenu--left {
-  left: auto;
-  right: calc(100% + calc(var(--spacing-unit)) / 2);
-}

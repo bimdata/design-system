@@ -1,7 +1,7 @@
 <template>
   <main class="article menu">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
 
@@ -69,6 +69,12 @@ export default {
       propsBasicMenu,
       slotsBasicMenu,
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
 };
 </script>

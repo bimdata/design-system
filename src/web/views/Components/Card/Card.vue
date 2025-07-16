@@ -1,7 +1,10 @@
 <template>
   <main class="article article-card">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -12,6 +15,8 @@
             :width="widthCard"
             :borderRadius="borderRadiusCard"
             :bgColor="selectedBgColorCard"
+            :boxShadow="boxShadow"
+            :border="border"
           >
             <template #headerIcons v-if="headerIcons">
               {{ getHeaderIcons() }}
@@ -36,63 +41,89 @@
             <BIMDataText
               component="h5"
               margin="15px 0 10px"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
             >
               Header
             </BIMDataText>
-            <BIMDataCheckbox text="title" v-model="headerTitle" />
-            <BIMDataCheckbox text="icons" v-model="headerIcons" />
+            <BIMDataCheckbox
+              text="title"
+              v-model="headerTitle"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
+            <BIMDataCheckbox
+              text="icons"
+              v-model="headerIcons"
+              :dark="currentTheme === 'theme-dark' ? true : false"
+            />
 
             <BIMDataText
               component="h5"
               margin="15px 0 10px"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
             >
               Submenu
             </BIMDataText>
-            <BIMDataCheckbox text="left" v-model="submenuLeft" />
-            <BIMDataCheckbox text="text" v-model="submenuText" />
-            <BIMDataCheckbox text="right" v-model="submenuIcons" />
+            <BIMDataCheckbox text="left" v-model="submenuLeft" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="text" v-model="submenuText" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="right" v-model="submenuIcons" :dark="currentTheme === 'theme-dark' ? true : false" />
 
             <BIMDataText
               component="h5"
               margin="15px 0 10px"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
             >
               Content
             </BIMDataText>
-            <BIMDataCheckbox text="content" v-model="content" />
+            <BIMDataCheckbox text="content" v-model="content" :dark="currentTheme === 'theme-dark' ? true : false" />
 
             <BIMDataText
               component="h5"
               margin="15px 0 10px"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
             >
               Footer
             </BIMDataText>
-            <BIMDataCheckbox text="footer" v-model="footer" />
+            <BIMDataCheckbox text="footer" v-model="footer" :dark="currentTheme === 'theme-dark' ? true : false" />
 
             <BIMDataText
               component="h5"
               margin="15px 0 10px"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
             >
               Parameters
             </BIMDataText>
+            <BIMDataCheckbox text="Border" v-model="border" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="Box shadow" v-model="boxShadow" :dark="currentTheme === 'theme-dark' ? true : false" />
             <BIMDataInput
               v-model="widthCard"
               margin="20px 0"
               placeholder="card's min-width in px or %"
+              backgroundColor="white"
+              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataInput
               v-model="borderRadiusCard"
               placeholder="card's border-radius in px or %"
+              backgroundColor="white"
+              :dark="currentTheme === 'theme-dark' ? true : false"
             />
 
             <BIMDataText
               component="h5"
               margin="15px 0 10px"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
             >
               Background-colors
             </BIMDataText>
@@ -103,6 +134,7 @@
               :id="colorCard"
               :value="colorCard"
               :name="colorCard"
+              :dark="currentTheme === 'theme-dark' ? true : false"
               v-model="selectedBgColorCard"
             />
           </div>
@@ -116,7 +148,9 @@
           <pre>
             &lt;BIMDataCard :titleHeader="{{
               getHeaderTitle()
-            }}" :submenuText="{{ getSubmenuText() }}" {{ getCardColor() }}&gt;
+            }}" :submenuText="{{ getSubmenuText() }}" {{ getBoxShadow() }} {{
+              getCardColor()
+            }}&gt;
             &lt;template #headerIcons&gt;
               {{ getHeaderIcons() }}
             &lt;/template&gt;
@@ -138,14 +172,14 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" margin="15px 0 10px" color="color-primary">
+        <BIMDataText component="h5" margin="15px 0 10px" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" margin="15px 0 10px" color="color-primary">
+        <BIMDataText component="h5" margin="15px 0 10px" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
           Slots:
         </BIMDataText>
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
@@ -173,15 +207,18 @@ export default {
       submenuIcons: true,
       content: true,
       footer: true,
+      boxShadow: true,
+      border: false,
       widthCard: "215px",
       borderRadiusCard: "0px",
-      colorsCard: ["default", "primary", "secondary"],
+      colorsCard: ["default", "primary", "secondary", "tertiary", "quaternary"],
       selectedBgColorCard: "default",
       // Data
       propsData,
       slotsData,
     };
   },
+  inject: ["theme"],
   methods: {
     getImportContent() {
       return `
@@ -227,10 +264,20 @@ export default {
         return "text footer or any component";
       }
     },
+    getBoxShadow() {
+      if (this.boxShadow !== true) {
+        return `:boxShadow="${this.boxShadow}"`;
+      }
+    },
     getCardColor() {
       if (this.selectedBgColorCard !== "default") {
         return `bgColor="${this.selectedBgColorCard}"`;
       }
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.theme.value;
     },
   },
 };

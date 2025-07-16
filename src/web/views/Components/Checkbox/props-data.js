@@ -25,4 +25,10 @@ export default [
     "0px",
     "Use this props to set a margin",
   ],
+  [
+    "dark",
+    "Boolean",
+    "false",
+    "Use this props to set the checkbox in dark mode",
+  ],
 ];

@@ -1,7 +1,10 @@
 <template>
   <main class="article article-search">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode
@@ -23,32 +26,48 @@
 
         <template #parameters>
           <BIMDataInput
-            margin="24px 0"
+            margin="12px 0"
             type="number"
             placeholder="Preview width (in px)"
+            backgroundColor="white"
             v-model="width"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
-            margin="24px 0"
+            margin="12px 0"
             type="number"
             placeholder="Preview height (in px)"
+            backgroundColor="white"
             v-model="height"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
-            margin="24px 0"
+            margin="12px 0 18px"
             type="string"
             placeholder="Placeholder"
+            backgroundColor="white"
             v-model="placeholder"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
-          <BIMDataCheckbox text="clear" v-model="isClear" />
-          <BIMDataCheckbox text="disabled" v-model="isDisabled" />
+          <BIMDataCheckbox
+            text="clear"
+            v-model="isClear"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          />
+          <BIMDataCheckbox
+            text="disabled"
+            v-model="isDisabled"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          />
           <div
             v-for="[key, values] in Object.entries(searchOptions)"
             :key="key"
           >
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               margin="15px 0 10px"
             >
               {{ key }}
@@ -60,6 +79,7 @@
               :id="value"
               :value="value"
               :name="key"
+              :dark="currentTheme === 'theme-dark' ? true : false"
               v-model="$data[`selectedSearchOptions${key}`]"
             />
           </div>
@@ -125,18 +145,22 @@ export default {
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
         kinds: ["radius", "square"],
-        style: ["primary", "secondary"],
+        style: ["primary", "secondary", "tertiary", "quaternary"],
       },
       propsData,
       eventsData,
     };
   },
+  inject: ["theme"],
   computed: {
     changeBackgroundColor() {
       return {
         "bimdata-ds__demo__silver-light":
           this.selectedSearchOptionsstyle === "secondary",
       };
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {
@@ -146,3 +170,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.theme-dark {
+  .article-search {
+    .bimdata-search-bar {
+      color: var(--color-primary);
+      &.bimdata-search-bar__quaternary {
+        color: var(--color-quaternary-lighter);
+      }
+    }
+  }
+}
+</style>

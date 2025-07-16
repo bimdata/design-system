@@ -1,7 +1,7 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
       <BIMDataText component="h3" color="color-primary" margin="10px 0">
@@ -252,11 +252,15 @@ export default {
       ],
     };
   },
+  inject: ["theme"],
   computed: {
     filteredList() {
       return Object.keys(allIcons).filter(iconName => {
         return iconName.toLowerCase().includes(this.filter.toLowerCase());
       });
+    },
+    currentTheme() {
+      return this.theme.value;
     },
   },
   methods: {

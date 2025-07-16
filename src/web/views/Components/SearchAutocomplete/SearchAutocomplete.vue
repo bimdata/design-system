@@ -1,11 +1,11 @@
 <template>
   <main class="article autocomplete-search">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
         {{ $route.name }}
       </BIMDataText>
 
-      <ComponentCode :componentTitle="$route.name" language="javascript">
+      <ComponentCode :componentTitle="$route.name" :class="changeBackgroundColor" language="javascript">
         <template #module>
           <div>
             <BIMDataSearchAutocomplete
@@ -14,6 +14,7 @@
               :items="apps"
               :loading="isLoading"
               :autoclear="isAutoclear"
+              :color="getOverviewSearchColor()"
               @item-click="selectedApp = $event"
               @all-results-click="onAllResultsClick"
             >
@@ -23,8 +24,7 @@
             </BIMDataSearchAutocomplete>
             <BIMDataButton
               style="display: inline-flex; margin-left: 12px"
-              fill
-              radius
+              color="default" ghost rounded normal height="42px"  padding="0px 1.5rem"
               @click="selectedApp = null"
             >
               Reset
@@ -42,6 +42,27 @@
           <div class="m-t-12">
             <BIMDataCheckbox text="Autoclear" v-model="isAutoclear" />
           </div>
+          <div
+            v-for="[key, values] in Object.entries(searchOptions)"
+            :key="key"
+          >
+            <BIMDataText
+              component="h5"
+              color="color-primary"
+              margin="15px 0 10px"
+            >
+              {{ key }}
+            </BIMDataText>
+            <BIMDataRadio
+              v-for="value in values"
+              :key="value"
+              :text="value"
+              :id="value"
+              :value="value"
+              :name="key"
+              v-model="$data[`selectedSearchOptions${key}`]"
+            />
+          </div>
         </template>
 
         <template #import>
@@ -56,6 +77,7 @@
               :items="apps"
               {{ isLoading ? ':loading="true"' : "" }}
               {{ isAutoclear ? ':autoclear="true"' : "" }}
+              color="{{ selectedSearchOptionsstyle }}"
               @item-click="onItemClick"
               @all-results-click="onAllResultsClick"
             /&gt;
@@ -97,6 +119,10 @@ export default {
       isLoading: false,
       isAutoclear: true,
       selectedApp: null,
+      selectedSearchOptionsstyle: "primary",
+      searchOptions: {
+        style: ["primary", "secondary", "tertiary"],
+      },
       apps: [
         {
           title: "App 01",
@@ -120,10 +146,25 @@ export default {
       ],
     };
   },
+  inject: ["theme"],
+  computed: {
+    changeBackgroundColor() {
+      return {
+        "bimdata-ds__demo__silver-light":
+          this.selectedSearchOptionsstyle === "secondary",
+      };
+    },
+    currentTheme() {
+      return this.theme.value;
+    },
+  },
   methods: {
     onAllResultsClick($event) {
       console.log($event);
     },
+    getOverviewSearchColor() {
+      return this.selectedSearchOptionsstyle;
+    }
   },
 };
 </script>

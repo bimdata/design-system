@@ -1,6 +1,6 @@
 <template>
   <div class="spacing-system__padding">
-    <BIMDataText component="h1" color="color-primary">Padding</BIMDataText>
+    <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">Padding</BIMDataText>
     <ComponentCode componentTitle="Padding">
       <template #module>
         <div class="ds-spacing">

@@ -62,15 +62,25 @@ export default {
       default: "default",
       validator: color => colors.includes(color),
     },
+    boxShadow: {
+      type: Boolean,
+      default: true,
+    },
+    border: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return {
         [`bimdata-card__${this.bgColor}`]: this.bgColor,
+        ["bimdata-card__box-shadow"]: this.boxShadow,
+        ["bimdata-card__border"]: this.border,
       };
     },
   },
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataCard.scss"></style>
+<style scoped src="./BIMDataCard.css"></style>

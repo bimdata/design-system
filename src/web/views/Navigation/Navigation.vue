@@ -2,7 +2,7 @@
   <header class="bimdata-ds__header">
     <div class="bimdata-ds__logo">
       <router-link to="/">
-        <img src="../../assets/img/design-system__logo.svg" alt />
+         <DesignSystemLogo width="150px" height="100%" :style="{'margin-left': '30px'}" />
       </router-link>
     </div>
     <div class="bimdata-ds__navigation">
@@ -23,11 +23,15 @@
 </template>
 
 <script>
+import DesignSystemLogo from "../../assets/img/DesignSystemLogo.vue";
 import pkg from "../../../../package.json";
 import store from "../../store.js";
 
 export default {
   version: pkg.version,
+  components: {
+    DesignSystemLogo,
+  },
   props: {
     text: {
       type: String,

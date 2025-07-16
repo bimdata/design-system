@@ -16,4 +16,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("Chevron", Chevron);
 </script>
 
-<style scoped lang="scss" src="../_BIMDataIcon.scss"></style>
+<style scoped src="../BIMDataIcon.css"></style>

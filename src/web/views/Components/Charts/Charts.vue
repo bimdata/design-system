@@ -1,7 +1,10 @@
 <template>
   <main class="article article-charts">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
 
@@ -10,7 +13,7 @@
       <ComponentCode :componentTitle="$route.name" language="javascript">
         <template #module>
           <BIMDataSimplePieChart
-            style="heiht: 250px; width: 250px"
+            style="height: 250px; width: 250px"
             :barDistanceFromCenter="Number(barDistanceFromCenterSimplePie)"
             :barStrokeWidth="Number(barStrokeWidthSimplePie)"
             :graphDrawTime="2"
@@ -24,12 +27,14 @@
             type="number"
             placeholder="Bar distance from center"
             v-model="barDistanceFromCenterSimplePie"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Bar stroke width"
             v-model="barStrokeWidthSimplePie"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -56,7 +61,7 @@
       </ComponentCode>
 
       <div class="m-t-24">
-        <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+        <BIMDataText component="h5" margin="15px 0 0" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
           Props:
         </BIMDataText>
         <BIMDataTable
@@ -90,36 +95,42 @@
             type="number"
             placeholder="Size"
             v-model="multiplePieSize"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Bar distance from center"
             v-model="barDistanceFromCenterMultiplePie"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Bar stroke width"
             v-model="barStrokeWidthMultiplePie"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Inter bar distance"
             v-model="interBarDistance"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Placeholder bar stroke width"
             v-model="placeholderBarStrokeWidth"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="numtextber"
             placeholder="Placeholder bar stroke"
             v-model="placeholderBarStroke"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -152,7 +163,7 @@
       </ComponentCode>
 
       <div class="m-t-24">
-        <BIMDataText component="h5" margin="15px 0 0" color="color-primary">
+        <BIMDataText component="h5" margin="15px 0 0" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
           Props:
         </BIMDataText>
         <BIMDataTable
@@ -205,6 +216,12 @@ export default {
         },
       ],
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
 };
 </script>

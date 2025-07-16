@@ -6,6 +6,7 @@
       disabled,
       'bimdata-radio--checked': checked,
       'bimdata-radio--big': big,
+      dark
     }"
     :disabled="disabled"
     @click="onClick"
@@ -44,6 +45,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   computed: {
@@ -59,4 +64,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataRadio.scss"></style>
+<style scoped src="./BIMDataRadio.css"></style>

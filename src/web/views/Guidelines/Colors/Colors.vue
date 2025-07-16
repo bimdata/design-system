@@ -1,7 +1,7 @@
 <template>
   <main class="article colors">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary"> Colors </BIMDataText>
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"> Colors </BIMDataText>
       <AnchorLink class="m-y-12" :navElements="navElements" />
       <BIMDataText margin="10px 0 15px">
         For maintainability, please use these variables instead of hardcoding

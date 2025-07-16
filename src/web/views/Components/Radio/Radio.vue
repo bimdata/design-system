@@ -1,7 +1,10 @@
 <template>
   <main class="article article-radio">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode
@@ -17,6 +20,7 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
+            :dark="isDark"
           />
           <BIMDataRadio
             text="Mode 1"
@@ -24,6 +28,7 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
+            :dark="isDark"
           />
           <BIMDataRadio
             text="Mode 2"
@@ -31,6 +36,7 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
+            :dark="isDark"
           />
           <div style="width: 100%; padding: 36px; text-align: center">
             {{ `Selected Value: ${selectedValue}` }}
@@ -40,12 +46,19 @@
         <template #parameters>
           <BIMDataCheckbox text="disabled" v-model="isDisabled" />
           <BIMDataCheckbox text="big" v-model="isBig" />
-          <BIMDataInput
-            style="margin-top: 32px"
-            v-model="text"
-            placeholder="Text for mode 0"
+          <BIMDataCheckbox
+            text="dark"
+            :model-value="isDark"
+            @update:modelValue="handleDarkCheckbox"
           />
-          <BIMDataButton color="primary" radius fill @click="resetRadio()">
+          <BIMDataInput v-model="text" placeholder="Text for mode 0" />
+          <BIMDataButton
+            color="primary"
+            rounded
+            fill
+            @click="resetRadio()"
+            width="150px"
+          >
             Reset
           </BIMDataButton>
         </template>
@@ -63,6 +76,7 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
+              :dark="{{ isDark }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 1"
@@ -70,6 +84,7 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
+              :dark="{{ isDark }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 2"
@@ -77,6 +92,7 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
+              :dark="{{ isDark }}"
             /&gt;
           </pre>
         </template>
@@ -123,14 +139,32 @@ export default {
       selectedValue: null,
       isDisabled: false,
       isBig: false,
+      isDarkManual: false,
+      isDarkManuallySet: false,
       propsData,
       eventsData,
       slotsData,
     };
   },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
+    isDark() {
+      if (this.isDarkManuallySet) {
+        return this.isDarkManual;
+      }
+      return this.currentTheme === "theme-dark";
+    },
+  },
   methods: {
     resetRadio() {
       this.selectedValue = null;
+    },
+    handleDarkCheckbox(val) {
+      this.isDarkManual = val;
+      this.isDarkManuallySet = true;
     },
   },
 };

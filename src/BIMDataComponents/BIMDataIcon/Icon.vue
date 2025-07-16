@@ -100,4 +100,4 @@ export default {
 
 <style lang="scss" scoped src="../../assets/css/variables.css"></style>
 
-<style lang="scss" src="./_BIMDataIcon.scss"></style>
+<style src="./BIMDataIcon.css"></style>

@@ -1,7 +1,7 @@
 <template>
   <main class="article article-loader">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="color-primary">{{
+      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">{{
         $route.name
       }}</BIMDataText>
       <ComponentCode language="javascript">
@@ -155,6 +155,12 @@ export default {
         ["dashArray", "Number", "63", ""],
       ],
     };
+  },
+  inject: ["theme"],
+  computed: {
+    currentTheme() {
+      return this.theme.value;
+    },
   },
 };
 </script>
