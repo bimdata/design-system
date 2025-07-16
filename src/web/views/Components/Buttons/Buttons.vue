@@ -1,7 +1,10 @@
 <template>
   <main class="article article-buttons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <div class="button-overview">
@@ -39,7 +42,11 @@
               <BIMDataText
                 component="h5"
                 margin="15px 0 10px"
-                :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+                :color="
+                  currentTheme === 'theme-dark'
+                    ? 'color-white'
+                    : 'color-primary'
+                "
               >
                 {{ key }}
               </BIMDataText>
@@ -59,19 +66,38 @@
               <BIMDataText
                 component="h5"
                 margin="15px 0 10px"
-                :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+                :color="
+                  currentTheme === 'theme-dark'
+                    ? 'color-white'
+                    : 'color-primary'
+                "
               >
                 modifiers
               </BIMDataText>
-              <BIMDataCheckbox text="icon" v-model="checkboxIconChecked" :dark="currentTheme === 'theme-dark' ? true : false" />
-              <BIMDataCheckbox text="text" v-model="checkboxTextChecked" :dark="currentTheme === 'theme-dark' ? true : false" />
+              <BIMDataCheckbox
+                text="icon"
+                v-model="checkboxIconChecked"
+                :dark="currentTheme === 'theme-dark' ? true : false"
+              />
+              <BIMDataCheckbox
+                text="text"
+                v-model="checkboxTextChecked"
+                :dark="currentTheme === 'theme-dark' ? true : false"
+              />
               <BIMDataCheckbox
                 text="disabled"
-                v-model="checkboxDisabledChecked" :dark="currentTheme === 'theme-dark' ? true : false"
+                v-model="checkboxDisabledChecked"
+                :dark="currentTheme === 'theme-dark' ? true : false"
               />
             </div>
 
-            <BIMDataText component="h5" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'" margin="15px 0 0">
+            <BIMDataText
+              component="h5"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+              margin="15px 0 0"
+            >
               size
             </BIMDataText>
             <BIMDataInput
@@ -125,7 +151,13 @@
         </ComponentCode>
 
         <div class="m-t-24">
-          <BIMDataText :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'" margin="15px 0 0" color="color-primary">
+          <BIMDataText
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 0"
+            color="color-primary"
+          >
             Props:
           </BIMDataText>
           <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />

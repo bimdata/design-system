@@ -1,9 +1,11 @@
 <template>
   <main class="article article-dropdown">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">{{
-        $route.name
-      }}</BIMDataText>
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        >{{ $route.name }}</BIMDataText
+      >
       <ComponentCode componentTitle="DropdownMenu" language="javascript">
         <!-- bloc INTERACTIVE PLAYGROUND - left side -->
         <template #module>
@@ -30,45 +32,62 @@
 
         <!-- bloc PARAMETERS - right side -->
         <template #parameters>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >modifiers</BIMDataText
           >
           <BIMDataCheckbox
             class="m-y-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="header"
             v-model="checkboxDisabledHeader"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <div class="m-t-12">
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               >style</BIMDataText
             >
             <BIMDataCheckbox
               margin="12px 0 0"
               text="dark"
               v-model="checkboxDarkmodeChecked"
+              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataCheckbox
               margin="0 0 12px"
               text="border"
               v-model="checkboxBorderChecked"
+              :dark="currentTheme === 'theme-dark' ? true : false"
             />
           </div>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >two level list</BIMDataText
           >
           <BIMDataCheckbox
             class="m-y-12"
             text="content"
             v-model="checkboxTwoLevelChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
 
@@ -78,7 +97,9 @@
           >
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               margin="15px 0 10px"
               >{{ key }}</BIMDataText
             >
@@ -89,16 +110,30 @@
               :id="value"
               :value="value"
               :name="key"
+              :dark="currentTheme === 'theme-dark' ? true : false"
               v-model="$data[`selectedDropdownOptions${key}`]"
             >
             </BIMDataRadio>
           </div>
-          <BIMDataText component="h5" color="color-primary" margin="15px 0 10px"
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="15px 0 10px"
             >slots</BIMDataText
           >
-          <BIMDataCheckbox text="header" v-model="checkboxHeaderChecked">
+          <BIMDataCheckbox
+            text="header"
+            v-model="checkboxHeaderChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          >
           </BIMDataCheckbox>
-          <BIMDataCheckbox text="element" v-model="checkboxElementSlotChecked">
+          <BIMDataCheckbox
+            text="element"
+            v-model="checkboxElementSlotChecked"
+            :dark="currentTheme === 'theme-dark' ? true : false"
+          >
           </BIMDataCheckbox>
         </template>
 
