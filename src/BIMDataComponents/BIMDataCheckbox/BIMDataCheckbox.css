@@ -41,7 +41,7 @@
     margin-left: 6px;
     font-size: 12px;
   }
-
+  /* custom DARK CHECKBOX */
   &.dark {
     .bimdata-checkbox__mark {
       border-color: var(--color-quaternary-lighter);
@@ -55,11 +55,11 @@
     &.checked {
       & > .bimdata-checkbox__mark,
       .bimdata-checkbox.indeterminate > .bimdata-checkbox__mark {
-        background-color: transparent;
+        background-color: var(--color-quaternary-lighter);
       }
-      .bimdata-checkbox:not(.indeterminate) > .bimdata-checkbox__mark::after,
-      .bimdata-checkbox.checked > .bimdata-checkbox__mark::after {
-        border-color: var(--color-quaternary-lighter);
+      &.bimdata-checkbox:not(.indeterminate) > .bimdata-checkbox__mark::after,
+      &.bimdata-checkbox.checked > .bimdata-checkbox__mark::after {
+        border-color: var(--color-quaternary);
       }
     }
   }
