@@ -105,5 +105,16 @@
       background-color: var(--color-quaternary);
       color: var(--color-quaternary-lighter);
     }
+    .submenu {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
+      &:deep(.bimdata-list) {
+        li {
+          &:hover {
+            background-color: var(--color-quaternary-dark);
+          }
+        }
+      }
+    }
   }
 }
