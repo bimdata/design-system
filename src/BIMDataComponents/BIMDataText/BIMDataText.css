@@ -1,0 +1,10 @@
+.bimdata-text {
+  &.dark {
+    &.color-primary {
+      color: var(--color-primary-lighter);
+    }
+    &.color-granite-light {
+      color: var(--color-white);
+    }
+  }
+}
