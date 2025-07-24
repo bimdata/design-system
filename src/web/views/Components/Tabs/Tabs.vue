@@ -13,7 +13,6 @@
             :tabSize="tabSize"
             @tab-selected="activeTab = $event"
             :selected="0"
-            :dark="checkboxDarkmodeChecked"
           />
           <div class="m-t-24">Active Tab: {{ activeTab || "none" }}</div>
         </template>
@@ -48,11 +47,6 @@
             backgroundColor="white"
             placeholder="Tabs minimum width in px or %"
           />
-          <BIMDataCheckbox
-              margin="12px 0 0"
-              text="Dark"
-              v-model="checkboxDarkmodeChecked"
-            />
         </template>
         <template #import>
           import BIMDataTabs from
@@ -66,7 +60,6 @@
               {{ `height="${height}"` }}
               {{ `tabSize="${tabSize}"` }}
               @tab-selected="activeTab = $event"
-              {{ `:dark="${checkboxDarkmodeChecked}"` }}
             /&gt;
           </pre>
         </template>
@@ -113,7 +106,6 @@
           height="40px"
           tabSize="220px"
           :selected="0"
-          :dark="checkboxDarkmodeChecked"
         >
           <template #tab="{ tab }">
             <BIMDataIcon :name="tab.icon" size="xs" margin="0 6px 0 0" />
@@ -178,10 +170,9 @@ export default {
       activeTab: "",
       propsData,
       eventsData,
-      checkboxDarkmodeChecked: false,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     tabs() {
       return [...Array(+this.tabNumber).keys()].map(i => ({
@@ -190,7 +181,9 @@ export default {
       }));
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

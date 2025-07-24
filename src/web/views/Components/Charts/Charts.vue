@@ -27,14 +27,12 @@
             type="number"
             placeholder="Bar distance from center"
             v-model="barDistanceFromCenterSimplePie"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Bar stroke width"
             v-model="barStrokeWidthSimplePie"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -95,42 +93,36 @@
             type="number"
             placeholder="Size"
             v-model="multiplePieSize"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Bar distance from center"
             v-model="barDistanceFromCenterMultiplePie"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Bar stroke width"
             v-model="barStrokeWidthMultiplePie"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Inter bar distance"
             v-model="interBarDistance"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Placeholder bar stroke width"
             v-model="placeholderBarStrokeWidth"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="numtextber"
             placeholder="Placeholder bar stroke"
             v-model="placeholderBarStroke"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -217,10 +209,12 @@ export default {
       ],
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

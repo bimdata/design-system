@@ -10,7 +10,7 @@
     <ul
       ref="container"
       class="bimdata-tabs__container"
-      :class="{ dark }"
+      :class="{ dark: isDark }"
       :style="{
         width: containerWidth,
         minHeight: containerHeight,
@@ -48,6 +48,12 @@ export default {
     BIMDataButton,
     BIMDataIconChevron,
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     width: {
       type: [String, Number],
@@ -68,10 +74,6 @@ export default {
     selected: {
       type: [String, Number],
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ["tab-click", "tab-selected"],
   data() {
@@ -90,6 +92,9 @@ export default {
     },
     tabWidth() {
       return Number.isNaN(+this.tabSize) ? this.tabSize : `${this.tabSize}px`;
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   watch: {

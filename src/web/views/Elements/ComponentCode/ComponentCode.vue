@@ -6,9 +6,7 @@
     <div
       class="bimdata-ds__demo__module"
       :class="{ 'without-options': !componentTitle }"
-      :style="{
-        backgroundColor: currentTheme === 'theme-dark' ? 'var(--color-ds-dark-background)' : '#ffffff',
-      }"
+      
     >
       <slot name="module"></slot>
     </div>
@@ -104,7 +102,7 @@ export default {
       default: null,
     },
   },
-  inject: ['theme'],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   data() {
     return {
       alerts: false,
@@ -124,7 +122,9 @@ export default {
   },
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

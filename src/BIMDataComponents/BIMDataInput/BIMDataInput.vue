@@ -6,19 +6,25 @@
       success,
       disabled,
       loading,
-      dark,
+      dark: isDark,
       empty:
         modelValue === undefined || modelValue === null || modelValue === '',
     }"
     :style="style"
   >
-    <label v-if="isLabel && computedLabel !== ''" :for="`bimdata-input-${uuid}`">{{
-      computedLabel
-    }}</label>
-    <div class="bimdata-input__content" style="position: relative;" :style="{
-          'background-color': backgroundColor,
-          'border-radius': borderRadius,
-        }">
+    <label
+      v-if="isLabel && computedLabel !== ''"
+      :for="`bimdata-input-${uuid}`"
+      >{{ computedLabel }}</label
+    >
+    <div
+      class="bimdata-input__content"
+      style="position: relative"
+      :style="{
+        'background-color': backgroundColor,
+        'border-radius': borderRadius,
+      }"
+    >
       <div class="bimdata-input__icon left-icon">
         <slot name="leftInputIcon"></slot>
       </div>
@@ -60,6 +66,12 @@ export default {
   model: {
     prop: "modelValue",
     event: "update:modelValue",
+  },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     modelValue: {
@@ -126,10 +138,6 @@ export default {
       type: Boolean,
       default: true,
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
   computed: {
@@ -141,6 +149,9 @@ export default {
     computedLabel() {
       // Si `label` est vide, utilise la valeur de `placeholder`
       return this.label || this.placeholder;
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   beforeCreate() {

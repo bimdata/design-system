@@ -5,7 +5,7 @@
       disabled,
       active: isOpen,
       'not-empty': modelValue !== undefined && modelValue !== null,
-      dark,
+      dark: isDark,
       [color]: true,
     }"
     :style="{ width }"
@@ -78,6 +78,12 @@ export default {
     prop: "modelValue",
     event: "update:modelValue",
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     width: {
       type: [String, Number],
@@ -123,10 +129,6 @@ export default {
       default: "Search",
     },
     clearSearchOnLeave: {
-      type: Boolean,
-      default: false,
-    },
-    dark: {
       type: Boolean,
       default: false,
     },
@@ -180,6 +182,9 @@ export default {
           );
         }
       }
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {

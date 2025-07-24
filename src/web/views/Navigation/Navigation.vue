@@ -8,15 +8,13 @@
     <div class="bimdata-ds__navigation">
       <ul class="bimdata-list">
         <li v-for="item in items" :key="item.title">
-          <router-link v-if="displayLink" :to="{ path: `/${item.path}` }">{{
-            item.title
-          }}</router-link>
+          <router-link v-if="displayLink" :to="{ path: `/${item.path}` }">{{ item.title }}</router-link>
         </li>
       </ul>
     </div>
     <div class="bimdata-ds__dark">
-      <i class="moon" v-if="theme === 'theme-light'" @click="switchTheme"></i>
-      <i class="sun" v-if="theme === 'theme-dark'" @click="switchTheme"></i>
+      <i class="moon" v-if="!theme" @click="switchTheme"></i>
+      <i class="sun" v-if="theme" @click="switchTheme"></i>
     </div>
     <span class="bimdata-ds__version">v {{ $options.version }}</span>
   </header>
@@ -46,7 +44,7 @@ export default {
       default: true,
     },
     theme: {
-      type: String,
+      type: Boolean,
       required: true,
     },
   },

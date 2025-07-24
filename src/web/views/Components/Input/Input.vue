@@ -1,7 +1,10 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <h2>Basic input</h2>
@@ -26,7 +29,6 @@
             :margin="marginInput"
             :backgroundColor="backgroundColorInput"
             :borderRadius="borderRadiusInput"
-            :dark="dark"
             :isLabel="isLabel"
             :height="heightInput"
           >
@@ -60,17 +62,37 @@
             v-model="successMessage"
             :disabled="error || errorMessage"
           />
-          <BIMDataCheckbox text="left icon" v-model="leftInputIcon" />
-          <BIMDataCheckbox text="right icon" v-model="inputIcon" />
-          <BIMDataCheckbox text="loading" v-model="loading" />
-          <BIMDataCheckbox text="disabled" v-model="disabled" />
-          <BIMDataCheckbox text="dark" v-model="dark" />
-          <BIMDataCheckbox text="add label" v-model="isLabel" />
+          <BIMDataCheckbox
+            text="left icon"
+            v-model="leftInputIcon"
+          />
+          <BIMDataCheckbox
+            text="right icon"
+            v-model="inputIcon"
+          />
+          <BIMDataCheckbox
+            text="loading"
+            v-model="loading"
+          />
+          <BIMDataCheckbox
+            text="disabled"
+            v-model="disabled"
+          />
+          <BIMDataCheckbox
+            text="dark"
+            v-model="dark"
+          />
+          <BIMDataCheckbox
+            text="add label"
+            v-model="isLabel"
+          />
 
           <div>
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               margin="15px 0 10px"
             >
               Modifiers
@@ -79,33 +101,37 @@
               v-model="labelInput"
               label="Change label"
               backgroundColor="white"
+
             />
             <BIMDataInput
               v-model="placeholderInput"
               label="Change placeholder"
               backgroundColor="white"
+
             />
             <BIMDataInput
               v-model="marginInput"
               label="Change margin"
               backgroundColor="white"
+
             />
             <BIMDataInput
               v-model="backgroundColorInput"
               label="Change background-color"
               backgroundColor="white"
+
             />
             <BIMDataInput
               v-model="heightInput"
               label="Change height"
               backgroundColor="white"
-              height="40px"
+
             />
             <BIMDataInput
               v-model="borderRadiusInput"
               label="Change border-radius"
               backgroundColor="white"
-              height="40px"
+
             />
           </div>
         </template>
@@ -128,14 +154,34 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           nota bene:
         </BIMDataText>
-        <BIMDataText component="span" color="color-primary" margin="15px 5px">
+        <BIMDataText
+          component="span"
+          :color="
+            currentTheme === 'theme-dark'
+              ? 'color-quaternary-light'
+              : 'color-granite'
+          "
+          margin="15px 5px"
+        >
           This component use the $attrs attribute provided by Vue. Therefore all
           native attribute of this tag are workable.
           <a
@@ -147,13 +193,25 @@
         </BIMDataText>
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Events:
         </BIMDataText>
         <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Slots:
         </BIMDataText>
         <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
@@ -208,10 +266,12 @@ export default {
       slotsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

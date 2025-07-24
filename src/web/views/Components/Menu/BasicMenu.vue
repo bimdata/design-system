@@ -1,6 +1,10 @@
 <template>
   <div>
-    <BIMDataText component="h3" color="color-primary" margin="18px 0 6px">
+    <BIMDataText
+      component="h3"
+      :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      margin="18px 0 6px"
+    >
       Basic menu
     </BIMDataText>
     <ComponentCode
@@ -47,14 +51,29 @@
         </BIMDataMenu>
       </template>
       <template #parameters>
-        <BIMDataCheckbox text="Add divider" v-model="isDivider" />
-        <BIMDataCheckbox text="Add group title" v-model="isGroupTitle" />
-        <BIMDataCheckbox text="Add icons" v-model="isIcons" />
-        <BIMDataCheckbox text="Add children" v-model="isChildren" />
+        <BIMDataCheckbox
+          text="Add divider"
+          v-model="isDivider"
+        />
+        <BIMDataCheckbox
+          text="Add group title"
+          v-model="isGroupTitle"
+        />
+        <BIMDataCheckbox
+          text="Add icons"
+          v-model="isIcons"
+        />
+        <BIMDataCheckbox
+          text="Add children"
+          v-model="isChildren"
+        />
         <BIMDataCheckbox
           text="Position children on the left"
           v-model="isChildrenLeft"
         />
+      </template>
+      <template #import>
+        {{ getImportContent() }}
       </template>
       <template #code>
         <pre>
@@ -92,6 +111,7 @@ export default {
     BIMDataMenu,
     ComponentCode,
   },
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   data() {
     return {
       isDivider: false,
@@ -136,8 +156,17 @@ export default {
       }
       return opts;
     },
+    currentTheme() {
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
+    },
   },
   methods: {
+    getImportContent() {
+      return `
+        import BIMDataMenu from "@bimdata/design-system/src/BIMDataComponents/BIMDataMenu/BIMDataMenu.vue";`;
+    },
     getIcons() {
       if (this.isIcons) {
         return `<BIMDataIcon
@@ -178,13 +207,13 @@ export default {
     formatMenuItem(item) {
       const regex = /["']\w+["']/g;
       const itemValue = JSON.stringify(item, (_, value) =>
-        typeof value === "function" ? `[fn]${value.toString()}[fn]` : value
+        typeof value === "function" ? `[fn]${value.toString()}[fn]` : value,
       )
         .replace(/"/g, "'")
         .replace(/(\[fn\]'|'\[fn\]|\\)/g, "");
       const result = itemValue => {
         const removeSimpleQuote = itemValue.replace(regex, match =>
-          match.replace(/'/g, "")
+          match.replace(/'/g, ""),
         );
         return removeSimpleQuote;
       };

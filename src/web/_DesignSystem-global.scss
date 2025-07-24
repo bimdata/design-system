@@ -110,3 +110,11 @@ pre[class*="language-"] {
   color: var(--color-primary);
   font-weight: 700;
 }
+
+.theme-dark {
+  .bimdata-ds {
+    .bimdata-ds__demo__module {
+      background-color: var(--color-ds-dark-background);
+    }
+  }
+}

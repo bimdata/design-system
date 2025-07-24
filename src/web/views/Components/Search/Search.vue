@@ -31,7 +31,6 @@
             placeholder="Preview width (in px)"
             backgroundColor="white"
             v-model="width"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="12px 0"
@@ -39,7 +38,6 @@
             placeholder="Preview height (in px)"
             backgroundColor="white"
             v-model="height"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="12px 0 18px"
@@ -47,17 +45,14 @@
             placeholder="Placeholder"
             backgroundColor="white"
             v-model="placeholder"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataCheckbox
             text="clear"
             v-model="isClear"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataCheckbox
             text="disabled"
             v-model="isDisabled"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <div
             v-for="[key, values] in Object.entries(searchOptions)"
@@ -79,7 +74,7 @@
               :id="value"
               :value="value"
               :name="key"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+
               v-model="$data[`selectedSearchOptions${key}`]"
             />
           </div>
@@ -151,7 +146,7 @@ export default {
       eventsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     changeBackgroundColor() {
       return {
@@ -160,7 +155,9 @@ export default {
       };
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

@@ -38,8 +38,14 @@
       </template>
 
       <template #parameters>
-        <BIMDataCheckbox text="Add a label" v-model="label" />
-        <BIMDataCheckbox text="Add counter" v-model="counter" />
+        <BIMDataCheckbox
+          text="Add a label"
+          v-model="label"
+        />
+        <BIMDataCheckbox
+          text="Add counter"
+          v-model="counter"
+        />
         <BIMDataCheckbox
           text="error"
           v-model="error"
@@ -60,8 +66,14 @@
           v-model="successMessage"
           :disabled="error || errorMessage"
         />
-        <BIMDataCheckbox text="loading" v-model="loading" />
-        <BIMDataCheckbox text="disabled" v-model="disabled" />
+        <BIMDataCheckbox
+          text="loading"
+          v-model="loading"
+        />
+        <BIMDataCheckbox
+          text="disabled"
+          v-model="disabled"
+        />
 
         <div class="m-t-24">
           <BIMDataSelect
@@ -69,6 +81,10 @@
             label="Input Type"
             :options="inputTypeOptions"
             v-model="inputTypeSelection"
+
+            :color="
+              currentTheme === 'theme-dark' ? 'quaternary' : 'tertiary-light'
+            "
           >
           </BIMDataSelect>
         </div>
@@ -76,25 +92,50 @@
         <div>
           <BIMDataText
             component="h5"
-            color="color-primary"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
             margin="15px 0 10px"
           >
             Slots
           </BIMDataText>
-          <BIMDataCheckbox text="prefix" v-model="prefix" />
-          <BIMDataCheckbox text="prefixInner" v-model="prefixInner" />
-          <BIMDataCheckbox text="suffixInner" v-model="suffixInner" />
-          <BIMDataCheckbox text="suffix" v-model="suffix" />
+          <BIMDataCheckbox
+            text="prefix"
+            v-model="prefix"
+
+          />
+          <BIMDataCheckbox
+            text="prefixInner"
+            v-model="prefixInner"
+
+          />
+          <BIMDataCheckbox
+            text="suffixInner"
+            v-model="suffixInner"
+
+          />
+          <BIMDataCheckbox
+            text="suffix"
+            v-model="suffix"
+
+          />
         </div>
 
         <div>
-          <BIMDataText component="h5" color="color-primary" margin="16px 0 0">
+          <BIMDataText
+            component="h5"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="16px 0 0"
+          >
             Margin
           </BIMDataText>
           <BIMDataInput
             v-model="marginInput"
             backgroundColor="white"
             placeholder="Change margin"
+
           />
         </div>
       </template>
@@ -116,14 +157,30 @@
       </template>
     </ComponentCode>
     <div class="m-t-12">
-      <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+      <BIMDataText
+        component="h5"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        margin="15px 0 0"
+      >
         Props:
       </BIMDataText>
       <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
-      <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+      <BIMDataText
+        component="h5"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        margin="15px 0 0"
+      >
         nota bene:
       </BIMDataText>
-      <BIMDataText component="span" color="color-primary" margin="15px 5px">
+      <BIMDataText
+        component="span"
+        :color="
+          currentTheme === 'theme-dark'
+            ? 'color-quaternary-lighter'
+            : 'color-granite'
+        "
+        margin="15px 5px"
+      >
         This component use the $attrs attribute provided by Vue. Therefore all
         native attribute of this tag are workable.
         <a
@@ -135,13 +192,21 @@
       </BIMDataText>
     </div>
     <div class="m-t-12">
-      <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+      <BIMDataText
+        component="h5"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        margin="15px 0 0"
+      >
         Events:
       </BIMDataText>
       <BIMDataTable :columns="eventsData[0]" :rows="eventsData.slice(1)" />
     </div>
     <div class="m-t-12">
-      <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+      <BIMDataText
+        component="h5"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        margin="15px 0 0"
+      >
         Slots:
       </BIMDataText>
       <BIMDataTable :columns="slotsData[0]" :rows="slotsData.slice(1)" />
@@ -160,6 +225,7 @@ export default {
   components: {
     ComponentCode,
   },
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   data() {
     return {
       textInput: "",
@@ -258,6 +324,13 @@ export default {
       }
 
       return slots.join("\n");
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

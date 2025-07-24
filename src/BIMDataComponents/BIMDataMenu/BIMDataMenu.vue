@@ -1,6 +1,7 @@
 <template>
   <ul
     class="bimdata-menu bimdata-list"
+    :class="{ dark: isDark }"
     :style="{
       width,
       maxHeight,
@@ -90,6 +91,12 @@ export default {
     BIMDataIconChevron,
     BIMDataTextbox,
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     menuItems: {
       type: Array,
@@ -143,6 +150,11 @@ export default {
     },
     onMouseOver(item) {
       this.hoveredItemKey = item.key;
+    },
+  },
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
     },
   },
 };

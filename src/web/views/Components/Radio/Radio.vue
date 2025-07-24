@@ -20,7 +20,6 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
-            :dark="isDark"
           />
           <BIMDataRadio
             text="Mode 1"
@@ -28,7 +27,6 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
-            :dark="isDark"
           />
           <BIMDataRadio
             text="Mode 2"
@@ -36,7 +34,6 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
-            :dark="isDark"
           />
           <div style="width: 100%; padding: 36px; text-align: center">
             {{ `Selected Value: ${selectedValue}` }}
@@ -76,7 +73,6 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
-              :dark="{{ isDark }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 1"
@@ -84,7 +80,6 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
-              :dark="{{ isDark }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 2"
@@ -92,7 +87,6 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
-              :dark="{{ isDark }}"
             /&gt;
           </pre>
         </template>
@@ -146,10 +140,12 @@ export default {
       slotsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
     isDark() {
       if (this.isDarkManuallySet) {

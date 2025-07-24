@@ -1,6 +1,10 @@
 <template>
   <div>
-    <BIMDataText component="h3" color="color-primary" margin="18px 0 6px">
+    <BIMDataText
+      component="h3"
+      :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      margin="18px 0 6px"
+    >
       Menu inline
     </BIMDataText>
 
@@ -23,32 +27,52 @@
           <template #submenu>
             <div class="flex items-center justify-center">
               <BIMDataButton
-                color="primary"
+                :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
                 ghost
                 rounded
                 icon
                 @click="deleteClick($event)"
                 class="m-r-6"
               >
-                <BIMDataIconDelete fill color="primary" size="xxs" />
+                <BIMDataIconDelete
+                  fill
+                  :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
+                  size="xxs"
+                />
               </BIMDataButton>
               <BIMDataButton
-                color="primary"
+                :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
                 ghost
                 rounded
                 icon
                 @click="editClick($event)"
               >
-                <BIMDataIconEdit fill color="primary" size="xxs" />
+                <BIMDataIconEdit
+                  fill
+                  :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
+                  size="xxs"
+                />
               </BIMDataButton>
             </div>
           </template>
         </BIMDataMenuInline>
       </template>
       <template #parameters>
-        <BIMDataCheckbox text="Submenu right" v-model="isSubmenuRight" />
-        <BIMDataCheckbox text="Custom button" v-model="isCustomButton" />
-        <BIMDataCheckbox text="Click away" v-model="isClickAway" />
+        <BIMDataCheckbox
+          text="Submenu right"
+          v-model="isSubmenuRight"
+        />
+        <BIMDataCheckbox
+          text="Custom button"
+          v-model="isCustomButton"
+        />
+        <BIMDataCheckbox
+          text="Click away"
+          v-model="isClickAway"
+        />
+      </template>
+      <template #import>
+        {{ getImportContent() }}
       </template>
       <template #code>
         <pre>
@@ -109,6 +133,7 @@ export default {
     BIMDataMenuInline,
     ComponentCode,
   },
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   data() {
     return {
       isSubmenuRight: true,
@@ -118,6 +143,10 @@ export default {
     };
   },
   methods: {
+    getImportContent() {
+      return `
+        import BIMDataMenuInline from "@bimdata/design-system/src/BIMDataComponents/BIMDataMenuInline/BIMDataMenuInline.vue";`;
+    },
     getWidth() {
       if (this.isCustomButton) {
         return ":width=\"'55px'\"";
@@ -136,6 +165,13 @@ export default {
     },
     editClick(event) {
       console.log("edit click", event);
+    },
+  },
+  computed: {
+    currentTheme() {
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

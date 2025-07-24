@@ -1,24 +1,25 @@
 <template>
-  <div class="bimdata-menu-inline" v-clickaway="away">
+  <div class="bimdata-menu-inline" :class="{ dark: isDark }" v-clickaway="away">
     <BIMDataButton
-      color="primary"
+      :color="isDark ? 'quaternary' : 'primary'"
       ghost
       rounded
       icon
       @click="active = !active"
       :width="width"
+      padding="0px"
     >
       <slot name="button" :active="active">
         <BIMDataIconEllipsis
           v-if="!active"
           fill
-          color="granite-light"
+          :color="isDark ? 'white' : 'granite-light'"
           :size="iconEllipsisSize"
         />
         <BIMDataIconClose
           v-else
           fill
-          color="granite-light"
+          :color="isDark ? 'white' : 'granite-light'"
           :size="iconCloseSize"
         />
       </slot>
@@ -54,6 +55,12 @@ export default {
     BIMDataIconClose,
     BIMDataIconEllipsis,
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     isSubmenuRight: {
       type: Boolean,
@@ -72,7 +79,7 @@ export default {
       default: "m",
       validator: value =>
         ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"].includes(
-          value
+          value,
         ),
     },
     iconCloseSize: {
@@ -80,7 +87,7 @@ export default {
       default: "xxs",
       validator: value =>
         ["xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"].includes(
-          value
+          value,
         ),
     },
   },
@@ -95,6 +102,9 @@ export default {
         return `left: ${this.width}`;
       }
       return `right: ${this.width}`;
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {

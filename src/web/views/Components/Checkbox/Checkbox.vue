@@ -9,7 +9,6 @@
       </BIMDataText>
       <ComponentCode
         :componentTitle="$route.name"
-        :class="{ 'bimdata-ds__demo__quaternary': checkboxDarkmodeChecked }"
         language="javascript"
         codepenLink="https://codepen.io/bimdata/pen/dyMyvYW"
         githubLink="https://github.com/bimdata/design-system/blob/develop/src/BIMDataComponents/BIMDataCheckbox/BIMDataCheckbox.vue"
@@ -20,7 +19,6 @@
             v-model="checked"
             :margin="marginInput"
             :disabled="getCheckboxDisabled()"
-            :dark="checkboxDarkmodeChecked"
           />
         </template>
 
@@ -28,24 +26,15 @@
           <BIMDataCheckbox
             text="text"
             v-model="checkboxTextChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataCheckbox
             text="disabled"
             v-model="checkboxDisabledChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
-          <BIMDataCheckbox
-            text="dark"
-            v-model="checkboxDarkmodeChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
-          />
-
           <BIMDataInput
             v-model="marginInput"
             label="Change margin"
             backgroundColor="white"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -60,7 +49,6 @@
               :disabled="{{ getCheckboxDisabled() }}"
               text="Your label here"
               v-model="checked"
-              :dark="{{ checkboxDarkmodeChecked }}"
               margin="{{ marginInput }}"
             /&gt;
           </pre>
@@ -87,7 +75,6 @@
 <script>
 import eventsData from "./events-data.js";
 import propsData from "./props-data.js";
-
 import ComponentCode from "../../Elements/ComponentCode/ComponentCode.vue";
 
 export default {
@@ -99,14 +86,13 @@ export default {
       checked: false,
       checkboxTextChecked: true,
       checkboxDisabledChecked: false,
-      checkboxDarkmodeChecked: false,
       marginInput: "0px",
       // Data
       propsData,
       eventsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   methods: {
     getCheckboxDisabled() {
       return this.checkboxDisabledChecked;
@@ -119,7 +105,9 @@ export default {
   },
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

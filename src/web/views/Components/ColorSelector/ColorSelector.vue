@@ -100,7 +100,7 @@ export default {
       functionsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   methods: {
     updateColorSelector($event) {
       console.log("update color", $event);
@@ -109,7 +109,9 @@ export default {
   },
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

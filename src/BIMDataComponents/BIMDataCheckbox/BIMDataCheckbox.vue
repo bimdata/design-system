@@ -1,7 +1,7 @@
 <template>
   <div
     class="bimdata-checkbox"
-    :class="{ indeterminate, disabled, checked, dark }"
+    :class="{ indeterminate, disabled, checked, dark: isDark }"
     @click="onClick"
     :style="style"
     v-bind="$attrs"
@@ -14,12 +14,16 @@
 </template>
 
 <script>
+import { inject, computed } from "vue";
+
 export default {
   name: "BIMDataCheckbox",
   inheritAttrs: false,
-  model: {
-    prop: "modelValue",
-    event: "update:modelValue",
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     text: {
@@ -40,10 +44,6 @@ export default {
       type: String,
       default: "0px",
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ["update:modelValue"],
   computed: {
@@ -57,6 +57,9 @@ export default {
       return {
         margin: `${this.margin}`,
       };
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {

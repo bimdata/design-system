@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { inject, computed } from "vue";
 import store from "../../store.js";
 import BIMDataText from "../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
 
@@ -28,7 +29,15 @@ export default {
   components: {
     BIMDataText,
   },
-  inject: ["theme"],
+  setup() {
+    const darkThemeRef = inject("BIMDATA_DESIGN_SYSTEM_DARK_THEME");
+
+    const currentTheme = computed(() => (darkThemeRef.value ? "theme-dark" : "theme-light"));
+
+    return {
+      currentTheme,
+    };
+  },
   methods: {
     getParentTitle() {
       const path = this.$route.matched[0].path;
@@ -47,11 +56,6 @@ export default {
     },
     onTitleClick() {
       return this.$router.push("/" + this.getPathFirstElement());
-    },
-  },
-  computed: {
-    currentTheme() {
-      return this.theme.value;
     },
   },
 };

@@ -105,9 +105,8 @@ export default {
     BIMDataText,
   },
   setup() {
-    // inject("theme"),
-    const theme = inject("theme");
-    const currentTheme = computed(() => theme.value);
+    const darkThemeRef = inject("BIMDATA_DESIGN_SYSTEM_DARK_THEME");
+    const currentTheme = computed(() => (darkThemeRef.value ? "theme-dark" : "theme-light"));
     return { store, currentTheme };
   },
 };

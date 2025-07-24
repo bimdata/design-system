@@ -20,7 +20,6 @@
             :closeOnElementClick="checkboxCloseOnElementClickChecked"
             @element-click="onItemClick"
             :search="checkboxSearchChecked"
-            :dark="checkboxDarkmodeChecked"
             :border="checkboxBorderChecked"
             :elementLabelKey="elementLabelKey"
             :borderRadius="numberBorderRadius"
@@ -65,41 +64,35 @@
             class="m-y-12"
             text="Disabled"
             v-model="checkboxDisabledChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="Loading"
             v-model="checkboxLoadingChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="Close on element click"
             v-model="checkboxCloseOnElementClickChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="Search"
             v-model="checkboxSearchChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             v-model="numberInput"
             placeholder="Number of items per page"
             type="number"
             backgroundColor="white"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           ></BIMDataInput>
           <BIMDataInput
             v-model="numberBorderRadius"
             placeholder="Border radius"
             backgroundColor="white"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           ></BIMDataInput>
           <div class="m-t-18 m-b-36">
             <BIMDataText
@@ -110,16 +103,10 @@
               >style</BIMDataText
             >
             <BIMDataCheckbox
-              margin="12px 0 0"
-              text="dark"
-              v-model="checkboxDarkmodeChecked"
-              :dark="currentTheme === 'theme-dark' ? true : false"
-            />
-            <BIMDataCheckbox
               margin="0 0 12px"
               text="border"
               v-model="checkboxBorderChecked"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+
             />
           </div>
           <div class="m-t-24">
@@ -128,7 +115,7 @@
               :options="['string', 'object']"
               :modelValue="optionSet"
               @update:modelValue="changeOptionSet"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+
               :color="currentTheme === 'theme-dark' ? 'quaternary' : 'tertiary-light'"
             />
           </div>
@@ -151,7 +138,7 @@
               :id="value"
               :value="value"
               :name="key"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+
               v-model="$data[`selectedDropdownOptions${key}`]"
             >
             </BIMDataRadio>
@@ -167,25 +154,21 @@
           <BIMDataCheckbox
             text="header"
             v-model="checkboxHeaderChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="contentAfterBtn"
             v-model="checkboxAfterBtnChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="element"
             v-model="checkboxElementChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="empty"
             v-model="checkboxEmptyChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -198,7 +181,6 @@
           <pre>
             &lt;BIMDataDropdownList
               :list="list"
-              :dark="{{ checkboxDarkmodeChecked }}"
               :border="{{ checkboxBorderChecked }}"
               :perPage="{{ numberInput }}"
               :borderRadius="{{ numberBorderRadius }}"
@@ -267,7 +249,6 @@ export default {
       checkboxLoadingChecked: false,
       checkboxCloseOnElementClickChecked: false,
       checkboxSearchChecked: false,
-      checkboxDarkmodeChecked: false,
       checkboxBorderChecked: true,
       checkboxHeaderChecked: true,
       checkboxAfterBtnChecked: false,
@@ -288,13 +269,15 @@ export default {
       eventsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     item() {
       return this.selectedItem;
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

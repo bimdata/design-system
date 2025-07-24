@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-dropdown" v-clickaway="away" :class="{dark, border}">
+  <div class="bimdata-dropdown" v-clickaway="away" :class="{dark: isDark, border}">
     <div
       class="bimdata-dropdown__content"
       :class="{ active: displayed, disabled }"
@@ -79,6 +79,12 @@ import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbo
 export default {
   directives: { clickaway },
   components: { BIMDataIconChevron, BIMDataTextbox },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -115,10 +121,6 @@ export default {
       type: String,
       default: "auto",
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
     border: {
       type: Boolean,
       default: true,
@@ -139,6 +141,9 @@ export default {
         "min-height": `${this.height}`,
         visibility: this.menuHeader ? "visible" : "hidden",
       };
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   watch: {
