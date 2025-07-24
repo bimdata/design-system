@@ -3,7 +3,7 @@
   font-size: 0.9rem;
   background-color: var(--color-white);
 
-  &__container {
+  & .bimdata-table__container {
     height: 100%;
 
     table {
@@ -46,7 +46,7 @@
       }
     }
 
-    &__placeholder {
+    .bimdata-table__container__placeholder {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -56,14 +56,32 @@
     }
   }
 
-  &__page-nav {
+  & .bimdata-table__container__page-nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: var(--spacing-unit);
 
-    &__text {
+    & .bimdata-table__container__page-nav__text {
       margin: 0 var(--spacing-unit);
+    }
+  }
+
+  &.dark {
+    .bimdata-table__container table tbody tr:nth-child(odd) {
+      background-color: var(--color-quaternary-dark);
+    }
+    .bimdata-table__container table thead tr,
+    .bimdata-table__container table tbody tr:nth-child(even) {
+      background-color: var(--color-quaternary);
+      th {
+        color: var(--color-quaternary-lighter);
+      }
+    }
+    .bimdata-table__container {
+      td {
+        color: var(--color-white);
+      }
     }
   }
 }
