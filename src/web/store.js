@@ -115,6 +115,13 @@ export default {
     path: "components",
     children: [
       {
+        title: "Avatar",
+        img: illustration,
+        path: "avatar",
+        text: "",
+        btn: "View avatar",
+      },
+      {
         title: "Buttons",
         img: buttons,
         path: "buttons",
