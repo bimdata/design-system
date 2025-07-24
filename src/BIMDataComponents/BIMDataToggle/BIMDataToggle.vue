@@ -1,7 +1,7 @@
 <template>
   <label
     :for="`bimdata-toggle-${uniqueId}`"
-    :class="{ active: modelValue, disabled }"
+    :class="{ active: modelValue, disabled, dark: isDark }"
     class="toggle__button"
   >
     <slot></slot>
@@ -21,6 +21,12 @@ export default {
   model: {
     prop: "modelValue",
     event: "update:modelValue",
+  },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     disabled: {
@@ -47,6 +53,9 @@ export default {
         this.$emit("update:modelValue", newValue);
       },
     },
+    isDark() {
+      return this.darkThemeRef;
+    },
   },
   created() {
     // Math.random is random enough to avoid conflict
@@ -55,4 +64,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataToggle.scss"></style>
+<style scoped src="./BIMDataToggle.css"></style>
