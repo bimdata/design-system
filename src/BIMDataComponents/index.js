@@ -7,6 +7,7 @@ import "../assets/css/utilities/_list.css";
 import "../assets/css/utilities/_spacing.css";
 import "../assets/css/utilities/_text.css";
 
+export { default as BIMDataAvatar } from "./BIMDataAvatar/BIMDataAvatar.vue";
 export { default as BIMDataBigSpinner } from "./BIMDataBigSpinner/BIMDataBigSpinner.vue";
 export { default as BIMDataButton } from "./BIMDataButton/BIMDataButton.vue";
 export { default as BIMDataCard } from "./BIMDataCard/BIMDataCard.vue";

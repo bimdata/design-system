@@ -79,6 +79,11 @@ const routes = [
         component: () => import("./views/Layout/Content.vue"),
       },
       {
+        path: "avatar",
+        name: "avatar",
+        component: () => import("./views/Components/Avatar/Avatar.vue"),
+      },
+      {
         path: "searchautocomplete",
         name: "searchautocomplete",
         component: () =>
