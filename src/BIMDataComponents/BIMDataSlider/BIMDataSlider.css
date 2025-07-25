@@ -50,7 +50,7 @@
       transition: opacity 0.2s ease-out;
     }
   }
-  &-tooltip {
+  .bimdata-slider-tooltip {
     background: var(--color-primary);
     color: var(--color-white);
     padding: calc(var(--spacing-unit) / 2);
@@ -64,7 +64,7 @@
     &::after {
       border: 5px solid transparent;
       border-top-color: var(--color-primary);
-      bottom: 5px * -2;
+      bottom: calc(5px * -2);
       content: "";
       height: 0;
       left: 50%;
@@ -78,5 +78,42 @@
   .bimdata-slider-input::-webkit-slider-thumb {
     appearance: none;
     -webkit-appearance: none;
+  }
+
+  &.dark {
+    .bimdata-slider-input {
+      background-color: transparent;
+      &::-webkit-slider-runnable-track {
+        height: 3px;
+        background: linear-gradient(
+            to right,
+            var(--color-tertiary),
+            var(--color-tertiary)
+          ),
+          var(--color-quaternary-lighter);
+        background-size: var(--background-size, 0%) 100%;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+      }
+      &::-webkit-slider-thumb {
+        background: var(--color-tertiary);
+      }
+      &::-moz-range-progress {
+        background-color: var(--color-tertiary);
+      }
+      &::-moz-range-track {
+        background-color: var(--color-quaternary-lighter);
+        border-radius: 5px;
+      }
+      &::-moz-range-thumb {
+        background: var(--color-tertiary);
+      }
+    }
+    .bimdata-slider-tooltip {
+      background: var(--color-tertiary);
+      &::after {
+        border-top-color: var(--color-tertiary);
+      }
+    }
   }
 }
