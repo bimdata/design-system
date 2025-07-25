@@ -10,7 +10,7 @@ textarea:-webkit-autofill {
   color: var(--color-primary);
   font-size: 15px;
   textarea {
-    padding: 0px;
+    padding: 6px;
     width: 100%;
     min-width: inherit;
     max-width: 100%;
