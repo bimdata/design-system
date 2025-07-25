@@ -111,6 +111,19 @@
       }
     }
     &.dark {
+      &.active, &.not-empty {
+        & .bimdata-select__content {
+          .bimdata-select__content__label {
+            color: var(--color-quaternary-lighter);
+          }
+        }
+      }
+      .bimdata-select__content {
+        background-color: var(--color-quaternary-light);
+        .bimdata-select__content__value, .bimdata-select__content__label {
+          color: var(--color-quaternary-lighter);
+        }
+      }
       .bimdata-select__option-list {
         background-color: var(--color-primary);
         color: var(--color-white);
