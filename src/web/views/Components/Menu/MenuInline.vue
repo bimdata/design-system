@@ -27,7 +27,7 @@
           <template #submenu>
             <div class="flex items-center justify-center">
               <BIMDataButton
-                :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
+                :color="currentTheme === 'theme-dark' ? 'white' : 'primary'"
                 ghost
                 rounded
                 icon
@@ -36,12 +36,12 @@
               >
                 <BIMDataIconDelete
                   fill
-                  :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
+                  :color="currentTheme === 'theme-dark' ? 'white' : 'primary'"
                   size="xxs"
                 />
               </BIMDataButton>
               <BIMDataButton
-                :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
+                :color="currentTheme === 'theme-dark' ? 'white' : 'primary'"
                 ghost
                 rounded
                 icon
@@ -49,7 +49,7 @@
               >
                 <BIMDataIconEdit
                   fill
-                  :color="checkboxDarkmodeChecked ? 'white' : 'primary'"
+                  :color="currentTheme === 'theme-dark' ? 'white' : 'primary'"
                   size="xxs"
                 />
               </BIMDataButton>
@@ -83,23 +83,23 @@
               &lt;template #submenu&gt;
                 &lt;div class="flex items-center justify-center"&gt;
                   &lt;BIMDataButton
-                    color="primary"
+                  color="{{currentTheme === 'theme-dark' ? 'white' : 'primary'}}"
                     ghost
                     rounded
                     icon
                     @click="yourClickEventHere()"
                     class="m-r-6"
                   &gt;
-                    &lt;BIMDataIconDelete fill color="primary" size="xxs" /&gt;
+                    &lt;BIMDataIconDelete fill color="{{currentTheme === 'theme-dark' ? 'white' : 'primary'}}" size="xxs" /&gt;
                   &lt;/BIMDataButton&gt;
                   &lt;BIMDataButton
-                    color="primary"
+                  color="{{currentTheme === 'theme-dark' ? 'white' : 'primary'}}"
                     ghost
                     rounded
                     icon
                     @click="yourClickEventHere()"
                   &gt;
-                    &lt;BIMDataIconEdit fill color="primary" size="xxs" /&gt;
+                    &lt;BIMDataIconEdit fill color="{{currentTheme === 'theme-dark' ? 'white' : 'primary'}}" size="xxs" /&gt;
                   &lt;/BIMDataButton&gt;
                 &lt;/div&gt;
               &lt;/template&gt;
