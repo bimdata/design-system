@@ -107,7 +107,7 @@
           Props:
         </BIMDataText>
         <BIMDataTable
-          :rowHeight="36"
+          :rowHeight="42"
           :columns="propsData[0]"
           :rows="propsData.slice(1)"
         />
@@ -117,7 +117,7 @@
           Events:
         </BIMDataText>
         <BIMDataTable
-          :rowHeight="36"
+          :rowHeight="42"
           :columns="eventsData[0]"
           :rows="eventsData.slice(1)"
         />
@@ -280,7 +280,7 @@
           Columns:
         </BIMDataText>
         <BIMDataTable
-          :rowHeight="36"
+          :rowHeight="42"
           :columns="columnsData[0]"
           :rows="columnsData.slice(1)"
         />
