@@ -24,6 +24,8 @@
       @mouseleave="hoveredItemKey = null"
       :style="{
         color: item.color,
+        'background-color':
+            hoveredItemKey === item.key ? item.background : '',
       }"
     >
       <div v-if="item.groupTitle" class="bimdata-menu__item__title">
@@ -33,10 +35,6 @@
       </div>
       <div
         v-if="item.text"
-        :style="{
-          'background-color':
-            hoveredItemKey === item.key ? item.background : '',
-        }"
         class="bimdata-menu__item__content flex"
         :class="{ 'bimdata-menu__item__content--active': isItemActive(item) }"
       >

@@ -102,7 +102,23 @@
       }
       & .bimdata-menu__item__content {
         &:hover {
-          background-color: var(--color-quaternary-dark);
+          background-color: transparent; 
+          &::before {
+            background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 8%);
+          }
+        }
+        &.bimdata-menu__item__content--active {
+          background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 5%);
+        }
+      }
+      & .bimdata-menu__item__children {
+        background-color: var(--color-quaternary);
+        ul {
+          li {
+            &:hover {
+              background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 8%);
+            }
+          }
         }
       }
     }
