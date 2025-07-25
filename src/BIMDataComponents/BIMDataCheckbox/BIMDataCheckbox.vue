@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import { inject, computed } from "vue";
-
 export default {
   name: "BIMDataCheckbox",
   inheritAttrs: false,
