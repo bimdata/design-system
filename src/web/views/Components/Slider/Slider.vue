@@ -1,7 +1,9 @@
 <template>
   <main class="article slider">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -22,19 +24,27 @@
             type="number"
             placeholder="Min range"
             v-model="minRange"
+            backgroundColor="var(--color-white)"
           />
           <BIMDataInput
             type="number"
             placeholder="Max range"
             v-model="maxRange"
+            backgroundColor="var(--color-white)"
           />
           <BIMDataInput
             type="number"
             placeholder="Slider default value"
             :modelValue="slider"
             @update:modelValue="slider = +$event"
+            backgroundColor="var(--color-white)"
           />
-          <BIMDataInput type="number" placeholder="Step value" v-model="step" />
+          <BIMDataInput
+            type="number"
+            placeholder="Step value"
+            v-model="step"
+            backgroundColor="var(--color-white)"
+          />
           <BIMDataCheckbox text="Tooltip" v-model="tooltip" />
         </template>
 
