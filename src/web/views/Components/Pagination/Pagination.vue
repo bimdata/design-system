@@ -1,7 +1,7 @@
 <template>
   <main class="article article-pagination">
     <div class="article-wrapper">
-      <BIMDataText component="h1" color="primary">
+      <BIMDataText component="h1" color="color-primary">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
