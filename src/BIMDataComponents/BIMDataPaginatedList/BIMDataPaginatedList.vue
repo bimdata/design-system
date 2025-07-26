@@ -30,7 +30,7 @@
         :last="last"
         :numberDataElements="numberDataElements"
         :backgroundColor="backgroundColor"
-        :dark="isDark"
+        :class="{ dark: isDark }"
       />
     </div>
   </div>

@@ -11,7 +11,6 @@
     class="bimdata-pagination"
     :class="{ dark: isDark }"
     :backgroundColor="backgroundColor"
-    :dark="isDark"
   >
     <template #left v-if="numberDataElements">
       {{ firstIndex }} - {{ lastIndex }} of {{ length }}

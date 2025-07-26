@@ -28,7 +28,7 @@
     <transition :name="`slide-fade-${transitionName}`">
       <div>
         <BIMDataPaginatedList
-          :class="`submenu submenu--${directionClass}`"
+          :class="(`submenu submenu--${directionClass}`, { dark: isDark })"
           v-show="displayed"
           :list="filteredList"
           :perPage="perPage"
@@ -38,7 +38,6 @@
           :background-color="
             !dark ? 'var(--color-white)' : 'var(--color-quaternary)'
           "
-          :dark="isDark"
           :borderRadius="borderRadius"
         >
           <template #header>
