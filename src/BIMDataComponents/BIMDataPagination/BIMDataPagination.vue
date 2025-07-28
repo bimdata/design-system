@@ -9,8 +9,10 @@
     :nextDisabled="isLastPage"
     :lastDisabled="isLastPage"
     class="bimdata-pagination"
-    :class="{ dark: isDark }"
-    :backgroundColor="backgroundColor"
+    :class="['bimdata-pagination', { dark: isDark && !backgroundColorSet }]"
+    :style="{
+      backgroundColor: backgroundColorSet ? backgroundColor : undefined,
+    }"
   >
     <template #left v-if="numberDataElements">
       {{ firstIndex }} - {{ lastIndex }} of {{ length }}
@@ -18,7 +20,7 @@
     <span class="bimdata-pagination__item">
       <BIMDataButton
         ghost
-        :color="!isDark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         width="21px"
         height="21px"
       >
@@ -86,6 +88,11 @@ export default {
     isLastPage() {
       return this.currentPage === this.totalPages;
     },
+    backgroundColorSet() {
+      return (
+        !!this.backgroundColor && this.backgroundColor !== "var(--color-white)"
+      );
+    },
     isDark() {
       return this.darkThemeRef;
     },
@@ -107,4 +114,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataPagination.scss"></style>
+<style scoped src="./BIMDataPagination.css"></style>

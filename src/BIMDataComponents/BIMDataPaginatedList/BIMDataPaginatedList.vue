@@ -29,8 +29,10 @@
         :first="first"
         :last="last"
         :numberDataElements="numberDataElements"
-        :backgroundColor="backgroundColor"
-        :class="{ dark: isDark }"
+        :style="{
+          backgroundColor: backgroundColorSet ? backgroundColor : undefined,
+        }"
+        :class="{ dark: isDark && !backgroundColorSet }"
       />
     </div>
   </div>
@@ -121,6 +123,11 @@ export default {
           "border-radius": `${this.borderRadius}`,
         };
       }
+    },
+    backgroundColorSet() {
+      return (
+        !!this.backgroundColor && this.backgroundColor !== "var(--color-white)"
+      );
     },
     isDark() {
       return this.darkThemeRef;

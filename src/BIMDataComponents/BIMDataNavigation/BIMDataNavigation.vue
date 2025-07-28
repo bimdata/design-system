@@ -12,7 +12,7 @@
         @click="$emit('first')"
         :disabled="firstDisabled"
         ghost
-        :color="!isDark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: firstDisabled }"
         width="21px"
         height="21px"
@@ -25,7 +25,7 @@
         @click="$emit('previous')"
         :disabled="previousDisabled"
         ghost
-        :color="!isDark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: previousDisabled }"
         width="21px"
         height="21px"
@@ -41,7 +41,7 @@
         @click="$emit('next')"
         :disabled="nextDisabled"
         ghost
-        :color="!isDark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: nextDisabled }"
         width="21px"
         height="21px"
@@ -54,7 +54,7 @@
         @click="$emit('last')"
         :disabled="lastDisabled"
         ghost
-        :color="!isDark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: lastDisabled }"
         width="21px"
         height="21px"
