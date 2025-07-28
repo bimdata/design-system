@@ -40,4 +40,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataSafeZoneInline.scss"></style>
+<style scoped src="./BIMDataSafeZoneInline.css"></style>
