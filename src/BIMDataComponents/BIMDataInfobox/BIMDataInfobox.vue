@@ -1,6 +1,7 @@
 <template>
-  <div class="bimdata-infobox">
-    <div class="bimdata-infobox__stripe"
+  <div class="bimdata-infobox" :class="{ dark: isDark }">
+    <div
+      class="bimdata-infobox__stripe"
       :style="{ backgroundColor: `var(--color-${color})` }"
     >
       <!-- left stripe -->
@@ -15,19 +16,20 @@
 </template>
 
 <script setup>
+import { inject, computed } from "vue";
 defineProps({
   text: {
     type: String,
-    default: ""
+    default: "",
   },
   icon: {
     type: String,
-    default: "information"
+    default: "information",
   },
   color: {
     type: String,
-    validator:
-      v => [
+    validator: v =>
+      [
         "granite-light",
         "high",
         "neutral",
@@ -36,9 +38,13 @@ defineProps({
         "success",
         "warning",
       ].includes(v),
-    default: "neutral"
+    default: "neutral",
   },
 });
+const darkThemeRef = inject("BIMDATA_DESIGN_SYSTEM_DARK_THEME", {
+  value: false,
+});
+const isDark = computed(() => darkThemeRef?.value);
 </script>
 
 <style scoped>
@@ -71,6 +77,11 @@ defineProps({
 
   .bimdata-infobox__text {
     line-height: 1.25;
+  }
+
+  &.dark {
+    background-color: var(--color-quaternary);
+    color: var(--color-quaternary-lighter);
   }
 }
 </style>
