@@ -1,5 +1,5 @@
 <template>
-  <BIMDataCard class="color-selector">
+  <BIMDataCard class="color-selector" :class="{ dark: isDark }">
     <template #content>
       <div
         class="color-selector__line"
@@ -37,6 +37,12 @@ export default {
   components: {
     BIMDataCard,
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     modelValue: {
       type: String,
@@ -50,6 +56,11 @@ export default {
       colorLines,
     };
   },
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
+    },
+  }
 };
 </script>
 
