@@ -63,7 +63,7 @@
                 />
                 <BIMDataText
                   component="h5"
-                  :color="currentTheme === 'theme-dark' ? 'color-quaternary-light' : 'color-primary'"
+                  :color="currentTheme === 'theme-dark' ? 'color-quaternary-lighter' : 'color-primary'"
                   fontWeight="700"
                 >
                   {{ child.title }}

@@ -177,7 +177,7 @@
           component="span"
           :color="
             currentTheme === 'theme-dark'
-              ? 'color-quaternary-light'
+              ? 'color-quaternary-lighter'
               : 'color-granite'
           "
           margin="15px 5px"
