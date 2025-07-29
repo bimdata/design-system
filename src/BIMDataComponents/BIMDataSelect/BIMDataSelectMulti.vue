@@ -1,10 +1,12 @@
 <template>
   <div
-    class="bimdata-select"
+    class="bimdata-select multi"
     :class="{
       disabled,
       active: isOpen,
+      dark: isDark,
       'not-empty': modelValue.length > 0,
+      [color]: true,
     }"
     :style="{ width }"
     v-clickaway="away"
@@ -25,7 +27,7 @@
         <BIMDataSearch
           v-if="search"
           width="calc(100% - 12px)"
-          color="primary"
+          :color="searchColor"
           radius
           :placeholder="searchPlaceholder"
           v-model="searchText"
@@ -80,13 +82,32 @@ export default {
     prop: "modelValue",
     event: "update:modelValue",
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
-    width: {
-      type: [String, Number],
+    color: {
+      type: String,
+      default: "default",
+      validator: value =>
+        ["default", "primary", "secondary", "tertiary", "tertiary-light", "quaternary"].includes(value),
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     label: {
       type: String,
       default: null,
+    },
+    modelValue: {
+      type: Array,
+    },
+    nullLabel: {
+      type: String,
     },
     options: {
       type: Array,
@@ -98,13 +119,7 @@ export default {
     optionLabelKey: {
       type: String,
     },
-    modelValue: {
-      type: Array,
-    },
-    nullLabel: {
-      type: String,
-    },
-    disabled: {
+    resetOnLeave: {
       type: Boolean,
       default: false,
     },
@@ -112,13 +127,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    searchColor: {
+      type: String,
+      default: "primary",
+      validator: value =>
+        ["primary", "secondary", "tertiary", "quaternary"].includes(value),
+    },
     searchPlaceholder: {
       type: String,
       default: "Search",
     },
-    resetOnLeave: {
-      type: Boolean,
-      default: false,
+    
+    width: {
+      type: [String, Number],
     },
   },
   emits: ["update:modelValue"],
@@ -158,6 +179,9 @@ export default {
           );
         }
       }
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {
