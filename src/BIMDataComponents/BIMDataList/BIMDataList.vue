@@ -86,7 +86,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .bimdata-list {
   margin: 0;
   padding: 0;
@@ -98,7 +98,7 @@ export default {
 
   position: relative;
 
-  &__element {
+  .bimdata-list __element {
     position: absolute;
     width: 100%;
   }

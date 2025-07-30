@@ -45,7 +45,7 @@
               };
               &lt;/script&gt;
 
-              &lt;style scoped lang="scss" src="./YourFileStyle.scss"&gt;&lt;/style&gt;
+              &lt;style scoped src="./YourFileStyle.css"&gt;&lt;/style&gt;
             </pre>
           </Code>
         </li>

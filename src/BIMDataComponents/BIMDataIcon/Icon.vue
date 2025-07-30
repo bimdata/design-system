@@ -98,6 +98,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="../../assets/css/variables.css"></style>
+<style scoped src="../../assets/css/variables.css"></style>
 
 <style src="./BIMDataIcon.css"></style>

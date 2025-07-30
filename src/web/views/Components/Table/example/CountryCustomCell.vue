@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .country-custom-cell {
   img {
     width: 36px;

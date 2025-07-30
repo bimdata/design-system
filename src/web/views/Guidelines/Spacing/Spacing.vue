@@ -63,13 +63,13 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .article-spacing {
-  &__code {
+  .article-spacing__code {
     display: flex;
     justify-content: space-between;
 
-    &__item {
+    .article-spacing__code__item {
       margin-right: var(--spacing-unit);
       flex: 1;
       pre {

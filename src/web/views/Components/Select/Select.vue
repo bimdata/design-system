@@ -242,6 +242,7 @@ export default {
       isEmpty: false,
       hasNullValue: false,
       clearSearch: false,
+      optionSet: "string",
       options: stringOptions,
       optionKey: null,
       optionLabelKey: null,
@@ -338,7 +339,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .bimdata-select {
   span {
     font-size: 12px;

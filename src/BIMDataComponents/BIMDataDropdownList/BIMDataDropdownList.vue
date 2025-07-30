@@ -209,4 +209,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./BIMDataDropdownList.css"></style>
+<style scoped src="./BIMDataDropdownList.css"></style>

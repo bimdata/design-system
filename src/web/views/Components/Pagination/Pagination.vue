@@ -183,7 +183,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .toggle__button {
   font-size: 12px;
 }

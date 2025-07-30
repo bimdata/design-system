@@ -123,11 +123,11 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .bimdata-tree {
   height: 100%;
 
-  &__drop-helper {
+  .bimdata-tree__drop-helper {
     height: 2px;
     background-color: var(--color-primary);
   }

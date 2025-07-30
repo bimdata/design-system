@@ -509,14 +509,14 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .selection-box {
   box-sizing: border-box;
   width: 100%;
   padding: 12px;
   padding-left: 72px;
 
-  &__label {
+  .selection-box__label {
     margin-bottom: 12px;
     font-weight: 700;
   }

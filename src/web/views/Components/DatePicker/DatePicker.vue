@@ -201,7 +201,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .bimdata-ds__demo__module {
   span {
     font-size: 12px;

@@ -134,4 +134,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./BIMDataNavigation.css"></style>
+<style scoped src="./BIMDataNavigation.css"></style>

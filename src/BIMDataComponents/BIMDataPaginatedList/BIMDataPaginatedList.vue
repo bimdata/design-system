@@ -189,4 +189,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./BIMDataPaginatedList.css"></style>
+<style scoped src="./BIMDataPaginatedList.css"></style>
