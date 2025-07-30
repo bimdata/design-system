@@ -50,12 +50,10 @@
             <BIMDataCheckbox
               text="title"
               v-model="headerTitle"
-              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataCheckbox
               text="icons"
               v-model="headerIcons"
-              :dark="currentTheme === 'theme-dark' ? true : false"
             />
 
             <BIMDataText
@@ -67,9 +65,9 @@
             >
               Submenu
             </BIMDataText>
-            <BIMDataCheckbox text="left" v-model="submenuLeft" :dark="currentTheme === 'theme-dark' ? true : false" />
-            <BIMDataCheckbox text="text" v-model="submenuText" :dark="currentTheme === 'theme-dark' ? true : false" />
-            <BIMDataCheckbox text="right" v-model="submenuIcons" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="left" v-model="submenuLeft" />
+            <BIMDataCheckbox text="text" v-model="submenuText" />
+            <BIMDataCheckbox text="right" v-model="submenuIcons" />
 
             <BIMDataText
               component="h5"
@@ -80,7 +78,7 @@
             >
               Content
             </BIMDataText>
-            <BIMDataCheckbox text="content" v-model="content" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="content" v-model="content" />
 
             <BIMDataText
               component="h5"
@@ -91,7 +89,7 @@
             >
               Footer
             </BIMDataText>
-            <BIMDataCheckbox text="footer" v-model="footer" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="footer" v-model="footer" />
 
             <BIMDataText
               component="h5"
@@ -102,20 +100,20 @@
             >
               Parameters
             </BIMDataText>
-            <BIMDataCheckbox text="Border" v-model="border" :dark="currentTheme === 'theme-dark' ? true : false" />
-            <BIMDataCheckbox text="Box shadow" v-model="boxShadow" :dark="currentTheme === 'theme-dark' ? true : false" />
+            <BIMDataCheckbox text="Border" v-model="border" />
+            <BIMDataCheckbox text="Box shadow" v-model="boxShadow" />
             <BIMDataInput
               v-model="widthCard"
               margin="20px 0"
               placeholder="card's min-width in px or %"
               backgroundColor="white"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+            
             />
             <BIMDataInput
               v-model="borderRadiusCard"
               placeholder="card's border-radius in px or %"
               backgroundColor="white"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+            
             />
 
             <BIMDataText
@@ -134,7 +132,7 @@
               :id="colorCard"
               :value="colorCard"
               :name="colorCard"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+            
               v-model="selectedBgColorCard"
             />
           </div>
@@ -218,7 +216,7 @@ export default {
       slotsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   methods: {
     getImportContent() {
       return `
@@ -277,7 +275,9 @@ export default {
   },
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

@@ -1,13 +1,27 @@
 <template>
   <main class="article article-icons">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
-      <BIMDataText component="h3" color="color-primary" margin="10px 0">
+      <BIMDataText
+        component="h3"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+        margin="10px 0"
+      >
         Size usage for designers
       </BIMDataText>
-      <BIMDataText>Use a 23px box for icons of 23px.</BIMDataText>
+      <BIMDataText
+        :color="
+          currentTheme === 'theme-dark'
+            ? 'color-quaternary-lighter'
+            : 'color-granite'
+        "
+        >Use a 23px box for icons of 23px.</BIMDataText
+      >
       <div>
         <img src="../../../assets/img/design-system__icon-plus.jpg" alt="" />
         <img src="../../../assets/img/design-system__icon-warning.jpg" alt="" />
@@ -21,14 +35,31 @@
             placeholder="Search an icon"
             v-model="filter"
             width="94%"
+            :color="currentTheme === 'theme-dark' ? 'quaternary' : 'default'"
           />
-          <span class="icons-numbers">icons: {{ filteredList.length }}</span>
+          <span
+            class="icons-numbers"
+            :style="{
+              'background-color':
+                currentTheme === 'theme-dark'
+                  ? 'var(--color-quaternary-lighter)'
+                  : 'var(--color-primary)',
+              color:
+                currentTheme === 'theme-dark'
+                  ? 'var(--color-quaternary)'
+                  : 'var(--color-white)',
+            }"
+            >icons: {{ filteredList.length }}</span
+          >
           <div class="icons">
             <div
               class="icon"
               v-for="icon of filteredList"
               :key="icon.name"
-              :class="{ active: icon === activeIcon }"
+              :class="[
+                { active: icon === activeIcon },
+                icon === activeIcon ? 'active-' + currentTheme : '',
+              ]"
               @click="onActiveIcons(icon)"
             >
               <component
@@ -46,8 +77,10 @@
         <template #parameters>
           <BIMDataText
             component="h5"
-            color="color-primary"
-            margin="15px 0 10px"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="12px 0 0"
           >
             margin
           </BIMDataText>
@@ -55,11 +88,14 @@
             v-model="marginIcon"
             placeholder="margin around icon (in px)"
             min="0"
+            backgroundColor="white"
           />
           <BIMDataText
             component="h5"
-            color="color-primary"
-            margin="15px 0 10px"
+            :color="
+              currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+            "
+            margin="12px 0 0"
           >
             rotate
           </BIMDataText>
@@ -68,11 +104,14 @@
             placeholder="Degree of rotation"
             type="number"
             min="0"
+            backgroundColor="white"
           />
           <div v-for="[key, values] in Object.entries(iconOptions)" :key="key">
             <BIMDataText
               component="h5"
-              color="color-primary"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
               margin="15px 0 10px"
             >
               {{ key }}
@@ -84,6 +123,7 @@
               :id="value"
               :value="value"
               :name="key"
+
               v-model="$data[`selectedIconOptions${key}`]"
             >
             </BIMDataRadio>
@@ -112,14 +152,26 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 10px"
+        >
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
       </div>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 10px">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 10px"
+        >
           Summary icons size:
         </BIMDataText>
         <BIMDataTable
@@ -252,7 +304,7 @@ export default {
       ],
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     filteredList() {
       return Object.keys(allIcons).filter(iconName => {
@@ -260,7 +312,9 @@ export default {
       });
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

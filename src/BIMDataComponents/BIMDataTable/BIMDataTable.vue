@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-table">
+  <div class="bimdata-table" :class="{ dark: isDark }">
     <div
       class="bimdata-table__container"
       :style="{
@@ -51,7 +51,7 @@
                     class="m-l-6"
                     :class="{
                       active: filters.some(
-                        filter => filter.columnKey === column.id
+                        filter => filter.columnKey === column.id,
                       ),
                     }"
                     @click="toggleFiltersMenu(column)"
@@ -63,7 +63,7 @@
                     :column="column"
                     :columnData="
                       computedRows.map(
-                        computedRow => computedRow.data[column.id]
+                        computedRow => computedRow.data[column.id],
                       )
                     "
                     :filters="
@@ -164,7 +164,7 @@
 </template>
 
 <script>
-import { computed, ref, watch, shallowReactive } from "vue";
+import { computed, inject, ref, watch, shallowReactive } from "vue";
 import { useRowSelection } from "./table-row-selection.js";
 import clickaway from "../../BIMDataDirectives/click-away.js";
 
@@ -245,9 +245,13 @@ export default {
     "row-drop",
   ],
   setup(props, { emit }) {
+    const darkThemeRef = inject("BIMDATA_DESIGN_SYSTEM_DARK_THEME");
+    const isDark = computed(() => {
+      return darkThemeRef.value;
+    });
     // Compute rows keys based on props values.
     const computedRows = computed(() =>
-      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row }))
+      props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row })),
     );
 
     const { rowSelection, toggleRowSelection, toggleFullSelection } =
@@ -273,7 +277,7 @@ export default {
               emit("all-deselected");
             }
           },
-        }
+        },
       );
 
     const selectionState = computed(() =>
@@ -281,7 +285,7 @@ export default {
         ? rowSelection.value.size > 0
           ? null
           : false
-        : rowSelection.value.size > 0
+        : rowSelection.value.size > 0,
     );
 
     const toggleRow = row => {
@@ -387,7 +391,7 @@ export default {
       return sortedRows.value.filter(row => {
         return filters.value.every(filter => {
           const column = props.columns.find(
-            column => column.id === filter.columnKey
+            column => column.id === filter.columnKey,
           );
           const columnRowData = row.data[filter.columnKey];
 
@@ -399,17 +403,17 @@ export default {
                 typeof column.filterFunction === "function"
                   ? column.filterFunction(columnRowDataElement)
                   : column.filterKey
-                  ? columnRowDataElement[column.filterKey]
-                  : columnRowDataElement
-              )
+                    ? columnRowDataElement[column.filterKey]
+                    : columnRowDataElement,
+              ),
             );
           } else {
             return filter.columnFilters.includes(
               typeof column.filterFunction === "function"
                 ? column.filterFunction(columnRowData)
                 : column.filterKey
-                ? columnRowData[column.filterKey]
-                : columnRowData
+                  ? columnRowData[column.filterKey]
+                  : columnRowData,
             );
           }
         });
@@ -421,7 +425,7 @@ export default {
      */
     const updateFilters = (column, columnFilters) => {
       filters.value = filters.value.filter(
-        filter => filter.columnKey !== column.id
+        filter => filter.columnKey !== column.id,
       );
       if (columnFilters.length > 0) {
         filters.value.push({
@@ -442,7 +446,7 @@ export default {
       () => {
         pageIndex.value = 0;
       },
-      { immediate: true }
+      { immediate: true },
     );
     // Compute `paginatedRows` according to rows array and pagination settings.
     watch(
@@ -460,11 +464,12 @@ export default {
           paginatedRows.value = rowKeys;
         }
       },
-      { immediate: true }
+      { immediate: true },
     );
 
     return {
       // References
+      isDark,
       activeHeadercolumnKey: null,
       computedRows,
       paginatedRows,
@@ -494,4 +499,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataTable.scss"></style>
+<style scoped src="./BIMDataTable.css"></style>

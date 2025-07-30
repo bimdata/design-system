@@ -9,4 +9,9 @@
     gap: calc(var(--spacing-unit) / 2);
     border-radius: 8px;
   }
+  &.dark {
+    & .bimdata-menu-inline__submenu {
+      background-color: var(--color-quaternary);
+    }
+  }
 }

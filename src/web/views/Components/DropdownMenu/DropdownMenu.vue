@@ -15,7 +15,6 @@
             :directionClass="selectedDropdownOptionsdirection"
             :menuItems="checkboxTwoLevelChecked ? multiLevelList : []"
             :header="checkboxDisabledHeader"
-            :dark="checkboxDarkmodeChecked"
             :border="checkboxBorderChecked"
           >
             <template #header="{ isOpen }" v-if="checkboxHeaderChecked">
@@ -44,14 +43,12 @@
             class="m-y-12"
             text="disabled"
             v-model="checkboxDisabledChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             class="m-y-12"
             text="header"
             v-model="checkboxDisabledHeader"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <div class="m-t-12">
@@ -63,16 +60,10 @@
               >style</BIMDataText
             >
             <BIMDataCheckbox
-              margin="12px 0 0"
-              text="dark"
-              v-model="checkboxDarkmodeChecked"
-              :dark="currentTheme === 'theme-dark' ? true : false"
-            />
-            <BIMDataCheckbox
               margin="0 0 12px"
               text="border"
               v-model="checkboxBorderChecked"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+
             />
           </div>
           <BIMDataText
@@ -87,7 +78,6 @@
             class="m-y-12"
             text="content"
             v-model="checkboxTwoLevelChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
 
@@ -110,7 +100,7 @@
               :id="value"
               :value="value"
               :name="key"
-              :dark="currentTheme === 'theme-dark' ? true : false"
+
               v-model="$data[`selectedDropdownOptions${key}`]"
             >
             </BIMDataRadio>
@@ -126,13 +116,11 @@
           <BIMDataCheckbox
             text="header"
             v-model="checkboxHeaderChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
           <BIMDataCheckbox
             text="element"
             v-model="checkboxElementSlotChecked"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           >
           </BIMDataCheckbox>
         </template>
@@ -147,7 +135,6 @@
             &lt;BIMDataDropdownMenu
               :disabled="{{ checkboxDisabledChecked }}"
               :header="{{ getHeaderProp() }}"
-              :dark="{{ checkboxDarkmodeChecked }}"
               :border="{{ checkboxBorderChecked }}"
               {{ getMenuItems() }}
             &gt;
@@ -192,7 +179,6 @@ export default {
       checkboxDisabledChecked: false,
       checkboxTwoLevelChecked: false,
       checkboxHeaderChecked: true,
-      checkboxDarkmodeChecked: false,
       checkboxBorderChecked: true,
       checkboxDisabledHeader: true,
       checkboxAfterHeaderChecked: false,
@@ -229,7 +215,7 @@ export default {
       ],
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   methods: {
     getHeader() {
       if (this.checkboxHeaderChecked) {
@@ -268,7 +254,9 @@ export default {
   },
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

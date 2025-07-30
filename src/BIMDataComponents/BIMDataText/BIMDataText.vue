@@ -1,11 +1,17 @@
 <template>
-  <component :is="component" :style="style" :class="classes">
+  <component :is="component" :style="style" :class="classes" class="bimdata-text">
     <slot></slot>
   </component>
 </template>
 
 <script>
 export default {
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     component: {
       type: String,
@@ -38,7 +44,13 @@ export default {
       validator: color =>
         [
           "color-primary",
+          "color-primary-lighter",
           "color-secondary",
+          "color-secondary-lighter",
+          "color-tertiary",
+          "color-tertiary-lighter",
+          "color-quaternary",
+          "color-quaternary-lighter",
           "color-silver",
           "color-silver-light",
           "color-silver-dark",
@@ -54,7 +66,7 @@ export default {
   },
   computed: {
     classes() {
-      return `${this.color}`;
+      return `${this.color} ${this.isDark ? "dark" : ""}`;
     },
     style() {
       return {
@@ -127,6 +139,11 @@ export default {
         }
       }
     },
+    isDark() {
+      return this.darkThemeRef;
+    },
   },
 };
 </script>
+
+<style scoped src="./BIMDataText.css"></style>

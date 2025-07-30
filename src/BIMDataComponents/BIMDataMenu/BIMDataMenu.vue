@@ -1,6 +1,7 @@
 <template>
   <ul
     class="bimdata-menu bimdata-list"
+    :class="{ dark: isDark }"
     :style="{
       width,
       maxHeight,
@@ -23,6 +24,8 @@
       @mouseleave="hoveredItemKey = null"
       :style="{
         color: item.color,
+        'background-color':
+            hoveredItemKey === item.key ? item.background : '',
       }"
     >
       <div v-if="item.groupTitle" class="bimdata-menu__item__title">
@@ -32,10 +35,6 @@
       </div>
       <div
         v-if="item.text"
-        :style="{
-          'background-color':
-            hoveredItemKey === item.key ? item.background : '',
-        }"
         class="bimdata-menu__item__content flex"
         :class="{ 'bimdata-menu__item__content--active': isItemActive(item) }"
       >
@@ -90,6 +89,12 @@ export default {
     BIMDataIconChevron,
     BIMDataTextbox,
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     menuItems: {
       type: Array,
@@ -143,6 +148,11 @@ export default {
     },
     onMouseOver(item) {
       this.hoveredItemKey = item.key;
+    },
+  },
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
     },
   },
 };

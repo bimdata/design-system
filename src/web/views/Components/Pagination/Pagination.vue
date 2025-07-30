@@ -1,7 +1,7 @@
 <template>
   <main class="article article-pagination">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText component="h1" color="color-primary">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -27,6 +27,7 @@
             v-model="numberInput"
             placeholder="Number of items per page"
             type="number"
+            backgroundColor="var(--color-white)"
           ></BIMDataInput>
           <BIMDataToggle v-model="isBasicPagination" class="m-b-30">
             <span>complex pagination</span>
@@ -38,6 +39,7 @@
             v-model="searchInList"
             placeholder="Search an item in list by id"
             type="number"
+            backgroundColor="var(--color-white)"
           ></BIMDataInput>
           <BIMDataCheckbox
             margin="24px 0 0"
@@ -154,10 +156,12 @@ export default {
       ],
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

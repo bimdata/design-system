@@ -1,7 +1,7 @@
 <template>
   <ul
     class="bimdata-list bimdata-navigation"
-    :class="{ dark }"
+    :class="{ dark: isDark }"
     :style="{ 'background-color': backgroundColor }"
   >
     <li class="bimdata-navigation__left m-r-6">
@@ -12,7 +12,7 @@
         @click="$emit('first')"
         :disabled="firstDisabled"
         ghost
-        :color="!dark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: firstDisabled }"
         width="21px"
         height="21px"
@@ -25,7 +25,7 @@
         @click="$emit('previous')"
         :disabled="previousDisabled"
         ghost
-        :color="!dark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: previousDisabled }"
         width="21px"
         height="21px"
@@ -41,7 +41,7 @@
         @click="$emit('next')"
         :disabled="nextDisabled"
         ghost
-        :color="!dark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: nextDisabled }"
         width="21px"
         height="21px"
@@ -54,7 +54,7 @@
         @click="$emit('last')"
         :disabled="lastDisabled"
         ghost
-        :color="!dark ? 'default' : 'quaternary'"
+        :color="isDark ? 'quaternary' : 'default'"
         :class="{ disabled: lastDisabled }"
         width="21px"
         height="21px"
@@ -80,6 +80,12 @@ export default {
     BIMDataIconChevron,
     BIMDataIconDoubleChevron,
     BIMDataButton,
+  },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     first: {
@@ -118,12 +124,13 @@ export default {
       type: String,
       default: "var(--color-white)",
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ["first", "previous", "next", "last"],
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
+    },
+  },
 };
 </script>
 

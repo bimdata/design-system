@@ -44,7 +44,7 @@
         left: 0;
         background: var(--color-primary);
         box-shadow: 0 0 1px var(--color-primary);
-        transform: translateX(24px - 8px);
+        transform: translateX(16px);
       }
     }
     &.disabled {
@@ -66,6 +66,17 @@
       &::after {
         border: 1px solid #95989a;
         box-shadow: none;
+      }
+    }
+  }
+
+  &.dark {
+    &.active {
+      .toggle__switch {
+        background-color: var(--color-primary-light);
+        &::after {
+          background: var(--color-tertiary);
+        }
       }
     }
   }

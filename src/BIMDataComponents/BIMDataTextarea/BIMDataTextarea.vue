@@ -6,6 +6,7 @@
         (modelValue !== null && modelValue !== '') || placeholder !== null,
       error,
       success,
+      dark: isDark,
     }"
     :style="{ 'min-width': width, 'min-height': height }"
   >
@@ -32,6 +33,12 @@ export default {
   model: {
     prop: "modelValue",
     event: "update:modelValue",
+  },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     name: {
@@ -117,7 +124,12 @@ export default {
       }
     },
   },
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
+    },
+  },
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataTextarea.scss"></style>
+<style scoped src="./BIMDataTextarea.css"></style>

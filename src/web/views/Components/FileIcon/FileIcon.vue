@@ -1,7 +1,10 @@
 <template>
   <main class="article article-input">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -13,22 +16,34 @@
           <div>
             <BIMDataText
               component="h5"
-              color="color-primary"
-              margin="15px 0 10px"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+              margin="12px 0 0"
             >
               File name
             </BIMDataText>
-            <BIMDataInput v-model="fileName" placeholder="Change fileName" />
+            <BIMDataInput
+              v-model="fileName"
+              placeholder="Change fileName"
+              backgroundColor="white"
+            />
           </div>
           <div>
             <BIMDataText
               component="h5"
-              color="color-primary"
-              margin="15px 0 10px"
+              :color="
+                currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+              "
+              margin="12px 0 0"
             >
               Size
             </BIMDataText>
-            <BIMDataInput v-model="size" placeholder="Change size" />
+            <BIMDataInput
+              v-model="size"
+              placeholder="Change size"
+              backgroundColor="white"
+            />
           </div>
         </template>
 
@@ -48,7 +63,13 @@
       </ComponentCode>
 
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Props:
         </BIMDataText>
         <BIMDataTable :columns="propsData[0]" :rows="propsData.slice(1)" />
@@ -73,10 +94,12 @@ export default {
       propsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

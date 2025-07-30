@@ -8,13 +8,13 @@
   >
     <div
       class="bimdata-dropdown-list__content"
-      :class="{ active: displayed, disabled, dark, border }"
+      :class="{ active: displayed, disabled, dark: isDark, border }"
       @click="onHeaderClick"
       :style="style"
     >
       <slot name="header" :isOpen="displayed"></slot>
       <BIMDataButton
-        :color="!dark ? 'white' : 'quaternary'"
+        :color="!isDark ? 'white' : 'quaternary'"
         icon
         radius
         fill
@@ -28,15 +28,16 @@
     <transition :name="`slide-fade-${transitionName}`">
       <div>
         <BIMDataPaginatedList
-          :class="`submenu submenu--${directionClass}`"
+          :class="['submenu', `submenu--${directionClass}`, { dark: isDark }]"
           v-show="displayed"
           :list="filteredList"
           :perPage="perPage"
           :elementKey="elementKey"
           @element-click="onElementClick"
           :loading="loading"
-          :background-color="!dark ? 'var(--color-white)' : 'var(--color-quaternary)'"
-          :dark="dark"
+          :background-color="
+            !isDark ? 'var(--color-white)' : 'var(--color-quaternary)'
+          "
           :borderRadius="borderRadius"
         >
           <template #header>
@@ -81,6 +82,12 @@ export default {
     BIMDataButton,
   },
   directives: { clickaway },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     list: {
       type: Array,
@@ -139,14 +146,10 @@ export default {
       type: String,
       default: "Search",
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
     border: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   emits: ["element-click"],
   data() {
@@ -160,7 +163,7 @@ export default {
       return {
         "min-width": `${this.width}`,
         "min-height": `${this.height}`,
-        'border-radius': `${this.borderRadius}`
+        "border-radius": `${this.borderRadius}`,
       };
     },
     iconRotation() {
@@ -182,6 +185,9 @@ export default {
           element.toLowerCase().includes(lowerCaseSearchText),
         );
       }
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {

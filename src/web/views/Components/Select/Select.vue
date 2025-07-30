@@ -21,7 +21,6 @@
             :nullValue="hasNullValue"
             v-model="selection"
             :clearSearchOnLeave="clearSearch"
-            :dark="checkboxDarkmodeChecked"
             :color="selectedOptionsColor"
             :searchColor="selectedSearchColor"
           >
@@ -68,12 +67,6 @@
           </div>
           <div class="m-t-6">
             <BIMDataCheckbox
-              text="Dark mode"
-              v-model="checkboxDarkmodeChecked"
-            />
-          </div>
-          <div class="m-t-6">
-            <BIMDataCheckbox
               text="Search"
               :modelValue="search"
               @update:modelValue="toggleSearch"
@@ -105,7 +98,6 @@
               :id="`${key}-${value}`"
               :value="value"
               :name="key"
-              :dark="currentTheme === 'theme-dark'"
               v-model="$data[setting.model]"
             />
           </div>
@@ -145,7 +137,6 @@
               {{ optionLabelKey ? `optionLabelKey="${optionLabelKey}"` : "" }}
               {{ hasNullValue ? ':nullValue="true"' : "" }}
               v-model="selection"
-              {{ checkboxDarkmodeChecked ? ':dark="true"' : "" }}
               {{ selectedOptionsColor ? `color="${selectedOptionsColor}"` : "" }}
               {{ selectedSearchColor && search ? `searchColor="${selectedSearchColor}"` : "" }}
             &gt;
@@ -251,8 +242,6 @@ export default {
       isEmpty: false,
       hasNullValue: false,
       clearSearch: false,
-      checkboxDarkmodeChecked: false,
-      optionSet: "string",
       options: stringOptions,
       optionKey: null,
       optionLabelKey: null,
@@ -290,10 +279,12 @@ export default {
       selectedSearchColor: "primary",
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

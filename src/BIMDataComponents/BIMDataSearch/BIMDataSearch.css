@@ -56,7 +56,7 @@
     background-color: var(--color-tertiary-lighter);
   }
   &.bimdata-search-bar__quaternary {
-    background-color: var(--color-quaternary);
+    background-color: var(--color-quaternary-dark);
     color: var(--color-quaternary-lighter);
     input {
       color: var(--color-quaternary-lighter);

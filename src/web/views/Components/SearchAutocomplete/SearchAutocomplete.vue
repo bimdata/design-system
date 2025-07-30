@@ -9,7 +9,6 @@
         <template #module>
           <div>
             <BIMDataSearchAutocomplete
-              class="m-t-24"
               placeholder="Search"
               :items="apps"
               :loading="isLoading"
@@ -24,7 +23,7 @@
             </BIMDataSearchAutocomplete>
             <BIMDataButton
               style="display: inline-flex; margin-left: 12px"
-              color="default" ghost rounded normal height="42px"  padding="0px 1.5rem"
+              :color="currentTheme === 'theme-dark' ? 'quaternary' : 'default'" ghost rounded normal height="42px"  padding="0px 1.5rem"
               @click="selectedApp = null"
             >
               Reset
@@ -121,7 +120,7 @@ export default {
       selectedApp: null,
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
-        style: ["primary", "secondary", "tertiary"],
+        style: ["primary", "secondary", "tertiary", "quaternary"],
       },
       apps: [
         {
@@ -146,7 +145,7 @@ export default {
       ],
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     changeBackgroundColor() {
       return {
@@ -155,7 +154,9 @@ export default {
       };
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-paginated-list" :class="{ dark }" :style="style">
+  <div class="bimdata-paginated-list" :class="{ dark: isDark }" :style="style">
     <BIMDataSpinner v-if="loading" />
     <div v-else>
       <slot name="header"></slot>
@@ -29,8 +29,10 @@
         :first="first"
         :last="last"
         :numberDataElements="numberDataElements"
-        :backgroundColor="backgroundColor"
-        :dark="dark"
+        :style="{
+          backgroundColor: backgroundColorSet ? backgroundColor : undefined,
+        }"
+        :class="{ dark: isDark && !backgroundColorSet }"
       />
     </div>
   </div>
@@ -44,6 +46,12 @@ export default {
   components: {
     BIMDataPagination,
     BIMDataSpinner,
+  },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     list: {
@@ -84,10 +92,6 @@ export default {
     activeElement: {
       type: [String, Number, Object],
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
     borderRadius: {
       type: String,
       default: "3px",
@@ -119,6 +123,14 @@ export default {
           "border-radius": `${this.borderRadius}`,
         };
       }
+    },
+    backgroundColorSet() {
+      return (
+        !!this.backgroundColor && this.backgroundColor !== "var(--color-white)"
+      );
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   watch: {

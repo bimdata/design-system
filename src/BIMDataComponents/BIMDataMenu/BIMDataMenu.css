@@ -70,4 +70,62 @@
       }
     }
   }
+
+  .bimdata-menu__item__content {
+    position: relative;
+    z-index: 0;
+  }
+  .bimdata-menu__item:first-child .bimdata-menu__item__content:hover::before {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .bimdata-menu__item:last-child .bimdata-menu__item__content:hover::before {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  .bimdata-menu__item__content:hover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-silver-light);
+    z-index: -1;
+    pointer-events: none;
+    transition: background-color 0.2s;
+  }
+
+  &.dark {
+    background-color: var(--color-quaternary);
+    color: var(--color-quaternary-lighter);
+    & .bimdata-menu__item {
+      & .bimdata-menu__item__title {
+        color: var(--color-white);
+      }
+      & .bimdata-menu__item__content {
+        &:hover {
+          background-color: transparent; 
+          &::before {
+            background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 8%);
+          }
+        }
+        &.bimdata-menu__item__content--active {
+          background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 5%);
+        }
+      }
+      & .bimdata-menu__item__children {
+        background-color: var(--color-quaternary);
+        ul {
+          li {
+            &:hover {
+              background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 8%);
+            }
+          }
+        }
+      }
+    }
+    & .bimdata-menu__item__divider {
+      .divider {
+        border-color: var(--color-quaternary-lighter);
+      }
+    }
+  }
 }

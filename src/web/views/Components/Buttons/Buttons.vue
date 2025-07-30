@@ -57,7 +57,6 @@
                 :id="value"
                 :value="value"
                 :name="key"
-                :dark="currentTheme === 'theme-dark' ? true : false"
                 v-model="$data[`selectedBtnOptions${key}`]"
               >
               </BIMDataRadio>
@@ -77,17 +76,14 @@
               <BIMDataCheckbox
                 text="icon"
                 v-model="checkboxIconChecked"
-                :dark="currentTheme === 'theme-dark' ? true : false"
               />
               <BIMDataCheckbox
                 text="text"
                 v-model="checkboxTextChecked"
-                :dark="currentTheme === 'theme-dark' ? true : false"
               />
               <BIMDataCheckbox
                 text="disabled"
                 v-model="checkboxDisabledChecked"
-                :dark="currentTheme === 'theme-dark' ? true : false"
               />
             </div>
 
@@ -105,28 +101,24 @@
               backgroundColor="white"
               placeholder="min-width in px or %"
               margin="12px 0px 18px"
-              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataInput
               v-model="heightButton"
               backgroundColor="white"
               placeholder="min-height in px or %"
               margin="18px 0px"
-              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataInput
               v-model="fontSizeButton"
               backgroundColor="white"
               placeholder="font-size in px"
               margin="18px 0px"
-              :dark="currentTheme === 'theme-dark' ? true : false"
             />
             <BIMDataInput
               v-model="paddingButton"
               backgroundColor="white"
               placeholder="padding in px"
               margin="18px 0px"
-              :dark="currentTheme === 'theme-dark' ? true : false"
             />
           </template>
 
@@ -156,7 +148,6 @@
               currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
             "
             margin="15px 0 0"
-            color="color-primary"
           >
             Props:
           </BIMDataText>
@@ -178,7 +169,7 @@ export default {
   components: {
     ComponentCode,
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   data() {
     return {
       message: "",
@@ -211,7 +202,9 @@ export default {
       return "";
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
   methods: {

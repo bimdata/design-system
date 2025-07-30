@@ -1,5 +1,3 @@
-@use "../../assets/scss/mixins/_font-size.scss";
-
 textarea:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--color-white) inset;
 }
@@ -10,9 +8,9 @@ textarea:-webkit-autofill {
   inline-size: min-content;
   font-family: var(--primary-font);
   color: var(--color-primary);
-  font-size: font-size.calculateEm(15px);
+  font-size: 15px;
   textarea {
-    padding: 0px;
+    padding: 6px;
     width: 100%;
     min-width: inherit;
     max-width: 100%;
@@ -33,7 +31,7 @@ textarea:-webkit-autofill {
       outline: none;
       & ~ label {
         top: -26px;
-        font-size: font-size.calculateEm(10px);
+        font-size: 10px;
       }
       & ~ .bar {
         &:after {
@@ -48,14 +46,14 @@ textarea:-webkit-autofill {
     label {
       top: -26px;
       color: var(--color-primary);
-      font-size: font-size.calculateEm(10px);
+      font-size: 10px;
     }
   }
   label {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: font-size.calculateEm(12px);
+    font-size: 12px;
     transform: translateY(8px);
     transition: 0.2s ease all;
     color: var(--color-granite-light);
@@ -78,11 +76,11 @@ textarea:-webkit-autofill {
   }
   .error {
     color: var(--color-high);
-    font-size: font-size.calculateEm(11px);
+    font-size: 11px;
   }
   .success {
     color: var(--color-success);
-    font-size: font-size.calculateEm(11px);
+    font-size: 11px;
   }
   &.error {
     label {
@@ -106,6 +104,19 @@ textarea:-webkit-autofill {
       &::after {
         background-color: var(--color-success);
       }
+    }
+  }
+
+  &.dark {
+    textarea {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
+    }
+    label {
+      color: var(--color-quaternary-lighter);
+    }
+    .bar {
+      background-color: var(--color-quaternary-lighter);
     }
   }
 }

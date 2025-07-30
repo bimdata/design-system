@@ -243,7 +243,7 @@ const routes = [
         component: () => import("./views/Components/Textbox/Textbox.vue"),
       },
       {
-        path: "Textbox",
+        path: "toggle",
         name: "toggle",
         component: () => import("./views/Components/Toggle/Toggle.vue"),
       },

@@ -26,7 +26,7 @@
 
     & .bimdata-select__content__label {
       position: absolute;
-      top: 6px;
+      top: 8px;
       left: 12px;
       font-size: 12px;
       transition: 0.2s ease all;
@@ -110,6 +110,30 @@
         color: var(--color-primary);
       }
     }
+    &.dark {
+      &.active, &.not-empty {
+        & .bimdata-select__content {
+          .bimdata-select__content__label {
+            color: var(--color-quaternary-lighter);
+          }
+        }
+      }
+      .bimdata-select__content {
+        background-color: var(--color-quaternary-light);
+        .bimdata-select__content__value, .bimdata-select__content__label {
+          color: var(--color-quaternary-lighter);
+        }
+      }
+      .bimdata-select__option-list {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        .bimdata-select__option-list__entry {
+          &.selected, &:hover {
+            background-color: var(--color-primary-light);
+          }
+        }
+      }
+    }
     &.active {
       .bimdata-select__content {
         .bimdata-select__content__value, .bimdata-select__content__label {
@@ -136,6 +160,13 @@
       }
     }
     &.dark {
+      &.active, &.not-empty {
+        & .bimdata-select__content {
+          .bimdata-select__content__label {
+            color: var(--color-quaternary-lighter);
+          }
+        }
+      }
       .bimdata-select__option-list {
         background-color: var(--color-primary);
         color: var(--color-white);
@@ -150,8 +181,20 @@
   &.secondary {
     .bimdata-select__content {
       background-color: var(--color-secondary);
-      .bimdata-select__content__label {
+      .bimdata-select__content__label, .bimdata-select__content__value {
         color: var(--color-primary);
+      }
+    }
+    &.dark {
+      .bimdata-select__option-list {
+        background-color: var(--color-quaternary-light);
+      }
+      &.active, &.not-empty {
+        & .bimdata-select__content {
+          .bimdata-select__content__label {
+            color: var(--color-quaternary-lighter);
+          }
+        }
       }
     }
   }

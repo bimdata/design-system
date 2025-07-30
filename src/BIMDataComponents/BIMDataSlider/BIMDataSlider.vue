@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-slider">
+  <div class="bimdata-slider" :class="{dark: isDark}">
     <input
       ref="input"
       class="bimdata-slider-input"
@@ -23,6 +23,12 @@
 
 <script>
 export default {
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     min: {
       type: [Number, String],
@@ -95,7 +101,12 @@ export default {
       this.tooltipPosition = `calc(${newVal}% + (${8 - newVal * 0.18}px))`;
     },
   },
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
+    },
+  },
 };
 </script>
 
-<style scoped lang="scss" src="./_BIMDataSlider.scss"></style>
+<style scoped src="./BIMDataSlider.css"></style>

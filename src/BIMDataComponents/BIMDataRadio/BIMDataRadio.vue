@@ -6,7 +6,7 @@
       disabled,
       'bimdata-radio--checked': checked,
       'bimdata-radio--big': big,
-      dark
+      dark: isDark
     }"
     :disabled="disabled"
     @click="onClick"
@@ -28,6 +28,12 @@ export default {
     prop: "modelValue",
     event: "update:modelValue",
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     big: {
       type: Boolean,
@@ -45,15 +51,14 @@ export default {
       type: Boolean,
       default: false,
     },
-    dark: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ["update:modelValue"],
   computed: {
     checked() {
       return this.modelValue === this.value;
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {

@@ -1,13 +1,22 @@
 <template>
   <main class="article menu">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
 
       <MenuInline />
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Props:
         </BIMDataText>
         <BIMDataTable
@@ -16,7 +25,13 @@
         />
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Slots:
         </BIMDataText>
         <BIMDataTable
@@ -27,7 +42,13 @@
 
       <BasicMenu />
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Props:
         </BIMDataText>
         <BIMDataTable
@@ -36,7 +57,13 @@
         />
       </div>
       <div class="m-t-12">
-        <BIMDataText component="h5" color="color-primary" margin="15px 0 0">
+        <BIMDataText
+          component="h5"
+          :color="
+            currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'
+          "
+          margin="15px 0 0"
+        >
           Slots:
         </BIMDataText>
         <BIMDataTable
@@ -70,10 +97,12 @@ export default {
       slotsBasicMenu,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

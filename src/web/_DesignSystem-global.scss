@@ -16,23 +16,6 @@ body,
   width: 100%;
   display: flex;
   flex-direction: column;
-  .bimdata-table {
-    .bimdata-table__container table tbody tr:nth-child(odd) {
-      background-color: var(--color-ds-dark-background);
-    }
-    .bimdata-table__container table thead tr,
-    .bimdata-table__container table tbody tr:nth-child(even) {
-      background-color: var(--color-ds-light-background);
-      th {
-        color: var(--color-ds-text);
-      }
-    }
-    .bimdata-table__container {
-      td {
-        color: var(--color-ds-granite-light);
-      }
-    }
-  }
 }
 
 a {
@@ -109,4 +92,12 @@ pre[class*="language-"] {
   border-radius: 2px;
   color: var(--color-primary);
   font-weight: 700;
+}
+
+.theme-dark {
+  .bimdata-ds {
+    .bimdata-ds__demo__module {
+      background-color: var(--color-ds-dark-background);
+    }
+  }
 }

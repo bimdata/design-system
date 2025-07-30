@@ -1,11 +1,12 @@
 <template>
   <div class="bimdata-ds bimdata-design-system bimdata-scrollbar">
-    <Navigation :theme="themeState.value" @switch-theme="switchTheme()"></Navigation>
+    <Navigation :theme="darkThemeRef" @switch-theme="onDarkThemeButtonClick" />
     <router-view />
   </div>
 </template>
 
 <script>
+import { ref, provide, watch } from "vue";
 import "prismjs";
 import "prismjs/components/prism-scss";
 import "prismjs/components/prism-bash";
@@ -15,28 +16,33 @@ export default {
   components: {
     Navigation,
   },
-  data() {
-    return {
-      themeState: {
-        value: "theme-light",
-      },
+  setup() {
+    const darkThemeRef = ref(false);
+
+    provide("BIMDATA_DESIGN_SYSTEM_DARK_THEME", darkThemeRef);
+
+    watch(darkThemeRef, (newValue) => {
+      if (newValue) {
+        document.documentElement.classList.add("theme-dark");
+        document.documentElement.classList.remove("theme-light");
+      } else {
+        document.documentElement.classList.add("theme-light");
+        document.documentElement.classList.remove("theme-dark");
+      }
+    });
+
+    const onDarkThemeButtonClick = () => {
+      darkThemeRef.value = !darkThemeRef.value;
     };
-  },
-  methods: {
-    switchTheme() {
-      document.documentElement.classList.remove(this.themeState.value);
-      this.themeState.value  = this.themeState.value === "theme-light" ? "theme-dark" : "theme-light";
-      document.documentElement.classList.add(this.themeState.value);
-    },
+
+    return {
+      darkThemeRef,
+      onDarkThemeButtonClick,
+    };
   },
 
   mounted() {
-    document.documentElement.classList.add(this.themeState.value);
-  },
-  provide() {
-    return {
-      theme: this.themeState,
-    };
+    document.documentElement.classList.add(this.darkThemeRef ? "theme-dark" : "theme-light");
   },
 };
 </script>

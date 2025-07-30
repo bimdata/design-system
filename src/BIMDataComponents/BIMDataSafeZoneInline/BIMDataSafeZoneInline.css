@@ -6,11 +6,11 @@
   box-shadow: var(--box-shadow);
   background-color: var(--color-white);
   
-  &__btn-delete {
+  & .safe-zone-inline__btn-delete {
     width: 90px;
   }
 
-  &__btn-close {
+  & .safe-zone-inline__btn-close {
     padding: 0 8px;
   }
 }

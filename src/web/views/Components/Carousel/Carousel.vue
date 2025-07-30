@@ -36,35 +36,30 @@
             type="text"
             placeholder="Carousel width"
             v-model="carouselWidth"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Slider padding (in px)"
             v-model="sliderPadding"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Minimum gap (in px)"
             v-model="minGap"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Number of items"
             v-model="nbItems"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Item width (in px)"
             v-model="itemWidth"
-            :dark="currentTheme === 'theme-dark' ? true : false"
           />
         </template>
 
@@ -123,13 +118,15 @@ export default {
       propsData,
     };
   },
-  inject: ["theme"],
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   computed: {
     items() {
       return Array.from({ length: this.nbItems }, (_, i) => i + 1);
     },
     currentTheme() {
-      return this.theme.value;
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };

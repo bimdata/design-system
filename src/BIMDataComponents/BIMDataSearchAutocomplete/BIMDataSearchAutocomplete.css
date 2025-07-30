@@ -142,4 +142,32 @@
       }
     }
   }
+  &.bimdata-search-autocomplete--quaternary {
+    color: var(--color-quaternary-lighter);
+    input {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
+      &::placeholder {
+        color: var(--color-quaternary-lighter);
+      }
+    }
+    & .bimdata-search-autocomplete__dropdown {
+      background-color: var(--color-quaternary);
+      color: var(--color-quaternary-lighter);
+      .active {
+        background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 5%);
+      }
+      li {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 8%);
+          cursor: pointer;
+        }
+      }
+      & .bimdata-search-autocomplete__dropdown__button {
+        &:hover {
+          background-color: color-mix(in srgb, transparent, var(--color-quaternary-lighter) 8%);
+        }
+      }
+    }
+  }
 }
