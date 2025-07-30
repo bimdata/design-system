@@ -76,7 +76,7 @@
       }
     }
 
-    &:first-child :not(&__menu-items) {
+    &:first-child :not(.bimdata-dropdown__elements__menu-items) {
       padding: calc(var(--spacing-unit) / 2) 0;
       overflow: auto;
       z-index: 1;

@@ -24,7 +24,7 @@
         &:hover {
           background-color: var(--color-silver-light);
         }
-        &--active {
+        .bimdata-menu__item__content--active {
           background-color: #f0f5ff;
         }
       }
