@@ -6,7 +6,7 @@ export default [
     "String",
     "true",
     "",
-    "Use this props to change the color of the button. Values can be 'default', 'primary',  'secondary', 'tertiary', 'success', 'warning', 'high', 'info', 'granite'",
+    "Use this props to change the color of the button. Values can be : 'default', 'light-default', 'primary',  'secondary', 'tertiary', 'quaternary', 'quaternary-lighter', 'success', 'warning', 'high', 'info', 'granite', 'silver', 'white'",
   ],
   [
     "fill",
