@@ -1,5 +1,5 @@
 <template>
-  <div class="safe-zone-inline">
+  <div class="safe-zone-inline" :class="{ dark: isDark }">
     <BIMDataButton
       class="safe-zone-inline__btn-delete"
       color="high"
@@ -14,9 +14,10 @@
       :style="{ width: '15px', order: reverse ? -1 : 0 }"
       width="0px"
       radius
+      :color="isDark ? 'quaternary' : 'granite'"
       @click="$emit('cancel-delete')"
     >
-      <BIMDataIconClose size="xxs" color="granite" />
+      <BIMDataIconClose size="xxs" :color="isDark ? 'quaternary-lighter' : 'granite'" />
     </BIMDataButton>
   </div>
 </template>
@@ -30,6 +31,12 @@ export default {
     BIMDataIconClose,
     BIMDataButton,
   },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     reverse: {
       type: Boolean,
@@ -37,6 +44,11 @@ export default {
     },
   },
   emits: ["confirm-delete", "cancel-delete"],
+  computed: {
+    isDark() {
+      return this.darkThemeRef;
+    },
+  }
 };
 </script>
 

@@ -13,4 +13,9 @@
   & .safe-zone-inline__btn-close {
     padding: 0 8px;
   }
+
+  &.dark {
+    background-color: var(--color-quaternary);
+    color: var(--color-quaternary-lighter);
+  }
 }
