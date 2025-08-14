@@ -30,6 +30,12 @@ const sizeToPixel = {
 
 export default {
   name: "BIMDataIcon",
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     color: {
       type: String,
@@ -75,6 +81,7 @@ export default {
         "icon-stroke": this.stroke,
         [`icon-fill--${this.color}`]: this.fill && this.color,
         [`icon-stroke--${this.color}`]: this.stroke && this.color,
+        "dark": this.isDark
       };
     },
     style() {
@@ -88,6 +95,9 @@ export default {
         transform: `rotate(${this.rotate}deg)`,
       };
       return style;
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   methods: {

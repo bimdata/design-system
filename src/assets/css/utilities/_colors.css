@@ -217,4 +217,13 @@
     fill: transparent;
     stroke: var(--color-neutral);
   }
+
+  .dark {
+    .fill-white {
+      fill: var(--color-quaternary);
+    }
+    .fill-primary {
+      fill: var(--color-quaternary-lighter);
+    }
+  }
 }

@@ -8,7 +8,7 @@
     <circle cx="13" cy="18" r="6" fill="#00AF50" />
     <path
       d="M15.9565 15L17 16.0588L12.1374 21L9 17.8235L10.0435 16.7647L12.1374 18.8824L15.9565 15Z"
-      fill="white"
+      class="fill-white"
     />
   </g>
 </template>
