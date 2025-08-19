@@ -283,5 +283,38 @@
     input {
       border-bottom: 1px solid var(--color-quaternary-lighter);
     }
+    .bimdata-datepicker__calendar {
+      header, .day-header, .cells-wrapper {
+        background-color: var(--color-quaternary-light);
+        color: var(--color-quaternary-lighter);
+        button {
+          color: var(--color-quaternary-lighter);
+        }
+      }
+      header {
+        border-color: var(--color-primary-light);
+        button {
+          &:hover:not(:disabled) {
+            background-color: var(--color-primary-light);
+          }
+        }
+      }
+      & .cell {
+        &.day:not(.disabled), &.month:not(.disabled), &.year:not(.disabled) {
+          &:hover {
+            background-color: var(--color-primary-light);
+          }
+          &.selected {
+            background-color: var(--color-tertiary);
+            &:hover {
+              background-color: var(--color-tertiary-light);
+            }
+          }
+          &.muted {
+            opacity: 0.4;
+          }
+        }
+      }
+    }
   }
 }
