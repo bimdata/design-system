@@ -3,7 +3,7 @@
     :id="datepickerId"
     ref="datepicker"
     class="bimdata-datepicker"
-    :class="[wrapperClass]"
+    :class="[wrapperClass, { dark: isDark }]"
     @focusin="handleFocusIn($event)"
     @focusout="handleFocusOut($event)"
     @keydown.esc="resetOrClose"
@@ -214,6 +214,12 @@ export default {
   model: {
     prop: "modelValue",
     event: "update:modelValue",
+  },
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
   },
   props: {
     autoCloseRange: {
@@ -437,6 +443,9 @@ export default {
     },
     translation() {
       return this.language;
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   watch: {
@@ -711,7 +720,7 @@ export default {
      */
     isDateDisabled(date) {
       return new DisabledDate(this.utils, this.disabledDates).isDateDisabled(
-        date
+        date,
       );
     },
     /**
@@ -776,7 +785,7 @@ export default {
 
       if (!this.allowedToShowView(initialView)) {
         throw new Error(
-          `initialView '${this.initialView}' cannot be rendered based on minimum '${this.minimumView}' and maximum '${this.maximumView}'`
+          `initialView '${this.initialView}' cannot be rendered based on minimum '${this.minimumView}' and maximum '${this.maximumView}'`,
         );
       }
 
@@ -877,4 +886,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./_BIMDataDatePicker.scss"></style>
+<style lang="scss" src="./BIMDataDatePicker.css"></style>
