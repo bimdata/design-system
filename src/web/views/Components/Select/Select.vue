@@ -262,6 +262,7 @@ export default {
             "tertiary",
             "tertiary-light",
             "quaternary",
+            "white"
           ],
           model: "selectedOptionsColor",
         },

@@ -283,4 +283,63 @@
       }
     }
   }
+  &.white {
+    .bimdata-select__content {
+      background-color: var(--color-white);
+      .bimdata-select__content__label {
+        color: var(--color-quaternary);
+      }
+      .bimdata-select__content__value {
+        color: var(--color-quaternary);
+      }
+    }
+    &.active {
+      .bimdata-select__content {
+        .bimdata-select__content__value, .bimdata-select__content__label {
+          color: var(--color-quaternary);
+        }
+      }
+      .bimdata-select__option-list {
+        .bimdata-select__option-list__entry {
+          &.selected, &:hover {
+            background-color: var(--color-tertiary-lighter);
+          }
+        }
+      }
+    }
+    &.dark {
+      .bimdata-select__option-list { 
+        .bimdata-select__option-list__entry {
+          color: var(--color-quaternary);
+        } 
+      }
+      &.not-empty {
+        .bimdata-select__content { 
+          .bimdata-select__content__label {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+    &:deep() {
+      .bimdata-checkbox {
+        &.dark {
+          .bimdata-checkbox__text {
+            color: var(--color-quaternary)
+          }
+          .bimdata-checkbox__mark {
+            border-color: var(--color-quaternary);
+          }
+          &.checked {
+            .bimdata-checkbox__mark {
+              background-color: var(--color-quaternary);
+              &::after {
+                border-color: var(--color-quaternary-lighter);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
