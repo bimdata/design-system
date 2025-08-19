@@ -1,5 +1,5 @@
 <template>
-  <main class="article [your-custom-class]">
+  <main class="article date-picker">
     <div class="article-wrapper">
       <BIMDataText
         component="h1"

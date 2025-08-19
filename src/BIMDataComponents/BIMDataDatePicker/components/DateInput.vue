@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'not-empty': formattedValue }">
+  <div :class="{ 'not-empty': formattedValue, 'dark': isDark }">
     <slot name="beforeDateInput" />
     <!-- Calendar Button -->
     <button
@@ -56,7 +56,7 @@
       :disabled="disabled"
       v-if="clearButton && selectedDate"
       class="bimdata-datepicker__clear-button"
-      color="primary"
+      :color="isDark ? 'tertiary' : 'primary'"
       fill
       square
       icon
@@ -81,6 +81,12 @@ export default {
   name: "DateInput",
   components: { BIMDataIconDelete, BIMDataButton },
   mixins: [inputProps],
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     isOpen: {
       type: Boolean,
@@ -121,6 +127,9 @@ export default {
       }
 
       return this.formatDate(this.selectedDate);
+    },
+    isDark() {
+      return this.darkThemeRef;
     },
   },
   watch: {
