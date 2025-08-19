@@ -1,7 +1,10 @@
 <template>
   <main class="article [your-custom-class]">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         {{ $route.name }}
       </BIMDataText>
 
@@ -32,10 +35,12 @@
 
           <template #parameters>
             <BIMDataSelect
+              class="m-t-30"
               width="200px"
               label="Datepicker language"
               :options="languageOptions"
               v-model="languageSelection"
+              color="white"
             />
             <BIMDataSelect
               class="m-y-30"
@@ -43,6 +48,7 @@
               label="First day of week"
               :options="dayOptions"
               v-model="daySelection"
+              color="white"
             />
             <BIMDataSelect
               class="m-y-30"
@@ -50,22 +56,26 @@
               label="Fixed position"
               :options="fixedPositionOptions"
               v-model="fixedPositionSelection"
+              color="white"
             />
             <BIMDataSelect
-              class="m-y-30"
+              class="m-y-18"
               width="200px"
               label="Date format"
               :options="formatOptions"
               v-model="formatSelection"
+              color="white"
             />
             <BIMDataInput
               v-model="width"
               placeholder="Datepicker width in px"
+              backgroundColor="var(--color-white)"
             />
-            <div class="m-y-30">
+            <div class="m-y-18">
               <BIMDataInput
                 v-model="yearPickerRange"
                 placeholder="Year picker range"
+                backgroundColor="var(--color-white)"
               />
             </div>
             <BIMDataCheckbox text="Clear button" v-model="isClearButton" />
