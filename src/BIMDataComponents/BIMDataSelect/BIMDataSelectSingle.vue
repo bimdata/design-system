@@ -136,7 +136,7 @@ export default {
       type: String,
       default: "default",
       validator: value =>
-        ["default", "primary", "secondary", "tertiary", "tertiary-light", "quaternary"].includes(value),
+        ["default", "primary", "secondary", "tertiary", "tertiary-light", "quaternary", "white"].includes(value),
     },
     searchColor: {
       type: String,

@@ -1,13 +1,14 @@
 /* eslint-disable */
 export default [
   ["Name", "Type", "Default value", "Description"],
-  ["disabled", "Boolean", "false", "When true the selector will be disabled."],
   [
     "clearSearchOnLeave",
     "Boolean",
     "false",
     "In multi-selection mode: clear search bar on click away. In single selection: clear search bar on select element or click away.",
   ],
+  ["color", "String", "default", "Set the selector color (e.g. 'default', 'primary', 'secondary', 'tertiary', 'tertiary-light', 'quaternary', 'white')."],
+  ["disabled", "Boolean", "false", "When true the selector will be disabled."],
   ["label", "String", "null", "Set the selector label (placeholder)."],
   [
     "modelValue",
@@ -54,7 +55,9 @@ export default [
     "[]",
     "Array of available options. Can be an array of strings or objects (not both at the same time).",
   ],
+  ["resetOnLeave", "Boolean", "false", "In multi-selection mode: clear search bar on click away."],
   ["search", "Boolean", "false", "Use this boolean to add a search bar."],
+  ["searchColor", "String", "primary", "Set the color of the search input. (e.g. 'primary', 'secondary', 'tertiary', 'quaternary')."],
   [
     "searchPlaceholder",
     "String",
