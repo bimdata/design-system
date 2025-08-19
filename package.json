@@ -34,7 +34,7 @@
     "prismjs": "^1.30.0",
     "sass-embedded": "^1.90.0",
     "semantic-release": "^24.2.7",
-    "vite": "^7.1.1",
+    "vite": "^7.1.2",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1",
     "vue3-clipboard": "^1.0.0"
