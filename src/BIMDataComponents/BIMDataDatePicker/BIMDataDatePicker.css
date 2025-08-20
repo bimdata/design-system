@@ -323,6 +323,9 @@
           &.muted {
             opacity: 0.4;
           }
+          &.highlighted:not(.selected) {
+            background-color: rgba(38, 114, 210, .2);
+          }
         }
       }
     }
