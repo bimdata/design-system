@@ -44,7 +44,7 @@
   }
 
   .bimdata-datepicker__calendar {
-    width: 280px;
+    width: 100%;
     box-shadow: var(--box-shadow);
     background: #fff;
     position: absolute;
@@ -227,13 +227,13 @@
 
     .day-header {
       padding: 0 12px;
-      display: flex;
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
       color: var(--color-primary);
 
       span {
         height: 40px;
-        width: 36.5px;
         display: inline-block;
         font-size: 75%;
         line-height: 40px;
@@ -241,12 +241,8 @@
         text-align: center;
         vertical-align: middle;
         white-space: nowrap;
+        justify-self: center;
       }
-    }
-
-    .month,
-    .year {
-      width: 29.9%;
     }
 
     .cells-wrapper {
@@ -254,10 +250,20 @@
       overflow: hidden;
       position: relative;
 
-      .picker-cells {
-        display: flex;
-        flex-wrap: wrap;
+      .picker-cells-day, .picker-cells-month, .picker-cells-year {
+        display: grid;
         transition: all 250ms ease-in-out;
+        gap: 6px;
+        button {
+          min-width: 100%;
+          justify-self: center;
+        }
+      }
+      .picker-cells-day {
+        grid-template-columns: repeat(7, 1fr);
+      }
+      .picker-cells-month, .picker-cells-year {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       }
     }
   }
@@ -304,7 +310,11 @@
           &:hover {
             background-color: var(--color-primary-light);
           }
-          &.selected {
+          &.today {
+            background-color: var(--color-quaternary-lighter);
+            color: var(--color-quaternary);
+          }
+          &.selected{
             background-color: var(--color-tertiary);
             &:hover {
               background-color: var(--color-tertiary-light);

@@ -1,5 +1,5 @@
 <template>
-  <div class="picker-cells">
+  <div class="picker-cells" :class="`picker-cells-${view}`">
     <button
       v-for="(cell, id) in cells"
       :key="cell.timestamp"
@@ -51,7 +51,7 @@ export default {
      * @return {Number}
      */
     columns() {
-      return this.view === "day" ? 7 : 3;
+      if (this.view === "day") return 7;
     },
   },
   methods: {
