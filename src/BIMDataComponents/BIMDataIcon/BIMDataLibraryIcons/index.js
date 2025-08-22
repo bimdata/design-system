@@ -75,6 +75,7 @@ import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
 import hideGraph from "./HideGraph.vue";
+import hideGraphRound from "./HideGraphRound.vue";
 import home from "./Home.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
@@ -138,6 +139,7 @@ import settings from "./Settings.vue";
 import share from "./Share.vue";
 import show from "./Show.vue";
 import showGraph from "./ShowGraph.vue";
+import showGraphRound from "./ShowGraphRound.vue";
 import showSelected from "./ShowSelected.vue";
 import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
@@ -279,6 +281,7 @@ export default {
   group,
   hide,
   hideGraph,
+  hideGraphRound,
   home,
   ifc,
   ifcFile,
@@ -342,6 +345,7 @@ export default {
   share,
   show,
   showGraph,
+  showGraphRound,
   showSelected,
   smartview,
   socotec,
