@@ -1,3 +1,4 @@
+import addFavorite from "./AddFavorite.vue";
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
 import addGavel from "./AddGavel.vue";
@@ -11,8 +12,11 @@ import angle from "./Angle.vue";
 import api from "./Api.vue";
 import app from "./App.vue";
 import archive from "./Archive.vue";
+import archive2 from "./Archive2.vue";
 import arrow from "./Arrow.vue";
+import assigned from "./Assigned.vue";
 import attach from "./Attach.vue";
+import author from "./Author.vue";
 import back from "./Back.vue";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
@@ -30,14 +34,17 @@ import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
 import color from "./Color.vue";
+import createComment from "./CreateComment.vue";
 import createSpace from "./CreateSpace.vue";
 import createZone from "./CreateZone.vue";
+import creationDate from "./creationDate.vue";
 import comment from "./Comment.vue";
 import dateAscending from "./DateAscending.vue";
 import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
+import description from "./Description.vue";
 import detach from "./Detach.vue";
 import distance from "./Distance.vue";
 import doubleChevron from "./DoubleChevron.vue";
@@ -52,6 +59,10 @@ import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import exportXlsx from "./ExportXlsx.vue";
 import failed from "./Failed.vue";
+import favoriteFill from "./FavoriteFill.vue";
+import favoriteStroke from "./FavoriteStroke.vue";
+import file from "./File.vue";
+import filter from "./Filter.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
@@ -63,10 +74,12 @@ import gavel from "./Gavel.vue";
 import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
+import hideGraph from "./HideGraph.vue";
 import home from "./Home.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
 import Import from "./Import.vue";
+import index from "./Index.vue";
 import indexAscending from "./IndexAscending.vue";
 import indexDescending from "./IndexDescending.vue";
 import information from "./Information.vue";
@@ -87,16 +100,20 @@ import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
 import namingConvention from "./NamingConvention.vue";
 import navigation from "./Navigation.vue";
+import notifications from "./Notifications.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import pathway from "./Pathway.vue";
+import phase from "./Phase.vue";
 import pieGraph from "./PieGraph.vue";
 import pipette from "./Pipette.vue";
 import plan from "./Plan.vue";
 import plus from "./Plus.vue";
 import preview from "./Preview.vue";
+import priority from "./Priority.vue";
 import project from "./Project.vue";
 import quickSelect from "./QuickSelect.vue";
+import quit from "./Quit.vue";
 import readonlyFolder from "./ReadonlyFolder.vue";
 import redo from "./Redo.vue";
 import reduced from "./Reduced.vue";
@@ -120,13 +137,16 @@ import setAsModel from "./SetAsModel.vue";
 import settings from "./Settings.vue";
 import share from "./Share.vue";
 import show from "./Show.vue";
+import showGraph from "./ShowGraph.vue";
 import showSelected from "./ShowSelected.vue";
 import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
+import sort from "./Sort.vue";
 import space from "./Space.vue";
 import space2 from "./Space2.vue";
 import spacing from "./Spacing.vue";
 import split from "./Split.vue";
+import statut from "./Statut.vue";
 import storey from "./Storey.vue";
 import structure from "./Structure.vue";
 import success from "./Success.vue";
@@ -135,10 +155,13 @@ import swap from "./Swap.vue";
 import synchro2d from "./Synchro2D.vue";
 import system from "./System.vue";
 import tag from "./Tag.vue";
+import tagStroke from "./TagStroke.vue";
 import translate from "./Translate.vue";
 import trash from "./Trash.vue";
 import tree from "./Tree.vue";
+import type from "./Type.vue";
 import unarchive from "./Unarchive.vue";
+import unarchive2 from "./Unarchive2.vue";
 import undo from "./Undo.vue";
 import union from "./Union.vue";
 import unknownFile from "./UnknownFile.vue";
@@ -179,6 +202,7 @@ import viewer2dPolychrome from "./polychrome/Viewer2DPolychrome.vue";
 import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 
 export default {
+  addFavorite,
   addFile,
   addFolder,
   addGavel,
@@ -192,8 +216,11 @@ export default {
   api,
   app,
   archive,
+  archive2,
   arrow,
+  assigned,
   attach,
+  author,
   back,
   bcf,
   building,
@@ -212,14 +239,16 @@ export default {
   cloud,
   color,
   comment,
+  createComment,
   createSpace,
   createZone,
-  navigation,
+  creationDate,
   dateAscending,
   dateDescending,
   default: Default,
   delete: Delete,
   deniedFile,
+  description,
   detach,
   distance,
   doubleChevron,
@@ -234,6 +263,10 @@ export default {
   exportIfc,
   exportXlsx,
   failed,
+  favoriteFill,
+  favoriteStroke,
+  file,
+  filter,
   filterList,
   fitView,
   folder,
@@ -245,10 +278,12 @@ export default {
   grid,
   group,
   hide,
+  hideGraph,
   home,
   ifc,
   ifcFile,
   import: Import,
+  index,
   indexAscending,
   indexDescending,
   information,
@@ -268,16 +303,21 @@ export default {
   minus,
   model3d,
   namingConvention,
+  navigation,
+  notifications,
   organization,
   parameters,
   pathway,
+  phase,
   pieGraph,
   pipette,
   plan,
   plus,
   preview,
+  priority,
   project,
   quickSelect,
+  quit,
   readonlyFolder,
   redo,
   reduced,
@@ -301,13 +341,16 @@ export default {
   settings,
   share,
   show,
+  showGraph,
   showSelected,
   smartview,
   socotec,
+  sort,
   space,
   space2,
   spacing,
   split,
+  statut,
   storey,
   structure,
   success,
@@ -316,10 +359,13 @@ export default {
   synchro2d,
   system,
   tag,
+  tagStroke,
   translate,
   trash,
   tree,
+  type,
   unarchive,
+  unarchive2,
   undo,
   union,
   unknownFile,
