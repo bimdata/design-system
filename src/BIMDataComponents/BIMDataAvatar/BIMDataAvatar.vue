@@ -25,6 +25,12 @@ import { computed } from "vue";
 import BIMDataIconUser from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconUser.vue";
 
 export default {
+  inject: {
+    darkThemeRef: {
+      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
+      default: () => ({ value: false }),
+    },
+  },
   props: {
     user: {
       type: Object,

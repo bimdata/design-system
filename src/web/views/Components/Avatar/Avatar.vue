@@ -1,7 +1,7 @@
 <template>
   <main class="article article-avatar">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText component="h1" color="color-primary">
         {{ $route.name }}
       </BIMDataText>
       <ComponentCode :componentTitle="$route.name" language="javascript">
@@ -20,34 +20,37 @@
             type="text"
             placeholder="First name"
             v-model="firstname"
+            backgroundColor="var(--color-white)"
           />
           <BIMDataInput
             margin="24px 0"
             type="text"
             placeholder="Last name"
             v-model="lastname"
+            backgroundColor="var(--color-white)"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Size"
             v-model="size"
+            backgroundColor="var(--color-white)"
           />
           <BIMDataInput
             margin="24px 0"
             type="number"
             placeholder="Initials size"
             v-model="initialsSize"
+            backgroundColor="var(--color-white)"
           />
           <div class="m-t-24">
             <BIMDataSelect
               margin="24px 0"
               label="Color"
-              :options="[
-                'primary',
-                'secondary',
-                'silver-light',
-              ]"
+              :color="
+                currentTheme === 'theme-dark' ? 'quaternary' : 'white'
+              "
+              :options="['primary', 'secondary', 'silver-light']"
               v-model="color"
             />
           </div>
@@ -89,6 +92,7 @@ export default {
   components: {
     ComponentCode,
   },
+  inject: ["BIMDATA_DESIGN_SYSTEM_DARK_THEME"],
   data() {
     return {
       // Parameters
@@ -101,16 +105,17 @@ export default {
       propsData,
     };
   },
-  inject: ["theme"],
   computed: {
-    currentTheme() {
-      return this.theme.value;
-    },
     user() {
       return {
         firstname: this.firstname,
         lastname: this.lastname,
       };
+    },
+    currentTheme() {
+      return this.BIMDATA_DESIGN_SYSTEM_DARK_THEME
+        ? "theme-dark"
+        : "theme-light";
     },
   },
 };
