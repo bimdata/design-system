@@ -1,3 +1,4 @@
+export { default as BIMDataIconAccountSettings } from "./BIMDataIconAccountSettings.vue";
 export { default as BIMDataIconAddFavorite } from "./BIMDataIconAddFavorite.vue";
 export { default as BIMDataIconAddFile } from "./BIMDataIconAddFile.vue";
 export { default as BIMDataIconAddFolder } from "./BIMDataIconAddFolder.vue";
@@ -89,6 +90,7 @@ export { default as BIMDataIconInProgressFile } from "./BIMDataIconInProgressFil
 export { default as BIMDataIconInvitation } from "./BIMDataIconInvitation.vue";
 export { default as BIMDataIconIsolate } from "./BIMDataIconIsolate.vue";
 export { default as BIMDataIconKey } from "./BIMDataIconKey.vue";
+export { default as BIMDataIconLanguage } from "./BIMDataIconLanguage.vue";
 export { default as BIMDataIconLeft } from "./BIMDataIconLeft.vue";
 export { default as BIMDataIconLinkedDocument } from "./BIMDataIconLinkedDocument.vue";
 export { default as BIMDataIconList } from "./BIMDataIconList.vue";
@@ -96,6 +98,7 @@ export { default as BIMDataIconListManage } from "./BIMDataIconListManage.vue";
 export { default as BIMDataIconLocation } from "./BIMDataIconLocation.vue";
 export { default as BIMDataIconLock } from "./BIMDataIconLock.vue";
 export { default as BIMDataIconLogout } from "./BIMDataIconLogout.vue";
+export { default as BIMDataIconMarketplace } from "./BIMDataIconMarketplace.vue";
 export { default as BIMDataIconMeasure } from "./BIMDataIconMeasure.vue";
 export { default as BIMDataIconMic } from "./BIMDataIconMic.vue";
 export { default as BIMDataIconMinus } from "./BIMDataIconMinus.vue";
@@ -103,6 +106,7 @@ export { default as BIMDataIconModel3D } from "./BIMDataIconModel3D.vue";
 export { default as BIMDataIconNamingConvention } from "./BIMDataIconNamingConvention.vue";
 export { default as BIMDataIconNavigation } from "./BIMDataIconNavigation.vue";
 export { default as BIMDataIconNotifications } from "./BIMDataIconNotifications.vue";
+export { default as BIMDataIconOffline } from "./BIMDataIconOffline.vue";
 export { default as BIMDataIconOrganization } from "./BIMDataIconOrganization.vue";
 export { default as BIMDataIconParameters } from "./BIMDataIconParameters.vue";
 export { default as BIMDataIconPathway } from "./BIMDataIconPathway.vue";

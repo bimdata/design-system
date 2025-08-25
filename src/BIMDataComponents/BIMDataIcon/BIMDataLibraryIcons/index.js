@@ -1,3 +1,4 @@
+import accountSettings from "./AccountSettings.vue";
 import addFavorite from "./AddFavorite.vue";
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
@@ -88,6 +89,7 @@ import inProgressFile from "./InProgressFile.vue";
 import invitation from "./Invitation.vue";
 import isolate from "./Isolate.vue";
 import key from "./Key.vue";
+import language from "./Language.vue";
 import left from "./Left.vue";
 import linkedDocument from "./LinkedDocument.vue";
 import list from "./List.vue";
@@ -95,6 +97,7 @@ import listManage from "./ListManage.vue";
 import location from "./Location.vue";
 import lock from "./Lock.vue";
 import logout from "./Logout.vue";
+import marketplace from "./Marketplace.vue";
 import measure from "./Measure.vue";
 import mic from "./Mic.vue";
 import minus from "./Minus.vue";
@@ -102,6 +105,7 @@ import model3d from "./Model3D.vue";
 import namingConvention from "./NamingConvention.vue";
 import navigation from "./Navigation.vue";
 import notifications from "./Notifications.vue";
+import offline from "./Offline.vue";
 import organization from "./Organization.vue";
 import parameters from "./Parameters.vue";
 import pathway from "./Pathway.vue";
@@ -204,6 +208,7 @@ import viewer2dPolychrome from "./polychrome/Viewer2DPolychrome.vue";
 import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 
 export default {
+  accountSettings,
   addFavorite,
   addFile,
   addFolder,
@@ -294,6 +299,7 @@ export default {
   invitation,
   isolate,
   key,
+  language,
   left,
   linkedDocument,
   list,
@@ -301,6 +307,7 @@ export default {
   location,
   lock,
   logout,
+  marketplace,
   measure,
   mic,
   minus,
@@ -308,6 +315,7 @@ export default {
   namingConvention,
   navigation,
   notifications,
+  offline,
   organization,
   parameters,
   pathway,
