@@ -4,8 +4,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
+  gap: 6px;
   .color-swatche {
-    margin: 12px 12px 12px 0;
     width: 260px;
     box-shadow: var(--box-shadow);
     overflow: hidden;
@@ -59,7 +59,6 @@
       }
     }
     &:first-child {
-      margin: 12px 50px 12px 0;
       width: 320px;
       .color-swatche__header {
         height: 140px;
