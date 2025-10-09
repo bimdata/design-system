@@ -17,6 +17,7 @@ export { default as BIMDataIconArchive2 } from "./BIMDataIconArchive2.vue";
 export { default as BIMDataIconArrow } from "./BIMDataIconArrow.vue";
 export { default as BIMDataIconAssigned } from "./BIMDataIconAssigned.vue";
 export { default as BIMDataIconAttach } from "./BIMDataIconAttach.vue";
+export { default as BIMDataIconAttachFile } from "./BIMDataIconAttachFile.vue";
 export { default as BIMDataIconAuthor } from "./BIMDataIconAuthor.vue";
 export { default as BIMDataIconBack } from "./BIMDataIconBack.vue";
 export { default as BIMDataIconBcf } from "./BIMDataIconBcf.vue";

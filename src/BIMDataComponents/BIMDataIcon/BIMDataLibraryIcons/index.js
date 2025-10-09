@@ -17,6 +17,7 @@ import archive2 from "./Archive2.vue";
 import arrow from "./Arrow.vue";
 import assigned from "./Assigned.vue";
 import attach from "./Attach.vue";
+import attachFile from "./AttachFile.vue";
 import author from "./Author.vue";
 import back from "./Back.vue";
 import bcf from "./Bcf.vue";
@@ -227,6 +228,7 @@ export default {
   arrow,
   assigned,
   attach,
+  attachFile,
   author,
   back,
   bcf,
