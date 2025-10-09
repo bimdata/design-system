@@ -70,7 +70,7 @@
     /* style BIMDATA BTN TERTIARY FILL ---------- */
     &.tertiary {
       background-color: var(--color-tertiary);
-      color: var(--color-white);
+      color: var(--color-quaternary);
       &:hover {
         background-color: var(--color-tertiary-light);
       }
@@ -217,7 +217,7 @@
     }
     &.tertiary {
       background-color: var(--color-tertiary);
-      color: var(--color-white);
+      color: var(--color-quaternary);
       &:hover {
         background: var(--color-tertiary)
           radial-gradient(circle, transparent 1%, var(--color-tertiary) 1%)
@@ -389,7 +389,7 @@
       border-color: var(--color-tertiary);
       color: var(--color-tertiary);
       &:hover {
-        background-color: var(--color-tertiary-lighter);
+        background-color: var(--color-tertiary-darker);
       }
     }
     &.quaternary {
@@ -493,7 +493,7 @@
     &.tertiary {
       color: var(--color-tertiary);
       &:hover {
-        background-color: var(--color-tertiary-lighter);
+        background-color: var(--color-tertiary-darker);
       }
     }
     &.quaternary {

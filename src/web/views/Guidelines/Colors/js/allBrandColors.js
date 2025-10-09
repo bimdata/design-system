@@ -11,12 +11,12 @@ export default Object.freeze([
   },
   {
     name: "Tertiary",
-    hex: "#2672D2",
-    textcolor: "#ffffff",
+    hex: "#59F4FF",
+    textcolor: "#1C202C",
   },
   {
     name: "Quaternary",
-    hex: "#242F4B",
+    hex: "#1C202C",
     textcolor: "#ffffff",
   },
   {
