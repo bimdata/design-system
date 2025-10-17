@@ -6,7 +6,7 @@
     :class="classes"
     :style="style"
   >
-    <Detach />
+    <Discussions />
   </Icon>
 </template>
 

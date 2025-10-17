@@ -48,6 +48,7 @@ import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
 import description from "./Description.vue";
 import detach from "./Detach.vue";
+import discussions from "./Discussions.vue";
 import distance from "./Distance.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import down from "./Down.vue";
@@ -89,6 +90,7 @@ import information from "./Information.vue";
 import inProgressFile from "./InProgressFile.vue";
 import invitation from "./Invitation.vue";
 import isolate from "./Isolate.vue";
+import issues from "./Issues.vue";
 import key from "./Key.vue";
 import language from "./Language.vue";
 import left from "./Left.vue";
@@ -259,6 +261,7 @@ export default {
   deniedFile,
   description,
   detach,
+  discussions,
   distance,
   doubleChevron,
   down,
@@ -300,6 +303,7 @@ export default {
   inProgressFile,
   invitation,
   isolate,
+  issues,
   key,
   language,
   left,

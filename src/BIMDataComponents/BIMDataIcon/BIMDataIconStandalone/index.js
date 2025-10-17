@@ -48,6 +48,7 @@ export { default as BIMDataIconDelete } from "./BIMDataIconDelete.vue";
 export { default as BIMDataIconDeniedFile } from "./BIMDataIconDeniedFile.vue";
 export { default as BIMDataIconDescription } from "./BIMDataIconDescription.vue";
 export { default as BIMDataIconDetach } from "./BIMDataIconDetach.vue";
+export { default as BIMDataIconDiscussions } from "./BIMDataIconDiscussions.vue";
 export { default as BIMDataIconDistance } from "./BIMDataIconDistance.vue";
 export { default as BIMDataIconDoubleChevron } from "./BIMDataIconDoubleChevron.vue";
 export { default as BIMDataIconDown } from "./BIMDataIconDown.vue";
@@ -90,6 +91,7 @@ export { default as BIMDataIconInformation } from "./BIMDataIconInformation.vue"
 export { default as BIMDataIconInProgressFile } from "./BIMDataIconInProgressFile.vue";
 export { default as BIMDataIconInvitation } from "./BIMDataIconInvitation.vue";
 export { default as BIMDataIconIsolate } from "./BIMDataIconIsolate.vue";
+export { default as BIMDataIconIssues } from "./BIMDataIconIssues.vue";
 export { default as BIMDataIconKey } from "./BIMDataIconKey.vue";
 export { default as BIMDataIconLanguage } from "./BIMDataIconLanguage.vue";
 export { default as BIMDataIconLeft } from "./BIMDataIconLeft.vue";
