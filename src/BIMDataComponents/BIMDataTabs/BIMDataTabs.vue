@@ -132,9 +132,11 @@ export default {
       this.$refs.container.scrollTo(this.scrollValues[this.displayIndex], 0);
     },
     onTabClick(tab) {
-      this.activeTab = tab;
-      this.$emit("tab-click", tab);
-      this.$emit("tab-selected", tab);
+      if (!tab.disabled) {
+        this.activeTab = tab;
+        this.$emit("tab-click", tab);
+        this.$emit("tab-selected", tab);
+      }
     },
     _setSelected(value) {
       if (typeof value === "number" && value >= 0 && value < this.tabs.length) {
