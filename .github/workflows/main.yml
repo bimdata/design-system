@@ -6,11 +6,19 @@ on:
       - "*"
       - "!release/2.x"
 
+permissions:
+  contents: read # for checkout
+
 env:
   app: design
 
 jobs:
   publish:
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
     runs-on: [self-hosted, common]
     steps:
       - uses: actions/checkout@v5
@@ -22,10 +30,9 @@ jobs:
         run: npm install npm@latest -g
       - run: npm ci
       - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPOS_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push:
     runs-on: [self-hosted, common]
