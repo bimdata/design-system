@@ -5,12 +5,22 @@ on:
     branches:
       - release/2.x
 
+permissions:
+  contents: read # for checkout
+
 env:
   app: design
 
 jobs:
   publish:
-    runs-on: [self-hosted, common]
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
+    # Use github runner and not self-hosted as trusted publishing is only supported on github runners
+    # https://docs.npmjs.com/trusted-publishers#limitations-and-future-improvements
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,10 +31,9 @@ jobs:
         run: npm install npm@latest -g
       - run: npm ci
       - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPOS_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push:
     runs-on: [self-hosted, common]

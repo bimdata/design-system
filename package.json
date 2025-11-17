@@ -38,5 +38,8 @@
     "vue": "^3.5.17",
     "vue-router": "^4.5.1",
     "vue3-clipboard": "^1.0.0"
+  },
+  "repository": {
+    "url": "https://github.com/bimdata/design-system"
   }
 }
