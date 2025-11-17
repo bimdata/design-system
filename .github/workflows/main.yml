@@ -19,7 +19,9 @@ jobs:
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for trusted publishing and npm provenance
-    runs-on: [self-hosted, common]
+    # Use github runner and not self-hosted as trusted publishing is only supported on github runners
+    # https://docs.npmjs.com/trusted-publishers#limitations-and-future-improvements
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
