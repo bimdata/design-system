@@ -5,6 +5,7 @@ export default Object.freeze([
   "secondary",
   "tertiary",
   "quaternary",
+  "quaternary-light",
   "quaternary-lighter",
   "granite",
   "silver",
