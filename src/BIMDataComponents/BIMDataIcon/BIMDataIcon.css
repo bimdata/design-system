@@ -21,6 +21,15 @@
     &.icon-fill--secondary {
       fill: var(--color-secondary);
     }
+    &.icon-fill--tertiary {
+      fill: var(--color-tertiary);
+    }
+    &.icon-fill--quaternary {
+      fill: var(--color-quaternary);
+    }
+    &.icon-fill--quaternary-lighter {
+      fill: var(--color-quaternary-lighter);
+    }
     &.icon-fill--success {
       fill: var(--color-success);
     }
@@ -68,6 +77,15 @@
     }
     &.icon-stroke--secondary {
       stroke: var(--color-secondary);
+    }
+    &.icon-stroke--tertiary {
+      stroke: var(--color-tertiary);
+    }
+    &.icon-stroke--quaternary {
+      stroke: var(--color-quaternary);
+    }
+    &.icon-stroke--quaternary-lighter {
+      stroke: var(--color-quaternary-lighter);
     }
     &.icon-stroke--success {
       stroke: var(--color-success);
