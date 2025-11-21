@@ -137,8 +137,14 @@
               {{ optionLabelKey ? `optionLabelKey="${optionLabelKey}"` : "" }}
               {{ hasNullValue ? ':nullValue="true"' : "" }}
               v-model="selection"
-              {{ selectedOptionsColor ? `color="${selectedOptionsColor}"` : "" }}
-              {{ selectedSearchColor && search ? `searchColor="${selectedSearchColor}"` : "" }}
+              {{
+              selectedOptionsColor ? `color="${selectedOptionsColor}"` : ""
+            }}
+              {{
+              selectedSearchColor && search
+                ? `searchColor="${selectedSearchColor}"`
+                : ""
+            }}
             &gt;
             {{ getEmptySlot() }}
               
@@ -262,7 +268,7 @@ export default {
             "tertiary",
             "tertiary-light",
             "quaternary",
-            "white"
+            "white",
           ],
           model: "selectedOptionsColor",
         },
@@ -273,6 +279,7 @@ export default {
             "secondary",
             "tertiary",
             "quaternary",
+            "quaternary-light",
           ],
           model: "selectedSearchColor",
         },

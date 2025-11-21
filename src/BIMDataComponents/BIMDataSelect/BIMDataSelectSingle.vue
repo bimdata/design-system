@@ -142,7 +142,7 @@ export default {
       type: String,
       default: "primary",
       validator: value =>
-        ["primary", "secondary", "tertiary", "quaternary"].includes(value),
+        ["primary", "secondary", "tertiary", "quaternary", "quaternary-light"].includes(value),
     },
   },
   emits: ["update:modelValue"],
