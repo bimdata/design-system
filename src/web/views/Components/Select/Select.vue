@@ -13,6 +13,7 @@
             :disabled="isDisabled"
             :multi="isMulti"
             :search="search"
+            :isSelectedAndHoveredElementsRounded="isSelectedAndHoveredElementsRounded"
             width="200px"
             label="Selector label"
             :options="options"
@@ -78,6 +79,13 @@
               :disabled="!search"
               :modelValue="clearSearch"
               @update:modelValue="toggleClearSearch"
+            />
+          </div>
+          <div class="m-t-6">
+            <BIMDataCheckbox
+              text="Rounded selected and hovered elements"
+              :modelValue="isSelectedAndHoveredElementsRounded"
+              @update:modelValue="toggleSelectedAndHoveredElementsRounded"
             />
           </div>
 
@@ -257,6 +265,7 @@ export default {
       eventsData,
       slotsData,
       search: false,
+      isSelectedAndHoveredElementsRounded: false,
       searchText: "",
       colorSettings: {
         color: {
@@ -316,6 +325,9 @@ export default {
     },
     toggleClearSearch(value) {
       this.clearSearch = value;
+    },
+    toggleSelectedAndHoveredElementsRounded(value) {
+      this.isSelectedAndHoveredElementsRounded = value;
     },
     getEmptySlot() {
       if (this.isEmpty) {

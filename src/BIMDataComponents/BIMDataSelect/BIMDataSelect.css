@@ -98,6 +98,12 @@
         padding-left: calc(var(--spacing-unit) * 2);
       }
     }
+
+    &.rounded-element {
+      .bimdata-select__option-list__entry {
+        border-radius: 50px;
+      }
+    }
   }
 
   &.default {
