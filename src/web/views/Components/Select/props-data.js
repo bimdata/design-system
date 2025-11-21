@@ -57,7 +57,7 @@ export default [
   ],
   ["resetOnLeave", "Boolean", "false", "In multi-selection mode: clear search bar on click away."],
   ["search", "Boolean", "false", "Use this boolean to add a search bar."],
-  ["searchColor", "String", "primary", "Set the color of the search input. (e.g. 'primary', 'secondary', 'tertiary', 'quaternary')."],
+  ["searchColor", "String", "primary", "Set the color of the search input. (e.g. 'primary', 'secondary', 'tertiary', 'quaternary', 'quaternary-light')."],
   [
     "searchPlaceholder",
     "String",
@@ -65,5 +65,5 @@ export default [
     "Use this props to custom search placeholder.",
   ],  
   ["width", "[String, Number]", "100%", "Set the selector width."],
-
+  ["isSelectedAndHoveredElementsRounded", "Boolean", "false", "When true, selected and hovered elements have rounded borders."],
 ];
