@@ -140,7 +140,7 @@ export default {
       selectedSearchOptionsstyle: "primary",
       searchOptions: {
         kinds: ["radius", "square"],
-        style: ["primary", "secondary", "tertiary", "quaternary"],
+        style: ["primary", "secondary", "tertiary", "quaternary", "quaternary-light"],
       },
       propsData,
       eventsData,
@@ -167,16 +167,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.theme-dark {
-  .article-search {
-    .bimdata-search-bar {
-      color: var(--color-primary);
-      &.bimdata-search-bar__quaternary {
-        color: var(--color-quaternary-lighter);
-      }
-    }
-  }
-}
-</style>

@@ -23,8 +23,6 @@
   }
   &.focus {
     background-color: var(--color-white);
-    /* box-shadow: var(--box-shadow);
-    transition: all 0.2s ease; */
   }
   &.disabled {
     color: var(--color-silver);
@@ -48,6 +46,7 @@
   }
   &.bimdata-search-bar__primary {
     background-color: var(--color-silver-light);
+    color: var(--color-primary);
   }
   &.bimdata-search-bar__secondary {
     background-color: var(--color-white);
@@ -57,6 +56,16 @@
   }
   &.bimdata-search-bar__quaternary {
     background-color: var(--color-quaternary);
+    color: var(--color-quaternary-lighter);
+    input {
+      color: var(--color-quaternary-lighter);
+      &::placeholder{
+        color: var(--color-quaternary-lighter);
+      }
+    }
+  }
+  &.bimdata-search-bar__quaternary-light {
+    background-color: var(--color-quaternary-light);
     color: var(--color-quaternary-lighter);
     input {
       color: var(--color-quaternary-lighter);
