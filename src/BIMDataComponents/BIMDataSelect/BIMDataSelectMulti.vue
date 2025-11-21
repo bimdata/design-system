@@ -23,7 +23,7 @@
     </div>
 
     <transition name="slide-fade-down">
-      <div v-show="!disabled && isOpen" class="bimdata-select__option-list">
+      <div v-show="!disabled && isOpen" class="bimdata-select__option-list" :class="{ 'rounded-element': isSelectedAndHoveredElementsRounded }">
         <BIMDataSearch
           v-if="search"
           width="calc(100% - 12px)"
@@ -137,9 +137,12 @@ export default {
       type: String,
       default: "Search",
     },
-    
     width: {
       type: [String, Number],
+    },
+    isSelectedAndHoveredElementsRounded: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["update:modelValue"],

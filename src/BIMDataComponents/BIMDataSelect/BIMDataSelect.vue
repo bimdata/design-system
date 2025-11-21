@@ -50,6 +50,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isSelectedAndHoveredElementsRounded: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   setup(props, { emit, slots }) {
