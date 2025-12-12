@@ -6,7 +6,7 @@
     :style="style"
     v-bind="$attrs"
   >
-    <span class="bimdata-checkbox__mark"></span>
+    <span class="bimdata-checkbox__mark" :style="checkboxStyle"></span>
     <span class="bimdata-checkbox__text" v-if="text">
       <slot>{{ text }}</slot>
     </span>
@@ -42,6 +42,10 @@ export default {
       type: String,
       default: "0px",
     },
+    fontSize: {
+      type: [String, Number],
+      default: "12px",
+    },
   },
   emits: ["update:modelValue"],
   computed: {
@@ -54,6 +58,22 @@ export default {
     style() {
       return {
         margin: `${this.margin}`,
+        fontSize: this.fontSize
+          ? typeof this.fontSize === "number"
+            ? `${this.fontSize}px`
+            : this.fontSize
+          : null,
+      };
+    },
+    checkboxStyle() {
+      const size =
+        typeof this.fontSize === "number"
+          ? `${this.fontSize}px`
+          : this.fontSize;
+      const checkboxSize = `calc(${size} * 1.085)`;
+
+      return {
+        width: checkboxSize,
       };
     },
     isDark() {

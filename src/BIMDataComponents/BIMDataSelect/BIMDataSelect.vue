@@ -18,6 +18,10 @@ export default {
       type: [String, Number],
       default: "100%",
     },
+    height: {
+      type: [String, Number],
+      default: "32px",
+    },
     label: {
       type: String,
       default: null,
@@ -64,9 +68,7 @@ export default {
           ...props,
           "onUpdate:modelValue": event => emit("update:modelValue", event),
         },
-        {
-          empty: () => slots.empty?.(),
-        },
+        slots,
       );
   },
 };

@@ -11,10 +11,15 @@
         <template #module>
           <BIMDataSelect
             :disabled="isDisabled"
+            :isLabel="isLabel"
             :multi="isMulti"
             :search="search"
-            :isSelectedAndHoveredElementsRounded="isSelectedAndHoveredElementsRounded"
-            width="200px"
+            :isSelectedAndHoveredElementsRounded="
+              isSelectedAndHoveredElementsRounded
+            "
+            width="220px"
+            :fontSize="fontSizeSelect"
+            :height="heightSelect"
             label="Selector label"
             :options="options"
             :optionKey="optionKey"
@@ -27,6 +32,45 @@
           >
             <template #empty v-if="isEmpty">
               <span class="p-x-6 color-granite">No result</span>
+            </template>
+            <template #placeholder v-if="!isLabel">
+              <BIMDataIconBuilding
+                fill
+                color="default"
+                size="xxs"
+                margin="0 3px 0 0"
+              />
+              Select an option
+            </template>
+            <template #labelLeft v-if="isLabelLeft">
+              <BIMDataIconBuilding
+                fill
+                color="default"
+                size="xxs"
+                margin="0 3px 0 0"
+              />
+            </template>
+            <template #labelRight v-if="isLabelRight">
+              <BIMDataIconBuilding
+                fill
+                color="default"
+                size="xxs"
+                margin="0 0 0 3px"
+              />
+            </template>
+            <template #contentRight v-if="isContentRight">
+              <BIMDataButton
+                color="tertiary"
+                fill
+                rounded
+                normal
+                icon
+                padding="0px"
+                width="17px"
+                height="17px"
+              >
+                <BIMDataIconChevron size="xxxs" />
+              </BIMDataButton>
             </template>
           </BIMDataSelect>
           <BIMDataText margin="18px 0">
@@ -50,6 +94,13 @@
           <h5 class="m-t-6 m-b-12">Props options :</h5>
           <div>
             <BIMDataCheckbox text="Disabled" v-model="isDisabled" />
+          </div>
+          <div class="m-t-6">
+            <BIMDataCheckbox
+              text="Add label"
+              :modelValue="isLabel"
+              @update:modelValue="toggleLabel"
+            />
           </div>
           <div class="m-t-6">
             <BIMDataCheckbox
@@ -118,11 +169,38 @@
               @update:modelValue="changeOptionSet"
             />
           </div>
+          <BIMDataInput
+            v-model="heightSelect"
+            backgroundColor="white"
+            placeholder="min-height in px or %"
+            margin="18px 0px"
+          />
+          <BIMDataInput
+            v-model="fontSizeSelect"
+            backgroundColor="white"
+            placeholder="font size in px, em, rem or %"
+            margin="0px 0px 18px 0px"
+          />
           <h5 class="m-t-12 m-b-6">Slots options :</h5>
           <BIMDataCheckbox
             text="Empty slot"
             :modelValue="isEmpty"
             @update:modelValue="toggleEmpty"
+          />
+          <BIMDataCheckbox
+            text="Content right slot"
+            :modelValue="isContentRight"
+            @update:modelValue="toggleContentRight"
+          />
+          <BIMDataCheckbox
+            text="Label left slot"
+            :modelValue="isLabelLeft"
+            @update:modelValue="toggleLabelLeft"
+          />
+          <BIMDataCheckbox
+            text="Label right slot"
+            :modelValue="isLabelRight"
+            @update:modelValue="toggleLabelRight"
           />
         </template>
 
@@ -252,8 +330,14 @@ export default {
   data() {
     return {
       isDisabled: false,
+      heightSelect: "32px",
+      fontSizeSelect: "12px",
       isMulti: false,
       isEmpty: false,
+      isContentRight: false,
+      isLabel: true,
+      isLabelLeft: false,
+      isLabelRight: false,
       hasNullValue: false,
       clearSearch: false,
       optionSet: "string",
@@ -275,6 +359,7 @@ export default {
             "primary",
             "secondary",
             "tertiary",
+            "tertiary-darker",
             "tertiary-light",
             "quaternary",
             "white",
@@ -322,6 +407,18 @@ export default {
     },
     toggleEmpty(value) {
       this.isEmpty = value;
+    },
+    toggleContentRight(value) {
+      this.isContentRight = value;
+    },
+    toggleLabel(value) {
+      this.isLabel = value;
+    },
+    toggleLabelLeft(value) {
+      this.isLabelLeft = value;
+    },
+    toggleLabelRight(value) {
+      this.isLabelRight = value;
     },
     toggleClearSearch(value) {
       this.clearSearch = value;
