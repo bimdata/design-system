@@ -98,7 +98,7 @@ export default {
 
   position: relative;
 
-  .bimdata-list __element {
+  .bimdata-list__element {
     position: absolute;
     width: 100%;
   }
