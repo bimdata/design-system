@@ -37,7 +37,6 @@
   }
   /* custom TEXT CHECKBOX */
   .bimdata-checkbox__text {
-    /* width: calc(100% - 13px - 6px); */
     margin-left: 6px;
     font-size: inherit;
   }
