@@ -70,10 +70,10 @@ export default {
         typeof this.fontSize === "number"
           ? `${this.fontSize}px`
           : this.fontSize;
-      const checkboxSize = `calc(${size} * 1.085)`;
 
       return {
-        width: checkboxSize,
+        width: `clamp(14px, calc(${size} * 1.1), 20px)`,
+        height: `clamp(14px, calc(${size} * 1.1), 20px)`,
       };
     },
     isDark() {
