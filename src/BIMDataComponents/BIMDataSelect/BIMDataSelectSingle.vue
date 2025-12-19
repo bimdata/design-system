@@ -155,6 +155,7 @@ export default {
           "secondary",
           "tertiary",
           "tertiary-light",
+          "tertiary-darker",
           "quaternary",
           "white",
         ].includes(value),
@@ -218,8 +219,11 @@ export default {
     },
 
     optionLabel(option) {
-      if (option == null && this.nullLabel) return this.nullLabel;
-      return this.optionLabelKey ? option[this.optionLabelKey] : option;
+      if (option == null) return this.nullLabel ?? "";
+      if (typeof option !== "object") return option;
+      return this.optionLabelKey && option[this.optionLabelKey] != null
+        ? option[this.optionLabelKey]
+        : "";
     },
 
     isSelected(option) {

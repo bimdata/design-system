@@ -116,6 +116,7 @@ export default {
           "secondary",
           "tertiary",
           "tertiary-light",
+          "tertiary-darker",
           "quaternary",
           "white",
         ].includes(value),

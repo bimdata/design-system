@@ -111,6 +111,7 @@
     }
 
     &.rounded-element {
+      border-radius: 18px;
       .bimdata-select__option-list__entry {
         border-radius: 50px;
       }
