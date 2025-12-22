@@ -32,10 +32,10 @@
     "eslint-plugin-vue": "^10.6.2",
     "prettier": "^3.7.4",
     "prismjs": "^1.30.0",
-    "sass-embedded": "^1.97.0",
+    "sass-embedded": "^1.97.1",
     "semantic-release": "^25.0.2",
     "vite": "^7.3.0",
-    "vue": "^3.5.25",
+    "vue": "^3.5.26",
     "vue-router": "^4.6.4",
     "vue3-clipboard": "^1.0.0"
   },
