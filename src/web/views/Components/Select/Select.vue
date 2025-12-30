@@ -193,11 +193,13 @@
             @update:modelValue="toggleContentRight"
           />
           <BIMDataCheckbox
+            :disabled="!isLabel"
             text="Label left slot"
             :modelValue="isLabelLeft"
             @update:modelValue="toggleLabelLeft"
           />
           <BIMDataCheckbox
+            :disabled="!isLabel"
             text="Label right slot"
             :modelValue="isLabelRight"
             @update:modelValue="toggleLabelRight"
@@ -217,6 +219,16 @@
               {{ search ? ':search="true"' : "" }}
               {{ clearSearch ? ':clearSearchOnLeave="true"' : "" }}
               width="200px"
+              {{
+              fontSizeSelect
+                ? `fontSize="${fontSizeSelect}"`
+                : ""
+              }}
+              {{
+              heightSelect
+                ? `height="${heightSelect}"`
+                : ""
+              }}
               label="Selector label"
               :options="options"
               {{ optionKey ? `optionKey="${optionKey}"` : "" }}
@@ -231,8 +243,17 @@
                 ? `searchColor="${selectedSearchColor}"`
                 : ""
             }}
+            {{ 
+            isSelectedAndHoveredElementsRounded
+                ?     `:isSelectedAndHoveredElementsRounded="true"`
+                : ""
+            }}
             &gt;
             {{ getEmptySlot() }}
+            {{ getPlaceholderSlot() }}
+            {{ getLabelLeftSlot() }}
+            {{ getLabelRightSlot() }}
+            {{ getContentRightSlot() }}
               
             &lt;/BIMDataSelect&gt;
           </pre>
@@ -429,6 +450,26 @@ export default {
     getEmptySlot() {
       if (this.isEmpty) {
         return "<template #empty>No result</template>";
+      }
+    },
+    getContentRightSlot() {
+      if (this.isContentRight) {
+        return "<template #contentRight><BIMDataButton color='tertiary' fill rounded normal icon padding='0px' width='17px' height='17px'> <BIMDataIconChevron size='xxxs'/> </BIMDataButton></template>";
+      }
+    },
+    getLabelLeftSlot() {
+      if (this.isLabelLeft) {
+        return "<template #labelLeft><BIMDataIconBuilding fill color='default' size='xxs' margin='0 3px 0 0'/></template>";
+      }
+    },
+    getLabelRightSlot() {
+      if (this.isLabelRight) {
+        return "<template #labelRight><BIMDataIconBuilding fill color='default' size='xxs' margin='0 3px 0 0'/></template>";
+      }
+    },
+    getPlaceholderSlot() {
+      if (!this.isLabel) {
+        return `<template #placeholder> <BIMDataIconBuilding fill color="default" size="xxs" margin="0 3px 0 0"/> Select an option </template>`;
       }
     },
     changeOptionSet(value) {
