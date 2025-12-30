@@ -4,26 +4,40 @@
     :class="{
       disabled,
       active: isOpen,
-      dark: isDark,
       'not-empty': modelValue.length > 0,
+      dark: isDark,
       [color]: true,
     }"
-    :style="{ width }"
+    :style="{ width, height, fontSize }"
     v-clickaway="away"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
         <span class="m-r-6">{{ displayedValue }}</span>
-        <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
+        <slot name="contentRight">
+          <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
+        </slot>
       </div>
-      <label class="bimdata-select__content__label">
+      <label v-if="showLabel" class="bimdata-select__content__label">
+        <slot name="labelLeft"></slot>
         {{ label }}
+        <slot name="labelRight"></slot>
+      </label>
+      <label
+        v-if="shouldDisplayPlaceholder"
+        class="bimdata-select__content__placeholder"
+      >
+        <slot name="placeholder">{{ placeholder }}</slot>
       </label>
       <span class="bimdata-select__content__underline"></span>
     </div>
 
     <transition name="slide-fade-down">
-      <div v-show="!disabled && isOpen" class="bimdata-select__option-list" :class="{ 'rounded-element': isSelectedAndHoveredElementsRounded }">
+      <div
+        v-show="!disabled && isOpen"
+        class="bimdata-select__option-list"
+        :class="{ 'rounded-element': isSelectedAndHoveredElementsRounded }"
+      >
         <BIMDataSearch
           v-if="search"
           width="calc(100% - 12px)"
@@ -47,6 +61,7 @@
               'option-group': isOptionGroup(option),
             }"
             @click="onOptionClick(option)"
+            :style="{ fontSize }"
           >
             <template v-if="isOptionGroup(option)">
               {{ optionLabel(option) }}
@@ -56,6 +71,8 @@
               :modelValue="isSelected(option)"
               :disabled="isDisabled(option)"
               :text="optionLabel(option)"
+              :style="{ fontSize }"
+              :fontSize="fontSize"
             ></BIMDataCheckbox>
           </li>
         </ul>
@@ -93,7 +110,16 @@ export default {
       type: String,
       default: "default",
       validator: value =>
-        ["default", "primary", "secondary", "tertiary", "tertiary-light", "quaternary", "white"].includes(value),
+        [
+          "default",
+          "primary",
+          "secondary",
+          "tertiary",
+          "tertiary-light",
+          "tertiary-darker",
+          "quaternary",
+          "white",
+        ].includes(value),
     },
     disabled: {
       type: Boolean,
@@ -109,6 +135,10 @@ export default {
     nullLabel: {
       type: String,
     },
+    showLabel: {
+      type: Boolean,
+      default: true,
+    },
     options: {
       type: Array,
       default: () => [],
@@ -118,6 +148,10 @@ export default {
     },
     optionLabelKey: {
       type: String,
+    },
+    placeholder: {
+      type: String,
+      default: null,
     },
     resetOnLeave: {
       type: Boolean,
@@ -131,7 +165,13 @@ export default {
       type: String,
       default: "primary",
       validator: value =>
-        ["primary", "secondary", "tertiary", "quaternary", "quaternary-light"].includes(value),
+        [
+          "primary",
+          "secondary",
+          "tertiary",
+          "quaternary",
+          "quaternary-light",
+        ].includes(value),
     },
     searchPlaceholder: {
       type: String,
@@ -140,6 +180,10 @@ export default {
     width: {
       type: [String, Number],
     },
+    height: {
+      type: [String, Number],
+    },
+    fontSize: [String, Number],
     isSelectedAndHoveredElementsRounded: {
       type: Boolean,
       default: false,
@@ -153,6 +197,9 @@ export default {
     };
   },
   computed: {
+    shouldDisplayPlaceholder() {
+      return !this.showLabel && this.modelValue.length === 0 && !this.isOpen;
+    },
     displayedValue() {
       return this.modelValue.map(this.optionLabel).join(", ");
     },

@@ -5,16 +5,18 @@
   user-select: none;
 
   & .bimdata-select__content {
-    height: 32px;
+    height: 100%;
     border-radius: 50px;
 
     & .bimdata-select__content__value {
       padding: 0 12px;
-      height: 32px;
+      height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
+      z-index: 2;
+      position: relative;
 
       span {
         height: auto;
@@ -26,11 +28,18 @@
 
     & .bimdata-select__content__label {
       position: absolute;
-      top: 8px;
+      top: 50%; 
       left: 12px;
+      transform: translateY(-50%);
       font-size: 12px;
       transition: 0.2s ease all;
-      transition: 0.2s ease all;
+    }
+
+    & .bimdata-select__content__placeholder {
+      position: absolute;
+      top: 50%; 
+      left: 12px;
+      transform: translateY(-50%);
     }
   }
 
@@ -46,6 +55,7 @@
         left: 0;
         font-size: 10px;
         color: var(--color-primary);
+        transform: none;
       }
     }
   }
@@ -61,12 +71,13 @@
     background-color: var(--color-white);
 
     & .bimdata-select__option-list__entry {
-      height: 29px;
+      min-height: 29px;
       padding: 0 var(--spacing-unit);
       display: flex;
       align-items: center;
       font-size: 12px;
       cursor: pointer;
+      line-height: 2;
 
       &:hover {
         background-color: var(--color-silver-light);
@@ -100,6 +111,7 @@
     }
 
     &.rounded-element {
+      border-radius: 18px;
       .bimdata-select__option-list__entry {
         border-radius: 50px;
       }
@@ -235,6 +247,42 @@
         .bimdata-select__option-list__entry {
           &.selected, &:hover {
             background-color: var(--color-tertiary-light);
+          }
+        }
+      }
+    }
+  }
+  &.tertiary-darker {
+    .bimdata-select__content {
+      background-color: var(--color-tertiary-darker);
+      .bimdata-select__content__label {
+        color: var(--color-white);
+      }
+      .bimdata-select__content__value {
+        color: var(--color-white);
+      }
+    }
+    &.active {
+      .bimdata-select__content {
+        .bimdata-select__content__value, .bimdata-select__content__label {
+          color: var(--color-white);
+        }
+      }
+      .bimdata-select__option-list {
+        .bimdata-select__option-list__entry {
+          &.selected, &:hover {
+            background-color: #e7f0f5;
+          }
+        }
+      }
+    }
+    &.dark {
+      .bimdata-select__option-list {
+        background-color: var(--color-tertiary-darker);
+        color: var(--color-white);
+        .bimdata-select__option-list__entry {
+          &.selected, &:hover {
+            background-color: #234254;
           }
         }
       }

@@ -4,25 +4,41 @@
     :class="{
       disabled,
       active: isOpen,
-      'not-empty': modelValue !== undefined && modelValue !== null,
+      'not-empty': isModelValueNotEmpty,
       dark: isDark,
       [color]: true,
     }"
-    :style="{ width }"
+    :style="{ width, height, fontSize }"
     v-clickaway="away"
   >
     <div class="bimdata-select__content">
       <div class="bimdata-select__content__value" @click="toggle">
         <span class="m-r-6">{{ displayedValue }}</span>
-        <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
+        <slot name="contentRight">
+          <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
+        </slot>
       </div>
-      <label v-if="isLabel" class="bimdata-select__content__label">
+
+      <label v-if="showLabel" class="bimdata-select__content__label">
+        <slot name="labelLeft"></slot>
         {{ label }}
-      </label> 
+        <slot name="labelRight"></slot>
+      </label>
+
+      <label
+        v-if="shouldDisplayPlaceholder"
+        class="bimdata-select__content__placeholder"
+      >
+        <slot name="placeholder">{{ placeholder }}</slot>
+      </label>
     </div>
 
     <transition name="slide-fade-down">
-      <div v-show="!disabled && isOpen" class="bimdata-select__option-list" :class="{ 'rounded-element': isSelectedAndHoveredElementsRounded }">
+      <div
+        v-show="!disabled && isOpen"
+        class="bimdata-select__option-list"
+        :class="{ 'rounded-element': isSelectedAndHoveredElementsRounded }"
+      >
         <BIMDataSearch
           v-if="search"
           width="calc(100% - 12px)"
@@ -39,20 +55,22 @@
           <li
             v-if="nullValue"
             class="bimdata-select__option-list__entry"
-            @click="onNullValueClick()"
+            @click="selectOption(null)"
+            :style="{ fontSize }"
           >
             {{ nullLabel || "None" }}
           </li>
           <li
             class="bimdata-select__option-list__entry"
-            v-for="(option, index) of filteredOptions"
+            v-for="(option, index) in filteredOptions"
             :key="index"
             :class="{
               selected: isSelected(option),
               disabled: isDisabled(option),
               'option-group': isOptionGroup(option),
             }"
-            @click="onOptionClick(option)"
+            @click="selectOption(option)"
+            :style="{ fontSize }"
           >
             {{ optionLabel(option) }}
           </li>
@@ -64,7 +82,6 @@
 
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
-// Components
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 
 export default {
@@ -85,14 +102,18 @@ export default {
     },
   },
   props: {
-    width: {
-      type: [String, Number],
-    },
+    width: [String, Number],
+    height: [String, Number],
+    fontSize: [String, Number],
     label: {
       type: String,
       default: null,
     },
-    isLabel: {
+    placeholder: {
+      type: String,
+      default: null,
+    },
+    showLabel: {
       type: Boolean,
       default: true,
     },
@@ -100,22 +121,14 @@ export default {
       type: Array,
       default: () => [],
     },
-    optionKey: {
-      type: String,
-    },
-    optionLabelKey: {
-      type: String,
-    },
-    modelValue: {
-      type: [String, Object],
-    },
+    optionKey: String,
+    optionLabelKey: String,
+    modelValue: [String, Object],
     nullValue: {
       type: Boolean,
       default: false,
     },
-    nullLabel: {
-      type: String,
-    },
+    nullLabel: String,
     disabled: {
       type: Boolean,
       default: false,
@@ -136,13 +149,28 @@ export default {
       type: String,
       default: "default",
       validator: value =>
-        ["default", "primary", "secondary", "tertiary", "tertiary-light", "quaternary", "white"].includes(value),
+        [
+          "default",
+          "primary",
+          "secondary",
+          "tertiary",
+          "tertiary-light",
+          "tertiary-darker",
+          "quaternary",
+          "white",
+        ].includes(value),
     },
     searchColor: {
       type: String,
       default: "primary",
       validator: value =>
-        ["primary", "secondary", "tertiary", "quaternary", "quaternary-light"].includes(value),
+        [
+          "primary",
+          "secondary",
+          "tertiary",
+          "quaternary",
+          "quaternary-light",
+        ].includes(value),
     },
     isSelectedAndHoveredElementsRounded: {
       type: Boolean,
@@ -157,93 +185,70 @@ export default {
     };
   },
   computed: {
+    isModelValueNotEmpty() {
+      return this.modelValue != null;
+    },
+
+    shouldDisplayPlaceholder() {
+      return !this.showLabel && this.modelValue == null && !this.isOpen;
+    },
+
     displayedValue() {
       return this.optionLabel(this.modelValue);
     },
+
     filteredOptions() {
-      if (this.searchText === "") {
-        return this.options;
-      } else {
-        const lowerCaseSearchText = this.searchText.toLowerCase();
-        if (this.optionLabelKey) {
-          return this.options.filter(option =>
-            option[this.optionLabelKey]
-              .toLowerCase()
-              .includes(lowerCaseSearchText),
-          );
-        }
-        if (this.optionKey) {
-          return this.options.filter(
-            option =>
-              option.optionGroup ||
-              option[this.optionKey]
-                .toLowerCase()
-                .includes(lowerCaseSearchText),
-          );
-        } else {
-          return this.options.filter(option =>
-            option.toLowerCase().includes(lowerCaseSearchText),
-          );
-        }
-      }
+      const lowerCaseSearchText = this.searchText.toLowerCase();
+      return this.options.filter(option => {
+        const label = this.optionLabel(option).toLowerCase();
+        return label.includes(lowerCaseSearchText);
+      });
     },
+
     isDark() {
       return this.darkThemeRef;
     },
   },
   methods: {
     toggle() {
-      if (!this.disabled) {
-        this.isOpen = !this.isOpen;
-      }
+      if (!this.disabled) this.isOpen = !this.isOpen;
     },
+
     optionValue(option) {
-      if (this.optionKey && option) {
-        return option[this.optionKey];
-      }
-      return option;
+      return this.optionKey ? option[this.optionKey] : option;
     },
+
     optionLabel(option) {
-      if (this.nullLabel && option == null) {
-        return this.nullLabel;
-      }
-      if (this.optionLabelKey && option) {
-        return option[this.optionLabelKey];
-      }
-      if (this.optionKey && option) {
-        return option[this.optionKey];
-      }
-      return option;
+      if (option == null) return this.nullLabel ?? "";
+      if (typeof option !== "object") return option;
+      return this.optionLabelKey && option[this.optionLabelKey] != null
+        ? option[this.optionLabelKey]
+        : "";
     },
+
     isSelected(option) {
-      const value = this.optionValue(option);
-      const currentValue = this.optionValue(this.modelValue);
-      return currentValue === value;
+      return this.optionValue(option) === this.optionValue(this.modelValue);
     },
+
     isDisabled(option) {
-      return this.optionKey && option && option.disabled;
+      return option && option.disabled;
     },
+
     isOptionGroup(option) {
-      return this.optionKey && option && option.optionGroup;
+      return option && option.optionGroup;
     },
+
     resetSearch() {
-      if (this.clearSearchOnLeave) {
-        this.searchText = "";
-      }
+      if (this.clearSearchOnLeave) this.searchText = "";
     },
-    onOptionClick(option) {
-      if (this.optionKey && (option.disabled || option.optionGroup)) {
-        return;
-      }
+
+    selectOption(option) {
+      if (option && (option.disabled || option.optionGroup)) return;
       this.$emit("update:modelValue", option);
       this.resetSearch();
       this.isOpen = false;
     },
-    onNullValueClick() {
-      this.$emit("update:modelValue", null);
-      this.resetSearch();
-      this.isOpen = false;
-    },
+
     away() {
       this.isOpen = false;
       this.resetSearch();

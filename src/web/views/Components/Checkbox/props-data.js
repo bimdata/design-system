@@ -2,10 +2,23 @@
 export default [
   [ "Props", "Type", "Default value", "Description" ],
   [
-    "text",
+    "dark",
+    "Boolean",
+    "false",
+    "Use this props to set the checkbox in dark mode",
+  ],
+  [
+    "disabled",
+    "Boolean",
+    "false",
+    "Use this props to disable the checkbox",
+  ],
+  ["fontSize", "[String, Number]", "12px", "Set the font size of the checkbox."],
+  [
+    "margin",
     "String",
-    "null",
-    "Use this props to add text next to the checkbox",
+    "0px",
+    "Use this props to set a margin",
   ],
   [
     "state",
@@ -14,21 +27,9 @@ export default [
     "Use this boolean to know if the checkbox is checked or not. If the state === 'null' then the state is 'indeterminate'",
   ],
   [
-    "disabled",
-    "Boolean",
-    "false",
-    "Use this props to disable the checkbox",
-  ],
-  [
-    "margin",
+    "text",
     "String",
-    "0px",
-    "Use this props to set a margin",
-  ],
-  [
-    "dark",
-    "Boolean",
-    "false",
-    "Use this props to set the checkbox in dark mode",
+    "null",
+    "Use this props to add text next to the checkbox",
   ],
 ];

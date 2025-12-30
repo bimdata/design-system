@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   font-family: var(--primary-font);
-  font-size: 14px;
   cursor: pointer;
   user-select: none;
   :after,
@@ -14,8 +13,9 @@
   }
   /* custom CHECKMARK */
   .bimdata-checkbox__mark {
-    width: 13px;
-    height: 13px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
     position: relative;
     top: 0;
     left: 0;
@@ -23,13 +23,13 @@
     border-radius: 2px;
     box-sizing: border-box;
     &::after {
-      width: 4px;
-      height: 7px;
+      width: 40%;
+      height: 60%;
       content: '';
       display: block;
       position: absolute;
-      top: 1px;
-      left: 3px;
+      top: 5%;
+      left: 30%;
       border: solid transparent;
       opacity: 0;
       transform: rotate(45deg);
@@ -37,9 +37,8 @@
   }
   /* custom TEXT CHECKBOX */
   .bimdata-checkbox__text {
-    width: calc(100% - 13px - 5px);
     margin-left: 6px;
-    font-size: 12px;
+    font-size: inherit;
   }
   /* custom DARK CHECKBOX */
   &.dark {
