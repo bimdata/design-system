@@ -19,7 +19,7 @@
         </slot>
       </div>
 
-      <label v-if="isLabel" class="bimdata-select__content__label">
+      <label v-if="showLabel" class="bimdata-select__content__label">
         <slot name="labelLeft"></slot>
         {{ label }}
         <slot name="labelRight"></slot>
@@ -113,7 +113,7 @@ export default {
       type: String,
       default: null,
     },
-    isLabel: {
+    showLabel: {
       type: Boolean,
       default: true,
     },
@@ -190,7 +190,7 @@ export default {
     },
 
     shouldDisplayPlaceholder() {
-      return !this.isLabel && this.modelValue == null && !this.isOpen;
+      return !this.showLabel && this.modelValue == null && !this.isOpen;
     },
 
     displayedValue() {

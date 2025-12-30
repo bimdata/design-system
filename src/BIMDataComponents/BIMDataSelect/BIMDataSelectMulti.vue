@@ -18,7 +18,7 @@
           <BIMDataIconChevron size="xxs" :rotate="isOpen ? 90 : 0" />
         </slot>
       </div>
-      <label v-if="isLabel" class="bimdata-select__content__label">
+      <label v-if="showLabel" class="bimdata-select__content__label">
         <slot name="labelLeft"></slot>
         {{ label }}
         <slot name="labelRight"></slot>
@@ -135,7 +135,7 @@ export default {
     nullLabel: {
       type: String,
     },
-    isLabel: {
+    showLabel: {
       type: Boolean,
       default: true,
     },
@@ -198,7 +198,7 @@ export default {
   },
   computed: {
     shouldDisplayPlaceholder() {
-      return !this.isLabel && this.modelValue.length === 0 && !this.isOpen;
+      return !this.showLabel && this.modelValue.length === 0 && !this.isOpen;
     },
     displayedValue() {
       return this.modelValue.map(this.optionLabel).join(", ");
