@@ -11,7 +11,7 @@
         <template #module>
           <BIMDataSelect
             :disabled="isDisabled"
-            :isLabel="isLabel"
+            :showLabel="showLabel"
             :multi="isMulti"
             :search="search"
             :isSelectedAndHoveredElementsRounded="
@@ -33,7 +33,7 @@
             <template #empty v-if="isEmpty">
               <span class="p-x-6 color-granite">No result</span>
             </template>
-            <template #placeholder v-if="!isLabel">
+            <template #placeholder v-if="!showLabel">
               <BIMDataIconBuilding
                 fill
                 color="default"
@@ -98,7 +98,7 @@
           <div class="m-t-6">
             <BIMDataCheckbox
               text="Add label"
-              :modelValue="isLabel"
+              :modelValue="showLabel"
               @update:modelValue="toggleLabel"
             />
           </div>
@@ -193,13 +193,13 @@
             @update:modelValue="toggleContentRight"
           />
           <BIMDataCheckbox
-            :disabled="!isLabel"
+            :disabled="!showLabel"
             text="Label left slot"
             :modelValue="isLabelLeft"
             @update:modelValue="toggleLabelLeft"
           />
           <BIMDataCheckbox
-            :disabled="!isLabel"
+            :disabled="!showLabel"
             text="Label right slot"
             :modelValue="isLabelRight"
             @update:modelValue="toggleLabelRight"
@@ -356,7 +356,7 @@ export default {
       isMulti: false,
       isEmpty: false,
       isContentRight: false,
-      isLabel: true,
+      showLabel: true,
       isLabelLeft: false,
       isLabelRight: false,
       hasNullValue: false,
@@ -433,7 +433,7 @@ export default {
       this.isContentRight = value;
     },
     toggleLabel(value) {
-      this.isLabel = value;
+      this.showLabel = value;
     },
     toggleLabelLeft(value) {
       this.isLabelLeft = value;
@@ -468,7 +468,7 @@ export default {
       }
     },
     getPlaceholderSlot() {
-      if (!this.isLabel) {
+      if (!this.showLabel) {
         return `<template #placeholder> <BIMDataIconBuilding fill color="default" size="xxs" margin="0 3px 0 0"/> Select an option </template>`;
       }
     },

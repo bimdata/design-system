@@ -87,6 +87,12 @@ export default [
     "Search",
     "Use this props to custom search placeholder.",
   ],
+  [
+    "showLabel",
+    "Boolean",
+    "true",
+    "When true, the selector label is shown.",
+  ],
   ["width", "[String, Number]", "100%", "Set the selector width."],
   [
     "isSelectedAndHoveredElementsRounded",
