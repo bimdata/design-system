@@ -23,8 +23,8 @@
     border-radius: 2px;
     box-sizing: border-box;
     &::after {
-      width: calc(40%);
-      height: calc(60%);
+      width: 40%;
+      height: 60%;
       content: '';
       display: block;
       position: absolute;
