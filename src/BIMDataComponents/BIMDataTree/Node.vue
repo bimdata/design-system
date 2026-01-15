@@ -22,7 +22,7 @@
     ></div>
     <div
       class="bimdata-tree__node__content"
-      :style="`padding-left: calc(var(--spacing-unit) * 2 * ${depth});`"
+      :style="`padding-left: calc(var(--indent-spacing) * ${depth});`"
     >
       <div class="bimdata-tree__node__content__arrow" @mousedown.stop>
         <div
@@ -206,6 +206,8 @@ export default Node;
 
 <style scoped lang="scss">
 .bimdata-tree__node {
+  --indent-spacing: calc(var(--spacing-unit) * 2);
+
   height: 32px;
   display: flex;
   align-items: center;
