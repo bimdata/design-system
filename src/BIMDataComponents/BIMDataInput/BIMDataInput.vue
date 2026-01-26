@@ -21,7 +21,7 @@
       class="bimdata-input__content"
       style="position: relative"
       :style="{
-        'background-color': backgroundColor,
+        'background-color': computedBackgroundColor,
         'border-radius': borderRadius,
       }"
     >
@@ -47,6 +47,8 @@
         :style="{
           padding: padding,
           height: height,
+          color: computedInputColor,
+          '--input-color': computedInputColor,
         }"
       />
       <div class="bimdata-input__icon">
@@ -74,23 +76,27 @@ export default {
     },
   },
   props: {
-    modelValue: {
-      type: [String, Number],
-      default: "",
-    },
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    label: {
-      type: String,
-      default: "",
-    },
-    error: {
+    autocomplete: {
       type: Boolean,
       default: false,
     },
-    success: {
+    backgroundColor: {
+      type: String,
+      default: "var(--color-silver-light)",
+    },
+    backgroundColorDark: {
+      type: String,
+      default: "var(--color-quaternary)",
+    },
+    borderRadius: {
+      type: String,
+      default: "8px",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    error: {
       type: Boolean,
       default: false,
     },
@@ -98,7 +104,23 @@ export default {
       type: String,
       default: "",
     },
-    successMessage: {
+    height: {
+      type: String,
+      default: "32px",
+    },
+    isLabel: {
+      type: Boolean,
+      default: true,
+    },
+    inputColor: {
+      type: String,
+      default: "var(--color-primary)",
+    },
+    inputColorDark: {
+      type: String,
+      default: "var(--color-quaternary-lighter)",
+    },
+    label: {
       type: String,
       default: "",
     },
@@ -106,37 +128,29 @@ export default {
       type: Boolean,
       default: false,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
     margin: {
       type: String,
       default: "12px 0px",
+    },
+    modelValue: {
+      type: [String, Number],
+      default: "",
     },
     padding: {
       type: String,
       default: "0px 12px",
     },
-    autocomplete: {
+    placeholder: {
+      type: String,
+      default: "",
+    },
+    success: {
       type: Boolean,
       default: false,
     },
-    height: {
+    successMessage: {
       type: String,
-      default: "32px",
-    },
-    backgroundColor: {
-      type: String,
-      default: "var(--color-silver-light)",
-    },
-    borderRadius: {
-      type: String,
-      default: "8px",
-    },
-    isLabel: {
-      type: Boolean,
-      default: true,
+      default: "",
     },
   },
   emits: ["update:modelValue", "blur", "keypress", "focus", "change"],
@@ -152,6 +166,12 @@ export default {
     },
     isDark() {
       return this.darkThemeRef;
+    },
+    computedBackgroundColor() {
+      return this.isDark ? this.backgroundColorDark : this.backgroundColor;
+    },
+    computedInputColor() {
+      return this.isDark ? this.inputColorDark : this.inputColor;
     },
   },
   beforeCreate() {

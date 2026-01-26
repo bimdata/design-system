@@ -1,20 +1,27 @@
 /* eslint-disable */
 export default [
-  [ "Props", "Type", "Default value", "Description" ],
+  ["Props", "Type", "Default value", "Description"],
   [
     "autocomplete",
     "Boolean",
     "false",
-    "Whether 'autocomplete' attribute is 'on' or 'off'."
+    "Whether 'autocomplete' attribute is 'on' or 'off'.",
+  ],
+  [
+    "backgroundColor",
+    "String",
+    "var(--color-silver-light)",
+    "Custom input background color for light mode.",
+  ],
+  [
+    "backgroundColorDark",
+    "String",
+    "var(--color-quaternary)",
+    "Custom input background color for dark mode.",
   ],
   ["borderRadius", "String", "8px", "Custom input border-radius."],
   ["dark", "Boolean", "false", "Use this boolean to apply dark mode."],
-  [
-    "disabled",
-    "Boolean",
-    "false",
-    "Use this boolean to disabled your input.",
-  ],
+  ["disabled", "Boolean", "false", "Use this boolean to disabled your input."],
   [
     "error",
     "Boolean",
@@ -27,25 +34,18 @@ export default [
     "' '",
     "Use this props to add an error message to your input.",
   ],
+  ["height", "String", "32px", "Custom input height."],
   ["isLabel", "Boolean", "true", "Use this boolean to display a label."],
-  [
-    "loading",
-    "Boolean",
-    "false",
-    "",
-  ],
-  [
-    "margin",
-    "String",
-    "12px 0",
-    "Custom input margins",
-  ],
+  ["label", "String", "' '", "Use this props to add a label to your input."],
+  ["loading", "Boolean", "false", ""],
+  ["margin", "String", "12px 0", "Custom input margins"],
   [
     "modelValue",
     "String",
     "",
     "Use this prop to bind the input value to a variable.",
   ],
+  ["padding", "String", "0 12px", "Custom input padding."],
   [
     "placeholder",
     "String",

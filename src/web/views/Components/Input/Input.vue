@@ -27,7 +27,10 @@
             :loading="loading"
             :disabled="disabled"
             :margin="marginInput"
-            :backgroundColor="backgroundColorInput"
+            :backgroundColor="backgroundColorLightInput"
+            :backgroundColorDark="backgroundColorDarkInput"
+            :inputColor="colorLightInput"
+            :inputColorDark="colorDarkInput"
             :borderRadius="borderRadiusInput"
             :isLabel="isLabel"
             :height="heightInput"
@@ -62,30 +65,12 @@
             v-model="successMessage"
             :disabled="error || errorMessage"
           />
-          <BIMDataCheckbox
-            text="left icon"
-            v-model="leftInputIcon"
-          />
-          <BIMDataCheckbox
-            text="right icon"
-            v-model="inputIcon"
-          />
-          <BIMDataCheckbox
-            text="loading"
-            v-model="loading"
-          />
-          <BIMDataCheckbox
-            text="disabled"
-            v-model="disabled"
-          />
-          <BIMDataCheckbox
-            text="dark"
-            v-model="dark"
-          />
-          <BIMDataCheckbox
-            text="add label"
-            v-model="isLabel"
-          />
+          <BIMDataCheckbox text="left icon" v-model="leftInputIcon" />
+          <BIMDataCheckbox text="right icon" v-model="inputIcon" />
+          <BIMDataCheckbox text="loading" v-model="loading" />
+          <BIMDataCheckbox text="disabled" v-model="disabled" />
+          <BIMDataCheckbox text="dark" v-model="dark" />
+          <BIMDataCheckbox text="add label" v-model="isLabel" />
 
           <div>
             <BIMDataText
@@ -101,37 +86,46 @@
               v-model="labelInput"
               label="Change label"
               backgroundColor="white"
-
             />
             <BIMDataInput
               v-model="placeholderInput"
               label="Change placeholder"
               backgroundColor="white"
-
             />
             <BIMDataInput
               v-model="marginInput"
               label="Change margin"
               backgroundColor="white"
-
             />
             <BIMDataInput
-              v-model="backgroundColorInput"
-              label="Change background-color"
+              v-model="backgroundColorLightInput"
+              label="Change light background-color"
               backgroundColor="white"
-
+            />
+            <BIMDataInput
+              v-model="backgroundColorDarkInput"
+              label="Change dark background-color"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="colorLightInput"
+              label="Change light input color"
+              backgroundColor="white"
+            />
+            <BIMDataInput
+              v-model="colorDarkInput"
+              label="Change dark input color"
+              backgroundColor="white"
             />
             <BIMDataInput
               v-model="heightInput"
               label="Change height"
               backgroundColor="white"
-
             />
             <BIMDataInput
               v-model="borderRadiusInput"
               label="Change border-radius"
               backgroundColor="white"
-
             />
           </div>
         </template>
@@ -256,7 +250,10 @@ export default {
       labelInput: "Your label here",
       placeholderInput: "Your placeholder here",
       marginInput: "12px 0px",
-      backgroundColorInput: "var(--color-silver-light)",
+      backgroundColorLightInput: "var(--color-silver-light)",
+      backgroundColorDarkInput: "var(--color-quaternary)",
+      colorLightInput: "var(--color-primary)",
+      colorDarkInput: "var(--color-quaternary-lighter)",
       heightInput: "32px",
       borderRadiusInput: "8px",
 
@@ -290,8 +287,14 @@ export default {
       if (this.labelInput) attrs.push(`label="${this.labelInput}"`);
       if (this.placeholderInput)
         attrs.push(`placeholder="${this.placeholderInput}"`);
-      if (this.backgroundColorInput)
-        attrs.push(`backgroundColor="${this.backgroundColorInput}"`);
+      if (this.backgroundColorLightInput)
+        attrs.push(`backgroundColor="${this.backgroundColorLightInput}"`);
+      if (this.backgroundColorDarkInput)
+        attrs.push(`backgroundColorDark="${this.backgroundColorDarkInput}"`);
+      if (this.colorLightInput)
+        attrs.push(`inputColor="${this.colorLightInput}"`);
+      if (this.colorDarkInput)
+        attrs.push(`inputColorDark="${this.colorDarkInput}"`);
       if (this.borderRadiusInput)
         attrs.push(`borderRadius="${this.borderRadiusInput}"`);
       if (this.isLabel !== true) attrs.push(`:isLabel="${this.isLabel}"`);
