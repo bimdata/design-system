@@ -126,6 +126,18 @@ export default {
           "This color is used for success states, status, success or confirmation messages.",
         ],
         [
+          "Action High",
+          "--color-action-high",
+          "rgb(255, 30, 67)",
+          "This color is used for actions that require the user be very careful (e.g. destructive actions).",
+        ],
+        [
+          "Action Medium",
+          "--color-action-medium",
+          "rgb(255, 255, 59)",
+          "This color is used for actions that require the user to pay attention (e.g. patch/update actions).",
+        ],
+        [
           "Text",
           "--color-text",
           "rgb(47, 55, 74)",

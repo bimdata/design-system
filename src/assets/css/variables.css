@@ -24,10 +24,10 @@ html {
   --color-tertiary-light: rgba(140, 247, 255, 1);
   --color-tertiary-lighter: rgba(242, 254, 255, 1);
 
-    /* --------------------------------------------------------
+  /* --------------------------------------------------------
   --------------- color QUATERNARY & VARIANTS -----------------
   ----------------------------------------------------------- */
-  --color-quaternary: rgba(28, 32,44, 1);
+  --color-quaternary: rgba(28, 32, 44, 1);
   --color-quaternary-darker: rgba(12, 16, 27, 1);
   --color-quaternary-dark: rgba(17, 22, 34, 1);
   --color-quaternary-light: rgba(38, 43, 60, 1);
@@ -77,6 +77,12 @@ html {
   --color-neutral-light: rgba(51, 117, 221, 1);
   --color-neutral-lighter: rgba(240, 245, 255, 1);
 
+  /* --------------------------------------------------------
+  -------------------- color ACTION --------------------------
+  ----------------------------------------------------------- */
+  --color-action-high: rgba(255, 30, 67, 1);
+  --color-action-medium: rgba(255, 255, 59, 1);
+
   /* color TEXT --------------------------------------------- */
   --color-text: rgba(47, 55, 74, 1);
 
@@ -117,8 +123,8 @@ html {
     --color-ds-dark-pre: #282b34;
     --color-ds-text: var(--color-primary);
     --color-ds-border: var(--color-silver);
-    --color-ds-light-border: rgba(0,0,0,.05);
-    --color-ds-hover: rgb(240,240,240);
+    --color-ds-light-border: rgba(0, 0, 0, 0.05);
+    --color-ds-hover: rgb(240, 240, 240);
     --color-ds-granite-light: var(--color-granite-light);
   }
 }
