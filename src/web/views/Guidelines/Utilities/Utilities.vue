@@ -10,8 +10,11 @@
           Usage
         </BIMDataText>
         <p>
-          To use BIMData utility classes you need to add the <b>"bimdata-design-system"</b> class to the root of your application.<br/>
-          Utility classes will only be applied when on element that have an ancestor with <b>"bimdata-design-system"</b> class. 
+          To use BIMData utility classes you need to add the
+          <b>"bimdata-design-system"</b> class to the root of your
+          application.<br />
+          Utility classes will only be applied when on element that have an
+          ancestor with <b>"bimdata-design-system"</b> class.
         </p>
       </div>
       <div id="colors">
@@ -108,7 +111,15 @@ export default {
   },
   data() {
     return {
-      navElements: ["usage", "colors", "flexbox", "grid", "spacing", "text", "import"],
+      navElements: [
+        "usage",
+        "colors",
+        "flexbox",
+        "grid",
+        "spacing",
+        "text",
+        "import",
+      ],
       columns: [
         { id: "name", label: "Class name", width: "300px" },
         { id: "value", label: "Output value" },
@@ -127,6 +138,8 @@ export default {
         ["bg-warning", "background-color: #ff9100"],
         ["bg-high", "background-color: #ff3d1e"],
         ["bg-neutral", "background-color: #205dbd"],
+        ["bg-action-high", "background-color: #ff1e43"],
+        ["bg-action-medium", "background-color: #ffff3b"],
         ["color-primary", "color: #2f374a"],
         ["color-secondary", "color: #f9c72c"],
         ["color-silver", "color: #d8d8d8"],
@@ -140,6 +153,8 @@ export default {
         ["color-warning", "color: #ff9100"],
         ["color-high", "color: #ff3d1e"],
         ["color-neutral", "color: #205dbd"],
+        ["color-action-high", "color: #ff1e43"],
+        ["color-action-medium", "color: #ffff3b"],
       ],
       flexboxUtilities: [
         ["flex", "display: flex"],

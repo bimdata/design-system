@@ -50,6 +50,14 @@
     background-color: var(--color-neutral);
   }
 
+  /* background ACTION COLORS */
+  .bg-action-high {
+    background-color: var(--color-action-high);
+  }
+  .bg-color-action-medium {
+    background-color: var(--color-action-medium);
+  }
+
   /* color BRAND COLORS */
   .color-primary {
     color: var(--color-primary);
@@ -101,6 +109,14 @@
     color: var(--color-neutral);
   }
 
+  /* color ACTION COLORS */
+  .color-action-high {
+    color: var(--color-action-high);
+  }
+  .color-action-medium {
+    color: var(--color-action-medium);
+  }
+
   /* fill BRAND COLORS */
   .fill-primary {
     fill: var(--color-primary);
@@ -150,6 +166,14 @@
   }
   .fill-neutral {
     fill: var(--color-neutral);
+  }
+
+  /* fill ACTION COLORS */
+  .fill-action-high {
+    fill: var(--color-action-high);
+  }
+  .fill-action-medium {
+    fill: var(--color-action-medium);
   }
 
   /* stroke BRAND COLORS */
@@ -216,6 +240,14 @@
   .stroke-neutral {
     fill: transparent;
     stroke: var(--color-neutral);
+  }
+
+  /* stroke ACTION COLORS */
+  .stroke-action-high {
+    stroke: var(--color-action-high);
+  }
+  .stroke-action-medium {
+    stroke: var(--color-action-medium);
   }
 
   .dark {

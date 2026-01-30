@@ -1,7 +1,10 @@
 <template>
   <main class="article variables">
     <div class="article-wrapper">
-      <BIMDataText component="h1" :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'">
+      <BIMDataText
+        component="h1"
+        :color="currentTheme === 'theme-dark' ? 'color-white' : 'color-primary'"
+      >
         Variables
       </BIMDataText>
       <BIMDataText margin="12px 0">
@@ -123,6 +126,8 @@ export default {
         ["--color-neutral-light", "rgba(51, 117, 221, 1)"],
         ["--color-neutral-lighter", "rgba(240, 245, 255, 1)"],
         ["--color-neutral-dark", "rgba(25, 72, 145, 1)"],
+        ["--color-action-high", "rgba(255, 30, 67, 1)"],
+        ["--color-action-medium", "rgba(255, 255, 59, 1)"],
         ["--color-text", "rgba(47, 55, 74, 1)"],
       ],
       boxShadowVariables: [

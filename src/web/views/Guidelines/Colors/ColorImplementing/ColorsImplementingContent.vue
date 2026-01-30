@@ -120,6 +120,18 @@
       :columns="neutralColorData[0]"
       :rows="neutralColorData.slice(1)"
     />
+
+    <!-- color ACTION HIGH -->
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Action High color & variants
+    </BIMDataText>
+    <ColorSwatche :colors="actionHighColors"></ColorSwatche>
+
+    <!-- color ACTION MEDIUM -->
+    <BIMDataText component="h5" color="color-primary" margin="15px 0 5px">
+      Action Medium color & variants
+    </BIMDataText>
+    <ColorSwatche :colors="actionMediumColors"></ColorSwatche>
   </div>
 </template>
 
@@ -132,6 +144,8 @@ import tertiaryColors from "../js/tertiaryColors.js";
 import quaternaryColors from "../js/quaternaryColors.js";
 import successColors from "../js/successColors.js";
 import warningColors from "../js/warningColors.js";
+import actionHighColors from "../js/actionHighColors.js";
+import actionMediumColors from "../js/actionMediumColors.js";
 
 import BIMDataTable from "../../../../../BIMDataComponents/BIMDataTable/BIMDataTable.vue";
 import BIMDataText from "../../../../../BIMDataComponents/BIMDataText/BIMDataText.vue";
@@ -153,6 +167,8 @@ export default {
       quaternaryColors,
       successColors,
       warningColors,
+      actionHighColors,
+      actionMediumColors,
       primaryColorData: [
         ["Colors", "Description"],
         ["Primary", ""],

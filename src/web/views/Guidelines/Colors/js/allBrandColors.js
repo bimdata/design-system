@@ -74,4 +74,14 @@ export default Object.freeze([
     hex: "#205dbd",
     textcolor: "#ffffff",
   },
+  {
+    name: "Action High",
+    hex: "#ff1e43",
+    textcolor: "#ffffff",
+  },
+  {
+    name: "Action Medium",
+    hex: "#ffff3b",
+    textcolor: "#2f374a",
+  },
 ]);
