@@ -14,4 +14,6 @@ export default Object.freeze([
   "warning",
   "info",
   "white",
+  "action-high",
+  "action-medium",
 ]);
