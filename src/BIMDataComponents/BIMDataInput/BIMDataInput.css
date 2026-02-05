@@ -1,4 +1,3 @@
-
 input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--color-white) inset;
 }
@@ -7,15 +6,14 @@ input:-webkit-autofill {
   font-size: 16px;
   position: relative;
   &.empty {
-     input {
-      color: rgba(47, 55, 74, .5);
-     }
+    input {
+      color: rgba(47, 55, 74, 0.5);
+    }
   }
   & .bimdata-input__content {
     position: relative;
     display: flex;
     align-items: center;
-    background-color: var(--color-silver-light);
     input {
       width: 100%;
       height: 32px;
@@ -23,7 +21,6 @@ input:-webkit-autofill {
       display: flex;
       cursor: pointer;
       background-color: transparent;
-      color: var(--color-primary);
       font-size: 14px;
       &:focus {
         outline: none;
@@ -33,7 +30,7 @@ input:-webkit-autofill {
         }
       }
       &::placeholder {
-        color: rgba(47, 55, 74, .5);
+        color: var(--input-color);
       }
     }
     & .bimdata-input__icon {
@@ -45,7 +42,8 @@ input:-webkit-autofill {
       border-radius: 8px 8px 0 0;
     }
     .bar {
-      &:before, &:after {
+      &:before,
+      &:after {
         width: 0;
         height: 2px;
         content: "";
@@ -70,7 +68,7 @@ input:-webkit-autofill {
     margin-bottom: calc(var(--spacing-unit) / 2);
     display: block;
     color: var(--color-granite-light);
-    font-size: .57rem;
+    font-size: 0.57rem;
     font-weight: bold;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -98,11 +96,9 @@ input:-webkit-autofill {
   }
   &.dark {
     & .bimdata-input__content {
-      background-color: var(--color-quaternary) !important;
       input {
-        color: var(--color-quaternary-lighter);
         &::placeholder {
-          color: var(--color-quaternary-lighter);
+          color: var(--input-color);
         }
       }
     }
