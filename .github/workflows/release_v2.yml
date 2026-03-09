@@ -42,7 +42,7 @@ jobs:
         name: Get docker tag
         run: echo "tag=prod" >> $GITHUB_ENV
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: etc/Dockerfile
