@@ -1,3 +1,6 @@
+export { default as BIMDataIconAccountSettings } from "./BIMDataIconAccountSettings.vue";
+export { default as BIMDataIconAddAlert } from "./BIMDataIconAddAlert.vue";
+export { default as BIMDataIconAddFavorite } from "./BIMDataIconAddFavorite.vue";
 export { default as BIMDataIconAddFile } from "./BIMDataIconAddFile.vue";
 export { default as BIMDataIconAddFolder } from "./BIMDataIconAddFolder.vue";
 export { default as BIMDataIconAddGavel } from "./BIMDataIconAddGavel.vue";
