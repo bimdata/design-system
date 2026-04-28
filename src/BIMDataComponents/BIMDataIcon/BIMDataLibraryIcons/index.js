@@ -1,4 +1,5 @@
 import accountSettings from "./AccountSettings.vue";
+import addAlert from "./AddAlert.vue";
 import addFavorite from "./AddFavorite.vue";
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
@@ -214,6 +215,7 @@ import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 
 export default {
   accountSettings,
+  addAlert,
   addFavorite,
   addFile,
   addFolder,
