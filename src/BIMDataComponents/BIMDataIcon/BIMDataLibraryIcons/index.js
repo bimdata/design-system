@@ -79,6 +79,7 @@ import group from "./Group.vue";
 import hide from "./Hide.vue";
 import hideGraph from "./HideGraph.vue";
 import hideGraphRound from "./HideGraphRound.vue";
+import historyActivity from "./HistoryActivity.vue";
 import home from "./Home.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
@@ -100,6 +101,7 @@ import listManage from "./ListManage.vue";
 import location from "./Location.vue";
 import lock from "./Lock.vue";
 import logout from "./Logout.vue";
+import markEmail from "./MarkEmail.vue";
 import marketplace from "./Marketplace.vue";
 import measure from "./Measure.vue";
 import mic from "./Mic.vue";
@@ -292,6 +294,7 @@ export default {
   hide,
   hideGraph,
   hideGraphRound,
+  historyActivity,
   home,
   ifc,
   ifcFile,
@@ -313,6 +316,7 @@ export default {
   location,
   lock,
   logout,
+  markEmail,
   marketplace,
   measure,
   mic,
