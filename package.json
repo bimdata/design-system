@@ -29,14 +29,14 @@
     "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-vue": "^10.8.0",
+    "eslint-plugin-vue": "^10.9.0",
     "prettier": "^3.8.3",
     "prismjs": "^1.30.0",
     "sass-embedded": "^1.99.0",
     "semantic-release": "^25.0.3",
-    "vite": "^8.0.9",
-    "vue": "^3.5.32",
-    "vue-router": "^5.0.4",
+    "vite": "^8.0.10",
+    "vue": "^3.5.33",
+    "vue-router": "^5.0.6",
     "vue3-clipboard": "^1.0.0"
   },
   "repository": {
