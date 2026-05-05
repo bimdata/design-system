@@ -19,4 +19,4 @@ export default makeIcon(
 );
 </script>
 
-<style scoped src="../BIMDataIcon.css"></style>
+<style scoped src="../_BIMDataIcon.scss"></style>

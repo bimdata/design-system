@@ -6,14 +6,14 @@
     :class="classes"
     :style="style"
   >
-    <AddAlert />
+    <Phase />
   </Icon>
 </template>
 
 <script>
-import AddAlert from "../BIMDataLibraryIcons/AddAlert.vue";
+import Phase from "../BIMDataLibraryIcons/Phase.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("AddAlert", AddAlert);
+export default makeIcon("Phase", Phase);
 </script>
 
 <style scoped src="../_BIMDataIcon.scss"></style>
