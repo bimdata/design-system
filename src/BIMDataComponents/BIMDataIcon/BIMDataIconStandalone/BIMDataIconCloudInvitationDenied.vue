@@ -16,4 +16,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("CloudInvitationDenied", CloudInvitationDenied);
 </script>
 
-<style scoped src="../BIMDataIcon.css"></style>
+<style scoped src="../_BIMDataIcon.scss"></style>

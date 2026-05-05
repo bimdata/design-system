@@ -6,14 +6,14 @@
     :class="classes"
     :style="style"
   >
-    <AddAlert />
+    <AccountSettings />
   </Icon>
 </template>
 
 <script>
-import AddAlert from "../BIMDataLibraryIcons/AddAlert.vue";
+import AccountSettings from "../BIMDataLibraryIcons/AccountSettings.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("AddAlert", AddAlert);
+export default makeIcon("AccountSettings", AccountSettings);
 </script>
 
 <style scoped src="../_BIMDataIcon.scss"></style>

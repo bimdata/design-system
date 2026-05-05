@@ -6,14 +6,14 @@
     :class="classes"
     :style="style"
   >
-    <AddAlert />
+    <AddFavorite />
   </Icon>
 </template>
 
 <script>
-import AddAlert from "../BIMDataLibraryIcons/AddAlert.vue";
+import AddFavorite from "../BIMDataLibraryIcons/AddFavorite.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("AddAlert", AddAlert);
+export default makeIcon("AddFavorite", AddFavorite);
 </script>
 
 <style scoped src="../_BIMDataIcon.scss"></style>

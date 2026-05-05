@@ -16,4 +16,4 @@ import makeIcon from "./iconFactory.js";
 export default makeIcon("ProjectInvitationAccepted", ProjectInvitationAccepted);
 </script>
 
-<style scoped src="../BIMDataIcon.css"></style>
+<style scoped src="../_BIMDataIcon.scss"></style>

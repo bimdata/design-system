@@ -6,14 +6,15 @@
     :class="classes"
     :style="style"
   >
-    <AddAlert />
+    <HideGraph />
   </Icon>
 </template>
 
 <script>
-import AddAlert from "../BIMDataLibraryIcons/AddAlert.vue";
+import HideGraph from "../BIMDataLibraryIcons/HideGraph.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("AddAlert", AddAlert);
+
+export default makeIcon("HideGraph", HideGraph);
 </script>
 
 <style scoped src="../_BIMDataIcon.scss"></style>
