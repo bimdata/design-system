@@ -4,52 +4,67 @@ on:
   push:
     branches:
       - "*"
-      - "!release/2.x"
+
+permissions:
+  contents: read # for checkout
 
 env:
   app: design
 
 jobs:
   publish:
-    runs-on: [self-hosted, common]
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
+    # Use github runner and not self-hosted as trusted publishing is only supported on github runners
+    # https://docs.npmjs.com/trusted-publishers#limitations-and-future-improvements
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
           check-latest: true
       - name: Setup npm
-        run: npm install npm@latest -g
+        run: npm install npm@11.12 -g
       - run: npm ci
       - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPOS_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push:
-    runs-on: [self-hosted, common]
+    runs-on: [ self-hosted, common ]
     needs: publish
     if: contains('
       refs/heads/develop
       refs/heads/master
-      refs/heads/main'
+      refs/heads/main
+      refs/heads/release/2.x'
       , github.ref)
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Login to BIMData Docker Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: docker-registry.bimdata.io
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-      - id: tag
+      # Not v2, use the tag from the branch name
+      - if: ${{ !startsWith(github.ref, 'refs/heads/release/2.x') }}
+        id: tag
         name: Get docker tag
-        uses: bimdata/actions/get-docker-tag@v3
+        uses: bimdata/actions/get-docker-tag@v6
         with:
           branch: ${{ github.ref }}
+      # v2, use prod as tag
+      - if: ${{ startsWith(github.ref, 'refs/heads/release/2.x') }}
+        name: Get docker tag
+        run: echo "tag=v2-prod" >> $GITHUB_ENV
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: etc/Dockerfile
@@ -60,7 +75,7 @@ jobs:
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ env.tag }}
 
   deploy:
-    runs-on: [self-hosted, common]
+    runs-on: [ self-hosted, common ]
     needs: build-and-push
     env:
       # We use it to temporary deploy the "new" design system on a different URL
@@ -68,18 +83,30 @@ jobs:
       app: design_new
     steps:
       - name: Login to BIMData Docker Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: docker-registry.bimdata.io
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
       - id: tag
         name: Get docker tag
-        uses: bimdata/actions/get-docker-tag@v3
+        uses: bimdata/actions/get-docker-tag@v6
         with:
           branch: ${{ github.ref }}
-      - name: Deploy on ${{ env.tag }}
-        uses: bimdata/actions/deployment@v3
+
+      # When release/2.x deploy app "design" on "prod" inventory
+      # This block should be removed when the new design system is fully deployed
+      - if: ${{ startsWith(github.ref, 'refs/heads/release/2.x') }}
+        name: Deploy design on prod
+        uses: bimdata/actions/deployment@v6
+        with:
+          inventory: "prod"
+          app: "design"
+          vault-pass: ${{ secrets.ANSIBLE_VAULT_PASSWD }}
+      # else deploy app "design_new" on inventory from branch name
+      - if: ${{ !startsWith(github.ref, 'refs/heads/release/2.x') }}
+        name: Deploy ${{ env.app }} on ${{ steps.tag.outputs.tag }}
+        uses: bimdata/actions/deployment@v6
         with:
           inventory: ${{ env.tag }}
           app: ${{ env.app }}
