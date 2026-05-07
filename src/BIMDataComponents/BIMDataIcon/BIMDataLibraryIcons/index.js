@@ -1,3 +1,6 @@
+import accountSettings from "./AccountSettings.vue";
+import addAlert from "./AddAlert.vue";
+import addFavorite from "./AddFavorite.vue";
 import addFile from "./AddFile.vue";
 import addFolder from "./AddFolder.vue";
 import addGavel from "./AddGavel.vue";
@@ -29,6 +32,10 @@ import classificationElement from "./ClassificationElement.vue";
 import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
+import cloudInvitationAccepted from "./CloudInvitationAccepted.vue";
+import cloudInvitationCancelled from "./CloudInvitationCancelled.vue";
+import cloudInvitationDenied from "./CloudInvitationDenied.vue";
+import cloudInvitationSent from "./CloudInvitationSent.vue";
 import color from "./Color.vue";
 import createSpace from "./CreateSpace.vue";
 import createZone from "./CreateZone.vue";
@@ -40,6 +47,10 @@ import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
 import detach from "./Detach.vue";
 import distance from "./Distance.vue";
+import documentCreated from "./DocumentCreated.vue";
+import documentDeleted from "./DocumentDeleted.vue";
+import documentMoved from "./DocumentMoved.vue";
+import documentRenamed from "./DocumentRenamed.vue";
 import doubleChevron from "./DoubleChevron.vue";
 import down from "./Down.vue";
 import download from "./Download.vue";
@@ -55,14 +66,22 @@ import failed from "./Failed.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
+import folderCreated from "./FolderCreated.vue";
+import folderDeleted from "./FolderDeleted.vue";
 import folderLocation from "./FolderLocation.vue";
 import folderMove from "./FolderMove.vue";
+import folderMoved from "./FolderMoved.vue";
 import folderOpen from "./FolderOpen.vue";
+import folderPermissionsUpdated from "./FolderPermissionsUpdated.vue";
+import folderRenamed from "./FolderRenamed.vue";
 import fullscreen from "./Fullscreen.vue";
 import gavel from "./Gavel.vue";
 import grid from "./Grid.vue";
 import group from "./Group.vue";
 import hide from "./Hide.vue";
+import hideGraph from "./HideGraph.vue";
+import hideGraphRound from "./HideGraphRound.vue";
+import historyActivity from "./HistoryActivity.vue";
 import home from "./Home.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
@@ -81,6 +100,8 @@ import listManage from "./ListManage.vue";
 import location from "./Location.vue";
 import lock from "./Lock.vue";
 import logout from "./Logout.vue";
+import markEmail from "./MarkEmail.vue";
+import marketplace from "./Marketplace.vue";
 import measure from "./Measure.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
@@ -95,6 +116,10 @@ import plan from "./Plan.vue";
 import plus from "./Plus.vue";
 import preview from "./Preview.vue";
 import project from "./Project.vue";
+import projectInvitationAccepted from "./ProjectInvitationAccepted.vue";
+import projectInvitationCancelled from "./ProjectInvitationCancelled.vue";
+import projectInvitationDenied from "./ProjectInvitationDenied.vue";
+import projectInvitationSent from "./ProjectInvitationSent.vue";
 import quickSelect from "./QuickSelect.vue";
 import readonlyFolder from "./ReadonlyFolder.vue";
 import redo from "./Redo.vue";
@@ -176,6 +201,9 @@ import viewer2dPolychrome from "./polychrome/Viewer2DPolychrome.vue";
 import viewer3dPolychrome from "./polychrome/Viewer3DPolychrome.vue";
 
 export default {
+  accountSettings,
+  addAlert,
+  addFavorite,
   addFile,
   addFolder,
   addGavel,
@@ -207,6 +235,10 @@ export default {
   click,
   close,
   cloud,
+  cloudInvitationAccepted,
+  cloudInvitationCancelled,
+  cloudInvitationDenied,
+  cloudInvitationSent,
   color,
   comment,
   createSpace,
@@ -219,6 +251,10 @@ export default {
   deniedFile,
   detach,
   distance,
+  documentCreated,
+  documentDeleted,
+  documentMoved,
+  documentRenamed,
   doubleChevron,
   down,
   download,
@@ -234,14 +270,22 @@ export default {
   filterList,
   fitView,
   folder,
+  folderCreated,
+  folderDeleted,
   folderLocation,
   folderMove,
+  folderMoved,
   folderOpen,
+  folderPermissionsUpdated,
+  folderRenamed,
   fullscreen,
   gavel,
   grid,
   group,
   hide,
+  hideGraph,
+  hideGraphRound,
+  historyActivity,
   home,
   ifc,
   ifcFile,
@@ -260,6 +304,8 @@ export default {
   location,
   lock,
   logout,
+  markEmail,
+  marketplace,
   measure,
   minus,
   model3d,
@@ -273,6 +319,10 @@ export default {
   plus,
   preview,
   project,
+  projectInvitationAccepted,
+  projectInvitationCancelled,
+  projectInvitationDenied,
+  projectInvitationSent,
   quickSelect,
   readonlyFolder,
   redo,
