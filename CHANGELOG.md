@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/bimdata/design-system/compare/v2.4.0...v2.4.1) (2026-05-07)
+
+
+### PATCH
+
+* trigger a release to test CI ([e856473](https://github.com/bimdata/design-system/commit/e856473037575f49901dd221b8fb16fe9b90554c))
+
 # [2.4.0](https://github.com/bimdata/design-system/compare/v2.3.0...v2.4.0) (2026-05-07)
 
 
