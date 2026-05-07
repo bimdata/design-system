@@ -1,3 +1,14 @@
+# [2.4.0](https://github.com/bimdata/design-system/compare/v2.3.0...v2.4.0) (2026-05-07)
+
+
+### chore
+
+* add dependabot version update config ([efe455b](https://github.com/bimdata/design-system/commit/efe455be02ee1ce18bb9fdff1b8cb0a720b43c16))
+
+### MINOR
+
+* Feature/add several icons v2 (#471) ([7f0b127](https://github.com/bimdata/design-system/commit/7f0b127265e2bfd842e817503523433166c9d044)), closes [#471](https://github.com/bimdata/design-system/issues/471)
+
 # [2.3.0](https://github.com/bimdata/design-system/compare/v2.2.1...v2.3.0) (2025-05-14)
 
 
