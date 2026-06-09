@@ -57,6 +57,7 @@ export { default as BIMDataIconDrag } from "./BIMDataIconDrag.vue";
 export { default as BIMDataIconDueDate } from "./BIMDataIconDueDate.vue";
 export { default as BIMDataIconEdit } from "./BIMDataIconEdit.vue";
 export { default as BIMDataIconEllipsis } from "./BIMDataIconEllipsis.vue";
+export { default as BIMDataIconEquipment } from "./BIMDataIconEquipment.vue";
 export { default as BIMDataIconExpanded } from "./BIMDataIconExpanded.vue";
 export { default as BIMDataIconExplosion } from "./BIMDataIconExplosion.vue";
 export { default as BIMDataIconExport } from "./BIMDataIconExport.vue";

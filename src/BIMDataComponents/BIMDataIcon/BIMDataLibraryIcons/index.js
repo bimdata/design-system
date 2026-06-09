@@ -56,6 +56,7 @@ import download from "./Download.vue";
 import drag from "./Drag.vue";
 import edit from "./Edit.vue";
 import ellipsis from "./Ellipsis.vue";
+import equipment from "./Equipment.vue";
 import expanded from "./Expanded.vue";
 import explosion from "./Explosion.vue";
 import Export from "./Export.vue";
@@ -269,6 +270,7 @@ export default {
   drag,
   edit,
   ellipsis,
+  equipment,
   expanded,
   explosion,
   export: Export,
