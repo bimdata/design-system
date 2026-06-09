@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/bimdata/design-system/compare/v2.4.1...v2.4.2) (2026-06-09)
+
+
+### PATCH
+
+* feat(icon): add equipment icons (#477) ([f9b8804](https://github.com/bimdata/design-system/commit/f9b8804154802618b9167208399ecfd20113e5e8)), closes [#477](https://github.com/bimdata/design-system/issues/477)
+
 ## [2.4.1](https://github.com/bimdata/design-system/compare/v2.4.0...v2.4.1) (2026-05-07)
 
 
