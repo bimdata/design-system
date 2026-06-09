@@ -45,6 +45,7 @@ import dateDescending from "./DateDescending.vue";
 import Default from "./Default.vue";
 import Delete from "./Delete.vue";
 import deniedFile from "./DeniedFile.vue";
+import description from "./Description.vue";
 import detach from "./Detach.vue";
 import distance from "./Distance.vue";
 import documentCreated from "./DocumentCreated.vue";
@@ -57,12 +58,14 @@ import download from "./Download.vue";
 import drag from "./Drag.vue";
 import edit from "./Edit.vue";
 import ellipsis from "./Ellipsis.vue";
+import equipment from "./Equipment.vue";
 import expanded from "./Expanded.vue";
 import explosion from "./Explosion.vue";
 import Export from "./Export.vue";
 import exportIfc from "./ExportIfc.vue";
 import exportXlsx from "./ExportXlsx.vue";
 import failed from "./Failed.vue";
+import filter from "./Filter.vue";
 import filterList from "./FilterList.vue";
 import fitView from "./FitView.vue";
 import folder from "./Folder.vue";
@@ -146,6 +149,7 @@ import show from "./Show.vue";
 import showSelected from "./ShowSelected.vue";
 import smartview from "./Smartview.vue";
 import socotec from "./Socotec.vue";
+import sort from "./Sort.vue";
 import space from "./Space.vue";
 import space2 from "./Space2.vue";
 import spacing from "./Spacing.vue";
@@ -160,6 +164,7 @@ import system from "./System.vue";
 import tag from "./Tag.vue";
 import translate from "./Translate.vue";
 import tree from "./Tree.vue";
+import Type from "./Type.vue";
 import unarchive from "./Unarchive.vue";
 import undo from "./Undo.vue";
 import union from "./Union.vue";
@@ -249,6 +254,7 @@ export default {
   default: Default,
   delete: Delete,
   deniedFile,
+  description,
   detach,
   distance,
   documentCreated,
@@ -261,12 +267,14 @@ export default {
   drag,
   edit,
   ellipsis,
+  equipment,
   expanded,
   explosion,
   export: Export,
   exportIfc,
   exportXlsx,
   failed,
+  filter,
   filterList,
   fitView,
   folder,
@@ -349,6 +357,7 @@ export default {
   showSelected,
   smartview,
   socotec,
+  sort,
   space,
   space2,
   spacing,
@@ -363,6 +372,7 @@ export default {
   tag,
   translate,
   tree,
+  type: Type,
   unarchive,
   undo,
   union,
