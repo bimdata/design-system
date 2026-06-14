@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "design-system": {
+      "command": "npm",
+      "args": [
+        "run",
+        "mcp:start"
+      ],
+      "cwd": "/home/amoki/design-system"
+    }
+  }
+}

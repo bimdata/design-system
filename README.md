@@ -89,6 +89,30 @@ The branches on which it is possible to publish are the following:
 For Merging this branches together, and to avoid any unexpected behavior, use `--no-ff` git merge option.
 After deploying a new latest tag with master branch, merge master into develop to update `package.json` and `CHANGELOG.md`.
 
+## MCP server for agents
+
+This repository now includes an MCP server to expose the design-system components for coding agents.
+It also exposes design tokens, utility CSS classes, and icon metadata.
+
+- Server location: `mcp-server`
+- Component source indexed: `src/BIMDataComponents`
+- Public exports source: `src/BIMDataComponents/index.js`
+
+From the repository root:
+
+```bash
+npm run mcp:start
+```
+
+Useful commands:
+
+- `npm run mcp:dev` starts server in watch mode
+- `npm run mcp:smoke` runs a local smoke test for list/search/detail flows
+
+The MCP server uses stdio transport and waits for an MCP client connection.
+
+For tool details, see `mcp-server/README.md`.
+
 ## License
 
 BIMData Design System is published under the term of MIT License (see [LICENSE](./LICENSE)).
