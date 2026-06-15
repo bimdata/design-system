@@ -28,9 +28,16 @@ From the repository root:
 
 - `npm run mcp:start`
 
-The server uses stdio transport.
+The server uses MCP Streamable HTTP transport.
 
-When started from a terminal, it waits for an MCP client connection and keeps running.
+By default, it listens on `http://127.0.0.1:3333/mcp`.
+
+Optional environment variables:
+
+- `MCP_HOST` (default: `127.0.0.1`)
+- `MCP_PORT` (default: `3333`)
+
+It also exposes `GET /health` for a simple health check.
 
 ## Smoke test
 
