@@ -16,6 +16,7 @@
     "build-web": "vite build",
     "build-css": "echo 'TODO: build-css script'",
     "semantic-release": "semantic-release",
+    "mcp:build": "node mcp-server/src/build.js",
     "mcp:start": "node mcp-server/src/server.js",
     "mcp:dev": "node --watch mcp-server/src/server.js",
     "mcp:smoke": "node mcp-server/scripts/smoke-test.js"

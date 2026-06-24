@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-06-24T13:04:39.548Z",
+  "components": [
+    {
+      "name": "Avatar",
+      "description": null
+    },
+    {
+      "name": "Buttons",
+      "description": "Buttons are used to trigger actions based on a user's interaction."
+    },
+    {
+      "name": "Card",
+      "description": "Cards are used to groups a related content."
+    },
+    {
+      "name": "Carousel",
+      "description": "A generic carousel component."
+    },
+    {
+      "name": "Charts",
+      "description": null
+    },
+    {
+      "name": "Checkbox",
+      "description": "Checkboxes are used to enables users to pick multiple options from a group."
+    },
+    {
+      "name": "ColorSelector",
+      "description": "Color Selector component allows the user to pick from a set of predefined swatches colors."
+    },
+    {
+      "name": "DatePicker",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "name": "DropdownList",
+      "description": "DropdownList component shows a menu with an paginated list."
+    },
+    {
+      "name": "DropdownMenu",
+      "description": "Dropdown component shows a simple menu."
+    },
+    {
+      "name": "FileIcon",
+      "description": "FileIcon is used to provide file visual context."
+    },
+    {
+      "name": "Icons",
+      "description": "Icons are used to provide additional visual context."
+    },
+    {
+      "name": "Illustrations",
+      "description": "Illustrations are used to provide additional visual context."
+    },
+    {
+      "name": "Infobox",
+      "description": "Infobox are used to highlight some piece of text in the UI."
+    },
+    {
+      "name": "Input",
+      "description": "Inputs are used for enabled a user to interact and input data."
+    },
+    {
+      "name": "List",
+      "description": "A performant list to display thousands of elements without latency."
+    },
+    {
+      "name": "Loaders",
+      "description": "Loaders are used to notify a user that data or page is being retrieved."
+    },
+    {
+      "name": "Menu",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "name": "Pagination",
+      "description": "Pagination is used to lets users navigate through large collections of items."
+    },
+    {
+      "name": "Radio",
+      "description": "Radio buttons enables a user to make a single selection from a group of options."
+    },
+    {
+      "name": "ResponsiveGrid",
+      "description": "Display a list of item with a responsive layout"
+    },
+    {
+      "name": "SafeZoneInline",
+      "description": null
+    },
+    {
+      "name": "Search",
+      "description": "Search enables users to specify a word or a phrase to find relevant content."
+    },
+    {
+      "name": "SearchAutocomplete",
+      "description": "Search autocomplete  ..."
+    },
+    {
+      "name": "Select",
+      "description": "Select (dropdown) is used to enabled a user to select a single item from a list of options."
+    },
+    {
+      "name": "Slider",
+      "description": "Sliders allow users to make selections from a range of values."
+    },
+    {
+      "name": "Table",
+      "description": "Table is a component used for displaying your formatted content."
+    },
+    {
+      "name": "Tabs",
+      "description": "Tabs component provide a nice interface to switch between different views"
+    },
+    {
+      "name": "Text",
+      "description": "Text"
+    },
+    {
+      "name": "Textarea",
+      "description": "Textarea is used to add freeform longer text."
+    },
+    {
+      "name": "Textbox",
+      "description": "A text container to handle long text in small boxes."
+    },
+    {
+      "name": "Toggle",
+      "description": "Toggles are On/Off switches. They allow users to choose between two mutually exclusive options."
+    },
+    {
+      "name": "Tooltip",
+      "description": "Tooltips are used to show contextual information on hover."
+    }
+  ],
+  "cssConvention": {
+    "source": "mcp-server/data/css-convention.md"
+  }
+}

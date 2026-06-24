@@ -1,46 +1,37 @@
 # BIMData Design System MCP Server
 
-This MCP server exposes BIMData design-system components from `src/BIMDataComponents`.
+This MCP server exposes documentation indexes from this repository over HTTP streamable MCP transport.
+
+## Exposed sources
+
+- Components: src/web/views/Components
+- CSS conventions: mcp-server/data/css-convention.md
+
+## Start server
+
+From repository root:
+
+```bash
+npm run mcp:start
+```
+
+Server endpoints:
+
+- MCP endpoint: http://127.0.0.1:3333/mcp
+- Health check: http://127.0.0.1:3333/health
+
+Use `MCP_HOST` and `MCP_PORT` environment variables to override defaults.
 
 ## Available tools
 
-- `list_components`: list all public components exported by `src/BIMDataComponents/index.js`
-- `search_components`: search by component name, props, emits, slots, and relationships
-- `get_component_details`: get props, emits, slots, and dependencies for one component
-- `get_component_source`: return `full`, `template`, `script`, or `style` source
-- `find_components_by_feature`: filter components by prop/event/slot/used component
-- `list_design_tokens`: list color tokens, icon color tokens, and CSS variables
-- `search_design_tokens`: search tokens by name or value
-- `list_css_classes`: list utility CSS classes with file paths
-- `search_css_classes`: search utility classes by class name or source file
-- `list_icons`: list icon metadata for library and standalone icon sets
-- `search_icons`: search icons by name/path with optional type filter
-- `get_icon_details`: get exact icon matches by name
-- `refresh_component_index`: rebuild components/tokens/classes/icons in memory
+- list_components
+- search_components
+- get_component_detail
+- css_convention
 
-## Install
+## Development
 
-From the repository root:
-
-- `npm install`
-
-## Run
-
-- `npm run mcp:start`
-
-The server uses MCP Streamable HTTP transport.
-
-By default, it listens on `http://127.0.0.1:3333/mcp`.
-
-Optional environment variables:
-
-- `MCP_HOST` (default: `127.0.0.1`)
-- `MCP_PORT` (default: `3333`)
-
-It also exposes `GET /health` for a simple health check.
-
-## Smoke test
-
-- `npm run mcp:smoke`
-
-This validates indexing and basic list/search/detail behavior.
+```bash
+npm run mcp:dev
+npm run mcp:smoke
+```

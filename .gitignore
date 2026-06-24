@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 dist
+mcp-server/data/components
 
 # local env files
 .env.local

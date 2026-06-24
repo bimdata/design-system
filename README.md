@@ -91,12 +91,13 @@ After deploying a new latest tag with master branch, merge master into develop t
 
 ## MCP server for agents
 
-This repository now includes an MCP server to expose the design-system components for coding agents.
-It also exposes design tokens, utility CSS classes, and icon metadata.
+This repository includes an HTTP MCP server to expose design-system documentation for coding agents.
+It indexes components, guidelines, and CSS classes from the documentation sources.
 
 - Server location: `mcp-server`
-- Component source indexed: `src/BIMDataComponents`
-- Public exports source: `src/BIMDataComponents/index.js`
+- Components source indexed: `src/web/views/Components`
+- Guidelines source indexed: `src/web/views/Guidelines`
+- CSS source indexed: `src/assets/css`
 
 From the repository root:
 
@@ -109,7 +110,8 @@ Useful commands:
 - `npm run mcp:dev` starts server in watch mode
 - `npm run mcp:smoke` runs a local smoke test for list/search/detail flows
 
-The MCP server uses stdio transport and waits for an MCP client connection.
+The MCP server uses streamable HTTP transport at `http://127.0.0.1:3333/mcp`.
+Health endpoint: `http://127.0.0.1:3333/health`.
 
 For tool details, see `mcp-server/README.md`.
 
