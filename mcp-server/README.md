@@ -27,6 +27,7 @@ Use `MCP_HOST` and `MCP_PORT` environment variables to override defaults.
 - list_components
 - search_components
 - get_component_detail
+- search_icons
 - css_convention
 
 ## Development

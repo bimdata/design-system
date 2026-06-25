@@ -13,6 +13,20 @@ const __dirname = path.dirname(__filename);
 const dataDir = path.resolve(__dirname, "../data");
 const componentsDataDir = path.join(dataDir, "components");
 const cssConventionDefaultSource = "mcp-server/data/css-convention.md";
+const packageJsonPath = path.resolve(__dirname, "../../package.json");
+
+const packageVersion = (() => {
+  if (!fs.existsSync(packageJsonPath)) {
+    return "0.0.0";
+  }
+
+  try {
+    const pkg = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+    return String(pkg.version || "0.0.0");
+  } catch {
+    return "0.0.0";
+  }
+})();
 
 const host = process.env.MCP_HOST || "127.0.0.1";
 const port = Number.parseInt(process.env.MCP_PORT || "3333", 10);
@@ -106,7 +120,7 @@ function createMcpServer() {
   const mcpServer = new McpServer(
     {
       name: "bimdata-design-system-http",
-      version: "1.0.0",
+      version: packageVersion,
     },
     {
       capabilities: {
@@ -159,6 +173,26 @@ function createMcpServer() {
         return jsonContent({ error: `Unknown component: ${name}` });
       }
       return jsonContent(detail);
+    },
+  );
+
+  mcpServer.registerTool(
+    "search_icons",
+    {
+      description:
+        "List or search available icons by name. Pass an optional query to filter; omit it to list all icons.",
+      inputSchema: {
+        query: z.string().optional(),
+      },
+    },
+    ({ query }) => {
+      const q = String(query || "")
+        .trim()
+        .toLowerCase();
+      const results = q
+        ? index.icons.filter(icon => icon.name.toLowerCase().includes(q))
+        : index.icons;
+      return jsonContent(results);
     },
   );
 

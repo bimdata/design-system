@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T13:04:39.548Z",
+  "generatedAt": "2026-06-25T08:32:31.982Z",
   "components": [
     {
       "name": "Avatar",
@@ -136,5 +136,851 @@
   ],
   "cssConvention": {
     "source": "mcp-server/data/css-convention.md"
-  }
+  },
+  "icons": [
+    {
+      "name": "accountSettings",
+      "polychrome": false
+    },
+    {
+      "name": "addFavorite",
+      "polychrome": false
+    },
+    {
+      "name": "addFile",
+      "polychrome": false
+    },
+    {
+      "name": "addFolder",
+      "polychrome": false
+    },
+    {
+      "name": "addGavel",
+      "polychrome": false
+    },
+    {
+      "name": "addList",
+      "polychrome": false
+    },
+    {
+      "name": "addUser",
+      "polychrome": false
+    },
+    {
+      "name": "alphabeticalAscending",
+      "polychrome": false
+    },
+    {
+      "name": "alphabeticalDescending",
+      "polychrome": false
+    },
+    {
+      "name": "alphabeticalSort",
+      "polychrome": false
+    },
+    {
+      "name": "alt",
+      "polychrome": false
+    },
+    {
+      "name": "angle",
+      "polychrome": false
+    },
+    {
+      "name": "api",
+      "polychrome": false
+    },
+    {
+      "name": "app",
+      "polychrome": false
+    },
+    {
+      "name": "archive",
+      "polychrome": false
+    },
+    {
+      "name": "archive2",
+      "polychrome": false
+    },
+    {
+      "name": "arrow",
+      "polychrome": false
+    },
+    {
+      "name": "assigned",
+      "polychrome": false
+    },
+    {
+      "name": "attach",
+      "polychrome": false
+    },
+    {
+      "name": "attachFile",
+      "polychrome": false
+    },
+    {
+      "name": "author",
+      "polychrome": false
+    },
+    {
+      "name": "back",
+      "polychrome": false
+    },
+    {
+      "name": "bcf",
+      "polychrome": false
+    },
+    {
+      "name": "bcfPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "building",
+      "polychrome": false
+    },
+    {
+      "name": "burgerMenu",
+      "polychrome": false
+    },
+    {
+      "name": "calendar",
+      "polychrome": false
+    },
+    {
+      "name": "caliper",
+      "polychrome": false
+    },
+    {
+      "name": "camera",
+      "polychrome": false
+    },
+    {
+      "name": "cancelCamera",
+      "polychrome": false
+    },
+    {
+      "name": "caret",
+      "polychrome": false
+    },
+    {
+      "name": "check",
+      "polychrome": false
+    },
+    {
+      "name": "chevron",
+      "polychrome": false
+    },
+    {
+      "name": "classificationCategory",
+      "polychrome": false
+    },
+    {
+      "name": "classificationElement",
+      "polychrome": false
+    },
+    {
+      "name": "click",
+      "polychrome": false
+    },
+    {
+      "name": "close",
+      "polychrome": false
+    },
+    {
+      "name": "cloud",
+      "polychrome": false
+    },
+    {
+      "name": "color",
+      "polychrome": false
+    },
+    {
+      "name": "comment",
+      "polychrome": false
+    },
+    {
+      "name": "createComment",
+      "polychrome": false
+    },
+    {
+      "name": "createSpace",
+      "polychrome": false
+    },
+    {
+      "name": "createWindowPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "createZone",
+      "polychrome": false
+    },
+    {
+      "name": "creationDate",
+      "polychrome": false
+    },
+    {
+      "name": "dateAscending",
+      "polychrome": false
+    },
+    {
+      "name": "dateDescending",
+      "polychrome": false
+    },
+    {
+      "name": "default",
+      "polychrome": false
+    },
+    {
+      "name": "delete",
+      "polychrome": false
+    },
+    {
+      "name": "deniedFile",
+      "polychrome": false
+    },
+    {
+      "name": "description",
+      "polychrome": false
+    },
+    {
+      "name": "detach",
+      "polychrome": false
+    },
+    {
+      "name": "discussions",
+      "polychrome": false
+    },
+    {
+      "name": "distance",
+      "polychrome": false
+    },
+    {
+      "name": "docInfoPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "doubleChevron",
+      "polychrome": false
+    },
+    {
+      "name": "down",
+      "polychrome": false
+    },
+    {
+      "name": "download",
+      "polychrome": false
+    },
+    {
+      "name": "drag",
+      "polychrome": false
+    },
+    {
+      "name": "dueDate",
+      "polychrome": false
+    },
+    {
+      "name": "edit",
+      "polychrome": false
+    },
+    {
+      "name": "ellipsis",
+      "polychrome": false
+    },
+    {
+      "name": "equipment",
+      "polychrome": false
+    },
+    {
+      "name": "expanded",
+      "polychrome": false
+    },
+    {
+      "name": "explosion",
+      "polychrome": false
+    },
+    {
+      "name": "export",
+      "polychrome": false
+    },
+    {
+      "name": "exportIfc",
+      "polychrome": false
+    },
+    {
+      "name": "exportXlsx",
+      "polychrome": false
+    },
+    {
+      "name": "failed",
+      "polychrome": false
+    },
+    {
+      "name": "favoriteFill",
+      "polychrome": false
+    },
+    {
+      "name": "favoriteStroke",
+      "polychrome": false
+    },
+    {
+      "name": "file",
+      "polychrome": false
+    },
+    {
+      "name": "fileDwgPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "fileDxfPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "fileIfcPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "fileImagePolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "fileJpegPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "filePdfPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "filePhotospherePolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "filePlanPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "filePngPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "filePointCloudPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "filter",
+      "polychrome": false
+    },
+    {
+      "name": "filterList",
+      "polychrome": false
+    },
+    {
+      "name": "fitView",
+      "polychrome": false
+    },
+    {
+      "name": "folder",
+      "polychrome": false
+    },
+    {
+      "name": "folderLocation",
+      "polychrome": false
+    },
+    {
+      "name": "folderMove",
+      "polychrome": false
+    },
+    {
+      "name": "folderOpen",
+      "polychrome": false
+    },
+    {
+      "name": "folderPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "fullscreen",
+      "polychrome": false
+    },
+    {
+      "name": "gavel",
+      "polychrome": false
+    },
+    {
+      "name": "grid",
+      "polychrome": false
+    },
+    {
+      "name": "group",
+      "polychrome": false
+    },
+    {
+      "name": "hide",
+      "polychrome": false
+    },
+    {
+      "name": "hideGraph",
+      "polychrome": false
+    },
+    {
+      "name": "hideGraphRound",
+      "polychrome": false
+    },
+    {
+      "name": "home",
+      "polychrome": false
+    },
+    {
+      "name": "ifc",
+      "polychrome": false
+    },
+    {
+      "name": "ifcFile",
+      "polychrome": false
+    },
+    {
+      "name": "import",
+      "polychrome": false
+    },
+    {
+      "name": "index",
+      "polychrome": false
+    },
+    {
+      "name": "indexAscending",
+      "polychrome": false
+    },
+    {
+      "name": "indexDescending",
+      "polychrome": false
+    },
+    {
+      "name": "information",
+      "polychrome": false
+    },
+    {
+      "name": "inProgressFile",
+      "polychrome": false
+    },
+    {
+      "name": "invitation",
+      "polychrome": false
+    },
+    {
+      "name": "isolate",
+      "polychrome": false
+    },
+    {
+      "name": "issues",
+      "polychrome": false
+    },
+    {
+      "name": "key",
+      "polychrome": false
+    },
+    {
+      "name": "language",
+      "polychrome": false
+    },
+    {
+      "name": "left",
+      "polychrome": false
+    },
+    {
+      "name": "linkedDocument",
+      "polychrome": false
+    },
+    {
+      "name": "list",
+      "polychrome": false
+    },
+    {
+      "name": "listManage",
+      "polychrome": false
+    },
+    {
+      "name": "location",
+      "polychrome": false
+    },
+    {
+      "name": "lock",
+      "polychrome": false
+    },
+    {
+      "name": "logout",
+      "polychrome": false
+    },
+    {
+      "name": "marketplace",
+      "polychrome": false
+    },
+    {
+      "name": "measure",
+      "polychrome": false
+    },
+    {
+      "name": "mic",
+      "polychrome": false
+    },
+    {
+      "name": "minus",
+      "polychrome": false
+    },
+    {
+      "name": "model3D",
+      "polychrome": false
+    },
+    {
+      "name": "namingConvention",
+      "polychrome": false
+    },
+    {
+      "name": "navigation",
+      "polychrome": false
+    },
+    {
+      "name": "notifications",
+      "polychrome": false
+    },
+    {
+      "name": "offline",
+      "polychrome": false
+    },
+    {
+      "name": "organization",
+      "polychrome": false
+    },
+    {
+      "name": "parameters",
+      "polychrome": false
+    },
+    {
+      "name": "pathway",
+      "polychrome": false
+    },
+    {
+      "name": "phase",
+      "polychrome": false
+    },
+    {
+      "name": "pieGraph",
+      "polychrome": false
+    },
+    {
+      "name": "pipette",
+      "polychrome": false
+    },
+    {
+      "name": "plan",
+      "polychrome": false
+    },
+    {
+      "name": "plus",
+      "polychrome": false
+    },
+    {
+      "name": "preview",
+      "polychrome": false
+    },
+    {
+      "name": "priority",
+      "polychrome": false
+    },
+    {
+      "name": "project",
+      "polychrome": false
+    },
+    {
+      "name": "quickSelect",
+      "polychrome": false
+    },
+    {
+      "name": "quit",
+      "polychrome": false
+    },
+    {
+      "name": "readonlyFolder",
+      "polychrome": false
+    },
+    {
+      "name": "redo",
+      "polychrome": false
+    },
+    {
+      "name": "reduced",
+      "polychrome": false
+    },
+    {
+      "name": "refresh",
+      "polychrome": false
+    },
+    {
+      "name": "removeModel",
+      "polychrome": false
+    },
+    {
+      "name": "rename",
+      "polychrome": false
+    },
+    {
+      "name": "reprocessIfc",
+      "polychrome": false
+    },
+    {
+      "name": "reset",
+      "polychrome": false
+    },
+    {
+      "name": "restore",
+      "polychrome": false
+    },
+    {
+      "name": "right",
+      "polychrome": false
+    },
+    {
+      "name": "rotate",
+      "polychrome": false
+    },
+    {
+      "name": "rules",
+      "polychrome": false
+    },
+    {
+      "name": "sandglass",
+      "polychrome": false
+    },
+    {
+      "name": "save",
+      "polychrome": false
+    },
+    {
+      "name": "screenConfig",
+      "polychrome": false
+    },
+    {
+      "name": "screenshot",
+      "polychrome": false
+    },
+    {
+      "name": "search",
+      "polychrome": false
+    },
+    {
+      "name": "section",
+      "polychrome": false
+    },
+    {
+      "name": "send",
+      "polychrome": false
+    },
+    {
+      "name": "setAsModel",
+      "polychrome": false
+    },
+    {
+      "name": "settings",
+      "polychrome": false
+    },
+    {
+      "name": "share",
+      "polychrome": false
+    },
+    {
+      "name": "show",
+      "polychrome": false
+    },
+    {
+      "name": "showGraph",
+      "polychrome": false
+    },
+    {
+      "name": "showGraphRound",
+      "polychrome": false
+    },
+    {
+      "name": "showSelected",
+      "polychrome": false
+    },
+    {
+      "name": "smartview",
+      "polychrome": false
+    },
+    {
+      "name": "socotec",
+      "polychrome": false
+    },
+    {
+      "name": "sort",
+      "polychrome": false
+    },
+    {
+      "name": "space",
+      "polychrome": false
+    },
+    {
+      "name": "space2",
+      "polychrome": false
+    },
+    {
+      "name": "spacing",
+      "polychrome": false
+    },
+    {
+      "name": "split",
+      "polychrome": false
+    },
+    {
+      "name": "statut",
+      "polychrome": false
+    },
+    {
+      "name": "storey",
+      "polychrome": false
+    },
+    {
+      "name": "structure",
+      "polychrome": false
+    },
+    {
+      "name": "structurePolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "success",
+      "polychrome": false
+    },
+    {
+      "name": "surface",
+      "polychrome": false
+    },
+    {
+      "name": "swap",
+      "polychrome": false
+    },
+    {
+      "name": "synchro2D",
+      "polychrome": false
+    },
+    {
+      "name": "system",
+      "polychrome": false
+    },
+    {
+      "name": "tag",
+      "polychrome": false
+    },
+    {
+      "name": "tagStroke",
+      "polychrome": false
+    },
+    {
+      "name": "translate",
+      "polychrome": false
+    },
+    {
+      "name": "trash",
+      "polychrome": false
+    },
+    {
+      "name": "tree",
+      "polychrome": false
+    },
+    {
+      "name": "type",
+      "polychrome": false
+    },
+    {
+      "name": "unarchive",
+      "polychrome": false
+    },
+    {
+      "name": "unarchive2",
+      "polychrome": false
+    },
+    {
+      "name": "undo",
+      "polychrome": false
+    },
+    {
+      "name": "union",
+      "polychrome": false
+    },
+    {
+      "name": "unknownFile",
+      "polychrome": false
+    },
+    {
+      "name": "up",
+      "polychrome": false
+    },
+    {
+      "name": "upload",
+      "polychrome": false
+    },
+    {
+      "name": "user",
+      "polychrome": false
+    },
+    {
+      "name": "validate",
+      "polychrome": false
+    },
+    {
+      "name": "validatedFile",
+      "polychrome": false
+    },
+    {
+      "name": "versioning",
+      "polychrome": false
+    },
+    {
+      "name": "videocam",
+      "polychrome": false
+    },
+    {
+      "name": "viewer2DPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "viewer3DPolychrome",
+      "polychrome": true
+    },
+    {
+      "name": "visa",
+      "polychrome": false
+    },
+    {
+      "name": "warning",
+      "polychrome": false
+    },
+    {
+      "name": "windowBottom",
+      "polychrome": false
+    },
+    {
+      "name": "windowed",
+      "polychrome": false
+    },
+    {
+      "name": "windowLeft",
+      "polychrome": false
+    },
+    {
+      "name": "windowRight",
+      "polychrome": false
+    },
+    {
+      "name": "windowTop",
+      "polychrome": false
+    },
+    {
+      "name": "zone",
+      "polychrome": false
+    },
+    {
+      "name": "zone2",
+      "polychrome": false
+    }
+  ]
 }

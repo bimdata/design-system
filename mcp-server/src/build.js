@@ -11,6 +11,7 @@ const componentsDataDir = path.join(dataDir, "components");
 const conventionFilePath = path.join(dataDir, "css-convention.md");
 
 const componentsRoot = path.join(repoRoot, "src/web/views/Components");
+const iconsRoot = path.join(repoRoot, "src/BIMDataComponents/BIMDataIcon/BIMDataLibraryIcons");
 const storeFilePath = path.join(repoRoot, "src/web/store.js");
 
 // ---------------------------------------------------------------------------
@@ -371,6 +372,37 @@ function buildComponentsIndex() {
   });
 }
 
+function fileNameToIconName(stem) {
+  return stem.charAt(0).toLowerCase() + stem.slice(1);
+}
+
+function buildIconsIndex() {
+  if (!fs.existsSync(iconsRoot)) {
+    return [];
+  }
+
+  const icons = [];
+
+  // Standard icons
+  for (const entry of fs.readdirSync(iconsRoot, { withFileTypes: true })) {
+    if (!entry.isFile() || !entry.name.endsWith(".vue")) continue;
+    const stem = path.basename(entry.name, ".vue");
+    icons.push({ name: fileNameToIconName(stem), polychrome: false });
+  }
+
+  // Polychrome icons
+  const polychromeDir = path.join(iconsRoot, "polychrome");
+  if (fs.existsSync(polychromeDir)) {
+    for (const entry of fs.readdirSync(polychromeDir, { withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.endsWith(".vue")) continue;
+      const stem = path.basename(entry.name, ".vue");
+      icons.push({ name: fileNameToIconName(stem), polychrome: true });
+    }
+  }
+
+  return icons.sort((a, b) => a.name.localeCompare(b.name));
+}
+
 function buildCssConvention() {
   return {
     source: toPosixRelative(conventionFilePath),
@@ -427,11 +459,13 @@ async function main() {
 
   const components = buildComponentsIndex();
   const cssConvention = buildCssConvention();
+  const icons = buildIconsIndex();
 
   const index = {
     generatedAt: new Date().toISOString(),
     components: components.map(({ _dir, ...rest }) => rest),
     cssConvention,
+    icons,
   };
 
   fs.writeFileSync(
@@ -448,7 +482,7 @@ async function main() {
   }
 
   process.stdout.write(
-    `[mcp-build] done — ${components.length} components, CSS convention loaded\n`,
+    `[mcp-build] done — ${components.length} components, ${icons.length} icons, CSS convention loaded\n`,
   );
 }
 
