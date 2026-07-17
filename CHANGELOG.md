@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/bimdata/design-system/compare/v2.4.2...v2.4.3) (2026-07-17)
+
+
+### PATCH
+
+* feat(icon): add attachFile icon ([f3eb5cb](https://github.com/bimdata/design-system/commit/f3eb5cb81b46d5389a3b22134deab07fdc7600de))
+
 ## [2.4.2](https://github.com/bimdata/design-system/compare/v2.4.1...v2.4.2) (2026-06-09)
 
 
