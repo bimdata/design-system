@@ -16,6 +16,7 @@ import app from "./App.vue";
 import archive from "./Archive.vue";
 import arrow from "./Arrow.vue";
 import attach from "./Attach.vue";
+import attachFile from "./AttachFile.vue";
 import back from "./Back.vue";
 import bcf from "./Bcf.vue";
 import building from "./Building.vue";
@@ -224,6 +225,7 @@ export default {
   archive,
   arrow,
   attach,
+  attachFile,
   back,
   bcf,
   building,
