@@ -42,18 +42,14 @@
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
     BIMDataButton,
     BIMDataIconChevron,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     width: {
       type: [String, Number],
@@ -92,9 +88,6 @@ export default {
     },
     tabWidth() {
       return Number.isNaN(+this.tabSize) ? this.tabSize : `${this.tabSize}px`;
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   watch: {

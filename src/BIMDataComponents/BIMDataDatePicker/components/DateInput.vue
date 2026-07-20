@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'not-empty': formattedValue, 'dark': isDark }">
+  <div :class="{ 'not-empty': formattedValue, dark: isDark }">
     <slot name="beforeDateInput" />
     <!-- Calendar Button -->
     <button
@@ -76,17 +76,12 @@ import BIMDataButton from "../../BIMDataButton/BIMDataButton.vue";
 
 import makeDateUtils from "../utils/DateUtils.js";
 import inputProps from "../mixins/inputProps.vue";
+import darkThemeMixin from "../../mixins/darkTheme.js";
 
 export default {
   name: "DateInput",
   components: { BIMDataIconDelete, BIMDataButton },
-  mixins: [inputProps],
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [inputProps, darkThemeMixin],
   props: {
     isOpen: {
       type: Boolean,
@@ -127,9 +122,6 @@ export default {
       }
 
       return this.formatDate(this.selectedDate);
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   watch: {

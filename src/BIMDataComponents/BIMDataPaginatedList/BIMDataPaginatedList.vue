@@ -41,18 +41,14 @@
 <script>
 import BIMDataPagination from "../BIMDataPagination/BIMDataPagination.vue";
 import BIMDataSpinner from "../BIMDataSpinner/BIMDataSpinner.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
     BIMDataPagination,
     BIMDataSpinner,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     list: {
       type: Array,
@@ -128,9 +124,6 @@ export default {
       return (
         !!this.backgroundColor && this.backgroundColor !== "var(--color-white)"
       );
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   watch: {

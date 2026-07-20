@@ -86,6 +86,7 @@ import clickaway from "../../BIMDataDirectives/click-away.js";
 // Components
 import BIMDataCheckbox from "../BIMDataCheckbox/BIMDataCheckbox.vue";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
@@ -95,15 +96,10 @@ export default {
   directives: {
     clickaway,
   },
+  mixins: [darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     color: {
@@ -229,9 +225,6 @@ export default {
           );
         }
       }
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

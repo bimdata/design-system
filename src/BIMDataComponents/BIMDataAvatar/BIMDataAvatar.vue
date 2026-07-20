@@ -25,12 +25,6 @@ import { computed } from "vue";
 import BIMDataIconUser from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconUser.vue";
 
 export default {
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
   props: {
     user: {
       type: Object,
@@ -39,7 +33,7 @@ export default {
     size: {
       type: [Number, String],
       default: 32,
-      validate: (value) => value >= 32,
+      validate: value => value >= 32,
     },
     initialsSize: {
       type: [Number, String],
@@ -47,7 +41,8 @@ export default {
     color: {
       type: String,
       default: "primary",
-      validate: (value) => ["primary", "secondary", "silver-light"].includes(value),
+      validate: value =>
+        ["primary", "secondary", "silver-light"].includes(value),
     },
   },
   setup(props) {
@@ -55,7 +50,7 @@ export default {
       (
         `${props.user.firstname?.[0] ?? ""}` +
         `${props.user.lastname?.[0] ?? ""}`
-      ).toUpperCase()
+      ).toUpperCase(),
     );
 
     return {

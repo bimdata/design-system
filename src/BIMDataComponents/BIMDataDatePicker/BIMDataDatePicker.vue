@@ -187,6 +187,7 @@ import DisabledDate from "./utils/DisabledDate.js";
 import inputProps from "./mixins/inputProps.vue";
 import makeDateUtils from "./utils/DateUtils.js";
 import navMixin from "./mixins/navMixin.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 import PickerDay from "./components/PickerDay.vue";
 import PickerMonth from "./components/PickerMonth.vue";
 import PickerYear from "./components/PickerYear.vue";
@@ -210,16 +211,10 @@ export default {
     PickerMonth,
     PickerYear,
   },
-  mixins: [inputProps, navMixin],
+  mixins: [inputProps, navMixin, darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     autoCloseRange: {
@@ -443,9 +438,6 @@ export default {
     },
     translation() {
       return this.language;
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   watch: {

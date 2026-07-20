@@ -1,5 +1,5 @@
 <template>
-  <div class="bimdata-slider" :class="{dark: isDark}">
+  <div class="bimdata-slider" :class="{ dark: isDark }">
     <input
       ref="input"
       class="bimdata-slider-input"
@@ -22,13 +22,10 @@
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 export default {
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     min: {
       type: [Number, String],
@@ -99,11 +96,6 @@ export default {
       const max = this.max ? this.max : 100;
       const newVal = Number(((this.modelValue - min) * 100) / (max - min));
       this.tooltipPosition = `calc(${newVal}% + (${8 - newVal * 0.18}px))`;
-    },
-  },
-  computed: {
-    isDark() {
-      return this.darkThemeRef;
     },
   },
 };

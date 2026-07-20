@@ -17,16 +17,13 @@
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 export default {
+  mixins: [darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     disabled: {
@@ -52,9 +49,6 @@ export default {
       set(newValue) {
         this.$emit("update:modelValue", newValue);
       },
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   created() {

@@ -14,15 +14,12 @@
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 export default {
   name: "BIMDataCheckbox",
   inheritAttrs: false,
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     text: {
       type: String,
@@ -75,9 +72,6 @@ export default {
         width: `clamp(14px, calc(${size} * 1.1), 20px)`,
         height: `clamp(14px, calc(${size} * 1.1), 20px)`,
       };
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

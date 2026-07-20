@@ -33,18 +33,14 @@
 <script>
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
 import BIMDataNavigation from "../BIMDataNavigation/BIMDataNavigation.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
     BIMDataNavigation,
     BIMDataButton,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     length: {
       type: Number,
@@ -92,9 +88,6 @@ export default {
       return (
         !!this.backgroundColor && this.backgroundColor !== "var(--color-white)"
       );
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

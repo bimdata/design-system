@@ -16,8 +16,9 @@
 </template>
 
 <script setup>
-import { inject, computed } from "vue";
-defineProps({
+import { useDarkTheme, darkProp } from "../mixins/useDarkTheme.js";
+
+const props = defineProps({
   text: {
     type: String,
     default: "",
@@ -40,11 +41,10 @@ defineProps({
       ].includes(v),
     default: "neutral",
   },
+  dark: darkProp,
 });
-const darkThemeRef = inject("BIMDATA_DESIGN_SYSTEM_DARK_THEME", {
-  value: false,
-});
-const isDark = computed(() => darkThemeRef?.value);
+
+const isDark = useDarkTheme(props);
 </script>
 
 <style scoped>

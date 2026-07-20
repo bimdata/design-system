@@ -6,7 +6,7 @@
       disabled,
       'bimdata-radio--checked': checked,
       'bimdata-radio--big': big,
-      dark: isDark
+      dark: isDark,
     }"
     :disabled="disabled"
     @click="onClick"
@@ -23,16 +23,13 @@
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 export default {
+  mixins: [darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     big: {
@@ -56,9 +53,6 @@ export default {
   computed: {
     checked() {
       return this.modelValue === this.value;
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

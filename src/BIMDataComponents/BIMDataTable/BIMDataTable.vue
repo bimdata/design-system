@@ -164,9 +164,10 @@
 </template>
 
 <script>
-import { computed, inject, ref, watch, shallowReactive } from "vue";
+import { computed, ref, watch, shallowReactive } from "vue";
 import { useRowSelection } from "./table-row-selection.js";
 import clickaway from "../../BIMDataDirectives/click-away.js";
+import { useDarkTheme, darkProp } from "../mixins/useDarkTheme.js";
 
 // Components
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
@@ -234,6 +235,7 @@ export default {
       type: Function,
       default: () => false,
     },
+    dark: darkProp,
   },
   emits: [
     "update:selection",
@@ -245,10 +247,7 @@ export default {
     "row-drop",
   ],
   setup(props, { emit }) {
-    const darkThemeRef = inject("BIMDATA_DESIGN_SYSTEM_DARK_THEME");
-    const isDark = computed(() => {
-      return darkThemeRef.value;
-    });
+    const isDark = useDarkTheme(props);
     // Compute rows keys based on props values.
     const computedRows = computed(() =>
       props.rows.map((row, i) => ({ key: row[props.rowKey] ?? i, data: row })),

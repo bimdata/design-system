@@ -24,8 +24,7 @@
       @mouseleave="hoveredItemKey = null"
       :style="{
         color: item.color,
-        'background-color':
-            hoveredItemKey === item.key ? item.background : '',
+        'background-color': hoveredItemKey === item.key ? item.background : '',
       }"
     >
       <div v-if="item.groupTitle" class="bimdata-menu__item__title">
@@ -82,6 +81,7 @@
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataIconChevron from "../../BIMDataComponents/BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   directives: { clickaway },
@@ -89,12 +89,7 @@ export default {
     BIMDataIconChevron,
     BIMDataTextbox,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     menuItems: {
       type: Array,
@@ -148,11 +143,6 @@ export default {
     },
     onMouseOver(item) {
       this.hoveredItemKey = item.key;
-    },
-  },
-  computed: {
-    isDark() {
-      return this.darkThemeRef;
     },
   },
 };

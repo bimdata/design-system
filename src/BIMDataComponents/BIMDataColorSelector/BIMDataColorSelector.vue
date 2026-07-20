@@ -23,6 +23,7 @@
 <script>
 import { colors } from "./colors.js";
 import BIMDataCard from "../BIMDataCard/BIMDataCard.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 const colorLines = Object.entries(colors).reduce((acc, cur, i) => {
   if (i % 5 === 0) {
@@ -37,12 +38,7 @@ export default {
   components: {
     BIMDataCard,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     modelValue: {
       type: String,
@@ -56,11 +52,6 @@ export default {
       colorLines,
     };
   },
-  computed: {
-    isDark() {
-      return this.darkThemeRef;
-    },
-  }
 };
 </script>
 

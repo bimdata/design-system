@@ -83,6 +83,7 @@
 <script>
 import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
@@ -91,15 +92,10 @@ export default {
   directives: {
     clickaway,
   },
+  mixins: [darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     width: [String, Number],
@@ -203,10 +199,6 @@ export default {
         const label = this.optionLabel(option).toLowerCase();
         return label.includes(lowerCaseSearchText);
       });
-    },
-
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {
