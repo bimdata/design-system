@@ -47,6 +47,7 @@ import {
   BIMDataIconClose,
   BIMDataIconEllipsis,
 } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   directives: { clickaway },
@@ -55,12 +56,7 @@ export default {
     BIMDataIconClose,
     BIMDataIconEllipsis,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     isSubmenuRight: {
       type: Boolean,
@@ -102,9 +98,6 @@ export default {
         return `left: ${this.width}`;
       }
       return `right: ${this.width}`;
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

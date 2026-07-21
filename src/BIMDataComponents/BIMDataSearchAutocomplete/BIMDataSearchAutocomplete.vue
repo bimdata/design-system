@@ -2,7 +2,10 @@
   <div
     class="bimdata-search-autocomplete"
     v-clickaway="away"
-    :class="[{ open: openResults, dark: isDark }, `bimdata-search-autocomplete--${color}`]"
+    :class="[
+      { open: openResults, dark: isDark },
+      `bimdata-search-autocomplete--${color}`,
+    ]"
   >
     <div class="bimdata-search-autocomplete__input flex items-center">
       <span class="bimdata-search-icon flex">
@@ -86,6 +89,7 @@ import {
   BIMDataIconSearch,
 } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 import BIMDataTextbox from "../../BIMDataComponents/BIMDataTextbox/BIMDataTextbox.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
@@ -94,12 +98,7 @@ export default {
     BIMDataTextbox,
   },
   directives: { clickaway },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     items: {
       type: Array,
@@ -167,9 +166,6 @@ export default {
       return (
         this.search !== "" && this.results.length !== 0 && this.isOpen === true
       );
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

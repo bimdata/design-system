@@ -74,6 +74,7 @@ import clickaway from "../../BIMDataDirectives/click-away.js";
 import BIMDataIconChevron from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconChevron.vue";
 import BIMDataPaginatedList from "../BIMDataPaginatedList/BIMDataPaginatedList.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
@@ -82,12 +83,7 @@ export default {
     BIMDataButton,
   },
   directives: { clickaway },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     list: {
       type: Array,
@@ -185,9 +181,6 @@ export default {
           element.toLowerCase().includes(lowerCaseSearchText),
         );
       }
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
   methods: {

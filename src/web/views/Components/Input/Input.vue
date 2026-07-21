@@ -34,6 +34,7 @@
             :borderRadius="borderRadiusInput"
             :isLabel="isLabel"
             :height="heightInput"
+            :dark="dark"
           >
             <template #leftInputIcon v-if="leftInputIcon">
               <BIMDataIconShow class="fill-granite-light" margin="6px" />

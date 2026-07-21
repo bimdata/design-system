@@ -1,17 +1,19 @@
 <template>
-  <component :is="component" :style="style" :class="classes" class="bimdata-text">
+  <component
+    :is="component"
+    :style="style"
+    :class="classes"
+    class="bimdata-text"
+  >
     <slot></slot>
   </component>
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 export default {
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     component: {
       type: String,
@@ -138,9 +140,6 @@ export default {
           return "18px";
         }
       }
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
   },
 };

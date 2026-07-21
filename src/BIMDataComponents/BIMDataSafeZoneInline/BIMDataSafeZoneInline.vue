@@ -17,7 +17,10 @@
       :color="isDark ? 'quaternary' : 'granite'"
       @click="$emit('cancel-delete')"
     >
-      <BIMDataIconClose size="xxs" :color="isDark ? 'quaternary-lighter' : 'granite'" />
+      <BIMDataIconClose
+        size="xxs"
+        :color="isDark ? 'quaternary-lighter' : 'granite'"
+      />
     </BIMDataButton>
   </div>
 </template>
@@ -25,18 +28,14 @@
 <script>
 import BIMDataIconClose from "../BIMDataIcon/BIMDataIconStandalone/BIMDataIconClose.vue";
 import BIMDataButton from "../BIMDataButton/BIMDataButton.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
     BIMDataIconClose,
     BIMDataButton,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     reverse: {
       type: Boolean,
@@ -44,11 +43,6 @@ export default {
     },
   },
   emits: ["confirm-delete", "cancel-delete"],
-  computed: {
-    isDark() {
-      return this.darkThemeRef;
-    },
-  }
 };
 </script>
 

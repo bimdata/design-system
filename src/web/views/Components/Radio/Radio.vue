@@ -20,6 +20,7 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
+            :dark="isDark"
           />
           <BIMDataRadio
             text="Mode 1"
@@ -27,6 +28,7 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
+            :dark="isDark"
           />
           <BIMDataRadio
             text="Mode 2"
@@ -34,6 +36,7 @@
             v-model="selectedValue"
             :disabled="isDisabled"
             :big="isBig"
+            :dark="isDark"
           />
           <div style="width: 100%; padding: 36px; text-align: center">
             {{ `Selected Value: ${selectedValue}` }}
@@ -43,11 +46,7 @@
         <template #parameters>
           <BIMDataCheckbox text="disabled" v-model="isDisabled" />
           <BIMDataCheckbox text="big" v-model="isBig" />
-          <BIMDataCheckbox
-            text="dark"
-            :model-value="isDark"
-            @update:modelValue="handleDarkCheckbox"
-          />
+          <BIMDataCheckbox text="dark" v-model="isDark" />
           <BIMDataInput v-model="text" placeholder="Text for mode 0" />
           <BIMDataButton
             color="primary"
@@ -73,6 +72,7 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
+              :dark="{{ isDark }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 1"
@@ -80,6 +80,7 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
+              :dark="{{ isDark }}"
             /&gt;
             &lt;BIMDataRadio
               text="Mode 2"
@@ -87,6 +88,7 @@
               v-model="selectedValue"
               :disabled="{{ isDisabled }}"
               :big="{{ isBig }}"
+              :dark="{{ isDark }}"
             /&gt;
           </pre>
         </template>
@@ -133,8 +135,7 @@ export default {
       selectedValue: null,
       isDisabled: false,
       isBig: false,
-      isDarkManual: false,
-      isDarkManuallySet: false,
+      isDark: false,
       propsData,
       eventsData,
       slotsData,
@@ -147,20 +148,10 @@ export default {
         ? "theme-dark"
         : "theme-light";
     },
-    isDark() {
-      if (this.isDarkManuallySet) {
-        return this.isDarkManual;
-      }
-      return this.currentTheme === "theme-dark";
-    },
   },
   methods: {
     resetRadio() {
       this.selectedValue = null;
-    },
-    handleDarkCheckbox(val) {
-      this.isDarkManual = val;
-      this.isDarkManuallySet = true;
     },
   },
 };

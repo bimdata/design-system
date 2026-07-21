@@ -29,16 +29,13 @@
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 export default {
+  mixins: [darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     name: {
@@ -97,7 +94,7 @@ export default {
       successAndError => {
         if (successAndError)
           throw new Error("Textarea state cannot be both success and error.");
-      }
+      },
     );
   },
   mounted() {
@@ -122,11 +119,6 @@ export default {
       if (this.fitContent) {
         this.handleFitContent();
       }
-    },
-  },
-  computed: {
-    isDark() {
-      return this.darkThemeRef;
     },
   },
 };

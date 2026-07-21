@@ -74,6 +74,7 @@ import {
   BIMDataIconDoubleChevron,
 } from "../BIMDataIcon/BIMDataIconStandalone/index.js";
 import BIMDataButton from "../../BIMDataComponents/BIMDataButton/BIMDataButton.vue";
+import darkThemeMixin from "../mixins/darkTheme.js";
 
 export default {
   components: {
@@ -81,12 +82,7 @@ export default {
     BIMDataIconDoubleChevron,
     BIMDataButton,
   },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
-  },
+  mixins: [darkThemeMixin],
   props: {
     first: {
       type: Boolean,
@@ -126,11 +122,6 @@ export default {
     },
   },
   emits: ["first", "previous", "next", "last"],
-  computed: {
-    isDark() {
-      return this.darkThemeRef;
-    },
-  },
 };
 </script>
 

@@ -62,18 +62,15 @@
 </template>
 
 <script>
+import darkThemeMixin from "../mixins/darkTheme.js";
+
 let uuid = 0;
 
 export default {
+  mixins: [darkThemeMixin],
   model: {
     prop: "modelValue",
     event: "update:modelValue",
-  },
-  inject: {
-    darkThemeRef: {
-      from: "BIMDATA_DESIGN_SYSTEM_DARK_THEME",
-      default: () => ({ value: false }),
-    },
   },
   props: {
     autocomplete: {
@@ -163,9 +160,6 @@ export default {
     computedLabel() {
       // Si `label` est vide, utilise la valeur de `placeholder`
       return this.label || this.placeholder;
-    },
-    isDark() {
-      return this.darkThemeRef;
     },
     computedBackgroundColor() {
       return this.isDark ? this.backgroundColorDark : this.backgroundColor;
