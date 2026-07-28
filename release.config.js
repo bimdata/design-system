@@ -52,4 +52,4 @@ if (branch === "master") {
   config.plugins.splice(4, 0, "@semantic-release/changelog");
 }
 
-module.exports = config;
+export default config;
