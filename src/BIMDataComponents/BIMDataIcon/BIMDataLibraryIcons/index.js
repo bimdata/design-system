@@ -163,6 +163,7 @@ import swap from "./Swap.vue";
 import synchro2d from "./Synchro2D.vue";
 import system from "./System.vue";
 import tag from "./Tag.vue";
+import tagStroke from "./TagStroke.vue";
 import translate from "./Translate.vue";
 import tree from "./Tree.vue";
 import Type from "./Type.vue";
@@ -372,6 +373,7 @@ export default {
   synchro2d,
   system,
   tag,
+  tagStroke,
   translate,
   tree,
   type: Type,

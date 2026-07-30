@@ -164,6 +164,7 @@ export { default as BIMDataIconSwap } from "./BIMDataIconSwap.vue";
 export { default as BIMDataIconSynchro2D } from "./BIMDataIconSynchro2D.vue";
 export { default as BIMDataIconSystem } from "./BIMDataIconSystem.vue";
 export { default as BIMDataIconTag } from "./BIMDataIconTag.vue";
+export { default as BIMDataIconTagStroke } from "./BIMDataIconTagStroke.vue";
 export { default as BIMDataIconTranslate } from "./BIMDataIconTranslate.vue";
 export { default as BIMDataIconTree } from "./BIMDataIconTree.vue";
 export { default as BIMDataIconType } from "./BIMDataIconType.vue";
