@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/bimdata/design-system/compare/v2.4.3...v2.4.4) (2026-07-30)
+
+
+### PATCH
+
+* feat(icon): add tagStroke icon ([90c1869](https://github.com/bimdata/design-system/commit/90c18695fd506b82c91004d90b653cb425d49461))
+
 ## [2.4.3](https://github.com/bimdata/design-system/compare/v2.4.2...v2.4.3) (2026-07-17)
 
 
