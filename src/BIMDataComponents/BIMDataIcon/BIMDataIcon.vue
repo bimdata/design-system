@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="`BIMDataIcon${capitalized(name)}`"
+    :is="iconComponent"
     :fill="fill"
     :fillColor="fillColor"
     :color="color"
@@ -12,6 +12,42 @@
 <script>
 import iconsColors from "../../assets/iconsColors.js";
 import darkThemeMixin from "../mixins/darkTheme.js";
+import * as standaloneIcons from "./BIMDataIconStandalone/index.js";
+
+const DEFAULT_ICON_NAME = "question";
+
+// Case-insensitive index, e.g. "model3d" -> BIMDataIconModel3D
+const iconsByLowerName = Object.fromEntries(
+  Object.entries(standaloneIcons).map(([componentName, component]) => [
+    componentName.toLowerCase(),
+    component,
+  ])
+);
+
+/**
+ * Resolve an icon by name:
+ *  1. among the design-system icons (case-insensitive, e.g. "model3d"),
+ *  2. among the icons registered globally by the app, e.g.
+ *     app.component("BIMDataIconCustom", ...) -> name="custom".
+ */
+function resolveIcon(name, appComponents) {
+  if (typeof name !== "string") return undefined;
+  const trimmed = name.trim();
+  if (!trimmed) return undefined;
+
+  const icon = iconsByLowerName[`bimdataicon${trimmed.toLowerCase()}`];
+  if (icon) return icon;
+
+  const componentName = `BIMDataIcon${trimmed[0].toUpperCase()}${trimmed.slice(1)}`;
+  // `hasOwn` (rather than a plain read) so the plugin's icon fallback Proxy
+  // does not answer for unknown names: the warning is emitted below instead.
+  if (appComponents && Object.prototype.hasOwnProperty.call(appComponents, componentName)) {
+    return appComponents[componentName];
+  }
+  return undefined;
+}
+
+const defaultIcon = resolveIcon(DEFAULT_ICON_NAME);
 
 const sizeToPixel = {
   xxxs: 10,
@@ -31,7 +67,7 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
+      default: DEFAULT_ICON_NAME,
     },
     color: {
       type: String,
@@ -71,6 +107,15 @@ export default {
     },
   },
   computed: {
+    iconComponent() {
+      const icon = resolveIcon(this.name, this.$.appContext.components);
+      if (icon) return icon;
+
+      console.warn(
+        `[BIMDataIcon] Unknown icon name "${this.name}", falling back to "${DEFAULT_ICON_NAME}".`
+      );
+      return defaultIcon;
+    },
     classes() {
       return {
         "icon-fill": this.fill,
@@ -96,12 +141,6 @@ export default {
   methods: {
     getPixelSize() {
       return this.customSize ? this.customSize : sizeToPixel[this.size];
-    },
-    capitalized(name) {
-      const capitalizedFirst = name[0].toUpperCase();
-      const rest = name.slice(1);
-
-      return capitalizedFirst + rest;
     },
   },
 };

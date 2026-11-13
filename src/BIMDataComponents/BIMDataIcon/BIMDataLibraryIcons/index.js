@@ -121,6 +121,7 @@ import plus from "./Plus.vue";
 import preview from "./Preview.vue";
 import priority from "./Priority.vue";
 import project from "./Project.vue";
+import question from "./Question.vue";
 import quickSelect from "./QuickSelect.vue";
 import quit from "./Quit.vue";
 import readonlyFolder from "./ReadonlyFolder.vue";
@@ -335,6 +336,7 @@ export default {
   preview,
   priority,
   project,
+  question,
   quickSelect,
   quit,
   readonlyFolder,
