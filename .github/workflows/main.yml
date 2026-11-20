@@ -8,6 +8,11 @@ on:
 permissions:
   contents: read # for checkout
 
+# A new push cancels the previous run, except on release branches: it could stop a publish midway
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !contains(fromJSON('["refs/heads/develop", "refs/heads/release", "refs/heads/master", "refs/heads/main"]'), github.ref) }}
+
 env:
   app: design
 
@@ -27,6 +32,7 @@ jobs:
         with:
           node-version: "24"
           check-latest: true
+          cache: npm
       - name: Setup npm
         run: npm install npm@11.12 -g
       - run: npm ci
@@ -36,10 +42,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push:
-    runs-on: [ self-hosted, common ]
+    runs-on: self-hosted-common
     needs: publish
-    if: contains(' refs/heads/develop refs/heads/master refs/heads/main' ,
-      github.ref)
+    if: contains(fromJSON('["refs/heads/develop", "refs/heads/master", "refs/heads/main"]'), github.ref)
     steps:
       - uses: actions/checkout@v7
       - name: Login to BIMData Docker Registry
@@ -63,9 +68,14 @@ jobs:
           tags: |
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ github.sha }}
             docker-registry.bimdata.io/bimdata/${{ env.app }}:${{ env.tag }}
+          # Runners are ephemeral: layer cache per environment in our registry, falling back on staging
+          cache-from: |
+            type=registry,ref=docker-registry.bimdata.io/bimdata/${{ env.app }}:buildcache-${{ env.tag }}
+            type=registry,ref=docker-registry.bimdata.io/bimdata/${{ env.app }}:buildcache-staging
+          cache-to: type=registry,ref=docker-registry.bimdata.io/bimdata/${{ env.app }}:buildcache-${{ env.tag }},mode=max,image-manifest=true
 
   deploy:
-    runs-on: [ self-hosted, common ]
+    runs-on: self-hosted-deploy
     needs: build-and-push
     steps:
       - name: Login to BIMData Docker Registry
