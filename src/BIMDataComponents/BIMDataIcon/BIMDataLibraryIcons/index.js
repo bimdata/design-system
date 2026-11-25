@@ -21,20 +21,26 @@ import attachFile from "./AttachFile.vue";
 import author from "./Author.vue";
 import back from "./Back.vue";
 import bcf from "./Bcf.vue";
+import bell from "./Bell.vue";
+import box from "./Box.vue";
 import building from "./Building.vue";
 import burgerMenu from "./BurgerMenu.vue";
 import calendar from "./Calendar.vue";
 import caliper from "./Caliper.vue";
 import camera from "./Camera.vue";
+import cameraStroke from "./CameraStroke.vue";
 import cancelCamera from "./CancelCamera.vue";
 import caret from "./Caret.vue";
 import check from "./Check.vue";
+import checkCircle from "./CheckCircle.vue";
 import chevron from "./Chevron.vue";
 import classificationCategory from "./ClassificationCategory.vue";
 import classificationElement from "./ClassificationElement.vue";
 import click from "./Click.vue";
 import close from "./Close.vue";
 import cloud from "./Cloud.vue";
+import cloudDownload from "./CloudDownload.vue";
+import cloudOff from "./CloudOff.vue";
 import color from "./Color.vue";
 import createComment from "./CreateComment.vue";
 import createSpace from "./CreateSpace.vue";
@@ -73,6 +79,7 @@ import folder from "./Folder.vue";
 import folderLocation from "./FolderLocation.vue";
 import folderMove from "./FolderMove.vue";
 import folderOpen from "./FolderOpen.vue";
+import folderStroke from "./FolderStroke.vue";
 import fullscreen from "./Fullscreen.vue";
 import gavel from "./Gavel.vue";
 import grid from "./Grid.vue";
@@ -81,8 +88,11 @@ import hide from "./Hide.vue";
 import hideGraph from "./HideGraph.vue";
 import hideGraphRound from "./HideGraphRound.vue";
 import home from "./Home.vue";
+import homeStroke from "./HomeStroke.vue";
 import ifc from "./Ifc.vue";
 import ifcFile from "./IfcFile.vue";
+import images from "./Images.vue";
+import imageCross from "./ImageCross.vue";
 import Import from "./Import.vue";
 import index from "./Index.vue";
 import indexAscending from "./IndexAscending.vue";
@@ -103,6 +113,7 @@ import lock from "./Lock.vue";
 import logout from "./Logout.vue";
 import marketplace from "./Marketplace.vue";
 import measure from "./Measure.vue";
+import message from "./Message.vue";
 import mic from "./Mic.vue";
 import minus from "./Minus.vue";
 import model3d from "./Model3D.vue";
@@ -121,6 +132,7 @@ import plus from "./Plus.vue";
 import preview from "./Preview.vue";
 import priority from "./Priority.vue";
 import project from "./Project.vue";
+import question from "./Question.vue";
 import quickSelect from "./QuickSelect.vue";
 import quit from "./Quit.vue";
 import readonlyFolder from "./ReadonlyFolder.vue";
@@ -156,6 +168,8 @@ import space from "./Space.vue";
 import space2 from "./Space2.vue";
 import spacing from "./Spacing.vue";
 import split from "./Split.vue";
+import star from "./Star.vue";
+import starFill from "./StarFill.vue";
 import statut from "./Statut.vue";
 import storey from "./Storey.vue";
 import structure from "./Structure.vue";
@@ -163,6 +177,7 @@ import success from "./Success.vue";
 import surface from "./Surface.vue";
 import swap from "./Swap.vue";
 import synchro2d from "./Synchro2D.vue";
+import syncPending from "./SyncPending.vue";
 import system from "./System.vue";
 import tag from "./Tag.vue";
 import tagStroke from "./TagStroke.vue";
@@ -178,6 +193,8 @@ import unknownFile from "./UnknownFile.vue";
 import up from "./Up.vue";
 import upload from "./Upload.vue";
 import user from "./User.vue";
+import userStroke from "./UserStroke.vue";
+
 import validate from "./Validate.vue";
 import validatedFile from "./ValidatedFile.vue";
 import versioning from "./Versioning.vue";
@@ -235,20 +252,26 @@ export default {
   author,
   back,
   bcf,
+  bell,
+  box,
   building,
   burgerMenu,
   calendar,
   caliper,
   camera,
+  cameraStroke,
   cancelCamera,
   caret,
   check,
+  checkCircle,
   chevron,
   classificationCategory,
   classificationElement,
   click,
   close,
   cloud,
+  cloudDownload,
+  cloudOff,
   color,
   comment,
   createComment,
@@ -287,6 +310,7 @@ export default {
   folderLocation,
   folderMove,
   folderOpen,
+  folderStroke,
   fullscreen,
   gavel,
   grid,
@@ -295,8 +319,11 @@ export default {
   hideGraph,
   hideGraphRound,
   home,
+  homeStroke,
   ifc,
   ifcFile,
+  images,
+  imageCross,
   import: Import,
   index,
   indexAscending,
@@ -317,6 +344,7 @@ export default {
   logout,
   marketplace,
   measure,
+  message,
   mic,
   minus,
   model3d,
@@ -335,6 +363,7 @@ export default {
   preview,
   priority,
   project,
+  question,
   quickSelect,
   quit,
   readonlyFolder,
@@ -370,6 +399,8 @@ export default {
   space2,
   spacing,
   split,
+  star,
+  starFill,
   statut,
   storey,
   structure,
@@ -377,6 +408,7 @@ export default {
   surface,
   swap,
   synchro2d,
+  syncPending,
   system,
   tag,
   tagStroke,
@@ -392,6 +424,7 @@ export default {
   up,
   upload,
   user,
+  userStroke,
   validate,
   validatedFile,
   versioning,

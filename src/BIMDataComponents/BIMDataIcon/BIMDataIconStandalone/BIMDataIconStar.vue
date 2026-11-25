@@ -6,14 +6,14 @@
     :class="classes"
     :style="style"
   >
-    <Statut />
+    <Star />
   </Icon>
 </template>
 
 <script>
-import Statut from "../BIMDataLibraryIcons/Statut.vue";
+import Star from "../BIMDataLibraryIcons/Star.vue";
 import makeIcon from "./iconFactory.js";
-export default makeIcon("Statut", Statut);
+export default makeIcon("Star", Star);
 </script>
 
 <style scoped src="../BIMDataIcon.css"></style>
