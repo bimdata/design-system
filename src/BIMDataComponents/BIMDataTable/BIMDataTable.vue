@@ -87,36 +87,39 @@
           </tr>
         </thead>
         <tbody @dragleave="onDragleave">
-          <tr
+          <template
             v-for="{ key, data } of displayedRows"
             :key="`body-row-${key}`"
-            v-show="paginatedRows.includes(key)"
-            :style="{ height: `${rowHeight}px` }"
-            @drop="onDrop(data, $event)"
-            @dragover="onDragover(key, data, $event)"
-            :class="{
-              'bimdata-table__row--drag-overed': dragOveredRowKey === key,
-            }"
           >
-            <td class="cell-checkbox" v-if="selectable">
-              <BIMDataCheckbox
-                :modelValue="rowSelection.has(key)"
-                @update:modelValue="toggleRow({ key, data })"
-              />
-            </td>
-            <td
-              v-for="(column, j) of columns"
-              :key="`body-row-${key}-col-${j}`"
-              :style="{
-                width: column.width || 'auto',
-                textAlign: column.align || 'left',
+            <tr
+              v-if="paginatedRows.includes(key)"
+              :style="{ height: `${rowHeight}px` }"
+              @drop="onDrop(data, $event)"
+              @dragover="onDragover(key, data, $event)"
+              :class="{
+                'bimdata-table__row--drag-overed': dragOveredRowKey === key,
               }"
             >
-              <slot :name="`cell-${column.id}`" :row="data">
-                {{ data[column.id] || data[j] }}
-              </slot>
-            </td>
-          </tr>
+              <td class="cell-checkbox" v-if="selectable">
+                <BIMDataCheckbox
+                  :modelValue="rowSelection.has(key)"
+                  @update:modelValue="toggleRow({ key, data })"
+                />
+              </td>
+              <td
+                v-for="(column, j) of columns"
+                :key="`body-row-${key}-col-${j}`"
+                :style="{
+                  width: column.width || 'auto',
+                  textAlign: column.align || 'left',
+                }"
+              >
+                <slot :name="`cell-${column.id}`" :row="data">
+                  {{ data[column.id] || data[j] }}
+                </slot>
+              </td>
+            </tr>
+          </template>
         </tbody>
       </table>
       <div
